@@ -99,6 +99,24 @@ const (
     DataOperationType_dx DataOperationType = "dx"
 )
 
+// BuiltinModes
+type BuiltinModes string
+
+const (
+    BuiltinModes_exec BuiltinModes = "exec"
+
+    BuiltinModes_configure BuiltinModes = "configure"
+)
+
+// BuiltinModes_
+type BuiltinModes_ string
+
+const (
+    BuiltinModes__exec BuiltinModes_ = "exec"
+
+    BuiltinModes__configure BuiltinModes_ = "configure"
+)
+
 // CmdOperationType
 type CmdOperationType string
 
@@ -121,24 +139,6 @@ const (
     Action_accept_log Action = "accept_log"
 )
 
-// BuiltinModes
-type BuiltinModes string
-
-const (
-    BuiltinModes_exec BuiltinModes = "exec"
-
-    BuiltinModes_configure BuiltinModes = "configure"
-)
-
-// BuiltinModes_
-type BuiltinModes_ string
-
-const (
-    BuiltinModes__exec BuiltinModes_ = "exec"
-
-    BuiltinModes__configure BuiltinModes_ = "configure"
-)
-
 // Aaa
 type Aaa struct {
     EntityData types.CommonEntityData
@@ -157,6 +157,9 @@ type Aaa struct {
     Ios Aaa_Ios
 
     
+    DisasterRecovery Aaa_DisasterRecovery
+
+    
     PrivilegedAccess Aaa_PrivilegedAccess
 
     
@@ -164,9 +167,6 @@ type Aaa struct {
 
     
     UserGroup Aaa_UserGroup
-
-    
-    DisasterRecovery Aaa_DisasterRecovery
 }
 
 func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
@@ -185,10 +185,10 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.Children.Append("authorization", types.YChild{"Authorization", &aaa.Authorization})
     aaa.EntityData.Children.Append("accounting", types.YChild{"Accounting", &aaa.Accounting})
     aaa.EntityData.Children.Append("ios", types.YChild{"Ios", &aaa.Ios})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", types.YChild{"DisasterRecovery", &aaa.DisasterRecovery})
     aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access", types.YChild{"PrivilegedAccess", &aaa.PrivilegedAccess})
     aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting", types.YChild{"CiscoIOSXRSysadminAaaAaaShowAccounting", &aaa.CiscoIOSXRSysadminAaaAaaShowAccounting})
     aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group", types.YChild{"UserGroup", &aaa.UserGroup})
-    aaa.EntityData.Children.Append("Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery", types.YChild{"DisasterRecovery", &aaa.DisasterRecovery})
     aaa.EntityData.Leafs = types.NewOrderedMap()
 
     aaa.EntityData.YListKeys = []string {}
@@ -988,6 +988,39 @@ func (command *Aaa_Ios_Privilege_Level_Command) GetEntityData() *types.CommonEnt
     return &(command.EntityData)
 }
 
+// Aaa_DisasterRecovery
+type Aaa_DisasterRecovery struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // The type is string. Refers to tailf_aaa.Aaa_Authentication_Users_User_Name
+    Username interface{}
+
+    // The type is string.
+    Password interface{}
+}
+
+func (disasterRecovery *Aaa_DisasterRecovery) GetEntityData() *types.CommonEntityData {
+    disasterRecovery.EntityData.YFilter = disasterRecovery.YFilter
+    disasterRecovery.EntityData.YangName = "disaster-recovery"
+    disasterRecovery.EntityData.BundleName = "cisco_ios_xr"
+    disasterRecovery.EntityData.ParentYangName = "aaa"
+    disasterRecovery.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
+    disasterRecovery.EntityData.AbsolutePath = "tailf-aaa:aaa/" + disasterRecovery.EntityData.SegmentPath
+    disasterRecovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    disasterRecovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    disasterRecovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    disasterRecovery.EntityData.Children = types.NewOrderedMap()
+    disasterRecovery.EntityData.Leafs = types.NewOrderedMap()
+    disasterRecovery.EntityData.Leafs.Append("username", types.YLeaf{"Username", disasterRecovery.Username})
+    disasterRecovery.EntityData.Leafs.Append("password", types.YLeaf{"Password", disasterRecovery.Password})
+
+    disasterRecovery.EntityData.YListKeys = []string {}
+
+    return &(disasterRecovery.EntityData)
+}
+
 // Aaa_PrivilegedAccess
 type Aaa_PrivilegedAccess struct {
     EntityData types.CommonEntityData
@@ -1085,39 +1118,6 @@ func (userGroup *Aaa_UserGroup) GetEntityData() *types.CommonEntityData {
     userGroup.EntityData.YListKeys = []string {}
 
     return &(userGroup.EntityData)
-}
-
-// Aaa_DisasterRecovery
-type Aaa_DisasterRecovery struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The type is string. Refers to tailf_aaa.Aaa_Authentication_Users_User_Name
-    Username interface{}
-
-    // The type is string.
-    Password interface{}
-}
-
-func (disasterRecovery *Aaa_DisasterRecovery) GetEntityData() *types.CommonEntityData {
-    disasterRecovery.EntityData.YFilter = disasterRecovery.YFilter
-    disasterRecovery.EntityData.YangName = "disaster-recovery"
-    disasterRecovery.EntityData.BundleName = "cisco_ios_xr"
-    disasterRecovery.EntityData.ParentYangName = "aaa"
-    disasterRecovery.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
-    disasterRecovery.EntityData.AbsolutePath = "tailf-aaa:aaa/" + disasterRecovery.EntityData.SegmentPath
-    disasterRecovery.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    disasterRecovery.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    disasterRecovery.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    disasterRecovery.EntityData.Children = types.NewOrderedMap()
-    disasterRecovery.EntityData.Leafs = types.NewOrderedMap()
-    disasterRecovery.EntityData.Leafs.Append("username", types.YLeaf{"Username", disasterRecovery.Username})
-    disasterRecovery.EntityData.Leafs.Append("password", types.YLeaf{"Password", disasterRecovery.Password})
-
-    disasterRecovery.EntityData.YListKeys = []string {}
-
-    return &(disasterRecovery.EntityData)
 }
 
 // Alias

@@ -108,7 +108,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf calc-rate {
       type uint64;
       description
-        "Egress Control Cast Rate";
+        "calc rate";
     }
   }
 
@@ -198,7 +198,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf calc-rate {
       type uint64;
       description
-        "Egress Multicast Rate";
+        "calc rate";
     }
   }
 
@@ -358,7 +358,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf calc-rate {
       type uint64;
       description
-        "Egress Unicast Rate";
+        "calc rate";
     }
   }
 
@@ -513,7 +513,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf calc-rate {
       type uint64;
       description
-        "Ingress Control Cast Rate";
+        "calc rate";
     }
   }
 
@@ -678,7 +678,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf calc-rate {
       type uint64;
       description
-        "Ingress Multicast Rate";
+        "calc rate";
     }
     leaf crc-stomp-pkt-cnt {
       type uint64;
@@ -863,7 +863,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf calc-rate {
       type uint64;
       description
-        "Ingress Unicast Rate";
+        "calc rate";
     }
     leaf crc-stomp-pkt-cnt {
       type uint64;
@@ -893,7 +893,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf total-calc-rate {
       type uint64;
       description
-        "Egress Total Rate";
+        "total calc rate";
     }
     leaf mc2uc-preempt-cnt {
       type uint64;
@@ -923,7 +923,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
     leaf total-calc-rate {
       type uint64;
       description
-        "Ingress Total Rate";
+        "total calc rate";
     }
   }
 
@@ -1062,73 +1062,73 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub1 {
       "XBAR EDM SM15 PORT STATS";
     container ua0-stats {
       description
-        "Unicast Arbiter0 stats";
+        "ua0 stats";
       uses XBAR-EDM-SM15-UA-STATS;
     }
     container ua1-stats {
       description
-        "Unicast Arbiter1 stats";
+        "ua1 stats";
       uses XBAR-EDM-SM15-UA-STATS;
     }
     container ua2-stats {
       description
-        "Unicast Arbiter2 stats";
+        "ua2 stats";
       uses XBAR-EDM-SM15-UA-STATS;
     }
     container ma-stats {
       description
-        "Multicast Arbiter stats";
+        "ma stats";
       uses XBAR-EDM-SM15-MA-STATS;
     }
     container ca-stats {
       description
-        "Control Cast stats";
+        "ca stats";
       uses XBAR-EDM-SM15-CA-STATS;
     }
     container pi-stats {
       description
-        "Port Ingress stats";
+        "pi stats";
       uses XBAR-EDM-SM15-PI-STATS;
     }
     container pe-stats {
       description
-        "Port Egress stats";
+        "pe stats";
       uses XBAR-EDM-SM15-PE-STATS;
     }
     container pi-uc-stats {
       description
-        "Ingress Unicast stats";
+        "pi uc stats";
       uses XBAR-EDM-SM15-PI-UC-STATS;
     }
     container pi-mc-stats {
       description
-        "Ingress Multicast stats";
+        "pi mc stats";
       uses XBAR-EDM-SM15-PI-MC-STATS;
     }
     container pi-cc-stats {
       description
-        "Ingress Control Cast stats";
+        "pi cc stats";
       uses XBAR-EDM-SM15-PI-CC-STATS;
     }
     container pe-uc-stats {
       description
-        "Egress Unicast stats";
+        "pe uc stats";
       uses XBAR-EDM-SM15-PE-UC-STATS;
     }
     container pe-mc-stats {
       description
-        "Egress Multicast stats";
+        "pe mc stats";
       uses XBAR-EDM-SM15-PE-MC-STATS;
     }
     container pe-cc-stats {
       description
-        "Egress Control Cast stats";
+        "pe cc stats";
       uses XBAR-EDM-SM15-PE-CC-STATS;
     }
     leaf internal-err-cnt {
       type uint64;
       description
-        "Internal Error Count";
+        "internal err cnt";
     }
   }
 }

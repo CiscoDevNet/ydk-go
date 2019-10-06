@@ -167,7 +167,7 @@ type EnvironmentalMonitoring_Racks_Rack_Slots_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of modules.
@@ -237,7 +237,7 @@ type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module struct {
     YListKey string
 
     // This attribute is a key. Module name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Module interface{}
 
     // Table of sensor types.
@@ -311,7 +311,7 @@ type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_Se
     YListKey string
 
     // This attribute is a key. Sensor type. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Type interface{}
 
     // Table of sensors.
@@ -381,10 +381,10 @@ type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_Se
     YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
-    // The sensor value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // The sensor value. The type is string with pattern: [0-9a-fA-F]{1,8}.
     ValueBrief interface{}
 
     // The threshold information.
@@ -459,14 +459,14 @@ type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_Se
     YListKey string
 
     // This attribute is a key. Threshold type. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Type interface{}
 
     // Threshold trap enable flag true-ENABLE, false-DISABLE. The type is bool.
     Trap interface{}
 
     // Threshold value for the sensor. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     ValueBrief interface{}
 
     // Detailed sensor threshold information.
@@ -596,22 +596,6 @@ type EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_Se
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Module_SensorTypes_SensorType_SensorNames_SensorName_ValueDetailed) GetEntityData() *types.CommonEntityData {
@@ -639,10 +623,6 @@ func (valueDetailed *EnvironmentalMonitoring_Racks_Rack_Slots_Slot_Modules_Modul
     valueDetailed.EntityData.Leafs.Append("status", types.YLeaf{"Status", valueDetailed.Status})
     valueDetailed.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", valueDetailed.AgeTimeStamp})
     valueDetailed.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", valueDetailed.UpdateRate})
-    valueDetailed.EntityData.Leafs.Append("average", types.YLeaf{"Average", valueDetailed.Average})
-    valueDetailed.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", valueDetailed.Minimum})
-    valueDetailed.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", valueDetailed.Maximum})
-    valueDetailed.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", valueDetailed.Interval})
 
     valueDetailed.EntityData.YListKeys = []string {}
 

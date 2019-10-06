@@ -24,6 +24,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp", reflect.TypeOf(L2tp{}))
 }
 
+// L2tpDigestHashMethod represents L2tp digest hash method
+type L2tpDigestHashMethod string
+
+const (
+    // MD5
+    L2tpDigestHashMethod_md5 L2tpDigestHashMethod = "md5"
+
+    // SHA1
+    L2tpDigestHashMethod_sha1 L2tpDigestHashMethod = "sha1"
+)
+
 // L2tpHashMethod represents L2tp hash method
 type L2tpHashMethod string
 
@@ -36,17 +47,6 @@ const (
 
     // None
     L2tpHashMethod_none L2tpHashMethod = "none"
-)
-
-// L2tpDigestHashMethod represents L2tp digest hash method
-type L2tpDigestHashMethod string
-
-const (
-    // MD5
-    L2tpDigestHashMethod_md5 L2tpDigestHashMethod = "md5"
-
-    // SHA1
-    L2tpDigestHashMethod_sha1 L2tpDigestHashMethod = "sha1"
 )
 
 // L2tp
@@ -157,7 +157,7 @@ type L2tp_Classes_Class struct {
     Enable interface{}
 
     // Specify the password for control channel authentication. The type is string
-    // with pattern: b'(!.+)|([^!].+)'.
+    // with pattern: (!.+)|([^!].+).
     Password interface{}
 
     // Security check.
@@ -523,7 +523,7 @@ type L2tp_Classes_Class_Digest_Secrets_Secret struct {
     YListKey string
 
     // This attribute is a key. Specify the encrypted user secret. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SecretName interface{}
 
     // Specify hash method. The type is L2tpHashMethod. This attribute is

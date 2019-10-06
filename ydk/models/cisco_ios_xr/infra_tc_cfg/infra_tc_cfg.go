@@ -25,6 +25,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-tc-cfg:traffic-collector", reflect.TypeOf(TrafficCollector{}))
 }
 
+// HistoryTimeout represents History timeout
+type HistoryTimeout string
+
+const (
+    // Max timeout
+    HistoryTimeout_max HistoryTimeout = "max"
+)
+
 // HistorySize represents History size
 type HistorySize string
 
@@ -72,14 +80,6 @@ const (
 
     // Interval60minutes
     CollectIonInterval_Y_60_minutes CollectIonInterval = "60-minutes"
-)
-
-// HistoryTimeout represents History timeout
-type HistoryTimeout string
-
-const (
-    // Max timeout
-    HistoryTimeout_max HistoryTimeout = "max"
 )
 
 // TrafficCollector
@@ -162,7 +162,7 @@ type TrafficCollector_ExternalInterfaces_ExternalInterface struct {
     YListKey string
 
     // This attribute is a key. Name of interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable traffic collector on this interface. The type is interface{}.

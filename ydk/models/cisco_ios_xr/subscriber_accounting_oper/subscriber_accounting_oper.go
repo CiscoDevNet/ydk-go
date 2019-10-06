@@ -98,7 +98,7 @@ type SubscriberAccounting_Nodes_Node struct {
 
     // This attribute is a key. The node id to filter on. For example, 0/1/CPU0.
     // The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Subscriber accounting session feature data.
@@ -1185,7 +1185,7 @@ type SubscriberAccounting_Nodes_Node_SubscriberAccountingSrgFeatures_SubscriberA
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Accounting's SRG Statistics Info Bag.

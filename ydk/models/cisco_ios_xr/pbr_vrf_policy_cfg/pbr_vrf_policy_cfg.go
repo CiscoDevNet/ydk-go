@@ -65,7 +65,7 @@ type VrfPolicy_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // address family. The type is slice of VrfPolicy_Vrf_Afi.
@@ -104,7 +104,7 @@ type VrfPolicy_Vrf_Afi struct {
     YListKey string
 
     // This attribute is a key. AFI name. The type is string with pattern:
-    // b'(ipv4)|(ipv6)'.
+    // (ipv4)|(ipv6).
     AfiType interface{}
 
     // Policy map name. The type is string.

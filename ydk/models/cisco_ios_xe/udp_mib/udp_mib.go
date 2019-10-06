@@ -207,7 +207,7 @@ type UDPMIB_UdpTable_UdpEntry struct {
     // the case of a UDP listener that is willing to accept datagrams for any IP
     // interface associated with the node, the value 0.0.0.0 is used. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     UdpLocalAddress interface{}
 
     // This attribute is a key. The local port number for this UDP listener. The

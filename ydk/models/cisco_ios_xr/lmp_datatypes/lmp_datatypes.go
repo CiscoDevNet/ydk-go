@@ -14,6 +14,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package lmp_datatypes"))
 }
 
+// OlmSwitchingCap represents Olm switching cap
+type OlmSwitchingCap string
+
+const (
+    // Lambda switch capable
+    OlmSwitchingCap_lsc OlmSwitchingCap = "lsc"
+
+    // Fiber switch capable
+    OlmSwitchingCap_fsc OlmSwitchingCap = "fsc"
+)
+
 // OlmAddr represents Olm addr
 type OlmAddr string
 
@@ -29,16 +40,5 @@ const (
 
     // NSAP address
     OlmAddr_nsap OlmAddr = "nsap"
-)
-
-// OlmSwitchingCap represents Olm switching cap
-type OlmSwitchingCap string
-
-const (
-    // Lambda switch capable
-    OlmSwitchingCap_lsc OlmSwitchingCap = "lsc"
-
-    // Fiber switch capable
-    OlmSwitchingCap_fsc OlmSwitchingCap = "fsc"
 )
 

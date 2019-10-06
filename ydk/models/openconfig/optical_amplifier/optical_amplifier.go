@@ -18,25 +18,11 @@ func init() {
     ydk.RegisterEntity("openconfig-optical-amplifier:optical-amplifier", reflect.TypeOf(OpticalAmplifier{}))
 }
 
-type OPTICALAMPLIFIERTYPE struct {
+type LOWGAINRANGE struct {
 }
 
-func (id OPTICALAMPLIFIERTYPE) String() string {
-	return "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_TYPE"
-}
-
-type EDFA struct {
-}
-
-func (id EDFA) String() string {
-	return "openconfig-optical-amplifier:EDFA"
-}
-
-type FORWARDRAMAN struct {
-}
-
-func (id FORWARDRAMAN) String() string {
-	return "openconfig-optical-amplifier:FORWARD_RAMAN"
+func (id LOWGAINRANGE) String() string {
+	return "openconfig-optical-amplifier:LOW_GAIN_RANGE"
 }
 
 type BACKWARDRAMAN struct {
@@ -46,25 +32,18 @@ func (id BACKWARDRAMAN) String() string {
 	return "openconfig-optical-amplifier:BACKWARD_RAMAN"
 }
 
-type HYBRID struct {
+type CONSTANTGAIN struct {
 }
 
-func (id HYBRID) String() string {
-	return "openconfig-optical-amplifier:HYBRID"
+func (id CONSTANTGAIN) String() string {
+	return "openconfig-optical-amplifier:CONSTANT_GAIN"
 }
 
-type GAINRANGE struct {
+type FIXEDGAINRANGE struct {
 }
 
-func (id GAINRANGE) String() string {
-	return "openconfig-optical-amplifier:GAIN_RANGE"
-}
-
-type LOWGAINRANGE struct {
-}
-
-func (id LOWGAINRANGE) String() string {
-	return "openconfig-optical-amplifier:LOW_GAIN_RANGE"
+func (id FIXEDGAINRANGE) String() string {
+	return "openconfig-optical-amplifier:FIXED_GAIN_RANGE"
 }
 
 type MIDGAINRANGE struct {
@@ -81,11 +60,32 @@ func (id HIGHGAINRANGE) String() string {
 	return "openconfig-optical-amplifier:HIGH_GAIN_RANGE"
 }
 
-type FIXEDGAINRANGE struct {
+type HYBRID struct {
 }
 
-func (id FIXEDGAINRANGE) String() string {
-	return "openconfig-optical-amplifier:FIXED_GAIN_RANGE"
+func (id HYBRID) String() string {
+	return "openconfig-optical-amplifier:HYBRID"
+}
+
+type FORWARDRAMAN struct {
+}
+
+func (id FORWARDRAMAN) String() string {
+	return "openconfig-optical-amplifier:FORWARD_RAMAN"
+}
+
+type EDFA struct {
+}
+
+func (id EDFA) String() string {
+	return "openconfig-optical-amplifier:EDFA"
+}
+
+type OPTICALAMPLIFIERTYPE struct {
+}
+
+func (id OPTICALAMPLIFIERTYPE) String() string {
+	return "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_TYPE"
 }
 
 type OPTICALAMPLIFIERMODE struct {
@@ -95,18 +95,18 @@ func (id OPTICALAMPLIFIERMODE) String() string {
 	return "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_MODE"
 }
 
+type GAINRANGE struct {
+}
+
+func (id GAINRANGE) String() string {
+	return "openconfig-optical-amplifier:GAIN_RANGE"
+}
+
 type CONSTANTPOWER struct {
 }
 
 func (id CONSTANTPOWER) String() string {
 	return "openconfig-optical-amplifier:CONSTANT_POWER"
-}
-
-type CONSTANTGAIN struct {
-}
-
-func (id CONSTANTGAIN) String() string {
-	return "openconfig-optical-amplifier:CONSTANT_GAIN"
 }
 
 // OpticalAmplifier
@@ -229,7 +229,7 @@ type OpticalAmplifier_Amplifiers_Amplifier_Config struct {
     Name interface{}
 
     // Type of the amplifier. The type is one of the following:
-    // EDFAFORWARDRAMANBACKWARDRAMANHYBRID.
+    // BACKWARDRAMANHYBRIDFORWARDRAMANEDFA.
     Type interface{}
 
     // Positive gain applied by the amplifier. The type is string with range:
@@ -242,11 +242,11 @@ type OpticalAmplifier_Amplifiers_Amplifier_Config struct {
 
     // Selected gain range.  The gain range is a platform-defined value indicating
     // the switched gain amplifier setting. The type is one of the following:
-    // LOWGAINRANGEMIDGAINRANGEHIGHGAINRANGEFIXEDGAINRANGE.
+    // LOWGAINRANGEFIXEDGAINRANGEMIDGAINRANGEHIGHGAINRANGE.
     GainRange interface{}
 
     // The operating mode of the amplifier. The type is one of the following:
-    // CONSTANTPOWERCONSTANTGAIN.
+    // CONSTANTGAINCONSTANTPOWER.
     AmpMode interface{}
 
     // Output optical power of the amplifier. The type is string with range:
@@ -295,7 +295,7 @@ type OpticalAmplifier_Amplifiers_Amplifier_State struct {
     Name interface{}
 
     // Type of the amplifier. The type is one of the following:
-    // EDFAFORWARDRAMANBACKWARDRAMANHYBRID.
+    // BACKWARDRAMANHYBRIDFORWARDRAMANEDFA.
     Type interface{}
 
     // Positive gain applied by the amplifier. The type is string with range:
@@ -308,11 +308,11 @@ type OpticalAmplifier_Amplifiers_Amplifier_State struct {
 
     // Selected gain range.  The gain range is a platform-defined value indicating
     // the switched gain amplifier setting. The type is one of the following:
-    // LOWGAINRANGEMIDGAINRANGEHIGHGAINRANGEFIXEDGAINRANGE.
+    // LOWGAINRANGEFIXEDGAINRANGEMIDGAINRANGEHIGHGAINRANGE.
     GainRange interface{}
 
     // The operating mode of the amplifier. The type is one of the following:
-    // CONSTANTPOWERCONSTANTGAIN.
+    // CONSTANTGAINCONSTANTPOWER.
     AmpMode interface{}
 
     // Output optical power of the amplifier. The type is string with range:

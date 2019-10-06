@@ -2008,7 +2008,7 @@ type CISCODYNAMICTEMPLATEMIB_CdtEthernetTemplateTable_CdtEthernetTemplateEntry s
     CdtEthernetIpv4PointToPoint interface{}
 
     // This object specifies the... The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdtEthernetMacAddr interface{}
 }
 

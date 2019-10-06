@@ -135,6 +135,27 @@ func SetEntityFilter(ent Entity, filter yfilter.YFilter) {
 	}
 }
 
+func IsTopLevelEntity(entity Entity) bool {
+	entData := entity.GetEntityData()
+	if entData != nil && entData.AbsolutePath == entData.SegmentPath {
+		return true
+	}
+	return false
+}
+
+func SetNontopEntityFilter(entity Entity, filter yfilter.YFilter) {
+	if IsEntityCollection(entity) {
+		entCollection := EntityToCollection(entity)
+	        for _, ent := range entCollection.Entities() {
+	        	SetNontopEntityFilter(ent, filter)
+	        }
+	} else {
+	        if !IsTopLevelEntity(entity) {
+	        	SetEntityFilter(entity, filter)
+	        }
+	}
+}
+
 // Bits is a basic type that represents the YANG bits type
 type Bits map[string]bool
 
@@ -428,6 +449,19 @@ func GetParent(entity Entity) Entity {
 // SetParent sets the given entity's parent to the given parent entity
 func SetParent(entity, parent Entity) {
 	entity.GetEntityData().Parent = parent
+}
+
+// Set Parent values in all children recursively
+func SetAllParents(entity Entity) {
+	children := GetYChildren(entity.GetEntityData())
+	for _, child := range children {
+		childEntity := child.Value
+		if childEntity == nil || (IsPresenceContainer(childEntity) && !GetPresenceFlag(childEntity)) {
+			continue
+		}
+		SetParent(childEntity, entity)
+		SetAllParents(childEntity)
+	}
 }
 
 // HasDataOrFilter returns a bool representing whether the entity
@@ -867,4 +901,171 @@ func SetYListKey(ent Entity, index int) {
 	if v.IsValid() {
 		v.Set(reflect.ValueOf(key))
 	}
+}
+
+func GetAbsolutePath(entity Entity) string {
+	entityData := entity.GetEntityData()
+	path := entityData.SegmentPath
+	parent := entityData.Parent
+	if parent != nil {
+		path = fmt.Sprintf("%s/%s", GetAbsolutePath(parent), path)
+	} else {
+		if !IsTopLevelEntity(entity) {
+			// This is the best available approximation
+			path = entityData.AbsolutePath
+		}
+	}
+	return path
+}
+
+func EntityToDict(entity Entity) map[string]string {
+	edict := make(map[string]string)
+	absPath := GetAbsolutePath(entity)
+	if IsPresenceContainer(entity) || strings.LastIndex(absPath, "]") == len(absPath)-1 {
+		edict[absPath] = ""
+	}
+
+	entityPath := GetEntityPath(entity)
+	for _, leafData := range entityPath.ValuePaths {
+		if leafData.Data.IsSet {
+			leafName := leafData.Name
+			leafValue := leafData.Data.Value
+			keyPath := fmt.Sprintf("[%s=", leafName)
+			if strings.Index(absPath, keyPath) == -1 {
+				path := fmt.Sprintf("%s/%s", absPath, leafName)
+				edict[path] = leafValue
+			}
+		}
+	}
+	children := GetYChildren(entity.GetEntityData())
+	for _, child := range children {
+		if child.Value == nil || (IsPresenceContainer(child.Value) && !GetPresenceFlag(child.Value)) {
+			continue
+		}
+		childDict := EntityToDict(child.Value);
+		for k, v := range childDict {
+			edict[k] = v
+		}
+	}
+	return edict
+}
+
+func PathToEntity(entity Entity, absPath string) Entity {
+	topAbsPath := GetAbsolutePath(entity)
+	if topAbsPath == absPath {
+		return entity
+	}
+
+	if strings.Index(absPath, topAbsPath) == 0 {
+		entityPath := GetEntityPath(entity)
+		for _, leafData := range entityPath.ValuePaths {
+			if leafData.Data.IsSet {
+				leafName := leafData.Name
+				keyPath := fmt.Sprintf("[%s=", leafName)
+				if strings.Index(absPath, keyPath) == -1 {
+					path := fmt.Sprintf("%s/%s", topAbsPath, leafName)
+					if path == absPath {
+						return entity
+					}
+				}
+			}
+		}
+		children := GetYChildren(entity.GetEntityData())
+		for _, child := range children {
+			if child.Value == nil || (IsPresenceContainer(child.Value) && !GetPresenceFlag(child.Value)) {
+				continue
+			}
+			childAbsPath := GetAbsolutePath(child.Value)
+			if childAbsPath == absPath {
+				return child.Value
+			}
+			if strings.Index(absPath, childAbsPath) != 0 {
+				continue
+			}
+			matchingEntity := PathToEntity(child.Value, absPath)
+			if matchingEntity != nil {
+				return matchingEntity
+			}
+		}
+	}
+	return nil
+}
+
+
+func keyInSlice(k string, v []string) bool {
+	for _, e := range v {
+		if e == k {
+			return true
+		}
+	}
+	return false
+}
+
+func removeKeyFromSlice(k string, v []string) []string {
+	for i, key := range v {
+		if (k == key) {
+			return append(v[:i], v[i+1:]...)
+		}
+	}
+	return v
+}
+
+func getMapKeys(m map[string]string) []string {
+	keys := make([]string, len(m))
+	i := 0
+	for k := range m {
+		keys[i] = k
+		i++
+	}
+	sort.Strings(keys)
+	return keys	
+}
+
+type StringPair struct {
+	Left	string
+	Right   string
+}
+
+func EntityDiff(ent1 Entity, ent2 Entity) map[string]StringPair {
+	diffs := make(map[string]StringPair)
+	if reflect.TypeOf(ent1) != reflect.TypeOf(ent2) {
+		panic("EntityDiff: Incompatible arguments provided.")
+	}
+
+	entDict1 := EntityToDict(ent1)
+	entDict2 := EntityToDict(ent2)
+	entKeys1 := getMapKeys(entDict1)
+	entKeys2 := getMapKeys(entDict2)
+	var skipKeys1 []string
+	for _, key := range entKeys1 {
+		if keyInSlice(key, skipKeys1) {
+			continue
+		}
+		if keyInSlice(key, entKeys2) {
+			if entDict1[key] != entDict2[key] {
+				diffs[key] = StringPair{Left: entDict1[key], Right: entDict2[key]}
+			}
+			entKeys2 = removeKeyFromSlice(key, entKeys2)
+		} else {
+			diffs[key] = StringPair{Left: entDict1[key], Right: "None"}
+			for _, dupkey := range entKeys1 {
+				if strings.Index(dupkey, key) >= 0 {
+					skipKeys1 = append(skipKeys1, dupkey)
+				}
+			}
+		}
+	}
+	var skipKeys2 []string
+	for _, key := range entKeys2 {
+		if keyInSlice(key, skipKeys2) {
+			continue
+		}
+		diffs[key] = StringPair{Left: "None", Right: entDict2[key]}
+		for _, dupkey := range entKeys2 {
+			if (strings.Index(dupkey, key) >= 0) {
+				skipKeys2 = append(skipKeys2, dupkey)
+			}
+		}
+	}
+	return diffs
 }

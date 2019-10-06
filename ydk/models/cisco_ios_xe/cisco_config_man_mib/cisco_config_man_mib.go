@@ -397,7 +397,7 @@ type CISCOCONFIGMANMIB_CcmHistoryEventTable_CcmHistoryEventEntry struct {
     // address of the requester.  The value is 0.0.0.0 if not available or not 
     // applicable.  This object is deprecated by
     // ccmHistoryEventCommandSourceAddrRev1. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CcmHistoryEventCommandSourceAddress interface{}
 
     // If ccmHistoryEventTerminalType is 'virtual', the host name of the connected
@@ -410,7 +410,7 @@ type CISCOCONFIGMANMIB_CcmHistoryEventTable_CcmHistoryEventEntry struct {
     // server.  The value is 0.0.0.0 if not applicable or not         available.  
     // This object is deprecated by         ccmHistoryEventServerAddrRev1. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CcmHistoryEventServerAddress interface{}
 
     // If ccmHistoryEventConfigSource or ccmHistoryEventConfigDestination is

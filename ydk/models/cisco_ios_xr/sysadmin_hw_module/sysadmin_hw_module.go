@@ -153,7 +153,7 @@ type HwModule_Config_Shutdown_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     // This attribute is mandatory.
     Location interface{}
 }
@@ -275,7 +275,7 @@ type HwModule_Config_Reset_Auto_Disable_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     // This attribute is mandatory.
     Location interface{}
 }
@@ -339,7 +339,7 @@ type HwModule_Config_Offline_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     // This attribute is mandatory.
     Location interface{}
 }
@@ -403,7 +403,7 @@ type HwModule_Config_AttentionLed_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'([0-255])|((0?[0-9]|1[0-5])/(FC(0?[0-5])))|((0?[0-9]|1[0-5])/(RP(0?[0-1])))|((0?[0-9]|1[0-5])/(0?[0-9]|1[0-5])(/[1-2])?)|((F[0-3])/(FC(0?[0-9]|1[0-1])))|((F[0-3])/(SC(0?[0-1])))|(0?[0-9]/(SC(0?[0-1])))|(0?[0-9]/(FT(0?[0-2])))|(0?[0-9]/(PM(0?[0-9])))'.
+    // ([0-255])|((0?[0-9]|1[0-5])/(FC(0?[0-5])))|((0?[0-9]|1[0-5])/(RP(0?[0-1])))|((0?[0-9]|1[0-5])/(0?[0-9]|1[0-5])(/[1-2])?)|((F[0-3])/(FC(0?[0-9]|1[0-1])))|((F[0-3])/(SC(0?[0-1])))|(0?[0-9]/(SC(0?[0-1])))|(0?[0-9]/(FT(0?[0-2])))|(0?[0-9]/(PM(0?[0-9]))).
     // This attribute is mandatory.
     Location interface{}
 }

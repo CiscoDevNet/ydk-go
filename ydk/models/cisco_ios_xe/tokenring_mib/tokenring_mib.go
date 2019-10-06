@@ -16,27 +16,6 @@ func init() {
     ydk.RegisterEntity("TOKENRING-MIB:TOKENRING-MIB", reflect.TypeOf(TOKENRINGMIB{}))
 }
 
-type Dot5TestInsertFunc struct {
-}
-
-func (id Dot5TestInsertFunc) String() string {
-	return "TOKENRING-MIB:dot5TestInsertFunc"
-}
-
-type Dot5TestFullDuplexLoopBack struct {
-}
-
-func (id Dot5TestFullDuplexLoopBack) String() string {
-	return "TOKENRING-MIB:dot5TestFullDuplexLoopBack"
-}
-
-type Dot5ChipSetIBM16 struct {
-}
-
-func (id Dot5ChipSetIBM16) String() string {
-	return "TOKENRING-MIB:dot5ChipSetIBM16"
-}
-
 type Dot5ChipSetTItms380 struct {
 }
 
@@ -49,6 +28,27 @@ type Dot5ChipSetTItms380c16 struct {
 
 func (id Dot5ChipSetTItms380c16) String() string {
 	return "TOKENRING-MIB:dot5ChipSetTItms380c16"
+}
+
+type Dot5ChipSetIBM16 struct {
+}
+
+func (id Dot5ChipSetIBM16) String() string {
+	return "TOKENRING-MIB:dot5ChipSetIBM16"
+}
+
+type Dot5TestInsertFunc struct {
+}
+
+func (id Dot5TestInsertFunc) String() string {
+	return "TOKENRING-MIB:dot5TestInsertFunc"
+}
+
+type Dot5TestFullDuplexLoopBack struct {
+}
+
+func (id Dot5TestFullDuplexLoopBack) String() string {
+	return "TOKENRING-MIB:dot5TestFullDuplexLoopBack"
 }
 
 // TOKENRINGMIB
@@ -194,7 +194,7 @@ type TOKENRINGMIB_Dot5Table_Dot5Entry struct {
     Dot5RingSpeed interface{}
 
     // The MAC-address of the up stream neighbor station in the ring. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Dot5UpStream interface{}
 
     // If this object has a value of true(1) then this interface will participate
@@ -206,7 +206,7 @@ type TOKENRINGMIB_Dot5Table_Dot5Entry struct {
 
     // The bit mask of all Token Ring functional addresses for which this
     // interface will accept frames. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Dot5Functional interface{}
 
     // The value of MIB-II's sysUpTime object at which the local system last

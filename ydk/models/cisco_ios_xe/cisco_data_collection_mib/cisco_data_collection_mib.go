@@ -162,17 +162,6 @@ func init() {
     ydk.RegisterEntity("CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB", reflect.TypeOf(CISCODATACOLLECTIONMIB{}))
 }
 
-// CdcFileFormat represents  immediately precedes the next tag or the end of file.
-type CdcFileFormat string
-
-const (
-    CdcFileFormat_cdcBulkASCII CdcFileFormat = "cdcBulkASCII"
-
-    CdcFileFormat_cdcBulkBinary CdcFileFormat = "cdcBulkBinary"
-
-    CdcFileFormat_cdcSchemaASCII CdcFileFormat = "cdcSchemaASCII"
-)
-
 // CdcFileXferStatus represents                        of FTP(File Transfer Protocol).
 type CdcFileXferStatus string
 
@@ -194,6 +183,17 @@ const (
     CdcFileXferStatus_fileWriteFailed CdcFileXferStatus = "fileWriteFailed"
 
     CdcFileXferStatus_authFailed CdcFileXferStatus = "authFailed"
+)
+
+// CdcFileFormat represents  immediately precedes the next tag or the end of file.
+type CdcFileFormat string
+
+const (
+    CdcFileFormat_cdcBulkASCII CdcFileFormat = "cdcBulkASCII"
+
+    CdcFileFormat_cdcBulkBinary CdcFileFormat = "cdcBulkBinary"
+
+    CdcFileFormat_cdcSchemaASCII CdcFileFormat = "cdcSchemaASCII"
 )
 
 // CISCODATACOLLECTIONMIB
@@ -888,7 +888,7 @@ type CISCODATACOLLECTIONMIB_CdcDGTable_CdcDGEntry struct {
     // 'object'.   This object's value may be modified at any time. The change
     // takes effect the next time data is fetched for this data group. The type is
     // string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CdcDGObject interface{}
 
     // Corresponds to a value of cdcDGBaseObjectGrpIndex, thus identifying a set
@@ -1041,7 +1041,7 @@ type CISCODATACOLLECTIONMIB_CdcDGBaseObjectTable_CdcDGBaseObjectEntry struct {
     // The subtree component of a {subtree, list} tuple.  This object's value may
     // be modified at any time. The change takes effect the next time data is
     // fetched for this data group. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CdcDGBaseObjectSubtree interface{}
 
     // The list component of a {subtree, list} tuple.  This object's value may be
@@ -1181,7 +1181,7 @@ type CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry struct {
     // to be fetched.  This object's value may be modified at any time. The change
     // takes effect the next time data is fetched for this data group. The type is
     // string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CdcDGInstanceOid interface{}
 
     // Contains the OID fragment that, when appended to each base object gives the
@@ -1189,8 +1189,7 @@ type CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry struct {
     // is used only when the value of cdcDGInstanceType is of type 'range'.   This
     // object's value may be modified at any time. The change takes effect the
     // next time data is fetched for this data group. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CdcDGInstanceOidEnd interface{}
 
     // Specifies the number of lexicographically consecutive object instances to
@@ -1205,7 +1204,7 @@ type CISCODATACOLLECTIONMIB_CdcDGInstanceTable_CdcDGInstanceEntry struct {
     // of cdcDGInstanceType is of type 'other'.   This object's value may be
     // modified at any time. The change takes effect the next time data is fetched
     // for this data group. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CdcDGInstanceOtherPtr interface{}
 
     // The status of this conceptual row. The type is RowStatus.

@@ -311,7 +311,7 @@ type CISCOCABLESPECTRUMMIB_CcsFlapTable_CcsFlapEntry struct {
 
     // This attribute is a key. MAC address of the Cable Modem's Cable interface
     // which identifies a flap-list entry for a flapping  Cable Modem. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CcsFlapMacAddr interface{}
 
     // The ifIndex of the Cable upstream interface whose ifType is
@@ -658,7 +658,7 @@ type CISCOCABLESPECTRUMMIB_CcsCmFlapTable_CcsCmFlapEntry struct {
 
     // This attribute is a key. MAC address of the Cable Modem's Cable interface
     // which identifies a flapping Cable Modem. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CcsCmFlapMacAddr interface{}
 
     // The flap time is set whenever the Cable Modem triggers a flap detector. The
@@ -899,7 +899,7 @@ type CISCOCABLESPECTRUMMIB_CcsSpectrumRequestTable_CcsSpectrumRequestEntry struc
     // upstream.  In this case, ccsSpectrumRequestIfIndex must be specified. 
     // Other values indicate that the receiving power test is requested for the
     // ccsSpectrumRequestMacAddr with CM signals. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CcsSpectrumRequestMacAddr interface{}
 
     // Start of frequency range.  The ccsSpectrumRequestLowFreq is adjusted
@@ -1124,7 +1124,7 @@ type CISCOCABLESPECTRUMMIB_CcsSNRRequestTable_CcsSNRRequestEntry struct {
 
     // A MAC address that identifies the remote online CM that the CNR measurement
     // operation is being performed on. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CcsSNRRequestMacAddr interface{}
 
     // A snap shot of the CNR value that is measured over the in-use band

@@ -28,38 +28,6 @@ func init() {
     ydk.RegisterEntity("cisco-ia:rollback", reflect.TypeOf(Rollback{}))
 }
 
-// ParserMsgProcessingMethod
-type ParserMsgProcessingMethod string
-
-const (
-    // Check all parser output against a set
-    // of known errors and abort the transaction
-    // if matched.
-    ParserMsgProcessingMethod_blacklist ParserMsgProcessingMethod = "blacklist"
-
-    // Check all parser output against a set
-    // of known messages to ignore and abort 
-    // the transaction if not matched.
-    ParserMsgProcessingMethod_whitelist ParserMsgProcessingMethod = "whitelist"
-)
-
-// CiaSyncType represents database from the Network Element
-type CiaSyncType string
-
-const (
-    // Do no synchronize the DMI
-    // database from the Network Element
-    CiaSyncType_disabled CiaSyncType = "disabled"
-
-    // Collect "show running" from 
-    // the Network Element
-    CiaSyncType_without_defaults CiaSyncType = "without-defaults"
-
-    // Collect "show running all" from 
-    // the Network Element
-    CiaSyncType_include_defaults CiaSyncType = "include-defaults"
-)
-
 // CiaLogLevel represents Logging levels for DMI
 type CiaLogLevel string
 
@@ -81,32 +49,21 @@ const (
     CiaLogLevel_debug CiaLogLevel = "debug"
 )
 
-// OnepLogLevel represents Logging levels for Onep
-type OnepLogLevel string
+// CiaSyncType represents database from the Network Element
+type CiaSyncType string
 
 const (
-    // No logging
-    OnepLogLevel_none OnepLogLevel = "none"
+    // Do no synchronize the DMI
+    // database from the Network Element
+    CiaSyncType_disabled CiaSyncType = "disabled"
 
-    // Log fatal events only
-    OnepLogLevel_fatal OnepLogLevel = "fatal"
+    // Collect "show running" from 
+    // the Network Element
+    CiaSyncType_without_defaults CiaSyncType = "without-defaults"
 
-    // Log fatal events and errors only
-    OnepLogLevel_error_ OnepLogLevel = "error"
-
-    // Log fatal events, errors, and warnings only
-    OnepLogLevel_warning OnepLogLevel = "warning"
-
-    // Log fatal events, errors, warnings, 
-    // and information only
-    OnepLogLevel_information OnepLogLevel = "information"
-
-    // Log fatal events, errors, warnings, information,
-    // and debug messages
-    OnepLogLevel_debug OnepLogLevel = "debug"
-
-    // Log all messages
-    OnepLogLevel_trace OnepLogLevel = "trace"
+    // Collect "show running all" from 
+    // the Network Element
+    CiaSyncType_include_defaults CiaSyncType = "include-defaults"
 )
 
 // SyslogSeverity represents Standard Syslog logging levels)
@@ -139,6 +96,49 @@ const (
 
     // Debugging Level Msg
     SyslogSeverity_debug SyslogSeverity = "debug"
+)
+
+// ParserMsgProcessingMethod
+type ParserMsgProcessingMethod string
+
+const (
+    // Check all parser output against a set
+    // of known errors and abort the transaction
+    // if matched.
+    ParserMsgProcessingMethod_blacklist ParserMsgProcessingMethod = "blacklist"
+
+    // Check all parser output against a set
+    // of known messages to ignore and abort 
+    // the transaction if not matched.
+    ParserMsgProcessingMethod_whitelist ParserMsgProcessingMethod = "whitelist"
+)
+
+// OnepLogLevel represents Logging levels for Onep
+type OnepLogLevel string
+
+const (
+    // No logging
+    OnepLogLevel_none OnepLogLevel = "none"
+
+    // Log fatal events only
+    OnepLogLevel_fatal OnepLogLevel = "fatal"
+
+    // Log fatal events and errors only
+    OnepLogLevel_error_ OnepLogLevel = "error"
+
+    // Log fatal events, errors, and warnings only
+    OnepLogLevel_warning OnepLogLevel = "warning"
+
+    // Log fatal events, errors, warnings, 
+    // and information only
+    OnepLogLevel_information OnepLogLevel = "information"
+
+    // Log fatal events, errors, warnings, information,
+    // and debug messages
+    OnepLogLevel_debug OnepLogLevel = "debug"
+
+    // Log all messages
+    OnepLogLevel_trace OnepLogLevel = "trace"
 )
 
 // SyncFrom

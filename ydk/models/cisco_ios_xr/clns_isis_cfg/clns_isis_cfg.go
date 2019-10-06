@@ -28,34 +28,139 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-clns-isis-cfg:isis", reflect.TypeOf(Isis{}))
 }
 
-// NflagClear represents Nflag clear
-type NflagClear string
+// IsisSnpAuth represents Isis snp auth
+type IsisSnpAuth string
 
 const (
-    // Disable N-flag-clear
-    NflagClear_disable NflagClear = "disable"
+    // Authenticate SNP send only
+    IsisSnpAuth_send_only IsisSnpAuth = "send-only"
 
-    // Enable N-flag-clear
-    NflagClear_enable NflagClear = "enable"
+    // Authenticate SNP send and recv
+    IsisSnpAuth_full IsisSnpAuth = "full"
 )
 
-// IsisAdvTypeInterLevel represents Isis adv type inter level
-type IsisAdvTypeInterLevel string
+// IsisMibMaxAreaAddressMismatchBoolean represents Isis mib max area address mismatch boolean
+type IsisMibMaxAreaAddressMismatchBoolean string
 
 const (
-    // InterLevel
-    IsisAdvTypeInterLevel_inter_level IsisAdvTypeInterLevel = "inter-level"
+    // Disable
+    IsisMibMaxAreaAddressMismatchBoolean_false_ IsisMibMaxAreaAddressMismatchBoolean = "false"
+
+    // Enable
+    IsisMibMaxAreaAddressMismatchBoolean_true_ IsisMibMaxAreaAddressMismatchBoolean = "true"
 )
 
-// IsisEnablePoi represents Isis enable poi
-type IsisEnablePoi string
+// IsisMibLspTooLargeToPropagateBoolean represents Isis mib lsp too large to propagate boolean
+type IsisMibLspTooLargeToPropagateBoolean string
 
 const (
-    // Disable purge originator
-    IsisEnablePoi_enable_poi_off IsisEnablePoi = "enable-poi-off"
+    // Disable
+    IsisMibLspTooLargeToPropagateBoolean_false_ IsisMibLspTooLargeToPropagateBoolean = "false"
 
-    // Enable purge originator
-    IsisEnablePoi_enable_poi_on IsisEnablePoi = "enable-poi-on"
+    // Enable
+    IsisMibLspTooLargeToPropagateBoolean_true_ IsisMibLspTooLargeToPropagateBoolean = "true"
+)
+
+// IsisMibSequenceNumberSkipBoolean represents Isis mib sequence number skip boolean
+type IsisMibSequenceNumberSkipBoolean string
+
+const (
+    // Disable
+    IsisMibSequenceNumberSkipBoolean_false_ IsisMibSequenceNumberSkipBoolean = "false"
+
+    // Enable
+    IsisMibSequenceNumberSkipBoolean_true_ IsisMibSequenceNumberSkipBoolean = "true"
+)
+
+// IsisInterfaceFrrTiebreaker represents Isis interface frr tiebreaker
+type IsisInterfaceFrrTiebreaker string
+
+const (
+    // Prefer node protecting backup path
+    IsisInterfaceFrrTiebreaker_node_protecting IsisInterfaceFrrTiebreaker = "node-protecting"
+
+    // Prefer SRLG disjoint backup path
+    IsisInterfaceFrrTiebreaker_srlg_disjoint IsisInterfaceFrrTiebreaker = "srlg-disjoint"
+)
+
+// IsisAuthenticationAlgorithm represents Isis authentication algorithm
+type IsisAuthenticationAlgorithm string
+
+const (
+    // Cleartext password
+    IsisAuthenticationAlgorithm_cleartext IsisAuthenticationAlgorithm = "cleartext"
+
+    // HMAC-MD5 checksum
+    IsisAuthenticationAlgorithm_hmac_md5 IsisAuthenticationAlgorithm = "hmac-md5"
+
+    // Key Chain authentication
+    IsisAuthenticationAlgorithm_keychain IsisAuthenticationAlgorithm = "keychain"
+)
+
+// IsisAdvTypeExternal represents Isis adv type external
+type IsisAdvTypeExternal string
+
+const (
+    // External
+    IsisAdvTypeExternal_external IsisAdvTypeExternal = "external"
+)
+
+// IsisMibRejectedAdjacencyBoolean represents Isis mib rejected adjacency boolean
+type IsisMibRejectedAdjacencyBoolean string
+
+const (
+    // Disable
+    IsisMibRejectedAdjacencyBoolean_false_ IsisMibRejectedAdjacencyBoolean = "false"
+
+    // Enable
+    IsisMibRejectedAdjacencyBoolean_true_ IsisMibRejectedAdjacencyBoolean = "true"
+)
+
+// IsisMibCorruptedLspDetectedBoolean represents Isis mib corrupted lsp detected boolean
+type IsisMibCorruptedLspDetectedBoolean string
+
+const (
+    // Disable
+    IsisMibCorruptedLspDetectedBoolean_false_ IsisMibCorruptedLspDetectedBoolean = "false"
+
+    // Enable
+    IsisMibCorruptedLspDetectedBoolean_true_ IsisMibCorruptedLspDetectedBoolean = "true"
+)
+
+// IsisAdjCheck represents Isis adj check
+type IsisAdjCheck string
+
+const (
+    // Disabled
+    IsisAdjCheck_disabled IsisAdjCheck = "disabled"
+)
+
+// IsisispfState represents Isisispf state
+type IsisispfState string
+
+const (
+    // Enabled
+    IsisispfState_enabled IsisispfState = "enabled"
+)
+
+// IsisfrrLoadSharing represents Isisfrr load sharing
+type IsisfrrLoadSharing string
+
+const (
+    // Disable load sharing of prefixes across
+    // multiple backups
+    IsisfrrLoadSharing_disable IsisfrrLoadSharing = "disable"
+)
+
+// IsisMibAuthenticationFailureBoolean represents Isis mib authentication failure boolean
+type IsisMibAuthenticationFailureBoolean string
+
+const (
+    // Disable
+    IsisMibAuthenticationFailureBoolean_false_ IsisMibAuthenticationFailureBoolean = "false"
+
+    // Enable
+    IsisMibAuthenticationFailureBoolean_true_ IsisMibAuthenticationFailureBoolean = "true"
 )
 
 // IsisInterfaceState represents Isis interface state
@@ -75,35 +180,76 @@ const (
     IsisInterfaceState_enabled_active IsisInterfaceState = "enabled-active"
 )
 
-// Isisfrr represents Isisfrr
-type Isisfrr string
+// IsisTracingMode represents Isis tracing mode
+type IsisTracingMode string
 
 const (
-    // Prefix independent per-link computation
-    Isisfrr_per_link Isisfrr = "per-link"
+    // No tracing
+    IsisTracingMode_off IsisTracingMode = "off"
 
-    // Prefix dependent computation
-    Isisfrr_per_prefix Isisfrr = "per-prefix"
+    // Basic tracing (less overhead)
+    IsisTracingMode_basic IsisTracingMode = "basic"
+
+    // Enhanced tracing (more overhead)
+    IsisTracingMode_enhanced IsisTracingMode = "enhanced"
 )
 
-// IsisfrrLoadSharing represents Isisfrr load sharing
-type IsisfrrLoadSharing string
+// IsisAdvTypeInterLevel represents Isis adv type inter level
+type IsisAdvTypeInterLevel string
 
 const (
-    // Disable load sharing of prefixes across
-    // multiple backups
-    IsisfrrLoadSharing_disable IsisfrrLoadSharing = "disable"
+    // InterLevel
+    IsisAdvTypeInterLevel_inter_level IsisAdvTypeInterLevel = "inter-level"
 )
 
-// IsisAuthenticationFailureMode represents Isis authentication failure mode
-type IsisAuthenticationFailureMode string
+// IsisNsfFlavor represents Isis nsf flavor
+type IsisNsfFlavor string
 
 const (
-    // Drop non-authenticating PDUs
-    IsisAuthenticationFailureMode_drop IsisAuthenticationFailureMode = "drop"
+    // Cisco proprietary NSF
+    IsisNsfFlavor_cisco_proprietary_nsf IsisNsfFlavor = "cisco-proprietary-nsf"
 
-    // Accept non-authenticating PDUs
-    IsisAuthenticationFailureMode_send_only IsisAuthenticationFailureMode = "send-only"
+    // IETF standard NSF
+    IsisNsfFlavor_ietf_standard_nsf IsisNsfFlavor = "ietf-standard-nsf"
+)
+
+// IsisInterfaceAfState represents Isis interface af state
+type IsisInterfaceAfState string
+
+const (
+    // Disable
+    IsisInterfaceAfState_disable IsisInterfaceAfState = "disable"
+)
+
+// IsissidProtected represents Isissid protected
+type IsissidProtected string
+
+const (
+    // Not protected
+    IsissidProtected_disable IsissidProtected = "disable"
+
+    // Protected
+    IsissidProtected_enable IsissidProtected = "enable"
+)
+
+// IsisMetricStyle represents Isis metric style
+type IsisMetricStyle string
+
+const (
+    // ISO 10589 metric style (old-style)
+    IsisMetricStyle_old_metric_style IsisMetricStyle = "old-metric-style"
+
+    // 32-bit metric style (new-style)
+    IsisMetricStyle_new_metric_style IsisMetricStyle = "new-metric-style"
+
+    // Both forms of metric style
+    IsisMetricStyle_both_metric_style IsisMetricStyle = "both-metric-style"
+
+    // Send ISO 10589 metric style but accept both
+    IsisMetricStyle_old_metric_style_transition IsisMetricStyle = "old-metric-style-transition"
+
+    // Send 32-bit metric style but accept both
+    IsisMetricStyle_new_metric_style_transition IsisMetricStyle = "new-metric-style-transition"
 )
 
 // IsisApplyWeight represents Isis apply weight
@@ -120,26 +266,186 @@ const (
     IsisApplyWeight_ecmp_only_bandwidth IsisApplyWeight = "ecmp-only-bandwidth"
 )
 
-// IsisLabelPreference represents Isis label preference
-type IsisLabelPreference string
+// IsisfrrSrlgProtection represents Isisfrr srlg protection
+type IsisfrrSrlgProtection string
 
 const (
-    // Label Distribution Protocol
-    IsisLabelPreference_ldp IsisLabelPreference = "ldp"
+    // SRLG Attribute
+    IsisfrrSrlgProtection_local IsisfrrSrlgProtection = "local"
 
-    // Segment Routing
-    IsisLabelPreference_segment_routing IsisLabelPreference = "segment-routing"
+    // SRLG Attribute
+    IsisfrrSrlgProtection_weighted_global IsisfrrSrlgProtection = "weighted-global"
 )
 
-// Isissid1 represents Isissid1
-type Isissid1 string
+// IsisOverloadBitMode represents Isis overload bit mode
+type IsisOverloadBitMode string
 
 const (
-    // SID as an index
-    Isissid1_index Isissid1 = "index"
+    // Set always
+    IsisOverloadBitMode_permanently_set IsisOverloadBitMode = "permanently-set"
 
-    // SID as an absolute label
-    Isissid1_absolute Isissid1 = "absolute"
+    // Set during the startup period
+    IsisOverloadBitMode_startup_period IsisOverloadBitMode = "startup-period"
+
+    // Set until BGP comverges
+    IsisOverloadBitMode_wait_for_bgp IsisOverloadBitMode = "wait-for-bgp"
+)
+
+// IsisMibAuthenticationTypeFailureBoolean represents Isis mib authentication type failure boolean
+type IsisMibAuthenticationTypeFailureBoolean string
+
+const (
+    // Disable
+    IsisMibAuthenticationTypeFailureBoolean_false_ IsisMibAuthenticationTypeFailureBoolean = "false"
+
+    // Enable
+    IsisMibAuthenticationTypeFailureBoolean_true_ IsisMibAuthenticationTypeFailureBoolean = "true"
+)
+
+// IsisMicroLoopAvoidance represents Isis micro loop avoidance
+type IsisMicroLoopAvoidance string
+
+const (
+    // No Avoidance type set
+    IsisMicroLoopAvoidance_not_set IsisMicroLoopAvoidance = "not-set"
+
+    // Provide mirco loop avoidance for all prefixes
+    IsisMicroLoopAvoidance_micro_loop_avoidance_all IsisMicroLoopAvoidance = "micro-loop-avoidance-all"
+
+    // Provide mirco loop avoidance only for protected
+    // prefixes
+    IsisMicroLoopAvoidance_micro_loop_avoidance_protected IsisMicroLoopAvoidance = "micro-loop-avoidance-protected"
+
+    // Provide segment-routing mirco loop avoidance
+    IsisMicroLoopAvoidance_micro_loop_avoidance_segement_routing IsisMicroLoopAvoidance = "micro-loop-avoidance-segement-routing"
+)
+
+// IsisApplication represents Isis application
+type IsisApplication string
+
+const (
+    // LFA Application
+    IsisApplication_lfa IsisApplication = "lfa"
+)
+
+// IsisRemoteLfa represents Isis remote lfa
+type IsisRemoteLfa string
+
+const (
+    // No remote LFA option set
+    IsisRemoteLfa_remote_lfa_none IsisRemoteLfa = "remote-lfa-none"
+
+    // Construct remote LFA tunnel using MPLS LDP
+    IsisRemoteLfa_remote_lfa_tunnel_ldp IsisRemoteLfa = "remote-lfa-tunnel-ldp"
+)
+
+// IsisMibAreaMismatchBoolean represents Isis mib area mismatch boolean
+type IsisMibAreaMismatchBoolean string
+
+const (
+    // Disable
+    IsisMibAreaMismatchBoolean_false_ IsisMibAreaMismatchBoolean = "false"
+
+    // Enable
+    IsisMibAreaMismatchBoolean_true_ IsisMibAreaMismatchBoolean = "true"
+)
+
+// IsisMibAttemptToExceedMaxSequenceBoolean represents Isis mib attempt to exceed max sequence boolean
+type IsisMibAttemptToExceedMaxSequenceBoolean string
+
+const (
+    // Disable
+    IsisMibAttemptToExceedMaxSequenceBoolean_false_ IsisMibAttemptToExceedMaxSequenceBoolean = "false"
+
+    // Enable
+    IsisMibAttemptToExceedMaxSequenceBoolean_true_ IsisMibAttemptToExceedMaxSequenceBoolean = "true"
+)
+
+// IsisPrefixPriority represents Isis prefix priority
+type IsisPrefixPriority string
+
+const (
+    // Critical prefix priority
+    IsisPrefixPriority_critical_priority IsisPrefixPriority = "critical-priority"
+
+    // High prefix priority
+    IsisPrefixPriority_high_priority IsisPrefixPriority = "high-priority"
+
+    // Medium prefix priority
+    IsisPrefixPriority_medium_priority IsisPrefixPriority = "medium-priority"
+)
+
+// IsisConfigurableLevels represents Isis configurable levels
+type IsisConfigurableLevels string
+
+const (
+    // Level1
+    IsisConfigurableLevels_level1 IsisConfigurableLevels = "level1"
+
+    // Level2
+    IsisConfigurableLevels_level2 IsisConfigurableLevels = "level2"
+
+    // Both Levels
+    IsisConfigurableLevels_level1_and2 IsisConfigurableLevels = "level1-and2"
+)
+
+// IsisfrrTiebreaker represents Isisfrr tiebreaker
+type IsisfrrTiebreaker string
+
+const (
+    // Prefer backup path via downstream node
+    IsisfrrTiebreaker_downstream IsisfrrTiebreaker = "downstream"
+
+    // Prefer line card disjoint backup path
+    IsisfrrTiebreaker_lc_disjoint IsisfrrTiebreaker = "lc-disjoint"
+
+    // Prefer backup path with lowest total metric
+    IsisfrrTiebreaker_lowest_backup_metric IsisfrrTiebreaker = "lowest-backup-metric"
+
+    // Prefer node protecting backup path
+    IsisfrrTiebreaker_node_protecting IsisfrrTiebreaker = "node-protecting"
+
+    // Prefer backup path from ECMP set
+    IsisfrrTiebreaker_primary_path IsisfrrTiebreaker = "primary-path"
+
+    // Prefer non-ECMP backup path
+    IsisfrrTiebreaker_secondary_path IsisfrrTiebreaker = "secondary-path"
+
+    // Prefer SRLG disjoint backup path
+    IsisfrrTiebreaker_srlg_disjoint IsisfrrTiebreaker = "srlg-disjoint"
+)
+
+// IsisMibManualAddressDropsBoolean represents Isis mib manual address drops boolean
+type IsisMibManualAddressDropsBoolean string
+
+const (
+    // Disable
+    IsisMibManualAddressDropsBoolean_false_ IsisMibManualAddressDropsBoolean = "false"
+
+    // Enable
+    IsisMibManualAddressDropsBoolean_true_ IsisMibManualAddressDropsBoolean = "true"
+)
+
+// IsisexplicitNullFlag represents Isisexplicit null flag
+type IsisexplicitNullFlag string
+
+const (
+    // Disable EXPLICITNULL
+    IsisexplicitNullFlag_disable IsisexplicitNullFlag = "disable"
+
+    // Enable EXPLICITNULL
+    IsisexplicitNullFlag_enable IsisexplicitNullFlag = "enable"
+)
+
+// IsisEnablePoi represents Isis enable poi
+type IsisEnablePoi string
+
+const (
+    // Disable purge originator
+    IsisEnablePoi_enable_poi_off IsisEnablePoi = "enable-poi-off"
+
+    // Enable purge originator
+    IsisEnablePoi_enable_poi_on IsisEnablePoi = "enable-poi-on"
 )
 
 // IsisMetric represents Isis metric
@@ -159,32 +465,26 @@ const (
     IsisMetric_rib_external IsisMetric = "rib-external"
 )
 
-// IsisAttachedBit represents Isis attached bit
-type IsisAttachedBit string
+// IsisHelloPadding represents Isis hello padding
+type IsisHelloPadding string
 
 const (
-    // Computed from the attached areas
-    IsisAttachedBit_area IsisAttachedBit = "area"
+    // Never pad Hellos
+    IsisHelloPadding_never IsisHelloPadding = "never"
 
-    // Forced ON
-    IsisAttachedBit_on IsisAttachedBit = "on"
-
-    // Forced OFF
-    IsisAttachedBit_off IsisAttachedBit = "off"
+    // Pad Hellos during adjacency formation only
+    IsisHelloPadding_sometimes IsisHelloPadding = "sometimes"
 )
 
-// IsisConfigurableLevels represents Isis configurable levels
-type IsisConfigurableLevels string
+// IsisMibDatabaseOverFlowBoolean represents Isis mib database over flow boolean
+type IsisMibDatabaseOverFlowBoolean string
 
 const (
-    // Level1
-    IsisConfigurableLevels_level1 IsisConfigurableLevels = "level1"
+    // Disable
+    IsisMibDatabaseOverFlowBoolean_false_ IsisMibDatabaseOverFlowBoolean = "false"
 
-    // Level2
-    IsisConfigurableLevels_level2 IsisConfigurableLevels = "level2"
-
-    // Both Levels
-    IsisConfigurableLevels_level1_and2 IsisConfigurableLevels = "level1-and2"
+    // Enable
+    IsisMibDatabaseOverFlowBoolean_true_ IsisMibDatabaseOverFlowBoolean = "true"
 )
 
 // IsisConfigurableLevel represents Isis configurable level
@@ -201,47 +501,6 @@ const (
     IsisConfigurableLevel_level_2 IsisConfigurableLevel = "level-2"
 )
 
-// IsisHelloPadding represents Isis hello padding
-type IsisHelloPadding string
-
-const (
-    // Never pad Hellos
-    IsisHelloPadding_never IsisHelloPadding = "never"
-
-    // Pad Hellos during adjacency formation only
-    IsisHelloPadding_sometimes IsisHelloPadding = "sometimes"
-)
-
-// IsisSnpAuth represents Isis snp auth
-type IsisSnpAuth string
-
-const (
-    // Authenticate SNP send only
-    IsisSnpAuth_send_only IsisSnpAuth = "send-only"
-
-    // Authenticate SNP send and recv
-    IsisSnpAuth_full IsisSnpAuth = "full"
-)
-
-// IsisInterfaceAfState represents Isis interface af state
-type IsisInterfaceAfState string
-
-const (
-    // Disable
-    IsisInterfaceAfState_disable IsisInterfaceAfState = "disable"
-)
-
-// IsisexplicitNullFlag represents Isisexplicit null flag
-type IsisexplicitNullFlag string
-
-const (
-    // Disable EXPLICITNULL
-    IsisexplicitNullFlag_disable IsisexplicitNullFlag = "disable"
-
-    // Enable EXPLICITNULL
-    IsisexplicitNullFlag_enable IsisexplicitNullFlag = "enable"
-)
-
 // IsisApplicationAttribute represents Isis application attribute
 type IsisApplicationAttribute string
 
@@ -250,15 +509,26 @@ const (
     IsisApplicationAttribute_srlg IsisApplicationAttribute = "srlg"
 )
 
-// IsisfrrSrlgProtection represents Isisfrr srlg protection
-type IsisfrrSrlgProtection string
+// IsisAuthenticationFailureMode represents Isis authentication failure mode
+type IsisAuthenticationFailureMode string
 
 const (
-    // SRLG Attribute
-    IsisfrrSrlgProtection_local IsisfrrSrlgProtection = "local"
+    // Drop non-authenticating PDUs
+    IsisAuthenticationFailureMode_drop IsisAuthenticationFailureMode = "drop"
 
-    // SRLG Attribute
-    IsisfrrSrlgProtection_weighted_global IsisfrrSrlgProtection = "weighted-global"
+    // Accept non-authenticating PDUs
+    IsisAuthenticationFailureMode_send_only IsisAuthenticationFailureMode = "send-only"
+)
+
+// IsisMibProtocolsSupportedMismatchBoolean represents Isis mib protocols supported mismatch boolean
+type IsisMibProtocolsSupportedMismatchBoolean string
+
+const (
+    // Disable
+    IsisMibProtocolsSupportedMismatchBoolean_false_ IsisMibProtocolsSupportedMismatchBoolean = "false"
+
+    // Enable
+    IsisMibProtocolsSupportedMismatchBoolean_true_ IsisMibProtocolsSupportedMismatchBoolean = "true"
 )
 
 // IsisRedistProto represents Isis redist proto
@@ -299,81 +569,15 @@ const (
     IsisRedistProto_mobile IsisRedistProto = "mobile"
 )
 
-// IsisTracingMode represents Isis tracing mode
-type IsisTracingMode string
+// Isissid1 represents Isissid1
+type Isissid1 string
 
 const (
-    // No tracing
-    IsisTracingMode_off IsisTracingMode = "off"
+    // SID as an index
+    Isissid1_index Isissid1 = "index"
 
-    // Basic tracing (less overhead)
-    IsisTracingMode_basic IsisTracingMode = "basic"
-
-    // Enhanced tracing (more overhead)
-    IsisTracingMode_enhanced IsisTracingMode = "enhanced"
-)
-
-// IsisPrefixPriority represents Isis prefix priority
-type IsisPrefixPriority string
-
-const (
-    // Critical prefix priority
-    IsisPrefixPriority_critical_priority IsisPrefixPriority = "critical-priority"
-
-    // High prefix priority
-    IsisPrefixPriority_high_priority IsisPrefixPriority = "high-priority"
-
-    // Medium prefix priority
-    IsisPrefixPriority_medium_priority IsisPrefixPriority = "medium-priority"
-)
-
-// IsisAuthenticationAlgorithm represents Isis authentication algorithm
-type IsisAuthenticationAlgorithm string
-
-const (
-    // Cleartext password
-    IsisAuthenticationAlgorithm_cleartext IsisAuthenticationAlgorithm = "cleartext"
-
-    // HMAC-MD5 checksum
-    IsisAuthenticationAlgorithm_hmac_md5 IsisAuthenticationAlgorithm = "hmac-md5"
-
-    // Key Chain authentication
-    IsisAuthenticationAlgorithm_keychain IsisAuthenticationAlgorithm = "keychain"
-)
-
-// IsisispfState represents Isisispf state
-type IsisispfState string
-
-const (
-    // Enabled
-    IsisispfState_enabled IsisispfState = "enabled"
-)
-
-// IsisApplication represents Isis application
-type IsisApplication string
-
-const (
-    // LFA Application
-    IsisApplication_lfa IsisApplication = "lfa"
-)
-
-// IsissidProtected represents Isissid protected
-type IsissidProtected string
-
-const (
-    // Not protected
-    IsissidProtected_disable IsissidProtected = "disable"
-
-    // Protected
-    IsissidProtected_enable IsissidProtected = "enable"
-)
-
-// IsisAdvTypeExternal represents Isis adv type external
-type IsisAdvTypeExternal string
-
-const (
-    // External
-    IsisAdvTypeExternal_external IsisAdvTypeExternal = "external"
+    // SID as an absolute label
+    Isissid1_absolute Isissid1 = "absolute"
 )
 
 // IsisphpFlag represents Isisphp flag
@@ -387,178 +591,15 @@ const (
     IsisphpFlag_disable IsisphpFlag = "disable"
 )
 
-// IsisMetricStyle represents Isis metric style
-type IsisMetricStyle string
-
-const (
-    // ISO 10589 metric style (old-style)
-    IsisMetricStyle_old_metric_style IsisMetricStyle = "old-metric-style"
-
-    // 32-bit metric style (new-style)
-    IsisMetricStyle_new_metric_style IsisMetricStyle = "new-metric-style"
-
-    // Both forms of metric style
-    IsisMetricStyle_both_metric_style IsisMetricStyle = "both-metric-style"
-
-    // Send ISO 10589 metric style but accept both
-    IsisMetricStyle_old_metric_style_transition IsisMetricStyle = "old-metric-style-transition"
-
-    // Send 32-bit metric style but accept both
-    IsisMetricStyle_new_metric_style_transition IsisMetricStyle = "new-metric-style-transition"
-)
-
-// IsisRemoteLfa represents Isis remote lfa
-type IsisRemoteLfa string
-
-const (
-    // No remote LFA option set
-    IsisRemoteLfa_remote_lfa_none IsisRemoteLfa = "remote-lfa-none"
-
-    // Construct remote LFA tunnel using MPLS LDP
-    IsisRemoteLfa_remote_lfa_tunnel_ldp IsisRemoteLfa = "remote-lfa-tunnel-ldp"
-)
-
-// IsisMicroLoopAvoidance represents Isis micro loop avoidance
-type IsisMicroLoopAvoidance string
-
-const (
-    // No Avoidance type set
-    IsisMicroLoopAvoidance_not_set IsisMicroLoopAvoidance = "not-set"
-
-    // Provide mirco loop avoidance for all prefixes
-    IsisMicroLoopAvoidance_micro_loop_avoidance_all IsisMicroLoopAvoidance = "micro-loop-avoidance-all"
-
-    // Provide mirco loop avoidance only for protected
-    // prefixes
-    IsisMicroLoopAvoidance_micro_loop_avoidance_protected IsisMicroLoopAvoidance = "micro-loop-avoidance-protected"
-
-    // Provide segment-routing mirco loop avoidance
-    IsisMicroLoopAvoidance_micro_loop_avoidance_segement_routing IsisMicroLoopAvoidance = "micro-loop-avoidance-segement-routing"
-)
-
-// IsisAdjCheck represents Isis adj check
-type IsisAdjCheck string
-
-const (
-    // Disabled
-    IsisAdjCheck_disabled IsisAdjCheck = "disabled"
-)
-
-// IsisInterfaceFrrTiebreaker represents Isis interface frr tiebreaker
-type IsisInterfaceFrrTiebreaker string
-
-const (
-    // Prefer node protecting backup path
-    IsisInterfaceFrrTiebreaker_node_protecting IsisInterfaceFrrTiebreaker = "node-protecting"
-
-    // Prefer SRLG disjoint backup path
-    IsisInterfaceFrrTiebreaker_srlg_disjoint IsisInterfaceFrrTiebreaker = "srlg-disjoint"
-)
-
-// IsisOverloadBitMode represents Isis overload bit mode
-type IsisOverloadBitMode string
-
-const (
-    // Set always
-    IsisOverloadBitMode_permanently_set IsisOverloadBitMode = "permanently-set"
-
-    // Set during the startup period
-    IsisOverloadBitMode_startup_period IsisOverloadBitMode = "startup-period"
-
-    // Set until BGP comverges
-    IsisOverloadBitMode_wait_for_bgp IsisOverloadBitMode = "wait-for-bgp"
-)
-
-// IsisNsfFlavor represents Isis nsf flavor
-type IsisNsfFlavor string
-
-const (
-    // Cisco proprietary NSF
-    IsisNsfFlavor_cisco_proprietary_nsf IsisNsfFlavor = "cisco-proprietary-nsf"
-
-    // IETF standard NSF
-    IsisNsfFlavor_ietf_standard_nsf IsisNsfFlavor = "ietf-standard-nsf"
-)
-
-// IsisfrrTiebreaker represents Isisfrr tiebreaker
-type IsisfrrTiebreaker string
-
-const (
-    // Prefer backup path via downstream node
-    IsisfrrTiebreaker_downstream IsisfrrTiebreaker = "downstream"
-
-    // Prefer line card disjoint backup path
-    IsisfrrTiebreaker_lc_disjoint IsisfrrTiebreaker = "lc-disjoint"
-
-    // Prefer backup path with lowest total metric
-    IsisfrrTiebreaker_lowest_backup_metric IsisfrrTiebreaker = "lowest-backup-metric"
-
-    // Prefer node protecting backup path
-    IsisfrrTiebreaker_node_protecting IsisfrrTiebreaker = "node-protecting"
-
-    // Prefer backup path from ECMP set
-    IsisfrrTiebreaker_primary_path IsisfrrTiebreaker = "primary-path"
-
-    // Prefer non-ECMP backup path
-    IsisfrrTiebreaker_secondary_path IsisfrrTiebreaker = "secondary-path"
-
-    // Prefer SRLG disjoint backup path
-    IsisfrrTiebreaker_srlg_disjoint IsisfrrTiebreaker = "srlg-disjoint"
-)
-
-// IsisMibManualAddressDropsBoolean represents Isis mib manual address drops boolean
-type IsisMibManualAddressDropsBoolean string
+// IsisMibIdLengthMismatchBoolean represents Isis mib id length mismatch boolean
+type IsisMibIdLengthMismatchBoolean string
 
 const (
     // Disable
-    IsisMibManualAddressDropsBoolean_false_ IsisMibManualAddressDropsBoolean = "false"
+    IsisMibIdLengthMismatchBoolean_false_ IsisMibIdLengthMismatchBoolean = "false"
 
     // Enable
-    IsisMibManualAddressDropsBoolean_true_ IsisMibManualAddressDropsBoolean = "true"
-)
-
-// IsisMibAuthenticationTypeFailureBoolean represents Isis mib authentication type failure boolean
-type IsisMibAuthenticationTypeFailureBoolean string
-
-const (
-    // Disable
-    IsisMibAuthenticationTypeFailureBoolean_false_ IsisMibAuthenticationTypeFailureBoolean = "false"
-
-    // Enable
-    IsisMibAuthenticationTypeFailureBoolean_true_ IsisMibAuthenticationTypeFailureBoolean = "true"
-)
-
-// IsisMibMaxAreaAddressMismatchBoolean represents Isis mib max area address mismatch boolean
-type IsisMibMaxAreaAddressMismatchBoolean string
-
-const (
-    // Disable
-    IsisMibMaxAreaAddressMismatchBoolean_false_ IsisMibMaxAreaAddressMismatchBoolean = "false"
-
-    // Enable
-    IsisMibMaxAreaAddressMismatchBoolean_true_ IsisMibMaxAreaAddressMismatchBoolean = "true"
-)
-
-// IsisMibSequenceNumberSkipBoolean represents Isis mib sequence number skip boolean
-type IsisMibSequenceNumberSkipBoolean string
-
-const (
-    // Disable
-    IsisMibSequenceNumberSkipBoolean_false_ IsisMibSequenceNumberSkipBoolean = "false"
-
-    // Enable
-    IsisMibSequenceNumberSkipBoolean_true_ IsisMibSequenceNumberSkipBoolean = "true"
-)
-
-// IsisMibDatabaseOverFlowBoolean represents Isis mib database over flow boolean
-type IsisMibDatabaseOverFlowBoolean string
-
-const (
-    // Disable
-    IsisMibDatabaseOverFlowBoolean_false_ IsisMibDatabaseOverFlowBoolean = "false"
-
-    // Enable
-    IsisMibDatabaseOverFlowBoolean_true_ IsisMibDatabaseOverFlowBoolean = "true"
+    IsisMibIdLengthMismatchBoolean_true_ IsisMibIdLengthMismatchBoolean = "true"
 )
 
 // IsisMibAllBoolean represents Isis mib all boolean
@@ -572,26 +613,62 @@ const (
     IsisMibAllBoolean_true_ IsisMibAllBoolean = "true"
 )
 
-// IsisMibLspTooLargeToPropagateBoolean represents Isis mib lsp too large to propagate boolean
-type IsisMibLspTooLargeToPropagateBoolean string
+// IsisMibOriginatedLspBufferSizeMismatchBoolean represents boolean
+type IsisMibOriginatedLspBufferSizeMismatchBoolean string
 
 const (
     // Disable
-    IsisMibLspTooLargeToPropagateBoolean_false_ IsisMibLspTooLargeToPropagateBoolean = "false"
+    IsisMibOriginatedLspBufferSizeMismatchBoolean_false_ IsisMibOriginatedLspBufferSizeMismatchBoolean = "false"
 
     // Enable
-    IsisMibLspTooLargeToPropagateBoolean_true_ IsisMibLspTooLargeToPropagateBoolean = "true"
+    IsisMibOriginatedLspBufferSizeMismatchBoolean_true_ IsisMibOriginatedLspBufferSizeMismatchBoolean = "true"
 )
 
-// IsisMibOwnLspPurgeBoolean represents Isis mib own lsp purge boolean
-type IsisMibOwnLspPurgeBoolean string
+// Isisfrr represents Isisfrr
+type Isisfrr string
 
 const (
-    // Disable
-    IsisMibOwnLspPurgeBoolean_false_ IsisMibOwnLspPurgeBoolean = "false"
+    // Prefix independent per-link computation
+    Isisfrr_per_link Isisfrr = "per-link"
 
-    // Enable
-    IsisMibOwnLspPurgeBoolean_true_ IsisMibOwnLspPurgeBoolean = "true"
+    // Prefix dependent computation
+    Isisfrr_per_prefix Isisfrr = "per-prefix"
+)
+
+// IsisAttachedBit represents Isis attached bit
+type IsisAttachedBit string
+
+const (
+    // Computed from the attached areas
+    IsisAttachedBit_area IsisAttachedBit = "area"
+
+    // Forced ON
+    IsisAttachedBit_on IsisAttachedBit = "on"
+
+    // Forced OFF
+    IsisAttachedBit_off IsisAttachedBit = "off"
+)
+
+// NflagClear represents Nflag clear
+type NflagClear string
+
+const (
+    // Disable N-flag-clear
+    NflagClear_disable NflagClear = "disable"
+
+    // Enable N-flag-clear
+    NflagClear_enable NflagClear = "enable"
+)
+
+// IsisLabelPreference represents Isis label preference
+type IsisLabelPreference string
+
+const (
+    // Label Distribution Protocol
+    IsisLabelPreference_ldp IsisLabelPreference = "ldp"
+
+    // Segment Routing
+    IsisLabelPreference_segment_routing IsisLabelPreference = "segment-routing"
 )
 
 // IsisMibAdjacencyChangeBoolean represents Isis mib adjacency change boolean
@@ -605,72 +682,6 @@ const (
     IsisMibAdjacencyChangeBoolean_true_ IsisMibAdjacencyChangeBoolean = "true"
 )
 
-// IsisMibProtocolsSupportedMismatchBoolean represents Isis mib protocols supported mismatch boolean
-type IsisMibProtocolsSupportedMismatchBoolean string
-
-const (
-    // Disable
-    IsisMibProtocolsSupportedMismatchBoolean_false_ IsisMibProtocolsSupportedMismatchBoolean = "false"
-
-    // Enable
-    IsisMibProtocolsSupportedMismatchBoolean_true_ IsisMibProtocolsSupportedMismatchBoolean = "true"
-)
-
-// IsisMibAttemptToExceedMaxSequenceBoolean represents Isis mib attempt to exceed max sequence boolean
-type IsisMibAttemptToExceedMaxSequenceBoolean string
-
-const (
-    // Disable
-    IsisMibAttemptToExceedMaxSequenceBoolean_false_ IsisMibAttemptToExceedMaxSequenceBoolean = "false"
-
-    // Enable
-    IsisMibAttemptToExceedMaxSequenceBoolean_true_ IsisMibAttemptToExceedMaxSequenceBoolean = "true"
-)
-
-// IsisMibIdLengthMismatchBoolean represents Isis mib id length mismatch boolean
-type IsisMibIdLengthMismatchBoolean string
-
-const (
-    // Disable
-    IsisMibIdLengthMismatchBoolean_false_ IsisMibIdLengthMismatchBoolean = "false"
-
-    // Enable
-    IsisMibIdLengthMismatchBoolean_true_ IsisMibIdLengthMismatchBoolean = "true"
-)
-
-// IsisMibOriginatedLspBufferSizeMismatchBoolean represents boolean
-type IsisMibOriginatedLspBufferSizeMismatchBoolean string
-
-const (
-    // Disable
-    IsisMibOriginatedLspBufferSizeMismatchBoolean_false_ IsisMibOriginatedLspBufferSizeMismatchBoolean = "false"
-
-    // Enable
-    IsisMibOriginatedLspBufferSizeMismatchBoolean_true_ IsisMibOriginatedLspBufferSizeMismatchBoolean = "true"
-)
-
-// IsisMibAreaMismatchBoolean represents Isis mib area mismatch boolean
-type IsisMibAreaMismatchBoolean string
-
-const (
-    // Disable
-    IsisMibAreaMismatchBoolean_false_ IsisMibAreaMismatchBoolean = "false"
-
-    // Enable
-    IsisMibAreaMismatchBoolean_true_ IsisMibAreaMismatchBoolean = "true"
-)
-
-// IsisMibCorruptedLspDetectedBoolean represents Isis mib corrupted lsp detected boolean
-type IsisMibCorruptedLspDetectedBoolean string
-
-const (
-    // Disable
-    IsisMibCorruptedLspDetectedBoolean_false_ IsisMibCorruptedLspDetectedBoolean = "false"
-
-    // Enable
-    IsisMibCorruptedLspDetectedBoolean_true_ IsisMibCorruptedLspDetectedBoolean = "true"
-)
-
 // IsisMibLspErrorDetectedBoolean represents Isis mib lsp error detected boolean
 type IsisMibLspErrorDetectedBoolean string
 
@@ -682,15 +693,15 @@ const (
     IsisMibLspErrorDetectedBoolean_true_ IsisMibLspErrorDetectedBoolean = "true"
 )
 
-// IsisMibRejectedAdjacencyBoolean represents Isis mib rejected adjacency boolean
-type IsisMibRejectedAdjacencyBoolean string
+// IsisMibOwnLspPurgeBoolean represents Isis mib own lsp purge boolean
+type IsisMibOwnLspPurgeBoolean string
 
 const (
     // Disable
-    IsisMibRejectedAdjacencyBoolean_false_ IsisMibRejectedAdjacencyBoolean = "false"
+    IsisMibOwnLspPurgeBoolean_false_ IsisMibOwnLspPurgeBoolean = "false"
 
     // Enable
-    IsisMibRejectedAdjacencyBoolean_true_ IsisMibRejectedAdjacencyBoolean = "true"
+    IsisMibOwnLspPurgeBoolean_true_ IsisMibOwnLspPurgeBoolean = "true"
 )
 
 // IsisMibVersionSkewBoolean represents Isis mib version skew boolean
@@ -702,17 +713,6 @@ const (
 
     // Enable
     IsisMibVersionSkewBoolean_true_ IsisMibVersionSkewBoolean = "true"
-)
-
-// IsisMibAuthenticationFailureBoolean represents Isis mib authentication failure boolean
-type IsisMibAuthenticationFailureBoolean string
-
-const (
-    // Disable
-    IsisMibAuthenticationFailureBoolean_false_ IsisMibAuthenticationFailureBoolean = "false"
-
-    // Enable
-    IsisMibAuthenticationFailureBoolean_true_ IsisMibAuthenticationFailureBoolean = "true"
 )
 
 // Isis
@@ -1588,11 +1588,8 @@ type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting struct {
     // IsisLabelPreference.
     Mpls interface{}
 
-    // SRv6 configuration.
-    Srv6 Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6
-
-    // Connected Segment Routing prefix SID map configuration.
-    ConnectedPrefixSids Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids
+    // Enable Segment Routing SRV6 configuration. The type is interface{}.
+    Srv6 interface{}
 
     // Enable Segment Routing prefix SID map configuration.
     PrefixSidMap Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_PrefixSidMap
@@ -1610,225 +1607,16 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting) GetE
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     segmentRouting.EntityData.Children = types.NewOrderedMap()
-    segmentRouting.EntityData.Children.Append("srv6", types.YChild{"Srv6", &segmentRouting.Srv6})
-    segmentRouting.EntityData.Children.Append("connected-prefix-sids", types.YChild{"ConnectedPrefixSids", &segmentRouting.ConnectedPrefixSids})
     segmentRouting.EntityData.Children.Append("prefix-sid-map", types.YChild{"PrefixSidMap", &segmentRouting.PrefixSidMap})
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
     segmentRouting.EntityData.Leafs.Append("labeled-only", types.YLeaf{"LabeledOnly", segmentRouting.LabeledOnly})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
+    segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
     segmentRouting.EntityData.YListKeys = []string {}
 
     return &(segmentRouting.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6
-// SRv6 configuration
-type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The presence of this object enables SRv6. This must be the first object
-    // created under the SRV6 container, and the last one deleted. The type is
-    // interface{}.
-    Running interface{}
-
-    // SRv6 Locator configuration.
-    Srv6Locators Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators
-}
-
-func (srv6 *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6) GetEntityData() *types.CommonEntityData {
-    srv6.EntityData.YFilter = srv6.YFilter
-    srv6.EntityData.YangName = "srv6"
-    srv6.EntityData.BundleName = "cisco_ios_xr"
-    srv6.EntityData.ParentYangName = "segment-routing"
-    srv6.EntityData.SegmentPath = "srv6"
-    srv6.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/segment-routing/" + srv6.EntityData.SegmentPath
-    srv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6.EntityData.Children = types.NewOrderedMap()
-    srv6.EntityData.Children.Append("srv6-locators", types.YChild{"Srv6Locators", &srv6.Srv6Locators})
-    srv6.EntityData.Leafs = types.NewOrderedMap()
-    srv6.EntityData.Leafs.Append("running", types.YLeaf{"Running", srv6.Running})
-
-    srv6.EntityData.YListKeys = []string {}
-
-    return &(srv6.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators
-// SRv6 Locator configuration
-type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration for a single SRv6 Locator. The type is slice of
-    // Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators_Srv6Locator.
-    Srv6Locator []*Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators_Srv6Locator
-}
-
-func (srv6Locators *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators) GetEntityData() *types.CommonEntityData {
-    srv6Locators.EntityData.YFilter = srv6Locators.YFilter
-    srv6Locators.EntityData.YangName = "srv6-locators"
-    srv6Locators.EntityData.BundleName = "cisco_ios_xr"
-    srv6Locators.EntityData.ParentYangName = "srv6"
-    srv6Locators.EntityData.SegmentPath = "srv6-locators"
-    srv6Locators.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/segment-routing/srv6/" + srv6Locators.EntityData.SegmentPath
-    srv6Locators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6Locators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6Locators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6Locators.EntityData.Children = types.NewOrderedMap()
-    srv6Locators.EntityData.Children.Append("srv6-locator", types.YChild{"Srv6Locator", nil})
-    for i := range srv6Locators.Srv6Locator {
-        srv6Locators.EntityData.Children.Append(types.GetSegmentPath(srv6Locators.Srv6Locator[i]), types.YChild{"Srv6Locator", srv6Locators.Srv6Locator[i]})
-    }
-    srv6Locators.EntityData.Leafs = types.NewOrderedMap()
-
-    srv6Locators.EntityData.YListKeys = []string {}
-
-    return &(srv6Locators.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators_Srv6Locator
-// Configuration for a single SRv6 Locator
-type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators_Srv6Locator struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Locator Name. The type is string with length:
-    // 1..60.
-    LocatorName interface{}
-
-    // The presence of this object enables a SRv6 Locator. This must be the first
-    // object created under the SRv6Locator container, and the last one deleted.
-    // The type is interface{}.
-    Running interface{}
-}
-
-func (srv6Locator *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_Srv6_Srv6Locators_Srv6Locator) GetEntityData() *types.CommonEntityData {
-    srv6Locator.EntityData.YFilter = srv6Locator.YFilter
-    srv6Locator.EntityData.YangName = "srv6-locator"
-    srv6Locator.EntityData.BundleName = "cisco_ios_xr"
-    srv6Locator.EntityData.ParentYangName = "srv6-locators"
-    srv6Locator.EntityData.SegmentPath = "srv6-locator" + types.AddKeyToken(srv6Locator.LocatorName, "locator-name")
-    srv6Locator.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/segment-routing/srv6/srv6-locators/" + srv6Locator.EntityData.SegmentPath
-    srv6Locator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6Locator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6Locator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6Locator.EntityData.Children = types.NewOrderedMap()
-    srv6Locator.EntityData.Leafs = types.NewOrderedMap()
-    srv6Locator.EntityData.Leafs.Append("locator-name", types.YLeaf{"LocatorName", srv6Locator.LocatorName})
-    srv6Locator.EntityData.Leafs.Append("running", types.YLeaf{"Running", srv6Locator.Running})
-
-    srv6Locator.EntityData.YListKeys = []string {"LocatorName"}
-
-    return &(srv6Locator.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids
-// Connected Segment Routing prefix SID map
-// configuration
-type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Segment Routing prefix SID map. The type is slice of
-    // Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid.
-    ConnectedPrefixSid []*Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid
-}
-
-func (connectedPrefixSids *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids) GetEntityData() *types.CommonEntityData {
-    connectedPrefixSids.EntityData.YFilter = connectedPrefixSids.YFilter
-    connectedPrefixSids.EntityData.YangName = "connected-prefix-sids"
-    connectedPrefixSids.EntityData.BundleName = "cisco_ios_xr"
-    connectedPrefixSids.EntityData.ParentYangName = "segment-routing"
-    connectedPrefixSids.EntityData.SegmentPath = "connected-prefix-sids"
-    connectedPrefixSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/segment-routing/" + connectedPrefixSids.EntityData.SegmentPath
-    connectedPrefixSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    connectedPrefixSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    connectedPrefixSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    connectedPrefixSids.EntityData.Children = types.NewOrderedMap()
-    connectedPrefixSids.EntityData.Children.Append("connected-prefix-sid", types.YChild{"ConnectedPrefixSid", nil})
-    for i := range connectedPrefixSids.ConnectedPrefixSid {
-        connectedPrefixSids.EntityData.Children.Append(types.GetSegmentPath(connectedPrefixSids.ConnectedPrefixSid[i]), types.YChild{"ConnectedPrefixSid", connectedPrefixSids.ConnectedPrefixSid[i]})
-    }
-    connectedPrefixSids.EntityData.Leafs = types.NewOrderedMap()
-
-    connectedPrefixSids.EntityData.YListKeys = []string {}
-
-    return &(connectedPrefixSids.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid
-// Segment Routing prefix SID map
-type Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. IP address prefix. The type is one of the
-    // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
-    AddressPrefix interface{}
-
-    // This attribute is a key. Algo. The type is interface{} with range: 0..255.
-    Algo interface{}
-
-    // SID type for the interface. The type is Isissid1. This attribute is
-    // mandatory.
-    SidType interface{}
-
-    // SID value for the interface. The type is interface{} with range:
-    // 0..1048575. This attribute is mandatory.
-    Sid interface{}
-
-    // Range of SIDs. The type is interface{} with range: 1..1048575.
-    SidRange interface{}
-
-    // Interface to which prefix belongs. The type is string with length: 1..64.
-    Interface interface{}
-
-    // Enable/Disable Penultimate Hop Popping. The type is IsisphpFlag.
-    Php interface{}
-
-    // Enable/Disable Explicit-NULL flag. The type is IsisexplicitNullFlag.
-    ExplicitNull interface{}
-}
-
-func (connectedPrefixSid *Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid) GetEntityData() *types.CommonEntityData {
-    connectedPrefixSid.EntityData.YFilter = connectedPrefixSid.YFilter
-    connectedPrefixSid.EntityData.YangName = "connected-prefix-sid"
-    connectedPrefixSid.EntityData.BundleName = "cisco_ios_xr"
-    connectedPrefixSid.EntityData.ParentYangName = "connected-prefix-sids"
-    connectedPrefixSid.EntityData.SegmentPath = "connected-prefix-sid" + types.AddKeyToken(connectedPrefixSid.AddressPrefix, "address-prefix") + types.AddKeyToken(connectedPrefixSid.Algo, "algo")
-    connectedPrefixSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/segment-routing/connected-prefix-sids/" + connectedPrefixSid.EntityData.SegmentPath
-    connectedPrefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    connectedPrefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    connectedPrefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    connectedPrefixSid.EntityData.Children = types.NewOrderedMap()
-    connectedPrefixSid.EntityData.Leafs = types.NewOrderedMap()
-    connectedPrefixSid.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", connectedPrefixSid.AddressPrefix})
-    connectedPrefixSid.EntityData.Leafs.Append("algo", types.YLeaf{"Algo", connectedPrefixSid.Algo})
-    connectedPrefixSid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", connectedPrefixSid.SidType})
-    connectedPrefixSid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", connectedPrefixSid.Sid})
-    connectedPrefixSid.EntityData.Leafs.Append("sid-range", types.YLeaf{"SidRange", connectedPrefixSid.SidRange})
-    connectedPrefixSid.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", connectedPrefixSid.Interface})
-    connectedPrefixSid.EntityData.Leafs.Append("php", types.YLeaf{"Php", connectedPrefixSid.Php})
-    connectedPrefixSid.EntityData.Leafs.Append("explicit-null", types.YLeaf{"ExplicitNull", connectedPrefixSid.ExplicitNull})
-
-    connectedPrefixSid.EntityData.YListKeys = []string {"AddressPrefix", "Algo"}
-
-    return &(connectedPrefixSid.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_AfData_SegmentRouting_PrefixSidMap
@@ -2181,6 +1969,42 @@ type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit
     // IsisInternalLevel.
     Level interface{}
 
+    // keys: frr-type. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType.
+    FrrType []*Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType
+}
+
+func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
+    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
+    priorityLimit.EntityData.YangName = "priority-limit"
+    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
+    priorityLimit.EntityData.ParentYangName = "priority-limits"
+    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level")
+    priorityLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/priority-limits/" + priorityLimit.EntityData.SegmentPath
+    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    priorityLimit.EntityData.Children = types.NewOrderedMap()
+    priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
+    for i := range priorityLimit.FrrType {
+        priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
+    }
+    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
+    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
+
+    priorityLimit.EntityData.YListKeys = []string {"Level"}
+
+    return &(priorityLimit.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType
+// keys: frr-type
+type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
     // This attribute is a key. Computation Type. The type is Isisfrr.
     FrrType interface{}
 
@@ -2189,26 +2013,25 @@ type Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit
     Priority interface{}
 }
 
-func (priorityLimit *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
-    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
-    priorityLimit.EntityData.YangName = "priority-limit"
-    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimit.EntityData.ParentYangName = "priority-limits"
-    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level") + types.AddKeyToken(priorityLimit.FrrType, "frr-type")
-    priorityLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/priority-limits/" + priorityLimit.EntityData.SegmentPath
-    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (frrType *Isis_Instances_Instance_Afs_Af_AfData_FrrTable_PriorityLimits_PriorityLimit_FrrType) GetEntityData() *types.CommonEntityData {
+    frrType.EntityData.YFilter = frrType.YFilter
+    frrType.EntityData.YangName = "frr-type"
+    frrType.EntityData.BundleName = "cisco_ios_xr"
+    frrType.EntityData.ParentYangName = "priority-limit"
+    frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.FrrType, "frr-type")
+    frrType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/af-data/frr-table/priority-limits/priority-limit/" + frrType.EntityData.SegmentPath
+    frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
-    priorityLimit.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", priorityLimit.FrrType})
-    priorityLimit.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimit.Priority})
+    frrType.EntityData.Children = types.NewOrderedMap()
+    frrType.EntityData.Leafs = types.NewOrderedMap()
+    frrType.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", frrType.FrrType})
+    frrType.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", frrType.Priority})
 
-    priorityLimit.EntityData.YListKeys = []string {"Level", "FrrType"}
+    frrType.EntityData.YListKeys = []string {"FrrType"}
 
-    return &(priorityLimit.EntityData)
+    return &(frrType.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_AfData_FrrTable_FrrRemoteLfaPrefixes
@@ -2445,7 +2268,7 @@ type Isis_Instances_Instance_Afs_Af_AfData_RouterId struct {
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2594,9 +2417,9 @@ type Isis_Instances_Instance_Afs_Af_AfData_SummaryPrefixes_SummaryPrefix struct 
 
     // This attribute is a key. IP summary address prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 
     // The tag value. The type is interface{} with range: 1..4294967295.
@@ -2784,7 +2607,7 @@ type Isis_Instances_Instance_Afs_Af_AfData_Ucmp_ExcludeInterfaces_ExcludeInterfa
     YListKey string
 
     // This attribute is a key. Name of the interface to be excluded. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -3713,9 +3536,9 @@ type Isis_Instances_Instance_Afs_Af_AfData_AdminDistances_AdminDistance struct {
 
     // This attribute is a key. IP route source prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 
     // Administrative distance. The type is interface{} with range: 1..255. This
@@ -3936,12 +3759,12 @@ type Isis_Instances_Instance_Afs_Af_AfData_Mpls_RouterId struct {
 
     // IPv4 address to be used as a router ID. Precisely one of Address and
     // Interface must be specified. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -4452,11 +4275,8 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting struct {
     // IsisLabelPreference.
     Mpls interface{}
 
-    // SRv6 configuration.
-    Srv6 Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6
-
-    // Connected Segment Routing prefix SID map configuration.
-    ConnectedPrefixSids Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids
+    // Enable Segment Routing SRV6 configuration. The type is interface{}.
+    Srv6 interface{}
 
     // Enable Segment Routing prefix SID map configuration.
     PrefixSidMap Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_PrefixSidMap
@@ -4474,225 +4294,16 @@ func (segmentRouting *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting
     segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     segmentRouting.EntityData.Children = types.NewOrderedMap()
-    segmentRouting.EntityData.Children.Append("srv6", types.YChild{"Srv6", &segmentRouting.Srv6})
-    segmentRouting.EntityData.Children.Append("connected-prefix-sids", types.YChild{"ConnectedPrefixSids", &segmentRouting.ConnectedPrefixSids})
     segmentRouting.EntityData.Children.Append("prefix-sid-map", types.YChild{"PrefixSidMap", &segmentRouting.PrefixSidMap})
     segmentRouting.EntityData.Leafs = types.NewOrderedMap()
     segmentRouting.EntityData.Leafs.Append("bundle-member-adj-sid", types.YLeaf{"BundleMemberAdjSid", segmentRouting.BundleMemberAdjSid})
     segmentRouting.EntityData.Leafs.Append("labeled-only", types.YLeaf{"LabeledOnly", segmentRouting.LabeledOnly})
     segmentRouting.EntityData.Leafs.Append("mpls", types.YLeaf{"Mpls", segmentRouting.Mpls})
+    segmentRouting.EntityData.Leafs.Append("srv6", types.YLeaf{"Srv6", segmentRouting.Srv6})
 
     segmentRouting.EntityData.YListKeys = []string {}
 
     return &(segmentRouting.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6
-// SRv6 configuration
-type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // The presence of this object enables SRv6. This must be the first object
-    // created under the SRV6 container, and the last one deleted. The type is
-    // interface{}.
-    Running interface{}
-
-    // SRv6 Locator configuration.
-    Srv6Locators Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators
-}
-
-func (srv6 *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6) GetEntityData() *types.CommonEntityData {
-    srv6.EntityData.YFilter = srv6.YFilter
-    srv6.EntityData.YangName = "srv6"
-    srv6.EntityData.BundleName = "cisco_ios_xr"
-    srv6.EntityData.ParentYangName = "segment-routing"
-    srv6.EntityData.SegmentPath = "srv6"
-    srv6.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/segment-routing/" + srv6.EntityData.SegmentPath
-    srv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6.EntityData.Children = types.NewOrderedMap()
-    srv6.EntityData.Children.Append("srv6-locators", types.YChild{"Srv6Locators", &srv6.Srv6Locators})
-    srv6.EntityData.Leafs = types.NewOrderedMap()
-    srv6.EntityData.Leafs.Append("running", types.YLeaf{"Running", srv6.Running})
-
-    srv6.EntityData.YListKeys = []string {}
-
-    return &(srv6.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators
-// SRv6 Locator configuration
-type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configuration for a single SRv6 Locator. The type is slice of
-    // Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators_Srv6Locator.
-    Srv6Locator []*Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators_Srv6Locator
-}
-
-func (srv6Locators *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators) GetEntityData() *types.CommonEntityData {
-    srv6Locators.EntityData.YFilter = srv6Locators.YFilter
-    srv6Locators.EntityData.YangName = "srv6-locators"
-    srv6Locators.EntityData.BundleName = "cisco_ios_xr"
-    srv6Locators.EntityData.ParentYangName = "srv6"
-    srv6Locators.EntityData.SegmentPath = "srv6-locators"
-    srv6Locators.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/segment-routing/srv6/" + srv6Locators.EntityData.SegmentPath
-    srv6Locators.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6Locators.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6Locators.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6Locators.EntityData.Children = types.NewOrderedMap()
-    srv6Locators.EntityData.Children.Append("srv6-locator", types.YChild{"Srv6Locator", nil})
-    for i := range srv6Locators.Srv6Locator {
-        srv6Locators.EntityData.Children.Append(types.GetSegmentPath(srv6Locators.Srv6Locator[i]), types.YChild{"Srv6Locator", srv6Locators.Srv6Locator[i]})
-    }
-    srv6Locators.EntityData.Leafs = types.NewOrderedMap()
-
-    srv6Locators.EntityData.YListKeys = []string {}
-
-    return &(srv6Locators.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators_Srv6Locator
-// Configuration for a single SRv6 Locator
-type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators_Srv6Locator struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Locator Name. The type is string with length:
-    // 1..60.
-    LocatorName interface{}
-
-    // The presence of this object enables a SRv6 Locator. This must be the first
-    // object created under the SRv6Locator container, and the last one deleted.
-    // The type is interface{}.
-    Running interface{}
-}
-
-func (srv6Locator *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_Srv6_Srv6Locators_Srv6Locator) GetEntityData() *types.CommonEntityData {
-    srv6Locator.EntityData.YFilter = srv6Locator.YFilter
-    srv6Locator.EntityData.YangName = "srv6-locator"
-    srv6Locator.EntityData.BundleName = "cisco_ios_xr"
-    srv6Locator.EntityData.ParentYangName = "srv6-locators"
-    srv6Locator.EntityData.SegmentPath = "srv6-locator" + types.AddKeyToken(srv6Locator.LocatorName, "locator-name")
-    srv6Locator.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/segment-routing/srv6/srv6-locators/" + srv6Locator.EntityData.SegmentPath
-    srv6Locator.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6Locator.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6Locator.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6Locator.EntityData.Children = types.NewOrderedMap()
-    srv6Locator.EntityData.Leafs = types.NewOrderedMap()
-    srv6Locator.EntityData.Leafs.Append("locator-name", types.YLeaf{"LocatorName", srv6Locator.LocatorName})
-    srv6Locator.EntityData.Leafs.Append("running", types.YLeaf{"Running", srv6Locator.Running})
-
-    srv6Locator.EntityData.YListKeys = []string {"LocatorName"}
-
-    return &(srv6Locator.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids
-// Connected Segment Routing prefix SID map
-// configuration
-type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Segment Routing prefix SID map. The type is slice of
-    // Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid.
-    ConnectedPrefixSid []*Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid
-}
-
-func (connectedPrefixSids *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids) GetEntityData() *types.CommonEntityData {
-    connectedPrefixSids.EntityData.YFilter = connectedPrefixSids.YFilter
-    connectedPrefixSids.EntityData.YangName = "connected-prefix-sids"
-    connectedPrefixSids.EntityData.BundleName = "cisco_ios_xr"
-    connectedPrefixSids.EntityData.ParentYangName = "segment-routing"
-    connectedPrefixSids.EntityData.SegmentPath = "connected-prefix-sids"
-    connectedPrefixSids.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/segment-routing/" + connectedPrefixSids.EntityData.SegmentPath
-    connectedPrefixSids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    connectedPrefixSids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    connectedPrefixSids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    connectedPrefixSids.EntityData.Children = types.NewOrderedMap()
-    connectedPrefixSids.EntityData.Children.Append("connected-prefix-sid", types.YChild{"ConnectedPrefixSid", nil})
-    for i := range connectedPrefixSids.ConnectedPrefixSid {
-        connectedPrefixSids.EntityData.Children.Append(types.GetSegmentPath(connectedPrefixSids.ConnectedPrefixSid[i]), types.YChild{"ConnectedPrefixSid", connectedPrefixSids.ConnectedPrefixSid[i]})
-    }
-    connectedPrefixSids.EntityData.Leafs = types.NewOrderedMap()
-
-    connectedPrefixSids.EntityData.YListKeys = []string {}
-
-    return &(connectedPrefixSids.EntityData)
-}
-
-// Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid
-// Segment Routing prefix SID map
-type Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. IP address prefix. The type is one of the
-    // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
-    AddressPrefix interface{}
-
-    // This attribute is a key. Algo. The type is interface{} with range: 0..255.
-    Algo interface{}
-
-    // SID type for the interface. The type is Isissid1. This attribute is
-    // mandatory.
-    SidType interface{}
-
-    // SID value for the interface. The type is interface{} with range:
-    // 0..1048575. This attribute is mandatory.
-    Sid interface{}
-
-    // Range of SIDs. The type is interface{} with range: 1..1048575.
-    SidRange interface{}
-
-    // Interface to which prefix belongs. The type is string with length: 1..64.
-    Interface interface{}
-
-    // Enable/Disable Penultimate Hop Popping. The type is IsisphpFlag.
-    Php interface{}
-
-    // Enable/Disable Explicit-NULL flag. The type is IsisexplicitNullFlag.
-    ExplicitNull interface{}
-}
-
-func (connectedPrefixSid *Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_ConnectedPrefixSids_ConnectedPrefixSid) GetEntityData() *types.CommonEntityData {
-    connectedPrefixSid.EntityData.YFilter = connectedPrefixSid.YFilter
-    connectedPrefixSid.EntityData.YangName = "connected-prefix-sid"
-    connectedPrefixSid.EntityData.BundleName = "cisco_ios_xr"
-    connectedPrefixSid.EntityData.ParentYangName = "connected-prefix-sids"
-    connectedPrefixSid.EntityData.SegmentPath = "connected-prefix-sid" + types.AddKeyToken(connectedPrefixSid.AddressPrefix, "address-prefix") + types.AddKeyToken(connectedPrefixSid.Algo, "algo")
-    connectedPrefixSid.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/segment-routing/connected-prefix-sids/" + connectedPrefixSid.EntityData.SegmentPath
-    connectedPrefixSid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    connectedPrefixSid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    connectedPrefixSid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    connectedPrefixSid.EntityData.Children = types.NewOrderedMap()
-    connectedPrefixSid.EntityData.Leafs = types.NewOrderedMap()
-    connectedPrefixSid.EntityData.Leafs.Append("address-prefix", types.YLeaf{"AddressPrefix", connectedPrefixSid.AddressPrefix})
-    connectedPrefixSid.EntityData.Leafs.Append("algo", types.YLeaf{"Algo", connectedPrefixSid.Algo})
-    connectedPrefixSid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", connectedPrefixSid.SidType})
-    connectedPrefixSid.EntityData.Leafs.Append("sid", types.YLeaf{"Sid", connectedPrefixSid.Sid})
-    connectedPrefixSid.EntityData.Leafs.Append("sid-range", types.YLeaf{"SidRange", connectedPrefixSid.SidRange})
-    connectedPrefixSid.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", connectedPrefixSid.Interface})
-    connectedPrefixSid.EntityData.Leafs.Append("php", types.YLeaf{"Php", connectedPrefixSid.Php})
-    connectedPrefixSid.EntityData.Leafs.Append("explicit-null", types.YLeaf{"ExplicitNull", connectedPrefixSid.ExplicitNull})
-
-    connectedPrefixSid.EntityData.YListKeys = []string {"AddressPrefix", "Algo"}
-
-    return &(connectedPrefixSid.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_TopologyName_SegmentRouting_PrefixSidMap
@@ -5045,6 +4656,42 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_Priorit
     // IsisInternalLevel.
     Level interface{}
 
+    // keys: frr-type. The type is slice of
+    // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType.
+    FrrType []*Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType
+}
+
+func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
+    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
+    priorityLimit.EntityData.YangName = "priority-limit"
+    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
+    priorityLimit.EntityData.ParentYangName = "priority-limits"
+    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level")
+    priorityLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/priority-limits/" + priorityLimit.EntityData.SegmentPath
+    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    priorityLimit.EntityData.Children = types.NewOrderedMap()
+    priorityLimit.EntityData.Children.Append("frr-type", types.YChild{"FrrType", nil})
+    for i := range priorityLimit.FrrType {
+        priorityLimit.EntityData.Children.Append(types.GetSegmentPath(priorityLimit.FrrType[i]), types.YChild{"FrrType", priorityLimit.FrrType[i]})
+    }
+    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
+    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
+
+    priorityLimit.EntityData.YListKeys = []string {"Level"}
+
+    return &(priorityLimit.EntityData)
+}
+
+// Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType
+// keys: frr-type
+type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
     // This attribute is a key. Computation Type. The type is Isisfrr.
     FrrType interface{}
 
@@ -5053,26 +4700,25 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_Priorit
     Priority interface{}
 }
 
-func (priorityLimit *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit) GetEntityData() *types.CommonEntityData {
-    priorityLimit.EntityData.YFilter = priorityLimit.YFilter
-    priorityLimit.EntityData.YangName = "priority-limit"
-    priorityLimit.EntityData.BundleName = "cisco_ios_xr"
-    priorityLimit.EntityData.ParentYangName = "priority-limits"
-    priorityLimit.EntityData.SegmentPath = "priority-limit" + types.AddKeyToken(priorityLimit.Level, "level") + types.AddKeyToken(priorityLimit.FrrType, "frr-type")
-    priorityLimit.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/priority-limits/" + priorityLimit.EntityData.SegmentPath
-    priorityLimit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    priorityLimit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    priorityLimit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (frrType *Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_PriorityLimits_PriorityLimit_FrrType) GetEntityData() *types.CommonEntityData {
+    frrType.EntityData.YFilter = frrType.YFilter
+    frrType.EntityData.YangName = "frr-type"
+    frrType.EntityData.BundleName = "cisco_ios_xr"
+    frrType.EntityData.ParentYangName = "priority-limit"
+    frrType.EntityData.SegmentPath = "frr-type" + types.AddKeyToken(frrType.FrrType, "frr-type")
+    frrType.EntityData.AbsolutePath = "Cisco-IOS-XR-clns-isis-cfg:isis/instances/instance/afs/af/topology-name/frr-table/priority-limits/priority-limit/" + frrType.EntityData.SegmentPath
+    frrType.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    frrType.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    frrType.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    priorityLimit.EntityData.Children = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs = types.NewOrderedMap()
-    priorityLimit.EntityData.Leafs.Append("level", types.YLeaf{"Level", priorityLimit.Level})
-    priorityLimit.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", priorityLimit.FrrType})
-    priorityLimit.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", priorityLimit.Priority})
+    frrType.EntityData.Children = types.NewOrderedMap()
+    frrType.EntityData.Leafs = types.NewOrderedMap()
+    frrType.EntityData.Leafs.Append("frr-type", types.YLeaf{"FrrType", frrType.FrrType})
+    frrType.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", frrType.Priority})
 
-    priorityLimit.EntityData.YListKeys = []string {"Level", "FrrType"}
+    frrType.EntityData.YListKeys = []string {"FrrType"}
 
-    return &(priorityLimit.EntityData)
+    return &(frrType.EntityData)
 }
 
 // Isis_Instances_Instance_Afs_Af_TopologyName_FrrTable_FrrRemoteLfaPrefixes
@@ -5309,7 +4955,7 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_RouterId struct {
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5458,9 +5104,9 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_SummaryPrefixes_SummaryPrefix s
 
     // This attribute is a key. IP summary address prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 
     // The tag value. The type is interface{} with range: 1..4294967295.
@@ -5648,7 +5294,7 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_Ucmp_ExcludeInterfaces_ExcludeI
     YListKey string
 
     // This attribute is a key. Name of the interface to be excluded. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6577,9 +6223,9 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_AdminDistances_AdminDistance st
 
     // This attribute is a key. IP route source prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     AddressPrefix interface{}
 
     // Administrative distance. The type is interface{} with range: 1..255. This
@@ -6800,12 +6446,12 @@ type Isis_Instances_Instance_Afs_Af_TopologyName_Mpls_RouterId struct {
 
     // IPv4 address to be used as a router ID. Precisely one of Address and
     // Interface must be specified. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interface with designated stable IP address to be used as a router ID. This
     // must be a Loopback interface. Precisely one of Address and Interface must
-    // be specified. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // be specified. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7275,14 +6921,12 @@ type Isis_Instances_Instance_FlexAlgos_FlexAlgo struct {
     // removed. The type is interface{}.
     Running interface{}
 
-    // Set the Flex-Algo metric-type. The type is interface{} with range: 1..1.
+    // Set the Flex-Algo metric-type. The type is interface{} with range:
+    // 0..4294967295.
     MetricType interface{}
 
     // Set the Flex-Algo priority. The type is interface{} with range: 0..255.
     Priority interface{}
-
-    // If TRUE, FRR protectinn is disabled for the Flex-Algo. The type is bool.
-    FrrDisable interface{}
 
     // If TRUE, Flex-Algo definition is advertised. The type is bool.
     AdvertiseDefinition interface{}
@@ -7309,7 +6953,6 @@ func (flexAlgo *Isis_Instances_Instance_FlexAlgos_FlexAlgo) GetEntityData() *typ
     flexAlgo.EntityData.Leafs.Append("running", types.YLeaf{"Running", flexAlgo.Running})
     flexAlgo.EntityData.Leafs.Append("metric-type", types.YLeaf{"MetricType", flexAlgo.MetricType})
     flexAlgo.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", flexAlgo.Priority})
-    flexAlgo.EntityData.Leafs.Append("frr-disable", types.YLeaf{"FrrDisable", flexAlgo.FrrDisable})
     flexAlgo.EntityData.Leafs.Append("advertise-definition", types.YLeaf{"AdvertiseDefinition", flexAlgo.AdvertiseDefinition})
 
     flexAlgo.EntityData.YListKeys = []string {"FlexAlgo"}
@@ -7466,8 +7109,8 @@ type Isis_Instances_Instance_LspAcceptPasswords_LspAcceptPassword struct {
     // IsisInternalLevel.
     Level interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -7536,7 +7179,7 @@ type Isis_Instances_Instance_LspMtus_LspMtu struct {
     // IsisInternalLevel.
     Level interface{}
 
-    // Bytes. The type is interface{} with range: 128..8979. This attribute is
+    // Bytes. The type is interface{} with range: 128..4352. This attribute is
     // mandatory. Units are byte.
     Mtu interface{}
 }
@@ -7714,12 +7357,12 @@ type Isis_Instances_Instance_SrlgTable_SrlgNames_SrlgName_FromTos_FromTo struct 
 
     // This attribute is a key. Local IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIpv4Address interface{}
 
     // This attribute is a key. Remote IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteIpv4Address interface{}
 }
 
@@ -8006,7 +7649,7 @@ type Isis_Instances_Instance_LspPasswords_LspPassword struct {
     AuthenticationType interface{}
 
     // Password or unencrypted Key Chain name. The type is string with pattern:
-    // b'(!.+)|([^!].+)'. This attribute is mandatory.
+    // (!.+)|([^!].+). This attribute is mandatory.
     Password interface{}
 
     // Enable POI. The type is IsisEnablePoi.
@@ -8080,7 +7723,7 @@ type Isis_Instances_Instance_Nets_Net struct {
     YListKey string
 
     // This attribute is a key. Network Entity Title. The type is string with
-    // pattern: b'[a-fA-F0-9]{2}(\\.[a-fA-F0-9]{4}){3,9}\\.[a-fA-F0-9]{2}'.
+    // pattern: [a-fA-F0-9]{2}(\.[a-fA-F0-9]{4}){3,9}\.[a-fA-F0-9]{2}.
     NetName interface{}
 }
 
@@ -8312,7 +7955,7 @@ type Isis_Instances_Instance_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This object must be set before any other configuration is supplied for an
@@ -8799,8 +8442,8 @@ type Isis_Instances_Instance_Interfaces_Interface_HelloAcceptPasswords_HelloAcce
     // IsisInternalLevel.
     Level interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -8882,7 +8525,7 @@ type Isis_Instances_Instance_Interfaces_Interface_HelloPasswords_HelloPassword s
     FailureMode interface{}
 
     // Password or unencrypted Key Chain name. The type is string with pattern:
-    // b'(!.+)|([^!].+)'. This attribute is mandatory.
+    // (!.+)|([^!].+). This attribute is mandatory.
     Password interface{}
 }
 
@@ -9599,7 +9242,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Inter
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
@@ -10023,7 +9666,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Inter
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
@@ -11004,7 +10647,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Topol
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.
@@ -11428,7 +11071,7 @@ type Isis_Instances_Instance_Interfaces_Interface_InterfaceAfs_InterfaceAf_Topol
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // This attribute is a key. Computation Type. The type is Isisfrr.

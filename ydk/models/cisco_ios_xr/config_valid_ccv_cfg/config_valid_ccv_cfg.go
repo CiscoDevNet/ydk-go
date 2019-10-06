@@ -25,20 +25,20 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-config-valid-ccv-cfg:configurationvalidation", reflect.TypeOf(Configurationvalidation{}))
 }
 
-// FailureAction represents Failure action
-type FailureAction string
-
-const (
-    // Report this failure type
-    FailureAction_report FailureAction = "report"
-)
-
 // Failure represents Failure
 type Failure string
 
 const (
     // Unsupported failure type
     Failure_unsupported Failure = "unsupported"
+)
+
+// FailureAction represents Failure action
+type FailureAction string
+
+const (
+    // Report this failure type
+    FailureAction_report FailureAction = "report"
 )
 
 // Configurationvalidation

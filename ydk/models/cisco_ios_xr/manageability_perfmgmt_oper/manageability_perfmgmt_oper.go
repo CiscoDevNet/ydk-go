@@ -182,7 +182,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance struc
     YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v2 instance.
@@ -430,7 +430,7 @@ type PerfMgmt_Periodic_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance struc
     YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v3 instance.
@@ -702,7 +702,7 @@ type PerfMgmt_Periodic_Mpls_LdpNeighbors_LdpNeighbor struct {
     YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Nbr interface{}
 
     // Samples for a particular LDP neighbor.
@@ -920,7 +920,7 @@ type PerfMgmt_Periodic_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Node CPU data.
@@ -1346,7 +1346,7 @@ type PerfMgmt_Periodic_Bgp_BgpNeighbors_BgpNeighbor struct {
 
     // This attribute is a key. BGP Neighbor Identifier. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Sample Table for a BGP neighbor.
@@ -1565,7 +1565,7 @@ type PerfMgmt_Periodic_Interface_GenericCounterInterfaces_GenericCounterInterfac
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Generic Counter samples for an interface.
@@ -1802,7 +1802,7 @@ type PerfMgmt_Periodic_Interface_BasicCounterInterfaces_BasicCounterInterface st
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Basic Counter samples for an interface.
@@ -1992,7 +1992,7 @@ type PerfMgmt_Periodic_Interface_DataRateInterfaces_DataRateInterface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Data Rate samples for an interface.
@@ -2256,7 +2256,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv2ProtocolInstances_Ospfv2ProtocolInstance struct
     YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v2 instance.
@@ -2504,7 +2504,7 @@ type PerfMgmt_Monitor_Ospf_Ospfv3ProtocolInstances_Ospfv3ProtocolInstance struct
     YListKey string
 
     // This attribute is a key. OSPF Instance Name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Sample Table for an OSPV v3 instance.
@@ -2776,7 +2776,7 @@ type PerfMgmt_Monitor_Mpls_LdpNeighbors_LdpNeighbor struct {
     YListKey string
 
     // This attribute is a key. Neighbor Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Nbr interface{}
 
     // Samples for a particular LDP neighbor.
@@ -2994,7 +2994,7 @@ type PerfMgmt_Monitor_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Node CPU data.
@@ -3420,7 +3420,7 @@ type PerfMgmt_Monitor_Bgp_BgpNeighbors_BgpNeighbor struct {
 
     // This attribute is a key. BGP Neighbor Identifier. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Sample Table for a BGP neighbor.
@@ -3639,7 +3639,7 @@ type PerfMgmt_Monitor_Interface_GenericCounterInterfaces_GenericCounterInterface
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Generic Counter samples for an interface.
@@ -3876,7 +3876,7 @@ type PerfMgmt_Monitor_Interface_BasicCounterInterfaces_BasicCounterInterface str
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Basic Counter samples for an interface.
@@ -4066,7 +4066,7 @@ type PerfMgmt_Monitor_Interface_DataRateInterfaces_DataRateInterface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Data Rate samples for an interface.

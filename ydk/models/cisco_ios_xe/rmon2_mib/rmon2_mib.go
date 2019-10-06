@@ -419,7 +419,7 @@ type RMON2MIB_ProbeConfig struct {
     // The IP address of the TFTP server that contains the boot image to load when
     // a download is next requested via this MIB. This value is set to `0.0.0.0'
     // when no IP address has been specified. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ProbeDownloadTFTPServer interface{}
 
     // When this object is set to downloadToRAM(2) or downloadToPROM(3), the
@@ -442,7 +442,7 @@ type RMON2MIB_ProbeConfig struct {
 
     // The IP Address of the default gateway.  If this value is undefined or
     // unknown, it shall have the value 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetDefaultGateway interface{}
 }
 
@@ -892,7 +892,7 @@ type RMON2MIB_ProtocolDistControlTable_ProtocolDistControlEntry struct {
     // identified interface.  This object may not be modified if the associated
     // protocolDistControlStatus object is equal to active(1). The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     ProtocolDistControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
@@ -1129,8 +1129,7 @@ type RMON2MIB_AddressMapControlTable_AddressMapControlEntry struct {
     AddressMapControlIndex interface{}
 
     // The source of data for this addressMapControlEntry. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     AddressMapControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
@@ -1273,7 +1272,7 @@ type RMON2MIB_AddressMapTable_AddressMapEntry struct {
     // to an interface which is a locally attached repeater and the agent has
     // additional information about the source port of traffic seen on that
     // repeater. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     AddressMapSource interface{}
 
     // The last source physical address on which the associated network address
@@ -1390,8 +1389,7 @@ type RMON2MIB_HlHostControlTable_HlHostControlEntry struct {
     // group reflect all packets on the local network segment attached to the
     // identified interface.  This object may not be modified if the associated
     // hlHostControlStatus object is equal to active(1). The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     HlHostControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
@@ -1771,8 +1769,7 @@ type RMON2MIB_HlMatrixControlTable_HlMatrixControlEntry struct {
     // this group reflect all packets on the local network segment attached to the
     // identified interface.  This object may not be modified if the associated
     // hlMatrixControlStatus object is equal to active(1). The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     HlMatrixControlDataSource interface{}
 
     // The total number of frames which were received by the probe and therefore
@@ -3671,7 +3668,7 @@ type RMON2MIB_UsrHistoryObjectTable_UsrHistoryObjectEntry struct {
     // returned.  This object may not be modified if the associated
     // usrHistoryControlStatus object is equal to active(1). The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     UsrHistoryObjectVariable interface{}
 
     // The method of sampling the selected variable for storage in the
@@ -4107,7 +4104,7 @@ type RMON2MIB_NetConfigTable_NetConfigEntry struct {
     // attached to the device). If BOOTP is      used, care should be taken to not
     // send BOOTP broadcasts too frequently and to eventually send very
     // infrequently if no replies are received. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetConfigIPAddress interface{}
 
     // The subnet mask of this Net interface.  The default value for this object
@@ -4118,7 +4115,7 @@ type RMON2MIB_NetConfigTable_NetConfigEntry struct {
     // attached to the device). If BOOTP is used, care should be taken to not send
     // BOOTP broadcasts too frequently and to eventually send very infrequently if
     // no replies are received. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetConfigSubnetMask interface{}
 
     // The status of this netConfigEntry.  An entry may not exist in the active
@@ -4317,7 +4314,7 @@ type RMON2MIB_SerialConnectionTable_SerialConnectionEntry struct {
     // connection. This object may not be modified if the associated
     // serialConnectStatus object is equal to active(1). The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SerialConnectDestIpAddress interface{}
 
     // The type of outgoing connection to make.  If this object has the value

@@ -270,7 +270,7 @@ type TerminalDevice_LogicalChannels_Channel_Config struct {
 
     // Rounded bit rate of the tributary signal. Exact bit rate will be refined by
     // protocol selection. The type is one of the following:
-    // TRIBRATE1GTRIBRATE2DOT5GTRIBRATE10GTRIBRATE40GTRIBRATE100G.
+    // TRIBRATE10GTRIBRATE40GTRIBRATE100GTRIBRATE1GTRIBRATE2DOT5G.
     RateClass interface{}
 
     // Protocol framing of the tributary signal. If this LogicalChannel is
@@ -287,7 +287,7 @@ type TerminalDevice_LogicalChannels_Channel_Config struct {
     // class: 40G protocols:  40GE, OC768, STM256, OTU3, ODU3  rate class: 100G
     // protocols:  100GE, 100G MLG, OTU4, OTUCn, ODU4. The type is one of the
     // following:
-    // PROT1GEPROTOC48PROTSTM16PROT10GELANPROT10GEWANPROTOC192PROTSTM64PROTOTU2PROTOTU2EPROTOTU1EPROTODU2PROTODU2EPROT40GEPROTOC768PROTSTM256PROTOTU3PROTODU3PROT100GEPROT100GMLGPROTOTU4PROTOTUCNPROTODU4.
+    // PROTOTU2EPROTODU2EPROTOC768PROT10GEWANPROTSTM16PROTOTUCNPROT1GEPROT100GEPROTOTU3PROTOTU2PROTOTU4PROTSTM256PROT10GELANPROTOC48PROTOC192PROT40GEPROT100GMLGPROTODU3PROTODU2PROTODU4PROTSTM64PROTOTU1E.
     TribProtocol interface{}
 
     // The type / stage of the logical element determines the configuration and
@@ -345,7 +345,7 @@ type TerminalDevice_LogicalChannels_Channel_State struct {
 
     // Rounded bit rate of the tributary signal. Exact bit rate will be refined by
     // protocol selection. The type is one of the following:
-    // TRIBRATE1GTRIBRATE2DOT5GTRIBRATE10GTRIBRATE40GTRIBRATE100G.
+    // TRIBRATE10GTRIBRATE40GTRIBRATE100GTRIBRATE1GTRIBRATE2DOT5G.
     RateClass interface{}
 
     // Protocol framing of the tributary signal. If this LogicalChannel is
@@ -362,7 +362,7 @@ type TerminalDevice_LogicalChannels_Channel_State struct {
     // class: 40G protocols:  40GE, OC768, STM256, OTU3, ODU3  rate class: 100G
     // protocols:  100GE, 100G MLG, OTU4, OTUCn, ODU4. The type is one of the
     // following:
-    // PROT1GEPROTOC48PROTSTM16PROT10GELANPROT10GEWANPROTOC192PROTSTM64PROTOTU2PROTOTU2EPROTOTU1EPROTODU2PROTODU2EPROT40GEPROTOC768PROTSTM256PROTOTU3PROTODU3PROT100GEPROT100GMLGPROTOTU4PROTOTUCNPROTODU4.
+    // PROTOTU2EPROTODU2EPROTOC768PROT10GEWANPROTSTM16PROTOTUCNPROT1GEPROT100GEPROTOTU3PROTOTU2PROTOTU4PROTSTM256PROT10GELANPROTOC48PROTOC192PROT40GEPROT100GMLGPROTODU3PROTODU2PROTODU4PROTSTM64PROTOTU1E.
     TribProtocol interface{}
 
     // The type / stage of the logical element determines the configuration and

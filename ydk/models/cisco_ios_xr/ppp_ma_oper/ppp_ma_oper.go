@@ -24,6 +24,58 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ppp-ma-oper:ppp", reflect.TypeOf(Ppp{}))
 }
 
+// NcpIdent represents Ncp ident
+type NcpIdent string
+
+const (
+    // CDP control protocol
+    NcpIdent_cdpcp NcpIdent = "cdpcp"
+
+    // IPv4 control protocol
+    NcpIdent_ipcp NcpIdent = "ipcp"
+
+    // IPv4 Interworking control protocol
+    NcpIdent_ipcpiw NcpIdent = "ipcpiw"
+
+    // IPv6 control protocol
+    NcpIdent_ipv6cp NcpIdent = "ipv6cp"
+
+    // MPLS control protocol
+    NcpIdent_mplscp NcpIdent = "mplscp"
+
+    // OSI (CLNS) control protocol
+    NcpIdent_osicp NcpIdent = "osicp"
+)
+
+// PppSsoFsmState represents Ppp sso fsm state
+type PppSsoFsmState string
+
+const (
+    // Not ready
+    PppSsoFsmState_ppp_sso_state_not_ready_0 PppSsoFsmState = "ppp-sso-state-not-ready-0"
+
+    // S UnNegd
+    PppSsoFsmState_ppp_sso_state_standby_unnegd_1 PppSsoFsmState = "ppp-sso-state-standby-unnegd-1"
+
+    // A Down
+    PppSsoFsmState_ppp_sso_state_active_down_2 PppSsoFsmState = "ppp-sso-state-active-down-2"
+
+    // Deactivating
+    PppSsoFsmState_ppp_sso_state_deactivating_3 PppSsoFsmState = "ppp-sso-state-deactivating-3"
+
+    // A UnNegd
+    PppSsoFsmState_ppp_sso_state_active_unnegd_4 PppSsoFsmState = "ppp-sso-state-active-unnegd-4"
+
+    // S Negd
+    PppSsoFsmState_ppp_sso_state_standby_negd_5 PppSsoFsmState = "ppp-sso-state-standby-negd-5"
+
+    // Activating
+    PppSsoFsmState_ppp_sso_state_activating_6 PppSsoFsmState = "ppp-sso-state-activating-6"
+
+    // A Negd
+    PppSsoFsmState_ppp_sso_state_active_negd_7 PppSsoFsmState = "ppp-sso-state-active-negd-7"
+)
+
 // PppIphcCompression represents IPHC compression type
 type PppIphcCompression string
 
@@ -42,6 +94,41 @@ const (
 
     // CISCO
     PppIphcCompression_ppp_iphc_compression_fmt_cisco PppIphcCompression = "ppp-iphc-compression-fmt-cisco"
+)
+
+// PppFsmState represents Ppp fsm state
+type PppFsmState string
+
+const (
+    // Connection Idle
+    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
+
+    // This layer required, but lower layer down
+    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
+
+    // Lower layer up, but this layer not required
+    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
+
+    // Listening for a Config Request
+    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
+
+    // Shutting down due to local change
+    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
+
+    // Shutting down due to peer's actions
+    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
+
+    // Config Request Sent
+    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
+
+    // Config Ack Received
+    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
+
+    // Config Ack Sent
+    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
+
+    // Connection Open
+    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
 )
 
 // PppLcpMpMbrState represents MP member states
@@ -89,93 +176,6 @@ const (
 
     // Active member
     PppLcpMpMbrState_ppp_lcp_mp_mbr_state_active PppLcpMpMbrState = "ppp-lcp-mp-mbr-state-active"
-)
-
-// PppSsoFsmState represents Ppp sso fsm state
-type PppSsoFsmState string
-
-const (
-    // Not ready
-    PppSsoFsmState_ppp_sso_state_not_ready_0 PppSsoFsmState = "ppp-sso-state-not-ready-0"
-
-    // S UnNegd
-    PppSsoFsmState_ppp_sso_state_standby_unnegd_1 PppSsoFsmState = "ppp-sso-state-standby-unnegd-1"
-
-    // A Down
-    PppSsoFsmState_ppp_sso_state_active_down_2 PppSsoFsmState = "ppp-sso-state-active-down-2"
-
-    // Deactivating
-    PppSsoFsmState_ppp_sso_state_deactivating_3 PppSsoFsmState = "ppp-sso-state-deactivating-3"
-
-    // A UnNegd
-    PppSsoFsmState_ppp_sso_state_active_unnegd_4 PppSsoFsmState = "ppp-sso-state-active-unnegd-4"
-
-    // S Negd
-    PppSsoFsmState_ppp_sso_state_standby_negd_5 PppSsoFsmState = "ppp-sso-state-standby-negd-5"
-
-    // Activating
-    PppSsoFsmState_ppp_sso_state_activating_6 PppSsoFsmState = "ppp-sso-state-activating-6"
-
-    // A Negd
-    PppSsoFsmState_ppp_sso_state_active_negd_7 PppSsoFsmState = "ppp-sso-state-active-negd-7"
-)
-
-// PppFsmState represents Ppp fsm state
-type PppFsmState string
-
-const (
-    // Connection Idle
-    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
-
-    // This layer required, but lower layer down
-    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
-
-    // Lower layer up, but this layer not required
-    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
-
-    // Listening for a Config Request
-    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
-
-    // Shutting down due to local change
-    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
-
-    // Shutting down due to peer's actions
-    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
-
-    // Config Request Sent
-    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
-
-    // Config Ack Received
-    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
-
-    // Config Ack Sent
-    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
-
-    // Connection Open
-    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
-)
-
-// NcpIdent represents Ncp ident
-type NcpIdent string
-
-const (
-    // CDP control protocol
-    NcpIdent_cdpcp NcpIdent = "cdpcp"
-
-    // IPv4 control protocol
-    NcpIdent_ipcp NcpIdent = "ipcp"
-
-    // IPv4 Interworking control protocol
-    NcpIdent_ipcpiw NcpIdent = "ipcpiw"
-
-    // IPv6 control protocol
-    NcpIdent_ipv6cp NcpIdent = "ipv6cp"
-
-    // MPLS control protocol
-    NcpIdent_mplscp NcpIdent = "mplscp"
-
-    // OSI (CLNS) control protocol
-    NcpIdent_osicp NcpIdent = "osicp"
 )
 
 // Ppp
@@ -250,7 +250,7 @@ type Ppp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // PPP statistics data for a particular node.
@@ -736,7 +736,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface struct {
     YListKey string
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Parent state. The type is interface{} with range: 0..4294967295.
@@ -899,7 +899,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo struct {
     // Is an MP bundle. The type is bool.
     IsMpBundle interface{}
 
-    // MP Bundle Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // MP Bundle Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     MpBundleInterface interface{}
 
     // MP Bundle Member. The type is bool.
@@ -965,7 +965,7 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_MpInfo_MpMemberInfoArray struct
     YFilter yfilter.YFilter
     YListKey string
 
-    // Member Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Member Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Member State. The type is PppLcpMpMbrState.
@@ -1182,31 +1182,31 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpInfo s
     YFilter yfilter.YFilter
 
     // Local IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Peer IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Peer IPv4 netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerNetmask interface{}
 
     // Peer DNS Primary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DnsPrimary interface{}
 
     // Peer DNS Secondary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DnsSecondary interface{}
 
     // Peer WINS Primary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     WinsPrimary interface{}
 
     // Peer WINS Secondary. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     WinsSecondary interface{}
 
     // Is IPHC Configured. The type is bool.
@@ -1371,11 +1371,11 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_IpcpiwInfo
     YFilter yfilter.YFilter
 
     // Local IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Peer IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 }
 
@@ -1407,11 +1407,11 @@ type Ppp_Nodes_Node_NodeInterfaces_NodeInterface_NcpInfoArray_NcpInfo_Ipv6cpInfo
     YFilter yfilter.YFilter
 
     // Local IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Peer IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 }
 
@@ -1478,7 +1478,7 @@ type Ppp_Nodes_Node_SsoAlerts_SsoAlert struct {
     YListKey string
 
     // This attribute is a key. Interface with SSO Alert. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // LCP SSO Error.
@@ -1713,7 +1713,7 @@ type Ppp_Nodes_Node_NodeInterfaceStatistics_NodeInterfaceStatistic struct {
     YListKey string
 
     // This attribute is a key. Interface running PPP. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // PPP LCP Statistics.
@@ -2304,7 +2304,7 @@ type Ppp_Nodes_Node_SsoGroups_SsoGroup_SsoStates_SsoState struct {
     // SSRP Session ID. The type is interface{} with range: 0..4294967295.
     SessionIdXr interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // LCP SSO State.

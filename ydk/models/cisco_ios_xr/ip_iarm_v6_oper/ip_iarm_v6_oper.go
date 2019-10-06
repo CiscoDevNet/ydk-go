@@ -32,8 +32,8 @@ type Ipv6arm struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Interface Handle of Default Multicast Host. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // Default multicast host interface. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
     MulticastHostInterface interface{}
 
     // IPv6 ARM address database information.
@@ -140,7 +140,7 @@ type Ipv6arm_Addresses_Vrfs_Vrf struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. VRF name. The type is string with length: 1..32.
+    // This attribute is a key. VRF name. The type is string.
     VrfName interface{}
 
     // IPv6 ARM address database information by network.
@@ -215,20 +215,17 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Ipv6 Address in the Network. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // Address. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // IPv6 Arm prefix length for this address in the Network. The type is
-    // interface{} with range: 0..128.
+    // Prefix Length. The type is interface{} with range: 0..128.
     PrefixLength interface{}
 
-    // Ingress/Egress interface handle for this address in the Network. The type
-    // is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Ingress/Egress Interface name for this address in the Network. The type is
-    // string.
+    // Interface name. The type is string.
     InterfaceName interface{}
 
     // Referenced Interface - only valid for an unnumbered interface. The type is
@@ -274,8 +271,7 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network_AddressXr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Prefix length of theIPv4/IPv6 Address. The type is interface{} with range:
-    // 0..4294967295.
+    // Prefix length. The type is interface{} with range: 0..4294967295.
     PrefixLength interface{}
 
     // Route Tag of the address. The type is interface{} with range:
@@ -295,7 +291,7 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network_AddressXr struct {
     // Producer Name. The type is string.
     Producer interface{}
 
-    // IPv4/IPv6 address.
+    // Address.
     Address Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network_AddressXr_Address
 }
 
@@ -326,7 +322,7 @@ func (addressXr *Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network_AddressXr) GetEntit
 }
 
 // Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network_AddressXr_Address
-// IPv4/IPv6 address
+// Address
 type Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network_AddressXr_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -335,11 +331,11 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Networks_Network_AddressXr_Address struct {
     Afi interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -408,7 +404,7 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Referenced Interface - only valid for an unnumbered interface. The type is
@@ -457,8 +453,7 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface_Address struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Prefix length of theIPv4/IPv6 Address. The type is interface{} with range:
-    // 0..4294967295.
+    // Prefix length. The type is interface{} with range: 0..4294967295.
     PrefixLength interface{}
 
     // Route Tag of the address. The type is interface{} with range:
@@ -478,7 +473,7 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface_Address struct {
     // Producer Name. The type is string.
     Producer interface{}
 
-    // IPv4/IPv6 address.
+    // Address.
     Address Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface_Address_Address
 }
 
@@ -509,7 +504,7 @@ func (address *Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface_Address) GetEntit
 }
 
 // Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface_Address_Address
-// IPv4/IPv6 address
+// Address
 type Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface_Address_Address struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -518,11 +513,11 @@ type Ipv6arm_Addresses_Vrfs_Vrf_Interfaces_Interface_Address_Address struct {
     Afi interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -640,7 +635,7 @@ type Ipv6arm_VrfSummaries_VrfSummary struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. VRF name. The type is string with length: 1..32.
+    // This attribute is a key. VRF name. The type is string.
     VrfName interface{}
 
     // VRF ID. The type is interface{} with range: 0..4294967295.

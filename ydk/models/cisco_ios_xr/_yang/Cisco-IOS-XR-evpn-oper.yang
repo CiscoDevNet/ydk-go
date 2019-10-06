@@ -12,7 +12,7 @@ module Cisco-IOS-XR-evpn-oper {
     prefix xr;
   }
   include Cisco-IOS-XR-evpn-oper-sub1 {
-    revision-date 2018-09-26;
+    revision-date 2017-09-07;
   }
 
   organization
@@ -38,10 +38,6 @@ module Cisco-IOS-XR-evpn-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-09-26 {
-    description
-      "Duplicate detection parameters config moved from l2vpn to l2rib.";
-  }
   revision 2017-09-07 {
     description
       "Fixed type translation error.";
@@ -406,21 +402,31 @@ module Cisco-IOS-XR-evpn-oper {
         "EVPN IGMP table";
       list igmp {
         description
-          "IGMP Route";
-        leaf source-type {
-          type uint32;
-          description
-            "Local=0,Remote=1";
-        }
+          "EVPN Remote";
         leaf is-leave {
           type uint32;
           description
             "Join=0, Leave=1";
         }
-        leaf evi {
+        leaf bpxcid {
           type uint32;
           description
-            "EVI";
+            "BP xcid";
+        }
+        leaf evibd {
+          type uint32;
+          description
+            "EVI/BD";
+        }
+        leaf src-ip {
+          type inet:ip-address-no-zone;
+          description
+            "Source IP Address";
+        }
+        leaf grp-ip {
+          type inet:ip-address-no-zone;
+          description
+            "Group IP Address";
         }
         leaf esi1 {
           type xr:Hex-integer;
@@ -446,31 +452,6 @@ module Cisco-IOS-XR-evpn-oper {
           type xr:Hex-integer;
           description
             "ES id (part 5/5)";
-        }
-        leaf ethernet-tag {
-          type uint32;
-          description
-            "Ethernet Tag ID";
-        }
-        leaf src-ip {
-          type inet:ip-address-no-zone;
-          description
-            "Source IP Address";
-        }
-        leaf grp-ip {
-          type inet:ip-address-no-zone;
-          description
-            "Group IP Address";
-        }
-        leaf bd-id {
-          type uint32;
-          description
-            "BD ID";
-        }
-        leaf bp-xcid {
-          type uint32;
-          description
-            "BP XCID";
         }
         uses L2VPN-EVPN-IGMP;
       }
@@ -530,11 +511,6 @@ module Cisco-IOS-XR-evpn-oper {
       list remote-shg {
         description
           "EVPN Remote SHG";
-        leaf evi {
-          type uint32;
-          description
-            "EVPN id";
-        }
         leaf esi1 {
           type xr:Hex-integer;
           description

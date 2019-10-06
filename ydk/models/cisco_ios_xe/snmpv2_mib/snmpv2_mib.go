@@ -82,7 +82,7 @@ type SNMPv2MIB_System struct {
     // vendor `Flintstones, Inc.' was assigned the subtree 1.3.6.1.4.1.424242, it
     // could assign the identifier 1.3.6.1.4.1.424242.1.1 to its `Fred Router'.
     // The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     SysObjectID interface{}
 
     // The time (in hundredths of a second) since the network management portion
@@ -482,7 +482,7 @@ type SNMPv2MIB_SysORTable_SysOREntry struct {
     // An authoritative identification of a capabilities statement with respect to
     // various MIB modules supported by the local SNMP application acting as a
     // command responder. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     SysORID interface{}
 
     // A textual description of the capabilities identified by the corresponding

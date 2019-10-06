@@ -57,14 +57,14 @@ type Aaa struct {
     // Specific Usergroup Information.
     CurrentUsergroup Aaa_CurrentUsergroup
 
-    // Diameter operational data.
-    Diameter Aaa_Diameter
+    // TACACS operational data.
+    Tacacs Aaa_Tacacs
 
     // RADIUS operational data.
     Radius Aaa_Radius
 
-    // TACACS operational data.
-    Tacacs Aaa_Tacacs
+    // Diameter operational data.
+    Diameter Aaa_Diameter
 }
 
 func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
@@ -88,9 +88,9 @@ func (aaa *Aaa) GetEntityData() *types.CommonEntityData {
     aaa.EntityData.Children.Append("usergroups", types.YChild{"Usergroups", &aaa.Usergroups})
     aaa.EntityData.Children.Append("authen-method", types.YChild{"AuthenMethod", &aaa.AuthenMethod})
     aaa.EntityData.Children.Append("current-usergroup", types.YChild{"CurrentUsergroup", &aaa.CurrentUsergroup})
-    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-diameter-oper:diameter", types.YChild{"Diameter", &aaa.Diameter})
-    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", types.YChild{"Radius", &aaa.Radius})
     aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-tacacs-oper:tacacs", types.YChild{"Tacacs", &aaa.Tacacs})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-protocol-radius-oper:radius", types.YChild{"Radius", &aaa.Radius})
+    aaa.EntityData.Children.Append("Cisco-IOS-XR-aaa-diameter-oper:diameter", types.YChild{"Diameter", &aaa.Diameter})
     aaa.EntityData.Leafs = types.NewOrderedMap()
 
     aaa.EntityData.YListKeys = []string {}
@@ -137,12 +137,6 @@ type Aaa_CurrentuserDetail struct {
     // Name of the usergroup. The type is string.
     Name interface{}
 
-    // Shell-type of user. The type is string.
-    Shelltype interface{}
-
-    // Directory of user. The type is string.
-    Directory interface{}
-
     // Authentication method. The type is interface{} with range:
     // -2147483648..2147483647.
     Authenmethod interface{}
@@ -168,8 +162,6 @@ func (currentuserDetail *Aaa_CurrentuserDetail) GetEntityData() *types.CommonEnt
     currentuserDetail.EntityData.Children = types.NewOrderedMap()
     currentuserDetail.EntityData.Leafs = types.NewOrderedMap()
     currentuserDetail.EntityData.Leafs.Append("name", types.YLeaf{"Name", currentuserDetail.Name})
-    currentuserDetail.EntityData.Leafs.Append("shelltype", types.YLeaf{"Shelltype", currentuserDetail.Shelltype})
-    currentuserDetail.EntityData.Leafs.Append("directory", types.YLeaf{"Directory", currentuserDetail.Directory})
     currentuserDetail.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", currentuserDetail.Authenmethod})
     currentuserDetail.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", currentuserDetail.Usergroup})
     currentuserDetail.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", currentuserDetail.Taskmap})
@@ -187,12 +179,6 @@ type Aaa_TaskMap struct {
 
     // Name of the usergroup. The type is string.
     Name interface{}
-
-    // Shell-type of user. The type is string.
-    Shelltype interface{}
-
-    // Directory of user. The type is string.
-    Directory interface{}
 
     // Authentication method. The type is interface{} with range:
     // -2147483648..2147483647.
@@ -219,8 +205,6 @@ func (taskMap *Aaa_TaskMap) GetEntityData() *types.CommonEntityData {
     taskMap.EntityData.Children = types.NewOrderedMap()
     taskMap.EntityData.Leafs = types.NewOrderedMap()
     taskMap.EntityData.Leafs.Append("name", types.YLeaf{"Name", taskMap.Name})
-    taskMap.EntityData.Leafs.Append("shelltype", types.YLeaf{"Shelltype", taskMap.Shelltype})
-    taskMap.EntityData.Leafs.Append("directory", types.YLeaf{"Directory", taskMap.Directory})
     taskMap.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", taskMap.Authenmethod})
     taskMap.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", taskMap.Usergroup})
     taskMap.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", taskMap.Taskmap})
@@ -274,6 +258,9 @@ type Aaa_Taskgroups_Taskgroup struct {
     // This attribute is a key. Taskgroup name. The type is string.
     Name interface{}
 
+    // Name of the taskgroup. The type is string.
+    NameXr interface{}
+
     // Task-ids included.
     IncludedTaskIds Aaa_Taskgroups_Taskgroup_IncludedTaskIds
 
@@ -297,6 +284,7 @@ func (taskgroup *Aaa_Taskgroups_Taskgroup) GetEntityData() *types.CommonEntityDa
     taskgroup.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &taskgroup.TaskMap})
     taskgroup.EntityData.Leafs = types.NewOrderedMap()
     taskgroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", taskgroup.Name})
+    taskgroup.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", taskgroup.NameXr})
 
     taskgroup.EntityData.YListKeys = []string {"Name"}
 
@@ -510,6 +498,9 @@ type Aaa_Users_User struct {
     // This attribute is a key. Username. The type is string.
     Name interface{}
 
+    // Username. The type is string.
+    NameXr interface{}
+
     // Is admin plane user ?. The type is bool.
     AdminUser interface{}
 
@@ -538,6 +529,7 @@ func (user *Aaa_Users_User) GetEntityData() *types.CommonEntityData {
     user.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &user.TaskMap})
     user.EntityData.Leafs = types.NewOrderedMap()
     user.EntityData.Leafs.Append("name", types.YLeaf{"Name", user.Name})
+    user.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", user.NameXr})
     user.EntityData.Leafs.Append("admin-user", types.YLeaf{"AdminUser", user.AdminUser})
     user.EntityData.Leafs.Append("first-user", types.YLeaf{"FirstUser", user.FirstUser})
     user.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", user.Usergroup})
@@ -673,6 +665,9 @@ type Aaa_PasswordPolicies_PasswordPolicy struct {
     // This attribute is a key. Password policy name. The type is string.
     Name interface{}
 
+    // Password Policy Name. The type is string.
+    NameXr interface{}
+
     // Min Length. The type is interface{} with range: 0..255.
     MinLen interface{}
 
@@ -734,6 +729,7 @@ func (passwordPolicy *Aaa_PasswordPolicies_PasswordPolicy) GetEntityData() *type
     passwordPolicy.EntityData.Children.Append("lock-out-time", types.YChild{"LockOutTime", &passwordPolicy.LockOutTime})
     passwordPolicy.EntityData.Leafs = types.NewOrderedMap()
     passwordPolicy.EntityData.Leafs.Append("name", types.YLeaf{"Name", passwordPolicy.Name})
+    passwordPolicy.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", passwordPolicy.NameXr})
     passwordPolicy.EntityData.Leafs.Append("min-len", types.YLeaf{"MinLen", passwordPolicy.MinLen})
     passwordPolicy.EntityData.Leafs.Append("max-len", types.YLeaf{"MaxLen", passwordPolicy.MaxLen})
     passwordPolicy.EntityData.Leafs.Append("spl-char", types.YLeaf{"SplChar", passwordPolicy.SplChar})
@@ -896,6 +892,9 @@ type Aaa_Usergroups_Usergroup struct {
     // This attribute is a key. Usergroup name. The type is string.
     Name interface{}
 
+    // Name of the usergroup. The type is string.
+    NameXr interface{}
+
     // Computed task map.
     TaskMap Aaa_Usergroups_Usergroup_TaskMap
 
@@ -924,6 +923,7 @@ func (usergroup *Aaa_Usergroups_Usergroup) GetEntityData() *types.CommonEntityDa
     }
     usergroup.EntityData.Leafs = types.NewOrderedMap()
     usergroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", usergroup.Name})
+    usergroup.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", usergroup.NameXr})
 
     usergroup.EntityData.YListKeys = []string {"Name"}
 
@@ -1019,6 +1019,9 @@ type Aaa_Usergroups_Usergroup_Taskgroup struct {
     YFilter yfilter.YFilter
     YListKey string
 
+    // Name of the taskgroup. The type is string.
+    NameXr interface{}
+
     // Task-ids included.
     IncludedTaskIds Aaa_Usergroups_Usergroup_Taskgroup_IncludedTaskIds
 
@@ -1041,6 +1044,7 @@ func (taskgroup *Aaa_Usergroups_Usergroup_Taskgroup) GetEntityData() *types.Comm
     taskgroup.EntityData.Children.Append("included-task-ids", types.YChild{"IncludedTaskIds", &taskgroup.IncludedTaskIds})
     taskgroup.EntityData.Children.Append("task-map", types.YChild{"TaskMap", &taskgroup.TaskMap})
     taskgroup.EntityData.Leafs = types.NewOrderedMap()
+    taskgroup.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", taskgroup.NameXr})
 
     taskgroup.EntityData.YListKeys = []string {}
 
@@ -1220,12 +1224,6 @@ type Aaa_AuthenMethod struct {
     // Name of the usergroup. The type is string.
     Name interface{}
 
-    // Shell-type of user. The type is string.
-    Shelltype interface{}
-
-    // Directory of user. The type is string.
-    Directory interface{}
-
     // Authentication method. The type is interface{} with range:
     // -2147483648..2147483647.
     Authenmethod interface{}
@@ -1251,8 +1249,6 @@ func (authenMethod *Aaa_AuthenMethod) GetEntityData() *types.CommonEntityData {
     authenMethod.EntityData.Children = types.NewOrderedMap()
     authenMethod.EntityData.Leafs = types.NewOrderedMap()
     authenMethod.EntityData.Leafs.Append("name", types.YLeaf{"Name", authenMethod.Name})
-    authenMethod.EntityData.Leafs.Append("shelltype", types.YLeaf{"Shelltype", authenMethod.Shelltype})
-    authenMethod.EntityData.Leafs.Append("directory", types.YLeaf{"Directory", authenMethod.Directory})
     authenMethod.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", authenMethod.Authenmethod})
     authenMethod.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", authenMethod.Usergroup})
     authenMethod.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", authenMethod.Taskmap})
@@ -1270,12 +1266,6 @@ type Aaa_CurrentUsergroup struct {
 
     // Name of the usergroup. The type is string.
     Name interface{}
-
-    // Shell-type of user. The type is string.
-    Shelltype interface{}
-
-    // Directory of user. The type is string.
-    Directory interface{}
 
     // Authentication method. The type is interface{} with range:
     // -2147483648..2147483647.
@@ -1302,8 +1292,6 @@ func (currentUsergroup *Aaa_CurrentUsergroup) GetEntityData() *types.CommonEntit
     currentUsergroup.EntityData.Children = types.NewOrderedMap()
     currentUsergroup.EntityData.Leafs = types.NewOrderedMap()
     currentUsergroup.EntityData.Leafs.Append("name", types.YLeaf{"Name", currentUsergroup.Name})
-    currentUsergroup.EntityData.Leafs.Append("shelltype", types.YLeaf{"Shelltype", currentUsergroup.Shelltype})
-    currentUsergroup.EntityData.Leafs.Append("directory", types.YLeaf{"Directory", currentUsergroup.Directory})
     currentUsergroup.EntityData.Leafs.Append("authenmethod", types.YLeaf{"Authenmethod", currentUsergroup.Authenmethod})
     currentUsergroup.EntityData.Leafs.Append("usergroup", types.YLeaf{"Usergroup", currentUsergroup.Usergroup})
     currentUsergroup.EntityData.Leafs.Append("taskmap", types.YLeaf{"Taskmap", currentUsergroup.Taskmap})
@@ -1311,6 +1299,1166 @@ func (currentUsergroup *Aaa_CurrentUsergroup) GetEntityData() *types.CommonEntit
     currentUsergroup.EntityData.YListKeys = []string {}
 
     return &(currentUsergroup.EntityData)
+}
+
+// Aaa_Tacacs
+// TACACS operational data
+type Aaa_Tacacs struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // TACACS Active Request List.
+    Requests Aaa_Tacacs_Requests
+
+    // TACACS server Information.
+    Servers Aaa_Tacacs_Servers
+
+    // TACACS sg Information.
+    ServerGroups Aaa_Tacacs_ServerGroups
+}
+
+func (tacacs *Aaa_Tacacs) GetEntityData() *types.CommonEntityData {
+    tacacs.EntityData.YFilter = tacacs.YFilter
+    tacacs.EntityData.YangName = "tacacs"
+    tacacs.EntityData.BundleName = "cisco_ios_xr"
+    tacacs.EntityData.ParentYangName = "aaa"
+    tacacs.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
+    tacacs.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/" + tacacs.EntityData.SegmentPath
+    tacacs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tacacs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tacacs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tacacs.EntityData.Children = types.NewOrderedMap()
+    tacacs.EntityData.Children.Append("requests", types.YChild{"Requests", &tacacs.Requests})
+    tacacs.EntityData.Children.Append("servers", types.YChild{"Servers", &tacacs.Servers})
+    tacacs.EntityData.Children.Append("server-groups", types.YChild{"ServerGroups", &tacacs.ServerGroups})
+    tacacs.EntityData.Leafs = types.NewOrderedMap()
+
+    tacacs.EntityData.YListKeys = []string {}
+
+    return &(tacacs.EntityData)
+}
+
+// Aaa_Tacacs_Requests
+// TACACS Active Request List
+type Aaa_Tacacs_Requests struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // request. The type is slice of Aaa_Tacacs_Requests_Request.
+    Request []*Aaa_Tacacs_Requests_Request
+}
+
+func (requests *Aaa_Tacacs_Requests) GetEntityData() *types.CommonEntityData {
+    requests.EntityData.YFilter = requests.YFilter
+    requests.EntityData.YangName = "requests"
+    requests.EntityData.BundleName = "cisco_ios_xr"
+    requests.EntityData.ParentYangName = "tacacs"
+    requests.EntityData.SegmentPath = "requests"
+    requests.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/" + requests.EntityData.SegmentPath
+    requests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    requests.EntityData.Children = types.NewOrderedMap()
+    requests.EntityData.Children.Append("request", types.YChild{"Request", nil})
+    for i := range requests.Request {
+        types.SetYListKey(requests.Request[i], i)
+        requests.EntityData.Children.Append(types.GetSegmentPath(requests.Request[i]), types.YChild{"Request", requests.Request[i]})
+    }
+    requests.EntityData.Leafs = types.NewOrderedMap()
+
+    requests.EntityData.YListKeys = []string {}
+
+    return &(requests.EntityData)
+}
+
+// Aaa_Tacacs_Requests_Request
+// request
+type Aaa_Tacacs_Requests_Request struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // tacacs requestbag. The type is slice of
+    // Aaa_Tacacs_Requests_Request_TacacsRequestbag.
+    TacacsRequestbag []*Aaa_Tacacs_Requests_Request_TacacsRequestbag
+}
+
+func (request *Aaa_Tacacs_Requests_Request) GetEntityData() *types.CommonEntityData {
+    request.EntityData.YFilter = request.YFilter
+    request.EntityData.YangName = "request"
+    request.EntityData.BundleName = "cisco_ios_xr"
+    request.EntityData.ParentYangName = "requests"
+    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
+    request.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/" + request.EntityData.SegmentPath
+    request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    request.EntityData.Children = types.NewOrderedMap()
+    request.EntityData.Children.Append("tacacs-requestbag", types.YChild{"TacacsRequestbag", nil})
+    for i := range request.TacacsRequestbag {
+        types.SetYListKey(request.TacacsRequestbag[i], i)
+        request.EntityData.Children.Append(types.GetSegmentPath(request.TacacsRequestbag[i]), types.YChild{"TacacsRequestbag", request.TacacsRequestbag[i]})
+    }
+    request.EntityData.Leafs = types.NewOrderedMap()
+
+    request.EntityData.YListKeys = []string {}
+
+    return &(request.EntityData)
+}
+
+// Aaa_Tacacs_Requests_Request_TacacsRequestbag
+// tacacs requestbag
+type Aaa_Tacacs_Requests_Request_TacacsRequestbag struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // time remaining for this request. The type is interface{} with range:
+    // 0..4294967295.
+    TimeRemaining interface{}
+
+    // bytes written. The type is interface{} with range: 0..4294967295. Units are
+    // byte.
+    BytesOut interface{}
+
+    // size of the packet to be sent. The type is interface{} with range:
+    // 0..4294967295.
+    OutPakSize interface{}
+
+    // bytes read from socket. The type is interface{} with range: 0..4294967295.
+    // Units are byte.
+    BytesIn interface{}
+
+    // size of the packet to be received. The type is interface{} with range:
+    // 0..4294967295.
+    InPakSize interface{}
+
+    // the type of packet. The type is string.
+    PakType interface{}
+
+    // same as in pkt hdr. The type is interface{} with range:
+    // -2147483648..2147483647.
+    SessionId interface{}
+
+    // socket number. The type is interface{} with range: -2147483648..2147483647.
+    Sock interface{}
+}
+
+func (tacacsRequestbag *Aaa_Tacacs_Requests_Request_TacacsRequestbag) GetEntityData() *types.CommonEntityData {
+    tacacsRequestbag.EntityData.YFilter = tacacsRequestbag.YFilter
+    tacacsRequestbag.EntityData.YangName = "tacacs-requestbag"
+    tacacsRequestbag.EntityData.BundleName = "cisco_ios_xr"
+    tacacsRequestbag.EntityData.ParentYangName = "request"
+    tacacsRequestbag.EntityData.SegmentPath = "tacacs-requestbag" + types.AddNoKeyToken(tacacsRequestbag)
+    tacacsRequestbag.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/" + tacacsRequestbag.EntityData.SegmentPath
+    tacacsRequestbag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    tacacsRequestbag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    tacacsRequestbag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    tacacsRequestbag.EntityData.Children = types.NewOrderedMap()
+    tacacsRequestbag.EntityData.Leafs = types.NewOrderedMap()
+    tacacsRequestbag.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", tacacsRequestbag.TimeRemaining})
+    tacacsRequestbag.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", tacacsRequestbag.BytesOut})
+    tacacsRequestbag.EntityData.Leafs.Append("out-pak-size", types.YLeaf{"OutPakSize", tacacsRequestbag.OutPakSize})
+    tacacsRequestbag.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", tacacsRequestbag.BytesIn})
+    tacacsRequestbag.EntityData.Leafs.Append("in-pak-size", types.YLeaf{"InPakSize", tacacsRequestbag.InPakSize})
+    tacacsRequestbag.EntityData.Leafs.Append("pak-type", types.YLeaf{"PakType", tacacsRequestbag.PakType})
+    tacacsRequestbag.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", tacacsRequestbag.SessionId})
+    tacacsRequestbag.EntityData.Leafs.Append("sock", types.YLeaf{"Sock", tacacsRequestbag.Sock})
+
+    tacacsRequestbag.EntityData.YListKeys = []string {}
+
+    return &(tacacsRequestbag.EntityData)
+}
+
+// Aaa_Tacacs_Servers
+// TACACS server Information
+type Aaa_Tacacs_Servers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // server. The type is slice of Aaa_Tacacs_Servers_Server.
+    Server []*Aaa_Tacacs_Servers_Server
+}
+
+func (servers *Aaa_Tacacs_Servers) GetEntityData() *types.CommonEntityData {
+    servers.EntityData.YFilter = servers.YFilter
+    servers.EntityData.YangName = "servers"
+    servers.EntityData.BundleName = "cisco_ios_xr"
+    servers.EntityData.ParentYangName = "tacacs"
+    servers.EntityData.SegmentPath = "servers"
+    servers.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/" + servers.EntityData.SegmentPath
+    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servers.EntityData.Children = types.NewOrderedMap()
+    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
+    for i := range servers.Server {
+        types.SetYListKey(servers.Server[i], i)
+        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
+    }
+    servers.EntityData.Leafs = types.NewOrderedMap()
+
+    servers.EntityData.YListKeys = []string {}
+
+    return &(servers.EntityData)
+}
+
+// Aaa_Tacacs_Servers_Server
+// server
+type Aaa_Tacacs_Servers_Server struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // internet address of T+ server. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+
+    // per-server timeout. The type is interface{} with range: 0..4294967295.
+    Timeout interface{}
+
+    // per server port to use. The type is interface{} with range: 0..4294967295.
+    Port interface{}
+
+    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesIn interface{}
+
+    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesOut interface{}
+
+    // socket closes. The type is interface{} with range: 0..4294967295.
+    Closes interface{}
+
+    // socket opens. The type is interface{} with range: 0..4294967295.
+    Opens interface{}
+
+    // error count. The type is interface{} with range: 0..4294967295.
+    Errors interface{}
+
+    // abort count. The type is interface{} with range: 0..4294967295.
+    Aborts interface{}
+
+    // # of incoming packets read. The type is interface{} with range:
+    // 0..4294967295.
+    PaksIn interface{}
+
+    // # of outgoing packets sent. The type is interface{} with range:
+    // 0..4294967295.
+    PaksOut interface{}
+
+    // # of replies expected to arrive. The type is interface{} with range:
+    // 0..4294967295.
+    RepliesExpected interface{}
+
+    // is the server UP or down ?. The type is bool.
+    Up interface{}
+
+    // is the server connected ?. The type is bool.
+    ConnUp interface{}
+
+    // is this a single connect server ?. The type is bool.
+    SingleConnect interface{}
+
+    // is this a private server ?. The type is bool.
+    IsPrivate interface{}
+
+    // VRF in which server is reachable. The type is string with length: 0..33.
+    VrfName interface{}
+
+    // IP address buffer. The type is string with length: 0..46.
+    AddrBuf interface{}
+
+    // IP address Family. The type is string with length: 0..5.
+    Family interface{}
+}
+
+func (server *Aaa_Tacacs_Servers_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xr"
+    server.EntityData.ParentYangName = "servers"
+    server.EntityData.SegmentPath = "server" + types.AddNoKeyToken(server)
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/" + server.EntityData.SegmentPath
+    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", server.Addr})
+    server.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", server.Timeout})
+    server.EntityData.Leafs.Append("port", types.YLeaf{"Port", server.Port})
+    server.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", server.BytesIn})
+    server.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", server.BytesOut})
+    server.EntityData.Leafs.Append("closes", types.YLeaf{"Closes", server.Closes})
+    server.EntityData.Leafs.Append("opens", types.YLeaf{"Opens", server.Opens})
+    server.EntityData.Leafs.Append("errors", types.YLeaf{"Errors", server.Errors})
+    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
+    server.EntityData.Leafs.Append("paks-in", types.YLeaf{"PaksIn", server.PaksIn})
+    server.EntityData.Leafs.Append("paks-out", types.YLeaf{"PaksOut", server.PaksOut})
+    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
+    server.EntityData.Leafs.Append("up", types.YLeaf{"Up", server.Up})
+    server.EntityData.Leafs.Append("conn-up", types.YLeaf{"ConnUp", server.ConnUp})
+    server.EntityData.Leafs.Append("single-connect", types.YLeaf{"SingleConnect", server.SingleConnect})
+    server.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", server.IsPrivate})
+    server.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", server.VrfName})
+    server.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", server.AddrBuf})
+    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
+
+    server.EntityData.YListKeys = []string {}
+
+    return &(server.EntityData)
+}
+
+// Aaa_Tacacs_ServerGroups
+// TACACS sg Information
+type Aaa_Tacacs_ServerGroups struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // server group. The type is slice of Aaa_Tacacs_ServerGroups_ServerGroup.
+    ServerGroup []*Aaa_Tacacs_ServerGroups_ServerGroup
+}
+
+func (serverGroups *Aaa_Tacacs_ServerGroups) GetEntityData() *types.CommonEntityData {
+    serverGroups.EntityData.YFilter = serverGroups.YFilter
+    serverGroups.EntityData.YangName = "server-groups"
+    serverGroups.EntityData.BundleName = "cisco_ios_xr"
+    serverGroups.EntityData.ParentYangName = "tacacs"
+    serverGroups.EntityData.SegmentPath = "server-groups"
+    serverGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/" + serverGroups.EntityData.SegmentPath
+    serverGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serverGroups.EntityData.Children = types.NewOrderedMap()
+    serverGroups.EntityData.Children.Append("server-group", types.YChild{"ServerGroup", nil})
+    for i := range serverGroups.ServerGroup {
+        types.SetYListKey(serverGroups.ServerGroup[i], i)
+        serverGroups.EntityData.Children.Append(types.GetSegmentPath(serverGroups.ServerGroup[i]), types.YChild{"ServerGroup", serverGroups.ServerGroup[i]})
+    }
+    serverGroups.EntityData.Leafs = types.NewOrderedMap()
+
+    serverGroups.EntityData.YListKeys = []string {}
+
+    return &(serverGroups.EntityData)
+}
+
+// Aaa_Tacacs_ServerGroups_ServerGroup
+// server group
+type Aaa_Tacacs_ServerGroups_ServerGroup struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // name of the server group. The type is string.
+    GroupName interface{}
+
+    // server group mapped number. The type is interface{} with range:
+    // 0..4294967295.
+    SgMapNum interface{}
+
+    // vrf of the group. The type is string with length: 0..33.
+    VrfName interface{}
+
+    // list of servers in this group. The type is slice of
+    // Aaa_Tacacs_ServerGroups_ServerGroup_Server.
+    Server []*Aaa_Tacacs_ServerGroups_ServerGroup_Server
+}
+
+func (serverGroup *Aaa_Tacacs_ServerGroups_ServerGroup) GetEntityData() *types.CommonEntityData {
+    serverGroup.EntityData.YFilter = serverGroup.YFilter
+    serverGroup.EntityData.YangName = "server-group"
+    serverGroup.EntityData.BundleName = "cisco_ios_xr"
+    serverGroup.EntityData.ParentYangName = "server-groups"
+    serverGroup.EntityData.SegmentPath = "server-group" + types.AddNoKeyToken(serverGroup)
+    serverGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/" + serverGroup.EntityData.SegmentPath
+    serverGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    serverGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    serverGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    serverGroup.EntityData.Children = types.NewOrderedMap()
+    serverGroup.EntityData.Children.Append("server", types.YChild{"Server", nil})
+    for i := range serverGroup.Server {
+        types.SetYListKey(serverGroup.Server[i], i)
+        serverGroup.EntityData.Children.Append(types.GetSegmentPath(serverGroup.Server[i]), types.YChild{"Server", serverGroup.Server[i]})
+    }
+    serverGroup.EntityData.Leafs = types.NewOrderedMap()
+    serverGroup.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", serverGroup.GroupName})
+    serverGroup.EntityData.Leafs.Append("sg-map-num", types.YLeaf{"SgMapNum", serverGroup.SgMapNum})
+    serverGroup.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", serverGroup.VrfName})
+
+    serverGroup.EntityData.YListKeys = []string {}
+
+    return &(serverGroup.EntityData)
+}
+
+// Aaa_Tacacs_ServerGroups_ServerGroup_Server
+// list of servers in this group
+type Aaa_Tacacs_ServerGroups_ServerGroup_Server struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // internet address of T+ server. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Addr interface{}
+
+    // per-server timeout. The type is interface{} with range: 0..4294967295.
+    Timeout interface{}
+
+    // per server port to use. The type is interface{} with range: 0..4294967295.
+    Port interface{}
+
+    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesIn interface{}
+
+    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
+    // are byte.
+    BytesOut interface{}
+
+    // socket closes. The type is interface{} with range: 0..4294967295.
+    Closes interface{}
+
+    // socket opens. The type is interface{} with range: 0..4294967295.
+    Opens interface{}
+
+    // error count. The type is interface{} with range: 0..4294967295.
+    Errors interface{}
+
+    // abort count. The type is interface{} with range: 0..4294967295.
+    Aborts interface{}
+
+    // # of incoming packets read. The type is interface{} with range:
+    // 0..4294967295.
+    PaksIn interface{}
+
+    // # of outgoing packets sent. The type is interface{} with range:
+    // 0..4294967295.
+    PaksOut interface{}
+
+    // # of replies expected to arrive. The type is interface{} with range:
+    // 0..4294967295.
+    RepliesExpected interface{}
+
+    // is the server UP or down ?. The type is bool.
+    Up interface{}
+
+    // is the server connected ?. The type is bool.
+    ConnUp interface{}
+
+    // is this a single connect server ?. The type is bool.
+    SingleConnect interface{}
+
+    // is this a private server ?. The type is bool.
+    IsPrivate interface{}
+
+    // VRF in which server is reachable. The type is string with length: 0..33.
+    VrfName interface{}
+
+    // IP address buffer. The type is string with length: 0..46.
+    AddrBuf interface{}
+
+    // IP address Family. The type is string with length: 0..5.
+    Family interface{}
+}
+
+func (server *Aaa_Tacacs_ServerGroups_ServerGroup_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xr"
+    server.EntityData.ParentYangName = "server-group"
+    server.EntityData.SegmentPath = "server" + types.AddNoKeyToken(server)
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/" + server.EntityData.SegmentPath
+    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", server.Addr})
+    server.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", server.Timeout})
+    server.EntityData.Leafs.Append("port", types.YLeaf{"Port", server.Port})
+    server.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", server.BytesIn})
+    server.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", server.BytesOut})
+    server.EntityData.Leafs.Append("closes", types.YLeaf{"Closes", server.Closes})
+    server.EntityData.Leafs.Append("opens", types.YLeaf{"Opens", server.Opens})
+    server.EntityData.Leafs.Append("errors", types.YLeaf{"Errors", server.Errors})
+    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
+    server.EntityData.Leafs.Append("paks-in", types.YLeaf{"PaksIn", server.PaksIn})
+    server.EntityData.Leafs.Append("paks-out", types.YLeaf{"PaksOut", server.PaksOut})
+    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
+    server.EntityData.Leafs.Append("up", types.YLeaf{"Up", server.Up})
+    server.EntityData.Leafs.Append("conn-up", types.YLeaf{"ConnUp", server.ConnUp})
+    server.EntityData.Leafs.Append("single-connect", types.YLeaf{"SingleConnect", server.SingleConnect})
+    server.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", server.IsPrivate})
+    server.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", server.VrfName})
+    server.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", server.AddrBuf})
+    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
+
+    server.EntityData.YListKeys = []string {}
+
+    return &(server.EntityData)
+}
+
+// Aaa_Radius
+// RADIUS operational data
+type Aaa_Radius struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of RADIUS servers configured.
+    Servers Aaa_Radius_Servers
+
+    // RADIUS source interfaces.
+    RadiusSourceInterface Aaa_Radius_RadiusSourceInterface
+
+    // RADIUS Client Information.
+    Global Aaa_Radius_Global
+}
+
+func (radius *Aaa_Radius) GetEntityData() *types.CommonEntityData {
+    radius.EntityData.YFilter = radius.YFilter
+    radius.EntityData.YangName = "radius"
+    radius.EntityData.BundleName = "cisco_ios_xr"
+    radius.EntityData.ParentYangName = "aaa"
+    radius.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+    radius.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/" + radius.EntityData.SegmentPath
+    radius.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    radius.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    radius.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    radius.EntityData.Children = types.NewOrderedMap()
+    radius.EntityData.Children.Append("servers", types.YChild{"Servers", &radius.Servers})
+    radius.EntityData.Children.Append("radius-source-interface", types.YChild{"RadiusSourceInterface", &radius.RadiusSourceInterface})
+    radius.EntityData.Children.Append("global", types.YChild{"Global", &radius.Global})
+    radius.EntityData.Leafs = types.NewOrderedMap()
+
+    radius.EntityData.YListKeys = []string {}
+
+    return &(radius.EntityData)
+}
+
+// Aaa_Radius_Servers
+// List of RADIUS servers configured
+type Aaa_Radius_Servers struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // RADIUS Server. The type is slice of Aaa_Radius_Servers_Server.
+    Server []*Aaa_Radius_Servers_Server
+}
+
+func (servers *Aaa_Radius_Servers) GetEntityData() *types.CommonEntityData {
+    servers.EntityData.YFilter = servers.YFilter
+    servers.EntityData.YangName = "servers"
+    servers.EntityData.BundleName = "cisco_ios_xr"
+    servers.EntityData.ParentYangName = "radius"
+    servers.EntityData.SegmentPath = "servers"
+    servers.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/" + servers.EntityData.SegmentPath
+    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    servers.EntityData.Children = types.NewOrderedMap()
+    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
+    for i := range servers.Server {
+        types.SetYListKey(servers.Server[i], i)
+        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
+    }
+    servers.EntityData.Leafs = types.NewOrderedMap()
+
+    servers.EntityData.YListKeys = []string {}
+
+    return &(servers.EntityData)
+}
+
+// Aaa_Radius_Servers_Server
+// RADIUS Server
+type Aaa_Radius_Servers_Server struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // IP address of RADIUS server. The type is one of the following types: string
+    // with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
+    IpAddress interface{}
+
+    // Authentication Port number (standard port 1645). The type is interface{}
+    // with range: 1..65535.
+    AuthPortNumber interface{}
+
+    // Accounting Port number (standard port 1646). The type is interface{} with
+    // range: 1..65535.
+    AcctPortNumber interface{}
+
+    // IP address of RADIUS server. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    Ipv4Address interface{}
+
+    // A number that indicates the priority of the server. The type is interface{}
+    // with range: 0..4294967295.
+    Priority interface{}
+
+    // Per-server timeout in seconds. The type is interface{} with range:
+    // 0..4294967295. Units are second.
+    TimeoutXr interface{}
+
+    // Per-server retransmit. The type is interface{} with range: 0..4294967295.
+    Retransmit interface{}
+
+    // Per-server deadtime in minutes. The type is interface{} with range:
+    // 0..4294967295. Units are minute.
+    DeadTime interface{}
+
+    // Per-server dead-detect time in seconds. The type is interface{} with range:
+    // 0..4294967295. Units are second.
+    DeadDetectTime interface{}
+
+    // Per-server dead-detect tries. The type is interface{} with range:
+    // 0..4294967295.
+    DeadDetectTries interface{}
+
+    // Authentication port. The type is interface{} with range: 0..4294967295.
+    AuthenticationPort interface{}
+
+    // Accounting port. The type is interface{} with range: 0..4294967295.
+    AccountingPort interface{}
+
+    // State of the server UP/DOWN. The type is string.
+    State interface{}
+
+    // Elapsed time the server has been in current state. The type is interface{}
+    // with range: 0..4294967295.
+    CurrentStateDuration interface{}
+
+    // Elapsed time the server was been in previous state. The type is interface{}
+    // with range: 0..4294967295.
+    PreviousStateDuration interface{}
+
+    // Total number of incoming packets read. The type is interface{} with range:
+    // 0..4294967295.
+    PacketsIn interface{}
+
+    // Total number of outgoing packets sent. The type is interface{} with range:
+    // 0..4294967295.
+    PacketsOut interface{}
+
+    // Total number of packets timed-out. The type is interface{} with range:
+    // 0..4294967295.
+    Timeouts interface{}
+
+    // Total number of requests aborted. The type is interface{} with range:
+    // 0..4294967295.
+    Aborts interface{}
+
+    // Number of replies expected to arrive. The type is interface{} with range:
+    // 0..4294967295.
+    RepliesExpected interface{}
+
+    // Number of requests redirected. The type is interface{} with range:
+    // 0..4294967295.
+    RedirectedRequests interface{}
+
+    // Round-trip time for authentication in milliseconds. The type is interface{}
+    // with range: 0..4294967295. Units are millisecond.
+    AuthenticationRtt interface{}
+
+    // Number of access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AccessRequests interface{}
+
+    // Number of retransmitted access requests. The type is interface{} with
+    // range: 0..4294967295.
+    AccessRequestRetransmits interface{}
+
+    // Number of access accepts. The type is interface{} with range:
+    // 0..4294967295.
+    AccessAccepts interface{}
+
+    // Number of access rejects. The type is interface{} with range:
+    // 0..4294967295.
+    AccessRejects interface{}
+
+    // Number of access challenges. The type is interface{} with range:
+    // 0..4294967295.
+    AccessChallenges interface{}
+
+    // Number of bad access responses. The type is interface{} with range:
+    // 0..4294967295.
+    BadAccessResponses interface{}
+
+    // Number of bad access authenticators. The type is interface{} with range:
+    // 0..4294967295.
+    BadAccessAuthenticators interface{}
+
+    // Number of pending access requests. The type is interface{} with range:
+    // 0..4294967295.
+    PendingAccessRequests interface{}
+
+    // Number of access packets timed-out. The type is interface{} with range:
+    // 0..4294967295.
+    AccessTimeouts interface{}
+
+    // Number of packets received with unknown type from authentication server.
+    // The type is interface{} with range: 0..4294967295.
+    UnknownAccessTypes interface{}
+
+    // Number of access responses dropped. The type is interface{} with range:
+    // 0..4294967295.
+    DroppedAccessResponses interface{}
+
+    // No of throttled access reqs stats. The type is interface{} with range:
+    // 0..4294967295.
+    ThrottledAccessReqs interface{}
+
+    // No of access reqs that is throttled is timedout. The type is interface{}
+    // with range: 0..4294967295.
+    ThrottledTimedOutReqs interface{}
+
+    // No of discarded access reqs. The type is interface{} with range:
+    // 0..4294967295.
+    ThrottledDroppedReqs interface{}
+
+    // Max throttled access reqs. The type is interface{} with range:
+    // 0..4294967295.
+    MaxThrottledAccessReqs interface{}
+
+    // No of currently throttled access reqs. The type is interface{} with range:
+    // 0..4294967295.
+    CurrentlyThrottledAccessReqs interface{}
+
+    // Average response time for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    AuthenResponseTime interface{}
+
+    // Number of succeeded authentication transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthenTransactionSuccessess interface{}
+
+    // Number of failed authentication transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthenTransactionFailure interface{}
+
+    // Number of unexpected authentication responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthenUnexpectedResponses interface{}
+
+    // Number of server error authentication responses. The type is interface{}
+    // with range: 0..4294967295.
+    AuthenServerErrorResponses interface{}
+
+    // Number of incorrect authentication responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthenIncorrectResponses interface{}
+
+    // Number of access requests. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorRequests interface{}
+
+    // Number of access packets timed out. The type is interface{} with range:
+    // 0..4294967295.
+    AuthorRequestTimeouts interface{}
+
+    // Average response time for authorization requests. The type is interface{}
+    // with range: 0..4294967295.
+    AuthorResponseTime interface{}
+
+    // Number of succeeded authorization transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AuthorTransactionSuccessess interface{}
+
+    // Number of failed authorization transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AuthorTransactionFailure interface{}
+
+    // Number of unexpected authorization responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthorUnexpectedResponses interface{}
+
+    // Number of server error authorization responses. The type is interface{}
+    // with range: 0..4294967295.
+    AuthorServerErrorResponses interface{}
+
+    // Number of incorrect authorization responses. The type is interface{} with
+    // range: 0..4294967295.
+    AuthorIncorrectResponses interface{}
+
+    // Round-trip time for accounting in milliseconds. The type is interface{}
+    // with range: 0..4294967295. Units are millisecond.
+    AccountingRtt interface{}
+
+    // Number of accounting requests. The type is interface{} with range:
+    // 0..4294967295.
+    AccountingRequests interface{}
+
+    // Number of retransmitted accounting requests. The type is interface{} with
+    // range: 0..4294967295.
+    AccountingRetransmits interface{}
+
+    // Number of accounting responses. The type is interface{} with range:
+    // 0..4294967295.
+    AccountingResponses interface{}
+
+    // Number of bad accounting responses. The type is interface{} with range:
+    // 0..4294967295.
+    BadAccountingResponses interface{}
+
+    // Number of bad accounting authenticators. The type is interface{} with
+    // range: 0..4294967295.
+    BadAccountingAuthenticators interface{}
+
+    // Number of pending accounting requests. The type is interface{} with range:
+    // 0..4294967295.
+    PendingAccountingRequets interface{}
+
+    // Number of accounting packets timed-out. The type is interface{} with range:
+    // 0..4294967295.
+    AccountingTimeouts interface{}
+
+    // Number of packets received with unknown type from accounting server. The
+    // type is interface{} with range: 0..4294967295.
+    UnknownAccountingTypes interface{}
+
+    // Number of accounting responses dropped. The type is interface{} with range:
+    // 0..4294967295.
+    DroppedAccountingResponses interface{}
+
+    // Is a private server. The type is bool.
+    IsAPrivateServer interface{}
+
+    // Total auth test request. The type is interface{} with range: 0..4294967295.
+    TotalTestAuthReqs interface{}
+
+    // Total auth test timeouts. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAuthTimeouts interface{}
+
+    // Total auth test response. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAuthResponse interface{}
+
+    // Total auth test pending. The type is interface{} with range: 0..4294967295.
+    TotalTestAuthPending interface{}
+
+    // Total acct test req. The type is interface{} with range: 0..4294967295.
+    TotalTestAcctReqs interface{}
+
+    // Total acct test timeouts. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAcctTimeouts interface{}
+
+    // Total acct test response. The type is interface{} with range:
+    // 0..4294967295.
+    TotalTestAcctResponse interface{}
+
+    // Total acct test pending. The type is interface{} with range: 0..4294967295.
+    TotalTestAcctPending interface{}
+
+    // No of throttled acct transactions stats. The type is interface{} with
+    // range: 0..4294967295.
+    ThrottledAcctTransactions interface{}
+
+    // No of acct transaction that is throttled is timedout. The type is
+    // interface{} with range: 0..4294967295.
+    ThrottledAcctTimedOutStats interface{}
+
+    // No of acct discarded transaction. The type is interface{} with range:
+    // 0..4294967295.
+    ThrottledAcctFailuresStats interface{}
+
+    // Max throttled acct transactions. The type is interface{} with range:
+    // 0..4294967295.
+    MaxAcctThrottled interface{}
+
+    // No of currently throttled acct transactions. The type is interface{} with
+    // range: 0..4294967295.
+    ThrottledaAcctTransactions interface{}
+
+    // Number of unexpected accounting responses. The type is interface{} with
+    // range: 0..4294967295.
+    AcctUnexpectedResponses interface{}
+
+    // Number of server error accounting responses. The type is interface{} with
+    // range: 0..4294967295.
+    AcctServerErrorResponses interface{}
+
+    // Number of incorrect accounting responses. The type is interface{} with
+    // range: 0..4294967295.
+    AcctIncorrectResponses interface{}
+
+    // Average response time for authentication requests. The type is interface{}
+    // with range: 0..4294967295.
+    AcctResponseTime interface{}
+
+    // Number of succeeded authentication transactions. The type is interface{}
+    // with range: 0..4294967295.
+    AcctTransactionSuccessess interface{}
+
+    // Number of failed authentication transactions. The type is interface{} with
+    // range: 0..4294967295.
+    AcctTransactionFailure interface{}
+
+    // Total time of Server being in DEAD state. The type is interface{} with
+    // range: 0..4294967295.
+    TotalDeadtime interface{}
+
+    // Time of Server being in DEAD state, after last UP. The type is interface{}
+    // with range: 0..4294967295.
+    LastDeadtime interface{}
+
+    // flag to indicate Server is quarantined or not (Automated TEST in progress).
+    // The type is bool.
+    IsQuarantined interface{}
+
+    // Server group name for private server. The type is string.
+    GroupName interface{}
+
+    // IP address buffer. The type is string.
+    IpAddressXr interface{}
+
+    // IP address Family. The type is string.
+    Family interface{}
+}
+
+func (server *Aaa_Radius_Servers_Server) GetEntityData() *types.CommonEntityData {
+    server.EntityData.YFilter = server.YFilter
+    server.EntityData.YangName = "server"
+    server.EntityData.BundleName = "cisco_ios_xr"
+    server.EntityData.ParentYangName = "servers"
+    server.EntityData.SegmentPath = "server" + types.AddNoKeyToken(server)
+    server.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/servers/" + server.EntityData.SegmentPath
+    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    server.EntityData.Children = types.NewOrderedMap()
+    server.EntityData.Leafs = types.NewOrderedMap()
+    server.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", server.IpAddress})
+    server.EntityData.Leafs.Append("auth-port-number", types.YLeaf{"AuthPortNumber", server.AuthPortNumber})
+    server.EntityData.Leafs.Append("acct-port-number", types.YLeaf{"AcctPortNumber", server.AcctPortNumber})
+    server.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", server.Ipv4Address})
+    server.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", server.Priority})
+    server.EntityData.Leafs.Append("timeout-xr", types.YLeaf{"TimeoutXr", server.TimeoutXr})
+    server.EntityData.Leafs.Append("retransmit", types.YLeaf{"Retransmit", server.Retransmit})
+    server.EntityData.Leafs.Append("dead-time", types.YLeaf{"DeadTime", server.DeadTime})
+    server.EntityData.Leafs.Append("dead-detect-time", types.YLeaf{"DeadDetectTime", server.DeadDetectTime})
+    server.EntityData.Leafs.Append("dead-detect-tries", types.YLeaf{"DeadDetectTries", server.DeadDetectTries})
+    server.EntityData.Leafs.Append("authentication-port", types.YLeaf{"AuthenticationPort", server.AuthenticationPort})
+    server.EntityData.Leafs.Append("accounting-port", types.YLeaf{"AccountingPort", server.AccountingPort})
+    server.EntityData.Leafs.Append("state", types.YLeaf{"State", server.State})
+    server.EntityData.Leafs.Append("current-state-duration", types.YLeaf{"CurrentStateDuration", server.CurrentStateDuration})
+    server.EntityData.Leafs.Append("previous-state-duration", types.YLeaf{"PreviousStateDuration", server.PreviousStateDuration})
+    server.EntityData.Leafs.Append("packets-in", types.YLeaf{"PacketsIn", server.PacketsIn})
+    server.EntityData.Leafs.Append("packets-out", types.YLeaf{"PacketsOut", server.PacketsOut})
+    server.EntityData.Leafs.Append("timeouts", types.YLeaf{"Timeouts", server.Timeouts})
+    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
+    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
+    server.EntityData.Leafs.Append("redirected-requests", types.YLeaf{"RedirectedRequests", server.RedirectedRequests})
+    server.EntityData.Leafs.Append("authentication-rtt", types.YLeaf{"AuthenticationRtt", server.AuthenticationRtt})
+    server.EntityData.Leafs.Append("access-requests", types.YLeaf{"AccessRequests", server.AccessRequests})
+    server.EntityData.Leafs.Append("access-request-retransmits", types.YLeaf{"AccessRequestRetransmits", server.AccessRequestRetransmits})
+    server.EntityData.Leafs.Append("access-accepts", types.YLeaf{"AccessAccepts", server.AccessAccepts})
+    server.EntityData.Leafs.Append("access-rejects", types.YLeaf{"AccessRejects", server.AccessRejects})
+    server.EntityData.Leafs.Append("access-challenges", types.YLeaf{"AccessChallenges", server.AccessChallenges})
+    server.EntityData.Leafs.Append("bad-access-responses", types.YLeaf{"BadAccessResponses", server.BadAccessResponses})
+    server.EntityData.Leafs.Append("bad-access-authenticators", types.YLeaf{"BadAccessAuthenticators", server.BadAccessAuthenticators})
+    server.EntityData.Leafs.Append("pending-access-requests", types.YLeaf{"PendingAccessRequests", server.PendingAccessRequests})
+    server.EntityData.Leafs.Append("access-timeouts", types.YLeaf{"AccessTimeouts", server.AccessTimeouts})
+    server.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", server.UnknownAccessTypes})
+    server.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", server.DroppedAccessResponses})
+    server.EntityData.Leafs.Append("throttled-access-reqs", types.YLeaf{"ThrottledAccessReqs", server.ThrottledAccessReqs})
+    server.EntityData.Leafs.Append("throttled-timed-out-reqs", types.YLeaf{"ThrottledTimedOutReqs", server.ThrottledTimedOutReqs})
+    server.EntityData.Leafs.Append("throttled-dropped-reqs", types.YLeaf{"ThrottledDroppedReqs", server.ThrottledDroppedReqs})
+    server.EntityData.Leafs.Append("max-throttled-access-reqs", types.YLeaf{"MaxThrottledAccessReqs", server.MaxThrottledAccessReqs})
+    server.EntityData.Leafs.Append("currently-throttled-access-reqs", types.YLeaf{"CurrentlyThrottledAccessReqs", server.CurrentlyThrottledAccessReqs})
+    server.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", server.AuthenResponseTime})
+    server.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", server.AuthenTransactionSuccessess})
+    server.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", server.AuthenTransactionFailure})
+    server.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", server.AuthenUnexpectedResponses})
+    server.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", server.AuthenServerErrorResponses})
+    server.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", server.AuthenIncorrectResponses})
+    server.EntityData.Leafs.Append("author-requests", types.YLeaf{"AuthorRequests", server.AuthorRequests})
+    server.EntityData.Leafs.Append("author-request-timeouts", types.YLeaf{"AuthorRequestTimeouts", server.AuthorRequestTimeouts})
+    server.EntityData.Leafs.Append("author-response-time", types.YLeaf{"AuthorResponseTime", server.AuthorResponseTime})
+    server.EntityData.Leafs.Append("author-transaction-successess", types.YLeaf{"AuthorTransactionSuccessess", server.AuthorTransactionSuccessess})
+    server.EntityData.Leafs.Append("author-transaction-failure", types.YLeaf{"AuthorTransactionFailure", server.AuthorTransactionFailure})
+    server.EntityData.Leafs.Append("author-unexpected-responses", types.YLeaf{"AuthorUnexpectedResponses", server.AuthorUnexpectedResponses})
+    server.EntityData.Leafs.Append("author-server-error-responses", types.YLeaf{"AuthorServerErrorResponses", server.AuthorServerErrorResponses})
+    server.EntityData.Leafs.Append("author-incorrect-responses", types.YLeaf{"AuthorIncorrectResponses", server.AuthorIncorrectResponses})
+    server.EntityData.Leafs.Append("accounting-rtt", types.YLeaf{"AccountingRtt", server.AccountingRtt})
+    server.EntityData.Leafs.Append("accounting-requests", types.YLeaf{"AccountingRequests", server.AccountingRequests})
+    server.EntityData.Leafs.Append("accounting-retransmits", types.YLeaf{"AccountingRetransmits", server.AccountingRetransmits})
+    server.EntityData.Leafs.Append("accounting-responses", types.YLeaf{"AccountingResponses", server.AccountingResponses})
+    server.EntityData.Leafs.Append("bad-accounting-responses", types.YLeaf{"BadAccountingResponses", server.BadAccountingResponses})
+    server.EntityData.Leafs.Append("bad-accounting-authenticators", types.YLeaf{"BadAccountingAuthenticators", server.BadAccountingAuthenticators})
+    server.EntityData.Leafs.Append("pending-accounting-requets", types.YLeaf{"PendingAccountingRequets", server.PendingAccountingRequets})
+    server.EntityData.Leafs.Append("accounting-timeouts", types.YLeaf{"AccountingTimeouts", server.AccountingTimeouts})
+    server.EntityData.Leafs.Append("unknown-accounting-types", types.YLeaf{"UnknownAccountingTypes", server.UnknownAccountingTypes})
+    server.EntityData.Leafs.Append("dropped-accounting-responses", types.YLeaf{"DroppedAccountingResponses", server.DroppedAccountingResponses})
+    server.EntityData.Leafs.Append("is-a-private-server", types.YLeaf{"IsAPrivateServer", server.IsAPrivateServer})
+    server.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", server.TotalTestAuthReqs})
+    server.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", server.TotalTestAuthTimeouts})
+    server.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", server.TotalTestAuthResponse})
+    server.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", server.TotalTestAuthPending})
+    server.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", server.TotalTestAcctReqs})
+    server.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", server.TotalTestAcctTimeouts})
+    server.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", server.TotalTestAcctResponse})
+    server.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", server.TotalTestAcctPending})
+    server.EntityData.Leafs.Append("throttled-acct-transactions", types.YLeaf{"ThrottledAcctTransactions", server.ThrottledAcctTransactions})
+    server.EntityData.Leafs.Append("throttled-acct-timed-out-stats", types.YLeaf{"ThrottledAcctTimedOutStats", server.ThrottledAcctTimedOutStats})
+    server.EntityData.Leafs.Append("throttled-acct-failures-stats", types.YLeaf{"ThrottledAcctFailuresStats", server.ThrottledAcctFailuresStats})
+    server.EntityData.Leafs.Append("max-acct-throttled", types.YLeaf{"MaxAcctThrottled", server.MaxAcctThrottled})
+    server.EntityData.Leafs.Append("throttleda-acct-transactions", types.YLeaf{"ThrottledaAcctTransactions", server.ThrottledaAcctTransactions})
+    server.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", server.AcctUnexpectedResponses})
+    server.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", server.AcctServerErrorResponses})
+    server.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", server.AcctIncorrectResponses})
+    server.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", server.AcctResponseTime})
+    server.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", server.AcctTransactionSuccessess})
+    server.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", server.AcctTransactionFailure})
+    server.EntityData.Leafs.Append("total-deadtime", types.YLeaf{"TotalDeadtime", server.TotalDeadtime})
+    server.EntityData.Leafs.Append("last-deadtime", types.YLeaf{"LastDeadtime", server.LastDeadtime})
+    server.EntityData.Leafs.Append("is-quarantined", types.YLeaf{"IsQuarantined", server.IsQuarantined})
+    server.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", server.GroupName})
+    server.EntityData.Leafs.Append("ip-address-xr", types.YLeaf{"IpAddressXr", server.IpAddressXr})
+    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
+
+    server.EntityData.YListKeys = []string {}
+
+    return &(server.EntityData)
+}
+
+// Aaa_Radius_RadiusSourceInterface
+// RADIUS source interfaces
+type Aaa_Radius_RadiusSourceInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // List of source interfaces. The type is slice of
+    // Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface.
+    ListOfSourceInterface []*Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
+}
+
+func (radiusSourceInterface *Aaa_Radius_RadiusSourceInterface) GetEntityData() *types.CommonEntityData {
+    radiusSourceInterface.EntityData.YFilter = radiusSourceInterface.YFilter
+    radiusSourceInterface.EntityData.YangName = "radius-source-interface"
+    radiusSourceInterface.EntityData.BundleName = "cisco_ios_xr"
+    radiusSourceInterface.EntityData.ParentYangName = "radius"
+    radiusSourceInterface.EntityData.SegmentPath = "radius-source-interface"
+    radiusSourceInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/" + radiusSourceInterface.EntityData.SegmentPath
+    radiusSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    radiusSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    radiusSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    radiusSourceInterface.EntityData.Children = types.NewOrderedMap()
+    radiusSourceInterface.EntityData.Children.Append("list-of-source-interface", types.YChild{"ListOfSourceInterface", nil})
+    for i := range radiusSourceInterface.ListOfSourceInterface {
+        types.SetYListKey(radiusSourceInterface.ListOfSourceInterface[i], i)
+        radiusSourceInterface.EntityData.Children.Append(types.GetSegmentPath(radiusSourceInterface.ListOfSourceInterface[i]), types.YChild{"ListOfSourceInterface", radiusSourceInterface.ListOfSourceInterface[i]})
+    }
+    radiusSourceInterface.EntityData.Leafs = types.NewOrderedMap()
+
+    radiusSourceInterface.EntityData.YListKeys = []string {}
+
+    return &(radiusSourceInterface.EntityData)
+}
+
+// Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
+// List of source interfaces
+type Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // Name of the source interface. The type is string.
+    InterfaceName interface{}
+
+    // IP address buffer. The type is string.
+    Ipaddrv4 interface{}
+
+    // IP address buffer. The type is string.
+    Ipaddrv6 interface{}
+
+    // VRF Id. The type is interface{} with range: 0..4294967295.
+    Vrfid interface{}
+}
+
+func (listOfSourceInterface *Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface) GetEntityData() *types.CommonEntityData {
+    listOfSourceInterface.EntityData.YFilter = listOfSourceInterface.YFilter
+    listOfSourceInterface.EntityData.YangName = "list-of-source-interface"
+    listOfSourceInterface.EntityData.BundleName = "cisco_ios_xr"
+    listOfSourceInterface.EntityData.ParentYangName = "radius-source-interface"
+    listOfSourceInterface.EntityData.SegmentPath = "list-of-source-interface" + types.AddNoKeyToken(listOfSourceInterface)
+    listOfSourceInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/radius-source-interface/" + listOfSourceInterface.EntityData.SegmentPath
+    listOfSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    listOfSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    listOfSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    listOfSourceInterface.EntityData.Children = types.NewOrderedMap()
+    listOfSourceInterface.EntityData.Leafs = types.NewOrderedMap()
+    listOfSourceInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", listOfSourceInterface.InterfaceName})
+    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv4", types.YLeaf{"Ipaddrv4", listOfSourceInterface.Ipaddrv4})
+    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv6", types.YLeaf{"Ipaddrv6", listOfSourceInterface.Ipaddrv6})
+    listOfSourceInterface.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", listOfSourceInterface.Vrfid})
+
+    listOfSourceInterface.EntityData.YListKeys = []string {}
+
+    return &(listOfSourceInterface.EntityData)
+}
+
+// Aaa_Radius_Global
+// RADIUS Client Information
+type Aaa_Radius_Global struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of RADIUS Access-Responsepackets received from unknownaddresses. The
+    // type is interface{} with range: 0..4294967295.
+    UnknownAuthenticationResponse interface{}
+
+    // NAS-Identifier of the RADIUSauthentication client. The type is string.
+    AuthenticationNasId interface{}
+
+    // Number of RADIUS Accounting-Responsepackets received from unknownaddresses.
+    // The type is interface{} with range: 0..4294967295.
+    UnknownAccountingResponse interface{}
+
+    // NAS-Identifier of the RADIUSaccounting client. The type is string.
+    AccountingNasId interface{}
+}
+
+func (global *Aaa_Radius_Global) GetEntityData() *types.CommonEntityData {
+    global.EntityData.YFilter = global.YFilter
+    global.EntityData.YangName = "global"
+    global.EntityData.BundleName = "cisco_ios_xr"
+    global.EntityData.ParentYangName = "radius"
+    global.EntityData.SegmentPath = "global"
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/" + global.EntityData.SegmentPath
+    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    global.EntityData.Children = types.NewOrderedMap()
+    global.EntityData.Leafs = types.NewOrderedMap()
+    global.EntityData.Leafs.Append("unknown-authentication-response", types.YLeaf{"UnknownAuthenticationResponse", global.UnknownAuthenticationResponse})
+    global.EntityData.Leafs.Append("authentication-nas-id", types.YLeaf{"AuthenticationNasId", global.AuthenticationNasId})
+    global.EntityData.Leafs.Append("unknown-accounting-response", types.YLeaf{"UnknownAccountingResponse", global.UnknownAccountingResponse})
+    global.EntityData.Leafs.Append("accounting-nas-id", types.YLeaf{"AccountingNasId", global.AccountingNasId})
+
+    global.EntityData.YListKeys = []string {}
+
+    return &(global.EntityData)
 }
 
 // Aaa_Diameter
@@ -2838,1165 +3986,5 @@ func (listOfNas *Aaa_Diameter_NasSession_ListOfNas) GetEntityData() *types.Commo
     listOfNas.EntityData.YListKeys = []string {}
 
     return &(listOfNas.EntityData)
-}
-
-// Aaa_Radius
-// RADIUS operational data
-type Aaa_Radius struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of RADIUS servers configured.
-    Servers Aaa_Radius_Servers
-
-    // RADIUS source interfaces.
-    RadiusSourceInterface Aaa_Radius_RadiusSourceInterface
-
-    // RADIUS Client Information.
-    Global Aaa_Radius_Global
-}
-
-func (radius *Aaa_Radius) GetEntityData() *types.CommonEntityData {
-    radius.EntityData.YFilter = radius.YFilter
-    radius.EntityData.YangName = "radius"
-    radius.EntityData.BundleName = "cisco_ios_xr"
-    radius.EntityData.ParentYangName = "aaa"
-    radius.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
-    radius.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/" + radius.EntityData.SegmentPath
-    radius.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    radius.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    radius.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    radius.EntityData.Children = types.NewOrderedMap()
-    radius.EntityData.Children.Append("servers", types.YChild{"Servers", &radius.Servers})
-    radius.EntityData.Children.Append("radius-source-interface", types.YChild{"RadiusSourceInterface", &radius.RadiusSourceInterface})
-    radius.EntityData.Children.Append("global", types.YChild{"Global", &radius.Global})
-    radius.EntityData.Leafs = types.NewOrderedMap()
-
-    radius.EntityData.YListKeys = []string {}
-
-    return &(radius.EntityData)
-}
-
-// Aaa_Radius_Servers
-// List of RADIUS servers configured
-type Aaa_Radius_Servers struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // RADIUS Server. The type is slice of Aaa_Radius_Servers_Server.
-    Server []*Aaa_Radius_Servers_Server
-}
-
-func (servers *Aaa_Radius_Servers) GetEntityData() *types.CommonEntityData {
-    servers.EntityData.YFilter = servers.YFilter
-    servers.EntityData.YangName = "servers"
-    servers.EntityData.BundleName = "cisco_ios_xr"
-    servers.EntityData.ParentYangName = "radius"
-    servers.EntityData.SegmentPath = "servers"
-    servers.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/" + servers.EntityData.SegmentPath
-    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servers.EntityData.Children = types.NewOrderedMap()
-    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
-    for i := range servers.Server {
-        types.SetYListKey(servers.Server[i], i)
-        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
-    }
-    servers.EntityData.Leafs = types.NewOrderedMap()
-
-    servers.EntityData.YListKeys = []string {}
-
-    return &(servers.EntityData)
-}
-
-// Aaa_Radius_Servers_Server
-// RADIUS Server
-type Aaa_Radius_Servers_Server struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // IP address of RADIUS server. The type is one of the following types: string
-    // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    IpAddress interface{}
-
-    // Authentication Port number (standard port 1645). The type is interface{}
-    // with range: 1..65535.
-    AuthPortNumber interface{}
-
-    // Accounting Port number (standard port 1646). The type is interface{} with
-    // range: 1..65535.
-    AcctPortNumber interface{}
-
-    // IP address of RADIUS server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ipv4Address interface{}
-
-    // A number that indicates the priority             of the server. The type is
-    // interface{} with range: 0..4294967295.
-    Priority interface{}
-
-    // Per-server timeout in seconds. The type is interface{} with range:
-    // 0..4294967295. Units are second.
-    TimeoutXr interface{}
-
-    // Per-server retransmit. The type is interface{} with range: 0..4294967295.
-    Retransmit interface{}
-
-    // Per-server deadtime in minutes. The type is interface{} with range:
-    // 0..4294967295. Units are minute.
-    DeadTime interface{}
-
-    // Per-server dead-detect time in seconds. The type is interface{} with range:
-    // 0..4294967295. Units are second.
-    DeadDetectTime interface{}
-
-    // Per-server dead-detect tries. The type is interface{} with range:
-    // 0..4294967295.
-    DeadDetectTries interface{}
-
-    // Authentication port. The type is interface{} with range: 0..4294967295.
-    AuthenticationPort interface{}
-
-    // Accounting port. The type is interface{} with range: 0..4294967295.
-    AccountingPort interface{}
-
-    // State of the server UP/DOWN. The type is string.
-    State interface{}
-
-    // Elapsed time the server has been in              current state. The type is
-    // interface{} with range: 0..4294967295.
-    CurrentStateDuration interface{}
-
-    // Elapsed time the server was been in              previous state. The type
-    // is interface{} with range: 0..4294967295.
-    PreviousStateDuration interface{}
-
-    // Total number of incoming packets read. The type is interface{} with range:
-    // 0..4294967295.
-    PacketsIn interface{}
-
-    // Total number of outgoing packets sent. The type is interface{} with range:
-    // 0..4294967295.
-    PacketsOut interface{}
-
-    // Total number of packets timed-out. The type is interface{} with range:
-    // 0..4294967295.
-    Timeouts interface{}
-
-    // Total number of requests aborted. The type is interface{} with range:
-    // 0..4294967295.
-    Aborts interface{}
-
-    // Number of replies expected to arrive. The type is interface{} with range:
-    // 0..4294967295.
-    RepliesExpected interface{}
-
-    // Number of requests redirected. The type is interface{} with range:
-    // 0..4294967295.
-    RedirectedRequests interface{}
-
-    // Round-trip time for authentication               in milliseconds. The type
-    // is interface{} with range: 0..4294967295. Units are millisecond.
-    AuthenticationRtt interface{}
-
-    // Number of access requests. The type is interface{} with range:
-    // 0..4294967295.
-    AccessRequests interface{}
-
-    // Number of retransmitted                          access requests. The type
-    // is interface{} with range: 0..4294967295.
-    AccessRequestRetransmits interface{}
-
-    // Number of access accepts. The type is interface{} with range:
-    // 0..4294967295.
-    AccessAccepts interface{}
-
-    // Number of access rejects. The type is interface{} with range:
-    // 0..4294967295.
-    AccessRejects interface{}
-
-    // Number of access challenges. The type is interface{} with range:
-    // 0..4294967295.
-    AccessChallenges interface{}
-
-    // Number of bad access responses. The type is interface{} with range:
-    // 0..4294967295.
-    BadAccessResponses interface{}
-
-    // Number of bad access authenticators. The type is interface{} with range:
-    // 0..4294967295.
-    BadAccessAuthenticators interface{}
-
-    // Number of pending access requests. The type is interface{} with range:
-    // 0..4294967295.
-    PendingAccessRequests interface{}
-
-    // Number of access packets timed-out. The type is interface{} with range:
-    // 0..4294967295.
-    AccessTimeouts interface{}
-
-    // Number of packets received with unknown          type from authentication
-    // server. The type is interface{} with range: 0..4294967295.
-    UnknownAccessTypes interface{}
-
-    // Number of access responses dropped. The type is interface{} with range:
-    // 0..4294967295.
-    DroppedAccessResponses interface{}
-
-    // No of throttled access reqs stats. The type is interface{} with range:
-    // 0..4294967295.
-    ThrottledAccessReqs interface{}
-
-    // No of access reqs that is throttled is timedout. The type is interface{}
-    // with range: 0..4294967295.
-    ThrottledTimedOutReqs interface{}
-
-    // No of discarded access reqs. The type is interface{} with range:
-    // 0..4294967295.
-    ThrottledDroppedReqs interface{}
-
-    // Max throttled access reqs. The type is interface{} with range:
-    // 0..4294967295.
-    MaxThrottledAccessReqs interface{}
-
-    // No of currently throttled access reqs. The type is interface{} with range:
-    // 0..4294967295.
-    CurrentlyThrottledAccessReqs interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenResponseTime interface{}
-
-    // Number of succeeded authentication transactions. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenTransactionSuccessess interface{}
-
-    // Number of failed authentication transactions. The type is interface{} with
-    // range: 0..4294967295.
-    AuthenTransactionFailure interface{}
-
-    // Number of unexpected authentication responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthenUnexpectedResponses interface{}
-
-    // Number of server error authentication responses. The type is interface{}
-    // with range: 0..4294967295.
-    AuthenServerErrorResponses interface{}
-
-    // Number of incorrect authentication responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthenIncorrectResponses interface{}
-
-    // Number of access requests. The type is interface{} with range:
-    // 0..4294967295.
-    AuthorRequests interface{}
-
-    // Number of access packets timed out. The type is interface{} with range:
-    // 0..4294967295.
-    AuthorRequestTimeouts interface{}
-
-    // Average response time for authorization requests. The type is interface{}
-    // with range: 0..4294967295.
-    AuthorResponseTime interface{}
-
-    // Number of succeeded authorization transactions. The type is interface{}
-    // with range: 0..4294967295.
-    AuthorTransactionSuccessess interface{}
-
-    // Number of failed authorization transactions. The type is interface{} with
-    // range: 0..4294967295.
-    AuthorTransactionFailure interface{}
-
-    // Number of unexpected authorization responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthorUnexpectedResponses interface{}
-
-    // Number of server error authorization responses. The type is interface{}
-    // with range: 0..4294967295.
-    AuthorServerErrorResponses interface{}
-
-    // Number of incorrect authorization responses. The type is interface{} with
-    // range: 0..4294967295.
-    AuthorIncorrectResponses interface{}
-
-    // Round-trip time for accounting                   in milliseconds. The type
-    // is interface{} with range: 0..4294967295. Units are millisecond.
-    AccountingRtt interface{}
-
-    // Number of accounting requests. The type is interface{} with range:
-    // 0..4294967295.
-    AccountingRequests interface{}
-
-    // Number of retransmitted                          accounting requests. The
-    // type is interface{} with range: 0..4294967295.
-    AccountingRetransmits interface{}
-
-    // Number of accounting responses. The type is interface{} with range:
-    // 0..4294967295.
-    AccountingResponses interface{}
-
-    // Number of bad accounting responses. The type is interface{} with range:
-    // 0..4294967295.
-    BadAccountingResponses interface{}
-
-    // Number of bad accounting                         authenticators. The type
-    // is interface{} with range: 0..4294967295.
-    BadAccountingAuthenticators interface{}
-
-    // Number of pending accounting requests. The type is interface{} with range:
-    // 0..4294967295.
-    PendingAccountingRequets interface{}
-
-    // Number of accounting packets                     timed-out. The type is
-    // interface{} with range: 0..4294967295.
-    AccountingTimeouts interface{}
-
-    // Number of packets received with unknown          type from accounting
-    // server. The type is interface{} with range: 0..4294967295.
-    UnknownAccountingTypes interface{}
-
-    // Number of accounting responses                   dropped. The type is
-    // interface{} with range: 0..4294967295.
-    DroppedAccountingResponses interface{}
-
-    // Is a private server. The type is bool.
-    IsAPrivateServer interface{}
-
-    // Total auth test request. The type is interface{} with range: 0..4294967295.
-    TotalTestAuthReqs interface{}
-
-    // Total auth test timeouts. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAuthTimeouts interface{}
-
-    // Total auth test response. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAuthResponse interface{}
-
-    // Total auth test pending. The type is interface{} with range: 0..4294967295.
-    TotalTestAuthPending interface{}
-
-    // Total acct test req. The type is interface{} with range: 0..4294967295.
-    TotalTestAcctReqs interface{}
-
-    // Total acct test timeouts. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAcctTimeouts interface{}
-
-    // Total acct test response. The type is interface{} with range:
-    // 0..4294967295.
-    TotalTestAcctResponse interface{}
-
-    // Total acct test pending. The type is interface{} with range: 0..4294967295.
-    TotalTestAcctPending interface{}
-
-    // No of throttled acct transactions stats. The type is interface{} with
-    // range: 0..4294967295.
-    ThrottledAcctTransactions interface{}
-
-    // No of acct transaction that is throttled is timedout. The type is
-    // interface{} with range: 0..4294967295.
-    ThrottledAcctTimedOutStats interface{}
-
-    // No of acct discarded transaction. The type is interface{} with range:
-    // 0..4294967295.
-    ThrottledAcctFailuresStats interface{}
-
-    // Max throttled acct transactions. The type is interface{} with range:
-    // 0..4294967295.
-    MaxAcctThrottled interface{}
-
-    // No of currently throttled acct transactions. The type is interface{} with
-    // range: 0..4294967295.
-    ThrottledaAcctTransactions interface{}
-
-    // Number of unexpected accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctUnexpectedResponses interface{}
-
-    // Number of server error accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctServerErrorResponses interface{}
-
-    // Number of incorrect accounting responses. The type is interface{} with
-    // range: 0..4294967295.
-    AcctIncorrectResponses interface{}
-
-    // Average response time for authentication requests. The type is interface{}
-    // with range: 0..4294967295.
-    AcctResponseTime interface{}
-
-    // Number of succeeded authentication transactions. The type is interface{}
-    // with range: 0..4294967295.
-    AcctTransactionSuccessess interface{}
-
-    // Number of failed authentication transactions. The type is interface{} with
-    // range: 0..4294967295.
-    AcctTransactionFailure interface{}
-
-    // Total time of Server being in DEAD               state. The type is
-    // interface{} with range: 0..4294967295.
-    TotalDeadtime interface{}
-
-    // Time of Server being in DEAD state,              after last UP. The type is
-    // interface{} with range: 0..4294967295.
-    LastDeadtime interface{}
-
-    // flag to indicate Server is quarantined           or not (Automated TEST in
-    // progress). The type is bool.
-    IsQuarantined interface{}
-
-    // Server group name for private server. The type is string.
-    GroupName interface{}
-
-    // IP address buffer. The type is string.
-    IpAddressXr interface{}
-
-    // IP address Family. The type is string.
-    Family interface{}
-}
-
-func (server *Aaa_Radius_Servers_Server) GetEntityData() *types.CommonEntityData {
-    server.EntityData.YFilter = server.YFilter
-    server.EntityData.YangName = "server"
-    server.EntityData.BundleName = "cisco_ios_xr"
-    server.EntityData.ParentYangName = "servers"
-    server.EntityData.SegmentPath = "server" + types.AddNoKeyToken(server)
-    server.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/servers/" + server.EntityData.SegmentPath
-    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    server.EntityData.Children = types.NewOrderedMap()
-    server.EntityData.Leafs = types.NewOrderedMap()
-    server.EntityData.Leafs.Append("ip-address", types.YLeaf{"IpAddress", server.IpAddress})
-    server.EntityData.Leafs.Append("auth-port-number", types.YLeaf{"AuthPortNumber", server.AuthPortNumber})
-    server.EntityData.Leafs.Append("acct-port-number", types.YLeaf{"AcctPortNumber", server.AcctPortNumber})
-    server.EntityData.Leafs.Append("ipv4-address", types.YLeaf{"Ipv4Address", server.Ipv4Address})
-    server.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", server.Priority})
-    server.EntityData.Leafs.Append("timeout-xr", types.YLeaf{"TimeoutXr", server.TimeoutXr})
-    server.EntityData.Leafs.Append("retransmit", types.YLeaf{"Retransmit", server.Retransmit})
-    server.EntityData.Leafs.Append("dead-time", types.YLeaf{"DeadTime", server.DeadTime})
-    server.EntityData.Leafs.Append("dead-detect-time", types.YLeaf{"DeadDetectTime", server.DeadDetectTime})
-    server.EntityData.Leafs.Append("dead-detect-tries", types.YLeaf{"DeadDetectTries", server.DeadDetectTries})
-    server.EntityData.Leafs.Append("authentication-port", types.YLeaf{"AuthenticationPort", server.AuthenticationPort})
-    server.EntityData.Leafs.Append("accounting-port", types.YLeaf{"AccountingPort", server.AccountingPort})
-    server.EntityData.Leafs.Append("state", types.YLeaf{"State", server.State})
-    server.EntityData.Leafs.Append("current-state-duration", types.YLeaf{"CurrentStateDuration", server.CurrentStateDuration})
-    server.EntityData.Leafs.Append("previous-state-duration", types.YLeaf{"PreviousStateDuration", server.PreviousStateDuration})
-    server.EntityData.Leafs.Append("packets-in", types.YLeaf{"PacketsIn", server.PacketsIn})
-    server.EntityData.Leafs.Append("packets-out", types.YLeaf{"PacketsOut", server.PacketsOut})
-    server.EntityData.Leafs.Append("timeouts", types.YLeaf{"Timeouts", server.Timeouts})
-    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
-    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
-    server.EntityData.Leafs.Append("redirected-requests", types.YLeaf{"RedirectedRequests", server.RedirectedRequests})
-    server.EntityData.Leafs.Append("authentication-rtt", types.YLeaf{"AuthenticationRtt", server.AuthenticationRtt})
-    server.EntityData.Leafs.Append("access-requests", types.YLeaf{"AccessRequests", server.AccessRequests})
-    server.EntityData.Leafs.Append("access-request-retransmits", types.YLeaf{"AccessRequestRetransmits", server.AccessRequestRetransmits})
-    server.EntityData.Leafs.Append("access-accepts", types.YLeaf{"AccessAccepts", server.AccessAccepts})
-    server.EntityData.Leafs.Append("access-rejects", types.YLeaf{"AccessRejects", server.AccessRejects})
-    server.EntityData.Leafs.Append("access-challenges", types.YLeaf{"AccessChallenges", server.AccessChallenges})
-    server.EntityData.Leafs.Append("bad-access-responses", types.YLeaf{"BadAccessResponses", server.BadAccessResponses})
-    server.EntityData.Leafs.Append("bad-access-authenticators", types.YLeaf{"BadAccessAuthenticators", server.BadAccessAuthenticators})
-    server.EntityData.Leafs.Append("pending-access-requests", types.YLeaf{"PendingAccessRequests", server.PendingAccessRequests})
-    server.EntityData.Leafs.Append("access-timeouts", types.YLeaf{"AccessTimeouts", server.AccessTimeouts})
-    server.EntityData.Leafs.Append("unknown-access-types", types.YLeaf{"UnknownAccessTypes", server.UnknownAccessTypes})
-    server.EntityData.Leafs.Append("dropped-access-responses", types.YLeaf{"DroppedAccessResponses", server.DroppedAccessResponses})
-    server.EntityData.Leafs.Append("throttled-access-reqs", types.YLeaf{"ThrottledAccessReqs", server.ThrottledAccessReqs})
-    server.EntityData.Leafs.Append("throttled-timed-out-reqs", types.YLeaf{"ThrottledTimedOutReqs", server.ThrottledTimedOutReqs})
-    server.EntityData.Leafs.Append("throttled-dropped-reqs", types.YLeaf{"ThrottledDroppedReqs", server.ThrottledDroppedReqs})
-    server.EntityData.Leafs.Append("max-throttled-access-reqs", types.YLeaf{"MaxThrottledAccessReqs", server.MaxThrottledAccessReqs})
-    server.EntityData.Leafs.Append("currently-throttled-access-reqs", types.YLeaf{"CurrentlyThrottledAccessReqs", server.CurrentlyThrottledAccessReqs})
-    server.EntityData.Leafs.Append("authen-response-time", types.YLeaf{"AuthenResponseTime", server.AuthenResponseTime})
-    server.EntityData.Leafs.Append("authen-transaction-successess", types.YLeaf{"AuthenTransactionSuccessess", server.AuthenTransactionSuccessess})
-    server.EntityData.Leafs.Append("authen-transaction-failure", types.YLeaf{"AuthenTransactionFailure", server.AuthenTransactionFailure})
-    server.EntityData.Leafs.Append("authen-unexpected-responses", types.YLeaf{"AuthenUnexpectedResponses", server.AuthenUnexpectedResponses})
-    server.EntityData.Leafs.Append("authen-server-error-responses", types.YLeaf{"AuthenServerErrorResponses", server.AuthenServerErrorResponses})
-    server.EntityData.Leafs.Append("authen-incorrect-responses", types.YLeaf{"AuthenIncorrectResponses", server.AuthenIncorrectResponses})
-    server.EntityData.Leafs.Append("author-requests", types.YLeaf{"AuthorRequests", server.AuthorRequests})
-    server.EntityData.Leafs.Append("author-request-timeouts", types.YLeaf{"AuthorRequestTimeouts", server.AuthorRequestTimeouts})
-    server.EntityData.Leafs.Append("author-response-time", types.YLeaf{"AuthorResponseTime", server.AuthorResponseTime})
-    server.EntityData.Leafs.Append("author-transaction-successess", types.YLeaf{"AuthorTransactionSuccessess", server.AuthorTransactionSuccessess})
-    server.EntityData.Leafs.Append("author-transaction-failure", types.YLeaf{"AuthorTransactionFailure", server.AuthorTransactionFailure})
-    server.EntityData.Leafs.Append("author-unexpected-responses", types.YLeaf{"AuthorUnexpectedResponses", server.AuthorUnexpectedResponses})
-    server.EntityData.Leafs.Append("author-server-error-responses", types.YLeaf{"AuthorServerErrorResponses", server.AuthorServerErrorResponses})
-    server.EntityData.Leafs.Append("author-incorrect-responses", types.YLeaf{"AuthorIncorrectResponses", server.AuthorIncorrectResponses})
-    server.EntityData.Leafs.Append("accounting-rtt", types.YLeaf{"AccountingRtt", server.AccountingRtt})
-    server.EntityData.Leafs.Append("accounting-requests", types.YLeaf{"AccountingRequests", server.AccountingRequests})
-    server.EntityData.Leafs.Append("accounting-retransmits", types.YLeaf{"AccountingRetransmits", server.AccountingRetransmits})
-    server.EntityData.Leafs.Append("accounting-responses", types.YLeaf{"AccountingResponses", server.AccountingResponses})
-    server.EntityData.Leafs.Append("bad-accounting-responses", types.YLeaf{"BadAccountingResponses", server.BadAccountingResponses})
-    server.EntityData.Leafs.Append("bad-accounting-authenticators", types.YLeaf{"BadAccountingAuthenticators", server.BadAccountingAuthenticators})
-    server.EntityData.Leafs.Append("pending-accounting-requets", types.YLeaf{"PendingAccountingRequets", server.PendingAccountingRequets})
-    server.EntityData.Leafs.Append("accounting-timeouts", types.YLeaf{"AccountingTimeouts", server.AccountingTimeouts})
-    server.EntityData.Leafs.Append("unknown-accounting-types", types.YLeaf{"UnknownAccountingTypes", server.UnknownAccountingTypes})
-    server.EntityData.Leafs.Append("dropped-accounting-responses", types.YLeaf{"DroppedAccountingResponses", server.DroppedAccountingResponses})
-    server.EntityData.Leafs.Append("is-a-private-server", types.YLeaf{"IsAPrivateServer", server.IsAPrivateServer})
-    server.EntityData.Leafs.Append("total-test-auth-reqs", types.YLeaf{"TotalTestAuthReqs", server.TotalTestAuthReqs})
-    server.EntityData.Leafs.Append("total-test-auth-timeouts", types.YLeaf{"TotalTestAuthTimeouts", server.TotalTestAuthTimeouts})
-    server.EntityData.Leafs.Append("total-test-auth-response", types.YLeaf{"TotalTestAuthResponse", server.TotalTestAuthResponse})
-    server.EntityData.Leafs.Append("total-test-auth-pending", types.YLeaf{"TotalTestAuthPending", server.TotalTestAuthPending})
-    server.EntityData.Leafs.Append("total-test-acct-reqs", types.YLeaf{"TotalTestAcctReqs", server.TotalTestAcctReqs})
-    server.EntityData.Leafs.Append("total-test-acct-timeouts", types.YLeaf{"TotalTestAcctTimeouts", server.TotalTestAcctTimeouts})
-    server.EntityData.Leafs.Append("total-test-acct-response", types.YLeaf{"TotalTestAcctResponse", server.TotalTestAcctResponse})
-    server.EntityData.Leafs.Append("total-test-acct-pending", types.YLeaf{"TotalTestAcctPending", server.TotalTestAcctPending})
-    server.EntityData.Leafs.Append("throttled-acct-transactions", types.YLeaf{"ThrottledAcctTransactions", server.ThrottledAcctTransactions})
-    server.EntityData.Leafs.Append("throttled-acct-timed-out-stats", types.YLeaf{"ThrottledAcctTimedOutStats", server.ThrottledAcctTimedOutStats})
-    server.EntityData.Leafs.Append("throttled-acct-failures-stats", types.YLeaf{"ThrottledAcctFailuresStats", server.ThrottledAcctFailuresStats})
-    server.EntityData.Leafs.Append("max-acct-throttled", types.YLeaf{"MaxAcctThrottled", server.MaxAcctThrottled})
-    server.EntityData.Leafs.Append("throttleda-acct-transactions", types.YLeaf{"ThrottledaAcctTransactions", server.ThrottledaAcctTransactions})
-    server.EntityData.Leafs.Append("acct-unexpected-responses", types.YLeaf{"AcctUnexpectedResponses", server.AcctUnexpectedResponses})
-    server.EntityData.Leafs.Append("acct-server-error-responses", types.YLeaf{"AcctServerErrorResponses", server.AcctServerErrorResponses})
-    server.EntityData.Leafs.Append("acct-incorrect-responses", types.YLeaf{"AcctIncorrectResponses", server.AcctIncorrectResponses})
-    server.EntityData.Leafs.Append("acct-response-time", types.YLeaf{"AcctResponseTime", server.AcctResponseTime})
-    server.EntityData.Leafs.Append("acct-transaction-successess", types.YLeaf{"AcctTransactionSuccessess", server.AcctTransactionSuccessess})
-    server.EntityData.Leafs.Append("acct-transaction-failure", types.YLeaf{"AcctTransactionFailure", server.AcctTransactionFailure})
-    server.EntityData.Leafs.Append("total-deadtime", types.YLeaf{"TotalDeadtime", server.TotalDeadtime})
-    server.EntityData.Leafs.Append("last-deadtime", types.YLeaf{"LastDeadtime", server.LastDeadtime})
-    server.EntityData.Leafs.Append("is-quarantined", types.YLeaf{"IsQuarantined", server.IsQuarantined})
-    server.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", server.GroupName})
-    server.EntityData.Leafs.Append("ip-address-xr", types.YLeaf{"IpAddressXr", server.IpAddressXr})
-    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
-
-    server.EntityData.YListKeys = []string {}
-
-    return &(server.EntityData)
-}
-
-// Aaa_Radius_RadiusSourceInterface
-// RADIUS source interfaces
-type Aaa_Radius_RadiusSourceInterface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of source interfaces. The type is slice of
-    // Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface.
-    ListOfSourceInterface []*Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
-}
-
-func (radiusSourceInterface *Aaa_Radius_RadiusSourceInterface) GetEntityData() *types.CommonEntityData {
-    radiusSourceInterface.EntityData.YFilter = radiusSourceInterface.YFilter
-    radiusSourceInterface.EntityData.YangName = "radius-source-interface"
-    radiusSourceInterface.EntityData.BundleName = "cisco_ios_xr"
-    radiusSourceInterface.EntityData.ParentYangName = "radius"
-    radiusSourceInterface.EntityData.SegmentPath = "radius-source-interface"
-    radiusSourceInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/" + radiusSourceInterface.EntityData.SegmentPath
-    radiusSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    radiusSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    radiusSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    radiusSourceInterface.EntityData.Children = types.NewOrderedMap()
-    radiusSourceInterface.EntityData.Children.Append("list-of-source-interface", types.YChild{"ListOfSourceInterface", nil})
-    for i := range radiusSourceInterface.ListOfSourceInterface {
-        types.SetYListKey(radiusSourceInterface.ListOfSourceInterface[i], i)
-        radiusSourceInterface.EntityData.Children.Append(types.GetSegmentPath(radiusSourceInterface.ListOfSourceInterface[i]), types.YChild{"ListOfSourceInterface", radiusSourceInterface.ListOfSourceInterface[i]})
-    }
-    radiusSourceInterface.EntityData.Leafs = types.NewOrderedMap()
-
-    radiusSourceInterface.EntityData.YListKeys = []string {}
-
-    return &(radiusSourceInterface.EntityData)
-}
-
-// Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface
-// List of source interfaces
-type Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Name of the source interface. The type is string.
-    InterfaceName interface{}
-
-    // IP address buffer. The type is string.
-    Ipaddrv4 interface{}
-
-    // IP address buffer. The type is string.
-    Ipaddrv6 interface{}
-
-    // VRF Id. The type is interface{} with range: 0..4294967295.
-    Vrfid interface{}
-}
-
-func (listOfSourceInterface *Aaa_Radius_RadiusSourceInterface_ListOfSourceInterface) GetEntityData() *types.CommonEntityData {
-    listOfSourceInterface.EntityData.YFilter = listOfSourceInterface.YFilter
-    listOfSourceInterface.EntityData.YangName = "list-of-source-interface"
-    listOfSourceInterface.EntityData.BundleName = "cisco_ios_xr"
-    listOfSourceInterface.EntityData.ParentYangName = "radius-source-interface"
-    listOfSourceInterface.EntityData.SegmentPath = "list-of-source-interface" + types.AddNoKeyToken(listOfSourceInterface)
-    listOfSourceInterface.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/radius-source-interface/" + listOfSourceInterface.EntityData.SegmentPath
-    listOfSourceInterface.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    listOfSourceInterface.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    listOfSourceInterface.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    listOfSourceInterface.EntityData.Children = types.NewOrderedMap()
-    listOfSourceInterface.EntityData.Leafs = types.NewOrderedMap()
-    listOfSourceInterface.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", listOfSourceInterface.InterfaceName})
-    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv4", types.YLeaf{"Ipaddrv4", listOfSourceInterface.Ipaddrv4})
-    listOfSourceInterface.EntityData.Leafs.Append("ipaddrv6", types.YLeaf{"Ipaddrv6", listOfSourceInterface.Ipaddrv6})
-    listOfSourceInterface.EntityData.Leafs.Append("vrfid", types.YLeaf{"Vrfid", listOfSourceInterface.Vrfid})
-
-    listOfSourceInterface.EntityData.YListKeys = []string {}
-
-    return &(listOfSourceInterface.EntityData)
-}
-
-// Aaa_Radius_Global
-// RADIUS Client Information
-type Aaa_Radius_Global struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of RADIUS Access-Responsepackets received from unknownaddresses. The
-    // type is interface{} with range: 0..4294967295.
-    UnknownAuthenticationResponse interface{}
-
-    // NAS-Identifier of the RADIUSauthentication client. The type is string.
-    AuthenticationNasId interface{}
-
-    // Number of RADIUS Accounting-Responsepackets received from unknownaddresses.
-    // The type is interface{} with range: 0..4294967295.
-    UnknownAccountingResponse interface{}
-
-    // NAS-Identifier of the RADIUSaccounting client. The type is string.
-    AccountingNasId interface{}
-}
-
-func (global *Aaa_Radius_Global) GetEntityData() *types.CommonEntityData {
-    global.EntityData.YFilter = global.YFilter
-    global.EntityData.YangName = "global"
-    global.EntityData.BundleName = "cisco_ios_xr"
-    global.EntityData.ParentYangName = "radius"
-    global.EntityData.SegmentPath = "global"
-    global.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-protocol-radius-oper:radius/" + global.EntityData.SegmentPath
-    global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    global.EntityData.Children = types.NewOrderedMap()
-    global.EntityData.Leafs = types.NewOrderedMap()
-    global.EntityData.Leafs.Append("unknown-authentication-response", types.YLeaf{"UnknownAuthenticationResponse", global.UnknownAuthenticationResponse})
-    global.EntityData.Leafs.Append("authentication-nas-id", types.YLeaf{"AuthenticationNasId", global.AuthenticationNasId})
-    global.EntityData.Leafs.Append("unknown-accounting-response", types.YLeaf{"UnknownAccountingResponse", global.UnknownAccountingResponse})
-    global.EntityData.Leafs.Append("accounting-nas-id", types.YLeaf{"AccountingNasId", global.AccountingNasId})
-
-    global.EntityData.YListKeys = []string {}
-
-    return &(global.EntityData)
-}
-
-// Aaa_Tacacs
-// TACACS operational data
-type Aaa_Tacacs struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // TACACS Active Request List.
-    Requests Aaa_Tacacs_Requests
-
-    // TACACS server Information.
-    Servers Aaa_Tacacs_Servers
-
-    // TACACS sg Information.
-    ServerGroups Aaa_Tacacs_ServerGroups
-}
-
-func (tacacs *Aaa_Tacacs) GetEntityData() *types.CommonEntityData {
-    tacacs.EntityData.YFilter = tacacs.YFilter
-    tacacs.EntityData.YangName = "tacacs"
-    tacacs.EntityData.BundleName = "cisco_ios_xr"
-    tacacs.EntityData.ParentYangName = "aaa"
-    tacacs.EntityData.SegmentPath = "Cisco-IOS-XR-aaa-tacacs-oper:tacacs"
-    tacacs.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/" + tacacs.EntityData.SegmentPath
-    tacacs.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tacacs.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tacacs.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tacacs.EntityData.Children = types.NewOrderedMap()
-    tacacs.EntityData.Children.Append("requests", types.YChild{"Requests", &tacacs.Requests})
-    tacacs.EntityData.Children.Append("servers", types.YChild{"Servers", &tacacs.Servers})
-    tacacs.EntityData.Children.Append("server-groups", types.YChild{"ServerGroups", &tacacs.ServerGroups})
-    tacacs.EntityData.Leafs = types.NewOrderedMap()
-
-    tacacs.EntityData.YListKeys = []string {}
-
-    return &(tacacs.EntityData)
-}
-
-// Aaa_Tacacs_Requests
-// TACACS Active Request List
-type Aaa_Tacacs_Requests struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // request. The type is slice of Aaa_Tacacs_Requests_Request.
-    Request []*Aaa_Tacacs_Requests_Request
-}
-
-func (requests *Aaa_Tacacs_Requests) GetEntityData() *types.CommonEntityData {
-    requests.EntityData.YFilter = requests.YFilter
-    requests.EntityData.YangName = "requests"
-    requests.EntityData.BundleName = "cisco_ios_xr"
-    requests.EntityData.ParentYangName = "tacacs"
-    requests.EntityData.SegmentPath = "requests"
-    requests.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/" + requests.EntityData.SegmentPath
-    requests.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    requests.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    requests.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    requests.EntityData.Children = types.NewOrderedMap()
-    requests.EntityData.Children.Append("request", types.YChild{"Request", nil})
-    for i := range requests.Request {
-        types.SetYListKey(requests.Request[i], i)
-        requests.EntityData.Children.Append(types.GetSegmentPath(requests.Request[i]), types.YChild{"Request", requests.Request[i]})
-    }
-    requests.EntityData.Leafs = types.NewOrderedMap()
-
-    requests.EntityData.YListKeys = []string {}
-
-    return &(requests.EntityData)
-}
-
-// Aaa_Tacacs_Requests_Request
-// request
-type Aaa_Tacacs_Requests_Request struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // address in tacascd proc space of this req. The type is slice of
-    // Aaa_Tacacs_Requests_Request_TacacsRequestbag.
-    TacacsRequestbag []*Aaa_Tacacs_Requests_Request_TacacsRequestbag
-}
-
-func (request *Aaa_Tacacs_Requests_Request) GetEntityData() *types.CommonEntityData {
-    request.EntityData.YFilter = request.YFilter
-    request.EntityData.YangName = "request"
-    request.EntityData.BundleName = "cisco_ios_xr"
-    request.EntityData.ParentYangName = "requests"
-    request.EntityData.SegmentPath = "request" + types.AddNoKeyToken(request)
-    request.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/" + request.EntityData.SegmentPath
-    request.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    request.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    request.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    request.EntityData.Children = types.NewOrderedMap()
-    request.EntityData.Children.Append("tacacs-requestbag", types.YChild{"TacacsRequestbag", nil})
-    for i := range request.TacacsRequestbag {
-        types.SetYListKey(request.TacacsRequestbag[i], i)
-        request.EntityData.Children.Append(types.GetSegmentPath(request.TacacsRequestbag[i]), types.YChild{"TacacsRequestbag", request.TacacsRequestbag[i]})
-    }
-    request.EntityData.Leafs = types.NewOrderedMap()
-
-    request.EntityData.YListKeys = []string {}
-
-    return &(request.EntityData)
-}
-
-// Aaa_Tacacs_Requests_Request_TacacsRequestbag
-// address in tacascd proc space of this req
-type Aaa_Tacacs_Requests_Request_TacacsRequestbag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // time remaining for this request. The type is interface{} with range:
-    // 0..4294967295.
-    TimeRemaining interface{}
-
-    // bytes written. The type is interface{} with range: 0..4294967295. Units are
-    // byte.
-    BytesOut interface{}
-
-    // size of the packet to be sent. The type is interface{} with range:
-    // 0..4294967295.
-    OutPakSize interface{}
-
-    // bytes read from socket. The type is interface{} with range: 0..4294967295.
-    // Units are byte.
-    BytesIn interface{}
-
-    // size of the packet to be received. The type is interface{} with range:
-    // 0..4294967295.
-    InPakSize interface{}
-
-    // the type of packet. The type is string.
-    PakType interface{}
-
-    // same as in pkt hdr. The type is interface{} with range:
-    // -2147483648..2147483647.
-    SessionId interface{}
-
-    // socket number. The type is interface{} with range: -2147483648..2147483647.
-    Sock interface{}
-}
-
-func (tacacsRequestbag *Aaa_Tacacs_Requests_Request_TacacsRequestbag) GetEntityData() *types.CommonEntityData {
-    tacacsRequestbag.EntityData.YFilter = tacacsRequestbag.YFilter
-    tacacsRequestbag.EntityData.YangName = "tacacs-requestbag"
-    tacacsRequestbag.EntityData.BundleName = "cisco_ios_xr"
-    tacacsRequestbag.EntityData.ParentYangName = "request"
-    tacacsRequestbag.EntityData.SegmentPath = "tacacs-requestbag" + types.AddNoKeyToken(tacacsRequestbag)
-    tacacsRequestbag.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/requests/request/" + tacacsRequestbag.EntityData.SegmentPath
-    tacacsRequestbag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    tacacsRequestbag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    tacacsRequestbag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    tacacsRequestbag.EntityData.Children = types.NewOrderedMap()
-    tacacsRequestbag.EntityData.Leafs = types.NewOrderedMap()
-    tacacsRequestbag.EntityData.Leafs.Append("time-remaining", types.YLeaf{"TimeRemaining", tacacsRequestbag.TimeRemaining})
-    tacacsRequestbag.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", tacacsRequestbag.BytesOut})
-    tacacsRequestbag.EntityData.Leafs.Append("out-pak-size", types.YLeaf{"OutPakSize", tacacsRequestbag.OutPakSize})
-    tacacsRequestbag.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", tacacsRequestbag.BytesIn})
-    tacacsRequestbag.EntityData.Leafs.Append("in-pak-size", types.YLeaf{"InPakSize", tacacsRequestbag.InPakSize})
-    tacacsRequestbag.EntityData.Leafs.Append("pak-type", types.YLeaf{"PakType", tacacsRequestbag.PakType})
-    tacacsRequestbag.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", tacacsRequestbag.SessionId})
-    tacacsRequestbag.EntityData.Leafs.Append("sock", types.YLeaf{"Sock", tacacsRequestbag.Sock})
-
-    tacacsRequestbag.EntityData.YListKeys = []string {}
-
-    return &(tacacsRequestbag.EntityData)
-}
-
-// Aaa_Tacacs_Servers
-// TACACS server Information
-type Aaa_Tacacs_Servers struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // server. The type is slice of Aaa_Tacacs_Servers_Server.
-    Server []*Aaa_Tacacs_Servers_Server
-}
-
-func (servers *Aaa_Tacacs_Servers) GetEntityData() *types.CommonEntityData {
-    servers.EntityData.YFilter = servers.YFilter
-    servers.EntityData.YangName = "servers"
-    servers.EntityData.BundleName = "cisco_ios_xr"
-    servers.EntityData.ParentYangName = "tacacs"
-    servers.EntityData.SegmentPath = "servers"
-    servers.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/" + servers.EntityData.SegmentPath
-    servers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    servers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    servers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    servers.EntityData.Children = types.NewOrderedMap()
-    servers.EntityData.Children.Append("server", types.YChild{"Server", nil})
-    for i := range servers.Server {
-        types.SetYListKey(servers.Server[i], i)
-        servers.EntityData.Children.Append(types.GetSegmentPath(servers.Server[i]), types.YChild{"Server", servers.Server[i]})
-    }
-    servers.EntityData.Leafs = types.NewOrderedMap()
-
-    servers.EntityData.YListKeys = []string {}
-
-    return &(servers.EntityData)
-}
-
-// Aaa_Tacacs_Servers_Server
-// server
-type Aaa_Tacacs_Servers_Server struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // internet address of T+ server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Addr interface{}
-
-    // per-server timeout. The type is interface{} with range: 0..4294967295.
-    Timeout interface{}
-
-    // per server port to use. The type is interface{} with range: 0..4294967295.
-    Port interface{}
-
-    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesIn interface{}
-
-    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesOut interface{}
-
-    // socket closes. The type is interface{} with range: 0..4294967295.
-    Closes interface{}
-
-    // socket opens. The type is interface{} with range: 0..4294967295.
-    Opens interface{}
-
-    // error count. The type is interface{} with range: 0..4294967295.
-    Errors interface{}
-
-    // abort count. The type is interface{} with range: 0..4294967295.
-    Aborts interface{}
-
-    // # of incoming packets read. The type is interface{} with range:
-    // 0..4294967295.
-    PaksIn interface{}
-
-    // # of outgoing packets sent. The type is interface{} with range:
-    // 0..4294967295.
-    PaksOut interface{}
-
-    // # of replies expected to arrive. The type is interface{} with range:
-    // 0..4294967295.
-    RepliesExpected interface{}
-
-    // is the server UP or down ?. The type is bool.
-    Up interface{}
-
-    // is the server connected ?. The type is bool.
-    ConnUp interface{}
-
-    // is this a single connect server ?. The type is bool.
-    SingleConnect interface{}
-
-    // is this a private server ?. The type is bool.
-    IsPrivate interface{}
-
-    // VRF in which server is reachable. The type is string with length: 0..33.
-    VrfName interface{}
-
-    // IP address buffer. The type is string with length: 0..46.
-    AddrBuf interface{}
-
-    // IP address Family. The type is string with length: 0..5.
-    Family interface{}
-}
-
-func (server *Aaa_Tacacs_Servers_Server) GetEntityData() *types.CommonEntityData {
-    server.EntityData.YFilter = server.YFilter
-    server.EntityData.YangName = "server"
-    server.EntityData.BundleName = "cisco_ios_xr"
-    server.EntityData.ParentYangName = "servers"
-    server.EntityData.SegmentPath = "server" + types.AddNoKeyToken(server)
-    server.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/servers/" + server.EntityData.SegmentPath
-    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    server.EntityData.Children = types.NewOrderedMap()
-    server.EntityData.Leafs = types.NewOrderedMap()
-    server.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", server.Addr})
-    server.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", server.Timeout})
-    server.EntityData.Leafs.Append("port", types.YLeaf{"Port", server.Port})
-    server.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", server.BytesIn})
-    server.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", server.BytesOut})
-    server.EntityData.Leafs.Append("closes", types.YLeaf{"Closes", server.Closes})
-    server.EntityData.Leafs.Append("opens", types.YLeaf{"Opens", server.Opens})
-    server.EntityData.Leafs.Append("errors", types.YLeaf{"Errors", server.Errors})
-    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
-    server.EntityData.Leafs.Append("paks-in", types.YLeaf{"PaksIn", server.PaksIn})
-    server.EntityData.Leafs.Append("paks-out", types.YLeaf{"PaksOut", server.PaksOut})
-    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
-    server.EntityData.Leafs.Append("up", types.YLeaf{"Up", server.Up})
-    server.EntityData.Leafs.Append("conn-up", types.YLeaf{"ConnUp", server.ConnUp})
-    server.EntityData.Leafs.Append("single-connect", types.YLeaf{"SingleConnect", server.SingleConnect})
-    server.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", server.IsPrivate})
-    server.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", server.VrfName})
-    server.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", server.AddrBuf})
-    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
-
-    server.EntityData.YListKeys = []string {}
-
-    return &(server.EntityData)
-}
-
-// Aaa_Tacacs_ServerGroups
-// TACACS sg Information
-type Aaa_Tacacs_ServerGroups struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // server group. The type is slice of Aaa_Tacacs_ServerGroups_ServerGroup.
-    ServerGroup []*Aaa_Tacacs_ServerGroups_ServerGroup
-}
-
-func (serverGroups *Aaa_Tacacs_ServerGroups) GetEntityData() *types.CommonEntityData {
-    serverGroups.EntityData.YFilter = serverGroups.YFilter
-    serverGroups.EntityData.YangName = "server-groups"
-    serverGroups.EntityData.BundleName = "cisco_ios_xr"
-    serverGroups.EntityData.ParentYangName = "tacacs"
-    serverGroups.EntityData.SegmentPath = "server-groups"
-    serverGroups.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/" + serverGroups.EntityData.SegmentPath
-    serverGroups.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    serverGroups.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    serverGroups.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    serverGroups.EntityData.Children = types.NewOrderedMap()
-    serverGroups.EntityData.Children.Append("server-group", types.YChild{"ServerGroup", nil})
-    for i := range serverGroups.ServerGroup {
-        types.SetYListKey(serverGroups.ServerGroup[i], i)
-        serverGroups.EntityData.Children.Append(types.GetSegmentPath(serverGroups.ServerGroup[i]), types.YChild{"ServerGroup", serverGroups.ServerGroup[i]})
-    }
-    serverGroups.EntityData.Leafs = types.NewOrderedMap()
-
-    serverGroups.EntityData.YListKeys = []string {}
-
-    return &(serverGroups.EntityData)
-}
-
-// Aaa_Tacacs_ServerGroups_ServerGroup
-// server group
-type Aaa_Tacacs_ServerGroups_ServerGroup struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // name of the server group. The type is string.
-    GroupName interface{}
-
-    // server group mapped number. The type is interface{} with range:
-    // 0..4294967295.
-    SgMapNum interface{}
-
-    // vrf of the group. The type is string with length: 0..33.
-    VrfName interface{}
-
-    // list of servers in this group. The type is slice of
-    // Aaa_Tacacs_ServerGroups_ServerGroup_Server.
-    Server []*Aaa_Tacacs_ServerGroups_ServerGroup_Server
-}
-
-func (serverGroup *Aaa_Tacacs_ServerGroups_ServerGroup) GetEntityData() *types.CommonEntityData {
-    serverGroup.EntityData.YFilter = serverGroup.YFilter
-    serverGroup.EntityData.YangName = "server-group"
-    serverGroup.EntityData.BundleName = "cisco_ios_xr"
-    serverGroup.EntityData.ParentYangName = "server-groups"
-    serverGroup.EntityData.SegmentPath = "server-group" + types.AddNoKeyToken(serverGroup)
-    serverGroup.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/" + serverGroup.EntityData.SegmentPath
-    serverGroup.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    serverGroup.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    serverGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    serverGroup.EntityData.Children = types.NewOrderedMap()
-    serverGroup.EntityData.Children.Append("server", types.YChild{"Server", nil})
-    for i := range serverGroup.Server {
-        types.SetYListKey(serverGroup.Server[i], i)
-        serverGroup.EntityData.Children.Append(types.GetSegmentPath(serverGroup.Server[i]), types.YChild{"Server", serverGroup.Server[i]})
-    }
-    serverGroup.EntityData.Leafs = types.NewOrderedMap()
-    serverGroup.EntityData.Leafs.Append("group-name", types.YLeaf{"GroupName", serverGroup.GroupName})
-    serverGroup.EntityData.Leafs.Append("sg-map-num", types.YLeaf{"SgMapNum", serverGroup.SgMapNum})
-    serverGroup.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", serverGroup.VrfName})
-
-    serverGroup.EntityData.YListKeys = []string {}
-
-    return &(serverGroup.EntityData)
-}
-
-// Aaa_Tacacs_ServerGroups_ServerGroup_Server
-// list of servers in this group
-type Aaa_Tacacs_ServerGroups_ServerGroup_Server struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // internet address of T+ server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Addr interface{}
-
-    // per-server timeout. The type is interface{} with range: 0..4294967295.
-    Timeout interface{}
-
-    // per server port to use. The type is interface{} with range: 0..4294967295.
-    Port interface{}
-
-    // # of bytes read. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesIn interface{}
-
-    // # of bytes out. The type is interface{} with range: 0..4294967295. Units
-    // are byte.
-    BytesOut interface{}
-
-    // socket closes. The type is interface{} with range: 0..4294967295.
-    Closes interface{}
-
-    // socket opens. The type is interface{} with range: 0..4294967295.
-    Opens interface{}
-
-    // error count. The type is interface{} with range: 0..4294967295.
-    Errors interface{}
-
-    // abort count. The type is interface{} with range: 0..4294967295.
-    Aborts interface{}
-
-    // # of incoming packets read. The type is interface{} with range:
-    // 0..4294967295.
-    PaksIn interface{}
-
-    // # of outgoing packets sent. The type is interface{} with range:
-    // 0..4294967295.
-    PaksOut interface{}
-
-    // # of replies expected to arrive. The type is interface{} with range:
-    // 0..4294967295.
-    RepliesExpected interface{}
-
-    // is the server UP or down ?. The type is bool.
-    Up interface{}
-
-    // is the server connected ?. The type is bool.
-    ConnUp interface{}
-
-    // is this a single connect server ?. The type is bool.
-    SingleConnect interface{}
-
-    // is this a private server ?. The type is bool.
-    IsPrivate interface{}
-
-    // VRF in which server is reachable. The type is string with length: 0..33.
-    VrfName interface{}
-
-    // IP address buffer. The type is string with length: 0..46.
-    AddrBuf interface{}
-
-    // IP address Family. The type is string with length: 0..5.
-    Family interface{}
-}
-
-func (server *Aaa_Tacacs_ServerGroups_ServerGroup_Server) GetEntityData() *types.CommonEntityData {
-    server.EntityData.YFilter = server.YFilter
-    server.EntityData.YangName = "server"
-    server.EntityData.BundleName = "cisco_ios_xr"
-    server.EntityData.ParentYangName = "server-group"
-    server.EntityData.SegmentPath = "server" + types.AddNoKeyToken(server)
-    server.EntityData.AbsolutePath = "Cisco-IOS-XR-aaa-locald-oper:aaa/Cisco-IOS-XR-aaa-tacacs-oper:tacacs/server-groups/server-group/" + server.EntityData.SegmentPath
-    server.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    server.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    server.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    server.EntityData.Children = types.NewOrderedMap()
-    server.EntityData.Leafs = types.NewOrderedMap()
-    server.EntityData.Leafs.Append("addr", types.YLeaf{"Addr", server.Addr})
-    server.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", server.Timeout})
-    server.EntityData.Leafs.Append("port", types.YLeaf{"Port", server.Port})
-    server.EntityData.Leafs.Append("bytes-in", types.YLeaf{"BytesIn", server.BytesIn})
-    server.EntityData.Leafs.Append("bytes-out", types.YLeaf{"BytesOut", server.BytesOut})
-    server.EntityData.Leafs.Append("closes", types.YLeaf{"Closes", server.Closes})
-    server.EntityData.Leafs.Append("opens", types.YLeaf{"Opens", server.Opens})
-    server.EntityData.Leafs.Append("errors", types.YLeaf{"Errors", server.Errors})
-    server.EntityData.Leafs.Append("aborts", types.YLeaf{"Aborts", server.Aborts})
-    server.EntityData.Leafs.Append("paks-in", types.YLeaf{"PaksIn", server.PaksIn})
-    server.EntityData.Leafs.Append("paks-out", types.YLeaf{"PaksOut", server.PaksOut})
-    server.EntityData.Leafs.Append("replies-expected", types.YLeaf{"RepliesExpected", server.RepliesExpected})
-    server.EntityData.Leafs.Append("up", types.YLeaf{"Up", server.Up})
-    server.EntityData.Leafs.Append("conn-up", types.YLeaf{"ConnUp", server.ConnUp})
-    server.EntityData.Leafs.Append("single-connect", types.YLeaf{"SingleConnect", server.SingleConnect})
-    server.EntityData.Leafs.Append("is-private", types.YLeaf{"IsPrivate", server.IsPrivate})
-    server.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", server.VrfName})
-    server.EntityData.Leafs.Append("addr-buf", types.YLeaf{"AddrBuf", server.AddrBuf})
-    server.EntityData.Leafs.Append("family", types.YLeaf{"Family", server.Family})
-
-    server.EntityData.YListKeys = []string {}
-
-    return &(server.EntityData)
 }
 

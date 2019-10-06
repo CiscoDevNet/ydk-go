@@ -27,6 +27,179 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-plat-chas-invmgr-oper:platform-inventory", reflect.TypeOf(PlatformInventory{}))
 }
 
+// InvAdminState represents Inv admin state
+type InvAdminState string
+
+const (
+    // admin state invalid
+    InvAdminState_admin_state_invalid InvAdminState = "admin-state-invalid"
+
+    // admin up
+    InvAdminState_admin_up InvAdminState = "admin-up"
+
+    // admin down
+    InvAdminState_admin_down InvAdminState = "admin-down"
+)
+
+// InvResetReason represents Inv reset reason
+type InvResetReason string
+
+const (
+    // module reset reason unknown
+    InvResetReason_module_reset_reason_unknown InvResetReason = "module-reset-reason-unknown"
+
+    // module reset reason powerup
+    InvResetReason_module_reset_reason_powerup InvResetReason = "module-reset-reason-powerup"
+
+    // module reset reason user shutdown
+    InvResetReason_module_reset_reason_user_shutdown InvResetReason = "module-reset-reason-user-shutdown"
+
+    // module reset reason user reload
+    InvResetReason_module_reset_reason_user_reload InvResetReason = "module-reset-reason-user-reload"
+
+    // module reset reason auto reload
+    InvResetReason_module_reset_reason_auto_reload InvResetReason = "module-reset-reason-auto-reload"
+
+    // module reset reason environment
+    InvResetReason_module_reset_reason_environment InvResetReason = "module-reset-reason-environment"
+
+    // module reset reason user unpower
+    InvResetReason_module_reset_reason_user_unpower InvResetReason = "module-reset-reason-user-unpower"
+)
+
+// InvCardState represents Inv card state
+type InvCardState string
+
+const (
+    // inv card not present
+    InvCardState_inv_card_not_present InvCardState = "inv-card-not-present"
+
+    // inv card present
+    InvCardState_inv_card_present InvCardState = "inv-card-present"
+
+    // inv card reset
+    InvCardState_inv_card_reset InvCardState = "inv-card-reset"
+
+    // inv card booting
+    InvCardState_inv_card_booting InvCardState = "inv-card-booting"
+
+    // inv card mbi booting
+    InvCardState_inv_card_mbi_booting InvCardState = "inv-card-mbi-booting"
+
+    // inv card running mbi
+    InvCardState_inv_card_running_mbi InvCardState = "inv-card-running-mbi"
+
+    // inv card running ena
+    InvCardState_inv_card_running_ena InvCardState = "inv-card-running-ena"
+
+    // inv card bring down
+    InvCardState_inv_card_bring_down InvCardState = "inv-card-bring-down"
+
+    // inv card ena failure
+    InvCardState_inv_card_ena_failure InvCardState = "inv-card-ena-failure"
+
+    // inv card f diag run
+    InvCardState_inv_card_f_diag_run InvCardState = "inv-card-f-diag-run"
+
+    // inv card f diag failure
+    InvCardState_inv_card_f_diag_failure InvCardState = "inv-card-f-diag-failure"
+
+    // inv card powered
+    InvCardState_inv_card_powered InvCardState = "inv-card-powered"
+
+    // inv card unpowered
+    InvCardState_inv_card_unpowered InvCardState = "inv-card-unpowered"
+
+    // inv card mdr
+    InvCardState_inv_card_mdr InvCardState = "inv-card-mdr"
+
+    // inv card mdr running mbi
+    InvCardState_inv_card_mdr_running_mbi InvCardState = "inv-card-mdr-running-mbi"
+
+    // inv card main t mode
+    InvCardState_inv_card_main_t_mode InvCardState = "inv-card-main-t-mode"
+
+    // inv card admin down
+    InvCardState_inv_card_admin_down InvCardState = "inv-card-admin-down"
+
+    // inv card no mon
+    InvCardState_inv_card_no_mon InvCardState = "inv-card-no-mon"
+
+    // inv card unknown
+    InvCardState_inv_card_unknown InvCardState = "inv-card-unknown"
+
+    // inv card failed
+    InvCardState_inv_card_failed InvCardState = "inv-card-failed"
+
+    // inv card ok
+    InvCardState_inv_card_ok InvCardState = "inv-card-ok"
+
+    // inv card missing
+    InvCardState_inv_card_missing InvCardState = "inv-card-missing"
+
+    // inv card field diag downloading
+    InvCardState_inv_card_field_diag_downloading InvCardState = "inv-card-field-diag-downloading"
+
+    // inv card field diag unmonitor
+    InvCardState_inv_card_field_diag_unmonitor InvCardState = "inv-card-field-diag-unmonitor"
+
+    // inv card fabric field diag unmonitor
+    InvCardState_inv_card_fabric_field_diag_unmonitor InvCardState = "inv-card-fabric-field-diag-unmonitor"
+
+    // inv card field diag rp launching
+    InvCardState_inv_card_field_diag_rp_launching InvCardState = "inv-card-field-diag-rp-launching"
+
+    // inv card field diag running
+    InvCardState_inv_card_field_diag_running InvCardState = "inv-card-field-diag-running"
+
+    // inv card field diag pass
+    InvCardState_inv_card_field_diag_pass InvCardState = "inv-card-field-diag-pass"
+
+    // inv card field diag fail
+    InvCardState_inv_card_field_diag_fail InvCardState = "inv-card-field-diag-fail"
+
+    // inv card field diag timeout
+    InvCardState_inv_card_field_diag_timeout InvCardState = "inv-card-field-diag-timeout"
+
+    // inv card disabled
+    InvCardState_inv_card_disabled InvCardState = "inv-card-disabled"
+
+    // inv card spa booting
+    InvCardState_inv_card_spa_booting InvCardState = "inv-card-spa-booting"
+
+    // inv card not allowed online
+    InvCardState_inv_card_not_allowed_online InvCardState = "inv-card-not-allowed-online"
+
+    // inv card stopped
+    InvCardState_inv_card_stopped InvCardState = "inv-card-stopped"
+
+    // inv card incompatible fw ver
+    InvCardState_inv_card_incompatible_fw_ver InvCardState = "inv-card-incompatible-fw-ver"
+
+    // inv card fpd hold
+    InvCardState_inv_card_fpd_hold InvCardState = "inv-card-fpd-hold"
+
+    // inv card node prep
+    InvCardState_inv_card_node_prep InvCardState = "inv-card-node-prep"
+
+    // inv card updating fpd
+    InvCardState_inv_card_updating_fpd InvCardState = "inv-card-updating-fpd"
+
+    // inv card num states
+    InvCardState_inv_card_num_states InvCardState = "inv-card-num-states"
+)
+
+// InvMonitorState represents Inv monitor state
+type InvMonitorState string
+
+const (
+    // unmonitored
+    InvMonitorState_unmonitored InvMonitorState = "unmonitored"
+
+    // monitored
+    InvMonitorState_monitored InvMonitorState = "monitored"
+)
+
 // NodeState represents Node state detail
 type NodeState string
 
@@ -196,165 +369,6 @@ const (
     CardRedundancyState_standby CardRedundancyState = "standby"
 )
 
-// InvResetReason represents Inv reset reason
-type InvResetReason string
-
-const (
-    // module reset reason unknown
-    InvResetReason_module_reset_reason_unknown InvResetReason = "module-reset-reason-unknown"
-
-    // module reset reason powerup
-    InvResetReason_module_reset_reason_powerup InvResetReason = "module-reset-reason-powerup"
-
-    // module reset reason user shutdown
-    InvResetReason_module_reset_reason_user_shutdown InvResetReason = "module-reset-reason-user-shutdown"
-
-    // module reset reason user reload
-    InvResetReason_module_reset_reason_user_reload InvResetReason = "module-reset-reason-user-reload"
-
-    // module reset reason auto reload
-    InvResetReason_module_reset_reason_auto_reload InvResetReason = "module-reset-reason-auto-reload"
-
-    // module reset reason environment
-    InvResetReason_module_reset_reason_environment InvResetReason = "module-reset-reason-environment"
-
-    // module reset reason user unpower
-    InvResetReason_module_reset_reason_user_unpower InvResetReason = "module-reset-reason-user-unpower"
-)
-
-// InvMonitorState represents Inv monitor state
-type InvMonitorState string
-
-const (
-    // unmonitored
-    InvMonitorState_unmonitored InvMonitorState = "unmonitored"
-
-    // monitored
-    InvMonitorState_monitored InvMonitorState = "monitored"
-)
-
-// InvCardState represents Inv card state
-type InvCardState string
-
-const (
-    // inv card not present
-    InvCardState_inv_card_not_present InvCardState = "inv-card-not-present"
-
-    // inv card present
-    InvCardState_inv_card_present InvCardState = "inv-card-present"
-
-    // inv card reset
-    InvCardState_inv_card_reset InvCardState = "inv-card-reset"
-
-    // inv card booting
-    InvCardState_inv_card_booting InvCardState = "inv-card-booting"
-
-    // inv card mbi booting
-    InvCardState_inv_card_mbi_booting InvCardState = "inv-card-mbi-booting"
-
-    // inv card running mbi
-    InvCardState_inv_card_running_mbi InvCardState = "inv-card-running-mbi"
-
-    // inv card running ena
-    InvCardState_inv_card_running_ena InvCardState = "inv-card-running-ena"
-
-    // inv card bring down
-    InvCardState_inv_card_bring_down InvCardState = "inv-card-bring-down"
-
-    // inv card ena failure
-    InvCardState_inv_card_ena_failure InvCardState = "inv-card-ena-failure"
-
-    // inv card f diag run
-    InvCardState_inv_card_f_diag_run InvCardState = "inv-card-f-diag-run"
-
-    // inv card f diag failure
-    InvCardState_inv_card_f_diag_failure InvCardState = "inv-card-f-diag-failure"
-
-    // inv card powered
-    InvCardState_inv_card_powered InvCardState = "inv-card-powered"
-
-    // inv card unpowered
-    InvCardState_inv_card_unpowered InvCardState = "inv-card-unpowered"
-
-    // inv card mdr
-    InvCardState_inv_card_mdr InvCardState = "inv-card-mdr"
-
-    // inv card mdr running mbi
-    InvCardState_inv_card_mdr_running_mbi InvCardState = "inv-card-mdr-running-mbi"
-
-    // inv card main t mode
-    InvCardState_inv_card_main_t_mode InvCardState = "inv-card-main-t-mode"
-
-    // inv card admin down
-    InvCardState_inv_card_admin_down InvCardState = "inv-card-admin-down"
-
-    // inv card no mon
-    InvCardState_inv_card_no_mon InvCardState = "inv-card-no-mon"
-
-    // inv card unknown
-    InvCardState_inv_card_unknown InvCardState = "inv-card-unknown"
-
-    // inv card failed
-    InvCardState_inv_card_failed InvCardState = "inv-card-failed"
-
-    // inv card ok
-    InvCardState_inv_card_ok InvCardState = "inv-card-ok"
-
-    // inv card missing
-    InvCardState_inv_card_missing InvCardState = "inv-card-missing"
-
-    // inv card field diag downloading
-    InvCardState_inv_card_field_diag_downloading InvCardState = "inv-card-field-diag-downloading"
-
-    // inv card field diag unmonitor
-    InvCardState_inv_card_field_diag_unmonitor InvCardState = "inv-card-field-diag-unmonitor"
-
-    // inv card fabric field diag unmonitor
-    InvCardState_inv_card_fabric_field_diag_unmonitor InvCardState = "inv-card-fabric-field-diag-unmonitor"
-
-    // inv card field diag rp launching
-    InvCardState_inv_card_field_diag_rp_launching InvCardState = "inv-card-field-diag-rp-launching"
-
-    // inv card field diag running
-    InvCardState_inv_card_field_diag_running InvCardState = "inv-card-field-diag-running"
-
-    // inv card field diag pass
-    InvCardState_inv_card_field_diag_pass InvCardState = "inv-card-field-diag-pass"
-
-    // inv card field diag fail
-    InvCardState_inv_card_field_diag_fail InvCardState = "inv-card-field-diag-fail"
-
-    // inv card field diag timeout
-    InvCardState_inv_card_field_diag_timeout InvCardState = "inv-card-field-diag-timeout"
-
-    // inv card disabled
-    InvCardState_inv_card_disabled InvCardState = "inv-card-disabled"
-
-    // inv card spa booting
-    InvCardState_inv_card_spa_booting InvCardState = "inv-card-spa-booting"
-
-    // inv card not allowed online
-    InvCardState_inv_card_not_allowed_online InvCardState = "inv-card-not-allowed-online"
-
-    // inv card stopped
-    InvCardState_inv_card_stopped InvCardState = "inv-card-stopped"
-
-    // inv card incompatible fw ver
-    InvCardState_inv_card_incompatible_fw_ver InvCardState = "inv-card-incompatible-fw-ver"
-
-    // inv card fpd hold
-    InvCardState_inv_card_fpd_hold InvCardState = "inv-card-fpd-hold"
-
-    // inv card node prep
-    InvCardState_inv_card_node_prep InvCardState = "inv-card-node-prep"
-
-    // inv card updating fpd
-    InvCardState_inv_card_updating_fpd InvCardState = "inv-card-updating-fpd"
-
-    // inv card num states
-    InvCardState_inv_card_num_states InvCardState = "inv-card-num-states"
-)
-
 // InvPowerAdminState represents Inv power admin state
 type InvPowerAdminState string
 
@@ -367,20 +381,6 @@ const (
 
     // admin off
     InvPowerAdminState_admin_off InvPowerAdminState = "admin-off"
-)
-
-// InvAdminState represents Inv admin state
-type InvAdminState string
-
-const (
-    // admin state invalid
-    InvAdminState_admin_state_invalid InvAdminState = "admin-state-invalid"
-
-    // admin up
-    InvAdminState_admin_up InvAdminState = "admin-up"
-
-    // admin down
-    InvAdminState_admin_down InvAdminState = "admin-down"
 )
 
 // Platform
@@ -454,7 +454,7 @@ type Platform_Racks_Rack struct {
     YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     RackName interface{}
 
     // Table of slots.
@@ -523,7 +523,7 @@ type Platform_Racks_Rack_Slots_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SlotName interface{}
 
     // Table of Instances.
@@ -861,7 +861,7 @@ type PlatformInventory_Racks_Rack struct {
     YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of slots.
@@ -934,7 +934,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of cards.
@@ -1008,7 +1008,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card struct {
     YListKey string
 
     // This attribute is a key. Card name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // HardwareInformationDir.
@@ -1540,7 +1540,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot struct 
     YListKey string
 
     // This attribute is a key. Subslot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Module of a subslot.
@@ -1652,7 +1652,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YListKey string
 
     // This attribute is a key. Port slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Port.
@@ -1761,8 +1761,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -1983,7 +1983,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -2054,8 +2054,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2277,8 +2277,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2499,7 +2499,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -2570,8 +2570,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -2793,8 +2793,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Module_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3016,8 +3016,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_SubSlots_SubSlot_Attribu
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3238,7 +3238,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     YListKey string
 
     // This attribute is a key. HW component name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Table of sensors.
@@ -3312,7 +3312,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -3383,8 +3383,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3606,8 +3606,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_HwComponents_HwComponent
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -3828,7 +3828,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot struc
     YListKey string
 
     // This attribute is a key. Port slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Port.
@@ -3937,8 +3937,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Port_
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4159,7 +4159,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Senso
     YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -4230,8 +4230,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Senso
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4453,8 +4453,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_PortSlots_PortSlot_Attri
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4675,7 +4675,7 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor struct {
     YListKey string
 
     // This attribute is a key. Sensor name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -4746,8 +4746,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Sensors_Sensor_Attribute
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -4969,8 +4969,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Cards_Card_Attributes_BasicInfo str
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5192,8 +5192,8 @@ type PlatformInventory_Racks_Rack_Slots_Slot_Attributes_BasicInfo struct {
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.
@@ -5415,8 +5415,8 @@ type PlatformInventory_Racks_Rack_Attributes_BasicInfo struct {
     // name string for the entity. The type is string with length: 0..255.
     Name interface{}
 
-    // describes in user-readable terms                 what the entity in
-    // question does. The type is string with length: 0..255.
+    // describes in user-readable terms what the entity in question does. The type
+    // is string with length: 0..255.
     Description interface{}
 
     // model name. The type is string with length: 0..255.

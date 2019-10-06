@@ -48,6 +48,17 @@ func init() {
     ydk.RegisterEntity("CISCO-IPSEC-MIB:CISCO-IPSEC-MIB", reflect.TypeOf(CISCOIPSECMIB{}))
 }
 
+// IkeHashAlgo represents IKE negotiations.
+type IkeHashAlgo string
+
+const (
+    IkeHashAlgo_none IkeHashAlgo = "none"
+
+    IkeHashAlgo_md5 IkeHashAlgo = "md5"
+
+    IkeHashAlgo_sha IkeHashAlgo = "sha"
+)
+
 // CryptomapType represents is a unit of IOS IPSec policy specification.
 type CryptomapType string
 
@@ -65,26 +76,35 @@ const (
     CryptomapType_cryptomapTypeDYNAMICDISCOVERY CryptomapType = "cryptomapTypeDYNAMICDISCOVERY"
 )
 
-// CryptomapSetBindStatus represents SNMP General Error.
-type CryptomapSetBindStatus string
+// IkeIdentityType represents 	Main Mode of IPSec tunnel setup.
+type IkeIdentityType string
 
 const (
-    CryptomapSetBindStatus_unknown CryptomapSetBindStatus = "unknown"
+    IkeIdentityType_isakmpIdTypeUNKNOWN IkeIdentityType = "isakmpIdTypeUNKNOWN"
 
-    CryptomapSetBindStatus_attached CryptomapSetBindStatus = "attached"
+    IkeIdentityType_isakmpIdTypeADDRESS IkeIdentityType = "isakmpIdTypeADDRESS"
 
-    CryptomapSetBindStatus_detached CryptomapSetBindStatus = "detached"
+    IkeIdentityType_isakmpIdTypeHOSTNAME IkeIdentityType = "isakmpIdTypeHOSTNAME"
 )
 
-// IkeHashAlgo represents IKE negotiations.
-type IkeHashAlgo string
+// TrapStatus represents The administrative status for sending a TRAP.
+type TrapStatus string
 
 const (
-    IkeHashAlgo_none IkeHashAlgo = "none"
+    TrapStatus_enabled TrapStatus = "enabled"
 
-    IkeHashAlgo_md5 IkeHashAlgo = "md5"
+    TrapStatus_disabled TrapStatus = "disabled"
+)
 
-    IkeHashAlgo_sha IkeHashAlgo = "sha"
+// EncryptAlgo represents The encryption algorithm used in negotiations.
+type EncryptAlgo string
+
+const (
+    EncryptAlgo_none EncryptAlgo = "none"
+
+    EncryptAlgo_des EncryptAlgo = "des"
+
+    EncryptAlgo_des3 EncryptAlgo = "des3"
 )
 
 // IkeAuthMethod represents negotiations.
@@ -102,15 +122,15 @@ const (
     IkeAuthMethod_revPublicKey IkeAuthMethod = "revPublicKey"
 )
 
-// IkeIdentityType represents 	Main Mode of IPSec tunnel setup.
-type IkeIdentityType string
+// CryptomapSetBindStatus represents SNMP General Error.
+type CryptomapSetBindStatus string
 
 const (
-    IkeIdentityType_isakmpIdTypeUNKNOWN IkeIdentityType = "isakmpIdTypeUNKNOWN"
+    CryptomapSetBindStatus_unknown CryptomapSetBindStatus = "unknown"
 
-    IkeIdentityType_isakmpIdTypeADDRESS IkeIdentityType = "isakmpIdTypeADDRESS"
+    CryptomapSetBindStatus_attached CryptomapSetBindStatus = "attached"
 
-    IkeIdentityType_isakmpIdTypeHOSTNAME IkeIdentityType = "isakmpIdTypeHOSTNAME"
+    CryptomapSetBindStatus_detached CryptomapSetBindStatus = "detached"
 )
 
 // DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
@@ -122,26 +142,6 @@ const (
     DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
 
     DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
-)
-
-// EncryptAlgo represents The encryption algorithm used in negotiations.
-type EncryptAlgo string
-
-const (
-    EncryptAlgo_none EncryptAlgo = "none"
-
-    EncryptAlgo_des EncryptAlgo = "des"
-
-    EncryptAlgo_des3 EncryptAlgo = "des3"
-)
-
-// TrapStatus represents The administrative status for sending a TRAP.
-type TrapStatus string
-
-const (
-    TrapStatus_enabled TrapStatus = "enabled"
-
-    TrapStatus_disabled TrapStatus = "disabled"
 )
 
 // CISCOIPSECMIB

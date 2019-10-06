@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   ospfv3: OSPFv3 operational information 
+//   ospfv3: OSPFv3 operational information
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
@@ -23,67 +23,6 @@ func init() {
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-ipv6-ospfv3-oper ospfv3}", reflect.TypeOf(Ospfv3{}))
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3", reflect.TypeOf(Ospfv3{}))
 }
-
-// Ospfv3Lsa represents Ospfv3 lsa
-type Ospfv3Lsa string
-
-const (
-    // Link LSA
-    Ospfv3Lsa_link_lsa Ospfv3Lsa = "link-lsa"
-
-    // Grace LSA
-    Ospfv3Lsa_grace_lsa Ospfv3Lsa = "grace-lsa"
-
-    // Router LSA
-    Ospfv3Lsa_router Ospfv3Lsa = "router"
-
-    // Network LSA
-    Ospfv3Lsa_network Ospfv3Lsa = "network"
-
-    // Inter-Area Prefix LSA
-    Ospfv3Lsa_inter_area_prefix Ospfv3Lsa = "inter-area-prefix"
-
-    // Inter-Area Router LSA
-    Ospfv3Lsa_inter_area_router Ospfv3Lsa = "inter-area-router"
-
-    // NSSA External LSA
-    Ospfv3Lsa_nssa_external Ospfv3Lsa = "nssa-external"
-
-    // Intra-Area Prefix LSA
-    Ospfv3Lsa_intra_area_prefix Ospfv3Lsa = "intra-area-prefix"
-
-    // External LSA
-    Ospfv3Lsa_external Ospfv3Lsa = "external"
-
-    // Opaque LSALink Scope
-    Ospfv3Lsa_opaque_link Ospfv3Lsa = "opaque-link"
-
-    // Opaque LSA Area Scope
-    Ospfv3Lsa_opaque_area Ospfv3Lsa = "opaque-area"
-
-    // Opaque LSA AS Scope
-    Ospfv3Lsa_opaque_as Ospfv3Lsa = "opaque-as"
-
-    // Unknown Reserved Scope LSAs
-    Ospfv3Lsa_unknown Ospfv3Lsa = "unknown"
-)
-
-// OspfNsrSchedPri represents Ospf nsr sched pri
-type OspfNsrSchedPri string
-
-const (
-    // ospf nsr stats sched pri hi
-    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_hi OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-hi"
-
-    // ospf nsr stats sched pri med
-    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_med OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-med"
-
-    // ospf nsr stats sched pri low
-    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_low OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-low"
-
-    // ospf nsr stats sched pri max
-    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_max OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-max"
-)
 
 // Ospfv3GracefulShutdownState represents Graceful Shutdown state
 type Ospfv3GracefulShutdownState string
@@ -134,50 +73,96 @@ const (
     IpfrrTbrkr_tunnel IpfrrTbrkr = "tunnel"
 )
 
-// StubRouterAbrOffReason represents Reason to exiting stub router mode
-type StubRouterAbrOffReason string
+// OspfLsaSyncState represents LSA synchronization states
+type OspfLsaSyncState string
 
 const (
-    // Initial delay when stub router mode is
-    // activated
-    StubRouterAbrOffReason_init_delay StubRouterAbrOffReason = "init-delay"
+    // State not set
+    OspfLsaSyncState_none OspfLsaSyncState = "none"
 
-    // No neighbor present
-    StubRouterAbrOffReason_no_neighbor StubRouterAbrOffReason = "no-neighbor"
+    // LSA out of sync with active
+    OspfLsaSyncState_out_of_sync OspfLsaSyncState = "out-of-sync"
 
-    // No neighbor in FULL state present
-    StubRouterAbrOffReason_no_full_neighbor StubRouterAbrOffReason = "no-full-neighbor"
+    // LSA in sync with active
+    OspfLsaSyncState_in_sync OspfLsaSyncState = "in-sync"
 
-    // A new neighbor discovered less than 60 seconds
-    // ago
-    StubRouterAbrOffReason_new_neighbor StubRouterAbrOffReason = "new-neighbor"
-
-    // A neighbor transitioned to FULL state less than
-    // 60 seconds ago
-    StubRouterAbrOffReason_full_neighbor StubRouterAbrOffReason = "full-neighbor"
+    // NSR ack pending for LSA sync
+    OspfLsaSyncState_nsr_ack_pending OspfLsaSyncState = "nsr-ack-pending"
 )
 
-// StubRouterExitReason represents Reason to exiting stub router mode
-type StubRouterExitReason string
+// Ospfv3Lsa1 represents OSPFv3 LSA types
+type Ospfv3Lsa1 string
 
 const (
-    // No reason
-    StubRouterExitReason_none StubRouterExitReason = "none"
+    // Link LSA
+    Ospfv3Lsa1_link Ospfv3Lsa1 = "link"
 
-    // BGP has converged
-    StubRouterExitReason_bgp StubRouterExitReason = "bgp"
+    // Grace LSA
+    Ospfv3Lsa1_grace Ospfv3Lsa1 = "grace"
 
-    // Stub Router timer has expired
-    StubRouterExitReason_timer StubRouterExitReason = "timer"
+    // Router LSA
+    Ospfv3Lsa1_router Ospfv3Lsa1 = "router"
 
-    // Configuration has changed
-    StubRouterExitReason_configuration StubRouterExitReason = "configuration"
+    // Network LSA
+    Ospfv3Lsa1_network Ospfv3Lsa1 = "network"
 
-    // Process has been cleared
-    StubRouterExitReason_cleared StubRouterExitReason = "cleared"
+    // Inter area prefix LSA
+    Ospfv3Lsa1_inter_area_prefix Ospfv3Lsa1 = "inter-area-prefix"
 
-    // Preempted by always
-    StubRouterExitReason_override StubRouterExitReason = "override"
+    // Inter area router LSA
+    Ospfv3Lsa1_inter_area_router Ospfv3Lsa1 = "inter-area-router"
+
+    // MOSPF LSA
+    Ospfv3Lsa1_mospf Ospfv3Lsa1 = "mospf"
+
+    // Type-7 External LSA
+    Ospfv3Lsa1_type7_external Ospfv3Lsa1 = "type7-external"
+
+    // Prefix LSA
+    Ospfv3Lsa1_lsa_prefix Ospfv3Lsa1 = "lsa-prefix"
+
+    // AS external LSA
+    Ospfv3Lsa1_as_external Ospfv3Lsa1 = "as-external"
+
+    // Unknown link LSA
+    Ospfv3Lsa1_unknown_link Ospfv3Lsa1 = "unknown-link"
+
+    // Unknown area LSA
+    Ospfv3Lsa1_unknown_area Ospfv3Lsa1 = "unknown-area"
+
+    // Unknown AS LSA
+    Ospfv3Lsa1_unknown_as Ospfv3Lsa1 = "unknown-as"
+
+    // Unknown type LSA
+    Ospfv3Lsa1_unknown_type Ospfv3Lsa1 = "unknown-type"
+)
+
+// OspfNsrSchedPri represents Ospf nsr sched pri
+type OspfNsrSchedPri string
+
+const (
+    // ospf nsr stats sched pri hi
+    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_hi OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-hi"
+
+    // ospf nsr stats sched pri med
+    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_med OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-med"
+
+    // ospf nsr stats sched pri low
+    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_low OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-low"
+
+    // ospf nsr stats sched pri max
+    OspfNsrSchedPri_ospf_nsr_stats_sched_pri_max OspfNsrSchedPri = "ospf-nsr-stats-sched-pri-max"
+)
+
+// Ospfv3AreaRangeStatus represents Ospfv3 area range status
+type Ospfv3AreaRangeStatus string
+
+const (
+    // Advertise this range
+    Ospfv3AreaRangeStatus_advertise Ospfv3AreaRangeStatus = "advertise"
+
+    // Do not advertise this range
+    Ospfv3AreaRangeStatus_do_not_advertise Ospfv3AreaRangeStatus = "do-not-advertise"
 )
 
 // StubRouterTrigger represents Trigger for entering stub router mode
@@ -201,23 +186,6 @@ const (
 
     // No trigger
     StubRouterTrigger_none StubRouterTrigger = "none"
-)
-
-// StubRouterMode represents Stub Router mode
-type StubRouterMode string
-
-const (
-    // Stub Router mode r-bit
-    StubRouterMode_rbit StubRouterMode = "rbit"
-
-    // Stub Router mode v6-bit
-    StubRouterMode_v6bit StubRouterMode = "v6bit"
-
-    // Stub Router mode max-metric
-    StubRouterMode_max_metric StubRouterMode = "max-metric"
-
-    // Stub Router not configured
-    StubRouterMode_none StubRouterMode = "none"
 )
 
 // Ospfv3Interface represents OSPFv3 neighbor interface types
@@ -253,6 +221,120 @@ const (
 
     // Sham link
     Ospfv3Interface_sham_link Ospfv3Interface = "sham-link"
+)
+
+// Ospfv3LsaInfoTypes represents OSPFv3 LSA format types
+type Ospfv3LsaInfoTypes string
+
+const (
+    // Summary information of LSAs
+    Ospfv3LsaInfoTypes_mgmt_lsa_lsasum_type Ospfv3LsaInfoTypes = "mgmt-lsa-lsasum-type"
+
+    // Link LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_link_type Ospfv3LsaInfoTypes = "mgmt-lsa-link-type"
+
+    // Grace LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_gr_type Ospfv3LsaInfoTypes = "mgmt-lsa-gr-type"
+
+    // Router LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_rtr_type Ospfv3LsaInfoTypes = "mgmt-lsa-rtr-type"
+
+    // Network LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_net_type Ospfv3LsaInfoTypes = "mgmt-lsa-net-type"
+
+    // Inter Area Prefix Summary LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_iapfx_type Ospfv3LsaInfoTypes = "mgmt-lsa-iapfx-type"
+
+    // Inter Area Router Summay LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_iartr_type Ospfv3LsaInfoTypes = "mgmt-lsa-iartr-type"
+
+    // NSSA external LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_nssaext_type Ospfv3LsaInfoTypes = "mgmt-lsa-nssaext-type"
+
+    // Intra Area Prefix LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_prefix_type Ospfv3LsaInfoTypes = "mgmt-lsa-prefix-type"
+
+    // Type 5 External LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_ext_type Ospfv3LsaInfoTypes = "mgmt-lsa-ext-type"
+
+    // Opaque Link scope LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_unk_link_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-link-type"
+
+    // Opaque Area scope LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_unk_area_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-area-type"
+
+    // Opaque AS scope LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_unk_as_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-as-type"
+
+    // Opaque Reserved scope LSA
+    Ospfv3LsaInfoTypes_mgmt_lsa_unk_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-type"
+)
+
+// StubRouterAbrOffReason represents Reason to exiting stub router mode
+type StubRouterAbrOffReason string
+
+const (
+    // Initial delay when stub router mode is
+    // activated
+    StubRouterAbrOffReason_init_delay StubRouterAbrOffReason = "init-delay"
+
+    // No neighbor present
+    StubRouterAbrOffReason_no_neighbor StubRouterAbrOffReason = "no-neighbor"
+
+    // No neighbor in FULL state present
+    StubRouterAbrOffReason_no_full_neighbor StubRouterAbrOffReason = "no-full-neighbor"
+
+    // A new neighbor discovered less than 60 seconds
+    // ago
+    StubRouterAbrOffReason_new_neighbor StubRouterAbrOffReason = "new-neighbor"
+
+    // A neighbor transitioned to FULL state less than
+    // 60 seconds ago
+    StubRouterAbrOffReason_full_neighbor StubRouterAbrOffReason = "full-neighbor"
+)
+
+// Ospfv3InterfaceState represents OSPFv3 interface states
+type Ospfv3InterfaceState string
+
+const (
+    // Down
+    Ospfv3InterfaceState_down Ospfv3InterfaceState = "down"
+
+    // Loopback
+    Ospfv3InterfaceState_loopback Ospfv3InterfaceState = "loopback"
+
+    // Waiting
+    Ospfv3InterfaceState_waiting Ospfv3InterfaceState = "waiting"
+
+    // Point To Multipoint
+    Ospfv3InterfaceState_point_to_multipoint Ospfv3InterfaceState = "point-to-multipoint"
+
+    // Point To Point
+    Ospfv3InterfaceState_point_to_point Ospfv3InterfaceState = "point-to-point"
+
+    // Designated router
+    Ospfv3InterfaceState_designated_router Ospfv3InterfaceState = "designated-router"
+
+    // Backup designated router
+    Ospfv3InterfaceState_backup_designated_router Ospfv3InterfaceState = "backup-designated-router"
+
+    // Other designated router
+    Ospfv3InterfaceState_other_designated_router Ospfv3InterfaceState = "other-designated-router"
+)
+
+// Ospfv3BorderRoute represents OSPFv3 border route destination types
+type Ospfv3BorderRoute string
+
+const (
+    // Area border router
+    Ospfv3BorderRoute_abr Ospfv3BorderRoute = "abr"
+
+    // Area system boundary router
+    Ospfv3BorderRoute_asbr Ospfv3BorderRoute = "asbr"
+
+    // Area border router and area system boundary
+    // router
+    Ospfv3BorderRoute_abr_asbr Ospfv3BorderRoute = "abr-asbr"
 )
 
 // ImStateEnum represents Im state enum
@@ -334,157 +416,18 @@ const (
     Ospfv3GracefulRestartReason_grace_reason_switchover Ospfv3GracefulRestartReason = "grace-reason-switchover"
 )
 
-// Ospfv3Lsa1 represents OSPFv3 LSA types
-type Ospfv3Lsa1 string
+// Ospfv3DefaultMetric represents OSPFv3 default metric types 
+type Ospfv3DefaultMetric string
 
 const (
-    // Link LSA
-    Ospfv3Lsa1_link Ospfv3Lsa1 = "link"
+    // OSPFv3 default metric type None 
+    Ospfv3DefaultMetric_type_none Ospfv3DefaultMetric = "type-none"
 
-    // Grace LSA
-    Ospfv3Lsa1_grace Ospfv3Lsa1 = "grace"
+    // OSPFv3 default metric type 1 
+    Ospfv3DefaultMetric_type1 Ospfv3DefaultMetric = "type1"
 
-    // Router LSA
-    Ospfv3Lsa1_router Ospfv3Lsa1 = "router"
-
-    // Network LSA
-    Ospfv3Lsa1_network Ospfv3Lsa1 = "network"
-
-    // Inter area prefix LSA
-    Ospfv3Lsa1_inter_area_prefix Ospfv3Lsa1 = "inter-area-prefix"
-
-    // Inter area router LSA
-    Ospfv3Lsa1_inter_area_router Ospfv3Lsa1 = "inter-area-router"
-
-    // MOSPF LSA
-    Ospfv3Lsa1_mospf Ospfv3Lsa1 = "mospf"
-
-    // Type-7 External LSA
-    Ospfv3Lsa1_type7_external Ospfv3Lsa1 = "type7-external"
-
-    // Prefix LSA
-    Ospfv3Lsa1_lsa_prefix Ospfv3Lsa1 = "lsa-prefix"
-
-    // AS external LSA
-    Ospfv3Lsa1_as_external Ospfv3Lsa1 = "as-external"
-
-    // Unknown link LSA
-    Ospfv3Lsa1_unknown_link Ospfv3Lsa1 = "unknown-link"
-
-    // Unknown area LSA
-    Ospfv3Lsa1_unknown_area Ospfv3Lsa1 = "unknown-area"
-
-    // Unknown AS LSA
-    Ospfv3Lsa1_unknown_as Ospfv3Lsa1 = "unknown-as"
-
-    // Unknown type LSA
-    Ospfv3Lsa1_unknown_type Ospfv3Lsa1 = "unknown-type"
-)
-
-// PrefixPriority represents Prefix priority
-type PrefixPriority string
-
-const (
-    // Critical priority
-    PrefixPriority_critical PrefixPriority = "critical"
-
-    // High priority
-    PrefixPriority_high PrefixPriority = "high"
-
-    // Medium priority
-    PrefixPriority_medium PrefixPriority = "medium"
-
-    // Low priority
-    PrefixPriority_low PrefixPriority = "low"
-)
-
-// Ospfv3Link represents OSPFV3 Link type
-type Ospfv3Link string
-
-const (
-    // Router link
-    Ospfv3Link_link_router Ospfv3Link = "link-router"
-
-    // Transit network link
-    Ospfv3Link_link_trans_net Ospfv3Link = "link-trans-net"
-
-    // Virutal link
-    Ospfv3Link_link_virtual_link Ospfv3Link = "link-virtual-link"
-)
-
-// OspfLsaSyncState represents LSA synchronization states
-type OspfLsaSyncState string
-
-const (
-    // State not set
-    OspfLsaSyncState_none OspfLsaSyncState = "none"
-
-    // LSA out of sync with active
-    OspfLsaSyncState_out_of_sync OspfLsaSyncState = "out-of-sync"
-
-    // LSA in sync with active
-    OspfLsaSyncState_in_sync OspfLsaSyncState = "in-sync"
-
-    // NSR ack pending for LSA sync
-    OspfLsaSyncState_nsr_ack_pending OspfLsaSyncState = "nsr-ack-pending"
-)
-
-// Ospfv3LsaInfoTypes represents OSPFv3 LSA format types
-type Ospfv3LsaInfoTypes string
-
-const (
-    // Summary information of LSAs
-    Ospfv3LsaInfoTypes_mgmt_lsa_lsasum_type Ospfv3LsaInfoTypes = "mgmt-lsa-lsasum-type"
-
-    // Link LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_link_type Ospfv3LsaInfoTypes = "mgmt-lsa-link-type"
-
-    // Grace LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_gr_type Ospfv3LsaInfoTypes = "mgmt-lsa-gr-type"
-
-    // Router LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_rtr_type Ospfv3LsaInfoTypes = "mgmt-lsa-rtr-type"
-
-    // Network LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_net_type Ospfv3LsaInfoTypes = "mgmt-lsa-net-type"
-
-    // Inter Area Prefix Summary LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_iapfx_type Ospfv3LsaInfoTypes = "mgmt-lsa-iapfx-type"
-
-    // Inter Area Router Summay LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_iartr_type Ospfv3LsaInfoTypes = "mgmt-lsa-iartr-type"
-
-    // NSSA external LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_nssaext_type Ospfv3LsaInfoTypes = "mgmt-lsa-nssaext-type"
-
-    // Intra Area Prefix LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_prefix_type Ospfv3LsaInfoTypes = "mgmt-lsa-prefix-type"
-
-    // Type 5 External LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_ext_type Ospfv3LsaInfoTypes = "mgmt-lsa-ext-type"
-
-    // Opaque Link scope LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_unk_link_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-link-type"
-
-    // Opaque Area scope LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_unk_area_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-area-type"
-
-    // Opaque AS scope LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_unk_as_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-as-type"
-
-    // Opaque Reserved scope LSA
-    Ospfv3LsaInfoTypes_mgmt_lsa_unk_type Ospfv3LsaInfoTypes = "mgmt-lsa-unk-type"
-)
-
-// Ospfv3AreaRangeStatus represents Ospfv3 area range status
-type Ospfv3AreaRangeStatus string
-
-const (
-    // Advertise this range
-    Ospfv3AreaRangeStatus_advertise Ospfv3AreaRangeStatus = "advertise"
-
-    // Do not advertise this range
-    Ospfv3AreaRangeStatus_do_not_advertise Ospfv3AreaRangeStatus = "do-not-advertise"
+    // OSPFv3 default metric type 2 
+    Ospfv3DefaultMetric_type2 Ospfv3DefaultMetric = "type2"
 )
 
 // Ospfv3NeighborState represents OSPFv3 neighbor states
@@ -519,62 +462,119 @@ const (
     Ospfv3NeighborState_sc_virtual Ospfv3NeighborState = "sc-virtual"
 )
 
-// Ospfv3InterfaceState represents OSPFv3 interface states
-type Ospfv3InterfaceState string
+// PrefixPriority represents Prefix priority
+type PrefixPriority string
 
 const (
-    // Down
-    Ospfv3InterfaceState_down Ospfv3InterfaceState = "down"
+    // Critical priority
+    PrefixPriority_critical PrefixPriority = "critical"
 
-    // Loopback
-    Ospfv3InterfaceState_loopback Ospfv3InterfaceState = "loopback"
+    // High priority
+    PrefixPriority_high PrefixPriority = "high"
 
-    // Waiting
-    Ospfv3InterfaceState_waiting Ospfv3InterfaceState = "waiting"
+    // Medium priority
+    PrefixPriority_medium PrefixPriority = "medium"
 
-    // Point To Multipoint
-    Ospfv3InterfaceState_point_to_multipoint Ospfv3InterfaceState = "point-to-multipoint"
-
-    // Point To Point
-    Ospfv3InterfaceState_point_to_point Ospfv3InterfaceState = "point-to-point"
-
-    // Designated router
-    Ospfv3InterfaceState_designated_router Ospfv3InterfaceState = "designated-router"
-
-    // Backup designated router
-    Ospfv3InterfaceState_backup_designated_router Ospfv3InterfaceState = "backup-designated-router"
-
-    // Other designated router
-    Ospfv3InterfaceState_other_designated_router Ospfv3InterfaceState = "other-designated-router"
+    // Low priority
+    PrefixPriority_low PrefixPriority = "low"
 )
 
-// Ospfv3BorderRoute represents OSPFv3 border route destination types
-type Ospfv3BorderRoute string
+// StubRouterMode represents Stub Router mode
+type StubRouterMode string
 
 const (
-    // Area border router
-    Ospfv3BorderRoute_abr Ospfv3BorderRoute = "abr"
+    // Stub Router mode r-bit
+    StubRouterMode_rbit StubRouterMode = "rbit"
 
-    // Area system boundary router
-    Ospfv3BorderRoute_asbr Ospfv3BorderRoute = "asbr"
+    // Stub Router mode v6-bit
+    StubRouterMode_v6bit StubRouterMode = "v6bit"
 
-    // Area border router and area system boundary
-    // router
-    Ospfv3BorderRoute_abr_asbr Ospfv3BorderRoute = "abr-asbr"
+    // Stub Router mode max-metric
+    StubRouterMode_max_metric StubRouterMode = "max-metric"
+
+    // Stub Router not configured
+    StubRouterMode_none StubRouterMode = "none"
 )
 
-// Ospfv3DefaultMetric represents OSPFv3 default metric types 
-type Ospfv3DefaultMetric string
+// Ospfv3Link represents OSPFV3 Link type
+type Ospfv3Link string
 
 const (
-    // OSPFv3 default metric type None 
-    Ospfv3DefaultMetric_type_none Ospfv3DefaultMetric = "type-none"
+    // Router link
+    Ospfv3Link_link_router Ospfv3Link = "link-router"
 
-    // OSPFv3 default metric type 1 
-    Ospfv3DefaultMetric_type1 Ospfv3DefaultMetric = "type1"
+    // Transit network link
+    Ospfv3Link_link_trans_net Ospfv3Link = "link-trans-net"
 
-    // OSPFv3 default metric type 2 
-    Ospfv3DefaultMetric_type2 Ospfv3DefaultMetric = "type2"
+    // Virutal link
+    Ospfv3Link_link_virtual_link Ospfv3Link = "link-virtual-link"
+)
+
+// Ospfv3Lsa represents Ospfv3 lsa
+type Ospfv3Lsa string
+
+const (
+    // Link LSA
+    Ospfv3Lsa_link_lsa Ospfv3Lsa = "link-lsa"
+
+    // Grace LSA
+    Ospfv3Lsa_grace_lsa Ospfv3Lsa = "grace-lsa"
+
+    // Router LSA
+    Ospfv3Lsa_router Ospfv3Lsa = "router"
+
+    // Network LSA
+    Ospfv3Lsa_network Ospfv3Lsa = "network"
+
+    // Inter-Area Prefix LSA
+    Ospfv3Lsa_inter_area_prefix Ospfv3Lsa = "inter-area-prefix"
+
+    // Inter-Area Router LSA
+    Ospfv3Lsa_inter_area_router Ospfv3Lsa = "inter-area-router"
+
+    // NSSA External LSA
+    Ospfv3Lsa_nssa_external Ospfv3Lsa = "nssa-external"
+
+    // Intra-Area Prefix LSA
+    Ospfv3Lsa_intra_area_prefix Ospfv3Lsa = "intra-area-prefix"
+
+    // External LSA
+    Ospfv3Lsa_external Ospfv3Lsa = "external"
+
+    // Opaque LSALink Scope
+    Ospfv3Lsa_opaque_link Ospfv3Lsa = "opaque-link"
+
+    // Opaque LSA Area Scope
+    Ospfv3Lsa_opaque_area Ospfv3Lsa = "opaque-area"
+
+    // Opaque LSA AS Scope
+    Ospfv3Lsa_opaque_as Ospfv3Lsa = "opaque-as"
+
+    // Unknown Reserved Scope LSAs
+    Ospfv3Lsa_unknown Ospfv3Lsa = "unknown"
+)
+
+// StubRouterExitReason represents Reason to exiting stub router mode
+type StubRouterExitReason string
+
+const (
+    // No reason
+    StubRouterExitReason_none StubRouterExitReason = "none"
+
+    // BGP has converged
+    StubRouterExitReason_bgp StubRouterExitReason = "bgp"
+
+    // Stub Router timer has expired
+    StubRouterExitReason_timer StubRouterExitReason = "timer"
+
+    // Configuration has changed
+    StubRouterExitReason_configuration StubRouterExitReason = "configuration"
+
+    // Process has been cleared
+    StubRouterExitReason_cleared StubRouterExitReason = "cleared"
+
+    // Preempted by always
+    StubRouterExitReason_override StubRouterExitReason = "override"
 )
 
 // Ospfv3
@@ -650,7 +650,7 @@ type Ospfv3_Processes_Process struct {
     YListKey string
 
     // This attribute is a key. Particular OSPFv3 process. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProcessName interface{}
 
     // Table for each VRF.
@@ -729,7 +729,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Summary prefix information table.
@@ -896,7 +896,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_SummaryPrefixes_SummaryPrefix struct {
     YListKey string
 
     // Summary prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -978,7 +978,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter struct {
     YListKey string
 
     // This attribute is a key. Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BorderRouterId interface{}
 
     // List of border router paths. The type is slice of
@@ -1025,11 +1025,10 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_BorderRouters_BorderRouter_BorderRouterPa
     BorderRouterRouteMetric interface{}
 
     // Next hop address . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BorderRouterNextHop interface{}
 
-    // Next hop interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Next hop interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Border router type . The type is Ospfv3BorderRoute.
@@ -1076,15 +1075,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ShamLinkTable struct {
     YFilter yfilter.YFilter
 
     // Neighbor on other end of this sham link. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ShamLinkNeighborId interface{}
 
     // Sham-link source. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ShamLinkSourceAddress interface{}
 
     // Sham-link dest. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ShamLinkDestAddress interface{}
 
     // OSPF interface state for the sham link. The type is Ospfv3InterfaceState.
@@ -1580,7 +1579,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_AreaInformations_AreaInformation_AreaRang
     YListKey string
 
     // IP prefix for summarization. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RangePrefix interface{}
 
     // IP prefix length for summarization. The type is interface{} with range:
@@ -1704,13 +1703,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa struct {
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -1850,13 +1849,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LsaSum
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -1934,7 +1933,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LsaSum
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -2162,7 +2161,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Router
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -2325,7 +2324,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Router
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2406,7 +2405,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Networ
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -2461,7 +2460,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Networ
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -2622,7 +2621,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_InterA
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -2685,7 +2684,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_InterA
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -2900,7 +2899,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_InterA
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -3061,7 +3060,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Extern
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -3078,7 +3077,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Extern
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -3146,7 +3145,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Extern
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -3307,7 +3306,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Nssals
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -3324,7 +3323,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Nssals
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -3392,7 +3391,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Nssals
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -3552,7 +3551,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLs
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -3568,7 +3567,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLs
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -3641,7 +3640,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLs
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -3803,7 +3802,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LinkLs
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -3856,7 +3855,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_IntraA
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -3922,7 +3921,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_IntraA
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -4084,7 +4083,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_IntraA
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -4130,7 +4129,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_GraceL
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -4210,7 +4209,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_GraceL
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -4370,7 +4369,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -4441,7 +4440,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -4601,7 +4600,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -4672,7 +4671,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -4832,7 +4831,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -4903,7 +4902,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -5063,7 +5062,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -5134,7 +5133,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unknow
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -5337,13 +5336,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa struct
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -5483,13 +5482,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -5567,7 +5566,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -5795,7 +5794,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -5958,7 +5957,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6039,7 +6038,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -6094,7 +6093,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -6255,7 +6254,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -6318,7 +6317,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -6533,7 +6532,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -6694,7 +6693,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -6711,7 +6710,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -6779,7 +6778,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -6940,7 +6939,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -6957,7 +6956,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -7025,7 +7024,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -7185,7 +7184,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -7201,7 +7200,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -7274,7 +7273,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -7436,7 +7435,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -7489,7 +7488,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -7555,7 +7554,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -7717,7 +7716,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -7763,7 +7762,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -7843,7 +7842,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -8003,7 +8002,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8074,7 +8073,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -8234,7 +8233,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8305,7 +8304,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -8465,7 +8464,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8536,7 +8535,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -8696,7 +8695,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -8767,7 +8766,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseTable_LsaInternalTable_Lsa_LsaInf
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -8963,7 +8962,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -8979,14 +8978,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface struct {
     IsInterfaceIpSecurityActive interface{}
 
     // Interface IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface number . The type is interface{} with range: 0..4294967295.
     InterfaceNumber interface{}
 
     // Interface router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceRouterId interface{}
 
     // Network type. The type is Ospfv3Interface.
@@ -9022,20 +9021,20 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface struct {
     IsDesignatedRouter interface{}
 
     // Designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DesignatedRouterId interface{}
 
     // Designated router interface address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DesignatedRouterAddress interface{}
 
     // Backup designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterId interface{}
 
     // Backup designated router interface address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterAddress interface{}
 
     // The amount of time in seconds before flush timer for old network LSA
@@ -9343,7 +9342,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceProcessTable_Interface_Interface
     YListKey string
 
     // Neighbor router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborId interface{}
 
     // Cost of link to neighbor. The type is interface{} with range:
@@ -9427,11 +9426,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Redistributions_Redistribution struct {
     YListKey string
 
     // Protocol name that is redistributed. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProtocolName interface{}
 
     // Process name of a protocolbeing redistributed . The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProcessName interface{}
 
     // Protocol name . The type is string with length: 0..40.
@@ -9531,7 +9530,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute struct {
     YListKey string
 
     // Route prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -9583,7 +9582,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RouteTopolog
     YFilter yfilter.YFilter
 
     // Route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Route distance . The type is interface{} with range: 0..4294967295.
@@ -9626,7 +9625,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RouteExtende
     YFilter yfilter.YFilter
 
     // Domain ID value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ExtendedCommunityDomainIdValue interface{}
 
     // Domain ID type. The type is interface{} with range: 0..65535.
@@ -9636,7 +9635,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RouteExtende
     ExtendedCommunityAreaId interface{}
 
     // Router id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedCommunityRouterId interface{}
 
     // Route type. The type is interface{} with range: 0..255.
@@ -9679,7 +9678,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RoutePath st
     YListKey string
 
     // Route path interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route path interface Index . The type is interface{} with range:
@@ -9687,7 +9686,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RoutePath st
     InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RoutePathNextHop interface{}
 
     // Path ID of path. The type is interface{} with range: 0..65535.
@@ -9736,15 +9735,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ExternalRoutes_ExternalRoute_RoutePath_Ro
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupRouteNextHopAddress interface{}
 
     // IP address of source of route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupRouteSource interface{}
 
     // Metric. The type is interface{} with range: 0..4294967295.
@@ -9868,15 +9867,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
     // If true, virtual link is requested . The type is bool.
@@ -9943,11 +9942,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RequestListProcessTable_Request_Request s
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -9987,7 +9986,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VirtualLink struct {
 
     // Neighbor on other end of this virtual link. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     VirtualLinkNeighborId interface{}
 
     // Virtual link interface number . The type is interface{} with range:
@@ -10005,7 +10004,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VirtualLink struct {
     IsVirtualLinkIpSecurityActive interface{}
 
     // Virtual link neighbor addresss . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinkNeighborAddress interface{}
 
     // If true, the link runs as demand circuit. The type is bool.
@@ -10019,7 +10018,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VirtualLink struct {
     TransitAreaId interface{}
 
     // Interface on which this virtual link is formed. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Cost of the virtual link. The type is interface{} with range: 0..65535.
@@ -10346,7 +10345,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -10422,11 +10421,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_LinkFlood str
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -10473,11 +10472,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_AreaFlood str
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -10524,11 +10523,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FloodListProcessTable_Flood_AsFlood struc
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -10567,7 +10566,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RouteSummary struct {
     YFilter yfilter.YFilter
 
     // Route summary of a route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Intra route summary . The type is interface{} with range: 0..4294967295.
@@ -10777,15 +10776,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetailTable_NeighborDe
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -10879,11 +10878,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborDetailTable_NeighborDe
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.
@@ -11161,11 +11160,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceBriefTable_InterfaceB
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface link cost. The type is interface{} with range: 0..65535.
@@ -11253,15 +11252,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Request struc
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
     // If true, virtual link is requested . The type is bool.
@@ -11328,11 +11327,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RequestListTable_Request_Reque
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -11406,15 +11405,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable_Neighbor struct 
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -11508,11 +11507,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_NeighborTable_Neighbor_Neighbo
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.
@@ -11789,7 +11788,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interface struc
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -11805,14 +11804,14 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interface struc
     IsInterfaceIpSecurityActive interface{}
 
     // Interface IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface number . The type is interface{} with range: 0..4294967295.
     InterfaceNumber interface{}
 
     // Interface router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceRouterId interface{}
 
     // Network type. The type is Ospfv3Interface.
@@ -11848,20 +11847,20 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interface struc
     IsDesignatedRouter interface{}
 
     // Designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DesignatedRouterId interface{}
 
     // Designated router interface address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DesignatedRouterAddress interface{}
 
     // Backup designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterId interface{}
 
     // Backup designated router interface address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterAddress interface{}
 
     // The amount of time in seconds before flush timer for old network LSA
@@ -12169,7 +12168,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_InterfaceTable_Interface_Inter
     YListKey string
 
     // Neighbor router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborId interface{}
 
     // Cost of link to neighbor. The type is interface{} with range:
@@ -12253,7 +12252,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -12329,11 +12328,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood_LinkFlood
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -12380,11 +12379,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood_AreaFlood
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -12431,11 +12430,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_FloodListTable_Flood_AsFlood s
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -12510,15 +12509,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retran
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RetransmissionNeighborAddress interface{}
 
     // If true, virtual link is retransmitted . The type is bool.
@@ -12614,11 +12613,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retran
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -12665,11 +12664,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retran
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -12716,11 +12715,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_RetransmissionListTable_Retran
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -12835,13 +12834,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa str
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -12981,13 +12980,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -13065,7 +13064,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -13293,7 +13292,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -13456,7 +13455,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -13537,7 +13536,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -13592,7 +13591,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -13753,7 +13752,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -13816,7 +13815,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -14031,7 +14030,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -14192,7 +14191,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -14209,7 +14208,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -14277,7 +14276,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -14438,7 +14437,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -14455,7 +14454,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -14523,7 +14522,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -14683,7 +14682,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -14699,7 +14698,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -14772,7 +14771,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -14934,7 +14933,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -14987,7 +14986,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -15053,7 +15052,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -15215,7 +15214,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -15261,7 +15260,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -15341,7 +15340,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -15501,7 +15500,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -15572,7 +15571,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -15732,7 +15731,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -15803,7 +15802,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -15963,7 +15962,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -16034,7 +16033,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -16194,7 +16193,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -16265,7 +16264,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaTable_Lsa_Lsa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -16468,13 +16467,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -16614,13 +16613,13 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -16698,7 +16697,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -16926,7 +16925,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -17089,7 +17088,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17170,7 +17169,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -17225,7 +17224,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -17386,7 +17385,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -17449,7 +17448,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -17664,7 +17663,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -17825,7 +17824,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -17842,7 +17841,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -17910,7 +17909,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -18071,7 +18070,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -18088,7 +18087,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -18156,7 +18155,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -18316,7 +18315,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -18332,7 +18331,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -18405,7 +18404,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -18567,7 +18566,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -18620,7 +18619,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -18686,7 +18685,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -18848,7 +18847,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -18894,7 +18893,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -18974,7 +18973,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -19134,7 +19133,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -19205,7 +19204,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -19365,7 +19364,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -19436,7 +19435,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -19596,7 +19595,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -19667,7 +19666,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -19827,7 +19826,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -19898,7 +19897,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseTable_LsaInternalTable
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -20089,7 +20088,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Areas_Area_DatabaseSummaryTable_DatabaseS
     YFilter yfilter.YFilter
 
     // Database router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DatabaseRouterId interface{}
 
     // If true, opaque database is capable . The type is bool.
@@ -20293,7 +20292,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute struct {
     YListKey string
 
     // Route prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -20354,7 +20353,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RouteTopolog
     YFilter yfilter.YFilter
 
     // Route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Route distance . The type is interface{} with range: 0..4294967295.
@@ -20398,11 +20397,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RouteSource 
     YListKey string
 
     // Route source of the advertising router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteSourceAdverstingRouter interface{}
 
     // Route source ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteSourceId interface{}
 
     // Type of LSA advertising the prefix, see RFC5340. The type is interface{}
@@ -20440,7 +20439,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RoutePath st
     YListKey string
 
     // Route path interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route path interface Index . The type is interface{} with range:
@@ -20448,7 +20447,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RoutePath st
     InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RoutePathNextHop interface{}
 
     // Path ID of path. The type is interface{} with range: 0..65535.
@@ -20497,15 +20496,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InternalRoutes_InternalRoute_RoutePath_Ro
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupRouteNextHopAddress interface{}
 
     // IP address of source of route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupRouteSource interface{}
 
     // Metric. The type is interface{} with range: 0..4294967295.
@@ -20629,7 +20628,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea struct {
     YListKey string
 
     // This attribute is a key. Area ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AreaId interface{}
 
     // Area ID string in decimal and dotted-decimal format. The type is string
@@ -20679,7 +20678,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ProtocolAreas_ProtocolArea_ProtocolInterf
     YListKey string
 
     // Protocol interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Distribute List In. The type is string.
@@ -20750,7 +20749,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute struct {
     YListKey string
 
     // Route prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -20798,7 +20797,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RouteTopol
     YFilter yfilter.YFilter
 
     // Route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Route distance . The type is interface{} with range: 0..4294967295.
@@ -20842,7 +20841,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RoutePath 
     YListKey string
 
     // Route path interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route path interface Index . The type is interface{} with range:
@@ -20850,7 +20849,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RoutePath 
     InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RoutePathNextHop interface{}
 
     // Path ID of path. The type is interface{} with range: 0..65535.
@@ -20899,15 +20898,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_ConnectedRoutes_ConnectedRoute_RoutePath_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupRouteNextHopAddress interface{}
 
     // IP address of source of route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupRouteSource interface{}
 
     // Metric. The type is interface{} with range: 0..4294967295.
@@ -21077,7 +21076,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_ProtocolStats_ProtocolStat 
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total inputs packets. The type is interface{} with range:
@@ -21261,7 +21260,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfHeader struct {
     YFilter yfilter.YFilter
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderRouterId interface{}
 
     // Number of SPF calculations. The type is interface{} with range:
@@ -21360,7 +21359,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRuntime struct 
     // Router LSA update Bit 5 - AS External LSA update Bit 6 - MOSPF LSA update
     // Bit 7 - Type 7 AS External LSA update Bit 8 - Link LSA update Bit 9 -
     // Prefix LSA update. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ReasonFlags interface{}
 
     // Number of LSA changes triggering an SPF calculation. The type is
@@ -21495,11 +21494,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_VrfStatistics_SpfStats_SpfRuntime_Lsa str
     LsaAreaId interface{}
 
     // Advertising router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaAdvertisingRouter interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // LSA type. The type is interface{} with range: 0..255.
@@ -21897,9 +21896,6 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Summary struct {
     // OSPFv3 summary.
     Ospfv3 Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3
 
-    // OSPFv3 aggregate statistics.
-    AggregateStatistics Ospfv3_Processes_Process_Vrfs_Vrf_Summary_AggregateStatistics
-
     // OSPFv3 route summary.
     Route Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Route
 }
@@ -21918,7 +21914,6 @@ func (summary *Ospfv3_Processes_Process_Vrfs_Vrf_Summary) GetEntityData() *types
     summary.EntityData.Children = types.NewOrderedMap()
     summary.EntityData.Children.Append("protocol", types.YChild{"Protocol", &summary.Protocol})
     summary.EntityData.Children.Append("ospfv3", types.YChild{"Ospfv3", &summary.Ospfv3})
-    summary.EntityData.Children.Append("aggregate-statistics", types.YChild{"AggregateStatistics", &summary.AggregateStatistics})
     summary.EntityData.Children.Append("route", types.YChild{"Route", &summary.Route})
     summary.EntityData.Leafs = types.NewOrderedMap()
 
@@ -21934,7 +21929,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Protocol struct {
     YFilter yfilter.YFilter
 
     // Protocol router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ProtocolRouterId interface{}
 
     // Administrative distance. The type is interface{} with range: 0..4294967295.
@@ -21987,7 +21982,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3 struct {
     YFilter yfilter.YFilter
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // If true, the process is running as stanby role. The type is bool.
@@ -22298,7 +22293,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_DomainId_PrimaryDomainId s
     DomainIdType interface{}
 
     // Domain ID value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     DomainIdValue interface{}
 }
 
@@ -22334,7 +22329,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_DomainId_SecondaryDomainId
     DomainIdType interface{}
 
     // Domain ID value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     DomainIdValue interface{}
 }
 
@@ -22722,138 +22717,6 @@ func (ipfrrTiebreakers *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Ospfv3_IpfrrTi
     return &(ipfrrTiebreakers.EntityData)
 }
 
-// Ospfv3_Processes_Process_Vrfs_Vrf_Summary_AggregateStatistics
-// OSPFv3 aggregate statistics
-type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_AggregateStatistics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of neighbor. The type is interface{} with range: 0..4294967295.
-    NeighborNumber interface{}
-
-    // Number of adjacent neighbor. The type is interface{} with range:
-    // 0..4294967295.
-    AdjacentNeighborNumber interface{}
-
-    // Number of interfaces. The type is interface{} with range: 0..4294967295.
-    InterfaceNumber interface{}
-
-    // Number of interfaces in UP state. The type is interface{} with range:
-    // 0..4294967295.
-    InterfaceUpNumber interface{}
-
-    // Number of Virtual link in UP state. The type is interface{} with range:
-    // 0..4294967295.
-    VirtualLinkUpNumber interface{}
-
-    // Number of Sham link in UP state. The type is interface{} with range:
-    // 0..4294967295.
-    ShamLinkUpNumber interface{}
-
-    // Number of Area. The type is interface{} with range: 0..4294967295.
-    AreaNumaber interface{}
-
-    // Unknown LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownLsaCount interface{}
-
-    // Router LSA count. The type is interface{} with range: 0..4294967295.
-    RouterLsaCount interface{}
-
-    // Network LSA count. The type is interface{} with range: 0..4294967295.
-    NetworkLsaCount interface{}
-
-    // Inter Area Prefix LSA Count. The type is interface{} with range:
-    // 0..4294967295.
-    InterAreaPrefixLsaCount interface{}
-
-    // Inter Area Router LSA Count. The type is interface{} with range:
-    // 0..4294967295.
-    InterAreaRouterLsaCount interface{}
-
-    // ASE LSA count. The type is interface{} with range: 0..4294967295.
-    AseLsaCount interface{}
-
-    // MOSPF LSA count. The type is interface{} with range: 0..4294967295.
-    MospfLsaCount interface{}
-
-    // Type-7 ASE LSA count . The type is interface{} with range: 0..4294967295.
-    Type7AseLsaCount interface{}
-
-    // Link LSA count. The type is interface{} with range: 0..4294967295.
-    LinkLsaCount interface{}
-
-    // Prefix LSA count. The type is interface{} with range: 0..4294967295.
-    PrefixLsaCount interface{}
-
-    // Type-10 LSA count. The type is interface{} with range: 0..4294967295.
-    Type10lsaCount interface{}
-
-    // Grace LSA count. The type is interface{} with range: 0..4294967295.
-    GraceLsaCount interface{}
-
-    // Opaque Link LSA count. The type is interface{} with range: 0..4294967295.
-    OpaqueLinkLsaCount interface{}
-
-    // Opaque Area LSA count. The type is interface{} with range: 0..4294967295.
-    OpaqueAreaLsaCount interface{}
-
-    // Opaque AS LSA count. The type is interface{} with range: 0..4294967295.
-    OpaqueAsLsaCount interface{}
-
-    // Unknown Area LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownAreaLsaCount interface{}
-
-    // Unknown Link LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownLinkLsaCount interface{}
-
-    // Unknown AS LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownAsLsaCount interface{}
-}
-
-func (aggregateStatistics *Ospfv3_Processes_Process_Vrfs_Vrf_Summary_AggregateStatistics) GetEntityData() *types.CommonEntityData {
-    aggregateStatistics.EntityData.YFilter = aggregateStatistics.YFilter
-    aggregateStatistics.EntityData.YangName = "aggregate-statistics"
-    aggregateStatistics.EntityData.BundleName = "cisco_ios_xr"
-    aggregateStatistics.EntityData.ParentYangName = "summary"
-    aggregateStatistics.EntityData.SegmentPath = "aggregate-statistics"
-    aggregateStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/vrfs/vrf/summary/" + aggregateStatistics.EntityData.SegmentPath
-    aggregateStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    aggregateStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    aggregateStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    aggregateStatistics.EntityData.Children = types.NewOrderedMap()
-    aggregateStatistics.EntityData.Leafs = types.NewOrderedMap()
-    aggregateStatistics.EntityData.Leafs.Append("neighbor-number", types.YLeaf{"NeighborNumber", aggregateStatistics.NeighborNumber})
-    aggregateStatistics.EntityData.Leafs.Append("adjacent-neighbor-number", types.YLeaf{"AdjacentNeighborNumber", aggregateStatistics.AdjacentNeighborNumber})
-    aggregateStatistics.EntityData.Leafs.Append("interface-number", types.YLeaf{"InterfaceNumber", aggregateStatistics.InterfaceNumber})
-    aggregateStatistics.EntityData.Leafs.Append("interface-up-number", types.YLeaf{"InterfaceUpNumber", aggregateStatistics.InterfaceUpNumber})
-    aggregateStatistics.EntityData.Leafs.Append("virtual-link-up-number", types.YLeaf{"VirtualLinkUpNumber", aggregateStatistics.VirtualLinkUpNumber})
-    aggregateStatistics.EntityData.Leafs.Append("sham-link-up-number", types.YLeaf{"ShamLinkUpNumber", aggregateStatistics.ShamLinkUpNumber})
-    aggregateStatistics.EntityData.Leafs.Append("area-numaber", types.YLeaf{"AreaNumaber", aggregateStatistics.AreaNumaber})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-lsa-count", types.YLeaf{"UnknownLsaCount", aggregateStatistics.UnknownLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("router-lsa-count", types.YLeaf{"RouterLsaCount", aggregateStatistics.RouterLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("network-lsa-count", types.YLeaf{"NetworkLsaCount", aggregateStatistics.NetworkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("inter-area-prefix-lsa-count", types.YLeaf{"InterAreaPrefixLsaCount", aggregateStatistics.InterAreaPrefixLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("inter-area-router-lsa-count", types.YLeaf{"InterAreaRouterLsaCount", aggregateStatistics.InterAreaRouterLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("ase-lsa-count", types.YLeaf{"AseLsaCount", aggregateStatistics.AseLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("mospf-lsa-count", types.YLeaf{"MospfLsaCount", aggregateStatistics.MospfLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("type7-ase-lsa-count", types.YLeaf{"Type7AseLsaCount", aggregateStatistics.Type7AseLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("link-lsa-count", types.YLeaf{"LinkLsaCount", aggregateStatistics.LinkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("prefix-lsa-count", types.YLeaf{"PrefixLsaCount", aggregateStatistics.PrefixLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("type10lsa-count", types.YLeaf{"Type10lsaCount", aggregateStatistics.Type10lsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("grace-lsa-count", types.YLeaf{"GraceLsaCount", aggregateStatistics.GraceLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("opaque-link-lsa-count", types.YLeaf{"OpaqueLinkLsaCount", aggregateStatistics.OpaqueLinkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("opaque-area-lsa-count", types.YLeaf{"OpaqueAreaLsaCount", aggregateStatistics.OpaqueAreaLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("opaque-as-lsa-count", types.YLeaf{"OpaqueAsLsaCount", aggregateStatistics.OpaqueAsLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-area-lsa-count", types.YLeaf{"UnknownAreaLsaCount", aggregateStatistics.UnknownAreaLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-link-lsa-count", types.YLeaf{"UnknownLinkLsaCount", aggregateStatistics.UnknownLinkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-as-lsa-count", types.YLeaf{"UnknownAsLsaCount", aggregateStatistics.UnknownAsLsaCount})
-
-    aggregateStatistics.EntityData.YListKeys = []string {}
-
-    return &(aggregateStatistics.EntityData)
-}
-
 // Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Route
 // OSPFv3 route summary
 type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Route struct {
@@ -22861,7 +22724,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_Summary_Route struct {
     YFilter yfilter.YFilter
 
     // Route summary of a route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Intra route summary . The type is interface{} with range: 0..4294967295.
@@ -22970,15 +22833,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmis
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RetransmissionNeighborAddress interface{}
 
     // If true, virtual link is retransmitted . The type is bool.
@@ -23074,11 +22937,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmis
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -23125,11 +22988,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmis
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -23176,11 +23039,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_RetransmissionListProcessTable_Retransmis
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -23264,7 +23127,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_BadChecksums_BadChecksum struct {
     ComputedChecksum interface{}
 
     // Received Hexadecimal Data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ReceivedData interface{}
 
     // Packet Timestamp (relative to 1970/1/1 00:00).
@@ -23368,7 +23231,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_DatabaseSummaryTable_DatabaseSummary stru
     YFilter yfilter.YFilter
 
     // Database router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DatabaseRouterId interface{}
 
     // If true, opaque database is capable . The type is bool.
@@ -23571,15 +23434,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTable_Neighbor struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -23673,11 +23536,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborProcessTable_Neighbor_NeighborDet
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.
@@ -23955,7 +23818,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute struct {
     YListKey string
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // AreaID. The type is interface{} with range: 0..4294967295.
@@ -23966,7 +23829,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute struct {
     IpfrrTopoAreaId interface{}
 
     // OSPF Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpfrrRouterId interface{}
 
     // IPFRR Topology Revision. The type is interface{} with range: 0..4294967295.
@@ -24014,7 +23877,7 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_FastReroutes_FastReroute_IpfrrTopo struct
     YListKey string
 
     // IPFRR Topology Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeId interface{}
 
     // IPFRR Topology LSA ID. The type is interface{} with range: 0..4294967295.
@@ -24105,11 +23968,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_InterfaceBriefProcessTable_InterfaceBrief
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface link cost. The type is interface{} with range: 0..65535.
@@ -24197,15 +24060,15 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailProcessTable_NeighborDetail
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -24299,11 +24162,11 @@ type Ospfv3_Processes_Process_Vrfs_Vrf_NeighborDetailProcessTable_NeighborDetail
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.
@@ -24624,18 +24487,6 @@ type Ospfv3_Processes_Process_Statistics_NsrStats struct {
     // Partner NodeID. The type is interface{} with range: 0..4294967295.
     NsrPeerNodeId interface{}
 
-    // Peer Endpoint Length. The type is interface{} with range: 0..4294967295.
-    NsrPeerEpLength interface{}
-
-    // Peer Endpoint Version. The type is interface{} with range: 0..4294967295.
-    NsrPeerEpVer interface{}
-
-    // Local Endpoint Length. The type is interface{} with range: 0..4294967295.
-    NsrLocalEpLength interface{}
-
-    // Local Endpoint Version. The type is interface{} with range: 0..4294967295.
-    NsrLocalEpVer interface{}
-
     // Fabric MTU. The type is interface{} with range: 0..4294967295.
     NsrMtu interface{}
 
@@ -24671,14 +24522,6 @@ type Ospfv3_Processes_Process_Statistics_NsrStats struct {
     // -2147483648..2147483647.
     NsrTmrQuant interface{}
 
-    // Peer DS Handle. The type is interface{} with range:
-    // 0..18446744073709551615.
-    NsrPeerHdl interface{}
-
-    // Local DS Handle. The type is interface{} with range:
-    // 0..18446744073709551615.
-    NsrLocalHdl interface{}
-
     // Attempts to connect to active. The type is interface{} with range:
     // 0..18446744073709551615.
     NsrConnToActiveAttempts interface{}
@@ -24698,14 +24541,6 @@ type Ospfv3_Processes_Process_Statistics_NsrStats struct {
     // Conn to active errors. The type is interface{} with range:
     // 0..18446744073709551615.
     NsrConnToActiveErrors interface{}
-
-    // Peer Endpoint. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
-    NsrPeerEp interface{}
-
-    // Local Endpoint. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
-    NsrLocalEp interface{}
 
     // Nsr Fsm Flags information. The type is slice of string.
     NsrFsmFlag []interface{}
@@ -24759,10 +24594,6 @@ func (nsrStats *Ospfv3_Processes_Process_Statistics_NsrStats) GetEntityData() *t
     nsrStats.EntityData.Leafs.Append("nsr-node-id", types.YLeaf{"NsrNodeId", nsrStats.NsrNodeId})
     nsrStats.EntityData.Leafs.Append("nsr-peer-version", types.YLeaf{"NsrPeerVersion", nsrStats.NsrPeerVersion})
     nsrStats.EntityData.Leafs.Append("nsr-peer-node-id", types.YLeaf{"NsrPeerNodeId", nsrStats.NsrPeerNodeId})
-    nsrStats.EntityData.Leafs.Append("nsr-peer-ep-length", types.YLeaf{"NsrPeerEpLength", nsrStats.NsrPeerEpLength})
-    nsrStats.EntityData.Leafs.Append("nsr-peer-ep-ver", types.YLeaf{"NsrPeerEpVer", nsrStats.NsrPeerEpVer})
-    nsrStats.EntityData.Leafs.Append("nsr-local-ep-length", types.YLeaf{"NsrLocalEpLength", nsrStats.NsrLocalEpLength})
-    nsrStats.EntityData.Leafs.Append("nsr-local-ep-ver", types.YLeaf{"NsrLocalEpVer", nsrStats.NsrLocalEpVer})
     nsrStats.EntityData.Leafs.Append("nsr-mtu", types.YLeaf{"NsrMtu", nsrStats.NsrMtu})
     nsrStats.EntityData.Leafs.Append("nsr-nbr-qad-qid", types.YLeaf{"NsrNbrQadQid", nsrStats.NsrNbrQadQid})
     nsrStats.EntityData.Leafs.Append("nsr-lsa-qad-qid", types.YLeaf{"NsrLsaQadQid", nsrStats.NsrLsaQadQid})
@@ -24773,15 +24604,11 @@ func (nsrStats *Ospfv3_Processes_Process_Statistics_NsrStats) GetEntityData() *t
     nsrStats.EntityData.Leafs.Append("nsr-nbr-seq-no", types.YLeaf{"NsrNbrSeqNo", nsrStats.NsrNbrSeqNo})
     nsrStats.EntityData.Leafs.Append("nsr-intf-seq-no", types.YLeaf{"NsrIntfSeqNo", nsrStats.NsrIntfSeqNo})
     nsrStats.EntityData.Leafs.Append("nsr-tmr-quant", types.YLeaf{"NsrTmrQuant", nsrStats.NsrTmrQuant})
-    nsrStats.EntityData.Leafs.Append("nsr-peer-hdl", types.YLeaf{"NsrPeerHdl", nsrStats.NsrPeerHdl})
-    nsrStats.EntityData.Leafs.Append("nsr-local-hdl", types.YLeaf{"NsrLocalHdl", nsrStats.NsrLocalHdl})
     nsrStats.EntityData.Leafs.Append("nsr-conn-to-active-attempts", types.YLeaf{"NsrConnToActiveAttempts", nsrStats.NsrConnToActiveAttempts})
     nsrStats.EntityData.Leafs.Append("nsr-conn-to-active-fails", types.YLeaf{"NsrConnToActiveFails", nsrStats.NsrConnToActiveFails})
     nsrStats.EntityData.Leafs.Append("nsr-conn-to-active-opens", types.YLeaf{"NsrConnToActiveOpens", nsrStats.NsrConnToActiveOpens})
     nsrStats.EntityData.Leafs.Append("nsr-conn-to-active-closes", types.YLeaf{"NsrConnToActiveCloses", nsrStats.NsrConnToActiveCloses})
     nsrStats.EntityData.Leafs.Append("nsr-conn-to-active-errors", types.YLeaf{"NsrConnToActiveErrors", nsrStats.NsrConnToActiveErrors})
-    nsrStats.EntityData.Leafs.Append("nsr-peer-ep", types.YLeaf{"NsrPeerEp", nsrStats.NsrPeerEp})
-    nsrStats.EntityData.Leafs.Append("nsr-local-ep", types.YLeaf{"NsrLocalEp", nsrStats.NsrLocalEp})
     nsrStats.EntityData.Leafs.Append("nsr-fsm-flag", types.YLeaf{"NsrFsmFlag", nsrStats.NsrFsmFlag})
     nsrStats.EntityData.Leafs.Append("nsr-fsm-running-timer", types.YLeaf{"NsrFsmRunningTimer", nsrStats.NsrFsmRunningTimer})
 
@@ -25567,18 +25394,6 @@ type Ospfv3_Processes_Process_Statistics_IssuStats struct {
     // Partner NodeID. The type is interface{} with range: 0..4294967295.
     NsrPeerNodeId interface{}
 
-    // Peer Endpoint Length. The type is interface{} with range: 0..4294967295.
-    NsrPeerEpLength interface{}
-
-    // Peer Endpoint Version. The type is interface{} with range: 0..4294967295.
-    NsrPeerEpVer interface{}
-
-    // Local Endpoint Length. The type is interface{} with range: 0..4294967295.
-    NsrLocalEpLength interface{}
-
-    // Local Endpoint Version. The type is interface{} with range: 0..4294967295.
-    NsrLocalEpVer interface{}
-
     // Fabric MTU. The type is interface{} with range: 0..4294967295.
     NsrMtu interface{}
 
@@ -25614,14 +25429,6 @@ type Ospfv3_Processes_Process_Statistics_IssuStats struct {
     // -2147483648..2147483647.
     NsrTmrQuant interface{}
 
-    // Peer DS Handle. The type is interface{} with range:
-    // 0..18446744073709551615.
-    NsrPeerHdl interface{}
-
-    // Local DS Handle. The type is interface{} with range:
-    // 0..18446744073709551615.
-    NsrLocalHdl interface{}
-
     // Attempts to connect to active. The type is interface{} with range:
     // 0..18446744073709551615.
     NsrConnToActiveAttempts interface{}
@@ -25641,14 +25448,6 @@ type Ospfv3_Processes_Process_Statistics_IssuStats struct {
     // Conn to active errors. The type is interface{} with range:
     // 0..18446744073709551615.
     NsrConnToActiveErrors interface{}
-
-    // Peer Endpoint. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
-    NsrPeerEp interface{}
-
-    // Local Endpoint. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
-    NsrLocalEp interface{}
 
     // Nsr Fsm Flags information. The type is slice of string.
     NsrFsmFlag []interface{}
@@ -25702,10 +25501,6 @@ func (issuStats *Ospfv3_Processes_Process_Statistics_IssuStats) GetEntityData() 
     issuStats.EntityData.Leafs.Append("nsr-node-id", types.YLeaf{"NsrNodeId", issuStats.NsrNodeId})
     issuStats.EntityData.Leafs.Append("nsr-peer-version", types.YLeaf{"NsrPeerVersion", issuStats.NsrPeerVersion})
     issuStats.EntityData.Leafs.Append("nsr-peer-node-id", types.YLeaf{"NsrPeerNodeId", issuStats.NsrPeerNodeId})
-    issuStats.EntityData.Leafs.Append("nsr-peer-ep-length", types.YLeaf{"NsrPeerEpLength", issuStats.NsrPeerEpLength})
-    issuStats.EntityData.Leafs.Append("nsr-peer-ep-ver", types.YLeaf{"NsrPeerEpVer", issuStats.NsrPeerEpVer})
-    issuStats.EntityData.Leafs.Append("nsr-local-ep-length", types.YLeaf{"NsrLocalEpLength", issuStats.NsrLocalEpLength})
-    issuStats.EntityData.Leafs.Append("nsr-local-ep-ver", types.YLeaf{"NsrLocalEpVer", issuStats.NsrLocalEpVer})
     issuStats.EntityData.Leafs.Append("nsr-mtu", types.YLeaf{"NsrMtu", issuStats.NsrMtu})
     issuStats.EntityData.Leafs.Append("nsr-nbr-qad-qid", types.YLeaf{"NsrNbrQadQid", issuStats.NsrNbrQadQid})
     issuStats.EntityData.Leafs.Append("nsr-lsa-qad-qid", types.YLeaf{"NsrLsaQadQid", issuStats.NsrLsaQadQid})
@@ -25716,15 +25511,11 @@ func (issuStats *Ospfv3_Processes_Process_Statistics_IssuStats) GetEntityData() 
     issuStats.EntityData.Leafs.Append("nsr-nbr-seq-no", types.YLeaf{"NsrNbrSeqNo", issuStats.NsrNbrSeqNo})
     issuStats.EntityData.Leafs.Append("nsr-intf-seq-no", types.YLeaf{"NsrIntfSeqNo", issuStats.NsrIntfSeqNo})
     issuStats.EntityData.Leafs.Append("nsr-tmr-quant", types.YLeaf{"NsrTmrQuant", issuStats.NsrTmrQuant})
-    issuStats.EntityData.Leafs.Append("nsr-peer-hdl", types.YLeaf{"NsrPeerHdl", issuStats.NsrPeerHdl})
-    issuStats.EntityData.Leafs.Append("nsr-local-hdl", types.YLeaf{"NsrLocalHdl", issuStats.NsrLocalHdl})
     issuStats.EntityData.Leafs.Append("nsr-conn-to-active-attempts", types.YLeaf{"NsrConnToActiveAttempts", issuStats.NsrConnToActiveAttempts})
     issuStats.EntityData.Leafs.Append("nsr-conn-to-active-fails", types.YLeaf{"NsrConnToActiveFails", issuStats.NsrConnToActiveFails})
     issuStats.EntityData.Leafs.Append("nsr-conn-to-active-opens", types.YLeaf{"NsrConnToActiveOpens", issuStats.NsrConnToActiveOpens})
     issuStats.EntityData.Leafs.Append("nsr-conn-to-active-closes", types.YLeaf{"NsrConnToActiveCloses", issuStats.NsrConnToActiveCloses})
     issuStats.EntityData.Leafs.Append("nsr-conn-to-active-errors", types.YLeaf{"NsrConnToActiveErrors", issuStats.NsrConnToActiveErrors})
-    issuStats.EntityData.Leafs.Append("nsr-peer-ep", types.YLeaf{"NsrPeerEp", issuStats.NsrPeerEp})
-    issuStats.EntityData.Leafs.Append("nsr-local-ep", types.YLeaf{"NsrLocalEp", issuStats.NsrLocalEp})
     issuStats.EntityData.Leafs.Append("nsr-fsm-flag", types.YLeaf{"NsrFsmFlag", issuStats.NsrFsmFlag})
     issuStats.EntityData.Leafs.Append("nsr-fsm-running-timer", types.YLeaf{"NsrFsmRunningTimer", issuStats.NsrFsmRunningTimer})
 
@@ -26363,7 +26154,7 @@ type Ospfv3_Processes_Process_Statistics_ProtocolStats_ProtocolStat struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total inputs packets. The type is interface{} with range:
@@ -26547,7 +26338,7 @@ type Ospfv3_Processes_Process_Statistics_SpfStats_SpfHeader struct {
     YFilter yfilter.YFilter
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderRouterId interface{}
 
     // Number of SPF calculations. The type is interface{} with range:
@@ -26646,7 +26437,7 @@ type Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime struct {
     // Router LSA update Bit 5 - AS External LSA update Bit 6 - MOSPF LSA update
     // Bit 7 - Type 7 AS External LSA update Bit 8 - Link LSA update Bit 9 -
     // Prefix LSA update. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ReasonFlags interface{}
 
     // Number of LSA changes triggering an SPF calculation. The type is
@@ -26781,11 +26572,11 @@ type Ospfv3_Processes_Process_Statistics_SpfStats_SpfRuntime_Lsa struct {
     LsaAreaId interface{}
 
     // Advertising router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaAdvertisingRouter interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // LSA type. The type is interface{} with range: 0..255.
@@ -27341,7 +27132,7 @@ type Ospfv3_Processes_Process_DefaultVrf_SummaryPrefixes_SummaryPrefix struct {
     YListKey string
 
     // Summary prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -27423,7 +27214,7 @@ type Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRouter struct {
     YListKey string
 
     // This attribute is a key. Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BorderRouterId interface{}
 
     // List of border router paths. The type is slice of
@@ -27470,11 +27261,10 @@ type Ospfv3_Processes_Process_DefaultVrf_BorderRouters_BorderRouter_BorderRouter
     BorderRouterRouteMetric interface{}
 
     // Next hop address . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BorderRouterNextHop interface{}
 
-    // Next hop interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Next hop interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Border router type . The type is Ospfv3BorderRoute.
@@ -27521,15 +27311,15 @@ type Ospfv3_Processes_Process_DefaultVrf_ShamLinkTable struct {
     YFilter yfilter.YFilter
 
     // Neighbor on other end of this sham link. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ShamLinkNeighborId interface{}
 
     // Sham-link source. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ShamLinkSourceAddress interface{}
 
     // Sham-link dest. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ShamLinkDestAddress interface{}
 
     // OSPF interface state for the sham link. The type is Ospfv3InterfaceState.
@@ -28025,7 +27815,7 @@ type Ospfv3_Processes_Process_DefaultVrf_AreaInformations_AreaInformation_AreaRa
     YListKey string
 
     // IP prefix for summarization. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RangePrefix interface{}
 
     // IP prefix length for summarization. The type is interface{} with range:
@@ -28149,13 +27939,13 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa struct {
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -28295,13 +28085,13 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LsaS
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -28379,7 +28169,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_LsaS
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -28607,7 +28397,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Rout
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -28770,7 +28560,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Rout
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -28851,7 +28641,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Netw
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -28906,7 +28696,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Netw
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -29067,7 +28857,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Inte
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -29130,7 +28920,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Inte
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -29345,7 +29135,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Inte
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -29506,7 +29296,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Exte
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -29523,7 +29313,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Exte
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -29591,7 +29381,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Exte
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -29752,7 +29542,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Nssa
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -29769,7 +29559,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Nssa
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -29837,7 +29627,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Nssa
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -29997,7 +29787,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Link
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -30013,7 +29803,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Link
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -30086,7 +29876,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Link
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -30248,7 +30038,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Link
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -30301,7 +30091,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Intr
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -30367,7 +30157,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Intr
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -30529,7 +30319,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Intr
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -30575,7 +30365,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Grac
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -30655,7 +30445,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Grac
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -30815,7 +30605,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -30886,7 +30676,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -31046,7 +30836,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -31117,7 +30907,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -31277,7 +31067,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -31348,7 +31138,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -31508,7 +31298,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -31579,7 +31369,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaTable_Lsa_LsaInfo_Unkn
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -31782,13 +31572,13 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa stru
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -31928,13 +31718,13 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -32012,7 +31802,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -32240,7 +32030,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -32403,7 +32193,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -32484,7 +32274,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -32539,7 +32329,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -32700,7 +32490,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -32763,7 +32553,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -32978,7 +32768,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -33139,7 +32929,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -33156,7 +32946,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -33224,7 +33014,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -33385,7 +33175,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -33402,7 +33192,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -33470,7 +33260,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -33630,7 +33420,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -33646,7 +33436,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -33719,7 +33509,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -33881,7 +33671,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -33934,7 +33724,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -34000,7 +33790,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -34162,7 +33952,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -34208,7 +33998,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -34288,7 +34078,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -34448,7 +34238,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -34519,7 +34309,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -34679,7 +34469,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -34750,7 +34540,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -34910,7 +34700,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -34981,7 +34771,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -35141,7 +34931,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -35212,7 +35002,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseTable_LsaInternalTable_Lsa_LsaI
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -35408,7 +35198,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface struct 
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -35424,14 +35214,14 @@ type Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface struct 
     IsInterfaceIpSecurityActive interface{}
 
     // Interface IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface number . The type is interface{} with range: 0..4294967295.
     InterfaceNumber interface{}
 
     // Interface router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceRouterId interface{}
 
     // Network type. The type is Ospfv3Interface.
@@ -35467,20 +35257,20 @@ type Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface struct 
     IsDesignatedRouter interface{}
 
     // Designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DesignatedRouterId interface{}
 
     // Designated router interface address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DesignatedRouterAddress interface{}
 
     // Backup designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterId interface{}
 
     // Backup designated router interface address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterAddress interface{}
 
     // The amount of time in seconds before flush timer for old network LSA
@@ -35788,7 +35578,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InterfaceProcessTable_Interface_Interfa
     YListKey string
 
     // Neighbor router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborId interface{}
 
     // Cost of link to neighbor. The type is interface{} with range:
@@ -35872,11 +35662,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Redistributions_Redistribution struct {
     YListKey string
 
     // Protocol name that is redistributed. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProtocolName interface{}
 
     // Process name of a protocolbeing redistributed . The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProcessName interface{}
 
     // Protocol name . The type is string with length: 0..40.
@@ -35976,7 +35766,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute struct {
     YListKey string
 
     // Route prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -36028,7 +35818,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RouteTopol
     YFilter yfilter.YFilter
 
     // Route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Route distance . The type is interface{} with range: 0..4294967295.
@@ -36071,7 +35861,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RouteExten
     YFilter yfilter.YFilter
 
     // Domain ID value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ExtendedCommunityDomainIdValue interface{}
 
     // Domain ID type. The type is interface{} with range: 0..65535.
@@ -36081,7 +35871,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RouteExten
     ExtendedCommunityAreaId interface{}
 
     // Router id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedCommunityRouterId interface{}
 
     // Route type. The type is interface{} with range: 0..255.
@@ -36124,7 +35914,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RoutePath 
     YListKey string
 
     // Route path interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route path interface Index . The type is interface{} with range:
@@ -36132,7 +35922,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RoutePath 
     InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RoutePathNextHop interface{}
 
     // Path ID of path. The type is interface{} with range: 0..65535.
@@ -36181,15 +35971,15 @@ type Ospfv3_Processes_Process_DefaultVrf_ExternalRoutes_ExternalRoute_RoutePath_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupRouteNextHopAddress interface{}
 
     // IP address of source of route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupRouteSource interface{}
 
     // Metric. The type is interface{} with range: 0..4294967295.
@@ -36313,15 +36103,15 @@ type Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Request struct 
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
     // If true, virtual link is requested . The type is bool.
@@ -36388,11 +36178,11 @@ type Ospfv3_Processes_Process_DefaultVrf_RequestListProcessTable_Request_Request
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -36432,7 +36222,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VirtualLink struct {
 
     // Neighbor on other end of this virtual link. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     VirtualLinkNeighborId interface{}
 
     // Virtual link interface number . The type is interface{} with range:
@@ -36450,7 +36240,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VirtualLink struct {
     IsVirtualLinkIpSecurityActive interface{}
 
     // Virtual link neighbor addresss . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualLinkNeighborAddress interface{}
 
     // If true, the link runs as demand circuit. The type is bool.
@@ -36464,7 +36254,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VirtualLink struct {
     TransitAreaId interface{}
 
     // Interface on which this virtual link is formed. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Cost of the virtual link. The type is interface{} with range: 0..65535.
@@ -36791,7 +36581,7 @@ type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -36867,11 +36657,11 @@ type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood_LinkFlood s
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -36918,11 +36708,11 @@ type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood_AreaFlood s
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -36969,11 +36759,11 @@ type Ospfv3_Processes_Process_DefaultVrf_FloodListProcessTable_Flood_AsFlood str
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -37012,7 +36802,7 @@ type Ospfv3_Processes_Process_DefaultVrf_RouteSummary struct {
     YFilter yfilter.YFilter
 
     // Route summary of a route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Intra route summary . The type is interface{} with range: 0..4294967295.
@@ -37222,15 +37012,15 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborDetailTable_Neighbor
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -37324,11 +37114,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborDetailTable_Neighbor
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.
@@ -37606,11 +37396,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceBriefTable_Interfac
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface link cost. The type is interface{} with range: 0..65535.
@@ -37698,15 +37488,15 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_Request str
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RequestNeighborAddress interface{}
 
     // If true, virtual link is requested . The type is bool.
@@ -37773,11 +37563,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RequestListTable_Request_Req
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -37851,15 +37641,15 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTable_Neighbor struc
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -37953,11 +37743,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_NeighborTable_Neighbor_Neigh
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.
@@ -38234,7 +38024,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interface str
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -38250,14 +38040,14 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interface str
     IsInterfaceIpSecurityActive interface{}
 
     // Interface IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface number . The type is interface{} with range: 0..4294967295.
     InterfaceNumber interface{}
 
     // Interface router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceRouterId interface{}
 
     // Network type. The type is Ospfv3Interface.
@@ -38293,20 +38083,20 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interface str
     IsDesignatedRouter interface{}
 
     // Designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DesignatedRouterId interface{}
 
     // Designated router interface address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DesignatedRouterAddress interface{}
 
     // Backup designated router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterId interface{}
 
     // Backup designated router interface address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupDesignatedRouterAddress interface{}
 
     // The amount of time in seconds before flush timer for old network LSA
@@ -38614,7 +38404,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_InterfaceTable_Interface_Int
     YListKey string
 
     // Neighbor router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborId interface{}
 
     // Cost of link to neighbor. The type is interface{} with range:
@@ -38698,7 +38488,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood struct 
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Time until next LS transmission (ms) . The type is interface{} with range:
@@ -38774,11 +38564,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood_LinkFlo
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -38825,11 +38615,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood_AreaFlo
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -38876,11 +38666,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_FloodListTable_Flood_AsFlood
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -38955,15 +38745,15 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retr
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RetransmissionNeighborAddress interface{}
 
     // If true, virtual link is retransmitted . The type is bool.
@@ -39059,11 +38849,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retr
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -39110,11 +38900,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retr
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -39161,11 +38951,11 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_RetransmissionListTable_Retr
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -39280,13 +39070,13 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa s
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -39426,13 +39216,13 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -39510,7 +39300,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -39738,7 +39528,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -39901,7 +39691,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -39982,7 +39772,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -40037,7 +39827,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -40198,7 +39988,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -40261,7 +40051,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -40476,7 +40266,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -40637,7 +40427,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -40654,7 +40444,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -40722,7 +40512,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -40883,7 +40673,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -40900,7 +40690,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -40968,7 +40758,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -41128,7 +40918,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -41144,7 +40934,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -41217,7 +41007,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -41379,7 +41169,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -41432,7 +41222,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -41498,7 +41288,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -41660,7 +41450,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -41706,7 +41496,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -41786,7 +41576,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -41946,7 +41736,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -42017,7 +41807,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -42177,7 +41967,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -42248,7 +42038,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -42408,7 +42198,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -42479,7 +42269,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -42639,7 +42429,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -42710,7 +42500,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaTable_Lsa_L
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -42913,13 +42703,13 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsType interface{}
 
     // Advertising Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Link state ID. The type is interface{} with range: 0..4294967295.
     LsId interface{}
 
-    // InterfaceName. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // InterfaceName. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Summary of all LSAs or LSA specific information .
@@ -43059,13 +42849,13 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsaRouterId interface{}
 
     // OSPFv3 address Prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
     PrefixLength interface{}
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -43143,7 +42933,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -43371,7 +43161,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -43534,7 +43324,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     // RPF multicast next hop . The type is interface{} with range: 0..4294967295.
     RpfMulticastNextHop interface{}
 
-    // RPF multicast IDB . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // RPF multicast IDB . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -43615,7 +43405,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     YFilter yfilter.YFilter
 
     // Neighbor router list. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborRouter []interface{}
 
     // Header information .
@@ -43670,7 +43460,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -43831,7 +43621,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     YFilter yfilter.YFilter
 
     // LSA address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -43894,7 +43684,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -44109,7 +43899,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -44270,7 +44060,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -44287,7 +44077,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -44355,7 +44145,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -44516,7 +44306,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     YFilter yfilter.YFilter
 
     // IPV6 address prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length . The type is interface{} with range: 0..255.
@@ -44533,7 +44323,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     IsForwardingAddressSet interface{}
 
     // Forwarding Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route Tag. The type is interface{} with range: 0..4294967295.
@@ -44601,7 +44391,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -44761,7 +44551,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -44777,7 +44567,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     ShamLinkId interface{}
 
     // LSA link local . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LsaLinkLocal interface{}
 
     // Router priority . The type is interface{} with range: 0..255.
@@ -44850,7 +44640,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -45012,7 +44802,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -45065,7 +44855,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     ReferenceLsaId interface{}
 
     // Reference advertised router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceAdvertisedRouter interface{}
 
     // Header information .
@@ -45131,7 +44921,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -45293,7 +45083,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     YListKey string
 
     // OSPFv3 prefix . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // OSPFv3 prefix length . The type is interface{} with range: 0..255.
@@ -45339,7 +45129,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link. The type is bool.
@@ -45419,7 +45209,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -45579,7 +45369,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -45650,7 +45440,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -45810,7 +45600,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -45881,7 +45671,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -46041,7 +45831,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -46112,7 +45902,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -46272,7 +46062,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // LSA interface name . The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // LSA interface name . The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // If true, it is a virtual link . The type is bool.
@@ -46343,7 +46133,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseTable_LsaInternalTab
     LsId interface{}
 
     // Router ID of Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvertisingRouter interface{}
 
     // Current Sequence number. The type is interface{} with range: 0..4294967295.
@@ -46534,7 +46324,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Areas_Area_DatabaseSummaryTable_Databas
     YFilter yfilter.YFilter
 
     // Database router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DatabaseRouterId interface{}
 
     // If true, opaque database is capable . The type is bool.
@@ -46738,7 +46528,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute struct {
     YListKey string
 
     // Route prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -46799,7 +46589,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RouteTopol
     YFilter yfilter.YFilter
 
     // Route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Route distance . The type is interface{} with range: 0..4294967295.
@@ -46843,11 +46633,11 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RouteSourc
     YListKey string
 
     // Route source of the advertising router . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteSourceAdverstingRouter interface{}
 
     // Route source ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteSourceId interface{}
 
     // Type of LSA advertising the prefix, see RFC5340. The type is interface{}
@@ -46885,7 +46675,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RoutePath 
     YListKey string
 
     // Route path interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route path interface Index . The type is interface{} with range:
@@ -46893,7 +46683,7 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RoutePath 
     InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RoutePathNextHop interface{}
 
     // Path ID of path. The type is interface{} with range: 0..65535.
@@ -46942,15 +46732,15 @@ type Ospfv3_Processes_Process_DefaultVrf_InternalRoutes_InternalRoute_RoutePath_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupRouteNextHopAddress interface{}
 
     // IP address of source of route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupRouteSource interface{}
 
     // Metric. The type is interface{} with range: 0..4294967295.
@@ -47074,7 +46864,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolArea struct {
     YListKey string
 
     // This attribute is a key. Area ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AreaId interface{}
 
     // Area ID string in decimal and dotted-decimal format. The type is string
@@ -47124,7 +46914,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ProtocolAreas_ProtocolArea_ProtocolInte
     YListKey string
 
     // Protocol interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Distribute List In. The type is string.
@@ -47195,7 +46985,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute struct {
     YListKey string
 
     // Route prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..128.
@@ -47243,7 +47033,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RouteTop
     YFilter yfilter.YFilter
 
     // Route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Route distance . The type is interface{} with range: 0..4294967295.
@@ -47287,7 +47077,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RoutePat
     YListKey string
 
     // Route path interface name . The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Route path interface Index . The type is interface{} with range:
@@ -47295,7 +47085,7 @@ type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RoutePat
     InterfaceIndex interface{}
 
     // Route path next hop . The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RoutePathNextHop interface{}
 
     // Path ID of path. The type is interface{} with range: 0..65535.
@@ -47344,15 +47134,15 @@ type Ospfv3_Processes_Process_DefaultVrf_ConnectedRoutes_ConnectedRoute_RoutePat
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next hop Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Next hop Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupRouteInterfaceName interface{}
 
     // Nexthop IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     BackupRouteNextHopAddress interface{}
 
     // IP address of source of route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupRouteSource interface{}
 
     // Metric. The type is interface{} with range: 0..4294967295.
@@ -47522,7 +47312,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_ProtocolStats_ProtocolSta
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total inputs packets. The type is interface{} with range:
@@ -47706,7 +47496,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfHeader struct
     YFilter yfilter.YFilter
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderRouterId interface{}
 
     // Number of SPF calculations. The type is interface{} with range:
@@ -47805,7 +47595,7 @@ type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRuntime struc
     // Router LSA update Bit 5 - AS External LSA update Bit 6 - MOSPF LSA update
     // Bit 7 - Type 7 AS External LSA update Bit 8 - Link LSA update Bit 9 -
     // Prefix LSA update. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ReasonFlags interface{}
 
     // Number of LSA changes triggering an SPF calculation. The type is
@@ -47940,11 +47730,11 @@ type Ospfv3_Processes_Process_DefaultVrf_VrfStatistics_SpfStats_SpfRuntime_Lsa s
     LsaAreaId interface{}
 
     // Advertising router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaAdvertisingRouter interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // LSA type. The type is interface{} with range: 0..255.
@@ -48342,9 +48132,6 @@ type Ospfv3_Processes_Process_DefaultVrf_Summary struct {
     // OSPFv3 summary.
     Ospfv3 Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3
 
-    // OSPFv3 aggregate statistics.
-    AggregateStatistics Ospfv3_Processes_Process_DefaultVrf_Summary_AggregateStatistics
-
     // OSPFv3 route summary.
     Route Ospfv3_Processes_Process_DefaultVrf_Summary_Route
 }
@@ -48363,7 +48150,6 @@ func (summary *Ospfv3_Processes_Process_DefaultVrf_Summary) GetEntityData() *typ
     summary.EntityData.Children = types.NewOrderedMap()
     summary.EntityData.Children.Append("protocol", types.YChild{"Protocol", &summary.Protocol})
     summary.EntityData.Children.Append("ospfv3", types.YChild{"Ospfv3", &summary.Ospfv3})
-    summary.EntityData.Children.Append("aggregate-statistics", types.YChild{"AggregateStatistics", &summary.AggregateStatistics})
     summary.EntityData.Children.Append("route", types.YChild{"Route", &summary.Route})
     summary.EntityData.Leafs = types.NewOrderedMap()
 
@@ -48379,7 +48165,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Summary_Protocol struct {
     YFilter yfilter.YFilter
 
     // Protocol router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ProtocolRouterId interface{}
 
     // Administrative distance. The type is interface{} with range: 0..4294967295.
@@ -48432,7 +48218,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3 struct {
     YFilter yfilter.YFilter
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // If true, the process is running as stanby role. The type is bool.
@@ -48743,7 +48529,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_DomainId_PrimaryDomainId
     DomainIdType interface{}
 
     // Domain ID value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     DomainIdValue interface{}
 }
 
@@ -48779,7 +48565,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_DomainId_SecondaryDomain
     DomainIdType interface{}
 
     // Domain ID value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     DomainIdValue interface{}
 }
 
@@ -49167,138 +48953,6 @@ func (ipfrrTiebreakers *Ospfv3_Processes_Process_DefaultVrf_Summary_Ospfv3_Ipfrr
     return &(ipfrrTiebreakers.EntityData)
 }
 
-// Ospfv3_Processes_Process_DefaultVrf_Summary_AggregateStatistics
-// OSPFv3 aggregate statistics
-type Ospfv3_Processes_Process_DefaultVrf_Summary_AggregateStatistics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of neighbor. The type is interface{} with range: 0..4294967295.
-    NeighborNumber interface{}
-
-    // Number of adjacent neighbor. The type is interface{} with range:
-    // 0..4294967295.
-    AdjacentNeighborNumber interface{}
-
-    // Number of interfaces. The type is interface{} with range: 0..4294967295.
-    InterfaceNumber interface{}
-
-    // Number of interfaces in UP state. The type is interface{} with range:
-    // 0..4294967295.
-    InterfaceUpNumber interface{}
-
-    // Number of Virtual link in UP state. The type is interface{} with range:
-    // 0..4294967295.
-    VirtualLinkUpNumber interface{}
-
-    // Number of Sham link in UP state. The type is interface{} with range:
-    // 0..4294967295.
-    ShamLinkUpNumber interface{}
-
-    // Number of Area. The type is interface{} with range: 0..4294967295.
-    AreaNumaber interface{}
-
-    // Unknown LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownLsaCount interface{}
-
-    // Router LSA count. The type is interface{} with range: 0..4294967295.
-    RouterLsaCount interface{}
-
-    // Network LSA count. The type is interface{} with range: 0..4294967295.
-    NetworkLsaCount interface{}
-
-    // Inter Area Prefix LSA Count. The type is interface{} with range:
-    // 0..4294967295.
-    InterAreaPrefixLsaCount interface{}
-
-    // Inter Area Router LSA Count. The type is interface{} with range:
-    // 0..4294967295.
-    InterAreaRouterLsaCount interface{}
-
-    // ASE LSA count. The type is interface{} with range: 0..4294967295.
-    AseLsaCount interface{}
-
-    // MOSPF LSA count. The type is interface{} with range: 0..4294967295.
-    MospfLsaCount interface{}
-
-    // Type-7 ASE LSA count . The type is interface{} with range: 0..4294967295.
-    Type7AseLsaCount interface{}
-
-    // Link LSA count. The type is interface{} with range: 0..4294967295.
-    LinkLsaCount interface{}
-
-    // Prefix LSA count. The type is interface{} with range: 0..4294967295.
-    PrefixLsaCount interface{}
-
-    // Type-10 LSA count. The type is interface{} with range: 0..4294967295.
-    Type10lsaCount interface{}
-
-    // Grace LSA count. The type is interface{} with range: 0..4294967295.
-    GraceLsaCount interface{}
-
-    // Opaque Link LSA count. The type is interface{} with range: 0..4294967295.
-    OpaqueLinkLsaCount interface{}
-
-    // Opaque Area LSA count. The type is interface{} with range: 0..4294967295.
-    OpaqueAreaLsaCount interface{}
-
-    // Opaque AS LSA count. The type is interface{} with range: 0..4294967295.
-    OpaqueAsLsaCount interface{}
-
-    // Unknown Area LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownAreaLsaCount interface{}
-
-    // Unknown Link LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownLinkLsaCount interface{}
-
-    // Unknown AS LSA count. The type is interface{} with range: 0..4294967295.
-    UnknownAsLsaCount interface{}
-}
-
-func (aggregateStatistics *Ospfv3_Processes_Process_DefaultVrf_Summary_AggregateStatistics) GetEntityData() *types.CommonEntityData {
-    aggregateStatistics.EntityData.YFilter = aggregateStatistics.YFilter
-    aggregateStatistics.EntityData.YangName = "aggregate-statistics"
-    aggregateStatistics.EntityData.BundleName = "cisco_ios_xr"
-    aggregateStatistics.EntityData.ParentYangName = "summary"
-    aggregateStatistics.EntityData.SegmentPath = "aggregate-statistics"
-    aggregateStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ospfv3-oper:ospfv3/processes/process/default-vrf/summary/" + aggregateStatistics.EntityData.SegmentPath
-    aggregateStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    aggregateStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    aggregateStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    aggregateStatistics.EntityData.Children = types.NewOrderedMap()
-    aggregateStatistics.EntityData.Leafs = types.NewOrderedMap()
-    aggregateStatistics.EntityData.Leafs.Append("neighbor-number", types.YLeaf{"NeighborNumber", aggregateStatistics.NeighborNumber})
-    aggregateStatistics.EntityData.Leafs.Append("adjacent-neighbor-number", types.YLeaf{"AdjacentNeighborNumber", aggregateStatistics.AdjacentNeighborNumber})
-    aggregateStatistics.EntityData.Leafs.Append("interface-number", types.YLeaf{"InterfaceNumber", aggregateStatistics.InterfaceNumber})
-    aggregateStatistics.EntityData.Leafs.Append("interface-up-number", types.YLeaf{"InterfaceUpNumber", aggregateStatistics.InterfaceUpNumber})
-    aggregateStatistics.EntityData.Leafs.Append("virtual-link-up-number", types.YLeaf{"VirtualLinkUpNumber", aggregateStatistics.VirtualLinkUpNumber})
-    aggregateStatistics.EntityData.Leafs.Append("sham-link-up-number", types.YLeaf{"ShamLinkUpNumber", aggregateStatistics.ShamLinkUpNumber})
-    aggregateStatistics.EntityData.Leafs.Append("area-numaber", types.YLeaf{"AreaNumaber", aggregateStatistics.AreaNumaber})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-lsa-count", types.YLeaf{"UnknownLsaCount", aggregateStatistics.UnknownLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("router-lsa-count", types.YLeaf{"RouterLsaCount", aggregateStatistics.RouterLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("network-lsa-count", types.YLeaf{"NetworkLsaCount", aggregateStatistics.NetworkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("inter-area-prefix-lsa-count", types.YLeaf{"InterAreaPrefixLsaCount", aggregateStatistics.InterAreaPrefixLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("inter-area-router-lsa-count", types.YLeaf{"InterAreaRouterLsaCount", aggregateStatistics.InterAreaRouterLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("ase-lsa-count", types.YLeaf{"AseLsaCount", aggregateStatistics.AseLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("mospf-lsa-count", types.YLeaf{"MospfLsaCount", aggregateStatistics.MospfLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("type7-ase-lsa-count", types.YLeaf{"Type7AseLsaCount", aggregateStatistics.Type7AseLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("link-lsa-count", types.YLeaf{"LinkLsaCount", aggregateStatistics.LinkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("prefix-lsa-count", types.YLeaf{"PrefixLsaCount", aggregateStatistics.PrefixLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("type10lsa-count", types.YLeaf{"Type10lsaCount", aggregateStatistics.Type10lsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("grace-lsa-count", types.YLeaf{"GraceLsaCount", aggregateStatistics.GraceLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("opaque-link-lsa-count", types.YLeaf{"OpaqueLinkLsaCount", aggregateStatistics.OpaqueLinkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("opaque-area-lsa-count", types.YLeaf{"OpaqueAreaLsaCount", aggregateStatistics.OpaqueAreaLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("opaque-as-lsa-count", types.YLeaf{"OpaqueAsLsaCount", aggregateStatistics.OpaqueAsLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-area-lsa-count", types.YLeaf{"UnknownAreaLsaCount", aggregateStatistics.UnknownAreaLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-link-lsa-count", types.YLeaf{"UnknownLinkLsaCount", aggregateStatistics.UnknownLinkLsaCount})
-    aggregateStatistics.EntityData.Leafs.Append("unknown-as-lsa-count", types.YLeaf{"UnknownAsLsaCount", aggregateStatistics.UnknownAsLsaCount})
-
-    aggregateStatistics.EntityData.YListKeys = []string {}
-
-    return &(aggregateStatistics.EntityData)
-}
-
 // Ospfv3_Processes_Process_DefaultVrf_Summary_Route
 // OSPFv3 route summary
 type Ospfv3_Processes_Process_DefaultVrf_Summary_Route struct {
@@ -49306,7 +48960,7 @@ type Ospfv3_Processes_Process_DefaultVrf_Summary_Route struct {
     YFilter yfilter.YFilter
 
     // Route summary of a route ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouteId interface{}
 
     // Intra route summary . The type is interface{} with range: 0..4294967295.
@@ -49415,15 +49069,15 @@ type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransm
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RetransmissionNeighborAddress interface{}
 
     // If true, virtual link is retransmitted . The type is bool.
@@ -49519,11 +49173,11 @@ type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransm
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -49570,11 +49224,11 @@ type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransm
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -49621,11 +49275,11 @@ type Ospfv3_Processes_Process_DefaultVrf_RetransmissionListProcessTable_Retransm
     HeaderLsaAge interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderLsaId interface{}
 
     // Router ID of the advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HeaderAdvertisingRouter interface{}
 
     // Current LSA sequence number. The type is interface{} with range:
@@ -49709,7 +49363,7 @@ type Ospfv3_Processes_Process_DefaultVrf_BadChecksums_BadChecksum struct {
     ComputedChecksum interface{}
 
     // Received Hexadecimal Data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ReceivedData interface{}
 
     // Packet Timestamp (relative to 1970/1/1 00:00).
@@ -49813,7 +49467,7 @@ type Ospfv3_Processes_Process_DefaultVrf_DatabaseSummaryTable_DatabaseSummary st
     YFilter yfilter.YFilter
 
     // Database router ID . The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DatabaseRouterId interface{}
 
     // If true, opaque database is capable . The type is bool.
@@ -50016,15 +49670,15 @@ type Ospfv3_Processes_Process_DefaultVrf_NeighborProcessTable_Neighbor struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -50118,11 +49772,11 @@ type Ospfv3_Processes_Process_DefaultVrf_NeighborProcessTable_Neighbor_NeighborD
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.
@@ -50400,7 +50054,7 @@ type Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute struct {
     YListKey string
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // AreaID. The type is interface{} with range: 0..4294967295.
@@ -50411,7 +50065,7 @@ type Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute struct {
     IpfrrTopoAreaId interface{}
 
     // OSPF Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpfrrRouterId interface{}
 
     // IPFRR Topology Revision. The type is interface{} with range: 0..4294967295.
@@ -50459,7 +50113,7 @@ type Ospfv3_Processes_Process_DefaultVrf_FastReroutes_FastReroute_IpfrrTopo stru
     YListKey string
 
     // IPFRR Topology Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeId interface{}
 
     // IPFRR Topology LSA ID. The type is interface{} with range: 0..4294967295.
@@ -50550,11 +50204,11 @@ type Ospfv3_Processes_Process_DefaultVrf_InterfaceBriefProcessTable_InterfaceBri
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface IP address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // Interface link cost. The type is interface{} with range: 0..65535.
@@ -50642,15 +50296,15 @@ type Ospfv3_Processes_Process_DefaultVrf_NeighborDetailProcessTable_NeighborDeta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor IP Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddressXr interface{}
 
     // Neighbor interface ID. The type is interface{} with range: 0..4294967295.
@@ -50744,11 +50398,11 @@ type Ospfv3_Processes_Process_DefaultVrf_NeighborDetailProcessTable_NeighborDeta
     IsNeighborFiltered interface{}
 
     // Address of designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborDesignatedRouterAddress interface{}
 
     // Address of backup designated router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborBackupDesignatedRouterAddress interface{}
 
     // Interface type. The type is Ospfv3Interface.

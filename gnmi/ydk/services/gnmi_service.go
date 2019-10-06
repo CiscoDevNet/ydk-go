@@ -27,7 +27,7 @@ import (
 	"github.com/CiscoDevNet/ydk-go/ydk/path"
 	"github.com/CiscoDevNet/ydk-go/ydk/providers"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
-//	encoding "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
+	"github.com/CiscoDevNet/ydk-go/ydk/types/yfilter"
 )
 
 type GnmiService struct {
@@ -41,26 +41,39 @@ type GnmiSubscription struct {
 	HeartbeatInterval uint64
 }
 
-func (gs *GnmiService) Set(provider *providers.GnmiServiceProvider, entity types.Entity) bool {
+// Set method
+func (gs *GnmiService) Set(provider *providers.GnmiServiceProvider, entity types.Entity, operation string) bool {
 	data := map[string]string {}
-
-	readDataNode := path.ExecuteGnmiRPC(provider, "ydk:gnmi-set", entity, data, )
+	data["mode"] = operation
+	if operation == "delete" {
+		types.SetNontopEntityFilter(entity, yfilter.Delete)
+	}
+	readDataNode := path.ExecuteGnmiRPC(provider, "ydk:gnmi-set", entity, data)
+	if operation == "delete" {
+		types.SetNontopEntityFilter(entity, yfilter.NotSet)
+	}
 	return operationSucceeded(readDataNode)
 }
 
+// Get method
 func (gs *GnmiService) Get(provider *providers.GnmiServiceProvider, filter types.Entity, operation string) types.Entity {
 	data := map[string]string {}
 	data["mode"] = operation
+	types.SetNontopEntityFilter(filter, yfilter.Read)
 
 	readDataNode := path.ExecuteGnmiRPC(provider, "ydk:gnmi-get", filter, data)
+
+	types.SetNontopEntityFilter(filter, yfilter.NotSet)
 	return path.ReadDatanode(filter, readDataNode)
 }
 
+// Capabilities method
 func (gs *GnmiService) Capabilities(provider *providers.GnmiServiceProvider) string {
 	var caps string = path.GnmiServiceGetCapabilities(provider.Private)
 	return caps
 }
 
+// Subscribe method
 func (gs *GnmiService) Subscribe(provider *providers.GnmiServiceProvider, subscriptionList []GnmiSubscription, qos uint32, mode string, encode string) {
 
 	session := provider.GetSession()

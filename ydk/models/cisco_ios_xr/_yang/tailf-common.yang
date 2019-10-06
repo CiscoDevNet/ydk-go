@@ -3,10 +3,10 @@ module tailf-common {
   prefix tailf;
 
   include tailf-meta-extensions {
-    revision-date 2017-03-08;
+    revision-date 2010-08-19;
   }
   include tailf-cli-extensions {
-    revision-date 2017-08-23;
+    revision-date 2012-08-23;
   }
 
   organization
@@ -15,192 +15,6 @@ module tailf-common {
     "This module defines all Tail-f YANG extensions statements
      and common YANG types.";
 
-  revision 2017-08-23 {
-    description
-      "Released as part of ConfD-6.4.3 / NCS-4.4.3.
-       
-       Included latest revision of tailf-cli-extensions.";
-  }
-  revision 2017-03-08 {
-    description
-      "Released as part of ConfD-6.4 / NCS-4.4.
-       
-       Added tailf:ned-ignore-compare-config.
-       
-       Added tailf:ned-default-handling.
-       
-       Corrected the pattern for the tailf:size typedef.
-       
-       Updated the description for tailf:meta-data and tailf:meta-value.
-       
-       Included latest revision of tailf-cli-extensions and
-       tailf-meta-extensions submodules.";
-  }
-  revision 2017-01-26 {
-    description
-      "Released as part of ConfD-6.3 / NCS-4.3.
-       
-       Included latest revision of tailf-cli-extensions.";
-  }
-  revision 2016-11-24 {
-    description
-      "Released as part of ConfD-6.3 / NCS-4.3.
-       
-       Included latest revision of tailf-cli-extensions and
-       tailf-meta-extensions submodules.";
-  }
-  revision 2016-11-17 {
-    description
-      "Released as part of ConfD-6.2.2 / NCS-4.2.2.
-       
-       Changed tailf:ned-data.";
-  }
-  revision 2016-05-27 {
-    description
-      "Released as part of ConfD-6.2.1 / NCS-4.2.1.
-       
-       Added tailf:override-auto-dependencies.
-       
-       Added tailf:ned-data.
-       
-       Allow 'grouping', 'if-feature', and 'typedef' as substatements
-       to tailf:action.";
-  }
-  revision 2016-05-04 {
-    description
-      "Released as part of ConfD-6.2 / NSO-4.2
-       
-       Added tailf:meta-data.
-       Added tailf:meta-value.
-       
-       Added tailf:no-leafref-check.
-       
-       Allow tailf:ncs-device-type as substatement to 'module'.
-       
-       Allow multiple tailf:display-when statments.
-       
-       Updated the description of des3-cbc-encrypted-string and
-       aes-cfb-128-encrypted-string.";
-  }
-  revision 2015-11-24 {
-    description
-      "Released as part of ConfD-6.1 / NCS-4.1.
-       
-       Allow reference as substatement to tailf:action.";
-  }
-  revision 2015-05-22 {
-    description
-      "Released as part of ConfD-5.4.2 / NCS-3.4.2.
-       
-       Allow tailf:export and tailf:unique-selector in
-         tailf:annotate-module.";
-  }
-  revision 2015-03-19 {
-    description
-      "Released as part of ConfD-5.4 / NCS-3.4.
-       
-       Added if-feature as substatement to tailf:annotate.
-       
-       Added tailf:no-dependency.
-       
-       Updated the description for tailf:dependency.
-       
-       Allow tailf:id-value as substatement to 'module',
-       tailf:annotate-module, 'choice', and 'case'.";
-  }
-  revision 2014-11-13 {
-    description
-      "Released as part of ConfD-5.3 / NCS-3.3.
-       
-       Added tailf:export.";
-  }
-  revision 2014-06-30 {
-    description
-      "Released as part of ConfD-5.2 / NCS-3.2.
-       
-       Added tailf:sha-256-digest-string and tailf:sha-512-digest-string.";
-  }
-  revision 2014-03-27 {
-    description
-      "Released as part of ConfD-5.1 / NCS-3.1.
-       
-       Added tailf:actionpoint as substatement to refine.
-       Removed must as substatement to tailf:symlink.";
-  }
-  revision 2014-02-20 {
-    description
-      "Released as part of ConfD-5.0.2 / NCS-3.0.2.
-       
-       Added tailf:snmp-ned-recreate-when-modified.";
-  }
-  revision 2013-12-23 {
-    description
-      "Released as part of ConfD-5.0.1 / NCS-3.0.1.
-       
-       Allow 'unique' in tailf:annotate and tailf:annotate-statement.
-       
-       Added tailf:snmp-ned-delete-before-create.";
-  }
-  revision 2013-11-07 {
-    description
-      "Released as part of ConfD-5.0 / NCS-3.0.
-       
-       Allow tailf:code-name as substatement to 'bit'.
-       
-       Disallow tailf:id-value as substatement to 'enum'. Use the
-       standard YANG 'value' statement instead.
-       
-       Deprecated tailf:hex-list.  Use yang:hex-string instead.
-         There are no plans to remove tailf:hex-list.
-       
-       Added the types tailf:ipv4-address-and-prefix-length,
-       tailf:ipv6-address-and-prefix-length, and
-       tailf:ip-address-and-prefix-length,";
-  }
-  revision 2013-09-05 {
-    description
-      "Released as part of ConfD-4.3.
-       
-       Added tailf:auto-compact as substatement to tailf:indexed-view.";
-  }
-  revision 2013-06-14 {
-    description
-      "Released as part of ConfD-4.3.
-       
-       Deprecated tailf:symlink.  Use tailf:link instead.
-       
-       Allow tailf:alt-name as substatement to tailf:action and rpc.
-       
-       Allow status as substatement to tailf:action.
-       
-       Allow description in tailf:annotate and tailf:annotate-statement.";
-  }
-  revision 2013-05-16 {
-    description
-      "Released as part of ConfD-4.2.2.
-       
-       Added tailf:link";
-  }
-  revision 2013-03-07 {
-    description
-      "Released as part of ConfD-4.2.
-       
-       Allow 'pattern' in tailf:annotate-statement.";
-  }
-  revision 2012-11-08 {
-    description
-      "Released as part of ConfD-4.1.
-       
-       Added tailf:unique-selector and tailf:unique-leaf.
-       
-       Allow tailf:info in bit.
-       
-       Allow tailf:code-name as substatement to all statements that
-       define data nodes in the schema tree and the 'rpc',
-       'notification', 'identity', and 'tailf:action' statements.
-       
-       Allow status in tailf:symlink";
-  }
   revision 2012-08-23 {
     description
       "Released as part of ConfD-4.0.1.
@@ -424,40 +238,6 @@ module tailf-common {
        better.";
   }
 
-  extension export {
-    argument agent {
-      tailf:arg-type {
-        type union {
-          type enumeration {
-            enum "none";
-            enum "netconf";
-            enum "rest";
-            enum "cli";
-            enum "snmp";
-            enum "webui";
-          }
-          type string;
-        }
-      }
-    }
-    description
-      "Makes this data model visible in the northbound interface 'agent'.
-       
-       This statement makes it possible to have a data model visible
-       through some northbound interface but not others.  For example,
-       if a MIB is used to generate a YANG module, the resulting YANG
-       module can be exposed through SNMP only.
-       
-       Use the special agent 'none' to make the data model completely
-       hidden to all notherbound interfaces.
-       
-       The agent can also be a free-form string.  In this case, the data
-       model will be visible to maapi applications using this string as its
-       'context'.";
-    tailf:use-in "module";
-    tailf:occurence "*";
-  }
-
   extension annotate {
     argument target {
       tailf:arg-type {
@@ -477,10 +257,7 @@ module tailf-common {
        data model, and are thus not allowed.
        
        The validation statements 'must', 'min-elements',
-       'max-elements', 'mandatory', 'unique', and 'when' can also be
-       annotated.
-       
-       A 'description' can also be annotated.
+       'max-elements', 'mandatory', and 'when' can also be annotated.
        
        'tailf:annotate' can occur on the top-level in a module, or in
        another 'tailf:annotate' statement.
@@ -488,7 +265,7 @@ module tailf-common {
        The argument is a 'schema-nodeid', i.e. the same as for
        'augment', or a '*'.  It identifies a target node in the schema
        tree to annotate with new statements.  The special value '*' can
-       be used within another 'tailf:annotate' statetement, to select all
+       be used within another tailf:annotate statetement, to select all
        children for annotation.
        
        The target node is searched for after 'uses' and 'augment'
@@ -507,19 +284,13 @@ module tailf-common {
       ";
     tailf:use-in "module";
     tailf:use-in "submodule";
-    tailf:occurence "*";
-    tailf:substatement "tailf:annotate" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "if-feature" {
-      tailf:occurence "*";
-    }
+    tailf:substatement "tailf:annotate";
   }
 
   extension annotate-module {
     argument module-name {
       tailf:arg-type {
-        type tailf:identifier;
+        type string;
       }
     }
     description
@@ -536,18 +307,11 @@ module tailf-common {
        
        The argument is a name of the module or submodule to annotate.";
     tailf:use-in "module";
-    tailf:occurence "*";
+    tailf:use-in "submodule";
     tailf:substatement "tailf:snmp-oid";
     tailf:substatement "tailf:snmp-mib-module-name";
     tailf:substatement "tailf:id";
-    tailf:substatement "tailf:id-value";
-    tailf:substatement "tailf:export" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "tailf:unique-selector";
-    tailf:substatement "tailf:annotate-statement" {
-      tailf:occurence "*";
-    }
+    tailf:substatement "tailf:annotate-statement";
   }
 
   extension annotate-statement {
@@ -557,24 +321,19 @@ module tailf-common {
       }
     }
     description
-      "Annotates an existing statement with a 'tailf' statement, a
-       validation statement, or a type restrcition statement.  This is
-       useful in order to add tailf statements to a module without
-       touching the module source.  Annotation statements can be put in
-       a separate annotation module, and then passed to 'confdc' (or
-       'pyang') when the original module is compiled.
+      "Annotates an existing statement with a 'tailf' statement or a
+       validation statement..  This is useful in order to add tailf
+       statements to a module without touching the module source.
+       Annotation statements can be put in a separate annotation
+       module, and then passed to 'confdc' (or 'pyang') when the
+       original module is compiled.
        
        Any 'tailf' statement, except 'symlink' and 'action' can be
        annotated.  The statements 'symlink' and 'action' modifies the
        data model, and are thus not allowed.
        
        The validation statements 'must', 'min-elements',
-       'max-elements', 'mandatory', 'unique', and 'when' can also be
-       annotated.
-       
-       The type restriction statement 'pattern' can also be annotated.
-       
-       A 'description' can also be annotated.
+       'max-elements', 'mandatory', and 'when' can also be annotated.
        
        The argument is an XPath-like expression that selects a
        statement to annotate.  The syntax is:
@@ -611,10 +370,6 @@ module tailf-common {
       ";
     tailf:use-in "tailf:annotate-module";
     tailf:use-in "tailf:annotate-statement";
-    tailf:occurence "*";
-    tailf:substatement "tailf:annotate-statement" {
-      tailf:occurence "*";
-    }
   }
 
   extension value-length {
@@ -628,7 +383,6 @@ module tailf-common {
          yang:object-identifier
          yang:object-identifier-128
          yang:phys-address
-         yang:hex-string
          tailf:hex-list
          tailf:octet-list
          xs:hexBinary
@@ -662,12 +416,12 @@ module tailf-common {
        
         1.  each XPath expression is evaluated, and returns a node set.
        
-        2.  if there is no 'tailf:no-subtree-match' statement, the
+        2.  if there is no tailf:no-subtree-match statement, the
             instance-identifier matches if it refers to a node in this
             node set, or if it refers to any descendant node of this
             node set.
        
-        3.  if there is a 'tailf:no-subtree-match' statement, the
+        3.  if there is a tailf:no-subtree-match statement, the
             instance-identifier matches if it refers to a node in this
             node set.
        
@@ -679,10 +433,10 @@ module tailf-common {
          The value /a/b[key='k1']/c matches the XPath expression /a/b/c.
        
          The value /a/b[key='k1']/c matches the XPath expression /a/b, if
-         there is no 'tailf:no-subtree-match' statement.
+         there is no tailf:no-subtree-match statement.
        
          The value /a/b[key='k1'] matches the XPath expression /a/b, if
-         there is a 'tailf:no-subtree-match' statement.
+         there is a tailf:no-subtree-match statement.
       ";
     tailf:use-in "type";
     tailf:substatement "tailf:no-subtree-match";
@@ -740,8 +494,6 @@ module tailf-common {
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:use-in "grouping";
-    tailf:occurence "*";
     tailf:substatement "description";
     tailf:substatement "tailf:config";
     tailf:substatement "tailf:transform";
@@ -773,8 +525,7 @@ module tailf-common {
     description
       "If set to 'true', the callpoint is a transformation callpoint.  How
        transformation callpoints are used is described in the
-       'Transformations, Hooks, Hidden Data and Symlinks' chapter
-       in the User's Guide.";
+       'Transformations and Hooks' chapter in the User's Guide.";
     tailf:use-in "tailf:callpoint";
   }
 
@@ -795,9 +546,8 @@ module tailf-common {
        data into the same transaction.
        
        The difference between set- and transaction hooks are that set
-       hooks are invoked immediately when a write operation is requested
-       by a north bound agent, and transaction hooks are invoked at
-       commit time.
+       hooks are invoked immediately when an element is modified, but
+       transaction hooks are invoked at commit time.
        
        The value 'subtree' means that all nodes in the configuration
        below where the hook is defined are affected.
@@ -809,8 +559,7 @@ module tailf-common {
        The value 'node' means that the hook only applies to
        the node where it is defined and none of its children.
        
-       For more details on hooks,
-       see the 'Transformations, Hooks, Hidden Data and Symlinks'
+       For more details on hooks, see the 'Transformations and Hooks'
        chapter in the User's Guide.";
     tailf:use-in "tailf:callpoint";
   }
@@ -845,8 +594,7 @@ module tailf-common {
        The value 'node' means that the hook only applies to
        the node where it is defined and none of its children.
        
-       For more details on hooks,
-       see the 'Transformations, Hooks, Hidden Data and Symlinks'
+       For more details on hooks, see the 'Transformations and Hooks'
        chapter in the User's Guide.";
     tailf:use-in "tailf:callpoint";
     tailf:substatement "tailf:invocation-mode";
@@ -880,7 +628,7 @@ module tailf-common {
     description
       "If set to 'true', the operational data served by the callpoint will
        be cached by ConfD.  If set to 'true' in a node that represents
-       configuration data, the statement 'tailf:config' must be present
+       configuration data, the statement tailf:config must be present
        and set to 'false'.  This feature is further described in the section
        'Caching operational data' in the 'Operational data' chapter in
        the User's Guide.";
@@ -931,25 +679,18 @@ module tailf-common {
        In confspec, the 'id' of a data model was a string that never
        would change, even if the namespace URI would change.  It is not
        needed in YANG, since the namespace URi cannot change as a module
-       is updated.
-       
-       This statement is typically present in YANG modules generated by
-       cs2yang.  If no live upgrade needs to be done from a confspec
-       based system to a YANG based system, this statement can be
-       removed from such a generated module.";
+       is updated.";
     tailf:use-in "module";
   }
 
   extension cdb-oper {
     description
-      "Indicates that operational data nodes below this node are stored in
-       CDB.";
+      "Indicates that operational data is stored in CDB.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:substatement "description";
     tailf:substatement "tailf:persistent";
   }
 
@@ -970,7 +711,7 @@ module tailf-common {
     argument value {
       tailf:arg-type {
         type uint32 {
-          range "1..4294967294";
+          range "1..max";
         }
       }
     }
@@ -983,24 +724,17 @@ module tailf-common {
        may collide with a hash value generated for a node in another
        data model.  Whenever such a collision occurs the ConfD daemon
        fails to start and instructs the developer to use the 'id-value'
-       statement to resolve the collision.
-       
-       
-       A thorough discussion on id-value can be found in the section Hash
-       Values and the id-value Statement in the YANG chapter in the User
-       Guide.";
-    tailf:use-in "module";
+       statement to resolve the collision.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
+    tailf:use-in "enum";
     tailf:use-in "rpc";
-    tailf:use-in "action";
     tailf:use-in "identity";
     tailf:use-in "notification";
-    tailf:use-in "choice";
-    tailf:use-in "case";
     tailf:use-in "tailf:action";
+    tailf:use-in "tailf:enum";
   }
 
   extension default-ref {
@@ -1015,8 +749,7 @@ module tailf-common {
        this leaf, it defaults to the value of the leaf that the
        'default-ref' argument points to.
        
-       The textual format of a 'default-ref' is an XPath location path with
-       no predicates.
+       The textual format of a 'default-ref' is an XPath location path.
        
        The type of the leaf with a 'default-ref' will be set to the
        type of the referred leaf.  This means that the type statement in
@@ -1042,7 +775,6 @@ module tailf-common {
         }
       ";
     tailf:use-in "leaf";
-    tailf:use-in "refine";
   }
 
   extension sort-order {
@@ -1085,39 +817,6 @@ module tailf-common {
     tailf:use-in "tailf:secondary-index";
   }
 
-  extension link {
-    argument target {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "This statement specifies that the data node should be
-       implemented as a link to another data node, called the target
-       data node.  This means that whenever the node is modified, the
-       system modifies the target data node instead, and whenever the
-       data node is read, the system returns the value of target data
-       node.
-       
-       Note that if the data node is a leaf, the target node MUST also
-       be a leaf, and if the data node is a leaf-list, the target node
-       MUST also be a leaf-list.
-       
-       Note that the type of the data node MUST be the same as the
-       target data node.  Currently the compiler cannot check this.
-       
-       The argument is an XPath absolute location path.  If
-       the target lies within lists, all keys must be specified.
-       A key either has a value, or is a reference to a key in the path of the
-       source node, using the function current() as starting
-       point for an XPath location path.  For example:
-       
-         /a/b[k1='paul'][k2=current()/../k]/c";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:substatement "tailf:inherit-set-hook";
-  }
-
   extension lower-case {
     description
       "Use for config false leafs and leaf-lists only.
@@ -1133,6 +832,134 @@ module tailf-common {
     tailf:use-in "leaf-list";
   }
 
+  extension symlink {
+    argument name {
+      tailf:arg-type {
+        type tailf:identifier;
+      }
+    }
+    description
+      "This statement defines a 'symbolic link' from a node to some other node.
+       The argument is the name of the new node, and the mandatory substatement
+       'tailf:path' points to the node which is linked to.";
+    tailf:use-in "list";
+    tailf:use-in "container";
+    tailf:use-in "module";
+    tailf:use-in "submodule";
+    tailf:use-in "augment";
+    tailf:use-in "case";
+    tailf:substatement "must";
+    tailf:substatement "tailf:path";
+    tailf:substatement "tailf:display-when";
+    tailf:substatement "tailf:sort-priority";
+    tailf:substatement "tailf:inherit-set-hook";
+    tailf:substatement "tailf:snmp-name";
+    tailf:substatement "tailf:snmp-oid";
+    tailf:substatement "tailf:cli-boolean-no";
+    tailf:substatement "tailf:cli-show-no";
+    tailf:substatement "tailf:cli-disallow-value";
+    tailf:substatement "tailf:cli-autowizard";
+    tailf:substatement "tailf:cli-show-config";
+    tailf:substatement "tailf:cli-display-empty-config";
+    tailf:substatement "tailf:cli-mode-name";
+    tailf:substatement "tailf:cli-show-order-taglist";
+    tailf:substatement "tailf:cli-show-order-tag";
+    tailf:substatement "tailf:cli-mode-name-actionpoint";
+    tailf:substatement "tailf:cli-add-mode";
+    tailf:substatement "tailf:cli-flatten-container";
+    tailf:substatement "tailf:cli-suppress-mode";
+    tailf:substatement "tailf:cli-allow-join-with-key";
+    tailf:substatement "tailf:cli-exit-command";
+    tailf:substatement "tailf:cli-key-format";
+    tailf:substatement "tailf:cli-suppress-key-sort";
+    tailf:substatement "tailf:cli-suppress-validation-warning-prompt";
+    tailf:substatement "tailf:cli-suppress-key-abbreviation";
+    tailf:substatement "tailf:cli-allow-key-abbreviation";
+    tailf:substatement "tailf:cli-table-legend";
+    tailf:substatement "tailf:cli-table-footer";
+    tailf:substatement "tailf:cli-completion-actionpoint";
+    tailf:substatement "tailf:cli-multi-word-key";
+    tailf:substatement "tailf:cli-allow-range";
+    tailf:substatement "tailf:cli-range-delimiters";
+    tailf:substatement "tailf:cli-suppress-range";
+    tailf:substatement "tailf:cli-custom-range";
+    tailf:substatement "tailf:cli-custom-range-actionpoint";
+    tailf:substatement "tailf:cli-custom-range-enumerator";
+    tailf:substatement "tailf:cli-custom-error";
+    tailf:substatement "tailf:cli-allow-wildcard";
+    tailf:substatement "tailf:cli-suppress-wildcard";
+    tailf:substatement "tailf:cli-delayed-auto-commit";
+    tailf:substatement "tailf:cli-preformatted";
+    tailf:substatement "tailf:cli-trim-default";
+    tailf:substatement "tailf:cli-expose-key-name";
+    tailf:substatement "tailf:cli-enforce-table";
+    tailf:substatement "tailf:cli-drop-node-name";
+    tailf:substatement "tailf:cli-compact-syntax";
+    tailf:substatement "tailf:cli-compact-stats";
+    tailf:substatement "tailf:cli-column-stats";
+    tailf:substatement "tailf:cli-column-width";
+    tailf:substatement "tailf:cli-min-column-width";
+    tailf:substatement "tailf:cli-column-align";
+    tailf:substatement "tailf:cli-list-syntax";
+    tailf:substatement "tailf:cli-flat-list-syntax";
+    tailf:substatement "tailf:cli-range-list-syntax";
+    tailf:substatement "tailf:cli-incomplete-command";
+    tailf:substatement "tailf:cli-full-command";
+    tailf:substatement "tailf:cli-sequence-command";
+    tailf:substatement "tailf:cli-reset-container";
+    tailf:substatement "tailf:cli-delete-container-on-delete";
+    tailf:substatement "tailf:cli-break-sequence-commands";
+    tailf:substatement "tailf:cli-optional-in-sequence";
+    tailf:substatement "tailf:cli-incomplete-show-path";
+    tailf:substatement "tailf:cli-hide-in-submode";
+    tailf:substatement "tailf:cli-prefix-key";
+    tailf:substatement "tailf:cli-show-with-default";
+    tailf:substatement "tailf:cli-full-show-path";
+    tailf:substatement "tailf:cli-suppress-show-path";
+    tailf:substatement "tailf:cli-suppress-show-match";
+    tailf:substatement "tailf:cli-suppress-list-no";
+    tailf:substatement "tailf:cli-suppress-no";
+    tailf:substatement "tailf:cli-suppress-silent-no";
+    tailf:substatement "tailf:cli-full-no";
+    tailf:substatement "tailf:cli-incomplete-no";
+    tailf:substatement "tailf:cli-no-match-completion";
+    tailf:substatement "tailf:cli-suppress-show-conf-path";
+    tailf:substatement "tailf:cli-no-key-completion";
+    tailf:substatement "tailf:cli-oper-info";
+    tailf:substatement "tailf:cli-instance-info-leafs";
+    tailf:substatement "tailf:cli-multi-value";
+    tailf:substatement "tailf:cli-value-display-template";
+    tailf:substatement "tailf:cli-show-template";
+    tailf:substatement "tailf:cli-show-template-legend";
+    tailf:substatement "tailf:cli-show-template-footer";
+    tailf:substatement "tailf:cli-show-template-enter";
+    tailf:substatement "tailf:cli-run-template";
+    tailf:substatement "tailf:cli-run-template-legend";
+    tailf:substatement "tailf:cli-run-template-enter";
+    tailf:substatement "tailf:cli-run-template-footer";
+    tailf:substatement "tailf:snmp-exclude-object";
+  }
+
+  extension path {
+    argument path {
+      tailf:arg-type {
+        type string;
+      }
+    }
+    description
+      "This statement specifies which node a symlink points to.
+       
+       The textual format of a symlink is an XPath absolute location path. If
+       the target lies within lists, all keys must be specified.
+       A key either has a value, or is a reference to a key in the path of the
+       source node, using the function current() as starting
+       point for an XPath location path.  For example:
+       
+       /a/b[k1='paul'][k2=current()/../k]/c
+      ";
+    tailf:use-in "tailf:symlink";
+  }
+
   extension inherit-set-hook {
     argument value {
       tailf:arg-type {
@@ -1141,12 +968,11 @@ module tailf-common {
       }
     }
     description
-      "This statement specifies that a 'tailf:set-hook' statement should
+      "This statement specifies that a tailf:set-hook statement should
        survive through symlinks. If set to true a set hook gets called as
        soon as the value is set via a symlink but also during commit. The
        normal behaviour is to only call the set hook during commit time.";
     tailf:use-in "tailf:symlink";
-    tailf:use-in "tailf:link";
   }
 
   extension secondary-index {
@@ -1167,10 +993,7 @@ module tailf-common {
        NOTE: Currently secondary-index is not supported for config false
        data stored in CDB.";
     tailf:use-in "list";
-    tailf:occurence "*";
-    tailf:substatement "tailf:index-leafs" {
-      tailf:occurence "1";
-    }
+    tailf:substatement "tailf:index-leafs";
     tailf:substatement "tailf:sort-order";
     tailf:substatement "tailf:display-default-order";
   }
@@ -1186,7 +1009,6 @@ module tailf-common {
        such leaf must be a direct child to the list.  The secondary
        index is kept sorted according to the values of these leafs.";
     tailf:use-in "tailf:secondary-index";
-    tailf:occurence "1";
   }
 
   extension typepoint {
@@ -1211,124 +1033,6 @@ module tailf-common {
     tailf:use-in "typedef";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:occurence "*";
-  }
-
-  extension unique-selector {
-    argument context-path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "The standard YANG statement 'unique' can be used to check for
-       uniqueness within a single list only.  Specifically, it cannot
-       be used to check for uniqueness of leafs within a sublist.
-       
-       For example:
-       
-         container a {
-           list b {
-             ...
-             unique 'server/ip server/port';
-             list server {
-               ...
-               leaf ip { ... };
-               leaf port { ... };
-             }
-           }
-         }
-       
-       The unique expression above is not legal.  The intention is
-       that there must not be any two 'server' entries in any 'b' with
-       the same combination of ip and port.  This would be illegal:
-       
-         <a>
-           <b>
-             <name>b1</name>
-             <server>
-               <ip>10.0.0.1</ip>
-               <port>80</port>
-             </server>
-           </b>
-           <b>
-             <name>b2</name>
-             <server>
-               <ip>10.0.0.1</ip>
-               <port>80</port>
-             </server>
-           </b>
-         </a>
-       
-       With 'tailf:unique-selector' and 'tailf:unique-leaf', this kind
-       of constraint can be defined.
-       
-       The argument to 'tailf:unique-selector' is an XPath descendant
-       location path (matches the rule 'descendant-schema-nodeid' in
-       RFC 6020).  The first node in the path MUST be a list node, and
-       it MUST be defined in the same module as the
-       tailf:unique-selector.  For example, the following is illegal:
-       
-         module y {
-           ...
-           import x {
-             prefix x;
-           }
-           tailf:unique-selector '/x:server' { // illegal
-             ...
-           }
-         }
-       
-       For each instance of the node where the selector is defined, it
-       is evaluated, and for each node selected by the selector, a
-       tuple is constructed by evaluating the 'tailf:unique-leaf'
-       expression.  All such tuples must be unique.  If a
-       'tailf:unique-leaf' expression refers to a non-existing leaf,
-       the corresponding tuple is ignored.
-       
-       In the example above, the unique expression can be replaced by:
-       
-         container a {
-           tailf:unique-selector 'b/server' {
-             tailf:unique-leaf 'ip';
-             tailf:unique-leaf 'port';
-           }
-           list b {
-             ...
-           }
-         }
-       
-       For each container 'a', the XPath expression 'b/server' is
-       evaluated.  For each such server, a 2-tuple is constructed with
-       the 'ip' and 'port' leafs.  Each such 2-tuple is guaranteed to
-       be unique.";
-    tailf:use-in "module";
-    tailf:use-in "submodule";
-    tailf:use-in "grouping";
-    tailf:use-in "augment";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:occurence "*";
-    tailf:substatement "tailf:unique-leaf" {
-      tailf:occurence "+";
-    }
-  }
-
-  extension unique-leaf {
-    argument leaf-expr {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "See 'tailf:unique-selector' for a description of how this statement
-       is used.
-       
-       The argument is an XPath descendant location path (matches the
-       rule 'descendant-schema-nodeid' in RFC 6020), and it MUST refer to
-       a leaf.";
-    tailf:use-in "tailf:unique-selector";
-    tailf:occurence "+";
   }
 
   extension validate {
@@ -1354,11 +1058,6 @@ module tailf-common {
        is responsible for validation of all values and their
        relationships throughout the data store.
        
-       The 'validate' statment should in almost all cases have a
-       'tailf:dependency' substatement.  If such a statement is not
-       given, the validate function is evaluated at every commit,
-       leading to overall performance degradation.
-       
        If the 'validate' statement is defined in a 'must' statement,
        validation callback is called instead of evaluating the must
        expression.  This is useful if the evaluation of the must statement
@@ -1371,12 +1070,9 @@ module tailf-common {
     tailf:use-in "grouping";
     tailf:use-in "refine";
     tailf:use-in "must";
-    tailf:occurence "*";
     tailf:substatement "description";
     tailf:substatement "tailf:call-once";
-    tailf:substatement "tailf:dependency" {
-      tailf:occurence "*";
-    }
+    tailf:substatement "tailf:dependency";
     tailf:substatement "tailf:opaque";
     tailf:substatement "tailf:internal";
     tailf:substatement "tailf:priority";
@@ -1410,9 +1106,6 @@ module tailf-common {
        store.  Whenever a node in one of those subtrees are modified,
        the must or when expression is evaluated, or validation code executed.
        
-       The textual format of a 'dependency' is an XPath location path with
-       no predicates.
-       
        If the node that declares the dependency is a leaf, there is an
        implicit dependency to the leaf itself.
        
@@ -1429,44 +1122,21 @@ module tailf-common {
             type int32;
         }
        
-       For 'when' and 'must' expressions, the compiler can derive the
-       dependencies automatically from the XPath expression in most
-       cases.  The exception is if any wildcards are used in the expression.
-       
-       For 'when' expressions to work, a 'tailf:dependency' statement
+       For 'when' expressions to work, a tailf:dependency statement
        must be given, unless the compiler can figure out the dependency
-       by itself.
+       by itself.  If the when expression is a simple path check, the
+       compiler can derive the dependency automatically, for example:
        
-       Note that having 'must' expressions or a 'tailf:validate'
-       statement without dependencies impacts the overall performance
-       of the system, since all such 'must' expressions or validation
-       functions are evaluated at every commit.";
-    tailf:use-in "must";
-    tailf:use-in "when";
-    tailf:use-in "tailf:validate";
-    tailf:substatement "tailf:xpath-root";
-    tailf:occurence "*";
-  }
-
-  extension no-dependency {
-    description
-      "This optional statements can be used to explicitly say that a 'must'
-       expression or a validation function is evaluated at every
-       commit.  Use this with care, since the overall performance of
-       the system is impacted if this statement is used.";
-    tailf:use-in "must";
-    tailf:use-in "tailf:validate";
-    tailf:occurence "?";
-  }
-
-  extension override-auto-dependencies {
-    description
-      "This optional statement can be used to instruct the compiler to
-       use the provided tailf:dependency statements instead of the
-       dependencies that the compiler calculates from the expression.
+         when '../x = 2';
        
-       Use with care, and only if you are sure that the provided dependecies
-       are correct.";
+       The compiler also tries to derive dependencies for 'must' expressions
+       without explicit dependencies, but for backwards compatibility reasons
+       it gives a warning if no such dependency exist.
+       
+       Note that having 'must' expressions without dependencies
+       impacts the overall performance of the system, since all such
+       'must' expressions are evaluated at every commit.";
+    tailf:use-in "tailf:validate";
     tailf:use-in "must";
     tailf:use-in "when";
   }
@@ -1508,36 +1178,20 @@ module tailf-common {
        explanation is presented.
        
        The 'description' statement is related, but targeted to the module
-       reader, rather than the CLI or WebUI user.
-       
-       The info string may contain a ';;' keyword. It is used in type
-       descriptions for leafs when the builtin type info needs to be
-       customized.  A 'normal' info string describing a type is assumed
-       to contain a short textual description.  When ';;' is present it
-       works as a delimiter where the text before the keyword is
-       assumed to contain a short description and the text after the
-       keyword a long(er) description.  In the context of completion in
-       the CLI the text will be nicely presented in two columns where
-       both descriptions are aligned when displayed.";
+       reader, rather than the CLI or WebUI user.";
     tailf:use-in "typedef";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "rpc";
-    tailf:use-in "action";
     tailf:use-in "identity";
     tailf:use-in "type";
     tailf:use-in "enum";
-    tailf:use-in "bit";
-    tailf:use-in "length";
-    tailf:use-in "pattern";
-    tailf:use-in "range";
-    tailf:use-in "refine";
-    tailf:use-in "action";
     tailf:use-in "tailf:action";
     tailf:use-in "tailf:symlink";
     tailf:use-in "tailf:cli-exit-command";
+    tailf:use-in "refine";
   }
 
   extension info-html {
@@ -1548,21 +1202,20 @@ module tailf-common {
       }
     }
     description
-      "This statement works exactly as 'tailf:info', with the exception
+      "This statement works exactly as tailf:info, with the exception
        that it can contain HTML markup.  The WebUI will display the
        string with the HTML markup, but the CLI will remove all HTML markup
        before displaying the string to the user.  In most cases,
        using this statement avoids using special descriptions in webspecs
        and clispecs.
        
-       If this statement is present, 'tailf:info' cannot be given at the same
+       If this statement is present, tailf:info cannot be given at the same
        time.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "rpc";
-    tailf:use-in "action";
     tailf:use-in "identity";
     tailf:use-in "tailf:action";
     tailf:use-in "tailf:symlink";
@@ -1609,9 +1262,7 @@ module tailf-common {
     }
     description
       "If this statetement is set to 'true', leafs of this type will not have
-       their values echoed when input in the webui or when the CLI prompts
-       for the value. The value will also not be included in the audit
-       log in clear text but will appear as ***.";
+       their values echoed when input to for example the CLI.";
     tailf:use-in "typedef";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
@@ -1620,9 +1271,7 @@ module tailf-common {
   extension hidden {
     argument tag {
       tailf:arg-type {
-        type string {
-          pattern "[^\\*].*|..+";
-        }
+        type string;
       }
     }
     description
@@ -1638,8 +1287,6 @@ module tailf-common {
        The hidden value 'full' indicates that the node should be hidden
        from all northbound interfaces, including programmatical interfaces
        such as NETCONF.
-       
-       The value '*' is not valid.
        
        A hide group can be unhidden only if this has been explicitly
        allowed in the confd.conf(5) daemon configuration.
@@ -1657,10 +1304,8 @@ module tailf-common {
     tailf:use-in "container";
     tailf:use-in "tailf:action";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "rpc";
-    tailf:use-in "action";
-    tailf:occurence "*";
   }
 
   extension display-when {
@@ -1680,17 +1325,12 @@ module tailf-common {
        
        For a list, the display-when expression is evaluated once for the
        entire list.  In this case, the XPath context node is the list's parent
-       node.
-       
-       This feature is further described in the 'Transformations, Hooks,
-       Hidden Data and Symlinks' chapter in the User Guide.";
+       node.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:occurence "*";
-    tailf:substatement "tailf:xpath-root";
   }
 
   extension display-groups {
@@ -1746,8 +1386,6 @@ module tailf-common {
       "This property is used to specify an alternative name for the
        node in the CLI.  It is used instead of the node name in the CLI,
        both for input and output.";
-    tailf:use-in "rpc";
-    tailf:use-in "action";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
@@ -1799,7 +1437,7 @@ module tailf-common {
        and WebUI instead of displaying the binary as a base64-encoded
        string.  It is also used for input.
        
-       The value of a 'display-hint' is defined in RFC 2579.
+       The value of a display-hint is defined in RFC 2579.
        
        For example, with the display-hint value '1x:', the value is
        printed and inputted as a colon-separated hex list.";
@@ -1830,7 +1468,7 @@ module tailf-common {
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "module";
     tailf:use-in "refine";
   }
@@ -1838,7 +1476,7 @@ module tailf-common {
   extension snmp-name {
     argument name {
       tailf:arg-type {
-        type tailf:snmp-identifier;
+        type tailf:identifier;
       }
     }
     description
@@ -1864,9 +1502,9 @@ module tailf-common {
              [MIB-MODULE-NAME:]NAME
        
        If a YANG list is mapped to multiple SNMP tables, each such SNMP
-       table must be specified with a 'tailf:snmp-name' statement.  If
+       table must be specified with a tailf:snmp-name statement.  If
        the table is defined in another MIB than the MIB specified in
-       'tailf:snmp-mib-module-name', the MIB name must be specified in this
+       tailf:snmp-mib-module-name, the MIB name must be specified in this
        argument.
        
        A leaf in a list that is mapped to multiple SNMP tables must specify
@@ -1899,34 +1537,13 @@ module tailf-common {
               'IP-MIB:ipv4InterfaceTable:ipv4InterfaceEnableStatus';
           }
           ...
-        }
-       
-       When emitting a mib from yang, enum labels are used as-is if they
-       follow the SMI rules for labels (no '.' or '_' characters and beginning
-       with a lowercase letter). Any label that doesn't satisfy the SMI rules
-       will be converted as follows:
-       
-        An initial uppercase character will be downcased.
-       
-        If the initial character is not a letter it will be prepended with
-        an 'a'.
-       
-        Any '.' or '_' characters elsewhere in the label will be substituted
-        with '-' characters.
-       
-        In the resulting label, any multiple '-' character sequence will be
-        replaced with a single '-' character.
-       
-       If this automatic conversion is not suitable, snmp-name can be used
-       to specify the label to use when emitting a MIB.";
+        }";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "enum";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:occurence "*";
   }
 
   extension snmp-mib-module-name {
@@ -2000,7 +1617,7 @@ module tailf-common {
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2040,7 +1657,7 @@ module tailf-common {
        from the datastore.  If the node does not exsist, reading it over
        SNMP will return '0'.";
     tailf:use-in "leaf";
-    tailf:substatement "tailf:snmp-send-delete-value";
+    tailf:substatement "snmp-send-delete-value";
   }
 
   extension snmp-send-delete-value {
@@ -2058,11 +1675,11 @@ module tailf-common {
     description
       "If this statement is present on a leaf, it tells the SNMP NED
        that if a column in the row is modified, and it is marked with
-       'tailf:snmp-ned-modification-dependent', then the column marked
-       with 'tailf:snmp-ned-set-before-modification' needs to be set to
+       tailf:snmp-ned-modification-dependent, then the column marked
+       with tailf:snmp-ned-set-before-modification needs to be set to
        <value> before the other column is modified.  After all such
        columns have been modified, the column marked with
-       'tailf:snmp-ned-set-before-modification' is reset to its initial
+       tailf:snmp-ned-set-before-modification is reset to its initial
        value.";
     tailf:use-in "leaf";
   }
@@ -2071,10 +1688,10 @@ module tailf-common {
     description
       "This statement is used on all columns in a table that
        require the usage of the column marked with
-       tailf:snmp-ned-set-before-row-modification.
+       tail:snmp-ned-set-before-row-modification.
        
        This statement can be used on any column in a table where one
-       leaf is marked with tailf:snmp-ned-set-before-row-modification,
+       leaf is marked with tail:snmp-ned-set-before-row-modification,
        or a table that AUGMENTS such a table, or a table with a
        foreign index in such a table.";
     tailf:use-in "leaf";
@@ -2106,20 +1723,6 @@ module tailf-common {
     tailf:use-in "list";
   }
 
-  extension snmp-ned-delete-before-create {
-    description
-      "This statement is used in a list to make the SNMP NED always send
-       deletes before creates.  Normally, creates are sent before deletes.";
-    tailf:use-in "list";
-  }
-
-  extension snmp-ned-recreate-when-modified {
-    description
-      "This statement is used in a list to make the SNMP NED delete
-       and recreate the row when a column in the row is modified.";
-    tailf:use-in "list";
-  }
-
   extension java-class-name {
     argument name {
       tailf:arg-type {
@@ -2144,24 +1747,12 @@ module tailf-common {
       }
     }
     description
-      "Used to give another name to the enum or node name in generated
-       header files. This statement is typically used to avoid name
-       conflicts if there is a data node with the same name as the
-       enumeration, if there are multiple enumerations in different
-       types with the same name but different values, or if there are
-       multiple node names that are mapped to the same name in the
-       header file.";
+      "Used to give another name to the enum in generated header files.
+       This statement is typically used to avoid name conflicts if
+       there is a data node with the same name as the enumeration, or
+       if there are multiple enumerations in different types with the
+       same name but different values.";
     tailf:use-in "enum";
-    tailf:use-in "bit";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "list";
-    tailf:use-in "container";
-    tailf:use-in "rpc";
-    tailf:use-in "action";
-    tailf:use-in "identity";
-    tailf:use-in "notification";
-    tailf:use-in "tailf:action";
   }
 
   extension action {
@@ -2171,120 +1762,22 @@ module tailf-common {
       }
     }
     description
-      "Defines an action (method) in the data model.
-       
-       When the action is invoked, the instance on which the action is
-       invoked is explicitly identified by an hierarchy of
-       configuration or state data.
-       
-       The action statement can have either a 'tailf:actionpoint' or a
-       'tailf:exec' substatement.  If the action is implemented as a
-       callback in an application daemon, 'tailf:actionpoint' is used,
-       whereas 'tailf:exec' is used for an action implemented as a
-       standalone executable (program or script).  Additionally, 'action'
-       can have the same substatements as the standard YANG 'rpc'
-       statement, e.g., 'description', 'input', and 'output'.
-       
-       For example:
-       
-           container sys {
-             list interface {
-               key name;
-               leaf name {
-                 type string;
-               }
-               tailf:action reset {
-                 tailf:actionpoint my-ap;
-                 input {
-                   leaf after-seconds {
-                     mandatory false;
-                     type int32;
-                   }
-                 }
-               }
-             }
-           }
-       
-       We can also add a 'tailf:confirm-text', which defines a string to
-       be used in the user interfaces to prompt the user for
-       confirmation before the action is executed.  The optional
-       'tailf:confirm-default' and 'tailf:cli-batch-confirm-default' can be set
-       to control if the default is to proceed or to abort. The latter will only
-       be used during batch processing in the CLI (e.g. non-interactive mode).
-       
-           tailf:action reset {
-             tailf:actionpoint my-ap;
-             input {
-               leaf after-seconds {
-                 mandatory false;
-                 type int32;
-               }
-             }
-             tailf:confirm-text 'Really want to do this?' {
-               tailf:confirm-default true;
-             }
-           }
-       
-       The 'tailf:actionpoint' statement can have a 'tailf:opaque'
-       substatement, to define an opaque string that is passed to the
-       callback function.
-       
-           tailf:action reset {
-             tailf:actionpoint my-ap {
-               tailf:opaque 'reset-interface';
-             }
-             input {
-               leaf after-seconds {
-                 mandatory false;
-                 type int32;
-               }
-             }
-           }
-       
-       When we use the 'tailf:exec' substatement, the argument to exec
-       specifies the program or script that should be executed.  For
-       example:
-       
-           tailf:action reboot {
-             tailf:exec '/opt/sys/reboot.sh' {
-               tailf:args '-c $(context) -p $(path)';
-             }
-             input {
-               leaf when {
-                 type enumeration {
-                   enum now;
-                   enum 10secs;
-                   enum 1min;
-                 }
-               }
-             }
-           }";
-    tailf:use-in "augment";
+      "Defines an action (method) in the data model. When the action
+       is invoked, the instance on which the action is invoked is
+       explicitly identified by an hierarchy of configuration or state
+       data.";
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "grouping";
-    tailf:occurence "*";
     tailf:substatement "description";
-    tailf:substatement "grouping";
-    tailf:substatement "if-feature";
-    tailf:substatement "reference";
     tailf:substatement "input";
     tailf:substatement "output";
-    tailf:substatement "status";
-    tailf:substatement "typedef";
-    tailf:substatement "tailf:actionpoint";
-    tailf:substatement "tailf:alt-name";
-    tailf:substatement "tailf:cli-mount-point";
-    tailf:substatement "tailf:cli-configure-mode";
-    tailf:substatement "tailf:cli-operational-mode";
-    tailf:substatement "tailf:cli-oper-info";
-    tailf:substatement "tailf:code-name";
-    tailf:substatement "tailf:confirm-text";
-    tailf:substatement "tailf:display-when";
     tailf:substatement "tailf:exec";
+    tailf:substatement "tailf:actionpoint";
     tailf:substatement "tailf:hidden";
-    tailf:substatement "tailf:info";
-    tailf:substatement "tailf:info-html";
+    tailf:substatement "tailf:confirm-text";
+    tailf:substatement "tailf:cli-operational-mode";
+    tailf:substatement "tailf:cli-configure-mode";
   }
 
   extension actionpoint {
@@ -2294,12 +1787,10 @@ module tailf-common {
       }
     }
     description
-      "Identifies the callback in a data provider that implements the
+      "Identifies the callback in a data provider which implements the
        action.  See confd_lib_dp(3) for details on the API.";
     tailf:use-in "rpc";
-    tailf:use-in "action";
     tailf:use-in "tailf:action";
-    tailf:use-in "refine";
     tailf:substatement "tailf:opaque";
     tailf:substatement "tailf:internal";
   }
@@ -2313,15 +1804,12 @@ module tailf-common {
     }
     description
       "A string which is used in the user interfaces to prompt the user for
-       confirmation before the action is executed. The optional
-       'confirm-default' and 'cli-batch-confirm-default' can be set to control
-       if the default is to proceed or to abort. The latter will only
-       be used during batch processing in the CLI (e.g. non-interactive mode).";
+       confirmation before the action is executed.  An optional
+       'confirm-default' can be set to control if the default is to
+       proceed or to abort.";
     tailf:use-in "rpc";
-    tailf:use-in "action";
     tailf:use-in "tailf:action";
     tailf:substatement "tailf:confirm-default";
-    tailf:substatement "tailf:cli-batch-confirm-default";
   }
 
   extension confirm-default {
@@ -2342,32 +1830,14 @@ module tailf-common {
       "This element can only be used if the list has a single key of
        an integer type.
        
-       It is used to signal that lists instances uses an indexed view,
-       i.e., making it possible to insert a new list entry at a certain
-       position.  If a list entry is inserted at a certain position, list
-       entries following this position are automatically renumbered by the
-       system, if needed, to make room for the new entry.
+       It  is  used to signal that lists instances uses  an  indexed  view, i.e.
+       making  it possible to insert a new list entry at a certain
+       position.
        
        This statement is mainly provided for backwards compatibility with
        confspecs.  New data models should consider using YANG's ordered-by
        user statement instead.";
     tailf:use-in "list";
-    tailf:substatement "tailf:auto-compact";
-  }
-
-  extension auto-compact {
-    description
-      "If an indexed-view list is marked with this statement, it means that
-       the server will automatically renumber entires after a delete
-       operation so that the list entries are strictly monotonically
-       increasing, starting from 1, with no holes.  New list entries
-       can either be insterted anywhere in the list, or created at the
-       end; but it is an error to try to create a list entry with a
-       key that would result in a hole in the sequence.
-       
-       For example, if the list has entries 1,2,3 it is an error to
-       create entry 5, but correct to create 4.";
-    tailf:use-in "tailf:indexed-view";
   }
 
   extension key-default {
@@ -2396,49 +1866,15 @@ module tailf-common {
        confd_*_seterr_extended_info() functions (see confd_lib_dp(3))
        to set these data nodes on errors.
        
-       This statement may be used multiple times.
-       
-       For example:
-       
-          tailf:error-info {
-             leaf severity {
-               type enumeration {
-                 enum info;
-                 enum error;
-                 enum critical;
-               }
-             }
-             container detail {
-               leaf class {
-                 type uint8;
-               }
-               leaf code {
-                 type uint8;
-               }
-             }
-           }";
+       This statement may be used multiple times.";
     tailf:use-in "module";
     tailf:use-in "submodule";
-    tailf:occurence "?";
     tailf:substatement "description";
-    tailf:substatement "leaf" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "leaf-list" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "list" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "container" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "choice" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "uses" {
-      tailf:occurence "*";
-    }
+    tailf:substatement "leaf";
+    tailf:substatement "leaf-list";
+    tailf:substatement "list";
+    tailf:substatement "container";
+    tailf:substatement "choice";
   }
 
   extension non-strict-leafref {
@@ -2448,7 +1884,7 @@ module tailf-common {
        and allows reference from config to non-config.
        
        This statement takes no argument, but expects the core YANG
-       statement 'path' as a substatement.  The function 'deref' cannot
+       statement 'path' as a substatement.  The fuction 'deref' cannot
        be used in the path, since it works on nodes of type leafref
        only.
        
@@ -2461,20 +1897,9 @@ module tailf-common {
        The CLI uses this statement to provide completion with
        existing values, and the WebUI uses it to provide a
        drop-down box with existing values.";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:substatement "path" {
-      tailf:occurence "1";
-    }
-  }
-
-  extension no-leafref-check {
-    description
-      "This statement can be used to let 'leafref' type statements
-       reference non-existing leafs. While similar to the
-       'tailf:non-strict-leafref' statement, this does not allow
-       reference from config to non-config.";
-    tailf:use-in "type";
+    tailf:substatement "leaf";
+    tailf:substatement "leaf-list";
+    tailf:substatement "path";
   }
 
   extension exec {
@@ -2489,7 +1914,6 @@ module tailf-common {
        command is in the $PATH of ConfD, the 'cmd' can be just the name
        of the executable.";
     tailf:use-in "rpc";
-    tailf:use-in "action";
     tailf:use-in "tailf:action";
     tailf:substatement "tailf:args";
     tailf:substatement "tailf:uid";
@@ -2512,30 +1936,29 @@ module tailf-common {
        ConfD.  The argument 'value' is a space separated list of
        argument strings.  It may contain variables on the form
        $(variablename).  These variables will be expanded before the
-       command is executed.  The following variables are always available:
+       command is executed.  The following variablenames are always available:
        
-        $(user)   The name of the user which runs the operation.
+        user   The name of the user which runs the operation.
        
-        $(groups) A comma separated string of the names of the groups
-                  the user belongs to.
+        groups A comma separated string of the names of the  groups  the
+               user belongs to.
        
-        $(ip)     The source ip address of the user session.
+        ip     The source ip address of the user session.
        
-        $(uid)    The user id of the user.
+        uid    The user id of the user.
        
-        $(gid)    The group id of the user.
+        gid    The group id of the user.
        
        When the parent 'exec' statement is a substatement of 'action', the
        following additional variablenames are available:
        
-        $(keypath)   The path that identifies the parent container of 'action'
-                     in string keypath form, e.g.,
-                     '/sys:host{earth}/interface{eth0}'.
+        keypath   The path that identifies the parent container of 'action' in
+                  string keypath form, e.g. '/sys:host{earth}/interface{eth0}'.
        
-        $(path)      The path that identifies the parent container of 'action'
-                     in CLI path form, e.g., 'host earth interface eth0'.
+        path      The path that identifies the parent container of 'action' in
+                  CLI path form, e.g. 'host earth interface eth0'.
        
-        $(context)   cli | webui | netconf | any string provided by MAAPI
+        context   cli | webui | netconf | any string provided by MAAPI
        
        For  example:
          args '-user $(user) $(uid)';
@@ -2577,14 +2000,13 @@ module tailf-common {
           enum "sigint";
           enum "sigterm";
         }
-        default "sigkill";
       }
     }
     description
       "This statement specifies which signal is sent to executable by ConfD
        in case the client terminates or aborts the execution.
        
-       If not specified, 'sigkill' is sent.";
+       If not specified, sigkill is sent.";
     tailf:use-in "tailf:exec";
   }
 
@@ -2686,7 +2108,7 @@ module tailf-common {
        one time in the system. The command can be started either from
        the CLI, the WebUI or through NETCONF. If a client tries to
        execute this command while another operation with the same
-       'global-no-duplicate' name is running, a 'resource-denied' error is
+       global-no-duplicate name is running, a 'resource-denied' error is
        generated.";
     tailf:use-in "tailf:exec";
   }
@@ -2696,170 +2118,6 @@ module tailf-common {
       "Specifies that the command returns immediately, but still runs in the
        background.";
     tailf:use-in "tailf:raw-xml";
-  }
-
-  extension symlink {
-    argument name {
-      tailf:arg-type {
-        type tailf:identifier;
-      }
-    }
-    status deprecated;
-    description
-      "DEPRECATED: Use tailf:link instead.  There are no plans to remove
-       tailf:symlink.
-       
-       This statement defines a 'symbolic link' from a node to some other node.
-       The argument is the name of the new node, and the mandatory substatement
-       'tailf:path' points to the node which is linked to.";
-    tailf:use-in "list";
-    tailf:use-in "container";
-    tailf:use-in "module";
-    tailf:use-in "submodule";
-    tailf:use-in "augment";
-    tailf:use-in "case";
-    tailf:occurence "*";
-    tailf:substatement "status";
-    tailf:substatement "tailf:alt-name";
-    tailf:substatement "tailf:cli-add-mode";
-    tailf:substatement "tailf:cli-allow-join-with-key";
-    tailf:substatement "tailf:cli-allow-join-with-value";
-    tailf:substatement "tailf:cli-allow-key-abbreviation";
-    tailf:substatement "tailf:cli-allow-range";
-    tailf:substatement "tailf:cli-allow-wildcard";
-    tailf:substatement "tailf:cli-autowizard";
-    tailf:substatement "tailf:cli-boolean-no";
-    tailf:substatement "tailf:cli-break-sequence-commands";
-    tailf:substatement "tailf:cli-column-align";
-    tailf:substatement "tailf:cli-column-stats";
-    tailf:substatement "tailf:cli-column-width";
-    tailf:substatement "tailf:cli-compact-stats";
-    tailf:substatement "tailf:cli-compact-syntax";
-    tailf:substatement "tailf:cli-completion-actionpoint";
-    tailf:substatement "tailf:cli-custom-error";
-    tailf:substatement "tailf:cli-custom-range";
-    tailf:substatement "tailf:cli-custom-range-actionpoint";
-    tailf:substatement "tailf:cli-custom-range-enumerator";
-    tailf:substatement "tailf:cli-delayed-auto-commit";
-    tailf:substatement "tailf:cli-delete-container-on-delete";
-    tailf:substatement "tailf:cli-delete-when-empty";
-    tailf:substatement "tailf:cli-diff-dependency" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "tailf:cli-disabled-info";
-    tailf:substatement "tailf:cli-disallow-value";
-    tailf:substatement "tailf:cli-display-empty-config";
-    tailf:substatement "tailf:cli-display-separated";
-    tailf:substatement "tailf:cli-drop-node-name";
-    tailf:substatement "tailf:cli-no-keyword";
-    tailf:substatement "tailf:cli-enforce-table";
-    tailf:substatement "tailf:cli-embed-no-on-delete";
-    tailf:substatement "tailf:cli-exit-command";
-    tailf:substatement "tailf:cli-explicit-exit";
-    tailf:substatement "tailf:cli-expose-key-name";
-    tailf:substatement "tailf:cli-expose-ns-prefix";
-    tailf:substatement "tailf:cli-flat-list-syntax";
-    tailf:substatement "tailf:cli-flatten-container";
-    tailf:substatement "tailf:cli-full-command";
-    tailf:substatement "tailf:cli-full-no";
-    tailf:substatement "tailf:cli-full-show-path";
-    tailf:substatement "tailf:cli-hide-in-submode";
-    tailf:substatement "tailf:cli-ignore-modified";
-    tailf:substatement "tailf:cli-incomplete-command";
-    tailf:substatement "tailf:cli-incomplete-no";
-    tailf:substatement "tailf:cli-incomplete-show-path";
-    tailf:substatement "tailf:cli-instance-info-leafs";
-    tailf:substatement "tailf:cli-key-format";
-    tailf:substatement "tailf:cli-list-syntax";
-    tailf:substatement "tailf:cli-min-column-width";
-    tailf:substatement "tailf:cli-mode-name";
-    tailf:substatement "tailf:cli-mode-name-actionpoint";
-    tailf:substatement "tailf:cli-multi-value";
-    tailf:substatement "tailf:cli-multi-word-key";
-    tailf:substatement "tailf:cli-multi-line-prompt";
-    tailf:substatement "tailf:cli-no-key-completion";
-    tailf:substatement "tailf:cli-no-match-completion";
-    tailf:substatement "tailf:cli-no-name-on-delete";
-    tailf:substatement "tailf:cli-no-value-on-delete";
-    tailf:substatement "tailf:cli-oper-info";
-    tailf:substatement "tailf:cli-optional-in-sequence";
-    tailf:substatement "tailf:cli-prefix-key";
-    tailf:substatement "tailf:cli-preformatted";
-    tailf:substatement "tailf:cli-range-delimiters";
-    tailf:substatement "tailf:cli-range-list-syntax";
-    tailf:substatement "tailf:cli-recursive-delete";
-    tailf:substatement "tailf:cli-remove-before-change";
-    tailf:substatement "tailf:cli-reset-container";
-    tailf:substatement "tailf:cli-run-template";
-    tailf:substatement "tailf:cli-run-template-enter";
-    tailf:substatement "tailf:cli-run-template-footer";
-    tailf:substatement "tailf:cli-run-template-legend";
-    tailf:substatement "tailf:cli-sequence-commands";
-    tailf:substatement "tailf:cli-show-config";
-    tailf:substatement "tailf:cli-show-no";
-    tailf:substatement "tailf:cli-show-order-tag";
-    tailf:substatement "tailf:cli-show-order-taglist";
-    tailf:substatement "tailf:cli-show-template";
-    tailf:substatement "tailf:cli-show-template-enter";
-    tailf:substatement "tailf:cli-show-template-footer";
-    tailf:substatement "tailf:cli-show-template-legend";
-    tailf:substatement "tailf:cli-show-with-default";
-    tailf:substatement "tailf:cli-strict-leafref";
-    tailf:substatement "tailf:cli-suppress-key-abbreviation";
-    tailf:substatement "tailf:cli-suppress-key-sort";
-    tailf:substatement "tailf:cli-suppress-list-no";
-    tailf:substatement "tailf:cli-suppress-mode";
-    tailf:substatement "tailf:cli-suppress-no";
-    tailf:substatement "tailf:cli-suppress-range";
-    tailf:substatement "tailf:cli-suppress-shortenabled";
-    tailf:substatement "tailf:cli-suppress-show-conf-path";
-    tailf:substatement "tailf:cli-suppress-show-match";
-    tailf:substatement "tailf:cli-suppress-show-path";
-    tailf:substatement "tailf:cli-suppress-silent-no";
-    tailf:substatement "tailf:cli-suppress-validation-warning-prompt";
-    tailf:substatement "tailf:cli-suppress-wildcard";
-    tailf:substatement "tailf:cli-table-footer";
-    tailf:substatement "tailf:cli-table-legend";
-    tailf:substatement "tailf:cli-trim-default";
-    tailf:substatement "tailf:cli-value-display-template";
-    tailf:substatement "tailf:display-when";
-    tailf:substatement "tailf:hidden" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "tailf:inherit-set-hook";
-    tailf:substatement "tailf:info";
-    tailf:substatement "tailf:info-html";
-    tailf:substatement "tailf:path" {
-      tailf:occurence "1";
-    }
-    tailf:substatement "tailf:snmp-exclude-object";
-    tailf:substatement "tailf:snmp-name" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "tailf:snmp-oid";
-    tailf:substatement "tailf:sort-priority";
-  }
-
-  extension path {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    status deprecated;
-    description
-      "This statement specifies which node a symlink points to.
-       
-       The textual format of a symlink is an XPath absolute location path. If
-       the target lies within lists, all keys must be specified.
-       A key either has a value, or is a reference to a key in the path of the
-       source node, using the function current() as starting
-       point for an XPath location path.  For example:
-       
-       /a/b[k1='paul'][k2=current()/../k]/c
-      ";
-    tailf:occurence "1";
-    tailf:use-in "tailf:symlink";
   }
 
   extension internal {
@@ -2881,14 +2139,7 @@ module tailf-common {
     description
       "Internal extension to handle non-YANG JUNOS data models.
        Use only for keys where previous key is marked with
-       'tailf:junos-val-as-xml-tag'.";
-    tailf:use-in "leaf";
-  }
-
-  extension ned-ignore-compare-config {
-    description
-      "Typically used for ignoring device encrypted leafs
-       in the compare-config output.";
+       tailf:junos-val-as-xml-tag.";
     tailf:use-in "leaf";
   }
 
@@ -2902,19 +2153,7 @@ module tailf-common {
       "Internal extension to 'chroot' XPath expressions";
     tailf:use-in "must";
     tailf:use-in "when";
-    tailf:use-in "path";
     tailf:use-in "tailf:display-when";
-    tailf:use-in "tailf:cli-diff-dependency";
-    tailf:use-in "tailf:cli-diff-before";
-    tailf:use-in "tailf:cli-diff-delete-before";
-    tailf:use-in "tailf:cli-diff-set-before";
-    tailf:use-in "tailf:cli-diff-create-before";
-    tailf:use-in "tailf:cli-diff-modify-before";
-    tailf:use-in "tailf:cli-diff-after";
-    tailf:use-in "tailf:cli-diff-delete-after";
-    tailf:use-in "tailf:cli-diff-set-after";
-    tailf:use-in "tailf:cli-diff-create-after";
-    tailf:use-in "tailf:cli-diff-modify-after";
   }
 
   extension ncs-device-type {
@@ -2930,190 +2169,6 @@ module tailf-common {
     tailf:use-in "list";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "refine";
-    tailf:use-in "module";
-  }
-
-  extension structure {
-    argument name {
-      tailf:arg-type {
-        type tailf:identifier;
-      }
-    }
-    description
-      "Internal extension to define a data structure without any semantics
-       attached.";
-    tailf:use-in "module";
-    tailf:use-in "submodule";
-    tailf:occurence "*";
-    tailf:substatement "description";
-    tailf:substatement "leaf" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "leaf-list" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "list" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "container" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "choice" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "uses" {
-      tailf:occurence "*";
-    }
-  }
-
-  extension meta-data {
-    argument value {
-      yin-element true;
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "Extra meta information attached to the node. The instance data part
-       of this information is accessible using MAAPI. It is also printed
-       in communication with CLI NEDs, but is not visible to normal
-       users of the CLI.
-       
-       To CLI NEDs, the output will be printed as comments like this:
-       ! meta-data :: /ncs:devices/device{xyz}/config/xyz:AA :: A_STRING
-       
-       The schema information is available to the ConfD C-API through the
-       confd_cs_node struct, and to the JSON-RPC API through get-schema.
-       
-       Note: Can't be used on key leafs.";
-    tailf:occurence "*";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:meta-value" {
-      tailf:occurence "?";
-    }
-  }
-
-  extension meta-value {
-    argument value {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "This statement contains a string value for the meta data key.
-       
-       The output from the CLI to CLI NEDs will be similar to
-       comments like this:
-       ! meta-data :: /ncs:devices/device{xyz}/config/xyz:AA :: A_KEY :: A_VALUE
-      ";
-    tailf:use-in "tailf:meta-data";
-    tailf:occurence "?";
-  }
-
-  extension ned-data {
-    argument path-expression {
-      yin-element true;
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "Dynamic meta information to be added by the NCS device manager.
-       
-       In the cases where NCS can't provide the complete 'to' and
-       'from' transactions to the NED to read from (most notably when
-       using the commit queue) this annotation can be used to tell the
-       NCS device manager to save part of the 'to' and / or 'from'
-       transaction so that the NED will be able to read from these
-       parts as needed.
-       
-       The 'path-expression' will be used as an XPath filter to
-       indicate which data will be preserved. Use the 'transaction'
-       substatement to choose which transaction to apply the filter
-       on. The context node of the XPath filter is always the instance
-       data node corresponding to the schema node where the 'ned-data'
-       extension is added.
-       
-       Note that the filter will only be applied if the node that
-       has this annotation is in the diffset of the transaction. The
-       'operation' substatement can be used to further limit when the
-       filter should be applied.";
-    tailf:occurence "*";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:transaction" {
-      tailf:occurence "?";
-    }
-    tailf:substatement "tailf:xpath-root" {
-      tailf:occurence "?";
-    }
-    tailf:substatement "tailf:operation" {
-      tailf:occurence "*";
-    }
-  }
-
-  extension transaction {
-    argument direction {
-      yin-element true;
-      tailf:arg-type {
-        type enumeration {
-          enum "from";
-          enum "to";
-          enum "both";
-        }
-        default "to";
-      }
-    }
-    description
-      "Which transaction that the result of the XPath filter will be
-       applied to, when set to 'both' it will apply to both the 'to'
-       and the 'from' transaction.";
-    tailf:occurence "?";
-  }
-
-  extension operation {
-    argument op {
-      yin-element true;
-      tailf:arg-type {
-        type enumeration {
-          enum "value_set";
-          enum "created";
-          enum "deleted";
-          enum "modified";
-          enum "moved";
-        }
-      }
-    }
-    description
-      "Only evaluate the XPath filter when the operation matches.";
-    tailf:occurence "*";
-  }
-
-  extension ned-default-handling {
-    argument mode {
-      tailf:arg-type {
-        type enumeration {
-          enum "explicit";
-          enum "report-all";
-          enum "trim";
-        }
-      }
-    }
-    description
-      "This statement can only be used in NEDs for devices that have
-       irregular handling of defaults.  It sets a special default
-       handling mode for the leaf, regardless of the device's native
-       default handling mode.";
-    tailf:use-in "leaf";
   }
 
   typedef size {
@@ -3142,6 +2197,18 @@ module tailf-common {
        number of characters in the lexical representation.";
   }
 
+  typedef hex-list {
+    type string {
+      pattern "(([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?";
+    }
+    description
+      "A list of colon-separated hexa-decimal octets e.g. '4F:4C:41:71'.
+       
+       The statement tailf:value-length can be used to restrict the number
+       of octets.  Note that using the 'length' restriction limits the
+       number of characters in the lexical representation.";
+  }
+
   typedef md5-digest-string {
     type string;
     description
@@ -3161,8 +2228,8 @@ module tailf-common {
        
        The '$0$' prefix signals that this is plain text.  When a plain
        text value is received by the server, an MD5 digest is
-       calculated, and the string '$1$<salt>$' is prepended to the
-       result, where <salt> is a random eight character salt used to
+       calculated, and the string '$1$<SALT>$' is prepended to the
+       result, where <SALT> is a random two character salt used to
        generate the digest.  This value is stored in the configuration
        data store.
        
@@ -3172,98 +2239,22 @@ module tailf-common {
        
           <key>$1$fB$ndk2z/PIS0S1SvzWLqTJb.</key>
        
-       If a value starting with '$1$' is received, the server
+       If a value starting with '$1$<SALT>$' is received, the server
        knows that the value already represents an MD5 digest, and
        stores it as is in the data store.
        
        A value adhering to this type must have a '$0$' or a
-       '$1$<salt>$' prefix.
+       '$1$<SALT>$' prefix.
        
-       If a default value is specified, it must have a '$1$<salt>$' prefix.
+       If a default value is specified, it must have a '$1$<SALT>$' prefix.
        
        The digest algorithm used is the same as the md5 crypt function
        used for encrypting passwords for various UNIX systems, see e.g.
        http://www.freebsd.org/cgi/cvsweb.cgi/~checkout/~/src/lib/libcrypt/crypt.c
       ";
     reference
-      "IEEE Std 1003.1-2008 - crypt() function
-       RFC 1321 - The MD5 Message-Digest Algorithm";
-  }
-
-  typedef sha-256-digest-string {
-    type string {
-      pattern "$0$.*|$5$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{43}";
-    }
-    description
-      "The sha-256-digest-string type automatically computes a SHA-256
-       digest for a value adhering to this type.
-       
-       A value of this type matches one of the forms:
-       
-        $0$<clear text password>
-        $5$<salt>$<password hash>
-        $5$rounds=<number>$<salt>$<password hash>
-       
-       The '$0$' prefix signals that this is plain text. When a plain
-       text value is received by the server, a SHA-256 digest is
-       calculated, and the string '$5$<salt>$' is prepended to the
-       result, where <salt> is a random 16 character salt used to
-       generate the digest.  This value is stored in the configuration
-       data store. The algorithm can be tuned via the
-       /confdConfig/cryptHash/rounds parameter, which if set to a number
-       other than the default will cause '$5$rounds=<number>$<salt>$' to
-       be prepended instead of only '$5$<salt>$'.
-       
-       If a value starting with '$5$' is received, the server
-       knows that the value already represents a SHA-256 digest, and
-       stores it as is in the data store.
-       
-       If a default value is specified, it must have a '$5$' prefix.
-       
-       The digest algorithm used is the same as the SHA-256 crypt function
-       used for encrypting passwords for various UNIX systems, see e.g.
-       http://www.akkadia.org/drepper/SHA-crypt.txt";
-    reference
-      "IEEE Std 1003.1-2008 - crypt() function
-       FIPS.180-3.2008: Secure Hash Standard";
-  }
-
-  typedef sha-512-digest-string {
-    type string {
-      pattern "$0$.*|$6$(rounds=\\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{86}";
-    }
-    description
-      "The sha-512-digest-string type automatically computes a SHA-512
-       digest for a value adhering to this type.
-       
-       A value of this type matches one of the forms:
-       
-        $0$<clear text password>
-        $6$<salt>$<password hash>
-        $6$rounds=<number>$<salt>$<password hash>
-       
-       The '$0$' prefix signals that this is plain text.  When a plain
-       text value is received by the server, a SHA-512 digest is
-       calculated, and the string '$6$<salt>$' is prepended to the
-       result, where <salt> is a random 16 character salt used to
-       generate the digest.  This value is stored in the configuration
-       data store. The algorithm can be tuned via the
-       /confdConfig/cryptHash/rounds parameter, which if set to a number
-       other than the default will cause '$6$rounds=<number>$<salt>$' to
-       be prepended instead of only '$6$<salt>$'.
-       
-       If a value starting with '$6$' is received, the server
-       knows that the value already represents a SHA-512 digest, and
-       stores it as is in the data store.
-       
-       If a default value is specified, it must have a '$6$' prefix.
-       
-       The digest algorithm used is the same as the SHA-512 crypt function
-       used for encrypting passwords for various UNIX systems, see e.g.
-       http://www.akkadia.org/drepper/SHA-crypt.txt";
-    reference
-      "IEEE Std 1003.1-2008 - crypt() function
-       FIPS.180-3.2008: Secure Hash Standard";
+      "RFC 1321 - The MD5 Message-Digest Algorithm
+       http://en.wikipedia.org/wiki/Crypt_(Unix)";
   }
 
   typedef des3-cbc-encrypted-string {
@@ -3285,20 +2276,20 @@ module tailf-common {
        
        The '$0$' prefix signals that this is plain text.  When a plain
        text value is received by the server, the value is DES3/Base64
-       encrypted, and the string '$7$' is prepended.  The resulting
+       encrypted, and the string '$3$' is prepended.  The resulting
        string is stored in the configuration data store.
        
        When a value of this type is read, the encrypted value is always
        returned.  In the example above, the following value could be
        returned:
        
-          <enc>$7$Qxxsn8BVzxphCdflqRwZm6noKKmt0QoSWnRnhcXqocg=</enc>
+          <enc>$3$lyPjszaQq4EVqK7OPOxybQ==</enc>
        
-       If a value starting with '$7$' is received, the server knows
+       If a value starting with '$3$' is received, the server knows
        that the value is already encrypted, and stores it as is in the
        data store.
        
-       A value adhering to this type must have a '$0$' or a '$7$' prefix.
+       A value adhering to this type must have a '$0$' or a '$3$' prefix.
        
        ConfD uses a configurable set of encryption keys to encrypt the
        string.  For details, see 'encryptedStrings' in the
@@ -3310,56 +2301,6 @@ module tailf-common {
     description
       "The aes-cfb-128-encrypted-string works exactly like
        des3-cbc-encrypted-string but AES/128bits in CFB mode is used to
-       encrypt the string.  The prefix for encrypted values is '$8$'.";
-  }
-
-  typedef ipv4-address-and-prefix-length {
-    type string {
-      pattern "(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))";
-    }
-    description
-      "The ipv4-address-and-prefix-length type represents a combination
-       of an IPv4 address and a prefix length. The prefix length is given
-       by the number following the slash character and must be less than
-       or equal to 32.";
-  }
-
-  typedef ipv6-address-and-prefix-length {
-    type string {
-      pattern "((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))";
-      pattern "(([^:]+:){6}(([^:]+:[^:]+)|(.*\\..*)))|((([^:]+:)*[^:]+)?::(([^:]+:)*[^:]+)?)(/.+)";
-    }
-    description
-      "The ipv6-address-and-prefix-length type represents a combination
-       of an IPv6 address and a prefix length. The prefix length is given
-       by the number following the slash character and must be less than
-       or equal to 128.";
-  }
-
-  typedef ip-address-and-prefix-length {
-    type union {
-      type tailf:ipv4-address-and-prefix-length;
-      type tailf:ipv6-address-and-prefix-length;
-    }
-    description
-      "The ip-address-and-prefix-length type represents a combination of
-       an IP address and a prefix length and is IP version neutral. The
-       format of the textual representations implies the IP version.";
-  }
-
-  typedef hex-list {
-    type string {
-      pattern "(([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?";
-    }
-    status deprecated;
-    description
-      "DEPRECATED: Use yang:hex-string instead.  There are no plans to remove
-       tailf:hex-list.
-       
-       A list of colon-separated hexa-decimal octets e.g. '4F:4C:41:71'.
-       
-       The statement tailf:value-length can be used to restrict the number
-       of octets.  Note that using the 'length' restriction limits the
-       number of characters in the lexical representation.";
+       encrypt the string.  The prefix for encrypted values is '$4$'.";
   }
 }

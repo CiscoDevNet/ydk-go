@@ -4,10 +4,8 @@
 // This module contains definitions
 // for the following management objects:
 //   hardware-module-qos-mode: QoS mode in hardware module port(s)
-//   hardware-module-processor: hardware module processor
 //   hardware-module-tcp-mss-adjust: hardware module tcp mss adjust
 //   hardware-module-tcam: hardware module tcam
-//   hardware-module-profile: hardware module profile
 //   hardware-module-efd: hardware module efd
 //   hardware-module-all-qos-mode: hardware module all qos mode
 // 
@@ -28,96 +26,15 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package asr9k_prm_cfg"))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-prm-cfg hardware-module-qos-mode}", reflect.TypeOf(HardwareModuleQosMode{}))
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-qos-mode", reflect.TypeOf(HardwareModuleQosMode{}))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-prm-cfg hardware-module-processor}", reflect.TypeOf(HardwareModuleProcessor{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-processor", reflect.TypeOf(HardwareModuleProcessor{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-prm-cfg hardware-module-tcp-mss-adjust}", reflect.TypeOf(HardwareModuleTcpMssAdjust{}))
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-tcp-mss-adjust", reflect.TypeOf(HardwareModuleTcpMssAdjust{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-prm-cfg hardware-module-tcam}", reflect.TypeOf(HardwareModuleTcam{}))
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-tcam", reflect.TypeOf(HardwareModuleTcam{}))
-    ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-prm-cfg hardware-module-profile}", reflect.TypeOf(HardwareModuleProfile{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-profile", reflect.TypeOf(HardwareModuleProfile{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-prm-cfg hardware-module-efd}", reflect.TypeOf(HardwareModuleEfd{}))
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-efd", reflect.TypeOf(HardwareModuleEfd{}))
     ydk.RegisterEntity("{http://cisco.com/ns/yang/Cisco-IOS-XR-asr9k-prm-cfg hardware-module-all-qos-mode}", reflect.TypeOf(HardwareModuleAllQosMode{}))
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-all-qos-mode", reflect.TypeOf(HardwareModuleAllQosMode{}))
 }
-
-// AdminPrmConfigInternalTcamPartProfile represents Admin prm config internal tcam part profile
-type AdminPrmConfigInternalTcamPartProfile string
-
-const (
-    // default internal tcam partitions (L2 1k, V4 24k
-    // , V6 1.75k entries): Tomahawk
-    AdminPrmConfigInternalTcamPartProfile_to_default AdminPrmConfigInternalTcamPartProfile = "to-default"
-
-    // Set internal tcam partitions for service edge
-    // (L2 4k, V4 15k, V6 3.25k entries): Tomahawk
-    AdminPrmConfigInternalTcamPartProfile_to_profile_se1 AdminPrmConfigInternalTcamPartProfile = "to-profile-se1"
-)
-
-// AdminPrmConfigPackageBundle represents Admin prm config package bundle
-type AdminPrmConfigPackageBundle string
-
-const (
-    // Default Package
-    AdminPrmConfigPackageBundle_default_ AdminPrmConfigPackageBundle = "default"
-
-    // Services Package
-    AdminPrmConfigPackageBundle_services AdminPrmConfigPackageBundle = "services"
-)
-
-// AdminPrmConfigTcamPartProfile represents Admin prm config tcam part profile
-type AdminPrmConfigTcamPartProfile string
-
-const (
-    // Default tcam partition ods2:ods8 60:40
-    AdminPrmConfigTcamPartProfile_default_ AdminPrmConfigTcamPartProfile = "default"
-
-    // Tcam Partition ods2:ods8 30:70
-    AdminPrmConfigTcamPartProfile_ods2_30_ods8_70 AdminPrmConfigTcamPartProfile = "ods2-30-ods8-70"
-
-    // Tcam Partition ods2:ods8 40:60
-    AdminPrmConfigTcamPartProfile_ods2_40_ods8_60 AdminPrmConfigTcamPartProfile = "ods2-40-ods8-60"
-
-    // Tcam Partition ods2:ods8 50:50
-    AdminPrmConfigTcamPartProfile_ods2_50_ods8_50 AdminPrmConfigTcamPartProfile = "ods2-50-ods8-50"
-
-    // Tcam Partition ods2:ods8 70:30
-    AdminPrmConfigTcamPartProfile_ods2_70_ods8_30 AdminPrmConfigTcamPartProfile = "ods2-70-ods8-30"
-)
-
-// AdminPrmConfigFeatureProfile represents Admin prm config feature profile
-type AdminPrmConfigFeatureProfile string
-
-const (
-    // Default feature profile
-    AdminPrmConfigFeatureProfile_default_ AdminPrmConfigFeatureProfile = "default"
-
-    // L2 feature profile
-    AdminPrmConfigFeatureProfile_l2 AdminPrmConfigFeatureProfile = "l2"
-)
-
-// PrmProcessorConfig represents Prm processor config
-type PrmProcessorConfig string
-
-const (
-    // Default cluster setting
-    PrmProcessorConfig_mode_default PrmProcessorConfig = "mode-default"
-
-    // Full cluster setting
-    PrmProcessorConfig_mode_full PrmProcessorConfig = "mode-full"
-)
-
-// Asr9kEfdOperation represents Asr9k efd operation
-type Asr9kEfdOperation string
-
-const (
-    // Less than
-    Asr9kEfdOperation_less_than Asr9kEfdOperation = "less-than"
-
-    // Greater than or equal
-    Asr9kEfdOperation_greater_than_or_equal Asr9kEfdOperation = "greater-than-or-equal"
-)
 
 // Asr9kEfdMode represents Asr9k efd mode
 type Asr9kEfdMode string
@@ -130,33 +47,15 @@ const (
     Asr9kEfdMode_include_inner_encap Asr9kEfdMode = "include-inner-encap"
 )
 
-// AdminPrmConfigScaleProfile represents Admin prm config scale profile
-type AdminPrmConfigScaleProfile string
+// Asr9kEfdOperation represents Asr9k efd operation
+type Asr9kEfdOperation string
 
 const (
-    // Default scale profile
-    AdminPrmConfigScaleProfile_default_ AdminPrmConfigScaleProfile = "default"
+    // Less than
+    Asr9kEfdOperation_less_than Asr9kEfdOperation = "less-than"
 
-    // L2 scale profile
-    AdminPrmConfigScaleProfile_l2 AdminPrmConfigScaleProfile = "l2"
-
-    // L3 scale profile
-    AdminPrmConfigScaleProfile_l3 AdminPrmConfigScaleProfile = "l3"
-
-    // L3XL scale profile
-    AdminPrmConfigScaleProfile_l3xl AdminPrmConfigScaleProfile = "l3xl"
-
-    // BNG scale profile
-    AdminPrmConfigScaleProfile_bng AdminPrmConfigScaleProfile = "bng"
-
-    // LSR scale profile
-    AdminPrmConfigScaleProfile_lsr AdminPrmConfigScaleProfile = "lsr"
-
-    // SAT scale profile
-    AdminPrmConfigScaleProfile_sat AdminPrmConfigScaleProfile = "sat"
-
-    // Single-flow perf scale profile
-    AdminPrmConfigScaleProfile_sfp AdminPrmConfigScaleProfile = "sfp"
+    // Greater than or equal
+    Asr9kEfdOperation_greater_than_or_equal Asr9kEfdOperation = "greater-than-or-equal"
 )
 
 // PrmTcamProfile represents Prm tcam profile
@@ -244,7 +143,7 @@ type HardwareModuleQosMode_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Disable child level/flat policy shaping. The type is interface{}.
@@ -270,105 +169,6 @@ func (node *HardwareModuleQosMode_Nodes_Node) GetEntityData() *types.CommonEntit
     node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
     node.EntityData.Leafs.Append("child-shaping-disable", types.YLeaf{"ChildShapingDisable", node.ChildShapingDisable})
     node.EntityData.Leafs.Append("lowburst-enable", types.YLeaf{"LowburstEnable", node.LowburstEnable})
-
-    node.EntityData.YListKeys = []string {"NodeName"}
-
-    return &(node.EntityData)
-}
-
-// HardwareModuleProcessor
-// hardware module processor
-type HardwareModuleProcessor struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // applicable nodeTable.
-    Nodes HardwareModuleProcessor_Nodes
-}
-
-func (hardwareModuleProcessor *HardwareModuleProcessor) GetEntityData() *types.CommonEntityData {
-    hardwareModuleProcessor.EntityData.YFilter = hardwareModuleProcessor.YFilter
-    hardwareModuleProcessor.EntityData.YangName = "hardware-module-processor"
-    hardwareModuleProcessor.EntityData.BundleName = "cisco_ios_xr"
-    hardwareModuleProcessor.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-prm-cfg"
-    hardwareModuleProcessor.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-processor"
-    hardwareModuleProcessor.EntityData.AbsolutePath = hardwareModuleProcessor.EntityData.SegmentPath
-    hardwareModuleProcessor.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareModuleProcessor.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareModuleProcessor.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    hardwareModuleProcessor.EntityData.Children = types.NewOrderedMap()
-    hardwareModuleProcessor.EntityData.Children.Append("nodes", types.YChild{"Nodes", &hardwareModuleProcessor.Nodes})
-    hardwareModuleProcessor.EntityData.Leafs = types.NewOrderedMap()
-
-    hardwareModuleProcessor.EntityData.YListKeys = []string {}
-
-    return &(hardwareModuleProcessor.EntityData)
-}
-
-// HardwareModuleProcessor_Nodes
-// applicable nodeTable
-type HardwareModuleProcessor_Nodes struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // applicable node. The type is slice of HardwareModuleProcessor_Nodes_Node.
-    Node []*HardwareModuleProcessor_Nodes_Node
-}
-
-func (nodes *HardwareModuleProcessor_Nodes) GetEntityData() *types.CommonEntityData {
-    nodes.EntityData.YFilter = nodes.YFilter
-    nodes.EntityData.YangName = "nodes"
-    nodes.EntityData.BundleName = "cisco_ios_xr"
-    nodes.EntityData.ParentYangName = "hardware-module-processor"
-    nodes.EntityData.SegmentPath = "nodes"
-    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-processor/" + nodes.EntityData.SegmentPath
-    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nodes.EntityData.Children = types.NewOrderedMap()
-    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
-    for i := range nodes.Node {
-        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
-    }
-    nodes.EntityData.Leafs = types.NewOrderedMap()
-
-    nodes.EntityData.YListKeys = []string {}
-
-    return &(nodes.EntityData)
-}
-
-// HardwareModuleProcessor_Nodes_Node
-// applicable node
-type HardwareModuleProcessor_Nodes_Node struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
-    NodeName interface{}
-
-    // Processor mode setting. The type is PrmProcessorConfig.
-    Mode interface{}
-}
-
-func (node *HardwareModuleProcessor_Nodes_Node) GetEntityData() *types.CommonEntityData {
-    node.EntityData.YFilter = node.YFilter
-    node.EntityData.YangName = "node"
-    node.EntityData.BundleName = "cisco_ios_xr"
-    node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
-    node.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-processor/nodes/" + node.EntityData.SegmentPath
-    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    node.EntityData.Children = types.NewOrderedMap()
-    node.EntityData.Leafs = types.NewOrderedMap()
-    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
-    node.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", node.Mode})
 
     node.EntityData.YListKeys = []string {"NodeName"}
 
@@ -446,7 +246,7 @@ type HardwareModuleTcpMssAdjust_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // TCP MSS Adjust NPs.
@@ -621,7 +421,7 @@ type HardwareModuleTcam_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // A TCAM partition profile. The type is PrmTcamProfile. The default value is
@@ -644,137 +444,6 @@ func (node *HardwareModuleTcam_Nodes_Node) GetEntityData() *types.CommonEntityDa
     node.EntityData.Leafs = types.NewOrderedMap()
     node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
     node.EntityData.Leafs.Append("profile", types.YLeaf{"Profile", node.Profile})
-
-    node.EntityData.YListKeys = []string {"NodeName"}
-
-    return &(node.EntityData)
-}
-
-// HardwareModuleProfile
-// hardware module profile
-type HardwareModuleProfile struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Memory resource profile feature. The type is AdminPrmConfigFeatureProfile.
-    // The default value is default.
-    Feature interface{}
-
-    // Memory resource profile scale active. The type is
-    // AdminPrmConfigScaleProfile. The default value is default.
-    ScaleActive interface{}
-
-    // Services Package. The type is AdminPrmConfigPackageBundle. The default
-    // value is default.
-    PackageBundle interface{}
-
-    // Memory resource profile feature active. The type is
-    // AdminPrmConfigFeatureProfile. The default value is default.
-    FeatureActive interface{}
-
-    // Memory resource profile scale. The type is AdminPrmConfigScaleProfile. The
-    // default value is default.
-    Scale interface{}
-
-    // TCAM partition sizing applicable nodes.
-    Nodes HardwareModuleProfile_Nodes
-}
-
-func (hardwareModuleProfile *HardwareModuleProfile) GetEntityData() *types.CommonEntityData {
-    hardwareModuleProfile.EntityData.YFilter = hardwareModuleProfile.YFilter
-    hardwareModuleProfile.EntityData.YangName = "hardware-module-profile"
-    hardwareModuleProfile.EntityData.BundleName = "cisco_ios_xr"
-    hardwareModuleProfile.EntityData.ParentYangName = "Cisco-IOS-XR-asr9k-prm-cfg"
-    hardwareModuleProfile.EntityData.SegmentPath = "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-profile"
-    hardwareModuleProfile.EntityData.AbsolutePath = hardwareModuleProfile.EntityData.SegmentPath
-    hardwareModuleProfile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hardwareModuleProfile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hardwareModuleProfile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    hardwareModuleProfile.EntityData.Children = types.NewOrderedMap()
-    hardwareModuleProfile.EntityData.Children.Append("nodes", types.YChild{"Nodes", &hardwareModuleProfile.Nodes})
-    hardwareModuleProfile.EntityData.Leafs = types.NewOrderedMap()
-    hardwareModuleProfile.EntityData.Leafs.Append("feature", types.YLeaf{"Feature", hardwareModuleProfile.Feature})
-    hardwareModuleProfile.EntityData.Leafs.Append("scale-active", types.YLeaf{"ScaleActive", hardwareModuleProfile.ScaleActive})
-    hardwareModuleProfile.EntityData.Leafs.Append("package-bundle", types.YLeaf{"PackageBundle", hardwareModuleProfile.PackageBundle})
-    hardwareModuleProfile.EntityData.Leafs.Append("feature-active", types.YLeaf{"FeatureActive", hardwareModuleProfile.FeatureActive})
-    hardwareModuleProfile.EntityData.Leafs.Append("scale", types.YLeaf{"Scale", hardwareModuleProfile.Scale})
-
-    hardwareModuleProfile.EntityData.YListKeys = []string {}
-
-    return &(hardwareModuleProfile.EntityData)
-}
-
-// HardwareModuleProfile_Nodes
-// TCAM partition sizing applicable nodes
-type HardwareModuleProfile_Nodes struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // A TCAM partition sizing applicable node. The type is slice of
-    // HardwareModuleProfile_Nodes_Node.
-    Node []*HardwareModuleProfile_Nodes_Node
-}
-
-func (nodes *HardwareModuleProfile_Nodes) GetEntityData() *types.CommonEntityData {
-    nodes.EntityData.YFilter = nodes.YFilter
-    nodes.EntityData.YangName = "nodes"
-    nodes.EntityData.BundleName = "cisco_ios_xr"
-    nodes.EntityData.ParentYangName = "hardware-module-profile"
-    nodes.EntityData.SegmentPath = "nodes"
-    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-profile/" + nodes.EntityData.SegmentPath
-    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nodes.EntityData.Children = types.NewOrderedMap()
-    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
-    for i := range nodes.Node {
-        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
-    }
-    nodes.EntityData.Leafs = types.NewOrderedMap()
-
-    nodes.EntityData.YListKeys = []string {}
-
-    return &(nodes.EntityData)
-}
-
-// HardwareModuleProfile_Nodes_Node
-// A TCAM partition sizing applicable node
-type HardwareModuleProfile_Nodes_Node struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
-    NodeName interface{}
-
-    // Tcam partition profile. The type is AdminPrmConfigTcamPartProfile. The
-    // default value is default.
-    TcamPartition interface{}
-
-    // Internal Tcam partition profile. The type is
-    // AdminPrmConfigInternalTcamPartProfile. The default value is to-default.
-    InternalTcamPartition interface{}
-}
-
-func (node *HardwareModuleProfile_Nodes_Node) GetEntityData() *types.CommonEntityData {
-    node.EntityData.YFilter = node.YFilter
-    node.EntityData.YangName = "node"
-    node.EntityData.BundleName = "cisco_ios_xr"
-    node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
-    node.EntityData.AbsolutePath = "Cisco-IOS-XR-asr9k-prm-cfg:hardware-module-profile/nodes/" + node.EntityData.SegmentPath
-    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    node.EntityData.Children = types.NewOrderedMap()
-    node.EntityData.Leafs = types.NewOrderedMap()
-    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
-    node.EntityData.Leafs.Append("tcam-partition", types.YLeaf{"TcamPartition", node.TcamPartition})
-    node.EntityData.Leafs.Append("internal-tcam-partition", types.YLeaf{"InternalTcamPartition", node.InternalTcamPartition})
 
     node.EntityData.YListKeys = []string {"NodeName"}
 
@@ -1208,7 +877,7 @@ type HardwareModuleEfd_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node Name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Enable EFD for this node. The type is interface{}.

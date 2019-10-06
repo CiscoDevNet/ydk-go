@@ -855,18 +855,18 @@ type DOCSSUBMGT3MIB_DocsSubmgt3FilterGrpTable_DocsSubmgt3FilterGrpEntry struct {
 
     // This attribute represents the criteria to match against  an Ethernet packet
     // MAC address bitwise ANDed  with DestMacMask. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsSubmgt3FilterGrpDestMacAddr interface{}
 
     // An Ethernet packet matches an entry when its  destination MAC address
     // bitwise ANDed with  the DestMacMask attribute equals the value of  the
     // DestMacAddr attribute. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsSubmgt3FilterGrpDestMacMask interface{}
 
     // This attribute represents the value to match against  an Ethernet packet
     // source MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsSubmgt3FilterGrpSrcMacAddr interface{}
 
     // This attribute indicates the format of the layer 3  protocol ID in the

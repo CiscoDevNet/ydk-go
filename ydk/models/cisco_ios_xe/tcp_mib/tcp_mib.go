@@ -295,7 +295,7 @@ type TCPMIB_TcpConnTable_TcpConnEntry struct {
     // the case of a connection in the listen state willing to accept connections
     // for any IP interface associated with the node, the value 0.0.0.0 is used.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TcpConnLocalAddress interface{}
 
     // This attribute is a key. The local port number for this TCP connection. The
@@ -304,7 +304,7 @@ type TCPMIB_TcpConnTable_TcpConnEntry struct {
 
     // This attribute is a key. The remote IP address for this TCP connection. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TcpConnRemAddress interface{}
 
     // This attribute is a key. The remote port number for this TCP connection.

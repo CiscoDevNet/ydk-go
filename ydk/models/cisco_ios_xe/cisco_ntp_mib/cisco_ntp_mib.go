@@ -370,7 +370,7 @@ type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry struct {
     // should be set either for this object or the corresponding instance of 
     // cntpPeersPeerName, before the row is made active. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CntpPeersPeerAddress interface{}
 
     // The UDP port number on which the peer receives NTP messages. The type is
@@ -379,7 +379,7 @@ type CISCONTPMIB_CntpPeersVarTable_CntpPeersVarEntry struct {
 
     // The IP address of the local host.  Multi-homing can be supported using this
     // object. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CntpPeersHostAddress interface{}
 
     // The UDP port number on which the local host receives NTP messages. The type

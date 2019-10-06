@@ -17,74 +17,9 @@ import (
 
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package sysadmin_issu"))
-    ydk.RegisterEntity("{http://cisco.com/calvados/Cisco-IOS-XR-sysadmin-issu issu_action}", reflect.TypeOf(IssuAction{}))
-    ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-issu:issu_action", reflect.TypeOf(IssuAction{}))
     ydk.RegisterEntity("{http://cisco.com/calvados/Cisco-IOS-XR-sysadmin-issu issu}", reflect.TypeOf(Issu{}))
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-issu:issu", reflect.TypeOf(Issu{}))
 }
-
-// OpStartResult represents Enumeration of errors that can be encountered while attempting to begin an ISSU operation
-type OpStartResult string
-
-const (
-    // Operation was started successfully
-    OpStartResult_start_success OpStartResult = "start-success"
-
-    // Another ISSU operation is already in progress
-    OpStartResult_error_operation_in_progress OpStartResult = "error-operation-in-progress"
-
-    // A request to activate the prepared software was made, but there is no successfully prepared software
-    OpStartResult_activate_error_no_prepare OpStartResult = "activate-error-no-prepare"
-
-    // A request to prepare software was made, but previously prepared software exists
-    OpStartResult_prepare_error_previous_prepare OpStartResult = "prepare-error-previous-prepare"
-
-    // The system is in a state that makes in-service recovery impossible
-    OpStartResult_recover_error_unrecoverable OpStartResult = "recover-error-unrecoverable"
-
-    // An internal error occured while attempting to start the operation
-    OpStartResult_start_error_internal OpStartResult = "start-error-internal"
-
-    // A previous install operation has not been committed
-    OpStartResult_prepare_error_previous_operation_not_committed OpStartResult = "prepare-error-previous-operation-not-committed"
-
-    // An install operation is already in progress
-    OpStartResult_prepare_error_already_in_progress OpStartResult = "prepare-error-already-in-progress"
-)
-
-// OpResult represents Enumeration of errors that can be encountered during an ISSU operation
-type OpResult string
-
-const (
-    // Operation succeeded
-    OpResult_success OpResult = "success"
-
-    // Part or all of the input was invalid
-    OpResult_error_input OpResult = "error-input"
-
-    // An internal error occurred during ISSU orchestration
-    OpResult_error_orchestration OpResult = "error-orchestration"
-
-    // An error occured in the install infrastructure
-    OpResult_error_install OpResult = "error-install"
-
-    // Not all nodes in the system have the required redundancy to allow an ISSU to proceed
-    OpResult_error_node_redundancy OpResult = "error-node-redundancy"
-)
-
-// IssuNotif represents Enumeration of notifications that features can be registered for
-type IssuNotif string
-
-const (
-    // A sysadmin ISSU operation is beginning
-    IssuNotif_notif_sysadmin_op_start IssuNotif = "notif-sysadmin-op-start"
-
-    // A sysadmin ISSU phase is beginning
-    IssuNotif_notif_sysadmin_phase_start IssuNotif = "notif-sysadmin-phase-start"
-
-    // A sysadmin ISSU operation is ending
-    IssuNotif_notif_sysadmin_op_end IssuNotif = "notif-sysadmin-op-end"
-)
 
 // OpStage represents Enumeration of stages that the ISSU operation can be in
 type OpStage string
@@ -133,34 +68,71 @@ const (
     OpStage_activate_complete OpStage = "activate-complete"
 )
 
-// IssuAction
-// ISSU action commands
-type IssuAction struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
+// IssuNotif represents Enumeration of notifications that features can be registered for
+type IssuNotif string
 
-func (issuAction *IssuAction) GetEntityData() *types.CommonEntityData {
-    issuAction.EntityData.YFilter = issuAction.YFilter
-    issuAction.EntityData.YangName = "issu_action"
-    issuAction.EntityData.BundleName = "cisco_ios_xr"
-    issuAction.EntityData.ParentYangName = "Cisco-IOS-XR-sysadmin-issu"
-    issuAction.EntityData.SegmentPath = "Cisco-IOS-XR-sysadmin-issu:issu_action"
-    issuAction.EntityData.AbsolutePath = issuAction.EntityData.SegmentPath
-    issuAction.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    issuAction.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    issuAction.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+const (
+    // A sysadmin ISSU operation is beginning
+    IssuNotif_notif_sysadmin_op_start IssuNotif = "notif-sysadmin-op-start"
 
-    issuAction.EntityData.Children = types.NewOrderedMap()
-    issuAction.EntityData.Leafs = types.NewOrderedMap()
+    // A sysadmin ISSU phase is beginning
+    IssuNotif_notif_sysadmin_phase_start IssuNotif = "notif-sysadmin-phase-start"
 
-    issuAction.EntityData.YListKeys = []string {}
+    // A sysadmin ISSU operation is ending
+    IssuNotif_notif_sysadmin_op_end IssuNotif = "notif-sysadmin-op-end"
+)
 
-    return &(issuAction.EntityData)
-}
+// OpResult represents Enumeration of errors that can be encountered during an ISSU operation
+type OpResult string
+
+const (
+    // Operation succeeded
+    OpResult_success OpResult = "success"
+
+    // Part or all of the input was invalid
+    OpResult_error_input OpResult = "error-input"
+
+    // An internal error occurred during ISSU orchestration
+    OpResult_error_orchestration OpResult = "error-orchestration"
+
+    // An error occured in the install infrastructure
+    OpResult_error_install OpResult = "error-install"
+
+    // Not all nodes in the system have the required redundancy to allow an ISSU to proceed
+    OpResult_error_node_redundancy OpResult = "error-node-redundancy"
+)
+
+// OpStartResult represents Enumeration of errors that can be encountered while attempting to begin an ISSU operation
+type OpStartResult string
+
+const (
+    // Operation was started successfully
+    OpStartResult_start_success OpStartResult = "start-success"
+
+    // Another ISSU operation is already in progress
+    OpStartResult_error_operation_in_progress OpStartResult = "error-operation-in-progress"
+
+    // A request to activate the prepared software was made, but there is no successfully prepared software
+    OpStartResult_activate_error_no_prepare OpStartResult = "activate-error-no-prepare"
+
+    // A request to prepare software was made, but previously prepared software exists
+    OpStartResult_prepare_error_previous_prepare OpStartResult = "prepare-error-previous-prepare"
+
+    // The system is in a state that makes in-service recovery impossible
+    OpStartResult_recover_error_unrecoverable OpStartResult = "recover-error-unrecoverable"
+
+    // An internal error occured while attempting to start the operation
+    OpStartResult_start_error_internal OpStartResult = "start-error-internal"
+
+    // A previous install operation has not been committed
+    OpStartResult_prepare_error_previous_operation_not_committed OpStartResult = "prepare-error-previous-operation-not-committed"
+
+    // An install operation is already in progress
+    OpStartResult_prepare_error_already_in_progress OpStartResult = "prepare-error-already-in-progress"
+)
 
 // Issu
-// ISSU operational state
+// ISSU actions and operational state
 type Issu struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -291,7 +263,7 @@ type Issu_Status_Prepare struct {
     Stage interface{}
 
     // When this ehase was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // A description of the current orchestration activity being executed. The
@@ -299,7 +271,7 @@ type Issu_Status_Prepare struct {
     Activity interface{}
 
     // When the current activity was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ActivityStartTime interface{}
 }
 
@@ -336,7 +308,7 @@ type Issu_Status_Activate struct {
     Stage interface{}
 
     // When this phase was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // A description of the current orchestration activity being executed. The
@@ -352,7 +324,7 @@ type Issu_Status_Activate struct {
     ActivityWaitingFor interface{}
 
     // When the current activity was started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ActivityStartTime interface{}
 }
 
@@ -538,8 +510,7 @@ type Issu_Clients_Client struct {
     Name interface{}
 
     // This attribute is a key. Node on which the feature process is running. The
-    // type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // type is string.
     Location interface{}
 
     // Which notifications the feature is registered to receive. The type is slice
@@ -895,11 +866,11 @@ type Issu_Internals_Orchestrator_InternalPrepare_PrepareStageHistory_HistoricalS
     ErrorDetails interface{}
 
     // Start time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // End time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndTime interface{}
 
     // Is the stage complete?. The type is bool.
@@ -1059,11 +1030,11 @@ type Issu_Internals_Orchestrator_InternalActivate_ActivateStageHistory_Historica
     ErrorDetails interface{}
 
     // Start time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // End time of stage. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndTime interface{}
 
     // Is the stage complete?. The type is bool.

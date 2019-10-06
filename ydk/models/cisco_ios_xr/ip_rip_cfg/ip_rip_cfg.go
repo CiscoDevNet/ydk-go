@@ -24,6 +24,59 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-rip-cfg:rip", reflect.TypeOf(Rip{}))
 }
 
+// RipAuthMode represents Rip auth mode
+type RipAuthMode string
+
+const (
+    // Text mode
+    RipAuthMode_text RipAuthMode = "text"
+
+    // MD5 mode
+    RipAuthMode_md5 RipAuthMode = "md5"
+)
+
+// IsisRedistRoute represents Isis redist route
+type IsisRedistRoute string
+
+const (
+    // Level-1 routes only
+    IsisRedistRoute_level1 IsisRedistRoute = "level1"
+
+    // Level-1 routes only
+    IsisRedistRoute_level2 IsisRedistRoute = "level2"
+
+    // Level-1 and level-2 routes
+    IsisRedistRoute_level1_and2 IsisRedistRoute = "level1-and2"
+)
+
+// DefaultInformationOption represents Default information option
+type DefaultInformationOption string
+
+const (
+    // Always
+    DefaultInformationOption_always DefaultInformationOption = "always"
+
+    // Use route-policy
+    DefaultInformationOption_policy DefaultInformationOption = "policy"
+)
+
+// BgpRedistRoute represents Bgp redist route
+type BgpRedistRoute string
+
+const (
+    // All routes
+    BgpRedistRoute_all BgpRedistRoute = "all"
+
+    // Internal routes only
+    BgpRedistRoute_internal BgpRedistRoute = "internal"
+
+    // External routes only
+    BgpRedistRoute_external BgpRedistRoute = "external"
+
+    // Local routes only
+    BgpRedistRoute_local BgpRedistRoute = "local"
+)
+
 // RipExtCommunity represents Rip ext community
 type RipExtCommunity string
 
@@ -44,59 +97,6 @@ type DefaultRedistRoute string
 const (
     // All routes
     DefaultRedistRoute_all DefaultRedistRoute = "all"
-)
-
-// DefaultInformationOption represents Default information option
-type DefaultInformationOption string
-
-const (
-    // Always
-    DefaultInformationOption_always DefaultInformationOption = "always"
-
-    // Use route-policy
-    DefaultInformationOption_policy DefaultInformationOption = "policy"
-)
-
-// IsisRedistRoute represents Isis redist route
-type IsisRedistRoute string
-
-const (
-    // Level-1 routes only
-    IsisRedistRoute_level1 IsisRedistRoute = "level1"
-
-    // Level-1 routes only
-    IsisRedistRoute_level2 IsisRedistRoute = "level2"
-
-    // Level-1 and level-2 routes
-    IsisRedistRoute_level1_and2 IsisRedistRoute = "level1-and2"
-)
-
-// BgpRedistRoute represents Bgp redist route
-type BgpRedistRoute string
-
-const (
-    // All routes
-    BgpRedistRoute_all BgpRedistRoute = "all"
-
-    // Internal routes only
-    BgpRedistRoute_internal BgpRedistRoute = "internal"
-
-    // External routes only
-    BgpRedistRoute_external BgpRedistRoute = "external"
-
-    // Local routes only
-    BgpRedistRoute_local BgpRedistRoute = "local"
-)
-
-// RipAuthMode represents Rip auth mode
-type RipAuthMode string
-
-const (
-    // Text mode
-    RipAuthMode_text RipAuthMode = "text"
-
-    // MD5 mode
-    RipAuthMode_md5 RipAuthMode = "md5"
 )
 
 // Rip
@@ -477,7 +477,7 @@ type Rip_DefaultVrf_Redistribution_Isises_Isis struct {
     YListKey string
 
     // This attribute is a key. IS-IS instance name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     IsisName interface{}
 
     // Route Policy name. The type is string.
@@ -661,7 +661,7 @@ type Rip_DefaultVrf_Redistribution_Ospfs_Ospf struct {
     YListKey string
 
     // This attribute is a key. Process ID for the OSPF instance. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     OspfName interface{}
 
     // Route Policy name. The type is string.
@@ -752,11 +752,11 @@ type Rip_DefaultVrf_IpDistances_IpDistance struct {
 
     // This attribute is a key. IP Source address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP address mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Administrative distance. The type is interface{} with range: 0..255. This
@@ -828,7 +828,7 @@ type Rip_DefaultVrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Send RIP v2 output packets to broadcast address. The type is interface{}.
@@ -957,7 +957,7 @@ type Rip_DefaultVrf_Interfaces_Interface_SiteOfOrigin struct {
     AsIndex interface{}
 
     // IPV4 address for IPV4Address:nn format. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // 16bit value for IPV4Address:nn format. The type is interface{} with range:
@@ -1101,7 +1101,7 @@ type Rip_DefaultVrf_Neighbors_Neighbor struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 }
 
@@ -1214,7 +1214,7 @@ type Rip_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Starts RIP configuration for a particular VRF. The type is interface{}.
@@ -1556,7 +1556,7 @@ type Rip_Vrfs_Vrf_Redistribution_Isises_Isis struct {
     YListKey string
 
     // This attribute is a key. IS-IS instance name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     IsisName interface{}
 
     // Route Policy name. The type is string.
@@ -1740,7 +1740,7 @@ type Rip_Vrfs_Vrf_Redistribution_Ospfs_Ospf struct {
     YListKey string
 
     // This attribute is a key. Process ID for the OSPF instance. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     OspfName interface{}
 
     // Route Policy name. The type is string.
@@ -1831,11 +1831,11 @@ type Rip_Vrfs_Vrf_IpDistances_IpDistance struct {
 
     // This attribute is a key. IP Source address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP address mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Administrative distance. The type is interface{} with range: 0..255. This
@@ -1906,7 +1906,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Send RIP v2 output packets to broadcast address. The type is interface{}.
@@ -2035,7 +2035,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface_SiteOfOrigin struct {
     AsIndex interface{}
 
     // IPV4 address for IPV4Address:nn format. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // 16bit value for IPV4Address:nn format. The type is interface{} with range:
@@ -2179,7 +2179,7 @@ type Rip_Vrfs_Vrf_Neighbors_Neighbor struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 }
 

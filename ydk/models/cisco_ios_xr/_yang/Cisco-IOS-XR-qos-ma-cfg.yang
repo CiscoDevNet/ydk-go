@@ -153,9 +153,7 @@ module Cisco-IOS-XR-qos-ma-cfg {
           "User specified value";
       }
       leaf spi-name {
-        type string {
-          length "0..32";
-        }
+        type string;
         description
           "Name of the SPI";
       }
@@ -208,9 +206,7 @@ module Cisco-IOS-XR-qos-ma-cfg {
               "User specified value";
           }
           leaf spi-name {
-            type string {
-              length "0..32";
-            }
+            type string;
             description
               "Name of the SPI";
           }
@@ -256,9 +252,7 @@ module Cisco-IOS-XR-qos-ma-cfg {
             "User specified value";
         }
         leaf spi-name {
-          type string {
-            length "0..32";
-          }
+          type string;
           description
             "Name of the SPI";
         }

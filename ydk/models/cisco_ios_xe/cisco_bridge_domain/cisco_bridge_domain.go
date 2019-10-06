@@ -165,8 +165,7 @@ type BridgeDomainConfig_Global_Pbb struct {
     YFilter yfilter.YFilter
 
     // Backbone source mac address configuration for Provider Backbone Bridging
-    // (PBB). The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // (PBB). The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BackboneSrcMac interface{}
 }
 
@@ -612,7 +611,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_Mac_Limit st
     Action interface{}
 
     // MAC limit violation notifications. The type is one of the following:
-    // NotifNoneNotifSnmpTrapNotifSyslogNotifSyslogAndSnmpTrap.
+    // NotifSyslogNotifSnmpTrapNotifNoneNotifSyslogAndSnmpTrap.
     Notification interface{}
 }
 
@@ -879,7 +878,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AcMember_StormControl
 
     // This leaf represents the storm control action taken when the traffic of a
     // particular type exceeds the configured threshold values. The type is one of
-    // the following: ActionDropActionSnmpTrapActionShutdown.
+    // the following: ActionShutdownActionSnmpTrapActionDrop.
     Action interface{}
 
     // A collection of storm control threshold configuration entries. The type is
@@ -1209,9 +1208,9 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // This attribute is a key. IPv4 or IPv6 address of the neighbor. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborIpAddress interface{}
 
     // This attribute is a key. Pseudowire VC ID. The type is interface{} with
@@ -1232,7 +1231,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // The local source IPv6 address. Note this should only be configured when
     // neighbor address is IPv6 type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceIpv6 interface{}
 
     // Statically configured labels, signalling should be none.
@@ -1435,7 +1434,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
     Action interface{}
 
     // MAC limit violation notifications. The type is one of the following:
-    // NotifNoneNotifSnmpTrapNotifSyslogNotifSyslogAndSnmpTrap.
+    // NotifSyslogNotifSnmpTrapNotifNoneNotifSyslogAndSnmpTrap.
     Notification interface{}
 }
 
@@ -1702,7 +1701,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // This leaf represents the storm control action taken when the traffic of a
     // particular type exceeds the configured threshold values. The type is one of
-    // the following: ActionDropActionSnmpTrapActionShutdown.
+    // the following: ActionShutdownActionSnmpTrapActionDrop.
     Action interface{}
 
     // A collection of storm control threshold configuration entries. The type is
@@ -1801,9 +1800,9 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Members_AccessPwMember_PwNeig
 
     // IPv4 or IPv6 address of the neighbor. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborIpAddress interface{}
 
     // Pseudowire VC ID. The type is interface{} with range: 1..4294967295.
@@ -1904,7 +1903,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Limit struct {
     Action interface{}
 
     // MAC limit violation notifications. The type is one of the following:
-    // NotifNoneNotifSnmpTrapNotifSyslogNotifSyslogAndSnmpTrap.
+    // NotifSyslogNotifSnmpTrapNotifNoneNotifSyslogAndSnmpTrap.
     Notification interface{}
 }
 
@@ -2110,7 +2109,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_Mac_Static_MacAddresses struc
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // Drop packet. The type is bool. This attribute is mandatory.
@@ -2255,7 +2254,7 @@ type BridgeDomainConfig_BridgeDomains_BridgeDomain_StormControl struct {
 
     // This leaf represents the storm control action taken when the traffic of a
     // particular type exceeds the configured threshold values. The type is one of
-    // the following: ActionDropActionSnmpTrapActionShutdown.
+    // the following: ActionShutdownActionSnmpTrapActionDrop.
     Action interface{}
 
     // A collection of storm control threshold configuration entries. The type is
@@ -3123,9 +3122,9 @@ type BridgeDomainState_BridgeDomains_BridgeDomain_Members_AccessPwMember struct 
 
     // This attribute is a key. Reference to peer ip address of a pseudowire
     // instance. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VcPeerAddress interface{}
 
     // This attribute is a key. Reference to vc-id of a pseudowire instance. The
@@ -3245,7 +3244,7 @@ type BridgeDomainState_MacTable struct {
     BdId interface{}
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // MAC address type. The type is MacType.
@@ -3455,7 +3454,7 @@ type ClearMacAddress_Input struct {
     Interface interface{}
 
     // Clear a specific mac-address entry from the mac-table. The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Clear mac-address entries for given bridge-domain(s).

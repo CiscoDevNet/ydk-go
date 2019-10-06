@@ -511,7 +511,7 @@ type CISCOIETFMPLSTEEXTSTD03MIB_CmplsTunnelExtTable_CmplsTunnelExtEntry struct {
     // tunnel is setup by configuring two tunnel entries in mplsTunnelTable.  The
     // value of zeroDotZero indicates single tunnel entry is used for
     // bidirectional tunnel setup. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CmplsTunnelOppositeDirPtr interface{}
 
     // Denotes whether or not this tunnel uses mplsTunnelOppositeDirPtr for

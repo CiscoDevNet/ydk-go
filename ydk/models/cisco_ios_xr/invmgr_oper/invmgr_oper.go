@@ -24,123 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-invmgr-oper:inventory", reflect.TypeOf(Inventory{}))
 }
 
-// ThresholdRelation represents Threshold relation
-type ThresholdRelation string
-
-const (
-    // Sensor value is less than threshold
-    ThresholdRelation_less_than ThresholdRelation = "less-than"
-
-    // Sensor value is lesser than  or equal to
-    // threshold
-    ThresholdRelation_less_or_equal ThresholdRelation = "less-or-equal"
-
-    // Sensor value is greater than threshold
-    ThresholdRelation_greater_than ThresholdRelation = "greater-than"
-
-    // Sensor value is greater than or equal to
-    // threshold
-    ThresholdRelation_greater_or_equal ThresholdRelation = "greater-or-equal"
-
-    // Sensor value is equal to threshold
-    ThresholdRelation_equal ThresholdRelation = "equal"
-
-    // Sensor value is not equal to threshold
-    ThresholdRelation_not_equal ThresholdRelation = "not-equal"
-)
-
-// ThresholdSeverity represents Threshold severity
-type ThresholdSeverity string
-
-const (
-    // Other
-    ThresholdSeverity_other ThresholdSeverity = "other"
-
-    // Minor
-    ThresholdSeverity_minor ThresholdSeverity = "minor"
-
-    // Major
-    ThresholdSeverity_major ThresholdSeverity = "major"
-
-    // Critical
-    ThresholdSeverity_critical ThresholdSeverity = "critical"
-)
-
-// SensorStatus represents Sensor status
-type SensorStatus string
-
-const (
-    // State ok
-    SensorStatus_ok SensorStatus = "ok"
-
-    // State Unavailable
-    SensorStatus_unavailable SensorStatus = "unavailable"
-
-    // State no operational
-    SensorStatus_non_operational SensorStatus = "non-operational"
-)
-
-// SensorData represents Sensor measurement data types
-type SensorData string
-
-const (
-    // Datatype unknown
-    SensorData_unknown SensorData = "unknown"
-
-    // AC volts
-    SensorData_ac_volts SensorData = "ac-volts"
-
-    // DC volts
-    SensorData_dc_volts SensorData = "dc-volts"
-
-    // Amperes
-    SensorData_amperes SensorData = "amperes"
-
-    // Power in watts
-    SensorData_watts SensorData = "watts"
-
-    // Frequency in hertz
-    SensorData_hertz SensorData = "hertz"
-
-    // Celsius
-    SensorData_celsius SensorData = "celsius"
-
-    // Rotations per minute
-    SensorData_rpm SensorData = "rpm"
-
-    // Power in dBm
-    SensorData_dbm SensorData = "dbm"
-
-    // Power in dB
-    SensorData_db SensorData = "db"
-)
-
-// Unit represents Unit information
-type Unit string
-
-const (
-    // Degree in celsius
-    Unit_celsius Unit = "celsius"
-
-    // Milli volts
-    Unit_milli_volts Unit = "milli-volts"
-
-    // Milli amperes
-    Unit_milli_amperes Unit = "milli-amperes"
-
-    // Rotations per minute
-    Unit_rpm Unit = "rpm"
-
-    // Watts
-    Unit_watts Unit = "watts"
-
-    // dBm
-    Unit_dbm Unit = "dbm"
-
-    // dB
-    Unit_db Unit = "db"
-)
-
 // CardResetReason represents Card reset reason
 type CardResetReason string
 
@@ -216,6 +99,123 @@ const (
 
     // card reset reason max
     CardResetReason_card_reset_reason_max CardResetReason = "card-reset-reason-max"
+)
+
+// ThresholdSeverity represents Threshold severity
+type ThresholdSeverity string
+
+const (
+    // Other
+    ThresholdSeverity_other ThresholdSeverity = "other"
+
+    // Minor
+    ThresholdSeverity_minor ThresholdSeverity = "minor"
+
+    // Major
+    ThresholdSeverity_major ThresholdSeverity = "major"
+
+    // Critical
+    ThresholdSeverity_critical ThresholdSeverity = "critical"
+)
+
+// SensorData represents Sensor measurement data types
+type SensorData string
+
+const (
+    // Datatype unknown
+    SensorData_unknown SensorData = "unknown"
+
+    // AC volts
+    SensorData_ac_volts SensorData = "ac-volts"
+
+    // DC volts
+    SensorData_dc_volts SensorData = "dc-volts"
+
+    // Amperes
+    SensorData_amperes SensorData = "amperes"
+
+    // Power in watts
+    SensorData_watts SensorData = "watts"
+
+    // Frequency in hertz
+    SensorData_hertz SensorData = "hertz"
+
+    // Celsius
+    SensorData_celsius SensorData = "celsius"
+
+    // Rotations per minute
+    SensorData_rpm SensorData = "rpm"
+
+    // Power in dBm
+    SensorData_dbm SensorData = "dbm"
+
+    // Power in dB
+    SensorData_db SensorData = "db"
+)
+
+// SensorStatus represents Sensor status
+type SensorStatus string
+
+const (
+    // State ok
+    SensorStatus_ok SensorStatus = "ok"
+
+    // State Unavailable
+    SensorStatus_unavailable SensorStatus = "unavailable"
+
+    // State no operational
+    SensorStatus_non_operational SensorStatus = "non-operational"
+)
+
+// ThresholdRelation represents Threshold relation
+type ThresholdRelation string
+
+const (
+    // Sensor value is less than threshold
+    ThresholdRelation_less_than ThresholdRelation = "less-than"
+
+    // Sensor value is lesser than  or equal to
+    // threshold
+    ThresholdRelation_less_or_equal ThresholdRelation = "less-or-equal"
+
+    // Sensor value is greater than threshold
+    ThresholdRelation_greater_than ThresholdRelation = "greater-than"
+
+    // Sensor value is greater than or equal to
+    // threshold
+    ThresholdRelation_greater_or_equal ThresholdRelation = "greater-or-equal"
+
+    // Sensor value is equal to threshold
+    ThresholdRelation_equal ThresholdRelation = "equal"
+
+    // Sensor value is not equal to threshold
+    ThresholdRelation_not_equal ThresholdRelation = "not-equal"
+)
+
+// Unit represents Unit information
+type Unit string
+
+const (
+    // Degree in celsius
+    Unit_celsius Unit = "celsius"
+
+    // Milli volts
+    Unit_milli_volts Unit = "milli-volts"
+
+    // Milli amperes
+    Unit_milli_amperes Unit = "milli-amperes"
+
+    // Rotations per minute
+    Unit_rpm Unit = "rpm"
+
+    // Watts
+    Unit_watts Unit = "watts"
+
+    // dBm
+    Unit_dbm Unit = "dbm"
+
+    // dB
+    Unit_db Unit = "db"
 )
 
 // Inventory
@@ -295,11 +295,11 @@ type Inventory_Entities_Entity struct {
     // This attribute is a key. Entity name. The type is string.
     Name interface{}
 
-    // SubEntities Table.
-    Subentities Inventory_Entities_Entity_Subentities
-
     // Attributes.
     Attributes Inventory_Entities_Entity_Attributes
+
+    // SubEntities Table.
+    Subentities Inventory_Entities_Entity_Subentities
 }
 
 func (entity *Inventory_Entities_Entity) GetEntityData() *types.CommonEntityData {
@@ -314,83 +314,14 @@ func (entity *Inventory_Entities_Entity) GetEntityData() *types.CommonEntityData
     entity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     entity.EntityData.Children = types.NewOrderedMap()
-    entity.EntityData.Children.Append("subentities", types.YChild{"Subentities", &entity.Subentities})
     entity.EntityData.Children.Append("attributes", types.YChild{"Attributes", &entity.Attributes})
+    entity.EntityData.Children.Append("subentities", types.YChild{"Subentities", &entity.Subentities})
     entity.EntityData.Leafs = types.NewOrderedMap()
     entity.EntityData.Leafs.Append("name", types.YLeaf{"Name", entity.Name})
 
     entity.EntityData.YListKeys = []string {"Name"}
 
     return &(entity.EntityData)
-}
-
-// Inventory_Entities_Entity_Subentities
-// SubEntities Table
-type Inventory_Entities_Entity_Subentities struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subentity Bag. The type is slice of
-    // Inventory_Entities_Entity_Subentities_Subentity.
-    Subentity []*Inventory_Entities_Entity_Subentities_Subentity
-}
-
-func (subentities *Inventory_Entities_Entity_Subentities) GetEntityData() *types.CommonEntityData {
-    subentities.EntityData.YFilter = subentities.YFilter
-    subentities.EntityData.YangName = "subentities"
-    subentities.EntityData.BundleName = "cisco_ios_xr"
-    subentities.EntityData.ParentYangName = "entity"
-    subentities.EntityData.SegmentPath = "subentities"
-    subentities.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/" + subentities.EntityData.SegmentPath
-    subentities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    subentities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    subentities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    subentities.EntityData.Children = types.NewOrderedMap()
-    subentities.EntityData.Children.Append("subentity", types.YChild{"Subentity", nil})
-    for i := range subentities.Subentity {
-        subentities.EntityData.Children.Append(types.GetSegmentPath(subentities.Subentity[i]), types.YChild{"Subentity", subentities.Subentity[i]})
-    }
-    subentities.EntityData.Leafs = types.NewOrderedMap()
-
-    subentities.EntityData.YListKeys = []string {}
-
-    return &(subentities.EntityData)
-}
-
-// Inventory_Entities_Entity_Subentities_Subentity
-// Subentity Bag
-type Inventory_Entities_Entity_Subentities_Subentity struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Subentity name. The type is string.
-    Name interface{}
-
-    // Subentity Name. The type is string with length: 0..255.
-    SubentityName interface{}
-}
-
-func (subentity *Inventory_Entities_Entity_Subentities_Subentity) GetEntityData() *types.CommonEntityData {
-    subentity.EntityData.YFilter = subentity.YFilter
-    subentity.EntityData.YangName = "subentity"
-    subentity.EntityData.BundleName = "cisco_ios_xr"
-    subentity.EntityData.ParentYangName = "subentities"
-    subentity.EntityData.SegmentPath = "subentity" + types.AddKeyToken(subentity.Name, "name")
-    subentity.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/subentities/" + subentity.EntityData.SegmentPath
-    subentity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    subentity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    subentity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    subentity.EntityData.Children = types.NewOrderedMap()
-    subentity.EntityData.Leafs = types.NewOrderedMap()
-    subentity.EntityData.Leafs.Append("name", types.YLeaf{"Name", subentity.Name})
-    subentity.EntityData.Leafs.Append("subentity-name", types.YLeaf{"SubentityName", subentity.SubentityName})
-
-    subentity.EntityData.YListKeys = []string {"Name"}
-
-    return &(subentity.EntityData)
 }
 
 // Inventory_Entities_Entity_Attributes
@@ -402,32 +333,8 @@ type Inventory_Entities_Entity_Attributes struct {
     // Inventory Basic Bag.
     InvBasicBag Inventory_Entities_Entity_Attributes_InvBasicBag
 
-    // VM Node ID Tuple.
-    VmNodeId Inventory_Entities_Entity_Attributes_VmNodeId
-
-    // Threshold.
-    Threshold Inventory_Entities_Entity_Attributes_Threshold
-
-    // VM Done Tuple.
-    VmDone Inventory_Entities_Entity_Attributes_VmDone
-
-    // Inventory EDM FRU info.
-    FruInfo Inventory_Entities_Entity_Attributes_FruInfo
-
-    // Environment sensor info XML.
-    EnvSensorInfoXml Inventory_Entities_Entity_Attributes_EnvSensorInfoXml
-
     // Inventory Asset Bag.
     InvAssetBag Inventory_Entities_Entity_Attributes_InvAssetBag
-
-    // Environment sensor info.
-    EnvSensorInfo Inventory_Entities_Entity_Attributes_EnvSensorInfo
-
-    // Node ID Tuple.
-    NodeId Inventory_Entities_Entity_Attributes_NodeId
-
-    // Inventory EDM EEPROM Information Bag.
-    InvEepromInfo Inventory_Entities_Entity_Attributes_InvEepromInfo
 }
 
 func (attributes *Inventory_Entities_Entity_Attributes) GetEntityData() *types.CommonEntityData {
@@ -443,15 +350,7 @@ func (attributes *Inventory_Entities_Entity_Attributes) GetEntityData() *types.C
 
     attributes.EntityData.Children = types.NewOrderedMap()
     attributes.EntityData.Children.Append("inv-basic-bag", types.YChild{"InvBasicBag", &attributes.InvBasicBag})
-    attributes.EntityData.Children.Append("vm-node-id", types.YChild{"VmNodeId", &attributes.VmNodeId})
-    attributes.EntityData.Children.Append("threshold", types.YChild{"Threshold", &attributes.Threshold})
-    attributes.EntityData.Children.Append("vm-done", types.YChild{"VmDone", &attributes.VmDone})
-    attributes.EntityData.Children.Append("fru-info", types.YChild{"FruInfo", &attributes.FruInfo})
-    attributes.EntityData.Children.Append("env-sensor-info-xml", types.YChild{"EnvSensorInfoXml", &attributes.EnvSensorInfoXml})
     attributes.EntityData.Children.Append("inv-asset-bag", types.YChild{"InvAssetBag", &attributes.InvAssetBag})
-    attributes.EntityData.Children.Append("env-sensor-info", types.YChild{"EnvSensorInfo", &attributes.EnvSensorInfo})
-    attributes.EntityData.Children.Append("node-id", types.YChild{"NodeId", &attributes.NodeId})
-    attributes.EntityData.Children.Append("inv-eeprom-info", types.YChild{"InvEepromInfo", &attributes.InvEepromInfo})
     attributes.EntityData.Leafs = types.NewOrderedMap()
 
     attributes.EntityData.YListKeys = []string {}
@@ -540,8 +439,8 @@ type Inventory_Entities_Entity_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -553,10 +452,6 @@ type Inventory_Entities_Entity_Attributes_InvBasicBag struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Entities_Entity_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -598,883 +493,10 @@ func (invBasicBag *Inventory_Entities_Entity_Attributes_InvBasicBag) GetEntityDa
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
     return &(invBasicBag.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_VmNodeId
-// VM Node ID Tuple
-type Inventory_Entities_Entity_Attributes_VmNodeId struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VM Node Id Tuple. The type is interface{} with range: 0..4294967295.
-    VmNodeId interface{}
-}
-
-func (vmNodeId *Inventory_Entities_Entity_Attributes_VmNodeId) GetEntityData() *types.CommonEntityData {
-    vmNodeId.EntityData.YFilter = vmNodeId.YFilter
-    vmNodeId.EntityData.YangName = "vm-node-id"
-    vmNodeId.EntityData.BundleName = "cisco_ios_xr"
-    vmNodeId.EntityData.ParentYangName = "attributes"
-    vmNodeId.EntityData.SegmentPath = "vm-node-id"
-    vmNodeId.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + vmNodeId.EntityData.SegmentPath
-    vmNodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vmNodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vmNodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vmNodeId.EntityData.Children = types.NewOrderedMap()
-    vmNodeId.EntityData.Leafs = types.NewOrderedMap()
-    vmNodeId.EntityData.Leafs.Append("vm-node-id", types.YLeaf{"VmNodeId", vmNodeId.VmNodeId})
-
-    vmNodeId.EntityData.YListKeys = []string {}
-
-    return &(vmNodeId.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold
-// Threshold
-type Inventory_Entities_Entity_Attributes_Threshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Minor High.
-    MinorHi Inventory_Entities_Entity_Attributes_Threshold_MinorHi
-
-    // Major High.
-    MajorHi Inventory_Entities_Entity_Attributes_Threshold_MajorHi
-
-    // Minor Low.
-    MinorLo Inventory_Entities_Entity_Attributes_Threshold_MinorLo
-
-    // Major Low.
-    MajorLo Inventory_Entities_Entity_Attributes_Threshold_MajorLo
-
-    // Critical High.
-    CriticalHi Inventory_Entities_Entity_Attributes_Threshold_CriticalHi
-
-    // Critical Low.
-    CriticalLo Inventory_Entities_Entity_Attributes_Threshold_CriticalLo
-}
-
-func (threshold *Inventory_Entities_Entity_Attributes_Threshold) GetEntityData() *types.CommonEntityData {
-    threshold.EntityData.YFilter = threshold.YFilter
-    threshold.EntityData.YangName = "threshold"
-    threshold.EntityData.BundleName = "cisco_ios_xr"
-    threshold.EntityData.ParentYangName = "attributes"
-    threshold.EntityData.SegmentPath = "threshold"
-    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + threshold.EntityData.SegmentPath
-    threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshold.EntityData.Children = types.NewOrderedMap()
-    threshold.EntityData.Children.Append("minor-hi", types.YChild{"MinorHi", &threshold.MinorHi})
-    threshold.EntityData.Children.Append("major-hi", types.YChild{"MajorHi", &threshold.MajorHi})
-    threshold.EntityData.Children.Append("minor-lo", types.YChild{"MinorLo", &threshold.MinorLo})
-    threshold.EntityData.Children.Append("major-lo", types.YChild{"MajorLo", &threshold.MajorLo})
-    threshold.EntityData.Children.Append("critical-hi", types.YChild{"CriticalHi", &threshold.CriticalHi})
-    threshold.EntityData.Children.Append("critical-lo", types.YChild{"CriticalLo", &threshold.CriticalLo})
-    threshold.EntityData.Leafs = types.NewOrderedMap()
-
-    threshold.EntityData.YListKeys = []string {}
-
-    return &(threshold.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MinorHi
-// Minor High
-type Inventory_Entities_Entity_Attributes_Threshold_MinorHi struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Environment threshold info.
-    ThreshBag Inventory_Entities_Entity_Attributes_Threshold_MinorHi_ThreshBag
-}
-
-func (minorHi *Inventory_Entities_Entity_Attributes_Threshold_MinorHi) GetEntityData() *types.CommonEntityData {
-    minorHi.EntityData.YFilter = minorHi.YFilter
-    minorHi.EntityData.YangName = "minor-hi"
-    minorHi.EntityData.BundleName = "cisco_ios_xr"
-    minorHi.EntityData.ParentYangName = "threshold"
-    minorHi.EntityData.SegmentPath = "minor-hi"
-    minorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/" + minorHi.EntityData.SegmentPath
-    minorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    minorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    minorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    minorHi.EntityData.Children = types.NewOrderedMap()
-    minorHi.EntityData.Children.Append("thresh-bag", types.YChild{"ThreshBag", &minorHi.ThreshBag})
-    minorHi.EntityData.Leafs = types.NewOrderedMap()
-
-    minorHi.EntityData.YListKeys = []string {}
-
-    return &(minorHi.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MinorHi_ThreshBag
-// Environment threshold info
-type Inventory_Entities_Entity_Attributes_Threshold_MinorHi_ThreshBag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Indicates minor, major, critical severities. The type is interface{} with
-    // range: 0..4294967295.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // interface{} with range: 0..4294967295.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // 0..4294967295.
-    ThresholdValue interface{}
-
-    // Indicates the result of the most recent evaluation of the thresholD. The
-    // type is bool.
-    ThresholdEvaluation interface{}
-
-    // Indicates whether or not a notification should result, in case of threshold
-    // violation. The type is bool.
-    ThresholdNotificationEnabled interface{}
-}
-
-func (threshBag *Inventory_Entities_Entity_Attributes_Threshold_MinorHi_ThreshBag) GetEntityData() *types.CommonEntityData {
-    threshBag.EntityData.YFilter = threshBag.YFilter
-    threshBag.EntityData.YangName = "thresh-bag"
-    threshBag.EntityData.BundleName = "cisco_ios_xr"
-    threshBag.EntityData.ParentYangName = "minor-hi"
-    threshBag.EntityData.SegmentPath = "thresh-bag"
-    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/minor-hi/" + threshBag.EntityData.SegmentPath
-    threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshBag.EntityData.Children = types.NewOrderedMap()
-    threshBag.EntityData.Leafs = types.NewOrderedMap()
-    threshBag.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", threshBag.ThresholdSeverity})
-    threshBag.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", threshBag.ThresholdRelation})
-    threshBag.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", threshBag.ThresholdValue})
-    threshBag.EntityData.Leafs.Append("threshold-evaluation", types.YLeaf{"ThresholdEvaluation", threshBag.ThresholdEvaluation})
-    threshBag.EntityData.Leafs.Append("threshold-notification-enabled", types.YLeaf{"ThresholdNotificationEnabled", threshBag.ThresholdNotificationEnabled})
-
-    threshBag.EntityData.YListKeys = []string {}
-
-    return &(threshBag.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MajorHi
-// Major High
-type Inventory_Entities_Entity_Attributes_Threshold_MajorHi struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Environment threshold info.
-    ThreshBag Inventory_Entities_Entity_Attributes_Threshold_MajorHi_ThreshBag
-}
-
-func (majorHi *Inventory_Entities_Entity_Attributes_Threshold_MajorHi) GetEntityData() *types.CommonEntityData {
-    majorHi.EntityData.YFilter = majorHi.YFilter
-    majorHi.EntityData.YangName = "major-hi"
-    majorHi.EntityData.BundleName = "cisco_ios_xr"
-    majorHi.EntityData.ParentYangName = "threshold"
-    majorHi.EntityData.SegmentPath = "major-hi"
-    majorHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/" + majorHi.EntityData.SegmentPath
-    majorHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    majorHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    majorHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    majorHi.EntityData.Children = types.NewOrderedMap()
-    majorHi.EntityData.Children.Append("thresh-bag", types.YChild{"ThreshBag", &majorHi.ThreshBag})
-    majorHi.EntityData.Leafs = types.NewOrderedMap()
-
-    majorHi.EntityData.YListKeys = []string {}
-
-    return &(majorHi.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MajorHi_ThreshBag
-// Environment threshold info
-type Inventory_Entities_Entity_Attributes_Threshold_MajorHi_ThreshBag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Indicates minor, major, critical severities. The type is interface{} with
-    // range: 0..4294967295.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // interface{} with range: 0..4294967295.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // 0..4294967295.
-    ThresholdValue interface{}
-
-    // Indicates the result of the most recent evaluation of the thresholD. The
-    // type is bool.
-    ThresholdEvaluation interface{}
-
-    // Indicates whether or not a notification should result, in case of threshold
-    // violation. The type is bool.
-    ThresholdNotificationEnabled interface{}
-}
-
-func (threshBag *Inventory_Entities_Entity_Attributes_Threshold_MajorHi_ThreshBag) GetEntityData() *types.CommonEntityData {
-    threshBag.EntityData.YFilter = threshBag.YFilter
-    threshBag.EntityData.YangName = "thresh-bag"
-    threshBag.EntityData.BundleName = "cisco_ios_xr"
-    threshBag.EntityData.ParentYangName = "major-hi"
-    threshBag.EntityData.SegmentPath = "thresh-bag"
-    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/major-hi/" + threshBag.EntityData.SegmentPath
-    threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshBag.EntityData.Children = types.NewOrderedMap()
-    threshBag.EntityData.Leafs = types.NewOrderedMap()
-    threshBag.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", threshBag.ThresholdSeverity})
-    threshBag.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", threshBag.ThresholdRelation})
-    threshBag.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", threshBag.ThresholdValue})
-    threshBag.EntityData.Leafs.Append("threshold-evaluation", types.YLeaf{"ThresholdEvaluation", threshBag.ThresholdEvaluation})
-    threshBag.EntityData.Leafs.Append("threshold-notification-enabled", types.YLeaf{"ThresholdNotificationEnabled", threshBag.ThresholdNotificationEnabled})
-
-    threshBag.EntityData.YListKeys = []string {}
-
-    return &(threshBag.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MinorLo
-// Minor Low
-type Inventory_Entities_Entity_Attributes_Threshold_MinorLo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Environment threshold info.
-    ThreshBag Inventory_Entities_Entity_Attributes_Threshold_MinorLo_ThreshBag
-}
-
-func (minorLo *Inventory_Entities_Entity_Attributes_Threshold_MinorLo) GetEntityData() *types.CommonEntityData {
-    minorLo.EntityData.YFilter = minorLo.YFilter
-    minorLo.EntityData.YangName = "minor-lo"
-    minorLo.EntityData.BundleName = "cisco_ios_xr"
-    minorLo.EntityData.ParentYangName = "threshold"
-    minorLo.EntityData.SegmentPath = "minor-lo"
-    minorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/" + minorLo.EntityData.SegmentPath
-    minorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    minorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    minorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    minorLo.EntityData.Children = types.NewOrderedMap()
-    minorLo.EntityData.Children.Append("thresh-bag", types.YChild{"ThreshBag", &minorLo.ThreshBag})
-    minorLo.EntityData.Leafs = types.NewOrderedMap()
-
-    minorLo.EntityData.YListKeys = []string {}
-
-    return &(minorLo.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MinorLo_ThreshBag
-// Environment threshold info
-type Inventory_Entities_Entity_Attributes_Threshold_MinorLo_ThreshBag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Indicates minor, major, critical severities. The type is interface{} with
-    // range: 0..4294967295.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // interface{} with range: 0..4294967295.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // 0..4294967295.
-    ThresholdValue interface{}
-
-    // Indicates the result of the most recent evaluation of the thresholD. The
-    // type is bool.
-    ThresholdEvaluation interface{}
-
-    // Indicates whether or not a notification should result, in case of threshold
-    // violation. The type is bool.
-    ThresholdNotificationEnabled interface{}
-}
-
-func (threshBag *Inventory_Entities_Entity_Attributes_Threshold_MinorLo_ThreshBag) GetEntityData() *types.CommonEntityData {
-    threshBag.EntityData.YFilter = threshBag.YFilter
-    threshBag.EntityData.YangName = "thresh-bag"
-    threshBag.EntityData.BundleName = "cisco_ios_xr"
-    threshBag.EntityData.ParentYangName = "minor-lo"
-    threshBag.EntityData.SegmentPath = "thresh-bag"
-    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/minor-lo/" + threshBag.EntityData.SegmentPath
-    threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshBag.EntityData.Children = types.NewOrderedMap()
-    threshBag.EntityData.Leafs = types.NewOrderedMap()
-    threshBag.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", threshBag.ThresholdSeverity})
-    threshBag.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", threshBag.ThresholdRelation})
-    threshBag.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", threshBag.ThresholdValue})
-    threshBag.EntityData.Leafs.Append("threshold-evaluation", types.YLeaf{"ThresholdEvaluation", threshBag.ThresholdEvaluation})
-    threshBag.EntityData.Leafs.Append("threshold-notification-enabled", types.YLeaf{"ThresholdNotificationEnabled", threshBag.ThresholdNotificationEnabled})
-
-    threshBag.EntityData.YListKeys = []string {}
-
-    return &(threshBag.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MajorLo
-// Major Low
-type Inventory_Entities_Entity_Attributes_Threshold_MajorLo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Environment threshold info.
-    ThreshBag Inventory_Entities_Entity_Attributes_Threshold_MajorLo_ThreshBag
-}
-
-func (majorLo *Inventory_Entities_Entity_Attributes_Threshold_MajorLo) GetEntityData() *types.CommonEntityData {
-    majorLo.EntityData.YFilter = majorLo.YFilter
-    majorLo.EntityData.YangName = "major-lo"
-    majorLo.EntityData.BundleName = "cisco_ios_xr"
-    majorLo.EntityData.ParentYangName = "threshold"
-    majorLo.EntityData.SegmentPath = "major-lo"
-    majorLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/" + majorLo.EntityData.SegmentPath
-    majorLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    majorLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    majorLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    majorLo.EntityData.Children = types.NewOrderedMap()
-    majorLo.EntityData.Children.Append("thresh-bag", types.YChild{"ThreshBag", &majorLo.ThreshBag})
-    majorLo.EntityData.Leafs = types.NewOrderedMap()
-
-    majorLo.EntityData.YListKeys = []string {}
-
-    return &(majorLo.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_MajorLo_ThreshBag
-// Environment threshold info
-type Inventory_Entities_Entity_Attributes_Threshold_MajorLo_ThreshBag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Indicates minor, major, critical severities. The type is interface{} with
-    // range: 0..4294967295.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // interface{} with range: 0..4294967295.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // 0..4294967295.
-    ThresholdValue interface{}
-
-    // Indicates the result of the most recent evaluation of the thresholD. The
-    // type is bool.
-    ThresholdEvaluation interface{}
-
-    // Indicates whether or not a notification should result, in case of threshold
-    // violation. The type is bool.
-    ThresholdNotificationEnabled interface{}
-}
-
-func (threshBag *Inventory_Entities_Entity_Attributes_Threshold_MajorLo_ThreshBag) GetEntityData() *types.CommonEntityData {
-    threshBag.EntityData.YFilter = threshBag.YFilter
-    threshBag.EntityData.YangName = "thresh-bag"
-    threshBag.EntityData.BundleName = "cisco_ios_xr"
-    threshBag.EntityData.ParentYangName = "major-lo"
-    threshBag.EntityData.SegmentPath = "thresh-bag"
-    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/major-lo/" + threshBag.EntityData.SegmentPath
-    threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshBag.EntityData.Children = types.NewOrderedMap()
-    threshBag.EntityData.Leafs = types.NewOrderedMap()
-    threshBag.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", threshBag.ThresholdSeverity})
-    threshBag.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", threshBag.ThresholdRelation})
-    threshBag.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", threshBag.ThresholdValue})
-    threshBag.EntityData.Leafs.Append("threshold-evaluation", types.YLeaf{"ThresholdEvaluation", threshBag.ThresholdEvaluation})
-    threshBag.EntityData.Leafs.Append("threshold-notification-enabled", types.YLeaf{"ThresholdNotificationEnabled", threshBag.ThresholdNotificationEnabled})
-
-    threshBag.EntityData.YListKeys = []string {}
-
-    return &(threshBag.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_CriticalHi
-// Critical High
-type Inventory_Entities_Entity_Attributes_Threshold_CriticalHi struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Environment threshold info.
-    ThreshBag Inventory_Entities_Entity_Attributes_Threshold_CriticalHi_ThreshBag
-}
-
-func (criticalHi *Inventory_Entities_Entity_Attributes_Threshold_CriticalHi) GetEntityData() *types.CommonEntityData {
-    criticalHi.EntityData.YFilter = criticalHi.YFilter
-    criticalHi.EntityData.YangName = "critical-hi"
-    criticalHi.EntityData.BundleName = "cisco_ios_xr"
-    criticalHi.EntityData.ParentYangName = "threshold"
-    criticalHi.EntityData.SegmentPath = "critical-hi"
-    criticalHi.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/" + criticalHi.EntityData.SegmentPath
-    criticalHi.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    criticalHi.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    criticalHi.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    criticalHi.EntityData.Children = types.NewOrderedMap()
-    criticalHi.EntityData.Children.Append("thresh-bag", types.YChild{"ThreshBag", &criticalHi.ThreshBag})
-    criticalHi.EntityData.Leafs = types.NewOrderedMap()
-
-    criticalHi.EntityData.YListKeys = []string {}
-
-    return &(criticalHi.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_CriticalHi_ThreshBag
-// Environment threshold info
-type Inventory_Entities_Entity_Attributes_Threshold_CriticalHi_ThreshBag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Indicates minor, major, critical severities. The type is interface{} with
-    // range: 0..4294967295.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // interface{} with range: 0..4294967295.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // 0..4294967295.
-    ThresholdValue interface{}
-
-    // Indicates the result of the most recent evaluation of the thresholD. The
-    // type is bool.
-    ThresholdEvaluation interface{}
-
-    // Indicates whether or not a notification should result, in case of threshold
-    // violation. The type is bool.
-    ThresholdNotificationEnabled interface{}
-}
-
-func (threshBag *Inventory_Entities_Entity_Attributes_Threshold_CriticalHi_ThreshBag) GetEntityData() *types.CommonEntityData {
-    threshBag.EntityData.YFilter = threshBag.YFilter
-    threshBag.EntityData.YangName = "thresh-bag"
-    threshBag.EntityData.BundleName = "cisco_ios_xr"
-    threshBag.EntityData.ParentYangName = "critical-hi"
-    threshBag.EntityData.SegmentPath = "thresh-bag"
-    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/critical-hi/" + threshBag.EntityData.SegmentPath
-    threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshBag.EntityData.Children = types.NewOrderedMap()
-    threshBag.EntityData.Leafs = types.NewOrderedMap()
-    threshBag.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", threshBag.ThresholdSeverity})
-    threshBag.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", threshBag.ThresholdRelation})
-    threshBag.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", threshBag.ThresholdValue})
-    threshBag.EntityData.Leafs.Append("threshold-evaluation", types.YLeaf{"ThresholdEvaluation", threshBag.ThresholdEvaluation})
-    threshBag.EntityData.Leafs.Append("threshold-notification-enabled", types.YLeaf{"ThresholdNotificationEnabled", threshBag.ThresholdNotificationEnabled})
-
-    threshBag.EntityData.YListKeys = []string {}
-
-    return &(threshBag.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_CriticalLo
-// Critical Low
-type Inventory_Entities_Entity_Attributes_Threshold_CriticalLo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Environment threshold info.
-    ThreshBag Inventory_Entities_Entity_Attributes_Threshold_CriticalLo_ThreshBag
-}
-
-func (criticalLo *Inventory_Entities_Entity_Attributes_Threshold_CriticalLo) GetEntityData() *types.CommonEntityData {
-    criticalLo.EntityData.YFilter = criticalLo.YFilter
-    criticalLo.EntityData.YangName = "critical-lo"
-    criticalLo.EntityData.BundleName = "cisco_ios_xr"
-    criticalLo.EntityData.ParentYangName = "threshold"
-    criticalLo.EntityData.SegmentPath = "critical-lo"
-    criticalLo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/" + criticalLo.EntityData.SegmentPath
-    criticalLo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    criticalLo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    criticalLo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    criticalLo.EntityData.Children = types.NewOrderedMap()
-    criticalLo.EntityData.Children.Append("thresh-bag", types.YChild{"ThreshBag", &criticalLo.ThreshBag})
-    criticalLo.EntityData.Leafs = types.NewOrderedMap()
-
-    criticalLo.EntityData.YListKeys = []string {}
-
-    return &(criticalLo.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_Threshold_CriticalLo_ThreshBag
-// Environment threshold info
-type Inventory_Entities_Entity_Attributes_Threshold_CriticalLo_ThreshBag struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Indicates minor, major, critical severities. The type is interface{} with
-    // range: 0..4294967295.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // interface{} with range: 0..4294967295.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // 0..4294967295.
-    ThresholdValue interface{}
-
-    // Indicates the result of the most recent evaluation of the thresholD. The
-    // type is bool.
-    ThresholdEvaluation interface{}
-
-    // Indicates whether or not a notification should result, in case of threshold
-    // violation. The type is bool.
-    ThresholdNotificationEnabled interface{}
-}
-
-func (threshBag *Inventory_Entities_Entity_Attributes_Threshold_CriticalLo_ThreshBag) GetEntityData() *types.CommonEntityData {
-    threshBag.EntityData.YFilter = threshBag.YFilter
-    threshBag.EntityData.YangName = "thresh-bag"
-    threshBag.EntityData.BundleName = "cisco_ios_xr"
-    threshBag.EntityData.ParentYangName = "critical-lo"
-    threshBag.EntityData.SegmentPath = "thresh-bag"
-    threshBag.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/threshold/critical-lo/" + threshBag.EntityData.SegmentPath
-    threshBag.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshBag.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshBag.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshBag.EntityData.Children = types.NewOrderedMap()
-    threshBag.EntityData.Leafs = types.NewOrderedMap()
-    threshBag.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", threshBag.ThresholdSeverity})
-    threshBag.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", threshBag.ThresholdRelation})
-    threshBag.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", threshBag.ThresholdValue})
-    threshBag.EntityData.Leafs.Append("threshold-evaluation", types.YLeaf{"ThresholdEvaluation", threshBag.ThresholdEvaluation})
-    threshBag.EntityData.Leafs.Append("threshold-notification-enabled", types.YLeaf{"ThresholdNotificationEnabled", threshBag.ThresholdNotificationEnabled})
-
-    threshBag.EntityData.YListKeys = []string {}
-
-    return &(threshBag.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_VmDone
-// VM Done Tuple
-type Inventory_Entities_Entity_Attributes_VmDone struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // VM Node Done Tuple. The type is interface{} with range: 0..255.
-    VmNodeDone interface{}
-}
-
-func (vmDone *Inventory_Entities_Entity_Attributes_VmDone) GetEntityData() *types.CommonEntityData {
-    vmDone.EntityData.YFilter = vmDone.YFilter
-    vmDone.EntityData.YangName = "vm-done"
-    vmDone.EntityData.BundleName = "cisco_ios_xr"
-    vmDone.EntityData.ParentYangName = "attributes"
-    vmDone.EntityData.SegmentPath = "vm-done"
-    vmDone.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + vmDone.EntityData.SegmentPath
-    vmDone.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    vmDone.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    vmDone.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    vmDone.EntityData.Children = types.NewOrderedMap()
-    vmDone.EntityData.Leafs = types.NewOrderedMap()
-    vmDone.EntityData.Leafs.Append("vm-node-done", types.YLeaf{"VmNodeDone", vmDone.VmNodeDone})
-
-    vmDone.EntityData.YListKeys = []string {}
-
-    return &(vmDone.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_FruInfo
-// Inventory EDM FRU info
-type Inventory_Entities_Entity_Attributes_FruInfo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // card admin state: shutdown or not. The type is interface{} with range:
-    // -2147483648..2147483647.
-    CardAdministrativeState interface{}
-
-    // power admin state: up or down. The type is interface{} with range:
-    // -2147483648..2147483647.
-    PowerAdministrativeState interface{}
-
-    // card operation state. The type is interface{} with range:
-    // -2147483648..2147483647.
-    CardOperationalState interface{}
-
-    // card is monitored by a manager or left unmonitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    CardMonitorState interface{}
-
-    // card reset reason enum. The type is CardResetReason.
-    CardResetReason interface{}
-
-    // power current: not implemented. The type is interface{} with range:
-    // -2147483648..2147483647.
-    PowerCurrentMeasurement interface{}
-
-    // Power operation state. The type is interface{} with range:
-    // -2147483648..2147483647.
-    PowerOperationalState interface{}
-
-    // last card oper change state.
-    LastOperationalStateChange Inventory_Entities_Entity_Attributes_FruInfo_LastOperationalStateChange
-
-    // card up time.
-    CardUpTime Inventory_Entities_Entity_Attributes_FruInfo_CardUpTime
-}
-
-func (fruInfo *Inventory_Entities_Entity_Attributes_FruInfo) GetEntityData() *types.CommonEntityData {
-    fruInfo.EntityData.YFilter = fruInfo.YFilter
-    fruInfo.EntityData.YangName = "fru-info"
-    fruInfo.EntityData.BundleName = "cisco_ios_xr"
-    fruInfo.EntityData.ParentYangName = "attributes"
-    fruInfo.EntityData.SegmentPath = "fru-info"
-    fruInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + fruInfo.EntityData.SegmentPath
-    fruInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    fruInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    fruInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    fruInfo.EntityData.Children = types.NewOrderedMap()
-    fruInfo.EntityData.Children.Append("last-operational-state-change", types.YChild{"LastOperationalStateChange", &fruInfo.LastOperationalStateChange})
-    fruInfo.EntityData.Children.Append("card-up-time", types.YChild{"CardUpTime", &fruInfo.CardUpTime})
-    fruInfo.EntityData.Leafs = types.NewOrderedMap()
-    fruInfo.EntityData.Leafs.Append("card-administrative-state", types.YLeaf{"CardAdministrativeState", fruInfo.CardAdministrativeState})
-    fruInfo.EntityData.Leafs.Append("power-administrative-state", types.YLeaf{"PowerAdministrativeState", fruInfo.PowerAdministrativeState})
-    fruInfo.EntityData.Leafs.Append("card-operational-state", types.YLeaf{"CardOperationalState", fruInfo.CardOperationalState})
-    fruInfo.EntityData.Leafs.Append("card-monitor-state", types.YLeaf{"CardMonitorState", fruInfo.CardMonitorState})
-    fruInfo.EntityData.Leafs.Append("card-reset-reason", types.YLeaf{"CardResetReason", fruInfo.CardResetReason})
-    fruInfo.EntityData.Leafs.Append("power-current-measurement", types.YLeaf{"PowerCurrentMeasurement", fruInfo.PowerCurrentMeasurement})
-    fruInfo.EntityData.Leafs.Append("power-operational-state", types.YLeaf{"PowerOperationalState", fruInfo.PowerOperationalState})
-
-    fruInfo.EntityData.YListKeys = []string {}
-
-    return &(fruInfo.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_FruInfo_LastOperationalStateChange
-// last card oper change state
-type Inventory_Entities_Entity_Attributes_FruInfo_LastOperationalStateChange struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Time Value in Seconds. The type is interface{} with range:
-    // -2147483648..2147483647. Units are second.
-    TimeInSeconds interface{}
-
-    // Time Value in Nano-seconds. The type is interface{} with range:
-    // -2147483648..2147483647. Units are nanosecond.
-    TimeInNanoSeconds interface{}
-}
-
-func (lastOperationalStateChange *Inventory_Entities_Entity_Attributes_FruInfo_LastOperationalStateChange) GetEntityData() *types.CommonEntityData {
-    lastOperationalStateChange.EntityData.YFilter = lastOperationalStateChange.YFilter
-    lastOperationalStateChange.EntityData.YangName = "last-operational-state-change"
-    lastOperationalStateChange.EntityData.BundleName = "cisco_ios_xr"
-    lastOperationalStateChange.EntityData.ParentYangName = "fru-info"
-    lastOperationalStateChange.EntityData.SegmentPath = "last-operational-state-change"
-    lastOperationalStateChange.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/fru-info/" + lastOperationalStateChange.EntityData.SegmentPath
-    lastOperationalStateChange.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    lastOperationalStateChange.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    lastOperationalStateChange.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    lastOperationalStateChange.EntityData.Children = types.NewOrderedMap()
-    lastOperationalStateChange.EntityData.Leafs = types.NewOrderedMap()
-    lastOperationalStateChange.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", lastOperationalStateChange.TimeInSeconds})
-    lastOperationalStateChange.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", lastOperationalStateChange.TimeInNanoSeconds})
-
-    lastOperationalStateChange.EntityData.YListKeys = []string {}
-
-    return &(lastOperationalStateChange.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_FruInfo_CardUpTime
-// card up time
-type Inventory_Entities_Entity_Attributes_FruInfo_CardUpTime struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Time Value in Seconds. The type is interface{} with range:
-    // -2147483648..2147483647. Units are second.
-    TimeInSeconds interface{}
-
-    // Time Value in Nano-seconds. The type is interface{} with range:
-    // -2147483648..2147483647. Units are nanosecond.
-    TimeInNanoSeconds interface{}
-}
-
-func (cardUpTime *Inventory_Entities_Entity_Attributes_FruInfo_CardUpTime) GetEntityData() *types.CommonEntityData {
-    cardUpTime.EntityData.YFilter = cardUpTime.YFilter
-    cardUpTime.EntityData.YangName = "card-up-time"
-    cardUpTime.EntityData.BundleName = "cisco_ios_xr"
-    cardUpTime.EntityData.ParentYangName = "fru-info"
-    cardUpTime.EntityData.SegmentPath = "card-up-time"
-    cardUpTime.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/fru-info/" + cardUpTime.EntityData.SegmentPath
-    cardUpTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    cardUpTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    cardUpTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    cardUpTime.EntityData.Children = types.NewOrderedMap()
-    cardUpTime.EntityData.Leafs = types.NewOrderedMap()
-    cardUpTime.EntityData.Leafs.Append("time-in-seconds", types.YLeaf{"TimeInSeconds", cardUpTime.TimeInSeconds})
-    cardUpTime.EntityData.Leafs.Append("time-in-nano-seconds", types.YLeaf{"TimeInNanoSeconds", cardUpTime.TimeInNanoSeconds})
-
-    cardUpTime.EntityData.YListKeys = []string {}
-
-    return &(cardUpTime.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_EnvSensorInfoXml
-// Environment sensor info XML
-type Inventory_Entities_Entity_Attributes_EnvSensorInfoXml struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Device Name. The type is string with length: 0..50.
-    Description interface{}
-
-    // Units of variable being read. The type is Unit.
-    Units interface{}
-
-    // Current reading of sensor Displays in decimal(ex 1.234) for powersupply
-    // sensor type. The type is string with length: 0..50.
-    Value interface{}
-
-    // Sensor data type. The type is SensorData.
-    DataType interface{}
-
-    // Sensor operation state. The type is SensorStatus.
-    Status interface{}
-
-    // Sensor value update rate; set to 0 if sensor value is updated and evaluated
-    // immediately. The type is interface{} with range: 0..4294967295.
-    UpdateRate interface{}
-
-    // Threshold information.
-    Threshold Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold
-}
-
-func (envSensorInfoXml *Inventory_Entities_Entity_Attributes_EnvSensorInfoXml) GetEntityData() *types.CommonEntityData {
-    envSensorInfoXml.EntityData.YFilter = envSensorInfoXml.YFilter
-    envSensorInfoXml.EntityData.YangName = "env-sensor-info-xml"
-    envSensorInfoXml.EntityData.BundleName = "cisco_ios_xr"
-    envSensorInfoXml.EntityData.ParentYangName = "attributes"
-    envSensorInfoXml.EntityData.SegmentPath = "env-sensor-info-xml"
-    envSensorInfoXml.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + envSensorInfoXml.EntityData.SegmentPath
-    envSensorInfoXml.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    envSensorInfoXml.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    envSensorInfoXml.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    envSensorInfoXml.EntityData.Children = types.NewOrderedMap()
-    envSensorInfoXml.EntityData.Children.Append("threshold", types.YChild{"Threshold", &envSensorInfoXml.Threshold})
-    envSensorInfoXml.EntityData.Leafs = types.NewOrderedMap()
-    envSensorInfoXml.EntityData.Leafs.Append("description", types.YLeaf{"Description", envSensorInfoXml.Description})
-    envSensorInfoXml.EntityData.Leafs.Append("units", types.YLeaf{"Units", envSensorInfoXml.Units})
-    envSensorInfoXml.EntityData.Leafs.Append("value", types.YLeaf{"Value", envSensorInfoXml.Value})
-    envSensorInfoXml.EntityData.Leafs.Append("data-type", types.YLeaf{"DataType", envSensorInfoXml.DataType})
-    envSensorInfoXml.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfoXml.Status})
-    envSensorInfoXml.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfoXml.UpdateRate})
-
-    envSensorInfoXml.EntityData.YListKeys = []string {}
-
-    return &(envSensorInfoXml.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold
-// Threshold information
-type Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Array of threshold. The type is slice of
-    // Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray.
-    ThresholdArray []*Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray
-}
-
-func (threshold *Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold) GetEntityData() *types.CommonEntityData {
-    threshold.EntityData.YFilter = threshold.YFilter
-    threshold.EntityData.YangName = "threshold"
-    threshold.EntityData.BundleName = "cisco_ios_xr"
-    threshold.EntityData.ParentYangName = "env-sensor-info-xml"
-    threshold.EntityData.SegmentPath = "threshold"
-    threshold.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/env-sensor-info-xml/" + threshold.EntityData.SegmentPath
-    threshold.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    threshold.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    threshold.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    threshold.EntityData.Children = types.NewOrderedMap()
-    threshold.EntityData.Children.Append("threshold-array", types.YChild{"ThresholdArray", nil})
-    for i := range threshold.ThresholdArray {
-        types.SetYListKey(threshold.ThresholdArray[i], i)
-        threshold.EntityData.Children.Append(types.GetSegmentPath(threshold.ThresholdArray[i]), types.YChild{"ThresholdArray", threshold.ThresholdArray[i]})
-    }
-    threshold.EntityData.Leafs = types.NewOrderedMap()
-
-    threshold.EntityData.YListKeys = []string {}
-
-    return &(threshold.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray
-// Array of threshold
-type Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Indicates minor, major, critical severities. The type is ThresholdSeverity.
-    ThresholdSeverity interface{}
-
-    // Indicates relation between sensor value and threshold. The type is
-    // ThresholdRelation.
-    ThresholdRelation interface{}
-
-    // Value of the configured threshold. The type is interface{} with range:
-    // -2147483648..2147483647.
-    ThresholdValue interface{}
-
-    // Threshold name. The type is string with length: 0..50.
-    ThresholdName interface{}
-}
-
-func (thresholdArray *Inventory_Entities_Entity_Attributes_EnvSensorInfoXml_Threshold_ThresholdArray) GetEntityData() *types.CommonEntityData {
-    thresholdArray.EntityData.YFilter = thresholdArray.YFilter
-    thresholdArray.EntityData.YangName = "threshold-array"
-    thresholdArray.EntityData.BundleName = "cisco_ios_xr"
-    thresholdArray.EntityData.ParentYangName = "threshold"
-    thresholdArray.EntityData.SegmentPath = "threshold-array" + types.AddNoKeyToken(thresholdArray)
-    thresholdArray.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/env-sensor-info-xml/threshold/" + thresholdArray.EntityData.SegmentPath
-    thresholdArray.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    thresholdArray.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    thresholdArray.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    thresholdArray.EntityData.Children = types.NewOrderedMap()
-    thresholdArray.EntityData.Leafs = types.NewOrderedMap()
-    thresholdArray.EntityData.Leafs.Append("threshold-severity", types.YLeaf{"ThresholdSeverity", thresholdArray.ThresholdSeverity})
-    thresholdArray.EntityData.Leafs.Append("threshold-relation", types.YLeaf{"ThresholdRelation", thresholdArray.ThresholdRelation})
-    thresholdArray.EntityData.Leafs.Append("threshold-value", types.YLeaf{"ThresholdValue", thresholdArray.ThresholdValue})
-    thresholdArray.EntityData.Leafs.Append("threshold-name", types.YLeaf{"ThresholdName", thresholdArray.ThresholdName})
-
-    thresholdArray.EntityData.YListKeys = []string {}
-
-    return &(thresholdArray.EntityData)
 }
 
 // Inventory_Entities_Entity_Attributes_InvAssetBag
@@ -1533,514 +555,73 @@ func (invAssetBag *Inventory_Entities_Entity_Attributes_InvAssetBag) GetEntityDa
     return &(invAssetBag.EntityData)
 }
 
-// Inventory_Entities_Entity_Attributes_EnvSensorInfo
-// Environment sensor info
-type Inventory_Entities_Entity_Attributes_EnvSensorInfo struct {
+// Inventory_Entities_Entity_Subentities
+// SubEntities Table
+type Inventory_Entities_Entity_Subentities struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Sensor valid bitmap. The type is interface{} with range: 0..4294967295.
-    FieldValidityBitmap interface{}
-
-    // Device Name. The type is string with length: 0..50.
-    DeviceDescription interface{}
-
-    // Units of variable being read. The type is string with length: 0..50.
-    Units interface{}
-
-    // Identifier for this device. The type is interface{} with range:
-    // 0..4294967295.
-    DeviceId interface{}
-
-    // Current reading of sensor. The type is interface{} with range:
-    // 0..4294967295.
-    Value interface{}
-
-    // Indicates threshold violation. The type is interface{} with range:
-    // 0..4294967295.
-    AlarmType interface{}
-
-    // Sensor data type enums. The type is interface{} with range: 0..4294967295.
-    DataType interface{}
-
-    // Sensor scale enums. The type is interface{} with range: 0..4294967295.
-    Scale interface{}
-
-    // Sensor precision range. The type is interface{} with range: 0..4294967295.
-    Precision interface{}
-
-    // Sensor operation state enums. The type is interface{} with range:
-    // 0..4294967295.
-    Status interface{}
-
-    // Age of the sensor value; set to the current time if directly access the
-    // value from sensor. The type is interface{} with range: 0..4294967295.
-    AgeTimeStamp interface{}
-
-    // Sensor value update rate;set to 0 if sensor value is updated and evaluated
-    // immediately. The type is interface{} with range: 0..4294967295.
-    UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
+    // Subentity name. The type is slice of
+    // Inventory_Entities_Entity_Subentities_Subentity.
+    Subentity []*Inventory_Entities_Entity_Subentities_Subentity
 }
 
-func (envSensorInfo *Inventory_Entities_Entity_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
-    envSensorInfo.EntityData.YFilter = envSensorInfo.YFilter
-    envSensorInfo.EntityData.YangName = "env-sensor-info"
-    envSensorInfo.EntityData.BundleName = "cisco_ios_xr"
-    envSensorInfo.EntityData.ParentYangName = "attributes"
-    envSensorInfo.EntityData.SegmentPath = "env-sensor-info"
-    envSensorInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + envSensorInfo.EntityData.SegmentPath
-    envSensorInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    envSensorInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    envSensorInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (subentities *Inventory_Entities_Entity_Subentities) GetEntityData() *types.CommonEntityData {
+    subentities.EntityData.YFilter = subentities.YFilter
+    subentities.EntityData.YangName = "subentities"
+    subentities.EntityData.BundleName = "cisco_ios_xr"
+    subentities.EntityData.ParentYangName = "entity"
+    subentities.EntityData.SegmentPath = "subentities"
+    subentities.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/" + subentities.EntityData.SegmentPath
+    subentities.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subentities.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subentities.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    envSensorInfo.EntityData.Children = types.NewOrderedMap()
-    envSensorInfo.EntityData.Leafs = types.NewOrderedMap()
-    envSensorInfo.EntityData.Leafs.Append("field-validity-bitmap", types.YLeaf{"FieldValidityBitmap", envSensorInfo.FieldValidityBitmap})
-    envSensorInfo.EntityData.Leafs.Append("device-description", types.YLeaf{"DeviceDescription", envSensorInfo.DeviceDescription})
-    envSensorInfo.EntityData.Leafs.Append("units", types.YLeaf{"Units", envSensorInfo.Units})
-    envSensorInfo.EntityData.Leafs.Append("device-id", types.YLeaf{"DeviceId", envSensorInfo.DeviceId})
-    envSensorInfo.EntityData.Leafs.Append("value", types.YLeaf{"Value", envSensorInfo.Value})
-    envSensorInfo.EntityData.Leafs.Append("alarm-type", types.YLeaf{"AlarmType", envSensorInfo.AlarmType})
-    envSensorInfo.EntityData.Leafs.Append("data-type", types.YLeaf{"DataType", envSensorInfo.DataType})
-    envSensorInfo.EntityData.Leafs.Append("scale", types.YLeaf{"Scale", envSensorInfo.Scale})
-    envSensorInfo.EntityData.Leafs.Append("precision", types.YLeaf{"Precision", envSensorInfo.Precision})
-    envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
-    envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
-    envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
+    subentities.EntityData.Children = types.NewOrderedMap()
+    subentities.EntityData.Children.Append("subentity", types.YChild{"Subentity", nil})
+    for i := range subentities.Subentity {
+        subentities.EntityData.Children.Append(types.GetSegmentPath(subentities.Subentity[i]), types.YChild{"Subentity", subentities.Subentity[i]})
+    }
+    subentities.EntityData.Leafs = types.NewOrderedMap()
 
-    envSensorInfo.EntityData.YListKeys = []string {}
+    subentities.EntityData.YListKeys = []string {}
 
-    return &(envSensorInfo.EntityData)
+    return &(subentities.EntityData)
 }
 
-// Inventory_Entities_Entity_Attributes_NodeId
-// Node ID Tuple
-type Inventory_Entities_Entity_Attributes_NodeId struct {
+// Inventory_Entities_Entity_Subentities_Subentity
+// Subentity name
+type Inventory_Entities_Entity_Subentities_Subentity struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
+    YListKey string
 
-    // Node Id Tuple. The type is interface{} with range: 0..4294967295.
-    NodeId interface{}
+    // This attribute is a key. Subentity name. The type is string.
+    Name interface{}
+
+    // Subentity name. The type is string. This attribute is mandatory.
+    NameXr interface{}
 }
 
-func (nodeId *Inventory_Entities_Entity_Attributes_NodeId) GetEntityData() *types.CommonEntityData {
-    nodeId.EntityData.YFilter = nodeId.YFilter
-    nodeId.EntityData.YangName = "node-id"
-    nodeId.EntityData.BundleName = "cisco_ios_xr"
-    nodeId.EntityData.ParentYangName = "attributes"
-    nodeId.EntityData.SegmentPath = "node-id"
-    nodeId.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + nodeId.EntityData.SegmentPath
-    nodeId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nodeId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nodeId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nodeId.EntityData.Children = types.NewOrderedMap()
-    nodeId.EntityData.Leafs = types.NewOrderedMap()
-    nodeId.EntityData.Leafs.Append("node-id", types.YLeaf{"NodeId", nodeId.NodeId})
-
-    nodeId.EntityData.YListKeys = []string {}
-
-    return &(nodeId.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_InvEepromInfo
-// Inventory EDM EEPROM Information Bag
-type Inventory_Entities_Entity_Attributes_InvEepromInfo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Inventory card type. The type is interface{} with range: 0..255.
-    InvCardType interface{}
-
-    // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
-    OpaqueData interface{}
-
-    // size of the EEPROM hex data. The type is interface{} with range:
-    // 0..4294967295.
-    OpaqueDataSize interface{}
-
-    // use eeprom instead of opaque data. The type is interface{} with range:
-    // 0..4294967295.
-    HasEeprom interface{}
-
-    // A textual description of physical entity. The type is string with length:
-    // 0..255.
-    Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
-
-    // EEPROM data not from hex data.
-    Eeprom Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom
-}
-
-func (invEepromInfo *Inventory_Entities_Entity_Attributes_InvEepromInfo) GetEntityData() *types.CommonEntityData {
-    invEepromInfo.EntityData.YFilter = invEepromInfo.YFilter
-    invEepromInfo.EntityData.YangName = "inv-eeprom-info"
-    invEepromInfo.EntityData.BundleName = "cisco_ios_xr"
-    invEepromInfo.EntityData.ParentYangName = "attributes"
-    invEepromInfo.EntityData.SegmentPath = "inv-eeprom-info"
-    invEepromInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/" + invEepromInfo.EntityData.SegmentPath
-    invEepromInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    invEepromInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    invEepromInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    invEepromInfo.EntityData.Children = types.NewOrderedMap()
-    invEepromInfo.EntityData.Children.Append("eeprom", types.YChild{"Eeprom", &invEepromInfo.Eeprom})
-    invEepromInfo.EntityData.Leafs = types.NewOrderedMap()
-    invEepromInfo.EntityData.Leafs.Append("inv-card-type", types.YLeaf{"InvCardType", invEepromInfo.InvCardType})
-    invEepromInfo.EntityData.Leafs.Append("opaque-data", types.YLeaf{"OpaqueData", invEepromInfo.OpaqueData})
-    invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
-    invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
-    invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
-
-    invEepromInfo.EntityData.YListKeys = []string {}
-
-    return &(invEepromInfo.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom
-// EEPROM data not from hex data
-type Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // A textual description of physical entity. The type is string with length:
-    // 0..255.
-    Description interface{}
-
-    // IDPROM Format Revision. The type is string with length: 0..255.
-    IdpromFormatRev interface{}
-
-    // Controller family. The type is string with length: 0..255.
-    ControllerFamily interface{}
-
-    // Controller type. The type is string with length: 0..255.
-    ControllerType interface{}
-
-    // Version ID. The type is string with length: 0..255.
-    Vid interface{}
-
-    // Hardware Revision. The type is string with length: 0..255.
-    Hwid interface{}
-
-    // Product ID. The type is string with length: 0..255.
-    Pid interface{}
-
-    // UDI description. The type is string with length: 0..255.
-    UdiDescription interface{}
-
-    // UDI name. The type is string with length: 0..255.
-    UdiName interface{}
-
-    // Common Language Equipment Identifier (CLEI) code. The type is string with
-    // length: 0..255.
-    Clei interface{}
-
-    // Equipment Catalog Item (ECI) number. The type is string with length:
-    // 0..255.
-    Eci interface{}
-
-    // Top assembly part number. The type is string with length: 0..255.
-    TopAssemPartNum interface{}
-
-    // Top assembly revision number. The type is string with length: 0..255.
-    TopAssemVid interface{}
-
-    // PCA number. The type is string with length: 0..255.
-    PcaNum interface{}
-
-    // PCA revision ID. The type is string with length: 0..255.
-    Pcavid interface{}
-
-    // Chassis serial number. The type is string with length: 0..255.
-    ChassisSid interface{}
-
-    // Deviation Number # 1. The type is string with length: 0..255.
-    DevNum1 interface{}
-
-    // Deviation Number # 2. The type is string with length: 0..255.
-    DevNum2 interface{}
-
-    // Deviation Number # 3. The type is string with length: 0..255.
-    DevNum3 interface{}
-
-    // Deviation Number # 4. The type is string with length: 0..255.
-    DevNum4 interface{}
-
-    // Deviation Number # 5. The type is string with length: 0..255.
-    DevNum5 interface{}
-
-    // Deviation Number # 6. The type is string with length: 0..255.
-    DevNum6 interface{}
-
-    // Deviation Number # 7. The type is string with length: 0..255.
-    DevNum7 interface{}
-
-    // Manufacturing Test Data. The type is string with length: 0..255.
-    ManuTestData interface{}
-
-    // Asset ID. The type is string with length: 0..255.
-    AssetId interface{}
-
-    // Asset Alias. The type is string with length: 0..255.
-    AssetAlias interface{}
-
-    // Base Mac Address #1. The type is string with length: 0..255.
-    BaseMacAddress1 interface{}
-
-    // Mac Address Block Size #1. The type is string with length: 0..255.
-    MacAddBlkSize1 interface{}
-
-    // Base Mac Address #2. The type is string with length: 0..255.
-    BaseMacAddress2 interface{}
-
-    // Mac Address Block Size #2. The type is string with length: 0..255.
-    MacAddBlkSize2 interface{}
-
-    // Base Mac Address #3. The type is string with length: 0..255.
-    BaseMacAddress3 interface{}
-
-    // Mac Address Block Size #3. The type is string with length: 0..255.
-    MacAddBlkSize3 interface{}
-
-    // Base Mac Address #4. The type is string with length: 0..255.
-    BaseMacAddress4 interface{}
-
-    // Mac Address Block Size #4. The type is string with length: 0..255.
-    MacAddBlkSize4 interface{}
-
-    // PCB Serial Number. The type is string with length: 0..255.
-    PcbSerialNum interface{}
-
-    // Power Supply Type. The type is string with length: 0..255.
-    PowerSupplyType interface{}
-
-    // Power Consumption. The type is string with length: 0..255.
-    PowerConsumption interface{}
-
-    // Block Signature. The type is string with length: 0..255.
-    BlockSignature interface{}
-
-    // Block Version. The type is string with length: 0..255.
-    BlockVersion interface{}
-
-    // Block Length. The type is string with length: 0..255.
-    BlockLength interface{}
-
-    // Block Checksum. The type is string with length: 0..255.
-    BlockChecksum interface{}
-
-    // EEPROM Size. The type is string with length: 0..255.
-    EepromSize interface{}
-
-    // Block Count. The type is string with length: 0..255.
-    BlockCount interface{}
-
-    // FRU Major Type. The type is string with length: 0..255.
-    FruMajorType interface{}
-
-    // FRU Minor Type. The type is string with length: 0..255.
-    FruMinorType interface{}
-
-    // OEM String. The type is string with length: 0..255.
-    OemString interface{}
-
-    // Product ID. The type is string with length: 0..255.
-    ProductId interface{}
-
-    // Serial Number. The type is string with length: 0..255.
-    SerialNumber interface{}
-
-    // Part Number. The type is string with length: 0..255.
-    PartNumber interface{}
-
-    // Part Revision. The type is string with length: 0..255.
-    PartRevision interface{}
-
-    // MFG Deviation. The type is string with length: 0..255.
-    MfgDeviation interface{}
-
-    // Hardware Version. The type is string with length: 0..255.
-    HwVersion interface{}
-
-    // MFG Bits. The type is string with length: 0..255.
-    MfgBits interface{}
-
-    // Engineer Use. The type is string with length: 0..255.
-    EngineerUse interface{}
-
-    // SNMP OID. The type is string with length: 0..255.
-    Snmpoid interface{}
-
-    // RMA Code. The type is string with length: 0..255.
-    RmaCode interface{}
-
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
-    // RMA Data.
-    Rma Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom_Rma
-}
-
-func (eeprom *Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom) GetEntityData() *types.CommonEntityData {
-    eeprom.EntityData.YFilter = eeprom.YFilter
-    eeprom.EntityData.YangName = "eeprom"
-    eeprom.EntityData.BundleName = "cisco_ios_xr"
-    eeprom.EntityData.ParentYangName = "inv-eeprom-info"
-    eeprom.EntityData.SegmentPath = "eeprom"
-    eeprom.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/inv-eeprom-info/" + eeprom.EntityData.SegmentPath
-    eeprom.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    eeprom.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    eeprom.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    eeprom.EntityData.Children = types.NewOrderedMap()
-    eeprom.EntityData.Children.Append("rma", types.YChild{"Rma", &eeprom.Rma})
-    eeprom.EntityData.Leafs = types.NewOrderedMap()
-    eeprom.EntityData.Leafs.Append("description", types.YLeaf{"Description", eeprom.Description})
-    eeprom.EntityData.Leafs.Append("idprom-format-rev", types.YLeaf{"IdpromFormatRev", eeprom.IdpromFormatRev})
-    eeprom.EntityData.Leafs.Append("controller-family", types.YLeaf{"ControllerFamily", eeprom.ControllerFamily})
-    eeprom.EntityData.Leafs.Append("controller-type", types.YLeaf{"ControllerType", eeprom.ControllerType})
-    eeprom.EntityData.Leafs.Append("vid", types.YLeaf{"Vid", eeprom.Vid})
-    eeprom.EntityData.Leafs.Append("hwid", types.YLeaf{"Hwid", eeprom.Hwid})
-    eeprom.EntityData.Leafs.Append("pid", types.YLeaf{"Pid", eeprom.Pid})
-    eeprom.EntityData.Leafs.Append("udi-description", types.YLeaf{"UdiDescription", eeprom.UdiDescription})
-    eeprom.EntityData.Leafs.Append("udi-name", types.YLeaf{"UdiName", eeprom.UdiName})
-    eeprom.EntityData.Leafs.Append("clei", types.YLeaf{"Clei", eeprom.Clei})
-    eeprom.EntityData.Leafs.Append("eci", types.YLeaf{"Eci", eeprom.Eci})
-    eeprom.EntityData.Leafs.Append("top-assem-part-num", types.YLeaf{"TopAssemPartNum", eeprom.TopAssemPartNum})
-    eeprom.EntityData.Leafs.Append("top-assem-vid", types.YLeaf{"TopAssemVid", eeprom.TopAssemVid})
-    eeprom.EntityData.Leafs.Append("pca-num", types.YLeaf{"PcaNum", eeprom.PcaNum})
-    eeprom.EntityData.Leafs.Append("pcavid", types.YLeaf{"Pcavid", eeprom.Pcavid})
-    eeprom.EntityData.Leafs.Append("chassis-sid", types.YLeaf{"ChassisSid", eeprom.ChassisSid})
-    eeprom.EntityData.Leafs.Append("dev-num1", types.YLeaf{"DevNum1", eeprom.DevNum1})
-    eeprom.EntityData.Leafs.Append("dev-num2", types.YLeaf{"DevNum2", eeprom.DevNum2})
-    eeprom.EntityData.Leafs.Append("dev-num3", types.YLeaf{"DevNum3", eeprom.DevNum3})
-    eeprom.EntityData.Leafs.Append("dev-num4", types.YLeaf{"DevNum4", eeprom.DevNum4})
-    eeprom.EntityData.Leafs.Append("dev-num5", types.YLeaf{"DevNum5", eeprom.DevNum5})
-    eeprom.EntityData.Leafs.Append("dev-num6", types.YLeaf{"DevNum6", eeprom.DevNum6})
-    eeprom.EntityData.Leafs.Append("dev-num7", types.YLeaf{"DevNum7", eeprom.DevNum7})
-    eeprom.EntityData.Leafs.Append("manu-test-data", types.YLeaf{"ManuTestData", eeprom.ManuTestData})
-    eeprom.EntityData.Leafs.Append("asset-id", types.YLeaf{"AssetId", eeprom.AssetId})
-    eeprom.EntityData.Leafs.Append("asset-alias", types.YLeaf{"AssetAlias", eeprom.AssetAlias})
-    eeprom.EntityData.Leafs.Append("base-mac-address1", types.YLeaf{"BaseMacAddress1", eeprom.BaseMacAddress1})
-    eeprom.EntityData.Leafs.Append("mac-add-blk-size1", types.YLeaf{"MacAddBlkSize1", eeprom.MacAddBlkSize1})
-    eeprom.EntityData.Leafs.Append("base-mac-address2", types.YLeaf{"BaseMacAddress2", eeprom.BaseMacAddress2})
-    eeprom.EntityData.Leafs.Append("mac-add-blk-size2", types.YLeaf{"MacAddBlkSize2", eeprom.MacAddBlkSize2})
-    eeprom.EntityData.Leafs.Append("base-mac-address3", types.YLeaf{"BaseMacAddress3", eeprom.BaseMacAddress3})
-    eeprom.EntityData.Leafs.Append("mac-add-blk-size3", types.YLeaf{"MacAddBlkSize3", eeprom.MacAddBlkSize3})
-    eeprom.EntityData.Leafs.Append("base-mac-address4", types.YLeaf{"BaseMacAddress4", eeprom.BaseMacAddress4})
-    eeprom.EntityData.Leafs.Append("mac-add-blk-size4", types.YLeaf{"MacAddBlkSize4", eeprom.MacAddBlkSize4})
-    eeprom.EntityData.Leafs.Append("pcb-serial-num", types.YLeaf{"PcbSerialNum", eeprom.PcbSerialNum})
-    eeprom.EntityData.Leafs.Append("power-supply-type", types.YLeaf{"PowerSupplyType", eeprom.PowerSupplyType})
-    eeprom.EntityData.Leafs.Append("power-consumption", types.YLeaf{"PowerConsumption", eeprom.PowerConsumption})
-    eeprom.EntityData.Leafs.Append("block-signature", types.YLeaf{"BlockSignature", eeprom.BlockSignature})
-    eeprom.EntityData.Leafs.Append("block-version", types.YLeaf{"BlockVersion", eeprom.BlockVersion})
-    eeprom.EntityData.Leafs.Append("block-length", types.YLeaf{"BlockLength", eeprom.BlockLength})
-    eeprom.EntityData.Leafs.Append("block-checksum", types.YLeaf{"BlockChecksum", eeprom.BlockChecksum})
-    eeprom.EntityData.Leafs.Append("eeprom-size", types.YLeaf{"EepromSize", eeprom.EepromSize})
-    eeprom.EntityData.Leafs.Append("block-count", types.YLeaf{"BlockCount", eeprom.BlockCount})
-    eeprom.EntityData.Leafs.Append("fru-major-type", types.YLeaf{"FruMajorType", eeprom.FruMajorType})
-    eeprom.EntityData.Leafs.Append("fru-minor-type", types.YLeaf{"FruMinorType", eeprom.FruMinorType})
-    eeprom.EntityData.Leafs.Append("oem-string", types.YLeaf{"OemString", eeprom.OemString})
-    eeprom.EntityData.Leafs.Append("product-id", types.YLeaf{"ProductId", eeprom.ProductId})
-    eeprom.EntityData.Leafs.Append("serial-number", types.YLeaf{"SerialNumber", eeprom.SerialNumber})
-    eeprom.EntityData.Leafs.Append("part-number", types.YLeaf{"PartNumber", eeprom.PartNumber})
-    eeprom.EntityData.Leafs.Append("part-revision", types.YLeaf{"PartRevision", eeprom.PartRevision})
-    eeprom.EntityData.Leafs.Append("mfg-deviation", types.YLeaf{"MfgDeviation", eeprom.MfgDeviation})
-    eeprom.EntityData.Leafs.Append("hw-version", types.YLeaf{"HwVersion", eeprom.HwVersion})
-    eeprom.EntityData.Leafs.Append("mfg-bits", types.YLeaf{"MfgBits", eeprom.MfgBits})
-    eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
-    eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
-    eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
-
-    eeprom.EntityData.YListKeys = []string {}
-
-    return &(eeprom.EntityData)
-}
-
-// Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom_Rma
-// RMA Data
-type Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom_Rma struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Test history. The type is string with length: 0..255.
-    TestHistory interface{}
-
-    // RMA tracking number format is N-N-N. The type is string with length:
-    // 0..255.
-    RmaNumber interface{}
-
-    // RMA history. The type is string with length: 0..255.
-    RmaHistory interface{}
-}
-
-func (rma *Inventory_Entities_Entity_Attributes_InvEepromInfo_Eeprom_Rma) GetEntityData() *types.CommonEntityData {
-    rma.EntityData.YFilter = rma.YFilter
-    rma.EntityData.YangName = "rma"
-    rma.EntityData.BundleName = "cisco_ios_xr"
-    rma.EntityData.ParentYangName = "eeprom"
-    rma.EntityData.SegmentPath = "rma"
-    rma.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/attributes/inv-eeprom-info/eeprom/" + rma.EntityData.SegmentPath
-    rma.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    rma.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    rma.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    rma.EntityData.Children = types.NewOrderedMap()
-    rma.EntityData.Leafs = types.NewOrderedMap()
-    rma.EntityData.Leafs.Append("test-history", types.YLeaf{"TestHistory", rma.TestHistory})
-    rma.EntityData.Leafs.Append("rma-number", types.YLeaf{"RmaNumber", rma.RmaNumber})
-    rma.EntityData.Leafs.Append("rma-history", types.YLeaf{"RmaHistory", rma.RmaHistory})
-
-    rma.EntityData.YListKeys = []string {}
-
-    return &(rma.EntityData)
+func (subentity *Inventory_Entities_Entity_Subentities_Subentity) GetEntityData() *types.CommonEntityData {
+    subentity.EntityData.YFilter = subentity.YFilter
+    subentity.EntityData.YangName = "subentity"
+    subentity.EntityData.BundleName = "cisco_ios_xr"
+    subentity.EntityData.ParentYangName = "subentities"
+    subentity.EntityData.SegmentPath = "subentity" + types.AddKeyToken(subentity.Name, "name")
+    subentity.EntityData.AbsolutePath = "Cisco-IOS-XR-invmgr-oper:inventory/entities/entity/subentities/" + subentity.EntityData.SegmentPath
+    subentity.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    subentity.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    subentity.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    subentity.EntityData.Children = types.NewOrderedMap()
+    subentity.EntityData.Leafs = types.NewOrderedMap()
+    subentity.EntityData.Leafs.Append("name", types.YLeaf{"Name", subentity.Name})
+    subentity.EntityData.Leafs.Append("name-xr", types.YLeaf{"NameXr", subentity.NameXr})
+
+    subentity.EntityData.YListKeys = []string {"Name"}
+
+    return &(subentity.EntityData)
 }
 
 // Inventory_Racks
@@ -2084,7 +665,7 @@ type Inventory_Racks_Rack struct {
     YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity information.
@@ -2165,7 +746,7 @@ type Inventory_Racks_Rack_Entity_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 1.
@@ -2238,7 +819,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1 struct {
     YListKey string
 
     // This attribute is a key. TSI1. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 2.
@@ -2312,7 +893,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2 struct {
     YListKey string
 
     // This attribute is a key. TSI2. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 3.
@@ -2386,7 +967,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3 struct {
     YListKey string
 
     // This attribute is a key. TSI3. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 4.
@@ -2460,7 +1041,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI4. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 5.
@@ -2534,7 +1115,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI5. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 6.
@@ -2608,7 +1189,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI6. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 7.
@@ -2682,7 +1263,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI7. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 8.
@@ -2756,7 +1337,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI8. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 9.
@@ -2830,7 +1411,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI9. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 10.
@@ -2904,7 +1485,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI10. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 11.
@@ -2978,7 +1559,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     YListKey string
 
     // This attribute is a key. TSI11. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -3145,8 +1726,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -3158,10 +1739,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -3203,7 +1780,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -3257,22 +1833,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -3300,10 +1860,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -4232,7 +2788,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -4246,25 +2802,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvEepromInfo_Eeprom
@@ -4289,12 +2826,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -4478,10 +3009,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -4556,7 +3083,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -4741,8 +3267,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -4754,10 +3280,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -4799,7 +3321,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -4853,22 +3374,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -4896,10 +3401,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -5828,7 +4329,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -5842,25 +4343,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvEepromInfo_Eeprom
@@ -5885,12 +4367,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -6074,10 +4550,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -6152,7 +4624,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -6337,8 +4808,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -6350,10 +4821,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -6395,7 +4862,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -6449,22 +4915,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -6492,10 +4942,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -7424,7 +5870,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -7438,25 +5884,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvEepromInfo_Eeprom
@@ -7481,12 +5908,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -7670,10 +6091,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -7748,7 +6165,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -7933,8 +6349,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -7946,10 +6362,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -7991,7 +6403,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -8045,22 +6456,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -8088,10 +6483,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -9020,7 +7411,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -9034,25 +7425,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvEepromInfo_Eeprom
@@ -9077,12 +7449,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -9266,10 +7632,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -9344,7 +7706,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -9529,8 +7890,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -9542,10 +7903,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -9587,7 +7944,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -9641,22 +7997,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -9684,10 +8024,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -10616,7 +8952,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -10630,25 +8966,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvEepromInfo_Eeprom
@@ -10673,12 +8990,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -10862,10 +9173,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -10940,7 +9247,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -11125,8 +9431,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -11138,10 +9444,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -11183,7 +9485,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -11237,22 +9538,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -11280,10 +9565,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -12212,7 +10493,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -12226,25 +10507,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvEepromInfo_Eeprom
@@ -12269,12 +10531,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -12458,10 +10714,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -12536,7 +10788,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -12721,8 +10972,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -12734,10 +10985,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -12779,7 +11026,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -12833,22 +11079,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -12876,10 +11106,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -13808,7 +12034,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -13822,25 +12048,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvEepromInfo_Eeprom
@@ -13865,12 +12072,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -14054,10 +12255,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -14132,7 +12329,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -14317,8 +12513,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -14330,10 +12526,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -14375,7 +12567,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -14429,22 +12620,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -14472,10 +12647,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -15404,7 +13575,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -15418,25 +13589,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvEepromInfo_Eeprom
@@ -15461,12 +13613,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -15650,10 +13796,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -15728,7 +13870,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -15913,8 +14054,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -15926,10 +14067,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -15971,7 +14108,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -16025,22 +14161,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -16068,10 +14188,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -17000,7 +15116,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -17014,25 +15130,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvEepromInfo_Eeprom
@@ -17057,12 +15154,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -17246,10 +15337,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribute
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -17324,7 +15411,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -17509,8 +15595,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicB
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -17522,10 +15608,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicB
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -17567,7 +15649,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attrib
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -17621,22 +15702,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSensor
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -17664,10 +15729,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -18596,7 +16657,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEeprom
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -18610,25 +16671,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEeprom
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepromInfo_Eeprom
@@ -18653,12 +16695,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attr
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -18842,10 +16878,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEeprom
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -18920,7 +16952,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -19105,8 +17136,8 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -19118,10 +17149,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -19163,7 +17190,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvBas
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -19217,22 +17243,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfo struct
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -19260,10 +17270,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_EnvS
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -20192,7 +18198,7 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo struct
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -20206,25 +18212,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo struct
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eeprom
@@ -20249,12 +18236,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvE
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -20438,10 +18419,6 @@ type Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eeprom
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -20516,7 +18493,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Tsi1s_Tsi1_Attributes_InvEepromIn
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -20701,8 +18677,8 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -20714,10 +18690,6 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -20759,7 +18731,6 @@ func (invBasicBag *Inventory_Racks_Rack_Entity_Slot_Attributes_InvBasicBag) GetE
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -20813,22 +18784,6 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfo struct {
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -20856,10 +18811,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Entity_Slot_Attributes_EnvSensorInfo) 
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -21788,7 +19739,7 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo struct {
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -21802,25 +19753,6 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo struct {
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo_Eeprom
@@ -21845,12 +19777,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo) 
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -22034,10 +19960,6 @@ type Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo_Eeprom struct {
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -22112,7 +20034,6 @@ func (eeprom *Inventory_Racks_Rack_Entity_Slot_Attributes_InvEepromInfo_Eeprom) 
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -22199,7 +20120,7 @@ type Inventory_Racks_Rack_Powershelf_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 1.
@@ -22272,7 +20193,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1 struct {
     YListKey string
 
     // This attribute is a key. TSI1. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 2.
@@ -22346,7 +20267,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2 struct {
     YListKey string
 
     // This attribute is a key. TSI2. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 3.
@@ -22420,7 +20341,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3 struc
     YListKey string
 
     // This attribute is a key. TSI3. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 4.
@@ -22494,7 +20415,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI4. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 5.
@@ -22568,7 +20489,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI5. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 6.
@@ -22642,7 +20563,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI6. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 7.
@@ -22716,7 +20637,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI7. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 8.
@@ -22790,7 +20711,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI8. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 9.
@@ -22864,7 +20785,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI9. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 10.
@@ -22938,7 +20859,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI10. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 11.
@@ -23012,7 +20933,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     YListKey string
 
     // This attribute is a key. TSI11. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -23179,8 +21100,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -23192,10 +21113,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -23237,7 +21154,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -23291,22 +21207,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -23334,10 +21234,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -24266,7 +22162,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -24280,25 +22176,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvEepromInfo_Eeprom
@@ -24323,12 +22200,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -24512,10 +22383,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -24590,7 +22457,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -24775,8 +22641,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -24788,10 +22654,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -24833,7 +22695,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -24887,22 +22748,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -24930,10 +22775,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -25862,7 +23703,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -25876,25 +23717,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvEepromInfo_Eeprom
@@ -25919,12 +23741,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -26108,10 +23924,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -26186,7 +23998,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -26371,8 +24182,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -26384,10 +24195,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -26429,7 +24236,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -26483,22 +24289,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -26526,10 +24316,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -27458,7 +25244,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -27472,25 +25258,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvEepromInfo_Eeprom
@@ -27515,12 +25282,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -27704,10 +25465,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -27782,7 +25539,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -27967,8 +25723,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -27980,10 +25736,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -28025,7 +25777,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -28079,22 +25830,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -28122,10 +25857,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -29054,7 +26785,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -29068,25 +26799,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvEepromInfo_Eeprom
@@ -29111,12 +26823,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -29300,10 +27006,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -29378,7 +27080,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -29563,8 +27264,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -29576,10 +27277,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -29621,7 +27318,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -29675,22 +27371,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -29718,10 +27398,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -30650,7 +28326,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -30664,25 +28340,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvEepromInfo_Eeprom
@@ -30707,12 +28364,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -30896,10 +28547,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -30974,7 +28621,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -31159,8 +28805,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -31172,10 +28818,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -31217,7 +28859,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -31271,22 +28912,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -31314,10 +28939,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -32246,7 +29867,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -32260,25 +29881,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvEepromInfo_Eeprom
@@ -32303,12 +29905,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -32492,10 +30088,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -32570,7 +30162,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -32755,8 +30346,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -32768,10 +30359,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -32813,7 +30400,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -32867,22 +30453,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -32910,10 +30480,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -33842,7 +31408,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -33856,25 +31422,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvEepromInfo_Eeprom
@@ -33899,12 +31446,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -34088,10 +31629,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -34166,7 +31703,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -34351,8 +31887,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -34364,10 +31900,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -34409,7 +31941,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -34463,22 +31994,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -34506,10 +32021,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -35438,7 +32949,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -35452,25 +32963,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvEepromInfo_Eeprom
@@ -35495,12 +32987,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -35684,10 +33170,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -35762,7 +33244,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -35947,8 +33428,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -35960,10 +33441,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -36005,7 +33482,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Ts
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -36059,22 +33535,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -36102,10 +33562,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -37034,7 +34490,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -37048,25 +34504,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvEepromInfo_Eeprom
@@ -37091,12 +34528,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -37280,10 +34711,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attri
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -37358,7 +34785,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_T
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -37543,8 +34969,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBa
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -37556,10 +34982,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBa
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -37601,7 +35023,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_At
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -37655,22 +35076,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSe
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -37698,10 +35103,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -38630,7 +36031,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEe
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -38644,25 +36045,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEe
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepromInfo_Eeprom
@@ -38687,12 +36069,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -38876,10 +36252,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEe
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -38954,7 +36326,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attribu
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -39139,8 +36510,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag stru
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -39152,10 +36523,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag stru
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -39197,7 +36564,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_In
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -39251,22 +36617,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfo st
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -39294,10 +36644,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -40226,7 +37572,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo st
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -40240,25 +37586,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo st
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eeprom
@@ -40283,12 +37610,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -40472,10 +37793,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Ee
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -40550,7 +37867,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Tsi1s_Tsi1_Attributes_InvEepr
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -40735,8 +38051,8 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -40748,10 +38064,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -40793,7 +38105,6 @@ func (invBasicBag *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvBasicBag) 
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -40847,22 +38158,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorInfo struct {
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -40890,10 +38185,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_EnvSensorIn
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -41822,7 +39113,7 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo struct {
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -41836,25 +39127,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo struct {
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo_Eeprom
@@ -41879,12 +39151,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromIn
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -42068,10 +39334,6 @@ type Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo_Eeprom struct
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -42146,7 +39408,6 @@ func (eeprom *Inventory_Racks_Rack_Powershelf_Slot_Attributes_InvEepromInfo_Eepr
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -42233,7 +39494,7 @@ type Inventory_Racks_Rack_Fantray_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 1.
@@ -42306,7 +39567,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1 struct {
     YListKey string
 
     // This attribute is a key. TSI1. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 2.
@@ -42380,7 +39641,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2 struct {
     YListKey string
 
     // This attribute is a key. TSI2. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 3.
@@ -42454,7 +39715,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3 struct {
     YListKey string
 
     // This attribute is a key. TSI3. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 4.
@@ -42528,7 +39789,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI4. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 5.
@@ -42602,7 +39863,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI5. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 6.
@@ -42676,7 +39937,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI6. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 7.
@@ -42750,7 +40011,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI7. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 8.
@@ -42824,7 +40085,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI8. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 9.
@@ -42898,7 +40159,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI9. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 10.
@@ -42972,7 +40233,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI10. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Entity Level 11.
@@ -43046,7 +40307,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     YListKey string
 
     // This attribute is a key. TSI11. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Attributes.
@@ -43213,8 +40474,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -43226,10 +40487,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -43271,7 +40528,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -43325,22 +40581,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -43368,10 +40608,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -44300,7 +41536,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -44314,25 +41550,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvEepromInfo_Eeprom
@@ -44357,12 +41574,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -44546,10 +41757,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Tsi11s_Tsi11_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -44624,7 +41831,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -44809,8 +42015,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -44822,10 +42028,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -44867,7 +42069,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -44921,22 +42122,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -44964,10 +42149,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -45896,7 +43077,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -45910,25 +43091,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvEepromInfo_Eeprom
@@ -45953,12 +43115,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -46142,10 +43298,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Tsi10s_Tsi10_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -46220,7 +43372,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -46405,8 +43556,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -46418,10 +43569,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -46463,7 +43610,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -46517,22 +43663,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -46560,10 +43690,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -47492,7 +44618,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -47506,25 +44632,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvEepromInfo_Eeprom
@@ -47549,12 +44656,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -47738,10 +44839,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Tsi9s_Tsi9_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -47816,7 +44913,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -48001,8 +45097,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -48014,10 +45110,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -48059,7 +45151,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -48113,22 +45204,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -48156,10 +45231,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -49088,7 +46159,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -49102,25 +46173,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvEepromInfo_Eeprom
@@ -49145,12 +46197,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -49334,10 +46380,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Tsi8s_Tsi8_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -49412,7 +46454,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -49597,8 +46638,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -49610,10 +46651,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -49655,7 +46692,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -49709,22 +46745,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -49752,10 +46772,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -50684,7 +47700,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -50698,25 +47714,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvEepromInfo_Eeprom
@@ -50741,12 +47738,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -50930,10 +47921,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Tsi7s_Tsi7_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -51008,7 +47995,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -51193,8 +48179,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -51206,10 +48192,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -51251,7 +48233,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -51305,22 +48286,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -51348,10 +48313,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -52280,7 +49241,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -52294,25 +49255,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvEepromInfo_Eeprom
@@ -52337,12 +49279,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -52526,10 +49462,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Tsi6s_Tsi6_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -52604,7 +49536,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -52789,8 +49720,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -52802,10 +49733,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -52847,7 +49774,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -52901,22 +49827,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -52944,10 +49854,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -53876,7 +50782,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -53890,25 +50796,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvEepromInfo_Eeprom
@@ -53933,12 +50820,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -54122,10 +51003,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Tsi5s_Tsi5_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -54200,7 +51077,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -54385,8 +51261,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -54398,10 +51274,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -54443,7 +51315,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -54497,22 +51368,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -54540,10 +51395,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -55472,7 +52323,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -55486,25 +52337,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvEepromInfo_Eeprom
@@ -55529,12 +52361,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -55718,10 +52544,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Ts
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Tsi4s_Tsi4_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -55796,7 +52618,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -55981,8 +52802,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -55994,10 +52815,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -56039,7 +52856,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -56093,22 +52909,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -56136,10 +52936,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -57068,7 +53864,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -57082,25 +53878,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvEepromInfo_Eeprom
@@ -57125,12 +53902,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -57314,10 +54085,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attribut
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -57392,7 +54159,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Tsi3s_Tsi3
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -57577,8 +54343,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasic
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -57590,10 +54356,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasic
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -57635,7 +54397,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attri
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -57689,22 +54450,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSenso
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -57732,10 +54477,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -58664,7 +55405,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepro
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -58678,25 +55419,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepro
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepromInfo_Eeprom
@@ -58721,12 +55443,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Att
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -58910,10 +55626,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepro
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -58988,7 +55700,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Tsi2s_Tsi2_Attributes
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -59173,8 +55884,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct 
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -59186,10 +55897,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag struct 
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -59231,7 +55938,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvBa
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -59285,22 +55991,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfo struc
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -59328,10 +56018,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Env
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -60260,7 +56946,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo struc
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -60274,25 +56960,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo struc
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eeprom
@@ -60317,12 +56984,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_Inv
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -60506,10 +57167,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eepro
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -60584,7 +57241,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Tsi1s_Tsi1_Attributes_InvEepromI
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -60769,8 +57425,8 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -60782,10 +57438,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -60827,7 +57479,6 @@ func (invBasicBag *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvBasicBag) Get
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -60881,22 +57532,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfo struct {
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -60924,10 +57559,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Fantray_Slot_Attributes_EnvSensorInfo)
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -61856,7 +58487,7 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo struct {
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -61870,25 +58501,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo struct {
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo_Eeprom
@@ -61913,12 +58525,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo)
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -62102,10 +58708,6 @@ type Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo_Eeprom struct {
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -62180,7 +58782,6 @@ func (eeprom *Inventory_Racks_Rack_Fantray_Slot_Attributes_InvEepromInfo_Eeprom)
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 
@@ -62365,8 +58966,8 @@ type Inventory_Racks_Rack_Attributes_InvBasicBag struct {
     // 1 if UnrecognizedFRU and 0 for recognizedFRU. The type is bool.
     UnrecognizedFru interface{}
 
-    // integer value for Redundancy State if     applicable to this entity. The
-    // type is interface{} with range: -2147483648..2147483647.
+    // integer value for Redundancy State if applicable to this entity. The type
+    // is interface{} with range: -2147483648..2147483647.
     Redundancystate interface{}
 
     // 1 if ce port found, 0 if not. The type is bool.
@@ -62378,10 +58979,6 @@ type Inventory_Racks_Rack_Attributes_InvBasicBag struct {
     // Unique id for an entity. The type is interface{} with range:
     // -2147483648..2147483647.
     UniqueId interface{}
-
-    // Allocated power for an entity. The type is interface{} with range:
-    // -2147483648..2147483647.
-    AllocatedPower interface{}
 }
 
 func (invBasicBag *Inventory_Racks_Rack_Attributes_InvBasicBag) GetEntityData() *types.CommonEntityData {
@@ -62423,7 +59020,6 @@ func (invBasicBag *Inventory_Racks_Rack_Attributes_InvBasicBag) GetEntityData() 
     invBasicBag.EntityData.Leafs.Append("ceport", types.YLeaf{"Ceport", invBasicBag.Ceport})
     invBasicBag.EntityData.Leafs.Append("xr-scoped", types.YLeaf{"XrScoped", invBasicBag.XrScoped})
     invBasicBag.EntityData.Leafs.Append("unique-id", types.YLeaf{"UniqueId", invBasicBag.UniqueId})
-    invBasicBag.EntityData.Leafs.Append("allocated-power", types.YLeaf{"AllocatedPower", invBasicBag.AllocatedPower})
 
     invBasicBag.EntityData.YListKeys = []string {}
 
@@ -62477,22 +59073,6 @@ type Inventory_Racks_Rack_Attributes_EnvSensorInfo struct {
     // Sensor value update rate;set to 0 if sensor value is updated and evaluated
     // immediately. The type is interface{} with range: 0..4294967295.
     UpdateRate interface{}
-
-    // Average sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Average interface{}
-
-    // Minimum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Minimum interface{}
-
-    // Maximum Sensor value over time interval. The type is interface{} with
-    // range: -2147483648..2147483647.
-    Maximum interface{}
-
-    // Time Interval over which sensor value is monitored. The type is interface{}
-    // with range: -2147483648..2147483647.
-    Interval interface{}
 }
 
 func (envSensorInfo *Inventory_Racks_Rack_Attributes_EnvSensorInfo) GetEntityData() *types.CommonEntityData {
@@ -62520,10 +59100,6 @@ func (envSensorInfo *Inventory_Racks_Rack_Attributes_EnvSensorInfo) GetEntityDat
     envSensorInfo.EntityData.Leafs.Append("status", types.YLeaf{"Status", envSensorInfo.Status})
     envSensorInfo.EntityData.Leafs.Append("age-time-stamp", types.YLeaf{"AgeTimeStamp", envSensorInfo.AgeTimeStamp})
     envSensorInfo.EntityData.Leafs.Append("update-rate", types.YLeaf{"UpdateRate", envSensorInfo.UpdateRate})
-    envSensorInfo.EntityData.Leafs.Append("average", types.YLeaf{"Average", envSensorInfo.Average})
-    envSensorInfo.EntityData.Leafs.Append("minimum", types.YLeaf{"Minimum", envSensorInfo.Minimum})
-    envSensorInfo.EntityData.Leafs.Append("maximum", types.YLeaf{"Maximum", envSensorInfo.Maximum})
-    envSensorInfo.EntityData.Leafs.Append("interval", types.YLeaf{"Interval", envSensorInfo.Interval})
 
     envSensorInfo.EntityData.YListKeys = []string {}
 
@@ -63452,7 +60028,7 @@ type Inventory_Racks_Rack_Attributes_InvEepromInfo struct {
     InvCardType interface{}
 
     // EEPROM hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     OpaqueData interface{}
 
     // size of the EEPROM hex data. The type is interface{} with range:
@@ -63466,25 +60042,6 @@ type Inventory_Racks_Rack_Attributes_InvEepromInfo struct {
     // A textual description of physical entity. The type is string with length:
     // 0..255.
     Description interface{}
-
-    // Optics form factor. The type is interface{} with range: 0..4294967295.
-    FormFactor interface{}
-
-    // Connector type. The type is interface{} with range: 0..4294967295.
-    ConnectorType interface{}
-
-    // Otn Application Code. The type is interface{} with range: 0..4294967295.
-    OtnApplicationCode interface{}
-
-    // Sonet Application Code. The type is interface{} with range: 0..4294967295.
-    SonetApplicationCode interface{}
-
-    // Ethernet Compliance Code. The type is interface{} with range:
-    // 0..4294967295.
-    EthernetComplianceCode interface{}
-
-    // Date string in IDPROM. The type is string with length: 0..255.
-    DateString interface{}
 
     // EEPROM data not from hex data.
     Eeprom Inventory_Racks_Rack_Attributes_InvEepromInfo_Eeprom
@@ -63509,12 +60066,6 @@ func (invEepromInfo *Inventory_Racks_Rack_Attributes_InvEepromInfo) GetEntityDat
     invEepromInfo.EntityData.Leafs.Append("opaque-data-size", types.YLeaf{"OpaqueDataSize", invEepromInfo.OpaqueDataSize})
     invEepromInfo.EntityData.Leafs.Append("has-eeprom", types.YLeaf{"HasEeprom", invEepromInfo.HasEeprom})
     invEepromInfo.EntityData.Leafs.Append("description", types.YLeaf{"Description", invEepromInfo.Description})
-    invEepromInfo.EntityData.Leafs.Append("form-factor", types.YLeaf{"FormFactor", invEepromInfo.FormFactor})
-    invEepromInfo.EntityData.Leafs.Append("connector-type", types.YLeaf{"ConnectorType", invEepromInfo.ConnectorType})
-    invEepromInfo.EntityData.Leafs.Append("otn-application-code", types.YLeaf{"OtnApplicationCode", invEepromInfo.OtnApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("sonet-application-code", types.YLeaf{"SonetApplicationCode", invEepromInfo.SonetApplicationCode})
-    invEepromInfo.EntityData.Leafs.Append("ethernet-compliance-code", types.YLeaf{"EthernetComplianceCode", invEepromInfo.EthernetComplianceCode})
-    invEepromInfo.EntityData.Leafs.Append("date-string", types.YLeaf{"DateString", invEepromInfo.DateString})
 
     invEepromInfo.EntityData.YListKeys = []string {}
 
@@ -63698,10 +60249,6 @@ type Inventory_Racks_Rack_Attributes_InvEepromInfo_Eeprom struct {
     // RMA Code. The type is string with length: 0..255.
     RmaCode interface{}
 
-    // AlphaNumeric Equipment Catalog Item (ECI) number. The type is string with
-    // length: 0..255.
-    EciAlphaNumber interface{}
-
     // RMA Data.
     Rma Inventory_Racks_Rack_Attributes_InvEepromInfo_Eeprom_Rma
 }
@@ -63776,7 +60323,6 @@ func (eeprom *Inventory_Racks_Rack_Attributes_InvEepromInfo_Eeprom) GetEntityDat
     eeprom.EntityData.Leafs.Append("engineer-use", types.YLeaf{"EngineerUse", eeprom.EngineerUse})
     eeprom.EntityData.Leafs.Append("snmpoid", types.YLeaf{"Snmpoid", eeprom.Snmpoid})
     eeprom.EntityData.Leafs.Append("rma-code", types.YLeaf{"RmaCode", eeprom.RmaCode})
-    eeprom.EntityData.Leafs.Append("eci-alpha-number", types.YLeaf{"EciAlphaNumber", eeprom.EciAlphaNumber})
 
     eeprom.EntityData.YListKeys = []string {}
 

@@ -32,6 +32,26 @@ const (
     IEEE8021PriorityCodePoint_codePoint5p3d IEEE8021PriorityCodePoint = "codePoint5p3d"
 )
 
+// IEEE8021ServiceSelectorType represents example, lead to an undefined IEEE8021ServiceSelectorValue value.
+type IEEE8021ServiceSelectorType string
+
+const (
+    IEEE8021ServiceSelectorType_vlanId IEEE8021ServiceSelectorType = "vlanId"
+
+    IEEE8021ServiceSelectorType_isid IEEE8021ServiceSelectorType = "isid"
+)
+
+// IEEE8021PortAcceptableFrameTypes represents Acceptable frame types on a port.
+type IEEE8021PortAcceptableFrameTypes string
+
+const (
+    IEEE8021PortAcceptableFrameTypes_admitAll IEEE8021PortAcceptableFrameTypes = "admitAll"
+
+    IEEE8021PortAcceptableFrameTypes_admitUntaggedAndPriority IEEE8021PortAcceptableFrameTypes = "admitUntaggedAndPriority"
+
+    IEEE8021PortAcceptableFrameTypes_admitTagged IEEE8021PortAcceptableFrameTypes = "admitTagged"
+)
+
 // IEEE8021BridgePortType represents     member of an 802.1D bridge.
 type IEEE8021BridgePortType string
 
@@ -51,25 +71,5 @@ const (
     IEEE8021BridgePortType_virtualInstancePort IEEE8021BridgePortType = "virtualInstancePort"
 
     IEEE8021BridgePortType_dBridgePort IEEE8021BridgePortType = "dBridgePort"
-)
-
-// IEEE8021ServiceSelectorType represents example, lead to an undefined IEEE8021ServiceSelectorValue value.
-type IEEE8021ServiceSelectorType string
-
-const (
-    IEEE8021ServiceSelectorType_vlanId IEEE8021ServiceSelectorType = "vlanId"
-
-    IEEE8021ServiceSelectorType_isid IEEE8021ServiceSelectorType = "isid"
-)
-
-// IEEE8021PortAcceptableFrameTypes represents Acceptable frame types on a port.
-type IEEE8021PortAcceptableFrameTypes string
-
-const (
-    IEEE8021PortAcceptableFrameTypes_admitAll IEEE8021PortAcceptableFrameTypes = "admitAll"
-
-    IEEE8021PortAcceptableFrameTypes_admitUntaggedAndPriority IEEE8021PortAcceptableFrameTypes = "admitUntaggedAndPriority"
-
-    IEEE8021PortAcceptableFrameTypes_admitTagged IEEE8021PortAcceptableFrameTypes = "admitTagged"
 )
 

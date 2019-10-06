@@ -228,7 +228,7 @@ type TelemetryModelDriven_SensorGroups_SensorGroup struct {
     YListKey string
 
     // This attribute is a key. The identifier for this group. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SensorGroupIdentifier interface{}
 
     // Sensor path configuration.
@@ -363,14 +363,14 @@ type TelemetryModelDriven_Subscriptions_Subscription struct {
     YListKey string
 
     // This attribute is a key. Subscription identifier string. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SubscriptionIdentifier interface{}
 
     // Outgoing DSCP value. The type is MdtDscpValue.
     SourceQosMarking interface{}
 
     // Source address to use for streaming telemetry information. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Associate Sensor Groups with Subscription.
@@ -446,7 +446,7 @@ type TelemetryModelDriven_Subscriptions_Subscription_SensorProfiles_SensorProfil
     YListKey string
 
     // This attribute is a key. Reference to the telemetry sensor group name. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Sensorgroupid interface{}
 
     // use strict timer. The type is interface{}.
@@ -521,7 +521,7 @@ type TelemetryModelDriven_Subscriptions_Subscription_DestinationProfiles_Destina
     YListKey string
 
     // This attribute is a key. Destination Id to associate with Subscription. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     DestinationId interface{}
 }
 
@@ -649,7 +649,7 @@ type TelemetryModelDriven_DestinationGroups_DestinationGroup struct {
     YListKey string
 
     // This attribute is a key. destination group id string. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     DestinationId interface{}
 
     // Vrf for the destination group. The type is string with length: 1..32.
@@ -728,7 +728,7 @@ type TelemetryModelDriven_DestinationGroups_DestinationGroup_Ipv6Destinations_Ip
 
     // This attribute is a key. Destination IPv6 address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // This attribute is a key. destination port. The type is interface{} with
@@ -781,7 +781,8 @@ type TelemetryModelDriven_DestinationGroups_DestinationGroup_Ipv6Destinations_Ip
     // tls hostname. The type is string.
     TlsHostname interface{}
 
-    // no tls. The type is interface{}.
+    // no tls. The type is interface{} with range: 0..4294967295. The default
+    // value is 0.
     NoTls interface{}
 
     // udp packetsize. The type is interface{} with range: 484..65507. The default
@@ -855,7 +856,7 @@ type TelemetryModelDriven_DestinationGroups_DestinationGroup_Ipv4Destinations_Ip
 
     // This attribute is a key. Destination IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // This attribute is a key. destination port. The type is interface{} with
@@ -908,7 +909,8 @@ type TelemetryModelDriven_DestinationGroups_DestinationGroup_Ipv4Destinations_Ip
     // tls hostname. The type is string.
     TlsHostname interface{}
 
-    // no tls. The type is interface{}.
+    // no tls. The type is interface{} with range: 0..4294967295. The default
+    // value is 0.
     NoTls interface{}
 
     // udp packetsize. The type is interface{} with range: 484..65507. The default

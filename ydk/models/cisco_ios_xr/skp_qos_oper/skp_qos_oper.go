@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   platform-qos: QoS Skywarp platform operational data 
+//   platform-qos: QoS Skywarp platform operational data
 //   platform-qos-ea: platform qos ea
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
@@ -60,128 +60,6 @@ const (
 
     // wred invalid cmd
     Wred_wred_invalid_cmd Wred = "wred-invalid-cmd"
-)
-
-// PolicyParamUnit represents Policy param unit
-type PolicyParamUnit string
-
-const (
-    // policy param unit invalid
-    PolicyParamUnit_policy_param_unit_invalid PolicyParamUnit = "policy-param-unit-invalid"
-
-    // policy param unit bytes
-    PolicyParamUnit_policy_param_unit_bytes PolicyParamUnit = "policy-param-unit-bytes"
-
-    // policy param unit kbytes
-    PolicyParamUnit_policy_param_unit_kbytes PolicyParamUnit = "policy-param-unit-kbytes"
-
-    // policy param unit mbytes
-    PolicyParamUnit_policy_param_unit_mbytes PolicyParamUnit = "policy-param-unit-mbytes"
-
-    // policy param unit gbytes
-    PolicyParamUnit_policy_param_unit_gbytes PolicyParamUnit = "policy-param-unit-gbytes"
-
-    // policy param unit bitsps
-    PolicyParamUnit_policy_param_unit_bitsps PolicyParamUnit = "policy-param-unit-bitsps"
-
-    // policy param unit kbitsps
-    PolicyParamUnit_policy_param_unit_kbitsps PolicyParamUnit = "policy-param-unit-kbitsps"
-
-    // policy param unit mbitsps
-    PolicyParamUnit_policy_param_unit_mbitsps PolicyParamUnit = "policy-param-unit-mbitsps"
-
-    // policy param unit gbitsps
-    PolicyParamUnit_policy_param_unit_gbitsps PolicyParamUnit = "policy-param-unit-gbitsps"
-
-    // policy param unit cells ps
-    PolicyParamUnit_policy_param_unit_cells_ps PolicyParamUnit = "policy-param-unit-cells-ps"
-
-    // policy param unit packets ps
-    PolicyParamUnit_policy_param_unit_packets_ps PolicyParamUnit = "policy-param-unit-packets-ps"
-
-    // policy param unit us
-    PolicyParamUnit_policy_param_unit_us PolicyParamUnit = "policy-param-unit-us"
-
-    // policy param unit ms
-    PolicyParamUnit_policy_param_unit_ms PolicyParamUnit = "policy-param-unit-ms"
-
-    // policy param unit seconds
-    PolicyParamUnit_policy_param_unit_seconds PolicyParamUnit = "policy-param-unit-seconds"
-
-    // policy param unit packets
-    PolicyParamUnit_policy_param_unit_packets PolicyParamUnit = "policy-param-unit-packets"
-
-    // policy param unit cells
-    PolicyParamUnit_policy_param_unit_cells PolicyParamUnit = "policy-param-unit-cells"
-
-    // policy param unit percent
-    PolicyParamUnit_policy_param_unit_percent PolicyParamUnit = "policy-param-unit-percent"
-
-    // policy param unit per thousand
-    PolicyParamUnit_policy_param_unit_per_thousand PolicyParamUnit = "policy-param-unit-per-thousand"
-
-    // policy param unit per million
-    PolicyParamUnit_policy_param_unit_per_million PolicyParamUnit = "policy-param-unit-per-million"
-
-    // policy param unit hz
-    PolicyParamUnit_policy_param_unit_hz PolicyParamUnit = "policy-param-unit-hz"
-
-    // policy param unit khz
-    PolicyParamUnit_policy_param_unit_khz PolicyParamUnit = "policy-param-unit-khz"
-
-    // policy param unit mhz
-    PolicyParamUnit_policy_param_unit_mhz PolicyParamUnit = "policy-param-unit-mhz"
-
-    // policy param unit ratio
-    PolicyParamUnit_policy_param_unit_ratio PolicyParamUnit = "policy-param-unit-ratio"
-
-    // policy param unit max
-    PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
-)
-
-// CacState represents CAC/UBRL class states
-type CacState string
-
-const (
-    // unknown
-    CacState_unknown CacState = "unknown"
-
-    // admit
-    CacState_admit CacState = "admit"
-
-    // redirect
-    CacState_redirect CacState = "redirect"
-
-    // ubrl
-    CacState_ubrl CacState = "ubrl"
-)
-
-// PolicyState represents Different Interface states
-type PolicyState string
-
-const (
-    // active
-    PolicyState_active PolicyState = "active"
-
-    // suspended
-    PolicyState_suspended PolicyState = "suspended"
-)
-
-// Action represents Action type
-type Action string
-
-const (
-    // Police action transmit
-    Action_police_transmit Action = "police-transmit"
-
-    // Police action set transmit
-    Action_police_set_transmit Action = "police-set-transmit"
-
-    // Police action drop
-    Action_police_drop Action = "police-drop"
-
-    // Police action unknown
-    Action_police_unknown Action = "police-unknown"
 )
 
 // ActionOpcode represents Action opcode
@@ -261,6 +139,117 @@ const (
     TbAlgorithm_dummy TbAlgorithm = "dummy"
 )
 
+// PolicyParamUnit represents Policy param unit
+type PolicyParamUnit string
+
+const (
+    // policy param unit invalid
+    PolicyParamUnit_policy_param_unit_invalid PolicyParamUnit = "policy-param-unit-invalid"
+
+    // policy param unit bytes
+    PolicyParamUnit_policy_param_unit_bytes PolicyParamUnit = "policy-param-unit-bytes"
+
+    // policy param unit kbytes
+    PolicyParamUnit_policy_param_unit_kbytes PolicyParamUnit = "policy-param-unit-kbytes"
+
+    // policy param unit mbytes
+    PolicyParamUnit_policy_param_unit_mbytes PolicyParamUnit = "policy-param-unit-mbytes"
+
+    // policy param unit gbytes
+    PolicyParamUnit_policy_param_unit_gbytes PolicyParamUnit = "policy-param-unit-gbytes"
+
+    // policy param unit bitsps
+    PolicyParamUnit_policy_param_unit_bitsps PolicyParamUnit = "policy-param-unit-bitsps"
+
+    // policy param unit kbitsps
+    PolicyParamUnit_policy_param_unit_kbitsps PolicyParamUnit = "policy-param-unit-kbitsps"
+
+    // policy param unit mbitsps
+    PolicyParamUnit_policy_param_unit_mbitsps PolicyParamUnit = "policy-param-unit-mbitsps"
+
+    // policy param unit gbitsps
+    PolicyParamUnit_policy_param_unit_gbitsps PolicyParamUnit = "policy-param-unit-gbitsps"
+
+    // policy param unit cells ps
+    PolicyParamUnit_policy_param_unit_cells_ps PolicyParamUnit = "policy-param-unit-cells-ps"
+
+    // policy param unit packets ps
+    PolicyParamUnit_policy_param_unit_packets_ps PolicyParamUnit = "policy-param-unit-packets-ps"
+
+    // policy param unit us
+    PolicyParamUnit_policy_param_unit_us PolicyParamUnit = "policy-param-unit-us"
+
+    // policy param unit ms
+    PolicyParamUnit_policy_param_unit_ms PolicyParamUnit = "policy-param-unit-ms"
+
+    // policy param unit seconds
+    PolicyParamUnit_policy_param_unit_seconds PolicyParamUnit = "policy-param-unit-seconds"
+
+    // policy param unit packets
+    PolicyParamUnit_policy_param_unit_packets PolicyParamUnit = "policy-param-unit-packets"
+
+    // policy param unit cells
+    PolicyParamUnit_policy_param_unit_cells PolicyParamUnit = "policy-param-unit-cells"
+
+    // policy param unit percent
+    PolicyParamUnit_policy_param_unit_percent PolicyParamUnit = "policy-param-unit-percent"
+
+    // policy param unit per thousand
+    PolicyParamUnit_policy_param_unit_per_thousand PolicyParamUnit = "policy-param-unit-per-thousand"
+
+    // policy param unit per million
+    PolicyParamUnit_policy_param_unit_per_million PolicyParamUnit = "policy-param-unit-per-million"
+
+    // policy param unit hz
+    PolicyParamUnit_policy_param_unit_hz PolicyParamUnit = "policy-param-unit-hz"
+
+    // policy param unit khz
+    PolicyParamUnit_policy_param_unit_khz PolicyParamUnit = "policy-param-unit-khz"
+
+    // policy param unit mhz
+    PolicyParamUnit_policy_param_unit_mhz PolicyParamUnit = "policy-param-unit-mhz"
+
+    // policy param unit ratio
+    PolicyParamUnit_policy_param_unit_ratio PolicyParamUnit = "policy-param-unit-ratio"
+
+    // policy param unit max
+    PolicyParamUnit_policy_param_unit_max PolicyParamUnit = "policy-param-unit-max"
+)
+
+// Action represents Action type
+type Action string
+
+const (
+    // Police action transmit
+    Action_police_transmit Action = "police-transmit"
+
+    // Police action set transmit
+    Action_police_set_transmit Action = "police-set-transmit"
+
+    // Police action drop
+    Action_police_drop Action = "police-drop"
+
+    // Police action unknown
+    Action_police_unknown Action = "police-unknown"
+)
+
+// CacState represents CAC/UBRL class states
+type CacState string
+
+const (
+    // unknown
+    CacState_unknown CacState = "unknown"
+
+    // admit
+    CacState_admit CacState = "admit"
+
+    // redirect
+    CacState_redirect CacState = "redirect"
+
+    // ubrl
+    CacState_ubrl CacState = "ubrl"
+)
+
 // QosUnit represents QoS parameter unit
 type QosUnit string
 
@@ -315,6 +304,17 @@ const (
 
     // Ratio
     QosUnit_ratio QosUnit = "ratio"
+)
+
+// PolicyState represents Different Interface states
+type PolicyState string
+
+const (
+    // active
+    PolicyState_active PolicyState = "active"
+
+    // suspended
+    PolicyState_suspended PolicyState = "suspended"
 )
 
 // PlatformQos
@@ -390,7 +390,7 @@ type PlatformQos_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // QoS list of bundle interfaces.
@@ -468,7 +468,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS list of member interfaces.
@@ -538,7 +538,7 @@ type PlatformQos_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_Me
     YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS policy direction input.
@@ -2670,7 +2670,7 @@ type PlatformQos_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS policy direction egress.
@@ -4764,7 +4764,7 @@ type PlatformQosEa_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // QoS-EA list of bundle interfaces.
@@ -4838,7 +4838,7 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface struct {
     YListKey string
 
     // This attribute is a key. Bundle interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS-EA list of member interfaces.
@@ -4908,7 +4908,7 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     YListKey string
 
     // This attribute is a key. Memeber interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS-EA policy direction output.
@@ -5072,11 +5072,11 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -5835,11 +5835,11 @@ type PlatformQosEa_Nodes_Node_BundleInterfaces_BundleInterface_MemberInterfaces_
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -6508,7 +6508,7 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // QoS-EA policy direction egress.
@@ -6672,11 +6672,11 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface_Output_Details_InterfaceParam
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.
@@ -7435,11 +7435,11 @@ type PlatformQosEa_Nodes_Node_Interfaces_Interface_Input_Details_InterfaceParame
     // Port Shaper Rate. The type is interface{} with range: 0..4294967295.
     PortShaperRate interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // UnderLineInterface Handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UnderLineInterfaceHandle interface{}
 
     // Bundle Interface ID. The type is interface{} with range: 0..65535.

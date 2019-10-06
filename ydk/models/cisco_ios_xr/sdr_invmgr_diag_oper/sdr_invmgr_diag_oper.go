@@ -95,7 +95,7 @@ type Diag_Racks_Rack struct {
     YListKey string
 
     // This attribute is a key. Rack name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     RackName interface{}
 
     // Table for rack power shelf .
@@ -177,7 +177,7 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf struct {
     YListKey string
 
     // This attribute is a key. Power Shelf name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PowerShelfName interface{}
 
     // Table for rack power supply .
@@ -247,7 +247,7 @@ type Diag_Racks_Rack_PowerShelfs_PowerShelf_PowerSupplies_PowerSupply struct {
     YListKey string
 
     // This attribute is a key. Power Supply name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PowerSupplyName interface{}
 
     // Basic information.
@@ -617,7 +617,7 @@ type Diag_Racks_Rack_FanTrays_FanTray struct {
     YListKey string
 
     // This attribute is a key. Fan tray name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FanTrayName interface{}
 
     // Table for rack fans .
@@ -687,7 +687,7 @@ type Diag_Racks_Rack_FanTrays_FanTray_Fanses_Fans struct {
     YListKey string
 
     // This attribute is a key. Fans name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FansName interface{}
 
     // Basic information.
@@ -1057,7 +1057,7 @@ type Diag_Racks_Rack_Slots_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SlotName interface{}
 
     // Table of instances.
@@ -1127,7 +1127,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance struct {
     YListKey string
 
     // This attribute is a key. Instance name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Detail information.

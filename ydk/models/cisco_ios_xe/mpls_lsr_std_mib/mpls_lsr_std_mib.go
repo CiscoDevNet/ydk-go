@@ -493,8 +493,7 @@ type MPLSLSRSTDMIB_MplsInSegmentTable_MplsInSegmentEntry struct {
     // column of a conceptual row in an external table containing the label.  In
     // this case, the mplsInSegmentTopLabel object SHOULD be set to 0 and ignored.
     // This object MUST be set to zeroDotZero otherwise. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsInSegmentLabelPtr interface{}
 
     // The number of labels to pop from the incoming packet.  Normally only the
@@ -538,7 +537,7 @@ type MPLSLSRSTDMIB_MplsInSegmentTable_MplsInSegmentEntry struct {
     // active(1).  For entries in this table that are preserved after a re-boot,
     // the agent MUST ensure that their integrity be preserved, or this object
     // should be set to 0.0 if it cannot. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsInSegmentTrafficParamPtr interface{}
 
     // This variable is used to create, modify, and/or delete a row in this table.
@@ -738,7 +737,7 @@ type MPLSLSRSTDMIB_MplsOutSegmentTable_MplsOutSegmentEntry struct {
     // this case, the mplsOutSegmentTopLabel object SHOULD be set to 0 and
     // ignored. This object MUST be set to zeroDotZero otherwise. The type is
     // string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsOutSegmentTopLabelPtr interface{}
 
     // Indicates the next hop Internet address type. Only values unknown(0),
@@ -780,7 +779,7 @@ type MPLSLSRSTDMIB_MplsOutSegmentTable_MplsOutSegmentEntry struct {
     // entries in this table that are preserved after a re-boot, the agent MUST
     // ensure that their integrity be preserved, or this object should be set to
     // 0.0 if it cannot. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsOutSegmentTrafficParamPtr interface{}
 
     // For creating, modifying, and deleting this row. When a row in this table
@@ -1156,8 +1155,7 @@ type MPLSLSRSTDMIB_MplsLabelStackTable_MplsLabelStackEntry struct {
     // column of a conceptual row in an external table containing the label.  In
     // this case, the mplsLabelStackLabel object SHOULD be set to 0 and ignored.
     // This object MUST be set to zeroDotZero otherwise. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsLabelStackLabelPtr interface{}
 
     // For creating, modifying, and deleting this row. When a row in this table
@@ -1291,7 +1289,7 @@ type MPLSLSRSTDMIB_MplsInSegmentMapTable_MplsInSegmentMapEntry struct {
     // table containing the label.  In this case, the mplsInSegmentTopLabel object
     // SHOULD be set to 0 and ignored. This object MUST be set to zeroDotZero
     // otherwise. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsInSegmentMapLabelPtrIndex interface{}
 
     // The mplsInSegmentIndex that corresponds to the mplsInSegmentInterface and

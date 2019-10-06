@@ -12,13 +12,13 @@ module Cisco-IOS-XR-clns-isis-oper {
     prefix dt1;
   }
   include Cisco-IOS-XR-clns-isis-oper-sub3 {
-    revision-date 2019-02-23;
+    revision-date 2019-02-16;
   }
   include Cisco-IOS-XR-clns-isis-oper-sub2 {
-    revision-date 2019-02-23;
+    revision-date 2019-02-16;
   }
   include Cisco-IOS-XR-clns-isis-oper-sub1 {
-    revision-date 2019-02-23;
+    revision-date 2019-02-16;
   }
 
   organization
@@ -45,25 +45,9 @@ module Cisco-IOS-XR-clns-isis-oper {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2019-02-23 {
-    description
-      "Added is_srv6 flag to ISIS IPv6 route";
-  }
   revision 2019-02-16 {
     description
       "Added interface link-group name";
-  }
-  revision 2018-10-15 {
-    description
-      "Add SRv6 configured locators";
-  }
-  revision 2018-10-04 {
-    description
-      "Update SRv6 locator table";
-  }
-  revision 2018-05-17 {
-    description
-      "Update opencfg isis model";
   }
   revision 2018-04-07 {
     description
@@ -546,7 +530,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                               container router-capabilities-state {
                                 description
                                   "State parameters of TLV 242";
-                                uses OVERLAY-OCNI-ISIS-CAPABILITY-STATE;
+                                uses OVERLAY-OCNI-ISIS-ROUTER-CAPABILITY-STATE;
                               }
                               container undefined-subtlvs {
                                 description
@@ -585,38 +569,63 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   }
                                   container segment-routing-algorithms {
                                     description
-                                      "This container defines SR
-                                       algorithm sub-TLV 19";
-                                    uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-ALGORITHMS;
+                                      "List of the segment routing
+                                       algorithsm advertised within the
+                                       TLV";
+                                    list segment-routing-algorithm {
+                                      key "algorithm";
+                                      description
+                                        "List of the segment routing
+                                         algorithsm advertised within the
+                                         TLV";
+                                      leaf algorithm {
+                                        type enumeration {
+                                          enum "spf" {
+                                            value 0;
+                                            description
+                                              "Shortest Path First (SPF)
+                                               algorithm based on link
+                                               metric.  This is the
+                                               well-known shortest path
+                                               algorithm as computed by the
+                                               IS-IS Decision process.
+                                               Consistent with the deployed
+                                               practice for link- state
+                                               protocols, algorithm 0
+                                               permits any node to overwrite
+                                               the SPF path with a different
+                                               path based on local policy.";
+                                          }
+                                          enum "strict-spf" {
+                                            value 1;
+                                            description
+                                              "Strict Shortest Path First
+                                               (SPF) algorithm based on link
+                                               metric. The algorithm is
+                                               identical to algorithm 0 but
+                                               algorithm 1 requires that all
+                                               nodes along the path will
+                                               honor the SPF routing
+                                               decision. Local policy MUST
+                                               NOT alter the forwarding
+                                               decision computed by
+                                               algorithm 1 at the node
+                                               claiming to support algorithm
+                                               1.";
+                                          }
+                                        }
+                                        description
+                                          "Reference to the SR algorithm
+                                           that the subTLV describes";
+                                      }
+                                      uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-ALGORITHM;
+                                    }
                                   }
                                   container segment-routing-capability {
                                     description
                                       "This container defines SR
                                        Capability sub-TLV 2";
-                                    container segment-routing-capability-state {
-                                      description
-                                        "State parameters of IS SR Router
-                                         Capability";
-                                      uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-CAPABILITY-STATE;
-                                    }
-                                    container srgb-descriptors {
-                                      description
-                                        "Descriptor entry within the SR
-                                         capabilty sub-TLV";
-                                      list srgb-descriptor {
-                                        key "range";
-                                        description
-                                          "Descriptor entry within the SR
-                                           capabilty sub-TLV";
-                                        leaf range {
-                                          type uint32;
-                                          description
-                                            "Reference to unique SRGB
-                                             Descriptor";
-                                        }
-                                        uses OVERLAY-OCNI-ISIS-SRGB-DESCRIPTOR;
-                                      }
-                                    }
+                                    uses OVERLAY-OCNI-ISIS-SEGMENT-ROUTING-CAPABILITY;
                                   }
                                   leaf type {
                                     type string;
@@ -650,7 +659,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "State parameters of an IPv4
                                      extended prefix";
-                                  uses OVERLAY-OCNI-ISIS-MT-IPV4-REACHABILITY-PREFIXES-PREFIX-STATE;
+                                  uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-STATE;
                                 }
                                 container mt-ipv4-reachability-prefixes-undefined-subtlvs {
                                   description
@@ -669,7 +678,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                         "Reference to the type of the
                                          undefined sub-TLV";
                                     }
-                                    uses OVERLAY-OCNI-ISIS-MT-IPV4-REACHABILITY-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV;
+                                    uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV;
                                   }
                                 }
                                 container mt-ipv4-reachability-prefixes-subtlvs {
@@ -694,7 +703,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     container mt-ipv4-reachability-prefixes-subtlvs-state {
                                       description
                                         "State parameters for a prefix";
-                                      uses OVERLAY-OCNI-ISIS-MT-IPV4-REACHABILITY-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE;
+                                      uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-STATE;
                                     }
                                     container prefixes-subtlvs-ipv4-source-router-id {
                                       description
@@ -901,12 +910,6 @@ module Cisco-IOS-XR-clns-isis-oper {
                                         "This container defines sub-TLV 3";
                                       uses OVERLAY-OCNI-ISIS-SUBTLV-ADMIN-GROUP;
                                     }
-                                    container mt-isn-neighbors-subtlvs-state {
-                                      description
-                                        "State parameters of IS neighbor
-                                         state";
-                                      uses OVERLAY-OCNI-ISIS-NEIGHBOR-SUBTLVS-SUBTLV-STATE;
-                                    }
                                     container subtlvs-lan-adjacency-sids {
                                       description
                                         "Adjacency Segment-IDs List";
@@ -939,7 +942,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                 container mt-isn-neighbors-state {
                                   description
                                     "State parameters of MT neighbor";
-                                  uses OVERLAY-OCNI-ISIS-NEIGHBORS-NEIGHBOR-STATE;
+                                  uses OVERLAY-OCNI-ISIS-NEIGHBOR-STATE;
                                 }
                                 container mt-isn-neighbors-undefined-subtlvs {
                                   description
@@ -964,8 +967,8 @@ module Cisco-IOS-XR-clns-isis-oper {
                                 leaf mt-id {
                                   type uint32;
                                   description
-                                    "Reference to the topology that the
-                                     neighbor is within";
+                                    "       Reference to the topology
+                                     that the neighbor is within";
                                 }
                                 leaf system-id {
                                   type string;
@@ -1026,7 +1029,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "State parameters of IPv6 prefix
                                      attributes";
-                                  uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-STATE;
+                                  uses OVERLAY-OCNI-ISIS-PREFIXES-STATE;
                                 }
                                 container ipv6-reachability-prefixes-subtlvs {
                                   description
@@ -1072,7 +1075,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     container ipv6-reachability-prefixes-subtlvs-state {
                                       description
                                         "State parameters for a prefix";
-                                      uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE;
+                                      uses OVERLAY-OCNI-ISIS-PREFIXES-SUBTLVS-SUBTLV-STATE;
                                     }
                                     container subtlvs-ipv6-source-router-id {
                                       description
@@ -1109,7 +1112,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                         "Reference to the type of the
                                          undefined sub-TLV";
                                     }
-                                    uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV;
+                                    uses OVERLAY-OCNI-ISIS-PREFIXES-UNDEFINED-SUBTLVS-UNDEFINED-SUBTLV;
                                   }
                                 }
                                 leaf prefix {
@@ -1144,7 +1147,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Reference to the IPv4 prefix";
                                 }
-                                uses OVERLAY-OCNI-ISIS-PREFIX;
+                                uses OVERLAY-OCNI-ISIS-PREFIXES;
                               }
                             }
                           }
@@ -1326,12 +1329,6 @@ module Cisco-IOS-XR-clns-isis-oper {
                                         }
                                       }
                                     }
-                                    container neighbors-subtlvs-state {
-                                      description
-                                        "State parameters of IS neighbor
-                                         state";
-                                      uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-STATE;
-                                    }
                                     leaf type {
                                       type string;
                                       description
@@ -1363,7 +1360,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "State parameters of extended
                                      neighbor";
-                                  uses OVERLAY-OCNI-ISIS-NEIGHBOR-STATE;
+                                  uses OVERLAY-OCNI-ISIS-NEIGHBORS-STATE;
                                 }
                                 leaf system-id {
                                   type string;
@@ -1424,7 +1421,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     "Reference to the system ID of the
                                      neighbor";
                                 }
-                                uses OVERLAY-OCNI-ISIS-NEIGHBOR;
+                                uses OVERLAY-OCNI-ISIS-NEIGHBORS;
                               }
                             }
                           }
@@ -1486,7 +1483,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     container prefixes-subtlvs-state {
                                       description
                                         "State parameters for a prefix";
-                                      uses OVERLAY-OCNI-ISIS-PREFIX-SUBTLVS-SUBTLV-STATE;
+                                      uses OVERLAY-OCNI-ISIS-SUBTLVS-SUBTLV-STATE;
                                     }
                                     container flags {
                                       description
@@ -1590,7 +1587,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                   description
                                     "Reference to the IPv4 prefix";
                                 }
-                                uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX;
+                                uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIXES;
                               }
                             }
                           }
@@ -1668,7 +1665,7 @@ module Cisco-IOS-XR-clns-isis-oper {
                                     container mt-ipv6-reachability-prefixes-subtlvs-state {
                                       description
                                         "State parameters for a prefix";
-                                      uses OVERLAY-OCNI-ISIS-MT-IPV6-REACHABILITY-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE;
+                                      uses OVERLAY-OCNI-ISIS-PREFIXES-PREFIX-SUBTLVS-SUBTLV-STATE;
                                     }
                                     leaf type {
                                       type string;
@@ -1904,35 +1901,6 @@ module Cisco-IOS-XR-clns-isis-oper {
           list topology {
             description
               "Per-topology data";
-            container ipv4frr-flex-tables {
-              description
-                "IPv4 FRR Flex-Algo tables";
-              list ipv4frr-flex-table {
-                key "flex-alg";
-                description
-                  "IPv4 FRR Flex-Algo table";
-                leaf flex-alg {
-                  type uint32;
-                  description
-                    "Flex Algo";
-                }
-                list ipv4frr-flex-backup {
-                  description
-                    "Flex-Algo FRR backup for an IPv4 network";
-                  leaf prefix {
-                    type inet:ipv4-address-no-zone;
-                    description
-                      "Prefix";
-                  }
-                  leaf prefix-length {
-                    type dt1:Isis-ipv4-prefix-length;
-                    description
-                      "Prefix Length";
-                  }
-                  uses ISIS-SH-IPV4-ROUTE;
-                }
-              }
-            }
             container ipv6-flex-route-tables {
               description
                 "IPv6 Flex-Algo local route tables";
@@ -1972,13 +1940,17 @@ module Cisco-IOS-XR-clns-isis-oper {
               description
                 "SRv6 Locator Table";
               list srv6-locator {
-                key "name";
                 description
                   "An SRv6 Locator";
-                leaf name {
-                  type xr:Cisco-ios-xr-string;
+                leaf prefix {
+                  type inet:ipv6-address-no-zone;
                   description
-                    "Locator Name";
+                    "Prefix";
+                }
+                leaf prefix-length {
+                  type dt1:Isis-ipv6-prefix-length;
+                  description
+                    "Prefix Length";
                 }
                 uses ISIS-SH-SRV6-LOCATOR;
               }
@@ -2090,35 +2062,6 @@ module Cisco-IOS-XR-clns-isis-oper {
                     "Prefix Length";
                 }
                 uses ISIS-SH-IPV6-ROUTE;
-              }
-            }
-            container ipv6frr-flex-tables {
-              description
-                "IPv6 FRR Flex-Algo tables";
-              list ipv6frr-flex-table {
-                key "flex-alg";
-                description
-                  "IPv6 FRR Flex-Algo table";
-                leaf flex-alg {
-                  type uint32;
-                  description
-                    "Flex Algo";
-                }
-                list ipv6frr-flex-backup {
-                  description
-                    "Flex-algo FRR backup for an IPv6 network";
-                  leaf prefix {
-                    type inet:ipv6-address-no-zone;
-                    description
-                      "Prefix";
-                  }
-                  leaf prefix-length {
-                    type dt1:Isis-ipv6-prefix-length;
-                    description
-                      "Prefix Length";
-                  }
-                  uses ISIS-SH-IPV6-ROUTE;
-                }
               }
             }
             container ipv6frr-backups {

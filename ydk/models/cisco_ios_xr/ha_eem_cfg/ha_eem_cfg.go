@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ha-eem-cfg:event-manager", reflect.TypeOf(EventManager{}))
 }
 
-// EventManagerChecksum represents Event manager checksum
-type EventManagerChecksum string
-
-const (
-    // Use SHA-1 checksum
-    EventManagerChecksum_sha_1 EventManagerChecksum = "sha-1"
-
-    // Use MD5 checksum
-    EventManagerChecksum_md5 EventManagerChecksum = "md5"
-)
-
 // EventManagerPolicySec represents Event manager policy sec
 type EventManagerPolicySec string
 
@@ -55,6 +44,17 @@ const (
 
     // Trust Signature
     EventManagerPolicyMode_trust EventManagerPolicyMode = "trust"
+)
+
+// EventManagerChecksum represents Event manager checksum
+type EventManagerChecksum string
+
+const (
+    // Use SHA-1 checksum
+    EventManagerChecksum_sha_1 EventManagerChecksum = "sha-1"
+
+    // Use MD5 checksum
+    EventManagerChecksum_md5 EventManagerChecksum = "md5"
 )
 
 // EventManagerPolicy represents Event manager policy
@@ -165,7 +165,7 @@ type EventManager_Policies_Policy struct {
     YListKey string
 
     // This attribute is a key. Name of the policy file. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PolicyName interface{}
 
     // A configured username. The type is string. This attribute is mandatory.
@@ -293,7 +293,7 @@ type EventManager_SchedulerScript_ThreadClasses_ThreadClass struct {
     YListKey string
 
     // This attribute is a key. Name of the global variable. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ThreadClassName interface{}
 
     // number of scheduler threads. The type is interface{} with range: 1..5. This
@@ -365,7 +365,7 @@ type EventManager_Environments_Environment struct {
     YListKey string
 
     // This attribute is a key. Name of the global variable. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     EnvironmentName interface{}
 
     // Value of the global variable. The type is string. This attribute is

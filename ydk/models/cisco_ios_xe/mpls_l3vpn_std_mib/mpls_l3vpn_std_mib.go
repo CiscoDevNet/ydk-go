@@ -739,7 +739,7 @@ type MPLSL3VPNSTDMIB_MplsL3VpnVrfRteTable_MplsL3VpnVrfRteEntry struct {
     // delineate between multiple entries to the same destination.  The value { 0
     // 0 } shall be used as the default value for this object. The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsL3VpnVrfRteInetCidrPolicy interface{}
 
     // This attribute is a key. The type of the mplsL3VpnVrfRteInetCidrNextHop

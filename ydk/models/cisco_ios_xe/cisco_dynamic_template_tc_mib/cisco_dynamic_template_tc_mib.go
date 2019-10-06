@@ -12,6 +12,15 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_dynamic_template_tc_mib"))
 }
 
+// DynamicTemplateTargetType represents error-status of 'inconsistentValue'.
+type DynamicTemplateTargetType string
+
+const (
+    DynamicTemplateTargetType_other DynamicTemplateTargetType = "other"
+
+    DynamicTemplateTargetType_interface_ DynamicTemplateTargetType = "interface"
+)
+
 // DynamicTemplateType represents     life-cycle events.
 type DynamicTemplateType string
 
@@ -27,14 +36,5 @@ const (
     DynamicTemplateType_ipSubscriber DynamicTemplateType = "ipSubscriber"
 
     DynamicTemplateType_service DynamicTemplateType = "service"
-)
-
-// DynamicTemplateTargetType represents error-status of 'inconsistentValue'.
-type DynamicTemplateTargetType string
-
-const (
-    DynamicTemplateTargetType_other DynamicTemplateTargetType = "other"
-
-    DynamicTemplateTargetType_interface_ DynamicTemplateTargetType = "interface"
 )
 

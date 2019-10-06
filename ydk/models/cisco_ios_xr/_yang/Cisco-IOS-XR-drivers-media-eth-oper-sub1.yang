@@ -969,11 +969,11 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       }
       enum "ethernet-1000base-bx10-d" {
         description
-          "X fiber (D, 10km)";
+          "X fibre (D, 10km)";
       }
       enum "ethernet-1000base-bx10-u" {
         description
-          "X fiber (U, 10km)";
+          "X fibre (U, 10km)";
       }
       enum "ethernet-1000base-dwdm-1561-42" {
         description
@@ -1837,95 +1837,95 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
       }
       enum "ethernet-1000base-bx-d" {
         description
-          "X fiber (D)";
+          "X fibre (D)";
       }
       enum "ethernet-1000base-bx-u" {
         description
-          "X fiber (U)";
+          "X fibre (U)";
       }
       enum "ethernet-1000base-bx20-d" {
         description
-          "X fiber (D, 20km)";
+          "X fibre (D, 20km)";
       }
       enum "ethernet-1000base-bx20-u" {
         description
-          "X fiber (U, 20km)";
+          "X fibre (U, 20km)";
       }
       enum "ethernet-1000base-bx40-d" {
         description
-          "X fiber (D, 40km)";
+          "X fibre (D, 40km)";
       }
       enum "ethernet-1000base-bx40-da" {
         description
-          "X fiber (D, 40km)";
+          "X fibre (D, 40km)";
       }
       enum "ethernet-1000base-bx40-u" {
         description
-          "X fiber (U, 40km)";
+          "X fibre (U, 40km)";
       }
       enum "ethernet-1000base-bx80-d" {
         description
-          "X fiber (D, 80km)";
+          "X fibre (D, 80km)";
       }
       enum "ethernet-1000base-bx80-u" {
         description
-          "X fiber (U, 80km)";
+          "X fibre (U, 80km)";
       }
       enum "ethernet-1000base-bx120-d" {
         description
-          "X fiber (D, 120km)";
+          "X fibre (D, 120km)";
       }
       enum "ethernet-1000base-bx120-u" {
         description
-          "X fiber (U, 120km)";
+          "X fibre (U, 120km)";
       }
       enum "ethernet-10gbase-bx-d" {
         description
-          "X fiber (D)";
+          "X fibre (D)";
       }
       enum "ethernet-10gbase-bx-u" {
         description
-          "X fiber (U)";
+          "X fibre (U)";
       }
       enum "ethernet-10gbase-bx10-d" {
         description
-          "X fiber (D, 10km)";
+          "X fibre (D, 10km)";
       }
       enum "ethernet-10gbase-bx10-u" {
         description
-          "X fiber (U, 10km)";
+          "X fibre (U, 10km)";
       }
       enum "ethernet-10gbase-bx20-d" {
         description
-          "X fiber (D, 20km)";
+          "X fibre (D, 20km)";
       }
       enum "ethernet-10gbase-bx20-u" {
         description
-          "X fiber (U, 20km)";
+          "X fibre (U, 20km)";
       }
       enum "ethernet-10gbase-bx40-d" {
         description
-          "X fiber (D, 40km)";
+          "X fibre (D, 40km)";
       }
       enum "ethernet-10gbase-bx40-u" {
         description
-          "X fiber (U, 40km)";
+          "X fibre (U, 40km)";
       }
       enum "ethernet-10gbase-bx80-d" {
         description
-          "X fiber (D, 80km)";
+          "X fibre (D, 80km)";
       }
       enum "ethernet-10gbase-bx80-u" {
         description
-          "X fiber (U, 80km)";
+          "X fibre (U, 80km)";
       }
       enum "ethernet-10gbase-bx120-d" {
         description
-          "X fiber (D, 120km)";
+          "X fibre (D, 120km)";
       }
       enum "ethernet-10gbase-bx120-u" {
         description
-          "X fiber (U, 120km)";
+          "X fibre (U, 120km)";
       }
       enum "ethernet-1000base-dr-lx" {
         description
@@ -2163,21 +2163,9 @@ submodule Cisco-IOS-XR-drivers-media-eth-oper-sub1 {
           "Bi-directional fiber over 2 lane optics (short
            reach)";
       }
-      enum "ethernet-1000base-2bx-d" {
+      enum "ethernet-100gbase-fr" {
         description
-          "2 channel X fibre (D)";
-      }
-      enum "ethernet-1000base-2bx-d-i" {
-        description
-          "2 channel X fibre (D/I)";
-      }
-      enum "ethernet-1000base-2bx-u" {
-        description
-          "2 channel X fibre (U)";
-      }
-      enum "ethernet-1000base-2bx-u-i" {
-        description
-          "2 channel X fibre (U/I)";
+          "duplex single mode fiber (Far Reach/2 km)";
       }
       enum "ethernet-base-max" {
         description

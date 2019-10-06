@@ -116,7 +116,7 @@ type IGMPSTDMIB_IgmpInterfaceTable_IgmpInterfaceEntry struct {
 
     // The address of the IGMP Querier on the IP subnet to which      this
     // interface is attached. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IgmpInterfaceQuerier interface{}
 
     // The maximum query response time advertised in IGMPv2 queries on this
@@ -261,7 +261,7 @@ type IGMPSTDMIB_IgmpCacheTable_IgmpCacheEntry struct {
 
     // This attribute is a key. The IP multicast group address for which this
     // entry contains information. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IgmpCacheAddress interface{}
 
     // This attribute is a key. The interface for which this entry contains
@@ -277,7 +277,7 @@ type IGMPSTDMIB_IgmpCacheTable_IgmpCacheEntry struct {
     // this IP Multicast group address on this interface.  If no membership report
     // has been received, this object has the value 0.0.0.0. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IgmpCacheLastReporter interface{}
 
     // The time elapsed since this entry was created. The type is interface{} with

@@ -95,7 +95,7 @@ type SdrInventoryVm_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // VM Information.
@@ -165,7 +165,7 @@ type SdrInventoryVm_Nodes_Node_NodeEntries_NodeEntry struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // valid flag. The type is interface{} with range: 0..4294967295.

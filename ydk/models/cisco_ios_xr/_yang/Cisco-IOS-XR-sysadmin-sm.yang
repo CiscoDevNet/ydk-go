@@ -45,9 +45,9 @@ module Cisco-IOS-XR-sysadmin-sm {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-04-09 {
+  revision 2017-07-22 {
     description
-      "Required changes for ConfD 6.4.5";
+      "Updated chassis rack number pattern to include Compute Racks";
   }
 
   grouping sm-oper-group {
@@ -550,20 +550,20 @@ module Cisco-IOS-XR-sysadmin-sm {
                 type leafref {
                   path "/oper/reload_vm/location/location";
                 }
-                mandatory true;
+                mandatory false;
               }
               choice reload_target {
-                mandatory true;
+                mandatory false;
                 case target_admin {
                   leaf admin {
                     type empty;
-                    mandatory true;
+                    mandatory false;
                   }
                 }
                 case target_all {
                   leaf all {
                     type empty;
-                    mandatory true;
+                    mandatory false;
                   }
                 }
               }

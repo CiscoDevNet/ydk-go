@@ -439,7 +439,7 @@ type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry struct {
     // segments that compose this tunnel, their characteristics, and relationships
     // to each other. A value of zeroDotZero indicates that no LSP has been
     // associated with this tunnel yet. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsTunnelXCPointer interface{}
 
     // The signalling protocol, if any, used to setup this tunnel. The type is
@@ -484,7 +484,7 @@ type MPLSTESTDMIB_MplsTunnelTable_MplsTunnelEntry struct {
     // zeroDotZero indicates best-effort treatment.  By having the same value of
     // this object, two or more LSPs can indicate resource sharing. The type is
     // string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsTunnelResourcePointer interface{}
 
     // Specifies the instance index of the primary instance of this tunnel. More

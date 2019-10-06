@@ -29,10 +29,6 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub2 {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-08-09 {
-    description
-      "bind_local field is added to PCB_DETAIL output";
-  }
   revision 2018-03-04 {
     description
       "PCB_ID argument is passed in string format.";
@@ -529,10 +525,10 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub2 {
         description
           "Datakit protocols";
       }
-      enum "inet6" {
+      enum "ccitt" {
         value 10;
         description
-          "IP version 6";
+          "CCITT protocols, X.25 etc";
       }
       enum "sna" {
         value 11;
@@ -609,10 +605,10 @@ submodule Cisco-IOS-XR-ip-udp-oper-sub2 {
         description
           "Help Identify PIP packets";
       }
-      enum "ccitt" {
+      enum "inet6" {
         value 26;
         description
-          "CCITT protocols, X.25 etc";
+          "IP version 6";
       }
       enum "snap" {
         value 27;

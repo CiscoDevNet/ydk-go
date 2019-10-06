@@ -129,7 +129,7 @@ type Policies_PolicyEntry_ClassifierEntry struct {
     ClassifierEntryInline interface{}
 
     // Filters are applicable as any or all filters. The type is one of the
-    // following: MatchAnyFilterMatchAllFilter. The default value is
+    // following: MatchAllFilterMatchAnyFilter. The default value is
     // match-any-filter.
     ClassifierEntryFilterOper interface{}
 
@@ -181,7 +181,7 @@ type Policies_PolicyEntry_ClassifierEntry_FilterEntry struct {
 
     // This attribute is a key. This leaf defines type of the filter. The type is
     // one of the following:
-    // DscpSourceIpAddressDestinationIpAddressSourcePortDestinationPortProtocolCosCosInnerIpv4AclNameIpv6AclNameIpv4AclIpv6AclInputInterfaceSrcMacDstMacMplsExpTopMplsExpImpPacketLengthPrecQosGroupVlanVlanInnerAtmClpAtmVciDeiDeiInnerFlowIpFlowRecordFlowDeFlowDlciWlanUserPriorityDiscardClassClassMapMetadataApplicationSecurityGroupNameSecurityGroupTagIpRtpVpls.
+    // DestinationPortProtocolDestinationIpAddressDscpSourceIpAddressSourcePortInputInterfaceSrcMacApplicationSecurityGroupNameIpv4AclNameFlowDlciDeiPrecPacketLengthIpv4AclFlowDeFlowIpFlowRecordVlanInnerMetadataVlanAtmVciClassMapQosGroupWlanUserPriorityIpRtpIpv6AclAtmClpDstMacCosDeiInnerMplsExpTopCosInnerIpv6AclNameMplsExpImpSecurityGroupTagDiscardClassVpls.
     FilterType interface{}
 
     // This attribute is a key.  This is logical-not operator for a filter. When
@@ -305,9 +305,9 @@ type Policies_PolicyEntry_ClassifierEntry_FilterEntry_SourceIpAddressCfg struct 
 
     // This attribute is a key. source ip prefix. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     SourceIpAddr interface{}
 }
 
@@ -340,9 +340,9 @@ type Policies_PolicyEntry_ClassifierEntry_FilterEntry_DestinationIpAddressCfg st
 
     // This attribute is a key. destination ip prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     DestinationIpAddr interface{}
 }
 
@@ -485,7 +485,7 @@ type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg struct {
     YListKey string
 
     // This attribute is a key. This defines action type . The type is one of the
-    // following: MarkingMeterPriorityMinRateMaxRateAlgorithmicDrop.
+    // following: MarkingMinRateMeterPriorityMaxRateAlgorithmicDrop.
     ActionType interface{}
 
     // Marking configuration container.
@@ -768,7 +768,7 @@ type Policies_PolicyEntry_ClassifierEntry_ClassifierActionEntryCfg_MeterCfg_Mete
     ClassifierEntryDescr interface{}
 
     // Filters are applicable as any or all filters. The type is one of the
-    // following: MatchAnyFilterMatchAllFilter. The default value is
+    // following: MatchAllFilterMatchAnyFilter. The default value is
     // match-any-filter.
     ClassifierEntryFilterOperation interface{}
 }

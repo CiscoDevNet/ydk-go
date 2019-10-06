@@ -2,7 +2,7 @@
 // for the Calvados model objects.
 // 
 // This module contains a collection of YANG
-// definitions for Cisco IOS-XR sysadmin-instmgr 
+// definitions for Cisco IOS-XR sysadmin-instmgr
 // operational model
 // 
 // Copyright (c) 2012-2018 by Cisco Systems, Inc.

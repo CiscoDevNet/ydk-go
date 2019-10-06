@@ -24,6 +24,14 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-asr9k-sc-diag-oper:diag", reflect.TypeOf(Diag{}))
 }
 
+// DiagProcessor represents Processor types
+type DiagProcessor string
+
+const (
+    // Processor type 8614D
+    DiagProcessor_mpc8614d DiagProcessor = "mpc8614d"
+)
+
 // DiagSlot represents Slot types
 type DiagSlot string
 
@@ -36,25 +44,6 @@ const (
 
     // Slot type is module
     DiagSlot_module DiagSlot = "module"
-)
-
-// DiagNode represents Node types
-type DiagNode string
-
-const (
-    // Node type is node
-    DiagNode_node DiagNode = "node"
-
-    // Node type is SPA
-    DiagNode_spa DiagNode = "spa"
-)
-
-// DiagProcessor represents Processor types
-type DiagProcessor string
-
-const (
-    // Processor type 8614D
-    DiagProcessor_mpc8614d DiagProcessor = "mpc8614d"
 )
 
 // NodeState represents Node state detail
@@ -215,6 +204,17 @@ const (
     NodeState_unknown NodeState = "unknown"
 )
 
+// DiagNode represents Node types
+type DiagNode string
+
+const (
+    // Node type is node
+    DiagNode_node DiagNode = "node"
+
+    // Node type is SPA
+    DiagNode_spa DiagNode = "spa"
+)
+
 // Diag
 // Diag admin operational data
 type Diag struct {
@@ -361,7 +361,7 @@ type Diag_Racks_Rack_Slots_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SlotName interface{}
 
     // Slot detailed information.
@@ -923,7 +923,7 @@ type Diag_Racks_Rack_Slots_Slot_Detail_SpaDetail struct {
     YListKey string
 
     // Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // SPA name. The type is string.
@@ -1347,7 +1347,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance struct {
     YListKey string
 
     // This attribute is a key. Instance name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Diag detailed information.
@@ -1893,7 +1893,7 @@ type Diag_Racks_Rack_Slots_Slot_Instances_Instance_Detail_Spa struct {
     YFilter yfilter.YFilter
 
     // Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // SPA name. The type is string.
@@ -2318,7 +2318,7 @@ type Diag_Racks_Rack_Summary_Summary struct {
     Type interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // Slot type. The type is DiagSlot.

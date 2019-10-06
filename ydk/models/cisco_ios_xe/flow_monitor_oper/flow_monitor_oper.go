@@ -63,6 +63,20 @@ const (
     FlowExporterIpwriteStatsType_flow_exporter_ipwrite_stats_no_destination FlowExporterIpwriteStatsType = "flow-exporter-ipwrite-stats-no-destination"
 )
 
+// FlowMonitorCacheState represents Flow monitor cache state
+type FlowMonitorCacheState string
+
+const (
+    // Flow monitor cache is being deleted
+    FlowMonitorCacheState_flow_monitor_cache_state_being_deleted FlowMonitorCacheState = "flow-monitor-cache-state-being-deleted"
+
+    // Flow monitor cache is being allocated
+    FlowMonitorCacheState_flow_monitor_cache_state_being_allocated FlowMonitorCacheState = "flow-monitor-cache-state-being-allocated"
+
+    // Flow monitor cache is not allocated
+    FlowMonitorCacheState_flow_monitor_cache_state_not_allocated FlowMonitorCacheState = "flow-monitor-cache-state-not-allocated"
+)
+
 // FlowMonitorCacheType represents The flow monitor cache type
 type FlowMonitorCacheType string
 
@@ -78,20 +92,6 @@ const (
 
     // Immediate Flow monitor cache type
     FlowMonitorCacheType_flow_monitor_cache_type_immediate FlowMonitorCacheType = "flow-monitor-cache-type-immediate"
-)
-
-// FlowMonitorCacheState represents Flow monitor cache state
-type FlowMonitorCacheState string
-
-const (
-    // Flow monitor cache is being deleted
-    FlowMonitorCacheState_flow_monitor_cache_state_being_deleted FlowMonitorCacheState = "flow-monitor-cache-state-being-deleted"
-
-    // Flow monitor cache is being allocated
-    FlowMonitorCacheState_flow_monitor_cache_state_being_allocated FlowMonitorCacheState = "flow-monitor-cache-state-being-allocated"
-
-    // Flow monitor cache is not allocated
-    FlowMonitorCacheState_flow_monitor_cache_state_not_allocated FlowMonitorCacheState = "flow-monitor-cache-state-not-allocated"
 )
 
 // FlowMonitors
@@ -357,8 +357,7 @@ type FlowMonitors_FlowExportStatistics_TransportStats struct {
     YFilter yfilter.YFilter
 
     // Time when the statistics were last cleared. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCleared interface{}
 
     // Container of the exporter statistics. The type is slice of

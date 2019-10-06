@@ -28,25 +28,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-flowspec-cfg:flow-spec", reflect.TypeOf(FlowSpec{}))
 }
 
-// FsVrfAf represents Fs vrf af
-type FsVrfAf string
-
-const (
-    // IPv4 FlowSpec
-    FsVrfAf_ipv4 FsVrfAf = "ipv4"
-
-    // IPv6 FlowSpec
-    FsVrfAf_ipv6 FsVrfAf = "ipv6"
-)
-
-// FsAfP represents Fs af p
-type FsAfP string
-
-const (
-    // PBR policy type
-    FsAfP_pbr FsAfP = "pbr"
-)
-
 // FsAddf represents Fs addf
 type FsAddf string
 
@@ -58,12 +39,31 @@ const (
     FsAddf_ipv6 FsAddf = "ipv6"
 )
 
+// FsVrfAf represents Fs vrf af
+type FsVrfAf string
+
+const (
+    // IPv4 FlowSpec
+    FsVrfAf_ipv4 FsVrfAf = "ipv4"
+
+    // IPv6 FlowSpec
+    FsVrfAf_ipv6 FsVrfAf = "ipv6"
+)
+
 // FsVrfAfP represents Fs vrf af p
 type FsVrfAfP string
 
 const (
     // PBR policy type
     FsVrfAfP_pbr FsVrfAfP = "pbr"
+)
+
+// FsAfP represents Fs af p
+type FsAfP string
+
+const (
+    // PBR policy type
+    FsAfP_pbr FsAfP = "pbr"
 )
 
 // FlowSpec
@@ -227,7 +227,7 @@ type FlowSpec_Afs_Af_ServicePolicies_ServicePolicy struct {
     PolicyType interface{}
 
     // This attribute is a key. Policy map name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PolicyName interface{}
 
     // Set constant integer. The type is bool. This attribute is mandatory.
@@ -442,7 +442,7 @@ type FlowSpec_Vrfs_Vrf_Afs_Af_ServicePolicies_ServicePolicy struct {
     PolicyType interface{}
 
     // This attribute is a key. Policy map name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PolicyName interface{}
 
     // Set constant integer. The type is bool. This attribute is mandatory.

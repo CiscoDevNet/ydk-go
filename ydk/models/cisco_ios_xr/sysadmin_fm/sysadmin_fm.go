@@ -4,7 +4,7 @@
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
-// Fault management YANG model. 
+// Fault management YANG model.
 // 
 // Copyright(c) 2014-2017 by Cisco Systems, Inc.
 // All rights reserved.
@@ -27,6 +27,67 @@ func init() {
     ydk.RegisterEntity("{http://www.cisco.com/ns/yang/Cisco-IOS-XR-sysadmin-fm fm}", reflect.TypeOf(Fm{}))
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-fm:fm", reflect.TypeOf(Fm{}))
 }
+
+// FmActionT represents The List of supported Action Types
+type FmActionT string
+
+const (
+    FmActionT_ISOLATION FmActionT = "ISOLATION"
+
+    FmActionT_MITIGATION FmActionT = "MITIGATION"
+
+    FmActionT_RECOVERY FmActionT = "RECOVERY"
+
+    FmActionT_CORRELATION FmActionT = "CORRELATION"
+
+    FmActionT_ALARM FmActionT = "ALARM"
+
+    FmActionT_REPORT FmActionT = "REPORT"
+)
+
+// FmHistoryStateT represents The fm history entry state.
+type FmHistoryStateT string
+
+const (
+    FmHistoryStateT_FM_HISTORY_STATE_ACTIVE FmHistoryStateT = "FM_HISTORY_STATE_ACTIVE"
+
+    FmHistoryStateT_FM_HISTORY_STATE_CLEARED FmHistoryStateT = "FM_HISTORY_STATE_CLEARED"
+
+    FmHistoryStateT_FM_HISTORY_STATE_INVALID FmHistoryStateT = "FM_HISTORY_STATE_INVALID"
+)
+
+// FmServiceScopeT represents The fm service scope definting type.
+type FmServiceScopeT string
+
+const (
+    FmServiceScopeT_FM_SERVICE_NODE_SCOPE FmServiceScopeT = "FM_SERVICE_NODE_SCOPE"
+
+    FmServiceScopeT_FM_SERVICE_RACK_SCOPE FmServiceScopeT = "FM_SERVICE_RACK_SCOPE"
+
+    FmServiceScopeT_FM_SERVICE_SYSTEM_SCOPE FmServiceScopeT = "FM_SERVICE_SYSTEM_SCOPE"
+)
+
+// FmActionResultT represents The result of a certain fm action
+type FmActionResultT string
+
+const (
+    FmActionResultT_SUCCESS FmActionResultT = "SUCCESS"
+
+    FmActionResultT_FAILURE FmActionResultT = "FAILURE"
+
+    FmActionResultT_NO_OP FmActionResultT = "NO-OP"
+)
+
+// GenericHaRole
+type GenericHaRole string
+
+const (
+    GenericHaRole_no_ha_role GenericHaRole = "no-ha-role"
+
+    GenericHaRole_Active GenericHaRole = "Active"
+
+    GenericHaRole_Standby GenericHaRole = "Standby"
+)
 
 // FmFaultStateT represents The status value for a given fault condition.
 type FmFaultStateT string
@@ -64,34 +125,6 @@ const (
     FmFaultSeverityT_NR FmFaultSeverityT = "NR"
 )
 
-// FmActionT represents The List of supported Action Types
-type FmActionT string
-
-const (
-    FmActionT_ISOLATION FmActionT = "ISOLATION"
-
-    FmActionT_MITIGATION FmActionT = "MITIGATION"
-
-    FmActionT_RECOVERY FmActionT = "RECOVERY"
-
-    FmActionT_CORRELATION FmActionT = "CORRELATION"
-
-    FmActionT_ALARM FmActionT = "ALARM"
-
-    FmActionT_REPORT FmActionT = "REPORT"
-)
-
-// FmActionResultT represents The result of a certain fm action
-type FmActionResultT string
-
-const (
-    FmActionResultT_SUCCESS FmActionResultT = "SUCCESS"
-
-    FmActionResultT_FAILURE FmActionResultT = "FAILURE"
-
-    FmActionResultT_NO_OP FmActionResultT = "NO-OP"
-)
-
 // FmRuleEvalResultT represents The result status of the evaluation of a FM rule.
 type FmRuleEvalResultT string
 
@@ -99,17 +132,6 @@ const (
     FmRuleEvalResultT_SUCCESS FmRuleEvalResultT = "SUCCESS"
 
     FmRuleEvalResultT_FAILURE FmRuleEvalResultT = "FAILURE"
-)
-
-// GenericHaRole
-type GenericHaRole string
-
-const (
-    GenericHaRole_no_ha_role GenericHaRole = "no-ha-role"
-
-    GenericHaRole_Active GenericHaRole = "Active"
-
-    GenericHaRole_Standby GenericHaRole = "Standby"
 )
 
 // FmCorrelationObjQualifierT
@@ -123,28 +145,6 @@ const (
     FmCorrelationObjQualifierT_QUALIFIER_SLOT FmCorrelationObjQualifierT = "QUALIFIER_SLOT"
 
     FmCorrelationObjQualifierT_QUALIFIER_OBJECT FmCorrelationObjQualifierT = "QUALIFIER_OBJECT"
-)
-
-// FmHistoryStateT represents The fm history entry state.
-type FmHistoryStateT string
-
-const (
-    FmHistoryStateT_FM_HISTORY_STATE_ACTIVE FmHistoryStateT = "FM_HISTORY_STATE_ACTIVE"
-
-    FmHistoryStateT_FM_HISTORY_STATE_CLEARED FmHistoryStateT = "FM_HISTORY_STATE_CLEARED"
-
-    FmHistoryStateT_FM_HISTORY_STATE_INVALID FmHistoryStateT = "FM_HISTORY_STATE_INVALID"
-)
-
-// FmServiceScopeT represents The fm service scope definting type.
-type FmServiceScopeT string
-
-const (
-    FmServiceScopeT_FM_SERVICE_NODE_SCOPE FmServiceScopeT = "FM_SERVICE_NODE_SCOPE"
-
-    FmServiceScopeT_FM_SERVICE_RACK_SCOPE FmServiceScopeT = "FM_SERVICE_RACK_SCOPE"
-
-    FmServiceScopeT_FM_SERVICE_SYSTEM_SCOPE FmServiceScopeT = "FM_SERVICE_SYSTEM_SCOPE"
 )
 
 // Fm
@@ -820,7 +820,7 @@ type Fm_Agents_FmTable_Entry_Faults_Active_Brief struct {
     ObjectId interface{}
 
     // The fault occurence timestamp. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FaultTimestamp interface{}
 }
 
@@ -874,7 +874,7 @@ type Fm_Agents_FmTable_Entry_Faults_Active_Detail struct {
     FaultAgentId interface{}
 
     // The fault occurence timestamp. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FaultTimestamp interface{}
 
     // The state of the timer associated with this fault. The type is bool.
@@ -999,7 +999,7 @@ type Fm_Agents_FmTable_Entry_Faults_History_Brief struct {
     ObjectId interface{}
 
     // The fault occurence timestamp. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FaultTimestamp interface{}
 }
 
@@ -1053,7 +1053,7 @@ type Fm_Agents_FmTable_Entry_Faults_History_Detail struct {
     FaultAgentId interface{}
 
     // The fault occurence timestamp. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FaultTimestamp interface{}
 
     // The state of the timer associated with this fault. The type is bool.
@@ -1187,7 +1187,7 @@ type Fm_Agents_FmTable_Entry_WaitingList_Brief struct {
     ObjectId interface{}
 
     // The timestamp at which the fault occurred. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FaultTimestamp interface{}
 
     // The state pf tje causal fault. The type is FmFaultStateT.
@@ -1248,7 +1248,7 @@ type Fm_Agents_FmTable_Entry_WaitingList_Entry struct {
     ObjectId interface{}
 
     // The timestamp at which the fault occurred. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FaultTimestamp interface{}
 
     // The state pf tje causal fault. The type is FmFaultStateT.

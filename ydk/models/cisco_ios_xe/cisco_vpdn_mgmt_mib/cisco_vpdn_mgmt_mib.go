@@ -66,17 +66,6 @@ func init() {
     ydk.RegisterEntity("CISCO-VPDN-MGMT-MIB:CISCO-VPDN-MGMT-MIB", reflect.TypeOf(CISCOVPDNMGMTMIB{}))
 }
 
-// TunnelType represents tunnel.
-type TunnelType string
-
-const (
-    TunnelType_l2f TunnelType = "l2f"
-
-    TunnelType_l2tp TunnelType = "l2tp"
-
-    TunnelType_pptp TunnelType = "pptp"
-)
-
 // EndpointClass represents              SnmpAdminString (SIZE(1..15)) value.
 type EndpointClass string
 
@@ -92,6 +81,17 @@ const (
     EndpointClass_magicNumber EndpointClass = "magicNumber"
 
     EndpointClass_phone EndpointClass = "phone"
+)
+
+// TunnelType represents tunnel.
+type TunnelType string
+
+const (
+    TunnelType_l2f TunnelType = "l2f"
+
+    TunnelType_l2tp TunnelType = "l2tp"
+
+    TunnelType_pptp TunnelType = "pptp"
 )
 
 // CISCOVPDNMGMTMIB
@@ -565,18 +565,18 @@ type CISCOVPDNMGMTMIB_CvpdnTunnelTable_CvpdnTunnelEntry struct {
 
     // The local IP address of the tunnel.  This IP address is that of the
     // interface at the local end of the tunnel. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnTunnelLocalIpAddress interface{}
 
     // The source IP address of the tunnel.  This IP address is the user
     // configurable IP address for Stack Group Biding Protocol (SGBP) via the CLI
     // command: vpdn source-ip. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnTunnelSourceIpAddress interface{}
 
     // The remote IP address of the tunnel.  This IP address is that of the
     // interface at the remote end of the tunnel. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnTunnelRemoteIpAddress interface{}
 }
 
@@ -782,18 +782,18 @@ type CISCOVPDNMGMTMIB_CvpdnTunnelAttrTable_CvpdnTunnelAttrEntry struct {
 
     // The local IP address of the tunnel.  This IP address is that of the
     // interface at the local end of the tunnel. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnTunnelAttrLocalIpAddress interface{}
 
     // The source IP address of the tunnel.  This IP address is the user
     // configurable IP address for Stack Group Biding Protocol. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnTunnelAttrSourceIpAddress interface{}
 
     // The remote IP address of the tunnel.  This IP address is that of the
     // interface at the remote end of the tunnel. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnTunnelAttrRemoteIpAddress interface{}
 
     // Indicates the type of address contained in cvpdnTunnelAttrLocalInetAddress.
@@ -1572,13 +1572,13 @@ type CISCOVPDNMGMTMIB_CvpdnUserToFailHistInfoTable_CvpdnUserToFailHistInfoEntry 
     // The source IP address of the tunnel in which the failure occurred.  This IP
     // address is that of the interface at the instigator end of the tunnel. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnUnameToFailHistSourceIp interface{}
 
     // The destination IP address of the tunnel in which the failure occurred. 
     // This IP address is that of the interface at the receiver end of the tunnel.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CvpdnUnameToFailHistDestIp interface{}
 
     // This object is incremented when multiple failures has been experienced by

@@ -172,28 +172,28 @@ type IPMROUTESTDMIB_IpMRouteTable_IpMRouteEntry struct {
     // This attribute is a key. The IP multicast group address for which this
     // entry contains multicast routing information. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteGroup interface{}
 
     // This attribute is a key. The network address which when combined with the
     // corresponding value of ipMRouteSourceMask identifies the sources for which
     // this entry contains multicast routing information. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteSource interface{}
 
     // This attribute is a key. The network mask which when combined with the
     // corresponding value of ipMRouteSource identifies the sources for which this
     // entry contains multicast routing information. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteSourceMask interface{}
 
     // The address of the upstream neighbor (e.g., RPF neighbor) from which IP
     // datagrams from these sources to this multicast address are received, or
     // 0.0.0.0 if the upstream neighbor is unknown (e.g., in CBT). The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteUpstreamNeighbor interface{}
 
     // The value of ifIndex for the interface on which IP datagrams sent by these
@@ -244,13 +244,13 @@ type IPMROUTESTDMIB_IpMRouteTable_IpMRouteEntry struct {
     // The address portion of the route used to find the upstream or parent
     // interface for this multicast forwarding entry. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteRtAddress interface{}
 
     // The mask associated with the route used to find the upstream or parent
     // interface for this multicast forwarding entry. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteRtMask interface{}
 
     // The reason the given route was placed in the (logical) multicast Routing
@@ -494,21 +494,21 @@ type IPMROUTESTDMIB_IpMRouteNextHopTable_IpMRouteNextHopEntry struct {
     // This attribute is a key. The IP multicast group for which this entry
     // specifies a next-hop on an outgoing interface. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteNextHopGroup interface{}
 
     // This attribute is a key. The network address which when combined with the
     // corresponding value of ipMRouteNextHopSourceMask identifies the sources for
     // which this entry specifies a next-hop on an outgoing interface. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteNextHopSource interface{}
 
     // This attribute is a key. The network mask which when combined with the
     // corresponding value of ipMRouteNextHopSource identifies the sources for
     // which this entry specifies a next-hop on an outgoing interface. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteNextHopSourceMask interface{}
 
     // This attribute is a key. The ifIndex value of the interface for the
@@ -520,7 +520,7 @@ type IPMROUTESTDMIB_IpMRouteNextHopTable_IpMRouteNextHopEntry struct {
     // entry.  For most interfaces, this is identical to ipMRouteNextHopGroup.
     // NBMA interfaces, however, may have multiple next-hop addresses out a single
     // outgoing interface. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteNextHopAddress interface{}
 
     // An indication of whether the outgoing interface and next- hop represented
@@ -820,14 +820,14 @@ type IPMROUTESTDMIB_IpMRouteBoundaryTable_IpMRouteBoundaryEntry struct {
     // range for which the scoped boundary exists.  Scoped addresses must come
     // from the range 239.x.x.x as specified in RFC 2365. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteBoundaryAddress interface{}
 
     // This attribute is a key. The group address mask which when combined with
     // the corresponding value of ipMRouteBoundaryAddress identifies the group
     // range for which the scoped boundary exists. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteBoundaryAddressMask interface{}
 
     // The status of this row, by which new entries may be created, or old entries
@@ -905,13 +905,13 @@ type IPMROUTESTDMIB_IpMRouteScopeNameTable_IpMRouteScopeNameEntry struct {
     // corresponding value of ipMRouteScopeNameAddressMask identifies the group
     // range associated with the multicast scope.  Scoped addresses must come from
     // the range 239.x.x.x. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteScopeNameAddress interface{}
 
     // This attribute is a key. The group address mask which when combined with
     // the corresponding value of ipMRouteScopeNameAddress identifies the group
     // range associated with the multicast scope. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpMRouteScopeNameAddressMask interface{}
 
     // This attribute is a key. The RFC 1766-style language tag associated with

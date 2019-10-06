@@ -33,66 +33,35 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-xtc-oper:pce", reflect.TypeOf(Pce{}))
 }
 
-// PceigpProtocol represents Pceigp protocol
-type PceigpProtocol string
+// LspState represents LSP setup type
+type LspState string
 
 const (
-    // Unknown protocol
-    PceigpProtocol_unknown PceigpProtocol = "unknown"
+    // LSP is down
+    LspState_lsp_down LspState = "lsp-down"
 
-    // ISIS protocol
-    PceigpProtocol_isis PceigpProtocol = "isis"
-
-    // OSPF protocol
-    PceigpProtocol_ospf PceigpProtocol = "ospf"
-
-    // BGP protocol
-    PceigpProtocol_bgp PceigpProtocol = "bgp"
-
-    // TE protocol
-    PceigpProtocol_te PceigpProtocol = "te"
+    // LSP is up
+    LspState_lsp_up LspState = "lsp-up"
 )
 
-// PceAsso represents Pce asso
-type PceAsso string
+// PceRro represents PCE RRO type
+type PceRro string
 
 const (
-    // Unknown type
-    PceAsso_unknown PceAsso = "unknown"
+    // IPv4 Address
+    PceRro_rro_type_ipv4_address PceRro = "rro-type-ipv4-address"
 
-    // LINK
-    PceAsso_link PceAsso = "link"
+    // MPLS Label
+    PceRro_rro_type_mpls_label PceRro = "rro-type-mpls-label"
 
-    // NODE
-    PceAsso_node PceAsso = "node"
+    // Segment Routing IPv4 Node SID
+    PceRro_rro_type_sripv4_node_sid PceRro = "rro-type-sripv4-node-sid"
 
-    // SRLG
-    PceAsso_srlg PceAsso = "srlg"
-)
+    // Segment Routing IPv4 Adjacency SID
+    PceRro_rro_type_sripv4_adjacency_sid PceRro = "rro-type-sripv4-adjacency-sid"
 
-// PceAddressFamily represents Pce address family
-type PceAddressFamily string
-
-const (
-    // IPv4 address family
-    PceAddressFamily_ipv4 PceAddressFamily = "ipv4"
-
-    // IPv6 address family
-    PceAddressFamily_ipv6 PceAddressFamily = "ipv6"
-)
-
-// PceHeadendSwap represents PCE Headends Swap Code
-type PceHeadendSwap string
-
-const (
-    // Headends not swapped
-    PceHeadendSwap_pcehs_none PceHeadendSwap = "pcehs-none"
-
-    // Headends swapped
-    PceHeadendSwap_pcehs_plain PceHeadendSwap = "pcehs-plain"
-
-    // Headends swapped with increment
-    PceHeadendSwap_pcehs_rwi PceHeadendSwap = "pcehs-rwi"
+    // Segment Routing with NAI null
+    PceRro_rro_type_sr_nai_null PceRro = "rro-type-sr-nai-null"
 )
 
 // PceCspfRc represents PCE CSPF Result Code
@@ -157,24 +126,58 @@ const (
     PceCspfRc_pce_cspf_dp_success PceCspfRc = "pce-cspf-dp-success"
 )
 
-// Sid represents SID Types
-type Sid string
+// PceSrSid represents PCE SR SID type
+type PceSrSid string
 
 const (
-    // Protected Adjacency SID
-    Sid_sr_protected_adj_sid Sid = "sr-protected-adj-sid"
+    // IPv4 Node SID
+    PceSrSid_ipv4_node_sid PceSrSid = "ipv4-node-sid"
 
-    // Unprotected Adjacency SID
-    Sid_sr_unprotected_adj_sid Sid = "sr-unprotected-adj-sid"
+    // IPv4 Adjacency SID
+    PceSrSid_ipv4_adjacency_sid PceSrSid = "ipv4-adjacency-sid"
 
-    // BGP egress peer engineering SID
-    Sid_sr_bgp_egress_peer_engineering_sid Sid = "sr-bgp-egress-peer-engineering-sid"
+    // IPv6 Node SID
+    PceSrSid_ipv6_node_sid PceSrSid = "ipv6-node-sid"
 
-    // Regular prefix SID
-    Sid_sr_reqular_prefix_sid Sid = "sr-reqular-prefix-sid"
+    // IPv6 Adjacency SID
+    PceSrSid_ipv6_adjacency_sid PceSrSid = "ipv6-adjacency-sid"
 
-    // Strict prefix SID
-    Sid_sr_strict_prefix_sid Sid = "sr-strict-prefix-sid"
+    // Unknown SID
+    PceSrSid_unknown_sid PceSrSid = "unknown-sid"
+)
+
+// PceHeadendSwap represents PCE Headends Swap Code
+type PceHeadendSwap string
+
+const (
+    // Headends not swapped
+    PceHeadendSwap_pcehs_none PceHeadendSwap = "pcehs-none"
+
+    // Headends swapped
+    PceHeadendSwap_pcehs_plain PceHeadendSwap = "pcehs-plain"
+
+    // Headends swapped with increment
+    PceHeadendSwap_pcehs_rwi PceHeadendSwap = "pcehs-rwi"
+)
+
+// PcepLspState represents PCEP operation protocol
+type PcepLspState string
+
+const (
+    // LSP is down
+    PcepLspState_lsp_down PcepLspState = "lsp-down"
+
+    // LSP is up
+    PcepLspState_lsp_up PcepLspState = "lsp-up"
+
+    // LSP is active (carrying traffic)
+    PcepLspState_lsp_active PcepLspState = "lsp-active"
+
+    // LSP is going down
+    PcepLspState_lsp_going_down PcepLspState = "lsp-going-down"
+
+    // LSP is being signaled
+    PcepLspState_lsp_being_signaled PcepLspState = "lsp-being-signaled"
 )
 
 // PceIgpInfoId represents IGP IDs
@@ -189,6 +192,17 @@ const (
 
     // BGP
     PceIgpInfoId_bgp PceIgpInfoId = "bgp"
+)
+
+// PceProto represents PCE peer protocol
+type PceProto string
+
+const (
+    // PCE protocol
+    PceProto_pcep PceProto = "pcep"
+
+    // Netconf protocol
+    PceProto_netconf PceProto = "netconf"
 )
 
 // PcepState represents PCEP State
@@ -214,86 +228,24 @@ const (
     PcepState_pcep_open PcepState = "pcep-open"
 )
 
-// PceProto represents PCE peer protocol
-type PceProto string
+// Sid represents SID Types
+type Sid string
 
 const (
-    // PCE protocol
-    PceProto_pcep PceProto = "pcep"
+    // Protected Adjacency SID
+    Sid_sr_protected_adj_sid Sid = "sr-protected-adj-sid"
 
-    // Netconf protocol
-    PceProto_netconf PceProto = "netconf"
-)
+    // Unprotected Adjacency SID
+    Sid_sr_unprotected_adj_sid Sid = "sr-unprotected-adj-sid"
 
-// PceRro represents PCE RRO type
-type PceRro string
+    // BGP egress peer engineering SID
+    Sid_sr_bgp_egress_peer_engineering_sid Sid = "sr-bgp-egress-peer-engineering-sid"
 
-const (
-    // IPv4 Address
-    PceRro_rro_type_ipv4_address PceRro = "rro-type-ipv4-address"
+    // Regular prefix SID
+    Sid_sr_reqular_prefix_sid Sid = "sr-reqular-prefix-sid"
 
-    // MPLS Label
-    PceRro_rro_type_mpls_label PceRro = "rro-type-mpls-label"
-
-    // Segment Routing IPv4 Node SID
-    PceRro_rro_type_sripv4_node_sid PceRro = "rro-type-sripv4-node-sid"
-
-    // Segment Routing IPv4 Adjacency SID
-    PceRro_rro_type_sripv4_adjacency_sid PceRro = "rro-type-sripv4-adjacency-sid"
-
-    // Segment Routing with NAI null
-    PceRro_rro_type_sr_nai_null PceRro = "rro-type-sr-nai-null"
-)
-
-// PceSrSid represents PCE SR SID type
-type PceSrSid string
-
-const (
-    // IPv4 Node SID
-    PceSrSid_ipv4_node_sid PceSrSid = "ipv4-node-sid"
-
-    // IPv4 Adjacency SID
-    PceSrSid_ipv4_adjacency_sid PceSrSid = "ipv4-adjacency-sid"
-
-    // IPv6 Node SID
-    PceSrSid_ipv6_node_sid PceSrSid = "ipv6-node-sid"
-
-    // IPv6 Adjacency SID
-    PceSrSid_ipv6_adjacency_sid PceSrSid = "ipv6-adjacency-sid"
-
-    // Unknown SID
-    PceSrSid_unknown_sid PceSrSid = "unknown-sid"
-)
-
-// LspState represents LSP setup type
-type LspState string
-
-const (
-    // LSP is down
-    LspState_lsp_down LspState = "lsp-down"
-
-    // LSP is up
-    LspState_lsp_up LspState = "lsp-up"
-)
-
-// PcepLspState represents PCEP operation protocol
-type PcepLspState string
-
-const (
-    // LSP is down
-    PcepLspState_lsp_down PcepLspState = "lsp-down"
-
-    // LSP is up
-    PcepLspState_lsp_up PcepLspState = "lsp-up"
-
-    // LSP is active (carrying traffic)
-    PcepLspState_lsp_active PcepLspState = "lsp-active"
-
-    // LSP is going down
-    PcepLspState_lsp_going_down PcepLspState = "lsp-going-down"
-
-    // LSP is being signaled
-    PcepLspState_lsp_being_signaled PcepLspState = "lsp-being-signaled"
+    // Strict prefix SID
+    Sid_sr_strict_prefix_sid Sid = "sr-strict-prefix-sid"
 )
 
 // LspSetup represents LSP setup type
@@ -308,6 +260,23 @@ const (
 
     // Unknown LSP establishment method
     LspSetup_setup_unknown LspSetup = "setup-unknown"
+)
+
+// PceAsso represents Pce asso
+type PceAsso string
+
+const (
+    // Unknown type
+    PceAsso_unknown PceAsso = "unknown"
+
+    // LINK
+    PceAsso_link PceAsso = "link"
+
+    // NODE
+    PceAsso_node PceAsso = "node"
+
+    // SRLG
+    PceAsso_srlg PceAsso = "srlg"
 )
 
 // PceAfId represents Pce af id
@@ -404,9 +373,9 @@ type PceLspData_TunnelInfos_TunnelInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // This attribute is a key. PCEP LSP ID. The type is interface{} with range:
@@ -466,11 +435,11 @@ type PceLspData_TunnelInfos_TunnelInfo_PccAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -577,11 +546,11 @@ type PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation_SourceAddress struct 
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -617,11 +586,11 @@ type PceLspData_TunnelInfos_TunnelInfo_BriefLspInformation_DestinationAddress st
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -831,11 +800,11 @@ type PceLspData_LspSummary_PeerLsPsInfo_PeerAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -904,9 +873,9 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // This attribute is a key. PCEP LSP ID. The type is interface{} with range:
@@ -978,11 +947,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_PccAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1263,11 +1232,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLsp
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1303,11 +1272,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLsp
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1423,7 +1392,7 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_Rep
     YListKey string
 
     // RSVP hop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HopAddress interface{}
 }
 
@@ -1500,11 +1469,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_Rep
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1540,11 +1509,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_Rep
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1578,7 +1547,7 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_Com
     YListKey string
 
     // RSVP hop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HopAddress interface{}
 }
 
@@ -1655,11 +1624,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_Com
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1695,11 +1664,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_Com
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1790,7 +1759,7 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_LsppcepI
     YFilter yfilter.YFilter
 
     // RSVP error node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // RSVP error flags. The type is interface{} with range: 0..255.
@@ -1874,11 +1843,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_LspAssoc
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1964,11 +1933,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_SubDeleg
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2004,11 +1973,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_StateSyn
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2044,11 +2013,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_Reportin
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2085,7 +2054,7 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_Rro stru
     RroType interface{}
 
     // IPv4 address of RRO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // MPLS label of RRO. The type is interface{} with range: 0..4294967295.
@@ -2174,11 +2143,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_Rro_SrRr
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2214,11 +2183,11 @@ type PceLspData_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_Rro_SrRr
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2321,9 +2290,9 @@ type PcePeer_PeerDetailInfos_PeerDetailInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Protocol between PCE and peer. The type is PceProto.
@@ -2373,11 +2342,11 @@ type PcePeer_PeerDetailInfos_PeerDetailInfo_PeerAddressXr struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2734,9 +2703,9 @@ type PcePeer_PeerInfos_PeerInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Protocol between PCE and peer. The type is PceProto.
@@ -2782,11 +2751,11 @@ type PcePeer_PeerInfos_PeerInfo_PeerAddressXr struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2876,11 +2845,11 @@ type PceTopology struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // Node summary database in XTC.
+    TopologySummary PceTopology_TopologySummary
+
     // Node database in XTC.
     TopologyNodes PceTopology_TopologyNodes
-
-    // Node summary database in XTC.
-    TopologySummaries PceTopology_TopologySummaries
 
     // Prefixes database in XTC.
     PrefixInfos PceTopology_PrefixInfos
@@ -2898,14 +2867,155 @@ func (pceTopology *PceTopology) GetEntityData() *types.CommonEntityData {
     pceTopology.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     pceTopology.EntityData.Children = types.NewOrderedMap()
+    pceTopology.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", &pceTopology.TopologySummary})
     pceTopology.EntityData.Children.Append("topology-nodes", types.YChild{"TopologyNodes", &pceTopology.TopologyNodes})
-    pceTopology.EntityData.Children.Append("topology-summaries", types.YChild{"TopologySummaries", &pceTopology.TopologySummaries})
     pceTopology.EntityData.Children.Append("prefix-infos", types.YChild{"PrefixInfos", &pceTopology.PrefixInfos})
     pceTopology.EntityData.Leafs = types.NewOrderedMap()
 
     pceTopology.EntityData.YListKeys = []string {}
 
     return &(pceTopology.EntityData)
+}
+
+// PceTopology_TopologySummary
+// Node summary database in XTC
+type PceTopology_TopologySummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of PCE nodes. The type is interface{} with range: 0..4294967295.
+    Nodes interface{}
+
+    // Number of lookup nodes. The type is interface{} with range: 0..4294967295.
+    LookupNodes interface{}
+
+    // Number of prefixes. The type is interface{} with range: 0..4294967295.
+    Prefixes interface{}
+
+    // Number of total prefix SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    PrefixSids interface{}
+
+    // Number of reguar prefix SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    RegularPrefixSids interface{}
+
+    // Number of strict prefix SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    StrictPrefixSids interface{}
+
+    // Number of links. The type is interface{} with range: 0..4294967295.
+    Links interface{}
+
+    // Number of EPE links. The type is interface{} with range: 0..4294967295.
+    EpeLinks interface{}
+
+    // Number of total adjacency SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    AdjacencySids interface{}
+
+    // Number of total EPE SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    Epesids interface{}
+
+    // Number of protected adjacency SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    ProtectedAdjacencySids interface{}
+
+    // Number of unprotected adjacency SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    UnProtectedAdjacencySids interface{}
+
+    // True if topology is consistent. The type is bool.
+    TopologyConsistent interface{}
+
+    // Statistics on topology update.
+    StatsTopologyUpdate PceTopology_TopologySummary_StatsTopologyUpdate
+}
+
+func (topologySummary *PceTopology_TopologySummary) GetEntityData() *types.CommonEntityData {
+    topologySummary.EntityData.YFilter = topologySummary.YFilter
+    topologySummary.EntityData.YangName = "topology-summary"
+    topologySummary.EntityData.BundleName = "cisco_ios_xr"
+    topologySummary.EntityData.ParentYangName = "pce-topology"
+    topologySummary.EntityData.SegmentPath = "topology-summary"
+    topologySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce-topology/" + topologySummary.EntityData.SegmentPath
+    topologySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    topologySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    topologySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    topologySummary.EntityData.Children = types.NewOrderedMap()
+    topologySummary.EntityData.Children.Append("stats-topology-update", types.YChild{"StatsTopologyUpdate", &topologySummary.StatsTopologyUpdate})
+    topologySummary.EntityData.Leafs = types.NewOrderedMap()
+    topologySummary.EntityData.Leafs.Append("nodes", types.YLeaf{"Nodes", topologySummary.Nodes})
+    topologySummary.EntityData.Leafs.Append("lookup-nodes", types.YLeaf{"LookupNodes", topologySummary.LookupNodes})
+    topologySummary.EntityData.Leafs.Append("prefixes", types.YLeaf{"Prefixes", topologySummary.Prefixes})
+    topologySummary.EntityData.Leafs.Append("prefix-sids", types.YLeaf{"PrefixSids", topologySummary.PrefixSids})
+    topologySummary.EntityData.Leafs.Append("regular-prefix-sids", types.YLeaf{"RegularPrefixSids", topologySummary.RegularPrefixSids})
+    topologySummary.EntityData.Leafs.Append("strict-prefix-sids", types.YLeaf{"StrictPrefixSids", topologySummary.StrictPrefixSids})
+    topologySummary.EntityData.Leafs.Append("links", types.YLeaf{"Links", topologySummary.Links})
+    topologySummary.EntityData.Leafs.Append("epe-links", types.YLeaf{"EpeLinks", topologySummary.EpeLinks})
+    topologySummary.EntityData.Leafs.Append("adjacency-sids", types.YLeaf{"AdjacencySids", topologySummary.AdjacencySids})
+    topologySummary.EntityData.Leafs.Append("epesids", types.YLeaf{"Epesids", topologySummary.Epesids})
+    topologySummary.EntityData.Leafs.Append("protected-adjacency-sids", types.YLeaf{"ProtectedAdjacencySids", topologySummary.ProtectedAdjacencySids})
+    topologySummary.EntityData.Leafs.Append("un-protected-adjacency-sids", types.YLeaf{"UnProtectedAdjacencySids", topologySummary.UnProtectedAdjacencySids})
+    topologySummary.EntityData.Leafs.Append("topology-consistent", types.YLeaf{"TopologyConsistent", topologySummary.TopologyConsistent})
+
+    topologySummary.EntityData.YListKeys = []string {}
+
+    return &(topologySummary.EntityData)
+}
+
+// PceTopology_TopologySummary_StatsTopologyUpdate
+// Statistics on topology update
+type PceTopology_TopologySummary_StatsTopologyUpdate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of nodes added. The type is interface{} with range: 0..4294967295.
+    NumNodesAdded interface{}
+
+    // Number of nodes deleted. The type is interface{} with range: 0..4294967295.
+    NumNodesDeleted interface{}
+
+    // Number of links added. The type is interface{} with range: 0..4294967295.
+    NumLinksAdded interface{}
+
+    // Number of links deleted. The type is interface{} with range: 0..4294967295.
+    NumLinksDeleted interface{}
+
+    // Number of prefixes added. The type is interface{} with range:
+    // 0..4294967295.
+    NumPrefixesAdded interface{}
+
+    // Number of prefixes deleted. The type is interface{} with range:
+    // 0..4294967295.
+    NumPrefixesDeleted interface{}
+}
+
+func (statsTopologyUpdate *PceTopology_TopologySummary_StatsTopologyUpdate) GetEntityData() *types.CommonEntityData {
+    statsTopologyUpdate.EntityData.YFilter = statsTopologyUpdate.YFilter
+    statsTopologyUpdate.EntityData.YangName = "stats-topology-update"
+    statsTopologyUpdate.EntityData.BundleName = "cisco_ios_xr"
+    statsTopologyUpdate.EntityData.ParentYangName = "topology-summary"
+    statsTopologyUpdate.EntityData.SegmentPath = "stats-topology-update"
+    statsTopologyUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summary/" + statsTopologyUpdate.EntityData.SegmentPath
+    statsTopologyUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statsTopologyUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statsTopologyUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    statsTopologyUpdate.EntityData.Children = types.NewOrderedMap()
+    statsTopologyUpdate.EntityData.Leafs = types.NewOrderedMap()
+    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-added", types.YLeaf{"NumNodesAdded", statsTopologyUpdate.NumNodesAdded})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-deleted", types.YLeaf{"NumNodesDeleted", statsTopologyUpdate.NumNodesDeleted})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-links-added", types.YLeaf{"NumLinksAdded", statsTopologyUpdate.NumLinksAdded})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-links-deleted", types.YLeaf{"NumLinksDeleted", statsTopologyUpdate.NumLinksDeleted})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-added", types.YLeaf{"NumPrefixesAdded", statsTopologyUpdate.NumPrefixesAdded})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-deleted", types.YLeaf{"NumPrefixesDeleted", statsTopologyUpdate.NumPrefixesDeleted})
+
+    statsTopologyUpdate.EntityData.YListKeys = []string {}
+
+    return &(statsTopologyUpdate.EntityData)
 }
 
 // PceTopology_TopologyNodes
@@ -3026,14 +3136,14 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier struct {
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -3237,7 +3347,7 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformatio
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -3272,7 +3382,7 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformatio
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -3466,7 +3576,7 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformati
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -3501,7 +3611,7 @@ type PceTopology_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformati
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -3641,11 +3751,11 @@ type PceTopology_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3793,7 +3903,7 @@ type PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf struct {
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -3828,7 +3938,7 @@ type PceTopology_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp struct {
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -3864,11 +3974,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link struct {
     YListKey string
 
     // Local IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIpv4Address interface{}
 
     // Remote IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteIpv4Address interface{}
 
     // IGP Metric. The type is interface{} with range: 0..4294967295.
@@ -4097,7 +4207,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -4132,7 +4242,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -4173,14 +4283,14 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -4384,7 +4494,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -4419,7 +4529,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -4613,7 +4723,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -4648,7 +4758,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -4682,9 +4792,8 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Min delay in microseconds. The type is interface{} with range:
-    // 0..4294967295. Units are microsecond.
-    UnidirectionalMinimumDelayMicroseconds interface{}
+    // Min delay. The type is interface{} with range: 0..4294967295.
+    UnidirectionalMinDelay interface{}
 }
 
 func (performanceMetrics *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics) GetEntityData() *types.CommonEntityData {
@@ -4700,7 +4809,7 @@ func (performanceMetrics *PceTopology_TopologyNodes_TopologyNode_Ipv4Link_Perfor
 
     performanceMetrics.EntityData.Children = types.NewOrderedMap()
     performanceMetrics.EntityData.Leafs = types.NewOrderedMap()
-    performanceMetrics.EntityData.Leafs.Append("unidirectional-minimum-delay-microseconds", types.YLeaf{"UnidirectionalMinimumDelayMicroseconds", performanceMetrics.UnidirectionalMinimumDelayMicroseconds})
+    performanceMetrics.EntityData.Leafs.Append("unidirectional-min-delay", types.YLeaf{"UnidirectionalMinDelay", performanceMetrics.UnidirectionalMinDelay})
 
     performanceMetrics.EntityData.YListKeys = []string {}
 
@@ -4780,11 +4889,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid_SidPrefix stru
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -4818,11 +4927,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link struct {
     YListKey string
 
     // Local IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpv6Address interface{}
 
     // Remote IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RemoteIpv6Address interface{}
 
     // IGP Metric. The type is interface{} with range: 0..4294967295.
@@ -5039,7 +5148,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -5074,7 +5183,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -5115,14 +5224,14 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -5326,7 +5435,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -5361,7 +5470,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -5555,7 +5664,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -5590,7 +5699,7 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifie
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -5691,11 +5800,11 @@ type PceTopology_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid_SidPrefix stru
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -5719,192 +5828,6 @@ func (sidPrefix *PceTopology_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid_Si
     sidPrefix.EntityData.YListKeys = []string {}
 
     return &(sidPrefix.EntityData)
-}
-
-// PceTopology_TopologySummaries
-// Node summary database in XTC
-type PceTopology_TopologySummaries struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Node summary database in XTC. The type is slice of
-    // PceTopology_TopologySummaries_TopologySummary.
-    TopologySummary []*PceTopology_TopologySummaries_TopologySummary
-}
-
-func (topologySummaries *PceTopology_TopologySummaries) GetEntityData() *types.CommonEntityData {
-    topologySummaries.EntityData.YFilter = topologySummaries.YFilter
-    topologySummaries.EntityData.YangName = "topology-summaries"
-    topologySummaries.EntityData.BundleName = "cisco_ios_xr"
-    topologySummaries.EntityData.ParentYangName = "pce-topology"
-    topologySummaries.EntityData.SegmentPath = "topology-summaries"
-    topologySummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce-topology/" + topologySummaries.EntityData.SegmentPath
-    topologySummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    topologySummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    topologySummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    topologySummaries.EntityData.Children = types.NewOrderedMap()
-    topologySummaries.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", nil})
-    for i := range topologySummaries.TopologySummary {
-        types.SetYListKey(topologySummaries.TopologySummary[i], i)
-        topologySummaries.EntityData.Children.Append(types.GetSegmentPath(topologySummaries.TopologySummary[i]), types.YChild{"TopologySummary", topologySummaries.TopologySummary[i]})
-    }
-    topologySummaries.EntityData.Leafs = types.NewOrderedMap()
-
-    topologySummaries.EntityData.YListKeys = []string {}
-
-    return &(topologySummaries.EntityData)
-}
-
-// PceTopology_TopologySummaries_TopologySummary
-// Node summary database in XTC
-type PceTopology_TopologySummaries_TopologySummary struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Only show data related to the specified address family. The type is
-    // PceAddressFamily.
-    Af interface{}
-
-    // Match nodes from the specified IGP protocol. The type is PceigpProtocol.
-    Protocol interface{}
-
-    // Number of PCE nodes. The type is interface{} with range: 0..4294967295.
-    Nodes interface{}
-
-    // Number of lookup nodes. The type is interface{} with range: 0..4294967295.
-    LookupNodes interface{}
-
-    // Number of prefixes. The type is interface{} with range: 0..4294967295.
-    Prefixes interface{}
-
-    // Number of total prefix SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    PrefixSids interface{}
-
-    // Number of reguar prefix SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    RegularPrefixSids interface{}
-
-    // Number of strict prefix SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    StrictPrefixSids interface{}
-
-    // Number of links. The type is interface{} with range: 0..4294967295.
-    Links interface{}
-
-    // Number of EPE links. The type is interface{} with range: 0..4294967295.
-    EpeLinks interface{}
-
-    // Number of total adjacency SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    AdjacencySids interface{}
-
-    // Number of total EPE SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    Epesids interface{}
-
-    // Number of protected adjacency SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    ProtectedAdjacencySids interface{}
-
-    // Number of unprotected adjacency SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    UnProtectedAdjacencySids interface{}
-
-    // True if topology is consistent. The type is bool.
-    TopologyConsistent interface{}
-
-    // Statistics on topology update.
-    StatsTopologyUpdate PceTopology_TopologySummaries_TopologySummary_StatsTopologyUpdate
-}
-
-func (topologySummary *PceTopology_TopologySummaries_TopologySummary) GetEntityData() *types.CommonEntityData {
-    topologySummary.EntityData.YFilter = topologySummary.YFilter
-    topologySummary.EntityData.YangName = "topology-summary"
-    topologySummary.EntityData.BundleName = "cisco_ios_xr"
-    topologySummary.EntityData.ParentYangName = "topology-summaries"
-    topologySummary.EntityData.SegmentPath = "topology-summary" + types.AddNoKeyToken(topologySummary)
-    topologySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summaries/" + topologySummary.EntityData.SegmentPath
-    topologySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    topologySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    topologySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    topologySummary.EntityData.Children = types.NewOrderedMap()
-    topologySummary.EntityData.Children.Append("stats-topology-update", types.YChild{"StatsTopologyUpdate", &topologySummary.StatsTopologyUpdate})
-    topologySummary.EntityData.Leafs = types.NewOrderedMap()
-    topologySummary.EntityData.Leafs.Append("af", types.YLeaf{"Af", topologySummary.Af})
-    topologySummary.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", topologySummary.Protocol})
-    topologySummary.EntityData.Leafs.Append("nodes", types.YLeaf{"Nodes", topologySummary.Nodes})
-    topologySummary.EntityData.Leafs.Append("lookup-nodes", types.YLeaf{"LookupNodes", topologySummary.LookupNodes})
-    topologySummary.EntityData.Leafs.Append("prefixes", types.YLeaf{"Prefixes", topologySummary.Prefixes})
-    topologySummary.EntityData.Leafs.Append("prefix-sids", types.YLeaf{"PrefixSids", topologySummary.PrefixSids})
-    topologySummary.EntityData.Leafs.Append("regular-prefix-sids", types.YLeaf{"RegularPrefixSids", topologySummary.RegularPrefixSids})
-    topologySummary.EntityData.Leafs.Append("strict-prefix-sids", types.YLeaf{"StrictPrefixSids", topologySummary.StrictPrefixSids})
-    topologySummary.EntityData.Leafs.Append("links", types.YLeaf{"Links", topologySummary.Links})
-    topologySummary.EntityData.Leafs.Append("epe-links", types.YLeaf{"EpeLinks", topologySummary.EpeLinks})
-    topologySummary.EntityData.Leafs.Append("adjacency-sids", types.YLeaf{"AdjacencySids", topologySummary.AdjacencySids})
-    topologySummary.EntityData.Leafs.Append("epesids", types.YLeaf{"Epesids", topologySummary.Epesids})
-    topologySummary.EntityData.Leafs.Append("protected-adjacency-sids", types.YLeaf{"ProtectedAdjacencySids", topologySummary.ProtectedAdjacencySids})
-    topologySummary.EntityData.Leafs.Append("un-protected-adjacency-sids", types.YLeaf{"UnProtectedAdjacencySids", topologySummary.UnProtectedAdjacencySids})
-    topologySummary.EntityData.Leafs.Append("topology-consistent", types.YLeaf{"TopologyConsistent", topologySummary.TopologyConsistent})
-
-    topologySummary.EntityData.YListKeys = []string {}
-
-    return &(topologySummary.EntityData)
-}
-
-// PceTopology_TopologySummaries_TopologySummary_StatsTopologyUpdate
-// Statistics on topology update
-type PceTopology_TopologySummaries_TopologySummary_StatsTopologyUpdate struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of nodes added. The type is interface{} with range: 0..4294967295.
-    NumNodesAdded interface{}
-
-    // Number of nodes deleted. The type is interface{} with range: 0..4294967295.
-    NumNodesDeleted interface{}
-
-    // Number of links added. The type is interface{} with range: 0..4294967295.
-    NumLinksAdded interface{}
-
-    // Number of links deleted. The type is interface{} with range: 0..4294967295.
-    NumLinksDeleted interface{}
-
-    // Number of prefixes added. The type is interface{} with range:
-    // 0..4294967295.
-    NumPrefixesAdded interface{}
-
-    // Number of prefixes deleted. The type is interface{} with range:
-    // 0..4294967295.
-    NumPrefixesDeleted interface{}
-}
-
-func (statsTopologyUpdate *PceTopology_TopologySummaries_TopologySummary_StatsTopologyUpdate) GetEntityData() *types.CommonEntityData {
-    statsTopologyUpdate.EntityData.YFilter = statsTopologyUpdate.YFilter
-    statsTopologyUpdate.EntityData.YangName = "stats-topology-update"
-    statsTopologyUpdate.EntityData.BundleName = "cisco_ios_xr"
-    statsTopologyUpdate.EntityData.ParentYangName = "topology-summary"
-    statsTopologyUpdate.EntityData.SegmentPath = "stats-topology-update"
-    statsTopologyUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summaries/topology-summary/" + statsTopologyUpdate.EntityData.SegmentPath
-    statsTopologyUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    statsTopologyUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    statsTopologyUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    statsTopologyUpdate.EntityData.Children = types.NewOrderedMap()
-    statsTopologyUpdate.EntityData.Leafs = types.NewOrderedMap()
-    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-added", types.YLeaf{"NumNodesAdded", statsTopologyUpdate.NumNodesAdded})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-deleted", types.YLeaf{"NumNodesDeleted", statsTopologyUpdate.NumNodesDeleted})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-links-added", types.YLeaf{"NumLinksAdded", statsTopologyUpdate.NumLinksAdded})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-links-deleted", types.YLeaf{"NumLinksDeleted", statsTopologyUpdate.NumLinksDeleted})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-added", types.YLeaf{"NumPrefixesAdded", statsTopologyUpdate.NumPrefixesAdded})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-deleted", types.YLeaf{"NumPrefixesDeleted", statsTopologyUpdate.NumPrefixesDeleted})
-
-    statsTopologyUpdate.EntityData.YListKeys = []string {}
-
-    return &(statsTopologyUpdate.EntityData)
 }
 
 // PceTopology_PrefixInfos
@@ -6003,14 +5926,14 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier struct {
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -6214,7 +6137,7 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_No
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -6249,7 +6172,7 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_No
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -6443,7 +6366,7 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_N
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -6478,7 +6401,7 @@ type PceTopology_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_N
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -6547,11 +6470,11 @@ type PceTopology_PrefixInfos_PrefixInfo_Address_Ip struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -6589,18 +6512,14 @@ type Pce struct {
     // PCE Verification events in XTC.
     VerificationEvents Pce_VerificationEvents
 
-    // Detailed PCE peer information.
-    PeerSummaries Pce_PeerSummaries
-
     // Associaition database in XTC.
     AssociationInfos Pce_AssociationInfos
 
-    // This table models the path calculation capabilities in XTC.A GET operation
-    // for the complete table will return no entries.
-    Paths Pce_Paths
-
     // CSPF path info.
     Cspf Pce_Cspf
+
+    // Node summary database in XTC.
+    TopologySummary Pce_TopologySummary
 
     // Tunnel database in XTC.
     TunnelInfos Pce_TunnelInfos
@@ -6610,9 +6529,6 @@ type Pce struct {
 
     // Node database in XTC.
     TopologyNodes Pce_TopologyNodes
-
-    // Node summary database in XTC.
-    TopologySummaries Pce_TopologySummaries
 
     // Prefixes database in XTC.
     PrefixInfos Pce_PrefixInfos
@@ -6641,14 +6557,12 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.Children = types.NewOrderedMap()
     pce.EntityData.Children.Append("cspf-sr-mpls", types.YChild{"CspfSrMpls", &pce.CspfSrMpls})
     pce.EntityData.Children.Append("verification-events", types.YChild{"VerificationEvents", &pce.VerificationEvents})
-    pce.EntityData.Children.Append("peer-summaries", types.YChild{"PeerSummaries", &pce.PeerSummaries})
     pce.EntityData.Children.Append("association-infos", types.YChild{"AssociationInfos", &pce.AssociationInfos})
-    pce.EntityData.Children.Append("paths", types.YChild{"Paths", &pce.Paths})
     pce.EntityData.Children.Append("cspf", types.YChild{"Cspf", &pce.Cspf})
+    pce.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", &pce.TopologySummary})
     pce.EntityData.Children.Append("tunnel-infos", types.YChild{"TunnelInfos", &pce.TunnelInfos})
     pce.EntityData.Children.Append("peer-detail-infos", types.YChild{"PeerDetailInfos", &pce.PeerDetailInfos})
     pce.EntityData.Children.Append("topology-nodes", types.YChild{"TopologyNodes", &pce.TopologyNodes})
-    pce.EntityData.Children.Append("topology-summaries", types.YChild{"TopologySummaries", &pce.TopologySummaries})
     pce.EntityData.Children.Append("prefix-infos", types.YChild{"PrefixInfos", &pce.PrefixInfos})
     pce.EntityData.Children.Append("lsp-summary", types.YChild{"LspSummary", &pce.LspSummary})
     pce.EntityData.Children.Append("peer-infos", types.YChild{"PeerInfos", &pce.PeerInfos})
@@ -6741,16 +6655,16 @@ type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath struct {
 
     // Source of path 1. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source1 interface{}
 
     // Destination of path 1. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Destination1 interface{}
 
     // Metric type. The type is interface{} with range: 0..4294967295.
@@ -6758,16 +6672,16 @@ type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath struct {
 
     // Source of path 2. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source2 interface{}
 
     // Destination of path 2. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Destination2 interface{}
 
     // Disjointness level. The type is interface{} with range: 0..4294967295.
@@ -6917,11 +6831,11 @@ type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Source struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -6957,11 +6871,11 @@ type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Destination struct
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -7040,11 +6954,11 @@ type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_LocalAddr str
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -7080,11 +6994,11 @@ type Pce_CspfSrMpls_CspfSrMplsPaths_CspfSrMplsPath_OutputPath_Hops_RemoteAddr st
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -7190,116 +7104,6 @@ func (verificationEvent *Pce_VerificationEvents_VerificationEvent) GetEntityData
     return &(verificationEvent.EntityData)
 }
 
-// Pce_PeerSummaries
-// Detailed PCE peer information
-type Pce_PeerSummaries struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Summary PCE peer information. The type is slice of
-    // Pce_PeerSummaries_PeerSummary.
-    PeerSummary []*Pce_PeerSummaries_PeerSummary
-}
-
-func (peerSummaries *Pce_PeerSummaries) GetEntityData() *types.CommonEntityData {
-    peerSummaries.EntityData.YFilter = peerSummaries.YFilter
-    peerSummaries.EntityData.YangName = "peer-summaries"
-    peerSummaries.EntityData.BundleName = "cisco_ios_xr"
-    peerSummaries.EntityData.ParentYangName = "pce"
-    peerSummaries.EntityData.SegmentPath = "peer-summaries"
-    peerSummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/" + peerSummaries.EntityData.SegmentPath
-    peerSummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    peerSummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    peerSummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    peerSummaries.EntityData.Children = types.NewOrderedMap()
-    peerSummaries.EntityData.Children.Append("peer-summary", types.YChild{"PeerSummary", nil})
-    for i := range peerSummaries.PeerSummary {
-        peerSummaries.EntityData.Children.Append(types.GetSegmentPath(peerSummaries.PeerSummary[i]), types.YChild{"PeerSummary", peerSummaries.PeerSummary[i]})
-    }
-    peerSummaries.EntityData.Leafs = types.NewOrderedMap()
-
-    peerSummaries.EntityData.YListKeys = []string {}
-
-    return &(peerSummaries.EntityData)
-}
-
-// Pce_PeerSummaries_PeerSummary
-// Summary PCE peer information
-type Pce_PeerSummaries_PeerSummary struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Only show data related to the specified address
-    // family. The type is PceAddressFamily.
-    Af interface{}
-
-    // PCEP peers summary information.
-    PcepPeers Pce_PeerSummaries_PeerSummary_PcepPeers
-}
-
-func (peerSummary *Pce_PeerSummaries_PeerSummary) GetEntityData() *types.CommonEntityData {
-    peerSummary.EntityData.YFilter = peerSummary.YFilter
-    peerSummary.EntityData.YangName = "peer-summary"
-    peerSummary.EntityData.BundleName = "cisco_ios_xr"
-    peerSummary.EntityData.ParentYangName = "peer-summaries"
-    peerSummary.EntityData.SegmentPath = "peer-summary" + types.AddKeyToken(peerSummary.Af, "af")
-    peerSummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/peer-summaries/" + peerSummary.EntityData.SegmentPath
-    peerSummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    peerSummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    peerSummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    peerSummary.EntityData.Children = types.NewOrderedMap()
-    peerSummary.EntityData.Children.Append("pcep-peers", types.YChild{"PcepPeers", &peerSummary.PcepPeers})
-    peerSummary.EntityData.Leafs = types.NewOrderedMap()
-    peerSummary.EntityData.Leafs.Append("af", types.YLeaf{"Af", peerSummary.Af})
-
-    peerSummary.EntityData.YListKeys = []string {"Af"}
-
-    return &(peerSummary.EntityData)
-}
-
-// Pce_PeerSummaries_PeerSummary_PcepPeers
-// PCEP peers summary information
-type Pce_PeerSummaries_PeerSummary_PcepPeers struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of peers in up state. The type is interface{} with range:
-    // 0..4294967295.
-    PeerCountUp interface{}
-
-    // Number of peers in down state. The type is interface{} with range:
-    // 0..4294967295.
-    PeerCountDown interface{}
-
-    // Number of all peers. The type is interface{} with range: 0..4294967295.
-    PeerCountAll interface{}
-}
-
-func (pcepPeers *Pce_PeerSummaries_PeerSummary_PcepPeers) GetEntityData() *types.CommonEntityData {
-    pcepPeers.EntityData.YFilter = pcepPeers.YFilter
-    pcepPeers.EntityData.YangName = "pcep-peers"
-    pcepPeers.EntityData.BundleName = "cisco_ios_xr"
-    pcepPeers.EntityData.ParentYangName = "peer-summary"
-    pcepPeers.EntityData.SegmentPath = "pcep-peers"
-    pcepPeers.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/peer-summaries/peer-summary/" + pcepPeers.EntityData.SegmentPath
-    pcepPeers.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pcepPeers.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pcepPeers.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pcepPeers.EntityData.Children = types.NewOrderedMap()
-    pcepPeers.EntityData.Leafs = types.NewOrderedMap()
-    pcepPeers.EntityData.Leafs.Append("peer-count-up", types.YLeaf{"PeerCountUp", pcepPeers.PeerCountUp})
-    pcepPeers.EntityData.Leafs.Append("peer-count-down", types.YLeaf{"PeerCountDown", pcepPeers.PeerCountDown})
-    pcepPeers.EntityData.Leafs.Append("peer-count-all", types.YLeaf{"PeerCountAll", pcepPeers.PeerCountAll})
-
-    pcepPeers.EntityData.YListKeys = []string {}
-
-    return &(pcepPeers.EntityData)
-}
-
 // Pce_AssociationInfos
 // Associaition database in XTC
 type Pce_AssociationInfos struct {
@@ -7349,9 +7153,9 @@ type Pce_AssociationInfos_AssociationInfo struct {
     Type interface{}
 
     // Sub ID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SubId interface{}
 
     // Association Type. The type is interface{} with range: 0..4294967295.
@@ -7420,11 +7224,11 @@ type Pce_AssociationInfos_AssociationInfo_AssociationSource struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -7511,11 +7315,11 @@ type Pce_AssociationInfos_AssociationInfo_AssociationLsp_PccAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -7539,231 +7343,6 @@ func (pccAddress *Pce_AssociationInfos_AssociationInfo_AssociationLsp_PccAddress
     pccAddress.EntityData.YListKeys = []string {}
 
     return &(pccAddress.EntityData)
-}
-
-// Pce_Paths
-// This table models the path calculation
-// capabilities in XTC.A GET operation for the
-// complete table will return no entries.
-type Pce_Paths struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // A GET operation on this class returns the path. The type is slice of
-    // Pce_Paths_Path.
-    Path []*Pce_Paths_Path
-}
-
-func (paths *Pce_Paths) GetEntityData() *types.CommonEntityData {
-    paths.EntityData.YFilter = paths.YFilter
-    paths.EntityData.YangName = "paths"
-    paths.EntityData.BundleName = "cisco_ios_xr"
-    paths.EntityData.ParentYangName = "pce"
-    paths.EntityData.SegmentPath = "paths"
-    paths.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/" + paths.EntityData.SegmentPath
-    paths.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    paths.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    paths.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    paths.EntityData.Children = types.NewOrderedMap()
-    paths.EntityData.Children.Append("path", types.YChild{"Path", nil})
-    for i := range paths.Path {
-        paths.EntityData.Children.Append(types.GetSegmentPath(paths.Path[i]), types.YChild{"Path", paths.Path[i]})
-    }
-    paths.EntityData.Leafs = types.NewOrderedMap()
-
-    paths.EntityData.YListKeys = []string {}
-
-    return &(paths.EntityData)
-}
-
-// Pce_Paths_Path
-// A GET operation on this class returns the path.
-type Pce_Paths_Path struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Address Family. The type is interface{} with
-    // range: 0..4294967295.
-    Af interface{}
-
-    // This attribute is a key. Source of path. The type is one of the following
-    // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    Source interface{}
-
-    // This attribute is a key. Destination of path. The type is one of the
-    // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    Destination interface{}
-
-    // Cost. The type is interface{} with range: 0..18446744073709551615.
-    Cost interface{}
-
-    // Source of path.
-    SourceXr Pce_Paths_Path_SourceXr
-
-    // Destination of path.
-    DestinationXr Pce_Paths_Path_DestinationXr
-
-    // Hop addresses. The type is slice of Pce_Paths_Path_Hops.
-    Hops []*Pce_Paths_Path_Hops
-}
-
-func (path *Pce_Paths_Path) GetEntityData() *types.CommonEntityData {
-    path.EntityData.YFilter = path.YFilter
-    path.EntityData.YangName = "path"
-    path.EntityData.BundleName = "cisco_ios_xr"
-    path.EntityData.ParentYangName = "paths"
-    path.EntityData.SegmentPath = "path" + types.AddKeyToken(path.Af, "af") + types.AddKeyToken(path.Source, "source") + types.AddKeyToken(path.Destination, "destination")
-    path.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/paths/" + path.EntityData.SegmentPath
-    path.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    path.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    path.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    path.EntityData.Children = types.NewOrderedMap()
-    path.EntityData.Children.Append("source-xr", types.YChild{"SourceXr", &path.SourceXr})
-    path.EntityData.Children.Append("destination-xr", types.YChild{"DestinationXr", &path.DestinationXr})
-    path.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
-    for i := range path.Hops {
-        types.SetYListKey(path.Hops[i], i)
-        path.EntityData.Children.Append(types.GetSegmentPath(path.Hops[i]), types.YChild{"Hops", path.Hops[i]})
-    }
-    path.EntityData.Leafs = types.NewOrderedMap()
-    path.EntityData.Leafs.Append("af", types.YLeaf{"Af", path.Af})
-    path.EntityData.Leafs.Append("source", types.YLeaf{"Source", path.Source})
-    path.EntityData.Leafs.Append("destination", types.YLeaf{"Destination", path.Destination})
-    path.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", path.Cost})
-
-    path.EntityData.YListKeys = []string {"Af", "Source", "Destination"}
-
-    return &(path.EntityData)
-}
-
-// Pce_Paths_Path_SourceXr
-// Source of path
-type Pce_Paths_Path_SourceXr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // AFName. The type is PceAfId.
-    AfName interface{}
-
-    // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ipv4 interface{}
-
-    // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    Ipv6 interface{}
-}
-
-func (sourceXr *Pce_Paths_Path_SourceXr) GetEntityData() *types.CommonEntityData {
-    sourceXr.EntityData.YFilter = sourceXr.YFilter
-    sourceXr.EntityData.YangName = "source-xr"
-    sourceXr.EntityData.BundleName = "cisco_ios_xr"
-    sourceXr.EntityData.ParentYangName = "path"
-    sourceXr.EntityData.SegmentPath = "source-xr"
-    sourceXr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/paths/path/" + sourceXr.EntityData.SegmentPath
-    sourceXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    sourceXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    sourceXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    sourceXr.EntityData.Children = types.NewOrderedMap()
-    sourceXr.EntityData.Leafs = types.NewOrderedMap()
-    sourceXr.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", sourceXr.AfName})
-    sourceXr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceXr.Ipv4})
-    sourceXr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceXr.Ipv6})
-
-    sourceXr.EntityData.YListKeys = []string {}
-
-    return &(sourceXr.EntityData)
-}
-
-// Pce_Paths_Path_DestinationXr
-// Destination of path
-type Pce_Paths_Path_DestinationXr struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // AFName. The type is PceAfId.
-    AfName interface{}
-
-    // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ipv4 interface{}
-
-    // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    Ipv6 interface{}
-}
-
-func (destinationXr *Pce_Paths_Path_DestinationXr) GetEntityData() *types.CommonEntityData {
-    destinationXr.EntityData.YFilter = destinationXr.YFilter
-    destinationXr.EntityData.YangName = "destination-xr"
-    destinationXr.EntityData.BundleName = "cisco_ios_xr"
-    destinationXr.EntityData.ParentYangName = "path"
-    destinationXr.EntityData.SegmentPath = "destination-xr"
-    destinationXr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/paths/path/" + destinationXr.EntityData.SegmentPath
-    destinationXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    destinationXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    destinationXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    destinationXr.EntityData.Children = types.NewOrderedMap()
-    destinationXr.EntityData.Leafs = types.NewOrderedMap()
-    destinationXr.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", destinationXr.AfName})
-    destinationXr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", destinationXr.Ipv4})
-    destinationXr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", destinationXr.Ipv6})
-
-    destinationXr.EntityData.YListKeys = []string {}
-
-    return &(destinationXr.EntityData)
-}
-
-// Pce_Paths_Path_Hops
-// Hop addresses
-type Pce_Paths_Path_Hops struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Address Family. The type is interface{} with range: 0..255.
-    AddressFamily interface{}
-
-    // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    Ipv4Prefix interface{}
-
-    // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    Ipv6Prefix interface{}
-}
-
-func (hops *Pce_Paths_Path_Hops) GetEntityData() *types.CommonEntityData {
-    hops.EntityData.YFilter = hops.YFilter
-    hops.EntityData.YangName = "hops"
-    hops.EntityData.BundleName = "cisco_ios_xr"
-    hops.EntityData.ParentYangName = "path"
-    hops.EntityData.SegmentPath = "hops" + types.AddNoKeyToken(hops)
-    hops.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/paths/path/" + hops.EntityData.SegmentPath
-    hops.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    hops.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    hops.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    hops.EntityData.Children = types.NewOrderedMap()
-    hops.EntityData.Leafs = types.NewOrderedMap()
-    hops.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", hops.AddressFamily})
-    hops.EntityData.Leafs.Append("ipv4-prefix", types.YLeaf{"Ipv4Prefix", hops.Ipv4Prefix})
-    hops.EntityData.Leafs.Append("ipv6-prefix", types.YLeaf{"Ipv6Prefix", hops.Ipv6Prefix})
-
-    hops.EntityData.YListKeys = []string {}
-
-    return &(hops.EntityData)
 }
 
 // Pce_Cspf
@@ -7824,7 +7403,6 @@ func (cspfPaths *Pce_Cspf_CspfPaths) GetEntityData() *types.CommonEntityData {
     cspfPaths.EntityData.Children = types.NewOrderedMap()
     cspfPaths.EntityData.Children.Append("cspf-path", types.YChild{"CspfPath", nil})
     for i := range cspfPaths.CspfPath {
-        types.SetYListKey(cspfPaths.CspfPath[i], i)
         cspfPaths.EntityData.Children.Append(types.GetSegmentPath(cspfPaths.CspfPath[i]), types.YChild{"CspfPath", cspfPaths.CspfPath[i]})
     }
     cspfPaths.EntityData.Leafs = types.NewOrderedMap()
@@ -7842,49 +7420,52 @@ type Pce_Cspf_CspfPaths_CspfPath struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Address Family. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Address Family. The type is interface{} with
+    // range: 0..4294967295.
     Af interface{}
 
-    // Source of path 1. The type is one of the following types: string with
-    // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // This attribute is a key. Source of path 1. The type is one of the following
+    // types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source1 interface{}
 
-    // Destination of path 1. The type is one of the following types: string with
-    // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // This attribute is a key. Destination of path 1. The type is one of the
+    // following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Destination1 interface{}
 
-    // Metric type. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Metric type. The type is interface{} with range:
+    // 0..4294967295.
     MetricType interface{}
 
-    // Source of path 2. The type is one of the following types: string with
-    // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // This attribute is a key. Source of path 2. The type is one of the following
+    // types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source2 interface{}
 
-    // Destination of path 2. The type is one of the following types: string with
-    // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // This attribute is a key. Destination of path 2. The type is one of the
+    // following types: string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Destination2 interface{}
 
-    // Disjointness level. The type is interface{} with range: 0..4294967295.
+    // This attribute is a key. Disjointness level. The type is interface{} with
+    // range: 0..4294967295.
     DisjointLevel interface{}
 
-    // Strict disjointness required. The type is interface{} with range:
-    // 0..4294967295.
+    // This attribute is a key. Strict disjointness required. The type is
+    // interface{} with range: 0..4294967295.
     DisjointStrict interface{}
 
-    // Whether path 1 or 2 should be shortest. The type is interface{} with range:
-    // 0..4294967295.
+    // This attribute is a key. Whether path 1 or 2 should be shortest. The type
+    // is interface{} with range: 0..4294967295.
     ShortestPath interface{}
 
     // Headends swapped. The type is PceHeadendSwap.
@@ -7907,7 +7488,7 @@ func (cspfPath *Pce_Cspf_CspfPaths_CspfPath) GetEntityData() *types.CommonEntity
     cspfPath.EntityData.YangName = "cspf-path"
     cspfPath.EntityData.BundleName = "cisco_ios_xr"
     cspfPath.EntityData.ParentYangName = "cspf-paths"
-    cspfPath.EntityData.SegmentPath = "cspf-path" + types.AddNoKeyToken(cspfPath)
+    cspfPath.EntityData.SegmentPath = "cspf-path" + types.AddKeyToken(cspfPath.Af, "af") + types.AddKeyToken(cspfPath.Source1, "source1") + types.AddKeyToken(cspfPath.Destination1, "destination1") + types.AddKeyToken(cspfPath.MetricType, "metric-type") + types.AddKeyToken(cspfPath.Source2, "source2") + types.AddKeyToken(cspfPath.Destination2, "destination2") + types.AddKeyToken(cspfPath.DisjointLevel, "disjoint-level") + types.AddKeyToken(cspfPath.DisjointStrict, "disjoint-strict") + types.AddKeyToken(cspfPath.ShortestPath, "shortest-path")
     cspfPath.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/cspf-paths/" + cspfPath.EntityData.SegmentPath
     cspfPath.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     cspfPath.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -7933,7 +7514,7 @@ func (cspfPath *Pce_Cspf_CspfPaths_CspfPath) GetEntityData() *types.CommonEntity
     cspfPath.EntityData.Leafs.Append("cspf-result", types.YLeaf{"CspfResult", cspfPath.CspfResult})
     cspfPath.EntityData.Leafs.Append("iterations-done", types.YLeaf{"IterationsDone", cspfPath.IterationsDone})
 
-    cspfPath.EntityData.YListKeys = []string {}
+    cspfPath.EntityData.YListKeys = []string {"Af", "Source1", "Destination1", "MetricType", "Source2", "Destination2", "DisjointLevel", "DisjointStrict", "ShortestPath"}
 
     return &(cspfPath.EntityData)
 }
@@ -7949,10 +7530,10 @@ type Pce_Cspf_CspfPaths_CspfPath_OutputPath struct {
     Cost interface{}
 
     // Source of path.
-    SourceXr Pce_Cspf_CspfPaths_CspfPath_OutputPath_SourceXr
+    Source Pce_Cspf_CspfPaths_CspfPath_OutputPath_Source
 
     // Destination of path.
-    DestinationXr Pce_Cspf_CspfPaths_CspfPath_OutputPath_DestinationXr
+    Destination Pce_Cspf_CspfPaths_CspfPath_OutputPath_Destination
 
     // Hop addresses. The type is slice of
     // Pce_Cspf_CspfPaths_CspfPath_OutputPath_Hops.
@@ -7971,8 +7552,8 @@ func (outputPath *Pce_Cspf_CspfPaths_CspfPath_OutputPath) GetEntityData() *types
     outputPath.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     outputPath.EntityData.Children = types.NewOrderedMap()
-    outputPath.EntityData.Children.Append("source-xr", types.YChild{"SourceXr", &outputPath.SourceXr})
-    outputPath.EntityData.Children.Append("destination-xr", types.YChild{"DestinationXr", &outputPath.DestinationXr})
+    outputPath.EntityData.Children.Append("source", types.YChild{"Source", &outputPath.Source})
+    outputPath.EntityData.Children.Append("destination", types.YChild{"Destination", &outputPath.Destination})
     outputPath.EntityData.Children.Append("hops", types.YChild{"Hops", nil})
     for i := range outputPath.Hops {
         types.SetYListKey(outputPath.Hops[i], i)
@@ -7986,9 +7567,9 @@ func (outputPath *Pce_Cspf_CspfPaths_CspfPath_OutputPath) GetEntityData() *types
     return &(outputPath.EntityData)
 }
 
-// Pce_Cspf_CspfPaths_CspfPath_OutputPath_SourceXr
+// Pce_Cspf_CspfPaths_CspfPath_OutputPath_Source
 // Source of path
-type Pce_Cspf_CspfPaths_CspfPath_OutputPath_SourceXr struct {
+type Pce_Cspf_CspfPaths_CspfPath_OutputPath_Source struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7996,39 +7577,39 @@ type Pce_Cspf_CspfPaths_CspfPath_OutputPath_SourceXr struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
-func (sourceXr *Pce_Cspf_CspfPaths_CspfPath_OutputPath_SourceXr) GetEntityData() *types.CommonEntityData {
-    sourceXr.EntityData.YFilter = sourceXr.YFilter
-    sourceXr.EntityData.YangName = "source-xr"
-    sourceXr.EntityData.BundleName = "cisco_ios_xr"
-    sourceXr.EntityData.ParentYangName = "output-path"
-    sourceXr.EntityData.SegmentPath = "source-xr"
-    sourceXr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/cspf-paths/cspf-path/output-path/" + sourceXr.EntityData.SegmentPath
-    sourceXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    sourceXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    sourceXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (source *Pce_Cspf_CspfPaths_CspfPath_OutputPath_Source) GetEntityData() *types.CommonEntityData {
+    source.EntityData.YFilter = source.YFilter
+    source.EntityData.YangName = "source"
+    source.EntityData.BundleName = "cisco_ios_xr"
+    source.EntityData.ParentYangName = "output-path"
+    source.EntityData.SegmentPath = "source"
+    source.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/cspf-paths/cspf-path/output-path/" + source.EntityData.SegmentPath
+    source.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    source.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    source.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    sourceXr.EntityData.Children = types.NewOrderedMap()
-    sourceXr.EntityData.Leafs = types.NewOrderedMap()
-    sourceXr.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", sourceXr.AfName})
-    sourceXr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", sourceXr.Ipv4})
-    sourceXr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", sourceXr.Ipv6})
+    source.EntityData.Children = types.NewOrderedMap()
+    source.EntityData.Leafs = types.NewOrderedMap()
+    source.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", source.AfName})
+    source.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", source.Ipv4})
+    source.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", source.Ipv6})
 
-    sourceXr.EntityData.YListKeys = []string {}
+    source.EntityData.YListKeys = []string {}
 
-    return &(sourceXr.EntityData)
+    return &(source.EntityData)
 }
 
-// Pce_Cspf_CspfPaths_CspfPath_OutputPath_DestinationXr
+// Pce_Cspf_CspfPaths_CspfPath_OutputPath_Destination
 // Destination of path
-type Pce_Cspf_CspfPaths_CspfPath_OutputPath_DestinationXr struct {
+type Pce_Cspf_CspfPaths_CspfPath_OutputPath_Destination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -8036,34 +7617,34 @@ type Pce_Cspf_CspfPaths_CspfPath_OutputPath_DestinationXr struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
-func (destinationXr *Pce_Cspf_CspfPaths_CspfPath_OutputPath_DestinationXr) GetEntityData() *types.CommonEntityData {
-    destinationXr.EntityData.YFilter = destinationXr.YFilter
-    destinationXr.EntityData.YangName = "destination-xr"
-    destinationXr.EntityData.BundleName = "cisco_ios_xr"
-    destinationXr.EntityData.ParentYangName = "output-path"
-    destinationXr.EntityData.SegmentPath = "destination-xr"
-    destinationXr.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/cspf-paths/cspf-path/output-path/" + destinationXr.EntityData.SegmentPath
-    destinationXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    destinationXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    destinationXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (destination *Pce_Cspf_CspfPaths_CspfPath_OutputPath_Destination) GetEntityData() *types.CommonEntityData {
+    destination.EntityData.YFilter = destination.YFilter
+    destination.EntityData.YangName = "destination"
+    destination.EntityData.BundleName = "cisco_ios_xr"
+    destination.EntityData.ParentYangName = "output-path"
+    destination.EntityData.SegmentPath = "destination"
+    destination.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/cspf-paths/cspf-path/output-path/" + destination.EntityData.SegmentPath
+    destination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    destination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    destination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    destinationXr.EntityData.Children = types.NewOrderedMap()
-    destinationXr.EntityData.Leafs = types.NewOrderedMap()
-    destinationXr.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", destinationXr.AfName})
-    destinationXr.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", destinationXr.Ipv4})
-    destinationXr.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", destinationXr.Ipv6})
+    destination.EntityData.Children = types.NewOrderedMap()
+    destination.EntityData.Leafs = types.NewOrderedMap()
+    destination.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", destination.AfName})
+    destination.EntityData.Leafs.Append("ipv4", types.YLeaf{"Ipv4", destination.Ipv4})
+    destination.EntityData.Leafs.Append("ipv6", types.YLeaf{"Ipv6", destination.Ipv6})
 
-    destinationXr.EntityData.YListKeys = []string {}
+    destination.EntityData.YListKeys = []string {}
 
-    return &(destinationXr.EntityData)
+    return &(destination.EntityData)
 }
 
 // Pce_Cspf_CspfPaths_CspfPath_OutputPath_Hops
@@ -8077,11 +7658,11 @@ type Pce_Cspf_CspfPaths_CspfPath_OutputPath_Hops struct {
     AddressFamily interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Prefix interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Prefix interface{}
 }
 
@@ -8105,6 +7686,147 @@ func (hops *Pce_Cspf_CspfPaths_CspfPath_OutputPath_Hops) GetEntityData() *types.
     hops.EntityData.YListKeys = []string {}
 
     return &(hops.EntityData)
+}
+
+// Pce_TopologySummary
+// Node summary database in XTC
+type Pce_TopologySummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of PCE nodes. The type is interface{} with range: 0..4294967295.
+    Nodes interface{}
+
+    // Number of lookup nodes. The type is interface{} with range: 0..4294967295.
+    LookupNodes interface{}
+
+    // Number of prefixes. The type is interface{} with range: 0..4294967295.
+    Prefixes interface{}
+
+    // Number of total prefix SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    PrefixSids interface{}
+
+    // Number of reguar prefix SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    RegularPrefixSids interface{}
+
+    // Number of strict prefix SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    StrictPrefixSids interface{}
+
+    // Number of links. The type is interface{} with range: 0..4294967295.
+    Links interface{}
+
+    // Number of EPE links. The type is interface{} with range: 0..4294967295.
+    EpeLinks interface{}
+
+    // Number of total adjacency SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    AdjacencySids interface{}
+
+    // Number of total EPE SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    Epesids interface{}
+
+    // Number of protected adjacency SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    ProtectedAdjacencySids interface{}
+
+    // Number of unprotected adjacency SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    UnProtectedAdjacencySids interface{}
+
+    // True if topology is consistent. The type is bool.
+    TopologyConsistent interface{}
+
+    // Statistics on topology update.
+    StatsTopologyUpdate Pce_TopologySummary_StatsTopologyUpdate
+}
+
+func (topologySummary *Pce_TopologySummary) GetEntityData() *types.CommonEntityData {
+    topologySummary.EntityData.YFilter = topologySummary.YFilter
+    topologySummary.EntityData.YangName = "topology-summary"
+    topologySummary.EntityData.BundleName = "cisco_ios_xr"
+    topologySummary.EntityData.ParentYangName = "pce"
+    topologySummary.EntityData.SegmentPath = "topology-summary"
+    topologySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/" + topologySummary.EntityData.SegmentPath
+    topologySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    topologySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    topologySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    topologySummary.EntityData.Children = types.NewOrderedMap()
+    topologySummary.EntityData.Children.Append("stats-topology-update", types.YChild{"StatsTopologyUpdate", &topologySummary.StatsTopologyUpdate})
+    topologySummary.EntityData.Leafs = types.NewOrderedMap()
+    topologySummary.EntityData.Leafs.Append("nodes", types.YLeaf{"Nodes", topologySummary.Nodes})
+    topologySummary.EntityData.Leafs.Append("lookup-nodes", types.YLeaf{"LookupNodes", topologySummary.LookupNodes})
+    topologySummary.EntityData.Leafs.Append("prefixes", types.YLeaf{"Prefixes", topologySummary.Prefixes})
+    topologySummary.EntityData.Leafs.Append("prefix-sids", types.YLeaf{"PrefixSids", topologySummary.PrefixSids})
+    topologySummary.EntityData.Leafs.Append("regular-prefix-sids", types.YLeaf{"RegularPrefixSids", topologySummary.RegularPrefixSids})
+    topologySummary.EntityData.Leafs.Append("strict-prefix-sids", types.YLeaf{"StrictPrefixSids", topologySummary.StrictPrefixSids})
+    topologySummary.EntityData.Leafs.Append("links", types.YLeaf{"Links", topologySummary.Links})
+    topologySummary.EntityData.Leafs.Append("epe-links", types.YLeaf{"EpeLinks", topologySummary.EpeLinks})
+    topologySummary.EntityData.Leafs.Append("adjacency-sids", types.YLeaf{"AdjacencySids", topologySummary.AdjacencySids})
+    topologySummary.EntityData.Leafs.Append("epesids", types.YLeaf{"Epesids", topologySummary.Epesids})
+    topologySummary.EntityData.Leafs.Append("protected-adjacency-sids", types.YLeaf{"ProtectedAdjacencySids", topologySummary.ProtectedAdjacencySids})
+    topologySummary.EntityData.Leafs.Append("un-protected-adjacency-sids", types.YLeaf{"UnProtectedAdjacencySids", topologySummary.UnProtectedAdjacencySids})
+    topologySummary.EntityData.Leafs.Append("topology-consistent", types.YLeaf{"TopologyConsistent", topologySummary.TopologyConsistent})
+
+    topologySummary.EntityData.YListKeys = []string {}
+
+    return &(topologySummary.EntityData)
+}
+
+// Pce_TopologySummary_StatsTopologyUpdate
+// Statistics on topology update
+type Pce_TopologySummary_StatsTopologyUpdate struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of nodes added. The type is interface{} with range: 0..4294967295.
+    NumNodesAdded interface{}
+
+    // Number of nodes deleted. The type is interface{} with range: 0..4294967295.
+    NumNodesDeleted interface{}
+
+    // Number of links added. The type is interface{} with range: 0..4294967295.
+    NumLinksAdded interface{}
+
+    // Number of links deleted. The type is interface{} with range: 0..4294967295.
+    NumLinksDeleted interface{}
+
+    // Number of prefixes added. The type is interface{} with range:
+    // 0..4294967295.
+    NumPrefixesAdded interface{}
+
+    // Number of prefixes deleted. The type is interface{} with range:
+    // 0..4294967295.
+    NumPrefixesDeleted interface{}
+}
+
+func (statsTopologyUpdate *Pce_TopologySummary_StatsTopologyUpdate) GetEntityData() *types.CommonEntityData {
+    statsTopologyUpdate.EntityData.YFilter = statsTopologyUpdate.YFilter
+    statsTopologyUpdate.EntityData.YangName = "stats-topology-update"
+    statsTopologyUpdate.EntityData.BundleName = "cisco_ios_xr"
+    statsTopologyUpdate.EntityData.ParentYangName = "topology-summary"
+    statsTopologyUpdate.EntityData.SegmentPath = "stats-topology-update"
+    statsTopologyUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summary/" + statsTopologyUpdate.EntityData.SegmentPath
+    statsTopologyUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    statsTopologyUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    statsTopologyUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    statsTopologyUpdate.EntityData.Children = types.NewOrderedMap()
+    statsTopologyUpdate.EntityData.Leafs = types.NewOrderedMap()
+    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-added", types.YLeaf{"NumNodesAdded", statsTopologyUpdate.NumNodesAdded})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-deleted", types.YLeaf{"NumNodesDeleted", statsTopologyUpdate.NumNodesDeleted})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-links-added", types.YLeaf{"NumLinksAdded", statsTopologyUpdate.NumLinksAdded})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-links-deleted", types.YLeaf{"NumLinksDeleted", statsTopologyUpdate.NumLinksDeleted})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-added", types.YLeaf{"NumPrefixesAdded", statsTopologyUpdate.NumPrefixesAdded})
+    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-deleted", types.YLeaf{"NumPrefixesDeleted", statsTopologyUpdate.NumPrefixesDeleted})
+
+    statsTopologyUpdate.EntityData.YListKeys = []string {}
+
+    return &(statsTopologyUpdate.EntityData)
 }
 
 // Pce_TunnelInfos
@@ -8149,9 +7871,9 @@ type Pce_TunnelInfos_TunnelInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // This attribute is a key. PCEP LSP ID. The type is interface{} with range:
@@ -8211,11 +7933,11 @@ type Pce_TunnelInfos_TunnelInfo_PccAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -8322,11 +8044,11 @@ type Pce_TunnelInfos_TunnelInfo_BriefLspInformation_SourceAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -8362,11 +8084,11 @@ type Pce_TunnelInfos_TunnelInfo_BriefLspInformation_DestinationAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -8435,9 +8157,9 @@ type Pce_PeerDetailInfos_PeerDetailInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Protocol between PCE and peer. The type is PceProto.
@@ -8487,11 +8209,11 @@ type Pce_PeerDetailInfos_PeerDetailInfo_PeerAddressXr struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -8922,14 +8644,14 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier struct {
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -9133,7 +8855,7 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -9168,7 +8890,7 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_NodeId
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -9362,7 +9084,7 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeI
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -9397,7 +9119,7 @@ type Pce_TopologyNodes_TopologyNode_NodeProtocolIdentifier_SrgbInformation_NodeI
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -9537,11 +9259,11 @@ type Pce_TopologyNodes_TopologyNode_Prefixe_PfxSid_SidPrefix struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -9689,7 +9411,7 @@ type Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Ospf struct {
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -9724,7 +9446,7 @@ type Pce_TopologyNodes_TopologyNode_Prefixe_NodeId_Igp_Bgp struct {
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -9760,11 +9482,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link struct {
     YListKey string
 
     // Local IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIpv4Address interface{}
 
     // Remote IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteIpv4Address interface{}
 
     // IGP Metric. The type is interface{} with range: 0..4294967295.
@@ -9993,7 +9715,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Ospf
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -10028,7 +9750,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_NodeId_Igp_Bgp 
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -10069,14 +9791,14 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier struct
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -10280,7 +10002,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -10315,7 +10037,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -10509,7 +10231,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbIn
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -10544,7 +10266,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_SrgbIn
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -10578,9 +10300,8 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Min delay in microseconds. The type is interface{} with range:
-    // 0..4294967295. Units are microsecond.
-    UnidirectionalMinimumDelayMicroseconds interface{}
+    // Min delay. The type is interface{} with range: 0..4294967295.
+    UnidirectionalMinDelay interface{}
 }
 
 func (performanceMetrics *Pce_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics) GetEntityData() *types.CommonEntityData {
@@ -10596,7 +10317,7 @@ func (performanceMetrics *Pce_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMet
 
     performanceMetrics.EntityData.Children = types.NewOrderedMap()
     performanceMetrics.EntityData.Leafs = types.NewOrderedMap()
-    performanceMetrics.EntityData.Leafs.Append("unidirectional-minimum-delay-microseconds", types.YLeaf{"UnidirectionalMinimumDelayMicroseconds", performanceMetrics.UnidirectionalMinimumDelayMicroseconds})
+    performanceMetrics.EntityData.Leafs.Append("unidirectional-min-delay", types.YLeaf{"UnidirectionalMinDelay", performanceMetrics.UnidirectionalMinDelay})
 
     performanceMetrics.EntityData.YListKeys = []string {}
 
@@ -10676,11 +10397,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid_SidPrefix struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -10714,11 +10435,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link struct {
     YListKey string
 
     // Local IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpv6Address interface{}
 
     // Remote IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RemoteIpv6Address interface{}
 
     // IGP Metric. The type is interface{} with range: 0..4294967295.
@@ -10935,7 +10656,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Ospf
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -10970,7 +10691,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_NodeId_Igp_Bgp 
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -11011,14 +10732,14 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier struct
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -11222,7 +10943,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -11257,7 +10978,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -11451,7 +11172,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbIn
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -11486,7 +11207,7 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_SrgbIn
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -11587,11 +11308,11 @@ type Pce_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid_SidPrefix struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -11615,192 +11336,6 @@ func (sidPrefix *Pce_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid_SidPrefix)
     sidPrefix.EntityData.YListKeys = []string {}
 
     return &(sidPrefix.EntityData)
-}
-
-// Pce_TopologySummaries
-// Node summary database in XTC
-type Pce_TopologySummaries struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Node summary database in XTC. The type is slice of
-    // Pce_TopologySummaries_TopologySummary.
-    TopologySummary []*Pce_TopologySummaries_TopologySummary
-}
-
-func (topologySummaries *Pce_TopologySummaries) GetEntityData() *types.CommonEntityData {
-    topologySummaries.EntityData.YFilter = topologySummaries.YFilter
-    topologySummaries.EntityData.YangName = "topology-summaries"
-    topologySummaries.EntityData.BundleName = "cisco_ios_xr"
-    topologySummaries.EntityData.ParentYangName = "pce"
-    topologySummaries.EntityData.SegmentPath = "topology-summaries"
-    topologySummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/" + topologySummaries.EntityData.SegmentPath
-    topologySummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    topologySummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    topologySummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    topologySummaries.EntityData.Children = types.NewOrderedMap()
-    topologySummaries.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", nil})
-    for i := range topologySummaries.TopologySummary {
-        types.SetYListKey(topologySummaries.TopologySummary[i], i)
-        topologySummaries.EntityData.Children.Append(types.GetSegmentPath(topologySummaries.TopologySummary[i]), types.YChild{"TopologySummary", topologySummaries.TopologySummary[i]})
-    }
-    topologySummaries.EntityData.Leafs = types.NewOrderedMap()
-
-    topologySummaries.EntityData.YListKeys = []string {}
-
-    return &(topologySummaries.EntityData)
-}
-
-// Pce_TopologySummaries_TopologySummary
-// Node summary database in XTC
-type Pce_TopologySummaries_TopologySummary struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Only show data related to the specified address family. The type is
-    // PceAddressFamily.
-    Af interface{}
-
-    // Match nodes from the specified IGP protocol. The type is PceigpProtocol.
-    Protocol interface{}
-
-    // Number of PCE nodes. The type is interface{} with range: 0..4294967295.
-    Nodes interface{}
-
-    // Number of lookup nodes. The type is interface{} with range: 0..4294967295.
-    LookupNodes interface{}
-
-    // Number of prefixes. The type is interface{} with range: 0..4294967295.
-    Prefixes interface{}
-
-    // Number of total prefix SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    PrefixSids interface{}
-
-    // Number of reguar prefix SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    RegularPrefixSids interface{}
-
-    // Number of strict prefix SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    StrictPrefixSids interface{}
-
-    // Number of links. The type is interface{} with range: 0..4294967295.
-    Links interface{}
-
-    // Number of EPE links. The type is interface{} with range: 0..4294967295.
-    EpeLinks interface{}
-
-    // Number of total adjacency SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    AdjacencySids interface{}
-
-    // Number of total EPE SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    Epesids interface{}
-
-    // Number of protected adjacency SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    ProtectedAdjacencySids interface{}
-
-    // Number of unprotected adjacency SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    UnProtectedAdjacencySids interface{}
-
-    // True if topology is consistent. The type is bool.
-    TopologyConsistent interface{}
-
-    // Statistics on topology update.
-    StatsTopologyUpdate Pce_TopologySummaries_TopologySummary_StatsTopologyUpdate
-}
-
-func (topologySummary *Pce_TopologySummaries_TopologySummary) GetEntityData() *types.CommonEntityData {
-    topologySummary.EntityData.YFilter = topologySummary.YFilter
-    topologySummary.EntityData.YangName = "topology-summary"
-    topologySummary.EntityData.BundleName = "cisco_ios_xr"
-    topologySummary.EntityData.ParentYangName = "topology-summaries"
-    topologySummary.EntityData.SegmentPath = "topology-summary" + types.AddNoKeyToken(topologySummary)
-    topologySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summaries/" + topologySummary.EntityData.SegmentPath
-    topologySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    topologySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    topologySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    topologySummary.EntityData.Children = types.NewOrderedMap()
-    topologySummary.EntityData.Children.Append("stats-topology-update", types.YChild{"StatsTopologyUpdate", &topologySummary.StatsTopologyUpdate})
-    topologySummary.EntityData.Leafs = types.NewOrderedMap()
-    topologySummary.EntityData.Leafs.Append("af", types.YLeaf{"Af", topologySummary.Af})
-    topologySummary.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", topologySummary.Protocol})
-    topologySummary.EntityData.Leafs.Append("nodes", types.YLeaf{"Nodes", topologySummary.Nodes})
-    topologySummary.EntityData.Leafs.Append("lookup-nodes", types.YLeaf{"LookupNodes", topologySummary.LookupNodes})
-    topologySummary.EntityData.Leafs.Append("prefixes", types.YLeaf{"Prefixes", topologySummary.Prefixes})
-    topologySummary.EntityData.Leafs.Append("prefix-sids", types.YLeaf{"PrefixSids", topologySummary.PrefixSids})
-    topologySummary.EntityData.Leafs.Append("regular-prefix-sids", types.YLeaf{"RegularPrefixSids", topologySummary.RegularPrefixSids})
-    topologySummary.EntityData.Leafs.Append("strict-prefix-sids", types.YLeaf{"StrictPrefixSids", topologySummary.StrictPrefixSids})
-    topologySummary.EntityData.Leafs.Append("links", types.YLeaf{"Links", topologySummary.Links})
-    topologySummary.EntityData.Leafs.Append("epe-links", types.YLeaf{"EpeLinks", topologySummary.EpeLinks})
-    topologySummary.EntityData.Leafs.Append("adjacency-sids", types.YLeaf{"AdjacencySids", topologySummary.AdjacencySids})
-    topologySummary.EntityData.Leafs.Append("epesids", types.YLeaf{"Epesids", topologySummary.Epesids})
-    topologySummary.EntityData.Leafs.Append("protected-adjacency-sids", types.YLeaf{"ProtectedAdjacencySids", topologySummary.ProtectedAdjacencySids})
-    topologySummary.EntityData.Leafs.Append("un-protected-adjacency-sids", types.YLeaf{"UnProtectedAdjacencySids", topologySummary.UnProtectedAdjacencySids})
-    topologySummary.EntityData.Leafs.Append("topology-consistent", types.YLeaf{"TopologyConsistent", topologySummary.TopologyConsistent})
-
-    topologySummary.EntityData.YListKeys = []string {}
-
-    return &(topologySummary.EntityData)
-}
-
-// Pce_TopologySummaries_TopologySummary_StatsTopologyUpdate
-// Statistics on topology update
-type Pce_TopologySummaries_TopologySummary_StatsTopologyUpdate struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of nodes added. The type is interface{} with range: 0..4294967295.
-    NumNodesAdded interface{}
-
-    // Number of nodes deleted. The type is interface{} with range: 0..4294967295.
-    NumNodesDeleted interface{}
-
-    // Number of links added. The type is interface{} with range: 0..4294967295.
-    NumLinksAdded interface{}
-
-    // Number of links deleted. The type is interface{} with range: 0..4294967295.
-    NumLinksDeleted interface{}
-
-    // Number of prefixes added. The type is interface{} with range:
-    // 0..4294967295.
-    NumPrefixesAdded interface{}
-
-    // Number of prefixes deleted. The type is interface{} with range:
-    // 0..4294967295.
-    NumPrefixesDeleted interface{}
-}
-
-func (statsTopologyUpdate *Pce_TopologySummaries_TopologySummary_StatsTopologyUpdate) GetEntityData() *types.CommonEntityData {
-    statsTopologyUpdate.EntityData.YFilter = statsTopologyUpdate.YFilter
-    statsTopologyUpdate.EntityData.YangName = "stats-topology-update"
-    statsTopologyUpdate.EntityData.BundleName = "cisco_ios_xr"
-    statsTopologyUpdate.EntityData.ParentYangName = "topology-summary"
-    statsTopologyUpdate.EntityData.SegmentPath = "stats-topology-update"
-    statsTopologyUpdate.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summaries/topology-summary/" + statsTopologyUpdate.EntityData.SegmentPath
-    statsTopologyUpdate.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    statsTopologyUpdate.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    statsTopologyUpdate.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    statsTopologyUpdate.EntityData.Children = types.NewOrderedMap()
-    statsTopologyUpdate.EntityData.Leafs = types.NewOrderedMap()
-    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-added", types.YLeaf{"NumNodesAdded", statsTopologyUpdate.NumNodesAdded})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-nodes-deleted", types.YLeaf{"NumNodesDeleted", statsTopologyUpdate.NumNodesDeleted})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-links-added", types.YLeaf{"NumLinksAdded", statsTopologyUpdate.NumLinksAdded})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-links-deleted", types.YLeaf{"NumLinksDeleted", statsTopologyUpdate.NumLinksDeleted})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-added", types.YLeaf{"NumPrefixesAdded", statsTopologyUpdate.NumPrefixesAdded})
-    statsTopologyUpdate.EntityData.Leafs.Append("num-prefixes-deleted", types.YLeaf{"NumPrefixesDeleted", statsTopologyUpdate.NumPrefixesDeleted})
-
-    statsTopologyUpdate.EntityData.YListKeys = []string {}
-
-    return &(statsTopologyUpdate.EntityData)
 }
 
 // Pce_PrefixInfos
@@ -11897,14 +11432,14 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier struct {
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -12108,7 +11643,7 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -12143,7 +11678,7 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_NodeId_Igp
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -12337,7 +11872,7 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Ig
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -12372,7 +11907,7 @@ type Pce_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_SrgbInformation_NodeId_Ig
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Confederation ASN. The type is interface{} with range: 0..4294967295.
@@ -12441,11 +11976,11 @@ type Pce_PrefixInfos_PrefixInfo_Address_Ip struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -12655,11 +12190,11 @@ type Pce_LspSummary_PeerLsPsInfo_PeerAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -12727,9 +12262,9 @@ type Pce_PeerInfos_PeerInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Protocol between PCE and peer. The type is PceProto.
@@ -12775,11 +12310,11 @@ type Pce_PeerInfos_PeerInfo_PeerAddressXr struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -12906,9 +12441,9 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // This attribute is a key. PCEP LSP ID. The type is interface{} with range:
@@ -12980,11 +12515,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_PccAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13265,11 +12800,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInforma
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13305,11 +12840,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_BriefLspInforma
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13425,7 +12960,7 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_ReportedRs
     YListKey string
 
     // RSVP hop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HopAddress interface{}
 }
 
@@ -13502,11 +13037,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_ReportedSr
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13542,11 +13077,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_ReportedSr
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13580,7 +13115,7 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_ComputedRs
     YListKey string
 
     // RSVP hop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HopAddress interface{}
 }
 
@@ -13657,11 +13192,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_ComputedSr
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13697,11 +13232,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ErOs_ComputedSr
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13792,7 +13327,7 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_LsppcepInformat
     YFilter yfilter.YFilter
 
     // RSVP error node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // RSVP error flags. The type is interface{} with range: 0..255.
@@ -13876,11 +13411,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_LspAssociationI
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -13966,11 +13501,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_SubDelegatedPce
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -14006,11 +13541,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_StateSyncPce st
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -14046,11 +13581,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_ReportingPccAdd
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -14087,7 +13622,7 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_Rro struct {
     RroType interface{}
 
     // IPv4 address of RRO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // MPLS label of RRO. The type is interface{} with range: 0..4294967295.
@@ -14176,11 +13711,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_Rro_SrRro_Local
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -14216,11 +13751,11 @@ type Pce_TunnelDetailInfos_TunnelDetailInfo_DetailLspInformation_Rro_SrRro_Remot
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 

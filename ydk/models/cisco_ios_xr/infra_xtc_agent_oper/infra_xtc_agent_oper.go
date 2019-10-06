@@ -27,35 +27,46 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-xtc-agent-oper:xtc", reflect.TypeOf(Xtc{}))
 }
 
-// XtcigpProtocol represents Xtcigp protocol
-type XtcigpProtocol string
+// XtcSrSid represents XTC SR SID type
+type XtcSrSid string
 
 const (
-    // Unknown protocol
-    XtcigpProtocol_unknown XtcigpProtocol = "unknown"
+    // IPv4 Node SID
+    XtcSrSid_ipv4_node_sid XtcSrSid = "ipv4-node-sid"
 
-    // ISIS protocol
-    XtcigpProtocol_isis XtcigpProtocol = "isis"
+    // IPv4 Adjacency SID
+    XtcSrSid_ipv4_adjacency_sid XtcSrSid = "ipv4-adjacency-sid"
 
-    // OSPF protocol
-    XtcigpProtocol_ospf XtcigpProtocol = "ospf"
-
-    // BGP protocol
-    XtcigpProtocol_bgp XtcigpProtocol = "bgp"
-
-    // TE protocol
-    XtcigpProtocol_te XtcigpProtocol = "te"
+    // Unknown SID
+    XtcSrSid_unknown_sid XtcSrSid = "unknown-sid"
 )
 
-// XtcAddressFamily represents Xtc address family
-type XtcAddressFamily string
+// XtcIgpInfoId represents IGP IDs
+type XtcIgpInfoId string
 
 const (
-    // IPv4 address family
-    XtcAddressFamily_ipv4 XtcAddressFamily = "ipv4"
+    // ISIS
+    XtcIgpInfoId_isis XtcIgpInfoId = "isis"
 
-    // IPv6 address family
-    XtcAddressFamily_ipv6 XtcAddressFamily = "ipv6"
+    // OSPF
+    XtcIgpInfoId_ospf XtcIgpInfoId = "ospf"
+
+    // BGP
+    XtcIgpInfoId_bgp XtcIgpInfoId = "bgp"
+)
+
+// XtcAfId represents Xtc af id
+type XtcAfId string
+
+const (
+    // None
+    XtcAfId_none XtcAfId = "none"
+
+    // IPv4
+    XtcAfId_ipv4 XtcAfId = "ipv4"
+
+    // IPv6
+    XtcAfId_ipv6 XtcAfId = "ipv6"
 )
 
 // XtcSid1 represents XTC SID Types
@@ -78,18 +89,21 @@ const (
     XtcSid1_sr_strict_prefix_sid XtcSid1 = "sr-strict-prefix-sid"
 )
 
-// XtcIgpInfoId represents IGP IDs
-type XtcIgpInfoId string
+// XtcPolicyCpathProtoOrigin represents Policy candidate path protocol origin
+type XtcPolicyCpathProtoOrigin string
 
 const (
-    // ISIS
-    XtcIgpInfoId_isis XtcIgpInfoId = "isis"
+    // unknown
+    XtcPolicyCpathProtoOrigin_unknown XtcPolicyCpathProtoOrigin = "unknown"
 
-    // OSPF
-    XtcIgpInfoId_ospf XtcIgpInfoId = "ospf"
+    // pcep
+    XtcPolicyCpathProtoOrigin_pcep XtcPolicyCpathProtoOrigin = "pcep"
 
-    // BGP
-    XtcIgpInfoId_bgp XtcIgpInfoId = "bgp"
+    // bgp
+    XtcPolicyCpathProtoOrigin_bgp XtcPolicyCpathProtoOrigin = "bgp"
+
+    // configuration
+    XtcPolicyCpathProtoOrigin_configuration XtcPolicyCpathProtoOrigin = "configuration"
 )
 
 // XtcDisjointness represents XTC policy path type
@@ -171,20 +185,6 @@ const (
     XtcPolicyLspSmState_cleanup_timer_pending XtcPolicyLspSmState = "cleanup-timer-pending"
 )
 
-// XtcSrSid represents XTC SR SID type
-type XtcSrSid string
-
-const (
-    // IPv4 Node SID
-    XtcSrSid_ipv4_node_sid XtcSrSid = "ipv4-node-sid"
-
-    // IPv4 Adjacency SID
-    XtcSrSid_ipv4_adjacency_sid XtcSrSid = "ipv4-adjacency-sid"
-
-    // Unknown SID
-    XtcSrSid_unknown_sid XtcSrSid = "unknown-sid"
-)
-
 // XtcPolicyPath represents XTC policy path type
 type XtcPolicyPath string
 
@@ -197,23 +197,6 @@ const (
 
     // Dynamic PCE-based path
     XtcPolicyPath_dynamic_pce XtcPolicyPath = "dynamic-pce"
-)
-
-// XtcPolicyCpathProtoOrigin represents Policy candidate path protocol origin
-type XtcPolicyCpathProtoOrigin string
-
-const (
-    // unknown
-    XtcPolicyCpathProtoOrigin_unknown XtcPolicyCpathProtoOrigin = "unknown"
-
-    // pcep
-    XtcPolicyCpathProtoOrigin_pcep XtcPolicyCpathProtoOrigin = "pcep"
-
-    // bgp
-    XtcPolicyCpathProtoOrigin_bgp XtcPolicyCpathProtoOrigin = "bgp"
-
-    // configuration
-    XtcPolicyCpathProtoOrigin_configuration XtcPolicyCpathProtoOrigin = "configuration"
 )
 
 // XtcSid represents Xtc sid
@@ -230,18 +213,15 @@ const (
     XtcSid_ipv6 XtcSid = "ipv6"
 )
 
-// XtcAfId represents Xtc af id
-type XtcAfId string
+// XtcAddressFamily represents Xtc address family
+type XtcAddressFamily string
 
 const (
-    // None
-    XtcAfId_none XtcAfId = "none"
+    // IPv4 address family
+    XtcAddressFamily_ipv4 XtcAddressFamily = "ipv4"
 
-    // IPv4
-    XtcAfId_ipv4 XtcAfId = "ipv4"
-
-    // IPv6
-    XtcAfId_ipv6 XtcAfId = "ipv6"
+    // IPv6 address family
+    XtcAddressFamily_ipv6 XtcAddressFamily = "ipv6"
 )
 
 // Pcc
@@ -1006,9 +986,9 @@ type Pcc_Peers_Peer struct {
 
     // This attribute is a key. Peer Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddr interface{}
 
     // internal handle. The type is interface{} with range: 0..4294967295.
@@ -1061,11 +1041,11 @@ type Pcc_Peers_Peer struct {
     PcepSessionIdRemote interface{}
 
     // PCEP server Ipv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PcepServerIpv4Addr interface{}
 
     // PCEP client Ipv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PcepClientIpv4Addr interface{}
 
     // is stateful local. The type is bool.
@@ -1526,11 +1506,11 @@ type Xtc struct {
     // Controller information.
     Controller Xtc_Controller
 
+    // Node summary database.
+    TopologySummary Xtc_TopologySummary
+
     // Node database in XTC Agent.
     TopologyNodes Xtc_TopologyNodes
-
-    // Node summary table.
-    TopologySummaries Xtc_TopologySummaries
 
     // Prefixes database in XTC Agent.
     PrefixInfos Xtc_PrefixInfos
@@ -1553,8 +1533,8 @@ func (xtc *Xtc) GetEntityData() *types.CommonEntityData {
     xtc.EntityData.Children.Append("policy-summary", types.YChild{"PolicySummary", &xtc.PolicySummary})
     xtc.EntityData.Children.Append("on-demand-colors", types.YChild{"OnDemandColors", &xtc.OnDemandColors})
     xtc.EntityData.Children.Append("controller", types.YChild{"Controller", &xtc.Controller})
+    xtc.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", &xtc.TopologySummary})
     xtc.EntityData.Children.Append("topology-nodes", types.YChild{"TopologyNodes", &xtc.TopologyNodes})
-    xtc.EntityData.Children.Append("topology-summaries", types.YChild{"TopologySummaries", &xtc.TopologySummaries})
     xtc.EntityData.Children.Append("prefix-infos", types.YChild{"PrefixInfos", &xtc.PrefixInfos})
     xtc.EntityData.Leafs = types.NewOrderedMap()
 
@@ -1732,11 +1712,11 @@ type Xtc_Policies_Policy_DestinationAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1813,7 +1793,7 @@ type Xtc_Policies_Policy_BindingSid_Value struct {
     Label interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1975,11 +1955,11 @@ type Xtc_Policies_Policy_CandidatePath_Originator_NodeAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2141,10 +2121,6 @@ type Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint stru
     // Affinity value. The type is interface{} with range: 0..4294967295.
     Value interface{}
 
-    // Extended Affinity values. The type is slice of interface{} with range:
-    // 0..4294967295.
-    ExtendedValue []interface{}
-
     // Colors. The type is slice of
     // Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint_Color.
     Color []*Xtc_Policies_Policy_CandidatePath_SrPathConstraints_AffinityConstraint_Color
@@ -2170,7 +2146,6 @@ func (affinityConstraint *Xtc_Policies_Policy_CandidatePath_SrPathConstraints_Af
     affinityConstraint.EntityData.Leafs = types.NewOrderedMap()
     affinityConstraint.EntityData.Leafs.Append("type", types.YLeaf{"Type", affinityConstraint.Type})
     affinityConstraint.EntityData.Leafs.Append("value", types.YLeaf{"Value", affinityConstraint.Value})
-    affinityConstraint.EntityData.Leafs.Append("extended-value", types.YLeaf{"ExtendedValue", affinityConstraint.ExtendedValue})
 
     affinityConstraint.EntityData.YListKeys = []string {}
 
@@ -2221,7 +2196,7 @@ type Xtc_Policies_Policy_CandidatePath_RequestedBsid struct {
     Label interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2407,7 +2382,7 @@ type Xtc_Policies_Policy_CandidatePath_SegmentList struct {
     PceBasedPath interface{}
 
     // Address of the PCE computed the path. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PceAddress interface{}
 
     // Error (for display only). The type is string.
@@ -2512,7 +2487,7 @@ type Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_Sid struct {
     Label interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2548,11 +2523,11 @@ type Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_LocalAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2588,11 +2563,11 @@ type Xtc_Policies_Policy_CandidatePath_SegmentList_Hops_RemoteAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2732,7 +2707,7 @@ type Xtc_Policies_Policy_LsPs_BindingSid_Value struct {
     Label interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -2916,7 +2891,7 @@ type Xtc_PolicyForwardings_PolicyForwarding struct {
     YListKey string
 
     // This attribute is a key. Policy Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Policy name. The type is string.
@@ -3002,11 +2977,11 @@ type Xtc_PolicyForwardings_PolicyForwarding_EndpointAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3045,7 +3020,7 @@ type Xtc_PolicyForwardings_PolicyForwarding_BindingSid struct {
     Label interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3079,11 +3054,11 @@ type Xtc_PolicyForwardings_PolicyForwarding_Paths struct {
     YListKey string
 
     // Outgoing interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutgoingInterface interface{}
 
     // IPv4 Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopIpv4 interface{}
 
     // Table ID for nexthop address. The type is interface{} with range:
@@ -3434,9 +3409,9 @@ type Xtc_Controller_PolicyRequests_PolicyRequest struct {
 
     // This attribute is a key. Source Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Endpoint Address Type. The type is
@@ -3445,9 +3420,9 @@ type Xtc_Controller_PolicyRequests_PolicyRequest struct {
 
     // This attribute is a key. Endpoint Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     EndPointAddress interface{}
 
     // This attribute is a key. Color. The type is interface{} with range:
@@ -3459,7 +3434,7 @@ type Xtc_Controller_PolicyRequests_PolicyRequest struct {
     RouteDistinguisher interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Binding SID. The type is interface{} with range: 0..4294967295.
@@ -3537,11 +3512,11 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_EndPoint struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3602,7 +3577,7 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList struct {
     PceBasedPath interface{}
 
     // Address of the PCE computed the path. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PceAddress interface{}
 
     // Error (for display only). The type is string.
@@ -3707,7 +3682,7 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_Sid struct {
     Label interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3743,11 +3718,11 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_LocalAddress s
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3783,11 +3758,11 @@ type Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hops_RemoteAddress 
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3811,6 +3786,53 @@ func (remoteAddress *Xtc_Controller_PolicyRequests_PolicyRequest_SegmentList_Hop
     remoteAddress.EntityData.YListKeys = []string {}
 
     return &(remoteAddress.EntityData)
+}
+
+// Xtc_TopologySummary
+// Node summary database
+type Xtc_TopologySummary struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Number of nodes. The type is interface{} with range: 0..4294967295.
+    Nodes interface{}
+
+    // Number of prefixes. The type is interface{} with range: 0..4294967295.
+    Prefixes interface{}
+
+    // Number of prefix SIDs. The type is interface{} with range: 0..4294967295.
+    PrefixSids interface{}
+
+    // Number of links. The type is interface{} with range: 0..4294967295.
+    Links interface{}
+
+    // Number of adjacency SIDs. The type is interface{} with range:
+    // 0..4294967295.
+    AdjacencySids interface{}
+}
+
+func (topologySummary *Xtc_TopologySummary) GetEntityData() *types.CommonEntityData {
+    topologySummary.EntityData.YFilter = topologySummary.YFilter
+    topologySummary.EntityData.YangName = "topology-summary"
+    topologySummary.EntityData.BundleName = "cisco_ios_xr"
+    topologySummary.EntityData.ParentYangName = "xtc"
+    topologySummary.EntityData.SegmentPath = "topology-summary"
+    topologySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + topologySummary.EntityData.SegmentPath
+    topologySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    topologySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    topologySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    topologySummary.EntityData.Children = types.NewOrderedMap()
+    topologySummary.EntityData.Leafs = types.NewOrderedMap()
+    topologySummary.EntityData.Leafs.Append("nodes", types.YLeaf{"Nodes", topologySummary.Nodes})
+    topologySummary.EntityData.Leafs.Append("prefixes", types.YLeaf{"Prefixes", topologySummary.Prefixes})
+    topologySummary.EntityData.Leafs.Append("prefix-sids", types.YLeaf{"PrefixSids", topologySummary.PrefixSids})
+    topologySummary.EntityData.Leafs.Append("links", types.YLeaf{"Links", topologySummary.Links})
+    topologySummary.EntityData.Leafs.Append("adjacency-sids", types.YLeaf{"AdjacencySids", topologySummary.AdjacencySids})
+
+    topologySummary.EntityData.YListKeys = []string {}
+
+    return &(topologySummary.EntityData)
 }
 
 // Xtc_TopologyNodes
@@ -3929,14 +3951,14 @@ type Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier struct {
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -4092,7 +4114,7 @@ type Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Os
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -4127,7 +4149,7 @@ type Xtc_TopologyNodes_TopologyNode_NodeProtocolIdentifier_IgpInformation_Igp_Bg
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -4205,11 +4227,11 @@ type Xtc_TopologyNodes_TopologyNode_PrefixSid_SidPrefix struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -4243,11 +4265,11 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link struct {
     YListKey string
 
     // Local IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIpv4Address interface{}
 
     // Remote IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteIpv4Address interface{}
 
     // IGP Metric. The type is interface{} with range: 0..4294967295.
@@ -4267,10 +4289,6 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link struct {
     // Link admin-groups. The type is interface{} with range: 0..4294967295.
     AdministrativeGroups interface{}
 
-    // Link Extended admin-groups. The type is slice of interface{} with range:
-    // 0..4294967295.
-    ExtendedAdministrativeGroup []interface{}
-
     // SRLG Values. The type is slice of interface{} with range: 0..4294967295.
     Srlgs []interface{}
 
@@ -4279,9 +4297,6 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link struct {
 
     // Remote node protocol identifier.
     RemoteNodeProtocolIdentifier Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier
-
-    // Performance metrics.
-    PerformanceMetrics Xtc_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics
 
     // Adjacency SIDs. The type is slice of
     // Xtc_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid.
@@ -4302,7 +4317,6 @@ func (ipv4Link *Xtc_TopologyNodes_TopologyNode_Ipv4Link) GetEntityData() *types.
     ipv4Link.EntityData.Children = types.NewOrderedMap()
     ipv4Link.EntityData.Children.Append("local-igp-information", types.YChild{"LocalIgpInformation", &ipv4Link.LocalIgpInformation})
     ipv4Link.EntityData.Children.Append("remote-node-protocol-identifier", types.YChild{"RemoteNodeProtocolIdentifier", &ipv4Link.RemoteNodeProtocolIdentifier})
-    ipv4Link.EntityData.Children.Append("performance-metrics", types.YChild{"PerformanceMetrics", &ipv4Link.PerformanceMetrics})
     ipv4Link.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", nil})
     for i := range ipv4Link.AdjacencySid {
         types.SetYListKey(ipv4Link.AdjacencySid[i], i)
@@ -4316,7 +4330,6 @@ func (ipv4Link *Xtc_TopologyNodes_TopologyNode_Ipv4Link) GetEntityData() *types.
     ipv4Link.EntityData.Leafs.Append("maximum-link-bandwidth", types.YLeaf{"MaximumLinkBandwidth", ipv4Link.MaximumLinkBandwidth})
     ipv4Link.EntityData.Leafs.Append("max-reservable-bandwidth", types.YLeaf{"MaxReservableBandwidth", ipv4Link.MaxReservableBandwidth})
     ipv4Link.EntityData.Leafs.Append("administrative-groups", types.YLeaf{"AdministrativeGroups", ipv4Link.AdministrativeGroups})
-    ipv4Link.EntityData.Leafs.Append("extended-administrative-group", types.YLeaf{"ExtendedAdministrativeGroup", ipv4Link.ExtendedAdministrativeGroup})
     ipv4Link.EntityData.Leafs.Append("srlgs", types.YLeaf{"Srlgs", ipv4Link.Srlgs})
 
     ipv4Link.EntityData.YListKeys = []string {}
@@ -4442,7 +4455,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Ospf struct
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -4477,7 +4490,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link_LocalIgpInformation_Igp_Bgp struct 
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -4514,14 +4527,14 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier struct
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -4677,7 +4690,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -4712,7 +4725,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -4734,37 +4747,6 @@ func (bgp *Xtc_TopologyNodes_TopologyNode_Ipv4Link_RemoteNodeProtocolIdentifier_
     bgp.EntityData.YListKeys = []string {}
 
     return &(bgp.EntityData)
-}
-
-// Xtc_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics
-// Performance metrics
-type Xtc_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Min delay in microseconds. The type is interface{} with range:
-    // 0..4294967295. Units are microsecond.
-    UnidirectionalMinimumDelayMicroseconds interface{}
-}
-
-func (performanceMetrics *Xtc_TopologyNodes_TopologyNode_Ipv4Link_PerformanceMetrics) GetEntityData() *types.CommonEntityData {
-    performanceMetrics.EntityData.YFilter = performanceMetrics.YFilter
-    performanceMetrics.EntityData.YangName = "performance-metrics"
-    performanceMetrics.EntityData.BundleName = "cisco_ios_xr"
-    performanceMetrics.EntityData.ParentYangName = "ipv4-link"
-    performanceMetrics.EntityData.SegmentPath = "performance-metrics"
-    performanceMetrics.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-nodes/topology-node/ipv4-link/" + performanceMetrics.EntityData.SegmentPath
-    performanceMetrics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    performanceMetrics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    performanceMetrics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    performanceMetrics.EntityData.Children = types.NewOrderedMap()
-    performanceMetrics.EntityData.Leafs = types.NewOrderedMap()
-    performanceMetrics.EntityData.Leafs.Append("unidirectional-minimum-delay-microseconds", types.YLeaf{"UnidirectionalMinimumDelayMicroseconds", performanceMetrics.UnidirectionalMinimumDelayMicroseconds})
-
-    performanceMetrics.EntityData.YListKeys = []string {}
-
-    return &(performanceMetrics.EntityData)
 }
 
 // Xtc_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid
@@ -4821,11 +4803,11 @@ type Xtc_TopologyNodes_TopologyNode_Ipv4Link_AdjacencySid_SidPrefix struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -4859,11 +4841,11 @@ type Xtc_TopologyNodes_TopologyNode_Ipv6Link struct {
     YListKey string
 
     // Local IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpv6Address interface{}
 
     // Remote IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RemoteIpv6Address interface{}
 
     // IGP Metric. The type is interface{} with range: 0..4294967295.
@@ -5041,7 +5023,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Ospf struct
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -5076,7 +5058,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv6Link_LocalIgpInformation_Igp_Bgp struct 
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -5113,14 +5095,14 @@ type Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier struct
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -5276,7 +5258,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -5311,7 +5293,7 @@ type Xtc_TopologyNodes_TopologyNode_Ipv6Link_RemoteNodeProtocolIdentifier_IgpInf
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -5389,11 +5371,11 @@ type Xtc_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid_SidPrefix struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -5417,98 +5399,6 @@ func (sidPrefix *Xtc_TopologyNodes_TopologyNode_Ipv6Link_AdjacencySid_SidPrefix)
     sidPrefix.EntityData.YListKeys = []string {}
 
     return &(sidPrefix.EntityData)
-}
-
-// Xtc_TopologySummaries
-// Node summary table
-type Xtc_TopologySummaries struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Node summary database. The type is slice of
-    // Xtc_TopologySummaries_TopologySummary.
-    TopologySummary []*Xtc_TopologySummaries_TopologySummary
-}
-
-func (topologySummaries *Xtc_TopologySummaries) GetEntityData() *types.CommonEntityData {
-    topologySummaries.EntityData.YFilter = topologySummaries.YFilter
-    topologySummaries.EntityData.YangName = "topology-summaries"
-    topologySummaries.EntityData.BundleName = "cisco_ios_xr"
-    topologySummaries.EntityData.ParentYangName = "xtc"
-    topologySummaries.EntityData.SegmentPath = "topology-summaries"
-    topologySummaries.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/" + topologySummaries.EntityData.SegmentPath
-    topologySummaries.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    topologySummaries.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    topologySummaries.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    topologySummaries.EntityData.Children = types.NewOrderedMap()
-    topologySummaries.EntityData.Children.Append("topology-summary", types.YChild{"TopologySummary", nil})
-    for i := range topologySummaries.TopologySummary {
-        types.SetYListKey(topologySummaries.TopologySummary[i], i)
-        topologySummaries.EntityData.Children.Append(types.GetSegmentPath(topologySummaries.TopologySummary[i]), types.YChild{"TopologySummary", topologySummaries.TopologySummary[i]})
-    }
-    topologySummaries.EntityData.Leafs = types.NewOrderedMap()
-
-    topologySummaries.EntityData.YListKeys = []string {}
-
-    return &(topologySummaries.EntityData)
-}
-
-// Xtc_TopologySummaries_TopologySummary
-// Node summary database
-type Xtc_TopologySummaries_TopologySummary struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // Only show data related to the specified address family. The type is
-    // XtcAddressFamily.
-    Af interface{}
-
-    // Match nodes from the specified IGP protocol. The type is XtcigpProtocol.
-    Protocol interface{}
-
-    // Number of nodes. The type is interface{} with range: 0..4294967295.
-    Nodes interface{}
-
-    // Number of prefixes. The type is interface{} with range: 0..4294967295.
-    Prefixes interface{}
-
-    // Number of prefix SIDs. The type is interface{} with range: 0..4294967295.
-    PrefixSids interface{}
-
-    // Number of links. The type is interface{} with range: 0..4294967295.
-    Links interface{}
-
-    // Number of adjacency SIDs. The type is interface{} with range:
-    // 0..4294967295.
-    AdjacencySids interface{}
-}
-
-func (topologySummary *Xtc_TopologySummaries_TopologySummary) GetEntityData() *types.CommonEntityData {
-    topologySummary.EntityData.YFilter = topologySummary.YFilter
-    topologySummary.EntityData.YangName = "topology-summary"
-    topologySummary.EntityData.BundleName = "cisco_ios_xr"
-    topologySummary.EntityData.ParentYangName = "topology-summaries"
-    topologySummary.EntityData.SegmentPath = "topology-summary" + types.AddNoKeyToken(topologySummary)
-    topologySummary.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-agent-oper:xtc/topology-summaries/" + topologySummary.EntityData.SegmentPath
-    topologySummary.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    topologySummary.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    topologySummary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    topologySummary.EntityData.Children = types.NewOrderedMap()
-    topologySummary.EntityData.Leafs = types.NewOrderedMap()
-    topologySummary.EntityData.Leafs.Append("af", types.YLeaf{"Af", topologySummary.Af})
-    topologySummary.EntityData.Leafs.Append("protocol", types.YLeaf{"Protocol", topologySummary.Protocol})
-    topologySummary.EntityData.Leafs.Append("nodes", types.YLeaf{"Nodes", topologySummary.Nodes})
-    topologySummary.EntityData.Leafs.Append("prefixes", types.YLeaf{"Prefixes", topologySummary.Prefixes})
-    topologySummary.EntityData.Leafs.Append("prefix-sids", types.YLeaf{"PrefixSids", topologySummary.PrefixSids})
-    topologySummary.EntityData.Leafs.Append("links", types.YLeaf{"Links", topologySummary.Links})
-    topologySummary.EntityData.Leafs.Append("adjacency-sids", types.YLeaf{"AdjacencySids", topologySummary.AdjacencySids})
-
-    topologySummary.EntityData.YListKeys = []string {}
-
-    return &(topologySummary.EntityData)
 }
 
 // Xtc_PrefixInfos
@@ -5605,14 +5495,14 @@ type Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier struct {
     Ipv4BgpRouterIdSet interface{}
 
     // IPv4 TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4BgpRouterId interface{}
 
     // True if IPv4 TE router ID is set. The type is bool.
     Ipv4teRouterIdSet interface{}
 
     // IPv4 BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4teRouterId interface{}
 
     // IGP information. The type is slice of
@@ -5768,7 +5658,7 @@ type Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Ospf s
     YFilter yfilter.YFilter
 
     // OSPF router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // OSPF area. The type is interface{} with range: 0..4294967295.
@@ -5803,7 +5693,7 @@ type Xtc_PrefixInfos_PrefixInfo_NodeProtocolIdentifier_IgpInformation_Igp_Bgp st
     YFilter yfilter.YFilter
 
     // BGP router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -5868,11 +5758,11 @@ type Xtc_PrefixInfos_PrefixInfo_Address_IpAddress struct {
     AfName interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 

@@ -83,7 +83,7 @@ type Dot1x_Dot1xProfile struct {
     ProfileName interface{}
 
     // Dot1x PAE (Port Access Entity) Role. The type is string with pattern:
-    // b'(supplicant)|(authenticator)|(both)'.
+    // (supplicant)|(authenticator)|(both).
     Pae interface{}
 
     // Dot1x Supplicant Related Configuration.

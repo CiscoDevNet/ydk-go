@@ -1436,7 +1436,7 @@ type CISCOPROCESSMIB_CpmThreadTable_CpmThreadEntry struct {
     // in context is blocked. This is valid only to threads which are either in
     // send/reply states. For the  rest of the threads it is returned as 0.0. The
     // type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CpmThreadBlockingProcess interface{}
 
     // This object provides a general idea on how busy the thread in context

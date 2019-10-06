@@ -30,17 +30,17 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-ds:services-stats", reflect.TypeOf(ServicesStats{}))
 }
 
-// ServiceScope
-type ServiceScope string
+// ProcessIssuRole
+type ProcessIssuRole string
 
 const (
-    ServiceScope_None ServiceScope = "None"
+    ProcessIssuRole_Primary ProcessIssuRole = "Primary"
 
-    ServiceScope_Rack ServiceScope = "Rack"
+    ProcessIssuRole_Secondary ProcessIssuRole = "Secondary"
 
-    ServiceScope_System ServiceScope = "System"
+    ProcessIssuRole_Tertiary ProcessIssuRole = "Tertiary"
 
-    ServiceScope_Node ServiceScope = "Node"
+    ProcessIssuRole_Unknown ProcessIssuRole = "Unknown"
 )
 
 // ProcessRole
@@ -58,17 +58,17 @@ const (
     ProcessRole_Unknown ProcessRole = "Unknown"
 )
 
-// ProcessIssuRole
-type ProcessIssuRole string
+// ServiceScope
+type ServiceScope string
 
 const (
-    ProcessIssuRole_Primary ProcessIssuRole = "Primary"
+    ServiceScope_None ServiceScope = "None"
 
-    ProcessIssuRole_Secondary ProcessIssuRole = "Secondary"
+    ServiceScope_Rack ServiceScope = "Rack"
 
-    ProcessIssuRole_Tertiary ProcessIssuRole = "Tertiary"
+    ServiceScope_System ServiceScope = "System"
 
-    ProcessIssuRole_Unknown ProcessIssuRole = "Unknown"
+    ServiceScope_Node ServiceScope = "Node"
 )
 
 // Services
@@ -200,7 +200,7 @@ type Services_AllLocations_Services_Endpoint struct {
     Scope interface{}
 
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ip interface{}
 
     // The type is interface{} with range: 0..65535.

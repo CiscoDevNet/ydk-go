@@ -22,6 +22,19 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_ipsla_tc_mib"))
 }
 
+// IpSlaCodecType represents g729a(3)             - uses G.729 8000 bps
+type IpSlaCodecType string
+
+const (
+    IpSlaCodecType_notApplicable IpSlaCodecType = "notApplicable"
+
+    IpSlaCodecType_g711ulaw IpSlaCodecType = "g711ulaw"
+
+    IpSlaCodecType_g711alaw IpSlaCodecType = "g711alaw"
+
+    IpSlaCodecType_g729a IpSlaCodecType = "g729a"
+)
+
 // IpSlaOperType represents                  analysis using ICMP timestamp packets.
 type IpSlaOperType string
 
@@ -35,19 +48,6 @@ const (
     IpSlaOperType_udpJitter IpSlaOperType = "udpJitter"
 
     IpSlaOperType_icmpJitter IpSlaOperType = "icmpJitter"
-)
-
-// IpSlaCodecType represents g729a(3)             - uses G.729 8000 bps
-type IpSlaCodecType string
-
-const (
-    IpSlaCodecType_notApplicable IpSlaCodecType = "notApplicable"
-
-    IpSlaCodecType_g711ulaw IpSlaCodecType = "g711ulaw"
-
-    IpSlaCodecType_g711alaw IpSlaCodecType = "g711alaw"
-
-    IpSlaCodecType_g729a IpSlaCodecType = "g729a"
 )
 
 // IpSlaReactVar represents  packetLoss(24)          - Packets loss in both directions

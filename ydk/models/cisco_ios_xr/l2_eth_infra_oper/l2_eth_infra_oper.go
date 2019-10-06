@@ -30,17 +30,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation", reflect.TypeOf(EthernetEncapsulation{}))
 }
 
-// VlanService represents Layer 2 vs. Layer 3 Terminated Service
-type VlanService string
-
-const (
-    // Layer 2 Transport Service
-    VlanService_vlan_service_l2 VlanService = "vlan-service-l2"
-
-    // Layer 3 Terminated Service
-    VlanService_vlan_service_l3 VlanService = "vlan-service-l3"
-)
-
 // VlanEncaps represents VLAN encapsulation
 type VlanEncaps string
 
@@ -76,66 +65,6 @@ const (
     VlanEncaps_dot1ad_any VlanEncaps = "dot1ad-any"
 )
 
-// EfpPayloadEtype represents Payload ethertype match
-type EfpPayloadEtype string
-
-const (
-    // Any
-    EfpPayloadEtype_payload_ethertype_any EfpPayloadEtype = "payload-ethertype-any"
-
-    // IP
-    EfpPayloadEtype_payload_ethertype_ip EfpPayloadEtype = "payload-ethertype-ip"
-
-    // PPPoE
-    EfpPayloadEtype_payload_ethertype_pppoe EfpPayloadEtype = "payload-ethertype-pppoe"
-)
-
-// EfpTagPriority represents Priority
-type EfpTagPriority string
-
-const (
-    // Priority 0
-    EfpTagPriority_priority0 EfpTagPriority = "priority0"
-
-    // Priority 1
-    EfpTagPriority_priority1 EfpTagPriority = "priority1"
-
-    // Priority 2
-    EfpTagPriority_priority2 EfpTagPriority = "priority2"
-
-    // Priority 3
-    EfpTagPriority_priority3 EfpTagPriority = "priority3"
-
-    // Priority 4
-    EfpTagPriority_priority4 EfpTagPriority = "priority4"
-
-    // Priority 5
-    EfpTagPriority_priority5 EfpTagPriority = "priority5"
-
-    // Priority 6
-    EfpTagPriority_priority6 EfpTagPriority = "priority6"
-
-    // Priority 7
-    EfpTagPriority_priority7 EfpTagPriority = "priority7"
-
-    // Any priority
-    EfpTagPriority_priority_any EfpTagPriority = "priority-any"
-)
-
-// EfpTagEtype represents Tag ethertype
-type EfpTagEtype string
-
-const (
-    // Untagged
-    EfpTagEtype_untagged EfpTagEtype = "untagged"
-
-    // Dot1Q
-    EfpTagEtype_dot1q EfpTagEtype = "dot1q"
-
-    // Dot1ad
-    EfpTagEtype_dot1ad EfpTagEtype = "dot1ad"
-)
-
 // VlanSwitchedMode represents VLAN-Switched mode
 type VlanSwitchedMode string
 
@@ -148,38 +77,6 @@ const (
 
     // Access port
     VlanSwitchedMode_access_port VlanSwitchedMode = "access-port"
-)
-
-// EthFiltering represents Ethernet frame filtering
-type EthFiltering string
-
-const (
-    // No IEEE 802.1Q/802.1ad/MAC relay multicast MAC
-    // address filtering
-    EthFiltering_no_filtering EthFiltering = "no-filtering"
-
-    // IEEE 802.1q C-VLAN filtering
-    EthFiltering_dot1q_filtering EthFiltering = "dot1q-filtering"
-
-    // IEEE 802.1ad S-VLAN filtering
-    EthFiltering_dot1ad_filtering EthFiltering = "dot1ad-filtering"
-
-    // IEEE 802.1aj 2-Port MAC relay filtering
-    EthFiltering_two_port_mac_relay_filtering EthFiltering = "two-port-mac-relay-filtering"
-)
-
-// VlanQinqOuterEtype represents QinQ Outer Tag Ethertype
-type VlanQinqOuterEtype string
-
-const (
-    // Dot1Q (0x8100)
-    VlanQinqOuterEtype_ether_type8100 VlanQinqOuterEtype = "ether-type8100"
-
-    // 0x9100
-    VlanQinqOuterEtype_ether_type9100 VlanQinqOuterEtype = "ether-type9100"
-
-    // 0x9200
-    VlanQinqOuterEtype_ether_type9200 VlanQinqOuterEtype = "ether-type9200"
 )
 
 // ImStateEnum represents Im state enum
@@ -244,6 +141,91 @@ const (
     ImStateEnum_im_state_last ImStateEnum = "im-state-last"
 )
 
+// EfpTagPriority represents Priority
+type EfpTagPriority string
+
+const (
+    // Priority 0
+    EfpTagPriority_priority0 EfpTagPriority = "priority0"
+
+    // Priority 1
+    EfpTagPriority_priority1 EfpTagPriority = "priority1"
+
+    // Priority 2
+    EfpTagPriority_priority2 EfpTagPriority = "priority2"
+
+    // Priority 3
+    EfpTagPriority_priority3 EfpTagPriority = "priority3"
+
+    // Priority 4
+    EfpTagPriority_priority4 EfpTagPriority = "priority4"
+
+    // Priority 5
+    EfpTagPriority_priority5 EfpTagPriority = "priority5"
+
+    // Priority 6
+    EfpTagPriority_priority6 EfpTagPriority = "priority6"
+
+    // Priority 7
+    EfpTagPriority_priority7 EfpTagPriority = "priority7"
+
+    // Any priority
+    EfpTagPriority_priority_any EfpTagPriority = "priority-any"
+)
+
+// EfpTagEtype represents Tag ethertype
+type EfpTagEtype string
+
+const (
+    // Untagged
+    EfpTagEtype_untagged EfpTagEtype = "untagged"
+
+    // Dot1Q
+    EfpTagEtype_dot1q EfpTagEtype = "dot1q"
+
+    // Dot1ad
+    EfpTagEtype_dot1ad EfpTagEtype = "dot1ad"
+)
+
+// VlanService represents Layer 2 vs. Layer 3 Terminated Service
+type VlanService string
+
+const (
+    // Layer 2 Transport Service
+    VlanService_vlan_service_l2 VlanService = "vlan-service-l2"
+
+    // Layer 3 Terminated Service
+    VlanService_vlan_service_l3 VlanService = "vlan-service-l3"
+)
+
+// EfpPayloadEtype represents Payload ethertype match
+type EfpPayloadEtype string
+
+const (
+    // Any
+    EfpPayloadEtype_payload_ethertype_any EfpPayloadEtype = "payload-ethertype-any"
+
+    // IP
+    EfpPayloadEtype_payload_ethertype_ip EfpPayloadEtype = "payload-ethertype-ip"
+
+    // PPPoE
+    EfpPayloadEtype_payload_ethertype_pppoe EfpPayloadEtype = "payload-ethertype-pppoe"
+)
+
+// VlanQinqOuterEtype represents QinQ Outer Tag Ethertype
+type VlanQinqOuterEtype string
+
+const (
+    // Dot1Q (0x8100)
+    VlanQinqOuterEtype_ether_type8100 VlanQinqOuterEtype = "ether-type8100"
+
+    // 0x9100
+    VlanQinqOuterEtype_ether_type9100 VlanQinqOuterEtype = "ether-type9100"
+
+    // 0x9200
+    VlanQinqOuterEtype_ether_type9200 VlanQinqOuterEtype = "ether-type9200"
+)
+
 // EthCapsUcastMacMode represents Eth caps ucast mac mode
 type EthCapsUcastMacMode string
 
@@ -253,6 +235,24 @@ const (
 
     // Permit
     EthCapsUcastMacMode_permit EthCapsUcastMacMode = "permit"
+)
+
+// EthFiltering represents Ethernet frame filtering
+type EthFiltering string
+
+const (
+    // No IEEE 802.1Q/802.1ad/MAC relay multicast MAC
+    // address filtering
+    EthFiltering_no_filtering EthFiltering = "no-filtering"
+
+    // IEEE 802.1q C-VLAN filtering
+    EthFiltering_dot1q_filtering EthFiltering = "dot1q-filtering"
+
+    // IEEE 802.1ad S-VLAN filtering
+    EthFiltering_dot1ad_filtering EthFiltering = "dot1ad-filtering"
+
+    // IEEE 802.1aj 2-Port MAC relay filtering
+    EthFiltering_two_port_mac_relay_filtering EthFiltering = "two-port-mac-relay-filtering"
 )
 
 // MacAccounting
@@ -331,7 +331,7 @@ type MacAccounting_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MAC accounting state for the interface.
@@ -434,7 +434,7 @@ type MacAccounting_Interfaces_Interface_IngressStatistic struct {
     YListKey string
 
     // 48bit MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Number of packets counted. The type is interface{} with range:
@@ -476,7 +476,7 @@ type MacAccounting_Interfaces_Interface_EgressStatistic struct {
     YListKey string
 
     // 48bit MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Number of packets counted. The type is interface{} with range:
@@ -582,7 +582,7 @@ type Vlan_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // VLAN trunk table (specific to this node).
@@ -661,10 +661,10 @@ type Vlan_Nodes_Node_Trunks_Trunk struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
     // Interface state. The type is ImStateEnum.
@@ -681,7 +681,7 @@ type Vlan_Nodes_Node_Trunks_Trunk struct {
     Dot1adCount interface{}
 
     // Interface/Sub-interface handling untagged frames. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     UntaggedInterface interface{}
 
     // IEEE 802.1Q/802.1ad multicast MAC address filtering. The type is
@@ -984,11 +984,11 @@ type Vlan_Nodes_Node_Trunks_Trunk_VlanSwitched_TrunkVlanRanges struct {
     IsNativePreserving interface{}
 
     // The source MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacMatch interface{}
 
     // The destination MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DestinationMacMatch interface{}
 
     // VLAN tags for locally-sourced traffic.
@@ -1267,13 +1267,13 @@ type Vlan_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Service type. The type is VlanService.
@@ -1443,11 +1443,11 @@ type Vlan_Nodes_Node_Interfaces_Interface_EncapsulationDetails_ServiceInstanceDe
     IsNativePreserving interface{}
 
     // The source MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacMatch interface{}
 
     // The destination MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DestinationMacMatch interface{}
 
     // VLAN tags for locally-sourced traffic.
@@ -1761,7 +1761,7 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // The first (outermost) tag. The type is interface{} with range: 1..4094.
@@ -1771,10 +1771,10 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation struct {
     // VlanTagOrAny, or int with range: 1..4096.
     SecondTag interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Service type. The type is VlanService.
@@ -1946,11 +1946,11 @@ type Vlan_Nodes_Node_TagAllocations_TagAllocation_EncapsulationDetails_ServiceIn
     IsNativePreserving interface{}
 
     // The source MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacMatch interface{}
 
     // The destination MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DestinationMacMatch interface{}
 
     // VLAN tags for locally-sourced traffic.
@@ -2293,7 +2293,7 @@ type EthernetEncapsulation_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Unicast MAC filter table (specific to this node).
@@ -2366,7 +2366,7 @@ type EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter struct 
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Unicast MAC filter information. The type is slice of
@@ -2407,7 +2407,7 @@ type EthernetEncapsulation_Nodes_Node_UnicastMacFilters_UnicastMacFilter_Unicast
     YListKey string
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Unicast MAC mode. The type is EthCapsUcastMacMode.

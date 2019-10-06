@@ -192,7 +192,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -201,7 +201,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandCurrents_StatisticsOnDemandCurrent
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.
@@ -978,14 +978,13 @@ type Sla_Protocols_Ethernet_Operations_Operation struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -994,7 +993,7 @@ type Sla_Protocols_Ethernet_Operations_Operation struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Short display name used by the operation. The type is string.
@@ -1486,14 +1485,13 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -1502,7 +1500,7 @@ type Sla_Protocols_Ethernet_StatisticsHistoricals_StatisticsHistorical struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.
@@ -2288,7 +2286,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -2297,7 +2295,7 @@ type Sla_Protocols_Ethernet_StatisticsOnDemandHistoricals_StatisticsOnDemandHist
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.
@@ -3076,21 +3074,20 @@ type Sla_Protocols_Ethernet_ConfigErrors_ConfigError struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. The type is interface{} with range: 1..8191.
     MepId interface{}
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // The name of the operation profile. The type is string.
@@ -3262,7 +3259,7 @@ type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation struct {
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -3271,7 +3268,7 @@ type Sla_Protocols_Ethernet_OnDemandOperations_OnDemandOperation struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Short display name used by the operation. The type is string.
@@ -3762,14 +3759,13 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Profile Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Domain name. The type is string.
     DomainName interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // MEP ID in the range 1 to 8191. Either MEP ID or MAC address must be
@@ -3778,7 +3774,7 @@ type Sla_Protocols_Ethernet_StatisticsCurrents_StatisticsCurrent struct {
 
     // Unicast MAC Address in xxxx.xxxx.xxxx format. Either MEP ID or MAC address
     // must be specified. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Type of probe used by the operation. The type is string.

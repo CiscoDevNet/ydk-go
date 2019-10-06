@@ -18,19 +18,6 @@ func init() {
     ydk.RegisterEntity("CISCO-SONET-MIB:CISCO-SONET-MIB", reflect.TypeOf(CISCOSONETMIB{}))
 }
 
-// CsApsLineFailureCode represents     csApsModeMismatch:        APS architecture mode mismatch.
-type CsApsLineFailureCode string
-
-const (
-    CsApsLineFailureCode_csApsChannelMismatch CsApsLineFailureCode = "csApsChannelMismatch"
-
-    CsApsLineFailureCode_csApsProtectionByteFail CsApsLineFailureCode = "csApsProtectionByteFail"
-
-    CsApsLineFailureCode_csApsFEProtectionFailure CsApsLineFailureCode = "csApsFEProtectionFailure"
-
-    CsApsLineFailureCode_csApsModeMismatch CsApsLineFailureCode = "csApsModeMismatch"
-)
-
 // CsApsLineSwitchReason represents   csApsNoSwitch : This is a state when no switch happens.
 type CsApsLineSwitchReason string
 
@@ -54,6 +41,19 @@ const (
     CsApsLineSwitchReason_csApsLockOut CsApsLineSwitchReason = "csApsLockOut"
 
     CsApsLineSwitchReason_csApsNoSwitch CsApsLineSwitchReason = "csApsNoSwitch"
+)
+
+// CsApsLineFailureCode represents     csApsModeMismatch:        APS architecture mode mismatch.
+type CsApsLineFailureCode string
+
+const (
+    CsApsLineFailureCode_csApsChannelMismatch CsApsLineFailureCode = "csApsChannelMismatch"
+
+    CsApsLineFailureCode_csApsProtectionByteFail CsApsLineFailureCode = "csApsProtectionByteFail"
+
+    CsApsLineFailureCode_csApsFEProtectionFailure CsApsLineFailureCode = "csApsFEProtectionFailure"
+
+    CsApsLineFailureCode_csApsModeMismatch CsApsLineFailureCode = "csApsModeMismatch"
 )
 
 // CISCOSONETMIB

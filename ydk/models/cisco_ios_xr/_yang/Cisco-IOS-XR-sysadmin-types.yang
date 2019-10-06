@@ -21,7 +21,7 @@ module Cisco-IOS-XR-sysadmin-types {
      This module contains a collection of YANG
      definitions for Cisco IOS-XR SysAdmin configuration.
      
-     This module contains a collection of derived 
+     This module contains a collection of derived
      YANG data types specific to Sysadmin.
      
      Copyright(c) 2011-2016 by Cisco Systems, Inc.
@@ -30,9 +30,9 @@ module Cisco-IOS-XR-sysadmin-types {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-04-09 {
+  revision 2017-01-31 {
     description
-      "Required changes for ConfD 6.4.5";
+      "Changed the namespace and module name";
   }
 
   typedef rack-id {

@@ -343,7 +343,7 @@ type Oper_Platform_Summary_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Location interface{}
 
     
@@ -451,7 +451,7 @@ type Oper_Platform_Detail_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Location interface{}
 
     
@@ -579,7 +579,7 @@ type Oper_Platform_Slices_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Location interface{}
 
     // The type is slice of Oper_Platform_Slices_Location_SliceValues.
@@ -988,7 +988,7 @@ type Oper_RebootHistory_Card_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Location interface{}
 
     // The type is slice of Oper_RebootHistory_Card_Location_Events.
@@ -1137,7 +1137,7 @@ type Oper_RebootHistory_AdminVm_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Location interface{}
 
     // The type is slice of Oper_RebootHistory_AdminVm_Location_Events.
@@ -1319,7 +1319,7 @@ type Oper_RebootHistory_Reverse_Card_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Location interface{}
 
     // The type is slice of Oper_RebootHistory_Reverse_Card_Location_Events.
@@ -1468,7 +1468,7 @@ type Oper_RebootHistory_Reverse_AdminVm_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Location interface{}
 
     // The type is slice of Oper_RebootHistory_Reverse_AdminVm_Location_Events.
@@ -1617,11 +1617,11 @@ type Oper_Interface_InterfaceData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // The type is string.
@@ -1887,7 +1887,7 @@ type Oper_Macpool_Brief_Rack_BriefData struct {
     // The type is string.
     Racknum interface{}
 
-    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacBase interface{}
 
     // The type is interface{} with range: 0..4294967295.
@@ -2007,7 +2007,7 @@ type Config_Chassis_Serial struct {
     Serial interface{}
 
     // The type is string with pattern:
-    // b'[bB][0-9]|[fF][0-7]|[0-9]|[1][0-5]|[2][4][0-7]'. This attribute is
+    // [bB][0-9]|[fF][0-7]|[0-9]|[1][0-5]|[2][4][0-7]. This attribute is
     // mandatory.
     Rack interface{}
 }
@@ -2101,11 +2101,11 @@ type Config_Interface_MgmtEth_Locport struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'[fF][0-7]|[0-9]|[1][0-5]|[bB][0-9]'.
+    // [fF][0-7]|[0-9]|[1][0-5]|[bB][0-9].
     Rack interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // b'[Rr][Pp][0-1]|[Rr][Ss][Pp][0-1]|[Ss][Cc][0-1]|[cC][bB][0-9]'.
+    // [Rr][Pp][0-1]|[Rr][Ss][Pp][0-1]|[Ss][Cc][0-1]|[cC][bB][0-9].
     Slot interface{}
 
     // This attribute is a key. The type is interface{} with range: 0..0.
@@ -2121,7 +2121,7 @@ type Config_Interface_MgmtEth_Locport struct {
     Mtu interface{}
 
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DefaultGw interface{}
 
     
@@ -2165,8 +2165,8 @@ type Config_Interface_MgmtEth_Locport_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])((
-    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|(/([0-9]+)))'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])((
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))|(/([0-9]+))).
     Address interface{}
 }
 
@@ -2229,12 +2229,12 @@ type Config_Interface_MgmtEth_Locport_Arp_Ip struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Ip interface{}
 
-    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    // This attribute is mandatory.
+    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This
+    // attribute is mandatory.
     Mac interface{}
 }
 
@@ -2335,7 +2335,7 @@ type Config_Domain_NameServer struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NameServer interface{}
 }
 
@@ -2364,7 +2364,7 @@ type Config_VirtualMacaddrRange struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Base interface{}
 
     // The type is interface{} with range: 1..65535.

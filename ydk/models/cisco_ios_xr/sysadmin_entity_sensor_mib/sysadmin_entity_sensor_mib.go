@@ -26,6 +26,30 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-entity-sensor-mib:CISCO-ENTITY-SENSOR-MIB", reflect.TypeOf(CISCOENTITYSENSORMIB{}))
 }
 
+// SensorThresholdSeverity
+type SensorThresholdSeverity string
+
+const (
+    SensorThresholdSeverity_other SensorThresholdSeverity = "other"
+
+    SensorThresholdSeverity_minor SensorThresholdSeverity = "minor"
+
+    SensorThresholdSeverity_major SensorThresholdSeverity = "major"
+
+    SensorThresholdSeverity_critical SensorThresholdSeverity = "critical"
+)
+
+// SensorStatus
+type SensorStatus string
+
+const (
+    SensorStatus_ok SensorStatus = "ok"
+
+    SensorStatus_unavailable SensorStatus = "unavailable"
+
+    SensorStatus_nonoperational SensorStatus = "nonoperational"
+)
+
 // SensorDataType
 type SensorDataType string
 
@@ -55,6 +79,23 @@ const (
     SensorDataType_truthvalue SensorDataType = "truthvalue"
 
     SensorDataType_specialEnum SensorDataType = "specialEnum"
+)
+
+// SensorThresholdRelation
+type SensorThresholdRelation string
+
+const (
+    SensorThresholdRelation_lessThan SensorThresholdRelation = "lessThan"
+
+    SensorThresholdRelation_lessOrEqual SensorThresholdRelation = "lessOrEqual"
+
+    SensorThresholdRelation_greaterThan SensorThresholdRelation = "greaterThan"
+
+    SensorThresholdRelation_greaterOrEqual SensorThresholdRelation = "greaterOrEqual"
+
+    SensorThresholdRelation_equalTo SensorThresholdRelation = "equalTo"
+
+    SensorThresholdRelation_notEqualTo SensorThresholdRelation = "notEqualTo"
 )
 
 // SensorDataScale
@@ -94,47 +135,6 @@ const (
     SensorDataScale_zetta SensorDataScale = "zetta"
 
     SensorDataScale_yotta SensorDataScale = "yotta"
-)
-
-// SensorStatus
-type SensorStatus string
-
-const (
-    SensorStatus_ok SensorStatus = "ok"
-
-    SensorStatus_unavailable SensorStatus = "unavailable"
-
-    SensorStatus_nonoperational SensorStatus = "nonoperational"
-)
-
-// SensorThresholdSeverity
-type SensorThresholdSeverity string
-
-const (
-    SensorThresholdSeverity_other SensorThresholdSeverity = "other"
-
-    SensorThresholdSeverity_minor SensorThresholdSeverity = "minor"
-
-    SensorThresholdSeverity_major SensorThresholdSeverity = "major"
-
-    SensorThresholdSeverity_critical SensorThresholdSeverity = "critical"
-)
-
-// SensorThresholdRelation
-type SensorThresholdRelation string
-
-const (
-    SensorThresholdRelation_lessThan SensorThresholdRelation = "lessThan"
-
-    SensorThresholdRelation_lessOrEqual SensorThresholdRelation = "lessOrEqual"
-
-    SensorThresholdRelation_greaterThan SensorThresholdRelation = "greaterThan"
-
-    SensorThresholdRelation_greaterOrEqual SensorThresholdRelation = "greaterOrEqual"
-
-    SensorThresholdRelation_equalTo SensorThresholdRelation = "equalTo"
-
-    SensorThresholdRelation_notEqualTo SensorThresholdRelation = "notEqualTo"
 )
 
 // CISCOENTITYSENSORMIB

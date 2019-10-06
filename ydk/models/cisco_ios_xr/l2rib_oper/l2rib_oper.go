@@ -3,7 +3,7 @@
 // 
 // This module contains definitions
 // for the following management objects:
-//   l2rib: L2RIB operational information 
+//   l2rib: L2RIB operational information
 // 
 // Copyright (c) 2013-2018 by Cisco Systems, Inc.
 // All rights reserved.
@@ -39,75 +39,6 @@ const (
 
     // l2rib mac route type bmac
     L2ribMacRoute_l2rib_mac_route_type_bmac L2ribMacRoute = "l2rib-mac-route-type-bmac"
-)
-
-// L2ribAfi represents L2rib afi
-type L2ribAfi string
-
-const (
-    // l2rib address family ipv4
-    L2ribAfi_l2rib_address_family_ipv4 L2ribAfi = "l2rib-address-family-ipv4"
-
-    // l2rib address family ipv6
-    L2ribAfi_l2rib_address_family_ipv6 L2ribAfi = "l2rib-address-family-ipv6"
-
-    // l2rib address family invalid
-    L2ribAfi_l2rib_address_family_invalid L2ribAfi = "l2rib-address-family-invalid"
-)
-
-// L2ribNextHop represents L2rib next hop
-type L2ribNextHop string
-
-const (
-    // l2rib next hop invalid
-    L2ribNextHop_l2rib_next_hop_invalid L2ribNextHop = "l2rib-next-hop-invalid"
-
-    // l2rib next hop interface ordinal
-    L2ribNextHop_l2rib_next_hop_interface_ordinal L2ribNextHop = "l2rib-next-hop-interface-ordinal"
-
-    // l2rib next hop interface index
-    L2ribNextHop_l2rib_next_hop_interface_index L2ribNextHop = "l2rib-next-hop-interface-index"
-
-    // l2rib next hop mac
-    L2ribNextHop_l2rib_next_hop_mac L2ribNextHop = "l2rib-next-hop-mac"
-
-    // l2rib next hop ipv4
-    L2ribNextHop_l2rib_next_hop_ipv4 L2ribNextHop = "l2rib-next-hop-ipv4"
-
-    // l2rib next hop ipv6
-    L2ribNextHop_l2rib_next_hop_ipv6 L2ribNextHop = "l2rib-next-hop-ipv6"
-
-    // l2rib next hop overlay
-    L2ribNextHop_l2rib_next_hop_overlay L2ribNextHop = "l2rib-next-hop-overlay"
-
-    // l2rib next hop site index
-    L2ribNextHop_l2rib_next_hop_site_index L2ribNextHop = "l2rib-next-hop-site-index"
-
-    // l2rib next hop label ed
-    L2ribNextHop_l2rib_next_hop_label_ed L2ribNextHop = "l2rib-next-hop-label-ed"
-
-    // l2rib next hop xid
-    L2ribNextHop_l2rib_next_hop_xid L2ribNextHop = "l2rib-next-hop-xid"
-)
-
-// L2ribBagProducerState represents L2RIB Producer States
-type L2ribBagProducerState string
-
-const (
-    // Initial
-    L2ribBagProducerState_l2rib_bag_prod_state_initial L2ribBagProducerState = "l2rib-bag-prod-state-initial"
-
-    // Stale
-    L2ribBagProducerState_l2rib_bag_prod_state_staled L2ribBagProducerState = "l2rib-bag-prod-state-staled"
-
-    // Reconnected
-    L2ribBagProducerState_l2rib_bag_prod_state_re_connected L2ribBagProducerState = "l2rib-bag-prod-state-re-connected"
-
-    // Converged
-    L2ribBagProducerState_l2rib_bag_prod_state_converged L2ribBagProducerState = "l2rib-bag-prod-state-converged"
-
-    // Delete Pending
-    L2ribBagProducerState_l2rib_bag_prod_state_delete_p_end L2ribBagProducerState = "l2rib-bag-prod-state-delete-p-end"
 )
 
 // L2ribBagProducerId represents L2RIB Producer Types
@@ -161,6 +92,75 @@ const (
 
     // All
     L2ribBagProducerId_l2rib_bag_prod_prod_all L2ribBagProducerId = "l2rib-bag-prod-prod-all"
+)
+
+// L2ribAfi represents L2rib afi
+type L2ribAfi string
+
+const (
+    // l2rib address family ipv4
+    L2ribAfi_l2rib_address_family_ipv4 L2ribAfi = "l2rib-address-family-ipv4"
+
+    // l2rib address family ipv6
+    L2ribAfi_l2rib_address_family_ipv6 L2ribAfi = "l2rib-address-family-ipv6"
+
+    // l2rib address family invalid
+    L2ribAfi_l2rib_address_family_invalid L2ribAfi = "l2rib-address-family-invalid"
+)
+
+// L2ribBagProducerState represents L2RIB Producer States
+type L2ribBagProducerState string
+
+const (
+    // Initial
+    L2ribBagProducerState_l2rib_bag_prod_state_initial L2ribBagProducerState = "l2rib-bag-prod-state-initial"
+
+    // Stale
+    L2ribBagProducerState_l2rib_bag_prod_state_staled L2ribBagProducerState = "l2rib-bag-prod-state-staled"
+
+    // Reconnected
+    L2ribBagProducerState_l2rib_bag_prod_state_re_connected L2ribBagProducerState = "l2rib-bag-prod-state-re-connected"
+
+    // Converged
+    L2ribBagProducerState_l2rib_bag_prod_state_converged L2ribBagProducerState = "l2rib-bag-prod-state-converged"
+
+    // Delete Pending
+    L2ribBagProducerState_l2rib_bag_prod_state_delete_p_end L2ribBagProducerState = "l2rib-bag-prod-state-delete-p-end"
+)
+
+// L2ribNextHop represents L2rib next hop
+type L2ribNextHop string
+
+const (
+    // l2rib next hop invalid
+    L2ribNextHop_l2rib_next_hop_invalid L2ribNextHop = "l2rib-next-hop-invalid"
+
+    // l2rib next hop interface ordinal
+    L2ribNextHop_l2rib_next_hop_interface_ordinal L2ribNextHop = "l2rib-next-hop-interface-ordinal"
+
+    // l2rib next hop interface index
+    L2ribNextHop_l2rib_next_hop_interface_index L2ribNextHop = "l2rib-next-hop-interface-index"
+
+    // l2rib next hop mac
+    L2ribNextHop_l2rib_next_hop_mac L2ribNextHop = "l2rib-next-hop-mac"
+
+    // l2rib next hop ipv4
+    L2ribNextHop_l2rib_next_hop_ipv4 L2ribNextHop = "l2rib-next-hop-ipv4"
+
+    // l2rib next hop ipv6
+    L2ribNextHop_l2rib_next_hop_ipv6 L2ribNextHop = "l2rib-next-hop-ipv6"
+
+    // l2rib next hop overlay
+    L2ribNextHop_l2rib_next_hop_overlay L2ribNextHop = "l2rib-next-hop-overlay"
+
+    // l2rib next hop site index
+    L2ribNextHop_l2rib_next_hop_site_index L2ribNextHop = "l2rib-next-hop-site-index"
+
+    // l2rib next hop label ed
+    L2ribNextHop_l2rib_next_hop_label_ed L2ribNextHop = "l2rib-next-hop-label-ed"
+
+    // l2rib next hop xid
+    L2ribNextHop_l2rib_next_hop_xid L2ribNextHop = "l2rib-next-hop-xid"
 )
 
 // L2ribBagObj represents L2RIB Object Types
@@ -549,15 +549,6 @@ type L2rib_Summary struct {
     // Total Allocated Memory. The type is interface{} with range: 0..4294967295.
     TotalMemory interface{}
 
-    // MAC duplicate detection parameters.
-    MacDdParams L2rib_Summary_MacDdParams
-
-    // IPv4 duplicate detection parameters.
-    Ipv4DdParams L2rib_Summary_Ipv4DdParams
-
-    // IPv6 duplicate detection parameters.
-    Ipv6DdParams L2rib_Summary_Ipv6DdParams
-
     // Per Object Table summary. The type is slice of L2rib_Summary_TableSummary.
     TableSummary []*L2rib_Summary_TableSummary
 }
@@ -574,9 +565,6 @@ func (summary *L2rib_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     summary.EntityData.Children = types.NewOrderedMap()
-    summary.EntityData.Children.Append("mac-dd-params", types.YChild{"MacDdParams", &summary.MacDdParams})
-    summary.EntityData.Children.Append("ipv4-dd-params", types.YChild{"Ipv4DdParams", &summary.Ipv4DdParams})
-    summary.EntityData.Children.Append("ipv6-dd-params", types.YChild{"Ipv6DdParams", &summary.Ipv6DdParams})
     summary.EntityData.Children.Append("table-summary", types.YChild{"TableSummary", nil})
     for i := range summary.TableSummary {
         types.SetYListKey(summary.TableSummary[i], i)
@@ -589,162 +577,6 @@ func (summary *L2rib_Summary) GetEntityData() *types.CommonEntityData {
     summary.EntityData.YListKeys = []string {}
 
     return &(summary.EntityData)
-}
-
-// L2rib_Summary_MacDdParams
-// MAC duplicate detection parameters
-type L2rib_Summary_MacDdParams struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Disable duplicate detection for MAC, IPv4 or IPv6 addresses. The type is
-    // bool.
-    DdParamsDisable interface{}
-
-    // Length of time to freeze the mac after it has been detected as duplicate.
-    // Default is 30s. The type is interface{} with range: 0..65535.
-    DdParamsFreezeTime interface{}
-
-    // Number of times to unfreeze a MAC before permanently freezing it. Default
-    // is 3 times. The type is interface{} with range: 0..65535.
-    DdParamsRetryCount interface{}
-
-    // Number of moves to occur in move-interval seconds before freezing the MAC.
-    // Default is 5s. The type is interface{} with range: 0..4294967295. Units are
-    // second.
-    DdParamsMoveCount interface{}
-
-    // Interval to watch for subsequent moves before freezing the MAC. Default is
-    // 180s. The type is interface{} with range: 0..4294967295.
-    DdParamsMoveInterval interface{}
-}
-
-func (macDdParams *L2rib_Summary_MacDdParams) GetEntityData() *types.CommonEntityData {
-    macDdParams.EntityData.YFilter = macDdParams.YFilter
-    macDdParams.EntityData.YangName = "mac-dd-params"
-    macDdParams.EntityData.BundleName = "cisco_ios_xr"
-    macDdParams.EntityData.ParentYangName = "summary"
-    macDdParams.EntityData.SegmentPath = "mac-dd-params"
-    macDdParams.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/summary/" + macDdParams.EntityData.SegmentPath
-    macDdParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    macDdParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    macDdParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    macDdParams.EntityData.Children = types.NewOrderedMap()
-    macDdParams.EntityData.Leafs = types.NewOrderedMap()
-    macDdParams.EntityData.Leafs.Append("dd-params-disable", types.YLeaf{"DdParamsDisable", macDdParams.DdParamsDisable})
-    macDdParams.EntityData.Leafs.Append("dd-params-freeze-time", types.YLeaf{"DdParamsFreezeTime", macDdParams.DdParamsFreezeTime})
-    macDdParams.EntityData.Leafs.Append("dd-params-retry-count", types.YLeaf{"DdParamsRetryCount", macDdParams.DdParamsRetryCount})
-    macDdParams.EntityData.Leafs.Append("dd-params-move-count", types.YLeaf{"DdParamsMoveCount", macDdParams.DdParamsMoveCount})
-    macDdParams.EntityData.Leafs.Append("dd-params-move-interval", types.YLeaf{"DdParamsMoveInterval", macDdParams.DdParamsMoveInterval})
-
-    macDdParams.EntityData.YListKeys = []string {}
-
-    return &(macDdParams.EntityData)
-}
-
-// L2rib_Summary_Ipv4DdParams
-// IPv4 duplicate detection parameters
-type L2rib_Summary_Ipv4DdParams struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Disable duplicate detection for MAC, IPv4 or IPv6 addresses. The type is
-    // bool.
-    DdParamsDisable interface{}
-
-    // Length of time to freeze the mac after it has been detected as duplicate.
-    // Default is 30s. The type is interface{} with range: 0..65535.
-    DdParamsFreezeTime interface{}
-
-    // Number of times to unfreeze a MAC before permanently freezing it. Default
-    // is 3 times. The type is interface{} with range: 0..65535.
-    DdParamsRetryCount interface{}
-
-    // Number of moves to occur in move-interval seconds before freezing the MAC.
-    // Default is 5s. The type is interface{} with range: 0..4294967295. Units are
-    // second.
-    DdParamsMoveCount interface{}
-
-    // Interval to watch for subsequent moves before freezing the MAC. Default is
-    // 180s. The type is interface{} with range: 0..4294967295.
-    DdParamsMoveInterval interface{}
-}
-
-func (ipv4DdParams *L2rib_Summary_Ipv4DdParams) GetEntityData() *types.CommonEntityData {
-    ipv4DdParams.EntityData.YFilter = ipv4DdParams.YFilter
-    ipv4DdParams.EntityData.YangName = "ipv4-dd-params"
-    ipv4DdParams.EntityData.BundleName = "cisco_ios_xr"
-    ipv4DdParams.EntityData.ParentYangName = "summary"
-    ipv4DdParams.EntityData.SegmentPath = "ipv4-dd-params"
-    ipv4DdParams.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/summary/" + ipv4DdParams.EntityData.SegmentPath
-    ipv4DdParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4DdParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4DdParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4DdParams.EntityData.Children = types.NewOrderedMap()
-    ipv4DdParams.EntityData.Leafs = types.NewOrderedMap()
-    ipv4DdParams.EntityData.Leafs.Append("dd-params-disable", types.YLeaf{"DdParamsDisable", ipv4DdParams.DdParamsDisable})
-    ipv4DdParams.EntityData.Leafs.Append("dd-params-freeze-time", types.YLeaf{"DdParamsFreezeTime", ipv4DdParams.DdParamsFreezeTime})
-    ipv4DdParams.EntityData.Leafs.Append("dd-params-retry-count", types.YLeaf{"DdParamsRetryCount", ipv4DdParams.DdParamsRetryCount})
-    ipv4DdParams.EntityData.Leafs.Append("dd-params-move-count", types.YLeaf{"DdParamsMoveCount", ipv4DdParams.DdParamsMoveCount})
-    ipv4DdParams.EntityData.Leafs.Append("dd-params-move-interval", types.YLeaf{"DdParamsMoveInterval", ipv4DdParams.DdParamsMoveInterval})
-
-    ipv4DdParams.EntityData.YListKeys = []string {}
-
-    return &(ipv4DdParams.EntityData)
-}
-
-// L2rib_Summary_Ipv6DdParams
-// IPv6 duplicate detection parameters
-type L2rib_Summary_Ipv6DdParams struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Disable duplicate detection for MAC, IPv4 or IPv6 addresses. The type is
-    // bool.
-    DdParamsDisable interface{}
-
-    // Length of time to freeze the mac after it has been detected as duplicate.
-    // Default is 30s. The type is interface{} with range: 0..65535.
-    DdParamsFreezeTime interface{}
-
-    // Number of times to unfreeze a MAC before permanently freezing it. Default
-    // is 3 times. The type is interface{} with range: 0..65535.
-    DdParamsRetryCount interface{}
-
-    // Number of moves to occur in move-interval seconds before freezing the MAC.
-    // Default is 5s. The type is interface{} with range: 0..4294967295. Units are
-    // second.
-    DdParamsMoveCount interface{}
-
-    // Interval to watch for subsequent moves before freezing the MAC. Default is
-    // 180s. The type is interface{} with range: 0..4294967295.
-    DdParamsMoveInterval interface{}
-}
-
-func (ipv6DdParams *L2rib_Summary_Ipv6DdParams) GetEntityData() *types.CommonEntityData {
-    ipv6DdParams.EntityData.YFilter = ipv6DdParams.YFilter
-    ipv6DdParams.EntityData.YangName = "ipv6-dd-params"
-    ipv6DdParams.EntityData.BundleName = "cisco_ios_xr"
-    ipv6DdParams.EntityData.ParentYangName = "summary"
-    ipv6DdParams.EntityData.SegmentPath = "ipv6-dd-params"
-    ipv6DdParams.EntityData.AbsolutePath = "Cisco-IOS-XR-l2rib-oper:l2rib/summary/" + ipv6DdParams.EntityData.SegmentPath
-    ipv6DdParams.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6DdParams.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6DdParams.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6DdParams.EntityData.Children = types.NewOrderedMap()
-    ipv6DdParams.EntityData.Leafs = types.NewOrderedMap()
-    ipv6DdParams.EntityData.Leafs.Append("dd-params-disable", types.YLeaf{"DdParamsDisable", ipv6DdParams.DdParamsDisable})
-    ipv6DdParams.EntityData.Leafs.Append("dd-params-freeze-time", types.YLeaf{"DdParamsFreezeTime", ipv6DdParams.DdParamsFreezeTime})
-    ipv6DdParams.EntityData.Leafs.Append("dd-params-retry-count", types.YLeaf{"DdParamsRetryCount", ipv6DdParams.DdParamsRetryCount})
-    ipv6DdParams.EntityData.Leafs.Append("dd-params-move-count", types.YLeaf{"DdParamsMoveCount", ipv6DdParams.DdParamsMoveCount})
-    ipv6DdParams.EntityData.Leafs.Append("dd-params-move-interval", types.YLeaf{"DdParamsMoveInterval", ipv6DdParams.DdParamsMoveInterval})
-
-    ipv6DdParams.EntityData.YListKeys = []string {}
-
-    return &(ipv6DdParams.EntityData)
 }
 
 // L2rib_Summary_TableSummary
@@ -1084,7 +916,7 @@ type L2rib_Clients_Client struct {
     ProcessId interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Process Name. The type is string.
@@ -1359,7 +1191,7 @@ type L2rib_ClientsDetails_ClientsDetail_Client struct {
     ProcessId interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Process Name. The type is string.
@@ -1676,13 +1508,13 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     Evi interface{}
 
     // MAC IP Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // IP Address. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
@@ -1692,7 +1524,7 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail struct {
     // 0..4294967295.
     SequenceNumber interface{}
 
-    // MAC-IP route flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // MAC-IP route flags. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Flags interface{}
 
     // SOO. The type is interface{} with range: 0..4294967295.
@@ -1749,7 +1581,7 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute struct {
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // IP Address. The type is string.
@@ -1841,19 +1673,19 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail_MacIpRoute_NextHop_NextHop st
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -1981,7 +1813,7 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail_RtTlv_TlvVal struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // TLV Value. The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -2055,7 +1887,7 @@ type L2rib_EviChildTables_MacipDetails_MacipDetail_NhTlv_TlvVal struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // TLV Value. The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -2125,20 +1957,20 @@ type L2rib_EviChildTables_MacIps_MacIp struct {
     Evi interface{}
 
     // MAC-IP Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // IP Address. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // IP Address. The type is string.
@@ -2234,19 +2066,19 @@ type L2rib_EviChildTables_MacIps_MacIp_NextHop_NextHop struct {
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -2369,14 +2201,14 @@ type L2rib_EviChildTables_Macs_Mac struct {
     Evi interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Admin Distance. The type is interface{} with range: 0..255.
@@ -2539,19 +2371,19 @@ type L2rib_EviChildTables_Macs_Mac_Route_Regular_NextHop_NextHop struct {
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -2682,7 +2514,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_EthernetSegmentId struct {
     SystemPriority interface{}
 
     // LACP System Id. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemId interface{}
 
     // LACP Port Key. The type is interface{} with range: 0..65535.
@@ -2855,7 +2687,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo_PathListE
     SystemPriority interface{}
 
     // LACP System Id. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemId interface{}
 
     // LACP Port Key. The type is interface{} with range: 0..65535.
@@ -2933,19 +2765,19 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo_PathListE
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -3030,7 +2862,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_PathListInfo_PathListM
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -3103,19 +2935,19 @@ type L2rib_EviChildTables_Macs_Mac_Route_EvpnEsi_PathList_NextHopArray_NextHop s
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -3200,7 +3032,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac struct {
     YFilter yfilter.YFilter
 
     // BMAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BmacAddress interface{}
 
     // Forwarding State. True means forward, False means drop. The type is bool.
@@ -3375,7 +3207,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_PathListEsi_
     SystemPriority interface{}
 
     // LACP System Id. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemId interface{}
 
     // LACP Port Key. The type is interface{} with range: 0..65535.
@@ -3453,19 +3285,19 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_PathListEsi_
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -3550,7 +3382,7 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_PathListInfo_PathListMac 
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -3623,19 +3455,19 @@ type L2rib_EviChildTables_Macs_Mac_Route_Bmac_PathList_NextHopArray_NextHop stru
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -3763,16 +3595,22 @@ type L2rib_EviChildTables_Imets_Imet struct {
 
     // Originating Router IP Address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
+
+    // Admin distance. The type is interface{} with range: 0..4294967295.
+    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
 
     // Originating Router IP Address. The type is string.
     VtepiPaddr interface{}
+
+    // Admin Distance. The type is interface{} with range: 0..255.
+    AdminDistance interface{}
 
     // Producer of Imet route. The type is interface{} with range: 0..255.
     ProducerId interface{}
@@ -3800,8 +3638,10 @@ func (imet *L2rib_EviChildTables_Imets_Imet) GetEntityData() *types.CommonEntity
     imet.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", imet.Evi})
     imet.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", imet.TagId})
     imet.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", imet.IpAddr})
+    imet.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", imet.AdminDist})
     imet.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", imet.ProdId})
     imet.EntityData.Leafs.Append("vtepi-paddr", types.YLeaf{"VtepiPaddr", imet.VtepiPaddr})
+    imet.EntityData.Leafs.Append("admin-distance", types.YLeaf{"AdminDistance", imet.AdminDistance})
     imet.EntityData.Leafs.Append("producer-id", types.YLeaf{"ProducerId", imet.ProducerId})
     imet.EntityData.Leafs.Append("topo-id", types.YLeaf{"TopoId", imet.TopoId})
     imet.EntityData.Leafs.Append("ethernet-tag-id", types.YLeaf{"EthernetTagId", imet.EthernetTagId})
@@ -3857,7 +3697,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail struct {
     Evi interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddr interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
@@ -3867,10 +3707,10 @@ type L2rib_EviChildTables_MacDetails_MacDetail struct {
     // 0..4294967295.
     SequenceNumber interface{}
 
-    // MAC route flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // MAC route flags. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Flags interface{}
 
-    // BASE flags. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // BASE flags. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Baseflags interface{}
 
     // SOO. The type is interface{} with range: 0..4294967295.
@@ -3931,7 +3771,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute struct {
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Admin Distance. The type is interface{} with range: 0..255.
@@ -4091,19 +3931,19 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Regular_NextHop_Ne
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -4234,7 +4074,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_EthernetSe
     SystemPriority interface{}
 
     // LACP System Id. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemId interface{}
 
     // LACP Port Key. The type is interface{} with range: 0..65535.
@@ -4407,7 +4247,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_P
     SystemPriority interface{}
 
     // LACP System Id. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemId interface{}
 
     // LACP Port Key. The type is interface{} with range: 0..65535.
@@ -4485,19 +4325,19 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_P
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -4582,7 +4422,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_P
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -4655,19 +4495,19 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_EvpnEsi_PathList_N
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -4752,7 +4592,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac struct {
     YFilter yfilter.YFilter
 
     // BMAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BmacAddress interface{}
 
     // Forwarding State. True means forward, False means drop. The type is bool.
@@ -4927,7 +4767,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Path
     SystemPriority interface{}
 
     // LACP System Id. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemId interface{}
 
     // LACP Port Key. The type is interface{} with range: 0..65535.
@@ -5005,19 +4845,19 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Path
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -5102,7 +4942,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Path
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -5175,19 +5015,19 @@ type L2rib_EviChildTables_MacDetails_MacDetail_MacRoute_Route_Bmac_PathList_Next
     Type interface{}
 
     // IPV4 address Next Hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPV6 address Next Hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 
     // MAC address Next Hop. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Mac interface{}
 
     // Intefrace Handle Next Hop. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // XID Next Hop. The type is interface{} with range: 0..4294967295.
@@ -5315,7 +5155,7 @@ type L2rib_EviChildTables_MacDetails_MacDetail_RtTlv_TlvVal struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // TLV Value. The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -5389,10 +5229,13 @@ type L2rib_EviChildTables_ImetDetails_ImetDetail struct {
 
     // Originating Router IP Address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
+
+    // Admin distance. The type is interface{} with range: 0..4294967295.
+    AdminDist interface{}
 
     // Producer ID. The type is interface{} with range: 0..4294967295.
     ProdId interface{}
@@ -5437,6 +5280,7 @@ func (imetDetail *L2rib_EviChildTables_ImetDetails_ImetDetail) GetEntityData() *
     imetDetail.EntityData.Leafs.Append("evi", types.YLeaf{"Evi", imetDetail.Evi})
     imetDetail.EntityData.Leafs.Append("tag-id", types.YLeaf{"TagId", imetDetail.TagId})
     imetDetail.EntityData.Leafs.Append("ip-addr", types.YLeaf{"IpAddr", imetDetail.IpAddr})
+    imetDetail.EntityData.Leafs.Append("admin-dist", types.YLeaf{"AdminDist", imetDetail.AdminDist})
     imetDetail.EntityData.Leafs.Append("prod-id", types.YLeaf{"ProdId", imetDetail.ProdId})
     imetDetail.EntityData.Leafs.Append("tunnel-id", types.YLeaf{"TunnelId", imetDetail.TunnelId})
     imetDetail.EntityData.Leafs.Append("flags", types.YLeaf{"Flags", imetDetail.Flags})
@@ -5458,6 +5302,9 @@ type L2rib_EviChildTables_ImetDetails_ImetDetail_ImetRouteBase struct {
 
     // Originating Router IP Address. The type is string.
     VtepiPaddr interface{}
+
+    // Admin Distance. The type is interface{} with range: 0..255.
+    AdminDistance interface{}
 
     // Producer of Imet route. The type is interface{} with range: 0..255.
     ProducerId interface{}
@@ -5483,6 +5330,7 @@ func (imetRouteBase *L2rib_EviChildTables_ImetDetails_ImetDetail_ImetRouteBase) 
     imetRouteBase.EntityData.Children = types.NewOrderedMap()
     imetRouteBase.EntityData.Leafs = types.NewOrderedMap()
     imetRouteBase.EntityData.Leafs.Append("vtepi-paddr", types.YLeaf{"VtepiPaddr", imetRouteBase.VtepiPaddr})
+    imetRouteBase.EntityData.Leafs.Append("admin-distance", types.YLeaf{"AdminDistance", imetRouteBase.AdminDistance})
     imetRouteBase.EntityData.Leafs.Append("producer-id", types.YLeaf{"ProducerId", imetRouteBase.ProducerId})
     imetRouteBase.EntityData.Leafs.Append("topo-id", types.YLeaf{"TopoId", imetRouteBase.TopoId})
     imetRouteBase.EntityData.Leafs.Append("ethernet-tag-id", types.YLeaf{"EthernetTagId", imetRouteBase.EthernetTagId})

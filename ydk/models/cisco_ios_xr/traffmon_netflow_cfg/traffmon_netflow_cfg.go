@@ -28,87 +28,12 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-traffmon-netflow-cfg:net-flow", reflect.TypeOf(NetFlow{}))
 }
 
-// NfRecordFormat represents Nf record format
-type NfRecordFormat string
+// NfSamplingMode represents Nf sampling mode
+type NfSamplingMode string
 
 const (
-    // Record Format datalinkframesections_any
-    NfRecordFormat_datalinkframesections_any NfRecordFormat = "datalinkframesections-any"
-
-    // Record Format default_mdi
-    NfRecordFormat_default_mdi NfRecordFormat = "default-mdi"
-
-    // Record Format default_rtp
-    NfRecordFormat_default_rtp NfRecordFormat = "default-rtp"
-
-    // Record Format ipv4_as_agg
-    NfRecordFormat_ipv4_as_agg NfRecordFormat = "ipv4-as-agg"
-
-    // Record Format ipv4_as_tos_agg
-    NfRecordFormat_ipv4_as_tos_agg NfRecordFormat = "ipv4-as-tos-agg"
-
-    // Record Format ipv4_bgp_nexthop_tos_agg
-    NfRecordFormat_ipv4_bgp_nexthop_tos_agg NfRecordFormat = "ipv4-bgp-nexthop-tos-agg"
-
-    // Record Format ipv4_destination
-    NfRecordFormat_ipv4_destination NfRecordFormat = "ipv4-destination"
-
-    // Record Format ipv4_destination_tos_agg
-    NfRecordFormat_ipv4_destination_tos_agg NfRecordFormat = "ipv4-destination-tos-agg"
-
-    // Record Format ipv4_destination_prefix_agg
-    NfRecordFormat_ipv4_destination_prefix_agg NfRecordFormat = "ipv4-destination-prefix-agg"
-
-    // Record Format ipv4_destination_prefix_tos_agg
-    NfRecordFormat_ipv4_destination_prefix_tos_agg NfRecordFormat = "ipv4-destination-prefix-tos-agg"
-
-    // Record Format ipv4_peer_as
-    NfRecordFormat_ipv4_peer_as NfRecordFormat = "ipv4-peer-as"
-
-    // Record Format ipv4_prefix_agg
-    NfRecordFormat_ipv4_prefix_agg NfRecordFormat = "ipv4-prefix-agg"
-
-    // Record Format ipv4_prefix_port_agg
-    NfRecordFormat_ipv4_prefix_port_agg NfRecordFormat = "ipv4-prefix-port-agg"
-
-    // Record Format ipv4_prefix_tos_agg
-    NfRecordFormat_ipv4_prefix_tos_agg NfRecordFormat = "ipv4-prefix-tos-agg"
-
-    // Record Format ipv4_protocol_port_agg
-    NfRecordFormat_ipv4_protocol_port_agg NfRecordFormat = "ipv4-protocol-port-agg"
-
-    // Record Format ipv4_protocol_port_tos_agg
-    NfRecordFormat_ipv4_protocol_port_tos_agg NfRecordFormat = "ipv4-protocol-port-tos-agg"
-
-    // Record Format ipv4_raw
-    NfRecordFormat_ipv4_raw NfRecordFormat = "ipv4-raw"
-
-    // Record Format ipv4_source_prefix_agg
-    NfRecordFormat_ipv4_source_prefix_agg NfRecordFormat = "ipv4-source-prefix-agg"
-
-    // Record Format ipv4_source_prefix_tos_agg
-    NfRecordFormat_ipv4_source_prefix_tos_agg NfRecordFormat = "ipv4-source-prefix-tos-agg"
-
-    // Record Format ipv6
-    NfRecordFormat_ipv6 NfRecordFormat = "ipv6"
-
-    // Record Format ipv6_destination
-    NfRecordFormat_ipv6_destination NfRecordFormat = "ipv6-destination"
-
-    // Record Format ipv6_peer_as
-    NfRecordFormat_ipv6_peer_as NfRecordFormat = "ipv6-peer-as"
-
-    // Record Format mpls
-    NfRecordFormat_mpls NfRecordFormat = "mpls"
-
-    // Record Format mpls_ipv4
-    NfRecordFormat_mpls_ipv4 NfRecordFormat = "mpls-ipv4"
-
-    // Record Format mpls_ipv4_ipv6
-    NfRecordFormat_mpls_ipv4_ipv6 NfRecordFormat = "mpls-ipv4-ipv6"
-
-    // Record Format mpls_ipv6
-    NfRecordFormat_mpls_ipv6 NfRecordFormat = "mpls-ipv6"
+    // Random sampling
+    NfSamplingMode_random NfSamplingMode = "random"
 )
 
 // NfCacheAgingMode represents Nf cache aging mode
@@ -123,53 +48,6 @@ const (
 
     // Immediate, caches age immediately
     NfCacheAgingMode_immediate NfCacheAgingMode = "immediate"
-)
-
-// NfSamplingMode represents Nf sampling mode
-type NfSamplingMode string
-
-const (
-    // Random sampling
-    NfSamplingMode_random NfSamplingMode = "random"
-)
-
-// NfExportVersion represents Nf export version
-type NfExportVersion string
-
-const (
-    // Version v9
-    NfExportVersion_v9 NfExportVersion = "v9"
-
-    // Version ipfix
-    NfExportVersion_ipfix NfExportVersion = "ipfix"
-)
-
-// NfFlowDirection represents Nf flow direction
-type NfFlowDirection string
-
-const (
-    // Netflow flow direction ingress
-    NfFlowDirection_ingress NfFlowDirection = "ingress"
-
-    // Netflow flow direction egress
-    NfFlowDirection_egress NfFlowDirection = "egress"
-)
-
-// NfFlowProtocol represents Nf flow protocol
-type NfFlowProtocol string
-
-const (
-    // Netflow flow protocol ipv4
-    NfFlowProtocol_ipv4 NfFlowProtocol = "ipv4"
-
-    // Netflow flow protocol ipv6
-    NfFlowProtocol_ipv6 NfFlowProtocol = "ipv6"
-
-    // Netflow flow protocol mpls
-    NfFlowProtocol_mpls NfFlowProtocol = "mpls"
-
-    // Netflow flow protocol data-link-frame-section
-    NfFlowProtocol_data_link_frame_section NfFlowProtocol = "data-link-frame-section"
 )
 
 // NetFlow
@@ -260,7 +138,7 @@ type NetFlow_FlowExporterMaps_FlowExporterMap struct {
     ExporterMapName interface{}
 
     // Configure source interface for collector. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Specify DSCP value for export packets. The type is interface{} with range:
@@ -345,14 +223,13 @@ type NetFlow_FlowExporterMaps_FlowExporterMap_Destination struct {
     YFilter yfilter.YFilter
 
     // Destination IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
-    // IPV6 address of the tunnel destination. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // IPV6 address of the tunnel destination. The type is string.
     Ipv6Address interface{}
 
-    // VRF name. The type is string with length: 1..32.
+    // VRF name. The type is string.
     VrfName interface{}
 }
 
@@ -380,14 +257,11 @@ func (destination *NetFlow_FlowExporterMaps_FlowExporterMap_Destination) GetEnti
 
 // NetFlow_FlowExporterMaps_FlowExporterMap_Version
 // Specify export version parameters
-// This type is a presence type.
 type NetFlow_FlowExporterMaps_FlowExporterMap_Version struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
-    // Export version number. The type is NfExportVersion. This attribute is
-    // mandatory.
+    // Export version number. The type is interface{} with range: 9..10.
     VersionType interface{}
 
     // Option template configuration options. The type is interface{} with range:
@@ -586,7 +460,7 @@ type NetFlow_FlowSamplerMaps_FlowSamplerMap_SamplingModes_SamplingMode struct {
     Mode interface{}
 
     // Number of packets to be sampled in the sampling interval. The type is
-    // interface{} with range: 1..1. This attribute is mandatory.
+    // interface{} with range: 0..4294967295. This attribute is mandatory.
     SampleNumber interface{}
 
     // Sampling interval in units of packets. The type is interface{} with range:
@@ -662,26 +536,27 @@ type NetFlow_FlowMonitorMapTable_FlowMonitorMap struct {
     MonitorMapName interface{}
 
     // Specify the update flow cache aging timeout. The type is interface{} with
-    // range: 1..604800. Units are second.
+    // range: 1..604800. Units are second. The default value is 1800.
     CacheUpdateAgingTimeout interface{}
 
     // Specify the number of entries in the flow cache. The type is interface{}
-    // with range: 4096..1000000.
+    // with range: 4096..1000000. The default value is 65535.
     CacheEntries interface{}
 
     // Specify the inactive flow cache aging timeout. The type is interface{} with
-    // range: 0..604800. Units are second.
+    // range: 0..604800. Units are second. The default value is 15.
     CacheInactiveAgingTimeout interface{}
 
     // Specify the active flow cache aging timeout. The type is interface{} with
-    // range: 1..604800. Units are second.
+    // range: 1..604800. Units are second. The default value is 1800.
     CacheActiveAgingTimeout interface{}
 
     // Specify the maximum number of entries to age each second. The type is
-    // interface{} with range: 1..1000000.
+    // interface{} with range: 1..1000000. The default value is 2000.
     CacheTimeoutRateLimit interface{}
 
-    // Specify the flow cache aging mode. The type is NfCacheAgingMode.
+    // Specify the flow cache aging mode. The type is NfCacheAgingMode. The
+    // default value is normal.
     CacheAgingMode interface{}
 
     // Specify an option for the flow cache.
@@ -844,9 +719,10 @@ type NetFlow_FlowMonitorMapTable_FlowMonitorMap_Record struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Flow record format. The type is NfRecordFormat. This attribute is
-    // mandatory.
-    RecordFormat interface{}
+    // Flow record format (Either 'ipv4-raw' ,'ipv4-peer-as', 'ipv6', 'mpls',
+    // 'mpls-ipv4', 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as'). The type is
+    // string with length: 1..32. This attribute is mandatory.
+    RecordName interface{}
 
     // Enter label value for MPLS record type. The type is interface{} with range:
     // 1..6.
@@ -866,7 +742,7 @@ func (record *NetFlow_FlowMonitorMapTable_FlowMonitorMap_Record) GetEntityData()
 
     record.EntityData.Children = types.NewOrderedMap()
     record.EntityData.Leafs = types.NewOrderedMap()
-    record.EntityData.Leafs.Append("record-format", types.YLeaf{"RecordFormat", record.RecordFormat})
+    record.EntityData.Leafs.Append("record-name", types.YLeaf{"RecordName", record.RecordName})
     record.EntityData.Leafs.Append("label", types.YLeaf{"Label", record.Label})
 
     record.EntityData.YListKeys = []string {}
@@ -920,26 +796,27 @@ type NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap struct {
     MonitorMapName interface{}
 
     // Specify the update flow cache aging timeout. The type is interface{} with
-    // range: 1..604800. Units are second.
+    // range: 1..604800. Units are second. The default value is 1800.
     CacheUpdateAgingTimeout interface{}
 
     // Specify the number of entries in the flow cache. The type is interface{}
-    // with range: 4096..1000000.
+    // with range: 4096..1000000. The default value is 65535.
     CacheEntries interface{}
 
     // Specify the inactive flow cache aging timeout. The type is interface{} with
-    // range: 0..604800. Units are second.
+    // range: 0..604800. Units are second. The default value is 15.
     CacheInactiveAgingTimeout interface{}
 
     // Specify the active flow cache aging timeout. The type is interface{} with
-    // range: 1..604800. Units are second.
+    // range: 1..604800. Units are second. The default value is 1800.
     CacheActiveAgingTimeout interface{}
 
     // Specify the maximum number of entries to age each second. The type is
-    // interface{} with range: 1..1000000.
+    // interface{} with range: 1..1000000. The default value is 2000.
     CacheTimeoutRateLimit interface{}
 
-    // Specify the flow cache aging mode. The type is NfCacheAgingMode.
+    // Specify the flow cache aging mode. The type is NfCacheAgingMode. The
+    // default value is normal.
     CacheAgingMode interface{}
 
     // Specify an option for the flow cache.
@@ -1102,9 +979,10 @@ type NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Record struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // Flow record format. The type is NfRecordFormat. This attribute is
-    // mandatory.
-    RecordFormat interface{}
+    // Flow record format (Either 'ipv4-raw' ,'ipv4-peer-as', 'ipv6', 'mpls',
+    // 'mpls-ipv4', 'mpls-ipv6', 'mpls-ipv4-ipv6', 'ipv6-peer-as'). The type is
+    // string with length: 1..32. This attribute is mandatory.
+    RecordName interface{}
 
     // Enter label value for MPLS record type. The type is interface{} with range:
     // 1..6.
@@ -1124,7 +1002,7 @@ func (record *NetFlow_FlowMonitorMapPerformanceTable_FlowMonitorMap_Record) GetE
 
     record.EntityData.Children = types.NewOrderedMap()
     record.EntityData.Leafs = types.NewOrderedMap()
-    record.EntityData.Leafs.Append("record-format", types.YLeaf{"RecordFormat", record.RecordFormat})
+    record.EntityData.Leafs.Append("record-name", types.YLeaf{"RecordName", record.RecordName})
     record.EntityData.Leafs.Append("label", types.YLeaf{"Label", record.Label})
 
     record.EntityData.YListKeys = []string {}

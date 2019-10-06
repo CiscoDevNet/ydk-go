@@ -20,6 +20,73 @@ func init() {
     ydk.RegisterEntity("DOCS-IF3-MIB:DOCS-IF3-MIB", reflect.TypeOf(DOCSIF3MIB{}))
 }
 
+// CmtsCmRegState represents  in the CM-CTRL-REQ message from CMTS.
+type CmtsCmRegState string
+
+const (
+    CmtsCmRegState_other CmtsCmRegState = "other"
+
+    CmtsCmRegState_initialRanging CmtsCmRegState = "initialRanging"
+
+    CmtsCmRegState_rangingAutoAdjComplete CmtsCmRegState = "rangingAutoAdjComplete"
+
+    CmtsCmRegState_dhcpv4Complete CmtsCmRegState = "dhcpv4Complete"
+
+    CmtsCmRegState_registrationComplete CmtsCmRegState = "registrationComplete"
+
+    CmtsCmRegState_operational CmtsCmRegState = "operational"
+
+    CmtsCmRegState_bpiInit CmtsCmRegState = "bpiInit"
+
+    CmtsCmRegState_startEae CmtsCmRegState = "startEae"
+
+    CmtsCmRegState_startDhcpv4 CmtsCmRegState = "startDhcpv4"
+
+    CmtsCmRegState_startDhcpv6 CmtsCmRegState = "startDhcpv6"
+
+    CmtsCmRegState_dhcpv6Complete CmtsCmRegState = "dhcpv6Complete"
+
+    CmtsCmRegState_startConfigFileDownload CmtsCmRegState = "startConfigFileDownload"
+
+    CmtsCmRegState_configFileDownloadComplete CmtsCmRegState = "configFileDownloadComplete"
+
+    CmtsCmRegState_startRegistration CmtsCmRegState = "startRegistration"
+
+    CmtsCmRegState_forwardingDisabled CmtsCmRegState = "forwardingDisabled"
+
+    CmtsCmRegState_rfMuteAll CmtsCmRegState = "rfMuteAll"
+)
+
+// IfDirection represents Cable Modem Termination System.
+type IfDirection string
+
+const (
+    IfDirection_downstream IfDirection = "downstream"
+
+    IfDirection_upstream IfDirection = "upstream"
+)
+
+// SpectrumAnalysisWindowFunction represents be returned.
+type SpectrumAnalysisWindowFunction string
+
+const (
+    SpectrumAnalysisWindowFunction_other SpectrumAnalysisWindowFunction = "other"
+
+    SpectrumAnalysisWindowFunction_hann SpectrumAnalysisWindowFunction = "hann"
+
+    SpectrumAnalysisWindowFunction_blackmanHarris SpectrumAnalysisWindowFunction = "blackmanHarris"
+
+    SpectrumAnalysisWindowFunction_rectangular SpectrumAnalysisWindowFunction = "rectangular"
+
+    SpectrumAnalysisWindowFunction_hamming SpectrumAnalysisWindowFunction = "hamming"
+
+    SpectrumAnalysisWindowFunction_flatTop SpectrumAnalysisWindowFunction = "flatTop"
+
+    SpectrumAnalysisWindowFunction_gaussian SpectrumAnalysisWindowFunction = "gaussian"
+
+    SpectrumAnalysisWindowFunction_chebyshev SpectrumAnalysisWindowFunction = "chebyshev"
+)
+
 // CmRegState represents  in the CM-CTRL-REQ message from CMTS.
 type CmRegState string
 
@@ -71,64 +138,6 @@ const (
     CmRegState_rfMuteAll CmRegState = "rfMuteAll"
 )
 
-// CmtsCmRegState represents  in the CM-CTRL-REQ message from CMTS.
-type CmtsCmRegState string
-
-const (
-    CmtsCmRegState_other CmtsCmRegState = "other"
-
-    CmtsCmRegState_initialRanging CmtsCmRegState = "initialRanging"
-
-    CmtsCmRegState_rangingAutoAdjComplete CmtsCmRegState = "rangingAutoAdjComplete"
-
-    CmtsCmRegState_dhcpv4Complete CmtsCmRegState = "dhcpv4Complete"
-
-    CmtsCmRegState_registrationComplete CmtsCmRegState = "registrationComplete"
-
-    CmtsCmRegState_operational CmtsCmRegState = "operational"
-
-    CmtsCmRegState_bpiInit CmtsCmRegState = "bpiInit"
-
-    CmtsCmRegState_startEae CmtsCmRegState = "startEae"
-
-    CmtsCmRegState_startDhcpv4 CmtsCmRegState = "startDhcpv4"
-
-    CmtsCmRegState_startDhcpv6 CmtsCmRegState = "startDhcpv6"
-
-    CmtsCmRegState_dhcpv6Complete CmtsCmRegState = "dhcpv6Complete"
-
-    CmtsCmRegState_startConfigFileDownload CmtsCmRegState = "startConfigFileDownload"
-
-    CmtsCmRegState_configFileDownloadComplete CmtsCmRegState = "configFileDownloadComplete"
-
-    CmtsCmRegState_startRegistration CmtsCmRegState = "startRegistration"
-
-    CmtsCmRegState_forwardingDisabled CmtsCmRegState = "forwardingDisabled"
-
-    CmtsCmRegState_rfMuteAll CmtsCmRegState = "rfMuteAll"
-)
-
-// SpectrumAnalysisWindowFunction represents be returned.
-type SpectrumAnalysisWindowFunction string
-
-const (
-    SpectrumAnalysisWindowFunction_other SpectrumAnalysisWindowFunction = "other"
-
-    SpectrumAnalysisWindowFunction_hann SpectrumAnalysisWindowFunction = "hann"
-
-    SpectrumAnalysisWindowFunction_blackmanHarris SpectrumAnalysisWindowFunction = "blackmanHarris"
-
-    SpectrumAnalysisWindowFunction_rectangular SpectrumAnalysisWindowFunction = "rectangular"
-
-    SpectrumAnalysisWindowFunction_hamming SpectrumAnalysisWindowFunction = "hamming"
-
-    SpectrumAnalysisWindowFunction_flatTop SpectrumAnalysisWindowFunction = "flatTop"
-
-    SpectrumAnalysisWindowFunction_gaussian SpectrumAnalysisWindowFunction = "gaussian"
-
-    SpectrumAnalysisWindowFunction_chebyshev SpectrumAnalysisWindowFunction = "chebyshev"
-)
-
 // RangingState represents  indicates that the T4 timer expired on the CM.
 type RangingState string
 
@@ -144,15 +153,6 @@ const (
     RangingState_continue_ RangingState = "continue"
 
     RangingState_timeoutT4 RangingState = "timeoutT4"
-)
-
-// IfDirection represents Cable Modem Termination System.
-type IfDirection string
-
-const (
-    IfDirection_downstream IfDirection = "downstream"
-
-    IfDirection_upstream IfDirection = "upstream"
 )
 
 // DOCSIF3MIB
@@ -485,7 +485,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmCtrl struct {
 
     // This attribute represents the MAC Address of the CM which the  CMTS is
     // instructed to send the CM-CTRL-REQ message. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIf3CmtsCmCtrlCmdMacAddr interface{}
 
     // This attribute represents the Upstream Channel ID (UCID) to  mute or
@@ -1125,7 +1125,7 @@ type DOCSIF3MIB_DocsIf3CmtsCmRegStatusTable_DocsIf3CmtsCmRegStatusEntry struct {
     // This attribute represents the MAC address of the CM. If the CM has multiple
     // MAC addresses, this is the MAC address associated with the MAC Domain
     // interface. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIf3CmtsCmRegStatusMacAddr interface{}
 
     // This attribute represents the IPv6 address of the CM. If the CM has no

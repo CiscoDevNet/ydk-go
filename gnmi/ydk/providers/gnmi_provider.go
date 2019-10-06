@@ -92,15 +92,11 @@ func (provider *GnmiServiceProvider) ExecuteRpc(operation string, entity types.E
 	}
 	if operation == "create" || operation == "update" || operation == "delete" {
 		rpcTag = "ydk:gnmi-set"
-		filter := yfilter.Update
 		if operation == "delete" {
-			filter = yfilter.Delete
-		}
-		if types.IsEntityCollection(entity) {
-			config := types.EntityToCollection(entity)
-			config.SetFilter(filter)
+			options["mode"] = operation
+			types.SetNontopEntityFilter(entity, yfilter.Delete)
 		} else {
-			types.SetEntityFilter(entity, filter)
+			options["mode"] = "update"
 		}
 	} else {
 		ydk.YLogError(fmt.Sprintf("GnmiServiceProvider.ExecuteRpc: Invalid operation '{}' requested", operation))

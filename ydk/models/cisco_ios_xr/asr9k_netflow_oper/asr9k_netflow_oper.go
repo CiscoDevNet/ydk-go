@@ -97,7 +97,7 @@ type NetFlow_Statistics_Statistic struct {
     YListKey string
 
     // This attribute is a key. Node location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // NetFlow producer statistics.
@@ -332,7 +332,7 @@ type NetFlow_Statistics_Statistic_Server_FlowExporters_FlowExporter struct {
     YListKey string
 
     // This attribute is a key. Exporter name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ExporterName interface{}
 
     // Statistics information for the exporter.

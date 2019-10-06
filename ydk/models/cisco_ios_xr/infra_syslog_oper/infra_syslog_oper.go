@@ -130,13 +130,11 @@ type GetSyslog_Input_Filters struct {
     YFilter yfilter.YFilter
 
     // Start timestamp of syslog messages to be returned. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // End timestamp of syslog messages to be returned. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndTime interface{}
 }
 
@@ -300,7 +298,7 @@ type GetSyslog_Output_Data_Syslog_Messages_Message struct {
     CardType interface{}
 
     // Message source location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Time in milliseconds since 00:00:00 UTC, January 11970 of when message was
@@ -667,7 +665,7 @@ type Syslog_Messages_Message struct {
     CardType interface{}
 
     // Message source location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Time in milliseconds since 00:00:00 UTC, January 11970 of when message was

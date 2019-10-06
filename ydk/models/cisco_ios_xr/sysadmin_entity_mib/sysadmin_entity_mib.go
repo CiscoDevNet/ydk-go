@@ -170,7 +170,7 @@ type ENTITYMIB_EntPhysicalTable_EntPhysicalEntry struct {
     EntPhysicalDescr interface{}
 
     // The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     EntPhysicalVendorType interface{}
 
     // The type is interface{} with range: 0..2147483647.
@@ -293,22 +293,20 @@ type ENTITYMIB_EntLogicalTable_EntLogicalEntry struct {
     EntLogicalDescr interface{}
 
     // The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     EntLogicalType interface{}
 
-    // The type is string with pattern:
-    // b'(([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?'.
+    // The type is string with pattern: (([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?.
     EntLogicalCommunity interface{}
 
-    // The type is string with pattern: b'(\\d*(.\\d*)*)?'.
+    // The type is string with pattern: (\d*(.\d*)*)?.
     EntLogicalTAddress interface{}
 
     // The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     EntLogicalTDomain interface{}
 
-    // The type is string with pattern:
-    // b'(([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?'.
+    // The type is string with pattern: (([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?.
     EntLogicalContextEngineID interface{}
 
     // The type is string with length: 0..255.
@@ -453,7 +451,7 @@ type ENTITYMIB_EntAliasMappingTable_EntAliasMappingEntry struct {
     EntAliasLogicalIndexOrZero interface{}
 
     // The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     EntAliasMappingIdentifier interface{}
 }
 

@@ -27,72 +27,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-arp-oper:arp", reflect.TypeOf(Arp{}))
 }
 
-// ArpGmpBagEntry represents ARP Entry type
-type ArpGmpBagEntry string
-
-const (
-    // No state
-    ArpGmpBagEntry_null ArpGmpBagEntry = "null"
-
-    // Static
-    ArpGmpBagEntry_static ArpGmpBagEntry = "static"
-
-    // Alias
-    ArpGmpBagEntry_alias ArpGmpBagEntry = "alias"
-)
-
-// ArpGmpBagEncap represents ARP encapsulation
-type ArpGmpBagEncap string
-
-const (
-    // No encapsulation
-    ArpGmpBagEncap_none ArpGmpBagEncap = "none"
-
-    // ARPA
-    ArpGmpBagEncap_arpa ArpGmpBagEncap = "arpa"
-
-    // SNAP
-    ArpGmpBagEncap_snap ArpGmpBagEncap = "snap"
-
-    // 802 1Q
-    ArpGmpBagEncap_ieee802_1q ArpGmpBagEncap = "ieee802-1q"
-
-    // SRP
-    ArpGmpBagEncap_srp ArpGmpBagEncap = "srp"
-
-    // SRPA
-    ArpGmpBagEncap_srpa ArpGmpBagEncap = "srpa"
-
-    // SRPB
-    ArpGmpBagEncap_srpb ArpGmpBagEncap = "srpb"
-)
-
-// IpArpBagEncap represents ARP encapsulation
-type IpArpBagEncap string
-
-const (
-    // No encapsulation
-    IpArpBagEncap_none IpArpBagEncap = "none"
-
-    // ARPA
-    IpArpBagEncap_arpa IpArpBagEncap = "arpa"
-
-    // SNAP
-    IpArpBagEncap_snap IpArpBagEncap = "snap"
-
-    // 802 1Q
-    IpArpBagEncap_ieee802_1q IpArpBagEncap = "ieee802-1q"
-
-    // SRP
-    IpArpBagEncap_srp IpArpBagEncap = "srp"
-
-    // SRPA
-    IpArpBagEncap_srpa IpArpBagEncap = "srpa"
-
-    // SRPB
-    IpArpBagEncap_srpb IpArpBagEncap = "srpb"
-)
-
 // IpArpBagFlags represents ARP flags
 type IpArpBagFlags string
 
@@ -108,124 +42,6 @@ const (
 
     // Maximum Flag number
     IpArpBagFlags_flag_max IpArpBagFlags = "flag-max"
-)
-
-// IpArpBagState represents ARP state
-type IpArpBagState string
-
-const (
-    // No state
-    IpArpBagState_state_none IpArpBagState = "state-none"
-
-    // Interface
-    IpArpBagState_state_interface IpArpBagState = "state-interface"
-
-    // Standby
-    IpArpBagState_state_standby IpArpBagState = "state-standby"
-
-    // Static
-    IpArpBagState_state_static IpArpBagState = "state-static"
-
-    // Alias
-    IpArpBagState_state_alias IpArpBagState = "state-alias"
-
-    // Mobile
-    IpArpBagState_state_mobile IpArpBagState = "state-mobile"
-
-    // Incomplete
-    IpArpBagState_state_incomplete IpArpBagState = "state-incomplete"
-
-    // Deleted
-    IpArpBagState_state_deleted IpArpBagState = "state-deleted"
-
-    // Dynamic
-    IpArpBagState_state_dynamic IpArpBagState = "state-dynamic"
-
-    // Probe
-    IpArpBagState_state_probe IpArpBagState = "state-probe"
-
-    // Purge delayed
-    IpArpBagState_state_purge_delayed IpArpBagState = "state-purge-delayed"
-
-    // DHCP installed
-    IpArpBagState_state_dhcp IpArpBagState = "state-dhcp"
-
-    // VXLAN installed
-    IpArpBagState_state_vxlan IpArpBagState = "state-vxlan"
-
-    // EVPN-SYNC installed
-    IpArpBagState_state_evpn_sync IpArpBagState = "state-evpn-sync"
-
-    // Satellite installed
-    IpArpBagState_state_sat IpArpBagState = "state-sat"
-
-    // Geo-redundancy sync'ed
-    IpArpBagState_state_r_sync IpArpBagState = "state-r-sync"
-
-    // Drop adjacency
-    IpArpBagState_state_drop_adj IpArpBagState = "state-drop-adj"
-
-    // Stale
-    IpArpBagState_state_stale IpArpBagState = "state-stale"
-
-    // Maximum state number
-    IpArpBagState_state_max IpArpBagState = "state-max"
-)
-
-// IpArpBagMedia represents ARP media type
-type IpArpBagMedia string
-
-const (
-    // ARPA
-    IpArpBagMedia_media_arpa IpArpBagMedia = "media-arpa"
-
-    // SRP
-    IpArpBagMedia_media_srp IpArpBagMedia = "media-srp"
-
-    // Unknown
-    IpArpBagMedia_media_unknown IpArpBagMedia = "media-unknown"
-)
-
-// ArpIssuVersion represents Arp issu version
-type ArpIssuVersion string
-
-const (
-    // Version 1
-    ArpIssuVersion_version1 ArpIssuVersion = "version1"
-
-    // Version 2
-    ArpIssuVersion_version2 ArpIssuVersion = "version2"
-)
-
-// ArpIssuPhase represents Arp issu phase
-type ArpIssuPhase string
-
-const (
-    // An ISSU event has not started
-    ArpIssuPhase_phase_not_started ArpIssuPhase = "phase-not-started"
-
-    // ISSU Load Phase
-    ArpIssuPhase_phase_load ArpIssuPhase = "phase-load"
-
-    // ISSU Run Phase
-    ArpIssuPhase_phase_run ArpIssuPhase = "phase-run"
-
-    // An ISSU event has completed successfully
-    ArpIssuPhase_phase_completed ArpIssuPhase = "phase-completed"
-
-    // An ISSU event has aborted
-    ArpIssuPhase_phase_aborted ArpIssuPhase = "phase-aborted"
-)
-
-// ArpIssuRole represents Arp issu role
-type ArpIssuRole string
-
-const (
-    // Primary role
-    ArpIssuRole_role_primary ArpIssuRole = "role-primary"
-
-    // Secondary role
-    ArpIssuRole_role_secondary ArpIssuRole = "role-secondary"
 )
 
 // ArpResolutionHistoryStatus represents Arp resolution history status
@@ -307,9 +123,142 @@ const (
     // Learning unsolicited ARP packets is disabled on
     // this Interface
     ArpResolutionHistoryStatus_status_dropped_unsolicited_pak ArpResolutionHistoryStatus = "status-dropped-unsolicited-pak"
+)
 
-    // Adding drop adjacency entry for the address
-    ArpResolutionHistoryStatus_status_drop_adjacency_added ArpResolutionHistoryStatus = "status-drop-adjacency-added"
+// IpArpBagEncap represents ARP encapsulation
+type IpArpBagEncap string
+
+const (
+    // No encapsulation
+    IpArpBagEncap_none IpArpBagEncap = "none"
+
+    // ARPA
+    IpArpBagEncap_arpa IpArpBagEncap = "arpa"
+
+    // SNAP
+    IpArpBagEncap_snap IpArpBagEncap = "snap"
+
+    // 802 1Q
+    IpArpBagEncap_ieee802_1q IpArpBagEncap = "ieee802-1q"
+
+    // SRP
+    IpArpBagEncap_srp IpArpBagEncap = "srp"
+
+    // SRPA
+    IpArpBagEncap_srpa IpArpBagEncap = "srpa"
+
+    // SRPB
+    IpArpBagEncap_srpb IpArpBagEncap = "srpb"
+)
+
+// ArpGmpBagEncap represents ARP encapsulation
+type ArpGmpBagEncap string
+
+const (
+    // No encapsulation
+    ArpGmpBagEncap_none ArpGmpBagEncap = "none"
+
+    // ARPA
+    ArpGmpBagEncap_arpa ArpGmpBagEncap = "arpa"
+
+    // SNAP
+    ArpGmpBagEncap_snap ArpGmpBagEncap = "snap"
+
+    // 802 1Q
+    ArpGmpBagEncap_ieee802_1q ArpGmpBagEncap = "ieee802-1q"
+
+    // SRP
+    ArpGmpBagEncap_srp ArpGmpBagEncap = "srp"
+
+    // SRPA
+    ArpGmpBagEncap_srpa ArpGmpBagEncap = "srpa"
+
+    // SRPB
+    ArpGmpBagEncap_srpb ArpGmpBagEncap = "srpb"
+)
+
+// IpArpBagMedia represents ARP media type
+type IpArpBagMedia string
+
+const (
+    // ARPA
+    IpArpBagMedia_media_arpa IpArpBagMedia = "media-arpa"
+
+    // SRP
+    IpArpBagMedia_media_srp IpArpBagMedia = "media-srp"
+
+    // Unknown
+    IpArpBagMedia_media_unknown IpArpBagMedia = "media-unknown"
+)
+
+// ArpGmpBagEntry represents ARP Entry type
+type ArpGmpBagEntry string
+
+const (
+    // No state
+    ArpGmpBagEntry_null ArpGmpBagEntry = "null"
+
+    // Static
+    ArpGmpBagEntry_static ArpGmpBagEntry = "static"
+
+    // Alias
+    ArpGmpBagEntry_alias ArpGmpBagEntry = "alias"
+)
+
+// IpArpBagState represents ARP state
+type IpArpBagState string
+
+const (
+    // No state
+    IpArpBagState_state_none IpArpBagState = "state-none"
+
+    // Interface
+    IpArpBagState_state_interface IpArpBagState = "state-interface"
+
+    // Standby
+    IpArpBagState_state_standby IpArpBagState = "state-standby"
+
+    // Static
+    IpArpBagState_state_static IpArpBagState = "state-static"
+
+    // Alias
+    IpArpBagState_state_alias IpArpBagState = "state-alias"
+
+    // Mobile
+    IpArpBagState_state_mobile IpArpBagState = "state-mobile"
+
+    // Incomplete
+    IpArpBagState_state_incomplete IpArpBagState = "state-incomplete"
+
+    // Deleted
+    IpArpBagState_state_deleted IpArpBagState = "state-deleted"
+
+    // Dynamic
+    IpArpBagState_state_dynamic IpArpBagState = "state-dynamic"
+
+    // Probe
+    IpArpBagState_state_probe IpArpBagState = "state-probe"
+
+    // Purge delayed
+    IpArpBagState_state_purge_delayed IpArpBagState = "state-purge-delayed"
+
+    // DHCP installed
+    IpArpBagState_state_dhcp IpArpBagState = "state-dhcp"
+
+    // VXLAN installed
+    IpArpBagState_state_vxlan IpArpBagState = "state-vxlan"
+
+    // EVPN-SYNC installed
+    IpArpBagState_state_evpn_sync IpArpBagState = "state-evpn-sync"
+
+    // Satellite installed
+    IpArpBagState_state_sat IpArpBagState = "state-sat"
+
+    // Geo-redundancy sync'ed
+    IpArpBagState_state_r_sync IpArpBagState = "state-r-sync"
+
+    // Maximum state number
+    IpArpBagState_state_max IpArpBagState = "state-max"
 )
 
 // ArpGmp
@@ -388,7 +337,7 @@ type ArpGmp_VrfInfos_VrfInfo struct {
     YListKey string
 
     // This attribute is a key. VRF name for the default VRF use 'default'. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // VRF Name. The type is string.
@@ -474,7 +423,7 @@ type ArpGmp_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name for the default VRF use 'default'. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Table of ARP-GMP configured IP addresses information.
@@ -554,15 +503,15 @@ type ArpGmp_Vrfs_Vrf_ConfiguredIpAddresses_ConfiguredIpAddress struct {
 
     // This attribute is a key. Configured ARP-GMP IP. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Hardware address . The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     HardwareAddress interface{}
 
     // Encap type. The type is ArpGmpBagEncap.
@@ -639,25 +588,25 @@ type ArpGmp_Vrfs_Vrf_Routes_Route struct {
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix length. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // IP address length. The type is interface{} with range: 0..255.
     PrefixLengthXr interface{}
 
     // Interface name (first element of InterfaceNames array). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Interface names. The type is slice of string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName []interface{}
 }
 
@@ -730,14 +679,14 @@ type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Configured ARP-GMP IP. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceNameXr interface{}
 
     // Route reference count. The type is interface{} with range: 0..4294967295.
@@ -778,11 +727,11 @@ type ArpGmp_Vrfs_Vrf_InterfaceConfiguredIps_InterfaceConfiguredIp_AssociatedConf
     YFilter yfilter.YFilter
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Hardware address . The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     HardwareAddress interface{}
 
     // Encap type. The type is ArpGmpBagEncap.
@@ -886,14 +835,11 @@ type Arp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Per node dynamically-resolved ARP resolution history data.
     ResolutionHistoryDynamic Arp_Nodes_Node_ResolutionHistoryDynamic
-
-    // Per node ARP status information.
-    ArpStatusInfo Arp_Nodes_Node_ArpStatusInfo
 
     // ARP Traffic information per VRF.
     TrafficVrfs Arp_Nodes_Node_TrafficVrfs
@@ -924,7 +870,6 @@ func (node *Arp_Nodes_Node) GetEntityData() *types.CommonEntityData {
 
     node.EntityData.Children = types.NewOrderedMap()
     node.EntityData.Children.Append("resolution-history-dynamic", types.YChild{"ResolutionHistoryDynamic", &node.ResolutionHistoryDynamic})
-    node.EntityData.Children.Append("arp-status-info", types.YChild{"ArpStatusInfo", &node.ArpStatusInfo})
     node.EntityData.Children.Append("traffic-vrfs", types.YChild{"TrafficVrfs", &node.TrafficVrfs})
     node.EntityData.Children.Append("traffic-node", types.YChild{"TrafficNode", &node.TrafficNode})
     node.EntityData.Children.Append("resolution-history-client", types.YChild{"ResolutionHistoryClient", &node.ResolutionHistoryClient})
@@ -986,15 +931,15 @@ type Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry struct {
     // 0..18446744073709551615. Units are nanosecond.
     NsecTimestamp interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IdbInterfaceName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Resolution status. The type is ArpResolutionHistoryStatus.
@@ -1038,111 +983,6 @@ func (arpEntry *Arp_Nodes_Node_ResolutionHistoryDynamic_ArpEntry) GetEntityData(
     arpEntry.EntityData.YListKeys = []string {}
 
     return &(arpEntry.EntityData)
-}
-
-// Arp_Nodes_Node_ArpStatusInfo
-// Per node ARP status information
-type Arp_Nodes_Node_ArpStatusInfo struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Timestamp for the process start time in nanoseconds since Epoch, i.e. since
-    // 00:00:00 UTC , January 1, 1970. The type is interface{} with range:
-    // 0..18446744073709551615. Units are nanosecond.
-    ProcessStartTime interface{}
-
-    // Timestamp for the ISSU sync complete in nanoseconds since Epoch, i.e. since
-    // 00:00:00 UTC , January 1, 1970. The type is interface{} with range:
-    // 0..18446744073709551615. Units are nanosecond.
-    IssuSyncCompleteTime interface{}
-
-    // Timestamp for the ISSU ready declaration in nanoseconds since Epoch, i.e.
-    // since 00:00:00 UTC , January 1, 1970. The type is interface{} with range:
-    // 0..18446744073709551615. Units are nanosecond.
-    IssuReadyTime interface{}
-
-    // Timestamp for the Big Bang notification time in nanoseconds since Epoch,
-    // i.e. since 00:00:00 UTC , January 1, 1970. The type is interface{} with
-    // range: 0..18446744073709551615. Units are nanosecond.
-    BigBangTime interface{}
-
-    // Timestamp for the change to Primary role notification time in nanoseconds
-    // since Epoch, i .e. since 00:00:00 UTC, January 1, 1970. The type is
-    // interface{} with range: 0..18446744073709551615. Units are nanosecond.
-    PrimaryRoleTime interface{}
-
-    // The current role of the ARP process. The type is ArpIssuRole.
-    Role interface{}
-
-    // The current ISSU phase of the ARP process. The type is ArpIssuPhase.
-    Phase interface{}
-
-    // The current version of the ARP process in the context of an ISSU. The type
-    // is ArpIssuVersion.
-    Version interface{}
-
-    // The number of entries that have been recovered during ISSU V1 and V2
-    // synchronisation. The type is interface{} with range: 0..4294967295.
-    DynamicEntriesRecoveredCount interface{}
-
-    // The number of entries that are currently non-operational in the shadow
-    // database. The type is interface{} with range: 0..4294967295.
-    NonOperationalEntriesCount interface{}
-
-    // The number of interface handle translation failures that occurred during
-    // the ISSU V1 and V2 synchronisation. The type is interface{} with range:
-    // 0..4294967295.
-    InterfaceHandleTranslationFailureCount interface{}
-
-    // Whether or not ARP is currently connected to ISSU Manager during the ISSU
-    // Load Phase. The type is bool.
-    IssuReadyIssuMgrConnection interface{}
-
-    // Whether or not ARP is in sync with IM during the ISSU Load Phase. The type
-    // is bool.
-    IssuReadyIm interface{}
-
-    // Whether or not the ARP DAGR system is in sync with the RIB during the ISSU
-    // Load Phase. The type is bool.
-    IssuReadyDagrRib interface{}
-
-    // Whether or not ARP has received all replicated entries during the ISSU Load
-    // Phase. The type is bool.
-    IssuReadyEntriesReplicate interface{}
-}
-
-func (arpStatusInfo *Arp_Nodes_Node_ArpStatusInfo) GetEntityData() *types.CommonEntityData {
-    arpStatusInfo.EntityData.YFilter = arpStatusInfo.YFilter
-    arpStatusInfo.EntityData.YangName = "arp-status-info"
-    arpStatusInfo.EntityData.BundleName = "cisco_ios_xr"
-    arpStatusInfo.EntityData.ParentYangName = "node"
-    arpStatusInfo.EntityData.SegmentPath = "arp-status-info"
-    arpStatusInfo.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/node/" + arpStatusInfo.EntityData.SegmentPath
-    arpStatusInfo.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    arpStatusInfo.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    arpStatusInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    arpStatusInfo.EntityData.Children = types.NewOrderedMap()
-    arpStatusInfo.EntityData.Leafs = types.NewOrderedMap()
-    arpStatusInfo.EntityData.Leafs.Append("process-start-time", types.YLeaf{"ProcessStartTime", arpStatusInfo.ProcessStartTime})
-    arpStatusInfo.EntityData.Leafs.Append("issu-sync-complete-time", types.YLeaf{"IssuSyncCompleteTime", arpStatusInfo.IssuSyncCompleteTime})
-    arpStatusInfo.EntityData.Leafs.Append("issu-ready-time", types.YLeaf{"IssuReadyTime", arpStatusInfo.IssuReadyTime})
-    arpStatusInfo.EntityData.Leafs.Append("big-bang-time", types.YLeaf{"BigBangTime", arpStatusInfo.BigBangTime})
-    arpStatusInfo.EntityData.Leafs.Append("primary-role-time", types.YLeaf{"PrimaryRoleTime", arpStatusInfo.PrimaryRoleTime})
-    arpStatusInfo.EntityData.Leafs.Append("role", types.YLeaf{"Role", arpStatusInfo.Role})
-    arpStatusInfo.EntityData.Leafs.Append("phase", types.YLeaf{"Phase", arpStatusInfo.Phase})
-    arpStatusInfo.EntityData.Leafs.Append("version", types.YLeaf{"Version", arpStatusInfo.Version})
-    arpStatusInfo.EntityData.Leafs.Append("dynamic-entries-recovered-count", types.YLeaf{"DynamicEntriesRecoveredCount", arpStatusInfo.DynamicEntriesRecoveredCount})
-    arpStatusInfo.EntityData.Leafs.Append("non-operational-entries-count", types.YLeaf{"NonOperationalEntriesCount", arpStatusInfo.NonOperationalEntriesCount})
-    arpStatusInfo.EntityData.Leafs.Append("interface-handle-translation-failure-count", types.YLeaf{"InterfaceHandleTranslationFailureCount", arpStatusInfo.InterfaceHandleTranslationFailureCount})
-    arpStatusInfo.EntityData.Leafs.Append("issu-ready-issu-mgr-connection", types.YLeaf{"IssuReadyIssuMgrConnection", arpStatusInfo.IssuReadyIssuMgrConnection})
-    arpStatusInfo.EntityData.Leafs.Append("issu-ready-im", types.YLeaf{"IssuReadyIm", arpStatusInfo.IssuReadyIm})
-    arpStatusInfo.EntityData.Leafs.Append("issu-ready-dagr-rib", types.YLeaf{"IssuReadyDagrRib", arpStatusInfo.IssuReadyDagrRib})
-    arpStatusInfo.EntityData.Leafs.Append("issu-ready-entries-replicate", types.YLeaf{"IssuReadyEntriesReplicate", arpStatusInfo.IssuReadyEntriesReplicate})
-
-    arpStatusInfo.EntityData.YListKeys = []string {}
-
-    return &(arpStatusInfo.EntityData)
 }
 
 // Arp_Nodes_Node_TrafficVrfs
@@ -1279,10 +1119,6 @@ type Arp_Nodes_Node_TrafficVrfs_TrafficVrf struct {
     // 0..4294967295.
     VxlanEntries interface{}
 
-    // Total drop adjacency entries in the cache. The type is interface{} with
-    // range: 0..4294967295.
-    DropAdjacencyEntries interface{}
-
     // Total ip packets droped on this node. The type is interface{} with range:
     // 0..4294967295.
     IpPacketsDroppedNode interface{}
@@ -1345,7 +1181,6 @@ func (trafficVrf *Arp_Nodes_Node_TrafficVrfs_TrafficVrf) GetEntityData() *types.
     trafficVrf.EntityData.Leafs.Append("standby-entries", types.YLeaf{"StandbyEntries", trafficVrf.StandbyEntries})
     trafficVrf.EntityData.Leafs.Append("dhcp-entries", types.YLeaf{"DhcpEntries", trafficVrf.DhcpEntries})
     trafficVrf.EntityData.Leafs.Append("vxlan-entries", types.YLeaf{"VxlanEntries", trafficVrf.VxlanEntries})
-    trafficVrf.EntityData.Leafs.Append("drop-adjacency-entries", types.YLeaf{"DropAdjacencyEntries", trafficVrf.DropAdjacencyEntries})
     trafficVrf.EntityData.Leafs.Append("ip-packets-dropped-node", types.YLeaf{"IpPacketsDroppedNode", trafficVrf.IpPacketsDroppedNode})
     trafficVrf.EntityData.Leafs.Append("arp-packet-node-out-of-subnet", types.YLeaf{"ArpPacketNodeOutOfSubnet", trafficVrf.ArpPacketNodeOutOfSubnet})
     trafficVrf.EntityData.Leafs.Append("ip-packets-dropped-interface", types.YLeaf{"IpPacketsDroppedInterface", trafficVrf.IpPacketsDroppedInterface})
@@ -1454,10 +1289,6 @@ type Arp_Nodes_Node_TrafficNode struct {
     // 0..4294967295.
     VxlanEntries interface{}
 
-    // Total drop adjacency entries in the cache. The type is interface{} with
-    // range: 0..4294967295.
-    DropAdjacencyEntries interface{}
-
     // Total ip packets droped on this node. The type is interface{} with range:
     // 0..4294967295.
     IpPacketsDroppedNode interface{}
@@ -1519,7 +1350,6 @@ func (trafficNode *Arp_Nodes_Node_TrafficNode) GetEntityData() *types.CommonEnti
     trafficNode.EntityData.Leafs.Append("standby-entries", types.YLeaf{"StandbyEntries", trafficNode.StandbyEntries})
     trafficNode.EntityData.Leafs.Append("dhcp-entries", types.YLeaf{"DhcpEntries", trafficNode.DhcpEntries})
     trafficNode.EntityData.Leafs.Append("vxlan-entries", types.YLeaf{"VxlanEntries", trafficNode.VxlanEntries})
-    trafficNode.EntityData.Leafs.Append("drop-adjacency-entries", types.YLeaf{"DropAdjacencyEntries", trafficNode.DropAdjacencyEntries})
     trafficNode.EntityData.Leafs.Append("ip-packets-dropped-node", types.YLeaf{"IpPacketsDroppedNode", trafficNode.IpPacketsDroppedNode})
     trafficNode.EntityData.Leafs.Append("arp-packet-node-out-of-subnet", types.YLeaf{"ArpPacketNodeOutOfSubnet", trafficNode.ArpPacketNodeOutOfSubnet})
     trafficNode.EntityData.Leafs.Append("ip-packets-dropped-interface", types.YLeaf{"IpPacketsDroppedInterface", trafficNode.IpPacketsDroppedInterface})
@@ -1580,15 +1410,15 @@ type Arp_Nodes_Node_ResolutionHistoryClient_ArpEntry struct {
     // 0..18446744073709551615. Units are nanosecond.
     NsecTimestamp interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IdbInterfaceName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Resolution status. The type is ArpResolutionHistoryStatus.
@@ -1676,11 +1506,11 @@ type Arp_Nodes_Node_Entries_Entry struct {
 
     // This attribute is a key. IP Address of ARP entry. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Media type for this entry. The type is IpArpBagMedia.
@@ -1703,7 +1533,7 @@ type Arp_Nodes_Node_Entries_Entry struct {
     HardwareLength interface{}
 
     // Hardware address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     HardwareAddress interface{}
 }
 
@@ -1777,7 +1607,7 @@ type Arp_Nodes_Node_TrafficInterfaces_TrafficInterface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Total ARP requests received. The type is interface{} with range:
@@ -1870,10 +1700,6 @@ type Arp_Nodes_Node_TrafficInterfaces_TrafficInterface struct {
     // 0..4294967295.
     VxlanEntries interface{}
 
-    // Total drop adjacency entries in the cache. The type is interface{} with
-    // range: 0..4294967295.
-    DropAdjacencyEntries interface{}
-
     // Total ip packets droped on this node. The type is interface{} with range:
     // 0..4294967295.
     IpPacketsDroppedNode interface{}
@@ -1936,7 +1762,6 @@ func (trafficInterface *Arp_Nodes_Node_TrafficInterfaces_TrafficInterface) GetEn
     trafficInterface.EntityData.Leafs.Append("standby-entries", types.YLeaf{"StandbyEntries", trafficInterface.StandbyEntries})
     trafficInterface.EntityData.Leafs.Append("dhcp-entries", types.YLeaf{"DhcpEntries", trafficInterface.DhcpEntries})
     trafficInterface.EntityData.Leafs.Append("vxlan-entries", types.YLeaf{"VxlanEntries", trafficInterface.VxlanEntries})
-    trafficInterface.EntityData.Leafs.Append("drop-adjacency-entries", types.YLeaf{"DropAdjacencyEntries", trafficInterface.DropAdjacencyEntries})
     trafficInterface.EntityData.Leafs.Append("ip-packets-dropped-node", types.YLeaf{"IpPacketsDroppedNode", trafficInterface.IpPacketsDroppedNode})
     trafficInterface.EntityData.Leafs.Append("arp-packet-node-out-of-subnet", types.YLeaf{"ArpPacketNodeOutOfSubnet", trafficInterface.ArpPacketNodeOutOfSubnet})
     trafficInterface.EntityData.Leafs.Append("ip-packets-dropped-interface", types.YLeaf{"IpPacketsDroppedInterface", trafficInterface.IpPacketsDroppedInterface})

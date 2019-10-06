@@ -102,7 +102,7 @@ type ProcessMandatory_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Table of processes.
@@ -172,7 +172,7 @@ type ProcessMandatory_Nodes_Node_Processes_Process struct {
     YListKey string
 
     // This attribute is a key. Process name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProcessName interface{}
 }
 
@@ -268,7 +268,7 @@ type ProcessMandatory_All_Processes_Process struct {
     YListKey string
 
     // This attribute is a key. Process name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProcessName interface{}
 }
 

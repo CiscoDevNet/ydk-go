@@ -35,56 +35,6 @@ const (
     PceSegment_mpls_label PceSegment = "mpls-label"
 )
 
-// PcePathHop represents Pce path hop
-type PcePathHop string
-
-const (
-    // Segment-routing MPLS
-    PcePathHop_mpls PcePathHop = "mpls"
-
-    // Segment-routing v6
-    PcePathHop_srv6 PcePathHop = "srv6"
-)
-
-// PcePath represents Pce path
-type PcePath string
-
-const (
-    // Explicit
-    PcePath_explicit PcePath = "explicit"
-
-    // Dynamic
-    PcePath_dynamic PcePath = "dynamic"
-)
-
-// PceDisjointPath represents Pce disjoint path
-type PceDisjointPath string
-
-const (
-    // Link
-    PceDisjointPath_link PceDisjointPath = "link"
-
-    // Node
-    PceDisjointPath_node PceDisjointPath = "node"
-
-    // SRLG
-    PceDisjointPath_srlg PceDisjointPath = "srlg"
-
-    // SRLG Node
-    PceDisjointPath_srlg_node PceDisjointPath = "srlg-node"
-)
-
-// PceEndPoint represents Pce end point
-type PceEndPoint string
-
-const (
-    // IPv4 endpoint address
-    PceEndPoint_end_point_type_ipv4 PceEndPoint = "end-point-type-ipv4"
-
-    // IPv6 endpoint address
-    PceEndPoint_end_point_type_ipv6 PceEndPoint = "end-point-type-ipv6"
-)
-
 // PceBindingSid represents Pce binding sid
 type PceBindingSid string
 
@@ -94,34 +44,6 @@ const (
 
     // Allocate BSID MPLS label
     PceBindingSid_mpls_label_any PceBindingSid = "mpls-label-any"
-)
-
-// PceMetric represents Pce metric
-type PceMetric string
-
-const (
-    // IGP metric type
-    PceMetric_igp PceMetric = "igp"
-
-    // TE metric type
-    PceMetric_te PceMetric = "te"
-
-    // Hopcount metric type
-    PceMetric_hopcount PceMetric = "hopcount"
-
-    // Latency metric type
-    PceMetric_latency PceMetric = "latency"
-)
-
-// PcerestAuthentication represents Pcerest authentication
-type PcerestAuthentication string
-
-const (
-    // Basic HTTP auth
-    PcerestAuthentication_basic PcerestAuthentication = "basic"
-
-    // MD5-Digest HTTP auth
-    PcerestAuthentication_digest PcerestAuthentication = "digest"
 )
 
 // PceExplicitPathHop represents Pce explicit path hop
@@ -141,6 +63,84 @@ const (
     PceExplicitPathHop_binding_sid PceExplicitPathHop = "binding-sid"
 )
 
+// PcePath represents Pce path
+type PcePath string
+
+const (
+    // Explicit
+    PcePath_explicit PcePath = "explicit"
+
+    // Dynamic
+    PcePath_dynamic PcePath = "dynamic"
+)
+
+// PceEndPoint represents Pce end point
+type PceEndPoint string
+
+const (
+    // IPv4 endpoint address
+    PceEndPoint_end_point_type_ipv4 PceEndPoint = "end-point-type-ipv4"
+
+    // IPv6 endpoint address
+    PceEndPoint_end_point_type_ipv6 PceEndPoint = "end-point-type-ipv6"
+)
+
+// PcerestAuthentication represents Pcerest authentication
+type PcerestAuthentication string
+
+const (
+    // Basic HTTP auth
+    PcerestAuthentication_basic PcerestAuthentication = "basic"
+
+    // MD5-Digest HTTP auth
+    PcerestAuthentication_digest PcerestAuthentication = "digest"
+)
+
+// PcePathHop represents Pce path hop
+type PcePathHop string
+
+const (
+    // Segment-routing MPLS
+    PcePathHop_mpls PcePathHop = "mpls"
+
+    // Segment-routing v6
+    PcePathHop_srv6 PcePathHop = "srv6"
+)
+
+// PceMetric represents Pce metric
+type PceMetric string
+
+const (
+    // IGP metric type
+    PceMetric_igp PceMetric = "igp"
+
+    // TE metric type
+    PceMetric_te PceMetric = "te"
+
+    // Hopcount metric type
+    PceMetric_hopcount PceMetric = "hopcount"
+
+    // Latency metric type
+    PceMetric_latency PceMetric = "latency"
+)
+
+// PceDisjointPath represents Pce disjoint path
+type PceDisjointPath string
+
+const (
+    // Link
+    PceDisjointPath_link PceDisjointPath = "link"
+
+    // Node
+    PceDisjointPath_node PceDisjointPath = "node"
+
+    // SRLG
+    PceDisjointPath_srlg PceDisjointPath = "srlg"
+
+    // SRLG Node
+    PceDisjointPath_srlg_node PceDisjointPath = "srlg-node"
+)
+
 // Pce
 // PCE configuration data
 type Pce struct {
@@ -148,14 +148,14 @@ type Pce struct {
     YFilter yfilter.YFilter
 
     // IPv4 address of PCE server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ServerAddress interface{}
 
     // IPv6 address of PCE server. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6ServerAddress interface{}
 
-    // MD5 password. The type is string with pattern: b'(!.+)|([^!].+)'.
+    // MD5 password. The type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 
     // True only. The type is interface{}.
@@ -193,9 +193,6 @@ type Pce struct {
 
     // Explicit paths.
     ExplicitPaths Pce_ExplicitPaths
-
-    // Peer filter.
-    PeerFilter Pce_PeerFilter
 }
 
 func (pce *Pce) GetEntityData() *types.CommonEntityData {
@@ -221,7 +218,6 @@ func (pce *Pce) GetEntityData() *types.CommonEntityData {
     pce.EntityData.Children.Append("netconf", types.YChild{"Netconf", &pce.Netconf})
     pce.EntityData.Children.Append("disjoint-path", types.YChild{"DisjointPath", &pce.DisjointPath})
     pce.EntityData.Children.Append("explicit-paths", types.YChild{"ExplicitPaths", &pce.ExplicitPaths})
-    pce.EntityData.Children.Append("peer-filter", types.YChild{"PeerFilter", &pce.PeerFilter})
     pce.EntityData.Leafs = types.NewOrderedMap()
     pce.EntityData.Leafs.Append("server-address", types.YLeaf{"ServerAddress", pce.ServerAddress})
     pce.EntityData.Leafs.Append("ipv6-server-address", types.YLeaf{"Ipv6ServerAddress", pce.Ipv6ServerAddress})
@@ -275,7 +271,7 @@ type Pce_Ipv6StateSyncs_Ipv6StateSync struct {
     YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -341,7 +337,7 @@ type Pce_PccAddresses_PccAddress struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // True only. The type is interface{}.
@@ -415,7 +411,7 @@ type Pce_PccAddresses_PccAddress_LspNames_LspName struct {
     YListKey string
 
     // This attribute is a key. LSP name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Undelegate LSP. The type is interface{}.
@@ -511,15 +507,15 @@ type Pce_PccAddresses_PccAddress_LspNames_LspName_RsvpTe_Affinity struct {
     YFilter yfilter.YFilter
 
     // Include-any affinity value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     IncludeAny interface{}
 
     // Include-all affinity value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     IncludeAll interface{}
 
     // Exclude-any affinity value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     ExcludeAny interface{}
 }
 
@@ -743,11 +739,11 @@ type Pce_Rest_RestUsers_RestUser struct {
     YListKey string
 
     // This attribute is a key. User name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // REST user password configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     RestUserPassword interface{}
 
     // True only. The type is interface{}.
@@ -817,7 +813,7 @@ type Pce_StateSyncs_StateSync struct {
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -965,7 +961,7 @@ type Pce_SegmentRouting_TrafficEngineering_AffinityBits_AffinityBit struct {
     // This attribute is a key. Color Name. The type is string with length: 1..32.
     ColorName interface{}
 
-    // The bit. The type is interface{} with range: 0..255. This attribute is
+    // The bit. The type is interface{} with range: 0..31. This attribute is
     // mandatory.
     Bit interface{}
 }
@@ -1034,9 +1030,9 @@ type Pce_SegmentRouting_TrafficEngineering_Peers_Peer struct {
 
     // This attribute is a key. Peer address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerAddr interface{}
 
     // True only. The type is interface{}.
@@ -1202,9 +1198,9 @@ type Pce_SegmentRouting_TrafficEngineering_Peers_Peer_Policies_Policy_ColorEndpo
 
     // End point address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     EndPointAddress interface{}
 }
 
@@ -1650,7 +1646,7 @@ type Pce_SegmentRouting_TrafficEngineering_Segments_Segment_Segments_Segment str
     SegmentType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // MPLS Label. The type is interface{} with range: 0..1048575.
@@ -1764,7 +1760,7 @@ type Pce_Netconf_NetconfSsh struct {
     YFilter yfilter.YFilter
 
     // Password to use for NETCONF SSH connections. The type is string with
-    // pattern: b'(!.+)|([^!].+)'.
+    // pattern: (!.+)|([^!].+).
     NetconfSshPassword interface{}
 
     // User name to use for NETCONF SSH connections. The type is string.
@@ -1960,7 +1956,7 @@ type Pce_DisjointPath_Groups_Group_GroupLspRecords_GroupLspRecord struct {
     LspId interface{}
 
     // IP address of PCC. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddr interface{}
 
     // Identifying name for LSP. The type is string.
@@ -2035,7 +2031,7 @@ type Pce_ExplicitPaths_ExplicitPath struct {
     YListKey string
 
     // This attribute is a key. Explicit-path name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // True only. The type is interface{}.
@@ -2116,12 +2112,12 @@ type Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop struct {
     HopType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     Address interface{}
 
     // Remote IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     RemoteAddress interface{}
 
@@ -2152,35 +2148,5 @@ func (pathHop *Pce_ExplicitPaths_ExplicitPath_PathHops_PathHop) GetEntityData() 
     pathHop.EntityData.YListKeys = []string {"Index"}
 
     return &(pathHop.EntityData)
-}
-
-// Pce_PeerFilter
-// Peer filter
-type Pce_PeerFilter struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // IPv4 ACL for peer filtering. The type is string.
-    Ipv4Acl interface{}
-}
-
-func (peerFilter *Pce_PeerFilter) GetEntityData() *types.CommonEntityData {
-    peerFilter.EntityData.YFilter = peerFilter.YFilter
-    peerFilter.EntityData.YangName = "peer-filter"
-    peerFilter.EntityData.BundleName = "cisco_ios_xr"
-    peerFilter.EntityData.ParentYangName = "pce"
-    peerFilter.EntityData.SegmentPath = "peer-filter"
-    peerFilter.EntityData.AbsolutePath = "Cisco-IOS-XR-infra-xtc-cfg:pce/" + peerFilter.EntityData.SegmentPath
-    peerFilter.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    peerFilter.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    peerFilter.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    peerFilter.EntityData.Children = types.NewOrderedMap()
-    peerFilter.EntityData.Leafs = types.NewOrderedMap()
-    peerFilter.EntityData.Leafs.Append("ipv4-acl", types.YLeaf{"Ipv4Acl", peerFilter.Ipv4Acl})
-
-    peerFilter.EntityData.YListKeys = []string {}
-
-    return &(peerFilter.EntityData)
 }
 

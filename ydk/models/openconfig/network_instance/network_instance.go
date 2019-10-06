@@ -352,7 +352,7 @@ type NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry struct {
     YListKey string
 
     // This attribute is a key. Reference to mac-address list key. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. Refers to
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_Config_MacAddress
     MacAddress interface{}
 
@@ -396,7 +396,7 @@ type NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_Config struct {
     YFilter yfilter.YFilter
 
     // MAC address for the dynamic or static MAC table entry. The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // VLAN from which this MAC address was received. The type is string with
@@ -433,7 +433,7 @@ type NetworkInstances_NetworkInstance_Fdb_MacTable_Entries_Entry_State struct {
     YFilter yfilter.YFilter
 
     // MAC address for the dynamic or static MAC table entry. The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // VLAN from which this MAC address was received. The type is string with
@@ -642,7 +642,7 @@ type NetworkInstances_NetworkInstance_Config struct {
 
     // The type of network instance. The value of this leaf indicates the type of
     // forwarding entries that should be supported by this network instance. The
-    // type is one of the following: DEFAULTINSTANCEL3VRFL2VSIL2P2PL2L3.
+    // type is one of the following: L2VSIL3VRFL2P2PDEFAULTINSTANCEL2L3.
     Type interface{}
 
     // Whether the network instance should be configured to be active on the
@@ -656,21 +656,21 @@ type NetworkInstances_NetworkInstance_Config struct {
     // A identifier for the local network instance - typically used within
     // associated routing protocols or signalling routing information in another
     // network instance. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // The route distinguisher that should be used for the local VRF or VSI
     // instance when it is signalled via BGP. The type is one of the following
     // types: string with pattern:
-    // b'^(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9])$',
+    // ^(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9])$,
     // or string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9])$,
     // or string with pattern:
-    // b'^(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9]):(65[0-5][0-3][0-5]|[1-5]{2}[0-9]{3}|[1-9]{0,2}[0-9][0-9]|[1-9])$'.
+    // ^(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9]):(65[0-5][0-3][0-5]|[1-5]{2}[0-9]{3}|[1-9]{0,2}[0-9][0-9]|[1-9])$.
     RouteDistinguisher interface{}
 
     // The address families that are to be enabled for this network instance. The
-    // type is slice of ['IPV4', 'IPV6', 'MPLS', 'L2ETHERNET'].
+    // type is slice of [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     EnabledAddressFamilies []interface{}
 
     // The maximum frame size which should be supported for this instance for
@@ -718,7 +718,7 @@ type NetworkInstances_NetworkInstance_State struct {
 
     // The type of network instance. The value of this leaf indicates the type of
     // forwarding entries that should be supported by this network instance. The
-    // type is one of the following: DEFAULTINSTANCEL3VRFL2VSIL2P2PL2L3.
+    // type is one of the following: L2VSIL3VRFL2P2PDEFAULTINSTANCEL2L3.
     Type interface{}
 
     // Whether the network instance should be configured to be active on the
@@ -732,21 +732,21 @@ type NetworkInstances_NetworkInstance_State struct {
     // A identifier for the local network instance - typically used within
     // associated routing protocols or signalling routing information in another
     // network instance. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // The route distinguisher that should be used for the local VRF or VSI
     // instance when it is signalled via BGP. The type is one of the following
     // types: string with pattern:
-    // b'^(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9])$',
+    // ^(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9]):(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9])$,
     // or string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(65[0-5][0-3][0-5]|[1-5][1-5][0-9][0-9][0-9]|[1-9]?[1-9]?[0-9][0-9]|[1-9])$,
     // or string with pattern:
-    // b'^(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9]):(65[0-5][0-3][0-5]|[1-5]{2}[0-9]{3}|[1-9]{0,2}[0-9][0-9]|[1-9])$'.
+    // ^(4[0-2][0-9][0-4][0-9][0-6][0-7][0-2][0-9][0-5]|[0-3][0-9]{9}|[1-9][0-9]{1,8}|[1-9]):(65[0-5][0-3][0-5]|[1-5]{2}[0-9]{3}|[1-9]{0,2}[0-9][0-9]|[1-9])$.
     RouteDistinguisher interface{}
 
     // The address families that are to be enabled for this network instance. The
-    // type is slice of ['IPV4', 'IPV6', 'MPLS', 'L2ETHERNET'].
+    // type is slice of [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     EnabledAddressFamilies []interface{}
 
     // The maximum frame size which should be supported for this instance for
@@ -830,7 +830,7 @@ type NetworkInstances_NetworkInstance_Encapsulation_Config struct {
 
     // The label allocation mode to be used for L3 entries in the network
     // instance. The type is one of the following:
-    // PERPREFIXPERNEXTHOPINSTANCELABEL.
+    // INSTANCELABELPERPREFIXPERNEXTHOP.
     LabelAllocationMode interface{}
 
     // Whether the control-word should be used for the network instance. The type
@@ -873,7 +873,7 @@ type NetworkInstances_NetworkInstance_Encapsulation_State struct {
 
     // The label allocation mode to be used for L3 entries in the network
     // instance. The type is one of the following:
-    // PERPREFIXPERNEXTHOPINSTANCELABEL.
+    // INSTANCELABELPERPREFIXPERNEXTHOP.
     LabelAllocationMode interface{}
 
     // Whether the control-word should be used for the network instance. The type
@@ -1134,16 +1134,16 @@ type NetworkInstances_NetworkInstance_TableConnections_TableConnection struct {
     // This attribute is a key. The name of the protocol associated with the table
     // which should be utilised as the source of forwarding or routing
     // information. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     SrcProtocol interface{}
 
     // This attribute is a key. The table to which routing entries should be
     // exported. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     DstProtocol interface{}
 
     // This attribute is a key. The address family associated with the connection.
-    // The type is one of the following: IPV4IPV6MPLSL2ETHERNET.
+    // The type is one of the following: L2ETHERNETIPV6MPLSIPV4.
     AddressFamily interface{}
 
     // Configuration parameters relating to the connection between tables.
@@ -1185,17 +1185,17 @@ type NetworkInstances_NetworkInstance_TableConnections_TableConnection_Config st
     YFilter yfilter.YFilter
 
     // The source protocol for the table connection. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     SrcProtocol interface{}
 
     // The address family associated with the connection. This must be defined for
     // the source protocol. The target address family is implicitly defined by the
     // address family specified for the source protocol. The type is one of the
-    // following: IPV4IPV6MPLSL2ETHERNET.
+    // following: L2ETHERNETIPV6MPLSIPV4.
     AddressFamily interface{}
 
     // The destination protocol for the table connection. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     DstProtocol interface{}
 
     // list of policy names in sequence to be applied on receiving a routing
@@ -1242,17 +1242,17 @@ type NetworkInstances_NetworkInstance_TableConnections_TableConnection_State str
     YFilter yfilter.YFilter
 
     // The source protocol for the table connection. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     SrcProtocol interface{}
 
     // The address family associated with the connection. This must be defined for
     // the source protocol. The target address family is implicitly defined by the
     // address family specified for the source protocol. The type is one of the
-    // following: IPV4IPV6MPLSL2ETHERNET.
+    // following: L2ETHERNETIPV6MPLSIPV4.
     AddressFamily interface{}
 
     // The destination protocol for the table connection. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     DstProtocol interface{}
 
     // list of policy names in sequence to be applied on receiving a routing
@@ -1396,7 +1396,7 @@ type NetworkInstances_NetworkInstance_Interfaces_Interface_Config struct {
     // network instance is enabled should be imported. If the value of this
     // leaf-list is specified then the association MUST only be made for those
     // address families that are included in the list. The type is slice of
-    // ['IPV4', 'IPV6', 'MPLS', 'L2ETHERNET'].
+    // [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     AssociatedAddressFamilies []interface{}
 }
 
@@ -1452,7 +1452,7 @@ type NetworkInstances_NetworkInstance_Interfaces_Interface_State struct {
     // network instance is enabled should be imported. If the value of this
     // leaf-list is specified then the association MUST only be made for those
     // address families that are included in the list. The type is slice of
-    // ['IPV4', 'IPV6', 'MPLS', 'L2ETHERNET'].
+    // [u'L2ETHERNET', u'IPV6', u'MPLS', u'IPV4'].
     AssociatedAddressFamilies []interface{}
 }
 
@@ -1550,11 +1550,11 @@ type NetworkInstances_NetworkInstance_Tables_Table struct {
 
     // This attribute is a key. A reference to the protocol that populates the
     // table. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     Protocol interface{}
 
     // This attribute is a key. A reference to the address-family that the table
-    // represents. The type is one of the following: IPV4IPV6MPLSL2ETHERNET.
+    // represents. The type is one of the following: L2ETHERNETIPV6MPLSIPV4.
     AddressFamily interface{}
 
     // Configuration parameters relating to the table.
@@ -1596,11 +1596,11 @@ type NetworkInstances_NetworkInstance_Tables_Table_Config struct {
 
     // Reference to the protocol that the table is associated with. The type is
     // one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     Protocol interface{}
 
     // The address family (IPv4, IPv6) of the table's entries. The type is one of
-    // the following: IPV4IPV6MPLSL2ETHERNET.
+    // the following: L2ETHERNETIPV6MPLSIPV4.
     AddressFamily interface{}
 }
 
@@ -1633,11 +1633,11 @@ type NetworkInstances_NetworkInstance_Tables_Table_State struct {
 
     // Reference to the protocol that the table is associated with. The type is
     // one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     Protocol interface{}
 
     // The address family (IPv4, IPv6) of the table's entries. The type is one of
-    // the following: IPV4IPV6MPLSL2ETHERNET.
+    // the following: L2ETHERNETIPV6MPLSIPV4.
     AddressFamily interface{}
 }
 
@@ -1923,7 +1923,7 @@ type NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_Endpoints
     Precedence interface{}
 
     // The type of endpoint that is referred to by the current endpoint. The type
-    // is one of the following: LOCALREMOTE.
+    // is one of the following: REMOTELOCAL.
     Type interface{}
 }
 
@@ -1965,7 +1965,7 @@ type NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_Endpoints
     Precedence interface{}
 
     // The type of endpoint that is referred to by the current endpoint. The type
-    // is one of the following: LOCALREMOTE.
+    // is one of the following: REMOTELOCAL.
     Type interface{}
 
     // When the backup endpoint is active, the value of this parameter is set to
@@ -2157,9 +2157,9 @@ type NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_Endpoints
 
     // The IP address of the device which hosts the remote end-point. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RemoteSystem interface{}
 
     // The virtual-circuit identifier that identifies the connection at the remote
@@ -2197,9 +2197,9 @@ type NetworkInstances_NetworkInstance_ConnectionPoints_ConnectionPoint_Endpoints
 
     // The IP address of the device which hosts the remote end-point. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RemoteSystem interface{}
 
     // The virtual-circuit identifier that identifies the connection at the remote
@@ -3073,9 +3073,9 @@ type NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticS
 
     // This attribute is a key. The from address of the link in the SRLG. The type
     // is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     FromAddress interface{}
 
     // Configuration parameters relating to the SRLG members.
@@ -3116,16 +3116,16 @@ type NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticS
 
     // IP address of the a-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     FromAddress interface{}
 
     // IP address of the z-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     ToAddress interface{}
 }
 
@@ -3159,16 +3159,16 @@ type NetworkInstances_NetworkInstance_Mpls_TeGlobalAttributes_Srlgs_Srlg_StaticS
 
     // IP address of the a-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     FromAddress interface{}
 
     // IP address of the z-side of the SRLG link. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     ToAddress interface{}
 }
 
@@ -4724,9 +4724,9 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Sessions_Se
 
     // IP router hop for RRO entry. The type is one of the following types: string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // Label reported for RRO hop. The type is one of the following types: int
@@ -4775,16 +4775,16 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Sessions_Se
 
     // Origin address of RSVP session. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     SourceAddress interface{}
 
     // Destination address of RSVP session. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     DestinationAddress interface{}
 
     // The tunnel ID is an identifier used in the RSVP session, which remains
@@ -4810,7 +4810,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Sessions_Se
 
     // The type of protection requested for the RSVP session. The type is one of
     // the following:
-    // UNPROTECTEDLINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTED.
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED.
     ProtectionRequested interface{}
 
     // Incoming MPLS label associated with this RSVP session. The type is one of
@@ -4966,9 +4966,9 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Neighbors_N
 
     // This attribute is a key. Reference to the address of the RSVP neighbor. The
     // type is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // Operational state parameters relating to the RSVP neighbor.
@@ -5005,9 +5005,9 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_Neighbors_N
 
     // Address of RSVP neighbor. The type is one of the following types: string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // Interface where RSVP neighbor was detected. The type is string.
@@ -6513,7 +6513,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAt
 
     // Style of mpls frr protection desired: link, link-node, or unprotected. The
     // type is one of the following:
-    // UNPROTECTEDLINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTED. The default
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
     // value is oc-mplst:LINK_NODE_PROTECTION_REQUESTED.
     LinkProtectionStyleRequested interface{}
 
@@ -6551,7 +6551,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_RsvpTe_InterfaceAt
 
     // Style of mpls frr protection desired: link, link-node, or unprotected. The
     // type is one of the following:
-    // UNPROTECTEDLINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTED. The default
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
     // value is oc-mplst:LINK_NODE_PROTECTION_REQUESTED.
     LinkProtectionStyleRequested interface{}
 
@@ -6689,8 +6689,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRouting_Agg
 
     // This attribute is a key. The MPLS label representing the segment
     // identifier. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     MplsLabel interface{}
 
     // State parameters for per-SID statistics.
@@ -6994,8 +6993,7 @@ type NetworkInstances_NetworkInstance_Mpls_SignalingProtocols_SegmentRouting_Int
 
     // This attribute is a key. The MPLS label representing the segment
     // identifier. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     MplsLabel interface{}
 
     // State parameters for per-SID statistics.
@@ -7690,9 +7688,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedExplicitPat
 
     // router hop for the LSP path. The type is one of the following types: string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // strict or loose hop. The type is MplsHopType.
@@ -7733,9 +7731,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_NamedExplicitPat
 
     // router hop for the LSP path. The type is one of the following types: string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Address interface{}
 
     // strict or loose hop. The type is MplsHopType.
@@ -7871,14 +7869,14 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_C
     Type interface{}
 
     // Signaling protocol used to set up this tunnel. The type is one of the
-    // following: PATHSETUPRSVPPATHSETUPSRPATHSETUPLDP.
+    // following: PATHSETUPSRPATHSETUPRSVPPATHSETUPLDP.
     SignalingProtocol interface{}
 
     // optional text description for the tunnel. The type is string.
     Description interface{}
 
     // TE tunnel administrative state. The type is one of the following:
-    // ADMINDOWNADMINUP. The default value is oc-mplst:ADMIN_UP.
+    // ADMINUPADMINDOWN. The default value is oc-mplst:ADMIN_UP.
     AdminStatus interface{}
 
     // Specifies a preference for this tunnel. A lower number signifies a better
@@ -7887,7 +7885,7 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_C
 
     // The type of metric specification that should be used to set the LSP(s)
     // metric. The type is one of the following:
-    // LSPMETRICRELATIVELSPMETRICABSOLUTELSPMETRICINHERITED. The default value is
+    // LSPMETRICINHERITEDLSPMETRICABSOLUTELSPMETRICRELATIVE. The default value is
     // oc-mplst:LSP_METRIC_INHERITED.
     MetricType interface{}
 
@@ -7909,7 +7907,7 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_C
 
     // style of mpls frr protection desired: can be link, link-node or
     // unprotected. The type is one of the following:
-    // UNPROTECTEDLINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTED. The default
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
     // value is oc-mplst:UNPROTECTED.
     ProtectionStyleRequested interface{}
 
@@ -7919,9 +7917,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_C
 
     // RSVP-TE tunnel source address. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Source interface{}
 
     // Enables RSVP soft-preemption on this LSP. The type is bool. The default
@@ -7986,14 +7984,14 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_S
     Type interface{}
 
     // Signaling protocol used to set up this tunnel. The type is one of the
-    // following: PATHSETUPRSVPPATHSETUPSRPATHSETUPLDP.
+    // following: PATHSETUPSRPATHSETUPRSVPPATHSETUPLDP.
     SignalingProtocol interface{}
 
     // optional text description for the tunnel. The type is string.
     Description interface{}
 
     // TE tunnel administrative state. The type is one of the following:
-    // ADMINDOWNADMINUP. The default value is oc-mplst:ADMIN_UP.
+    // ADMINUPADMINDOWN. The default value is oc-mplst:ADMIN_UP.
     AdminStatus interface{}
 
     // Specifies a preference for this tunnel. A lower number signifies a better
@@ -8002,7 +8000,7 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_S
 
     // The type of metric specification that should be used to set the LSP(s)
     // metric. The type is one of the following:
-    // LSPMETRICRELATIVELSPMETRICABSOLUTELSPMETRICINHERITED. The default value is
+    // LSPMETRICINHERITEDLSPMETRICABSOLUTELSPMETRICRELATIVE. The default value is
     // oc-mplst:LSP_METRIC_INHERITED.
     MetricType interface{}
 
@@ -8024,7 +8022,7 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_S
 
     // style of mpls frr protection desired: can be link, link-node or
     // unprotected. The type is one of the following:
-    // UNPROTECTEDLINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTED. The default
+    // LINKPROTECTIONREQUIREDLINKNODEPROTECTIONREQUESTEDUNPROTECTED. The default
     // value is oc-mplst:UNPROTECTED.
     ProtectionStyleRequested interface{}
 
@@ -8034,9 +8032,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_S
 
     // RSVP-TE tunnel source address. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Source interface{}
 
     // Enables RSVP soft-preemption on this LSP. The type is bool. The default
@@ -8128,17 +8126,17 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_S
 
     // Indication of the time the label switched path transitioned to an Oper Up
     // or in-service state. The type is string with pattern:
-    // b'^[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$'.
+    // ^[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$.
     OnlineTime interface{}
 
     // Indicates the time the LSP switched onto its current path. This is reset
     // upon a LSP path change. The type is string with pattern:
-    // b'^[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$'.
+    // ^[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$.
     CurrentPathTime interface{}
 
     // Indicates the next scheduled time the LSP will be reoptimized. The type is
     // string with pattern:
-    // b'^[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$'.
+    // ^[0-9]{4}\-[0-9]{2}\-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\.[0-9]+)?Z[+-][0-9]{2}:[0-9]{2}$.
     NextReoptimizationTime interface{}
 }
 
@@ -8726,9 +8724,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P
 
     // P2P tunnel destination address. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Destination interface{}
 }
 
@@ -8760,9 +8758,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P
 
     // P2P tunnel destination address. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Destination interface{}
 }
 
@@ -8899,9 +8897,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
@@ -8980,9 +8978,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
@@ -9442,9 +9440,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
@@ -9523,9 +9521,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_ConstrainedPath_Tunnels_Tunnel_P
 
     // Address of the external path computation server. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     PathComputationServer interface{}
 
     // reference to a defined path. The type is string. Refers to
@@ -9990,9 +9988,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Ingress_Con
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -10034,9 +10032,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Ingress_Sta
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -10113,9 +10111,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Transit_Con
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -10157,9 +10155,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Transit_Sta
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -10236,9 +10234,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Egress_Conf
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -10280,9 +10278,9 @@ type NetworkInstances_NetworkInstance_Mpls_Lsps_StaticLsps_StaticLsp_Egress_Stat
 
     // next hop IP address for the LSP. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NextHop interface{}
 
     // label value on the incoming packet. The type is one of the following types:
@@ -10455,7 +10453,7 @@ type NetworkInstances_NetworkInstance_SegmentRouting_Srgbs_Srgb_Config struct {
 
     // A list of IPv6 prefixes which are to be used for segment routing using the
     // IPv6 dataplane. The type is slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Ipv6Prefixes []interface{}
 }
 
@@ -10506,7 +10504,7 @@ type NetworkInstances_NetworkInstance_SegmentRouting_Srgbs_Srgb_State struct {
 
     // A list of IPv6 prefixes which are to be used for segment routing using the
     // IPv6 dataplane. The type is slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Ipv6Prefixes []interface{}
 
     // The total number of SRGB entries that are available within the SRGB. The
@@ -10649,7 +10647,7 @@ type NetworkInstances_NetworkInstance_SegmentRouting_Srlbs_Srlb_Config struct {
     MplsLabelBlock interface{}
 
     // The IPv6 prefix that is used for the SRLB. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Ipv6Prefix interface{}
 }
 
@@ -10699,7 +10697,7 @@ type NetworkInstances_NetworkInstance_SegmentRouting_Srlbs_Srlb_State struct {
     MplsLabelBlock interface{}
 
     // The IPv6 prefix that is used for the SRLB. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Ipv6Prefix interface{}
 }
 
@@ -10823,7 +10821,7 @@ type NetworkInstances_NetworkInstance_Vlans_Vlan_Config struct {
 
     // Optionally set the tag protocol identifier field (TPID) that is accepted on
     // the VLAN. The type is one of the following:
-    // TPID0x8100TPID0x8A88TPID0x9100TPID0X9200. The default value is
+    // TPID0X9200TPID0x8A88TPID0x8100TPID0x9100. The default value is
     // oc-vlan-types:TPID_0x8100.
     Tpid interface{}
 }
@@ -10879,7 +10877,7 @@ type NetworkInstances_NetworkInstance_Vlans_Vlan_State struct {
 
     // Optionally set the tag protocol identifier field (TPID) that is accepted on
     // the VLAN. The type is one of the following:
-    // TPID0x8100TPID0x8A88TPID0x9100TPID0X9200. The default value is
+    // TPID0X9200TPID0x8A88TPID0x8100TPID0x9100. The default value is
     // oc-vlan-types:TPID_0x8100.
     Tpid interface{}
 }
@@ -11180,7 +11178,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry struct {
     // This attribute is a key. Reference to the IPv4 unicast destination prefix
     // which must be matched to utilise the AFT entry. The type is string with
     // pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_Config_Prefix
     Prefix interface{}
@@ -11233,7 +11231,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_Config struct {
 
     // The IPv4 destination prefix that should be matched to utilise the AFT
     // entry. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     Prefix interface{}
 }
 
@@ -11266,7 +11264,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_State struct {
 
     // The IPv4 destination prefix that should be matched to utilise the AFT
     // entry. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     Prefix interface{}
 
     // The number of packets which have matched, and been forwarded, based on the
@@ -11463,13 +11461,13 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHops_NextHo
 
     // The IP address of the next-hop system. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     IpAddress interface{}
 
     // The MAC address of the next-hop if resolved by the local network instance.
-    // The type is string with pattern: b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // The type is string with pattern: ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The MPLS label stack to be popped from the packet when switched by the
@@ -11481,7 +11479,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHops_NextHo
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -11494,7 +11492,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHops_NextHo
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -11511,7 +11509,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv4Unicast_Ipv4Entry_NextHops_NextHo
     EncapsulateHeader interface{}
 
     // The protocol from which the AFT entry was learned. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     OriginProtocol interface{}
 
     // The network-instance within which the next-hop should be resolved. When
@@ -11716,7 +11714,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry struct {
     // This attribute is a key. Reference to the IPv6 unicast destination prefix
     // which must be matched to utilise the AFT entry. The type is string with
     // pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_Config_Prefix
     Prefix interface{}
@@ -11769,7 +11767,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_Config struct {
 
     // The IPv6 destination prefix that should be matched to utilise the AFT
     // entry. The type is string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 }
 
@@ -11802,7 +11800,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_State struct {
 
     // The IPv6 destination prefix that should be matched to utilise the AFT
     // entry. The type is string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // The number of packets which have matched, and been forwarded, based on the
@@ -11999,13 +11997,13 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHops_NextHo
 
     // The IP address of the next-hop system. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     IpAddress interface{}
 
     // The MAC address of the next-hop if resolved by the local network instance.
-    // The type is string with pattern: b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // The type is string with pattern: ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The MPLS label stack to be popped from the packet when switched by the
@@ -12017,7 +12015,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHops_NextHo
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -12030,7 +12028,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHops_NextHo
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -12047,7 +12045,7 @@ type NetworkInstances_NetworkInstance_Afts_Ipv6Unicast_Ipv6Entry_NextHops_NextHo
     EncapsulateHeader interface{}
 
     // The protocol from which the AFT entry was learned. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     OriginProtocol interface{}
 
     // The network-instance within which the next-hop should be resolved. When
@@ -12323,14 +12321,14 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
 
     // The IP prefix that the forwarding entry matches. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     IpPrefix interface{}
 
     // The MAC address that the forwarding entry matches. Used for Layer 2
     // forwarding entries, e.g., within a VSI instance. The type is string with
-    // pattern: b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // pattern: ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The MPLS label that the forwarding entry matches. Used for MPLS forwarding
@@ -12406,14 +12404,14 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
 
     // The IP prefix that the forwarding entry matches. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     IpPrefix interface{}
 
     // The MAC address that the forwarding entry matches. Used for Layer 2
     // forwarding entries, e.g., within a VSI instance. The type is string with
-    // pattern: b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // pattern: ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The MPLS label that the forwarding entry matches. Used for MPLS forwarding
@@ -12637,13 +12635,13 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
 
     // The IP address of the next-hop system. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     IpAddress interface{}
 
     // The MAC address of the next-hop if resolved by the local network instance.
-    // The type is string with pattern: b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // The type is string with pattern: ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The MPLS label stack to be popped from the packet when switched by the
@@ -12655,7 +12653,7 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -12668,7 +12666,7 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -12685,7 +12683,7 @@ type NetworkInstances_NetworkInstance_Afts_PolicyForwarding_PolicyForwardingEntr
     EncapsulateHeader interface{}
 
     // The protocol from which the AFT entry was learned. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     OriginProtocol interface{}
 }
 
@@ -12880,8 +12878,7 @@ type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry struct {
 
     // This attribute is a key. Reference to the top-most MPLS label matched by
     // the entry. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     Label interface{}
 
     // Configuration parameters for the MPLS AFT entry.
@@ -13150,13 +13147,13 @@ type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_NextHop_Stat
 
     // The IP address of the next-hop system. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     IpAddress interface{}
 
     // The MAC address of the next-hop if resolved by the local network instance.
-    // The type is string with pattern: b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // The type is string with pattern: ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The MPLS label stack to be popped from the packet when switched by the
@@ -13168,7 +13165,7 @@ type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_NextHop_Stat
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -13181,7 +13178,7 @@ type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_NextHop_Stat
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -13198,7 +13195,7 @@ type NetworkInstances_NetworkInstance_Afts_Mpls_LabelEntry_NextHops_NextHop_Stat
     EncapsulateHeader interface{}
 
     // The protocol from which the AFT entry was learned. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     OriginProtocol interface{}
 }
 
@@ -13392,7 +13389,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry struct {
 
     // This attribute is a key. Reference to the outer MAC address matched by the
     // entry. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'. Refers to
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_Config_MacAddress
     MacAddress interface{}
 
@@ -13444,7 +13441,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_Config struct {
 
     // The outer MAC address of the Ethernet frame that must be matched for the
     // AFT entry to be utilised. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 }
 
@@ -13477,7 +13474,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_State struct {
 
     // The outer MAC address of the Ethernet frame that must be matched for the
     // AFT entry to be utilised. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The number of packets which have matched, and been forwarded, based on the
@@ -13662,13 +13659,13 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_NextHop_St
 
     // The IP address of the next-hop system. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     IpAddress interface{}
 
     // The MAC address of the next-hop if resolved by the local network instance.
-    // The type is string with pattern: b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // The type is string with pattern: ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     MacAddress interface{}
 
     // The MPLS label stack to be popped from the packet when switched by the
@@ -13680,7 +13677,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_NextHop_St
     // value of the list is [500, 400].  A swap operation is reflected by entries
     // in the popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type
     // is one of the following types: slice of int with range: 16..1048575, or
-    // slice of   :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // slice of   :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PoppedMplsLabelStack []interface{}
 
     // The MPLS label stack imposed when forwarding packets to the next-hop - the
@@ -13693,7 +13690,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_NextHop_St
     // permitted by the system.  A swap operation is reflected by entries in the
     // popped-mpls-label-stack and pushed-mpls-label-stack nodes. The type is one
     // of the following types: slice of int with range: 16..1048575, or slice of  
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.
     PushedMplsLabelStack []interface{}
 
     // When forwarding a packet to the specified next-hop, the local system
@@ -13710,7 +13707,7 @@ type NetworkInstances_NetworkInstance_Afts_Ethernet_MacEntry_NextHops_NextHop_St
     EncapsulateHeader interface{}
 
     // The protocol from which the AFT entry was learned. The type is one of the
-    // following: BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // following: BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     OriginProtocol interface{}
 }
 
@@ -13903,7 +13900,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol struct {
 
     // This attribute is a key. The protocol name for the routing or forwarding
     // protocol to be instantiated. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     Identifier interface{}
 
     // This attribute is a key. An operator-assigned identifier for the routing or
@@ -13966,7 +13963,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Config struct {
     YFilter yfilter.YFilter
 
     // The protocol identifier for the instance. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     Identifier interface{}
 
     // A unique name for the protocol instance. The type is string.
@@ -14017,7 +14014,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_State struct {
     YFilter yfilter.YFilter
 
     // The protocol identifier for the instance. The type is one of the following:
-    // BGPISISOSPFOSPF3STATICDIRECTLYCONNECTEDLOCALAGGREGATE.
+    // BGPISISLOCALAGGREGATESTATICDIRECTLYCONNECTEDOSPFOSPF3.
     Identifier interface{}
 
     // A unique name for the protocol instance. The type is string.
@@ -14103,9 +14100,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_Static str
 
     // This attribute is a key. Reference to the destination prefix list key. The
     // type is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Configuration data for static routes.
@@ -14150,15 +14147,15 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_Static_Con
 
     // Destination prefix for the static route, either IPv4 or IPv6. The type is
     // one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -14191,15 +14188,15 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_Static_Sta
 
     // Destination prefix for the static route, either IPv4 or IPv6. The type is
     // one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -14327,9 +14324,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_Static_Nex
     // interface-ref value is specified for the next-hop, then the system should
     // treat the prefix as though it is directly connected to the interface. The
     // type is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or :go:struct:`LOCALDEFINEDNEXTHOP
     // <ydk/models/local_routing/LOCALDEFINEDNEXTHOP>`.
     NextHop interface{}
@@ -14398,9 +14395,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_StaticRoutes_Static_Nex
     // interface-ref value is specified for the next-hop, then the system should
     // treat the prefix as though it is directly connected to the interface. The
     // type is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or :go:struct:`LOCALDEFINEDNEXTHOP
     // <ydk/models/local_routing/LOCALDEFINEDNEXTHOP>`.
     NextHop interface{}
@@ -14609,9 +14606,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregates_Aggrega
 
     // This attribute is a key. Reference to the configured prefix for this
     // aggregate. The type is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Configuration data for aggregate advertisements.
@@ -14651,9 +14648,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregates_Aggrega
 
     // Aggregate prefix to be advertised. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // When true, install the aggregate route with a discard next-hop -- traffic
@@ -14666,7 +14663,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregates_Aggrega
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -14701,9 +14698,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregates_Aggrega
 
     // Aggregate prefix to be advertised. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // When true, install the aggregate route with a discard next-hop -- traffic
@@ -14716,7 +14713,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_LocalAggregates_Aggrega
     // Set a generic tag value on the route. This tag can be used for filtering
     // routes that are distributed to other routing protocols. The type is one of
     // the following types: int with range: 0..4294967295, or string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     SetTag interface{}
 }
 
@@ -14862,7 +14859,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_Config struc
 
     // Router id of the router - an unsigned 32-bit integer expressed in dotted
     // quad notation. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouterId interface{}
 }
 
@@ -14900,7 +14897,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_State struct
 
     // Router id of the router - an unsigned 32-bit integer expressed in dotted
     // quad notation. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouterId interface{}
 
     // Total number of BGP paths within the context. The type is interface{} with
@@ -15822,7 +15819,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiSafis_Afi
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // Configuration parameters for the AFI-SAFI.
@@ -15913,7 +15910,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiSafis_Afi
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -15949,7 +15946,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_AfiSafis_Afi
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -18444,9 +18441,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_DynamicNeigh
     // This attribute is a key. Reference to the IP prefix from which source
     // connections are allowed for the dynamic neighbor group. The type is one of
     // the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // Configuration parameters relating to the source prefix for the dynamic BGP
@@ -18490,9 +18487,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_DynamicNeigh
     // The IP prefix within which the source address of the remote BGP speaker
     // must fall to be considered eligible to the dynamically configured. The type
     // is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // The peer-group within which the dynamic neighbor will be configured.  The
@@ -18533,9 +18530,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Global_DynamicNeigh
     // The IP prefix within which the source address of the remote BGP speaker
     // must fall to be considered eligible to the dynamically configured. The type
     // is one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // The peer-group within which the dynamic neighbor will be configured.  The
@@ -18612,9 +18609,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor 
     // This attribute is a key. Reference to the address of the BGP neighbor used
     // as a key in the neighbor list. The type is one of the following types:
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NeighborAddress interface{}
 
     // Configuration parameters relating to the BGP neighbor or group.
@@ -18712,9 +18709,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
 
     // Address of the BGP peer, either in IPv4 or IPv6. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NeighborAddress interface{}
 
     // Whether the BGP peer is enabled. In cases where the enabled leaf is set to
@@ -18744,7 +18741,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -18803,9 +18800,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
 
     // Address of the BGP peer, either in IPv4 or IPv6. The type is one of the
     // following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     NeighborAddress interface{}
 
     // Whether the BGP peer is enabled. In cases where the enabled leaf is set to
@@ -18835,7 +18832,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -18869,7 +18866,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
     EstablishedTransitions interface{}
 
     // BGP capabilities negotiated as supported with the peer. The type is slice
-    // of ['MPBGP', 'ROUTEREFRESH', 'ASN32', 'GRACEFULRESTART', 'ADDPATHS'].
+    // of [u'GRACEFULRESTART', u'ROUTEREFRESH', u'MPBGP', u'ASN32', u'ADDPATHS'].
     SupportedCapabilities []interface{}
 
     // When this leaf is set to true, the peer was configured dynamically due to
@@ -19308,9 +19305,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 }
@@ -19362,9 +19359,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 
@@ -19374,9 +19371,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
 
     // Remote address to which the BGP session has been established. The type is
     // one of the following types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     RemoteAddress interface{}
 
     // Remote port being used by the peer for the TCP session supporting the BGP
@@ -19964,7 +19961,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -20004,7 +20001,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -20653,7 +20650,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // Configuration parameters for the AFI-SAFI.
@@ -20747,7 +20744,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -20783,7 +20780,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_Neighbors_Neighbor_
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -23303,7 +23300,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -23375,7 +23372,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
 
     // Remove private AS numbers from updates sent to peers - when this leaf is
     // not specified, the AS_PATH attribute should be sent to the peer unchanged.
-    // The type is one of the following: PRIVATEASREMOVEALLPRIVATEASREPLACEALL.
+    // The type is one of the following: PRIVATEASREPLACEALLPRIVATEASREMOVEALL.
     RemovePrivateAs interface{}
 
     // Enable route flap damping. The type is bool. The default value is false.
@@ -23636,9 +23633,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 }
@@ -23690,9 +23687,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
     // sending BGP update messages.  This may be expressed as either an IP address
     // or reference to the name of an interface. The type is one of the following
     // types: string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$',
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$,
     // or string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.,
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.,
     // or string.
     LocalAddress interface{}
 }
@@ -24224,7 +24221,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -24264,7 +24261,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
     // route reflector.  Commonly set at the group level, but allows a different
     // cluster id to be set for each neighbor. The type is one of the following
     // types: int with range: 0..4294967295, or string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouteReflectorClusterId interface{}
 
     // Configure the neighbor as a route reflector client. The type is bool. The
@@ -25027,7 +25024,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
 
     // This attribute is a key. Reference to the AFI-SAFI name used as a key for
     // the AFI-SAFI list. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // Configuration parameters for the AFI-SAFI.
@@ -25124,7 +25121,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -25160,7 +25157,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Bgp_PeerGroups_PeerGrou
     YFilter yfilter.YFilter
 
     // AFI,SAFI. The type is one of the following:
-    // IPV4UNICASTIPV6UNICASTIPV4LABELEDUNICASTIPV6LABELEDUNICASTL3VPNIPV4UNICASTL3VPNIPV6UNICASTL3VPNIPV4MULTICASTL3VPNIPV6MULTICASTL2VPNVPLSL2VPNEVPN.
+    // L2VPNEVPNL2VPNVPLSIPV4UNICASTL3VPNIPV6MULTICASTL3VPNIPV6UNICASTL3VPNIPV4UNICASTL3VPNIPV4MULTICASTIPV4LABELEDUNICASTIPV6UNICASTIPV6LABELEDUNICAST.
     AfiSafiName interface{}
 
     // This leaf indicates whether the IPv4 Unicast AFI,SAFI is enabled for the
@@ -27870,7 +27867,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_Config stru
     // ISIS network entity title (NET). The first 8 bits are usually 49 (private
     // AFI), next 16 bits represent area, next 48 bits represent system id and
     // final 8 bits are set to 0. The type is slice of string with pattern:
-    // b'^[a-fA-F0-9]{2}(\\.[a-fA-F0-9]{4}){3,9}\\.[a-fA-F0-9]{2}$'.
+    // ^[a-fA-F0-9]{2}(\.[a-fA-F0-9]{4}){3,9}\.[a-fA-F0-9]{2}$.
     Net []interface{}
 
     // Maximum areas supported. The type is interface{} with range: 0..255. The
@@ -27945,7 +27942,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_State struc
     // ISIS network entity title (NET). The first 8 bits are usually 49 (private
     // AFI), next 16 bits represent area, next 48 bits represent system id and
     // final 8 bits are set to 0. The type is slice of string with pattern:
-    // b'^[a-fA-F0-9]{2}(\\.[a-fA-F0-9]{4}){3,9}\\.[a-fA-F0-9]{2}$'.
+    // ^[a-fA-F0-9]{2}(\.[a-fA-F0-9]{4}){3,9}\.[a-fA-F0-9]{2}$.
     Net []interface{}
 
     // Maximum areas supported. The type is interface{} with range: 0..255. The
@@ -28206,7 +28203,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_LspBit_Over
     YListKey string
 
     // This attribute is a key. Reference to the reset trigger reason. The type is
-    // one of the following: WAITFORBGPWAITFORSYSTEM.
+    // one of the following: WAITFORSYSTEMWAITFORBGP.
     ResetTrigger interface{}
 
     // This container defines ISIS Overload Bit reset trigger configuration.
@@ -28247,7 +28244,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_LspBit_Over
 
     // In the case that the system sets the overload bit on start, the system
     // should reset the bit (i.e., clear the overload bit) upon the specified
-    // trigger. The type is one of the following: WAITFORBGPWAITFORSYSTEM.
+    // trigger. The type is one of the following: WAITFORSYSTEMWAITFORBGP.
     ResetTrigger interface{}
 
     // If a reset trigger is specified, the system should delay resetting the
@@ -28286,7 +28283,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_LspBit_Over
 
     // In the case that the system sets the overload bit on start, the system
     // should reset the bit (i.e., clear the overload bit) upon the specified
-    // trigger. The type is one of the following: WAITFORBGPWAITFORSYSTEM.
+    // trigger. The type is one of the following: WAITFORSYSTEMWAITFORBGP.
     ResetTrigger interface{}
 
     // If a reset trigger is specified, the system should delay resetting the
@@ -29435,8 +29432,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_IgpShortcut
     AfiName interface{}
 
     // Tunnel NH Type(RSVP,SR). When present it implies that nh-type shortcut is
-    // enabled for a specified AFI. The type is slice of ['PATHSETUPRSVP',
-    // 'PATHSETUPSR', 'PATHSETUPLDP'].
+    // enabled for a specified AFI. The type is slice of [u'PATHSETUPSR',
+    // u'PATHSETUPRSVP', u'PATHSETUPLDP'].
     NhType []interface{}
 }
 
@@ -29471,8 +29468,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Global_IgpShortcut
     AfiName interface{}
 
     // Tunnel NH Type(RSVP,SR). When present it implies that nh-type shortcut is
-    // enabled for a specified AFI. The type is slice of ['PATHSETUPRSVP',
-    // 'PATHSETUPSR', 'PATHSETUPLDP'].
+    // enabled for a specified AFI. The type is slice of [u'PATHSETUPSR',
+    // u'PATHSETUPRSVP', u'PATHSETUPLDP'].
     NhType []interface{}
 }
 
@@ -30542,7 +30539,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. A reference to the Link State PDU ID. The type is
     // string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9][0-9]-[0-9][0-9]$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9][0-9]-[0-9][0-9]$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_State_LspId
     LspId interface{}
@@ -30587,7 +30584,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     YFilter yfilter.YFilter
 
     // LSP ID of the LSP. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9][0-9]-[0-9][0-9]$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9][0-9]-[0-9][0-9]$.
     LspId interface{}
 
     // Number of area addresses permitted for this ISs area. 0 indicates the IS
@@ -30746,7 +30743,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the TLV's type. The type is one of
     // the following:
-    // AREAADDRESSESIISNEIGHBORSINSTANCEIDAUTHENTICATIONPURGEOIEXTENDEDISREACHABILITYISNEIGHBORATTRIBUTEISISALIASIDIPV4INTERNALREACHABILITYNLPIDIPV4EXTERNALREACHABILITYIPV4INTERFACEADDRESSESIPV4TEROUTERIDEXTENDEDIPV4REACHABILITYDYNAMICNAMEIPV4SRLGIPV6SRLGIPV6TEROUTERIDMTISNMTISNEIGHBORATTRIBUTEMULTITOPOLOGYIPV6INTERFACEADDRESSESMTIPV4REACHABILITYIPV6REACHABILITYMTIPV6REACHABILITYROUTERCAPABILITY.
+    // AREAADDRESSESMTISNEIGHBORATTRIBUTENLPIDMTIPV6REACHABILITYMTISNISNEIGHBORATTRIBUTEISISALIASIDIPV6SRLGIPV4TEROUTERIDMULTITOPOLOGYIPV6INTERFACEADDRESSESDYNAMICNAMEIPV4INTERFACEADDRESSESIPV6TEROUTERIDINSTANCEIDMTIPV4REACHABILITYEXTENDEDIPV4REACHABILITYPURGEOIIPV4EXTERNALREACHABILITYIPV6REACHABILITYIPV4SRLGIPV4INTERNALREACHABILITYROUTERCAPABILITYEXTENDEDISREACHABILITYAUTHENTICATIONIISNEIGHBORS.
     Type interface{}
 
     // Operational state parameters relating to the specified LSP.
@@ -30896,7 +30893,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of TLV being described. The type of TLV is expressed as a
     // canonical name. The type is one of the following:
-    // AREAADDRESSESIISNEIGHBORSINSTANCEIDAUTHENTICATIONPURGEOIEXTENDEDISREACHABILITYISNEIGHBORATTRIBUTEISISALIASIDIPV4INTERNALREACHABILITYNLPIDIPV4EXTERNALREACHABILITYIPV4INTERFACEADDRESSESIPV4TEROUTERIDEXTENDEDIPV4REACHABILITYDYNAMICNAMEIPV4SRLGIPV6SRLGIPV6TEROUTERIDMTISNMTISNEIGHBORATTRIBUTEMULTITOPOLOGYIPV6INTERFACEADDRESSESMTIPV4REACHABILITYIPV6REACHABILITYMTIPV6REACHABILITYROUTERCAPABILITY.
+    // AREAADDRESSESMTISNEIGHBORATTRIBUTENLPIDMTIPV6REACHABILITYMTISNISNEIGHBORATTRIBUTEISISALIASIDIPV6SRLGIPV4TEROUTERIDMULTITOPOLOGYIPV6INTERFACEADDRESSESDYNAMICNAMEIPV4INTERFACEADDRESSESIPV6TEROUTERIDINSTANCEIDMTIPV4REACHABILITYEXTENDEDIPV4REACHABILITYPURGEOIIPV4EXTERNALREACHABILITYIPV6REACHABILITYIPV4SRLGIPV4INTERNALREACHABILITYROUTERCAPABILITYEXTENDEDISREACHABILITYAUTHENTICATIONIISNEIGHBORS.
     Type interface{}
 }
 
@@ -30958,7 +30955,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // Area adress(es) of the IS. Set of manual area addresses of this IS. The
     // type is slice of string with pattern:
-    // b'^[0-9A-Fa-f]{2}\\.([0-9A-Fa-f]{4}\\.){0,3}$'.
+    // ^[0-9A-Fa-f]{2}\.([0-9A-Fa-f]{4}\.){0,3}$.
     AreaAddress []interface{}
 }
 
@@ -31213,7 +31210,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv4 address(es) of the interface corresponding to the SNPA over which this
     // PDU is to be transmitted. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4InterfaceAddresses []interface{}
 }
 
@@ -31276,7 +31273,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // IPv6 interface addresses of the node.  MUST contain only the non-link-local
     // IPv6 addresses assigned to the IS. The type is slice of string with
     // pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6InterfaceAddresses []interface{}
 }
 
@@ -31341,7 +31338,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // referenced in a path that will be reachable from multiple hops away,
     // regardless of the state of the node's interfaces. The type is slice of
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouterId []interface{}
 }
 
@@ -31406,7 +31403,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // referenced in a path that will be reachable from multiple hops away,
     // regardless of the state of the node's interfaces. The type is slice of
     // string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     RouterId []interface{}
 }
 
@@ -31633,7 +31630,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     InstanceNumber interface{}
 
     // Neighbor system ID. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 
     // Pseudonode number if the neighbor is on a LAN interface. The type is
@@ -31644,11 +31641,11 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     Flags []interface{}
 
     // IPv4 interface address. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4InterfaceAddress interface{}
 
     // IPv4 neighbor address. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4NeighborAddress interface{}
 
     // List of SRLG values. The type is slice of interface{} with range:
@@ -31778,7 +31775,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     InstanceNumber interface{}
 
     // Neighbor system ID. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 
     // Pseudonode number if the neighbor is on a LAN interface. The type is
@@ -31790,12 +31787,12 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv6 interface address or Link Local Identifier. The type is string with
     // pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6InterfaceAddress interface{}
 
     // IPv6 neighbor address or Link Remote Identifier. The type is string with
     // pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6NeighborAddress interface{}
 
     // SRLG values. The type is slice of interface{} with range: 0..4294967295.
@@ -31878,12 +31875,12 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     SystemIdCount interface{}
 
     // System ID of the Intermediate System that inserted this TLV. The type is
-    // string with pattern: b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // string with pattern: ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SourceSystemId interface{}
 
     // System ID of the Intermediate System from which the purge was received. The
     // type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     ReceivedSystemId interface{}
 }
 
@@ -32001,7 +31998,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     InstanceNumber interface{}
 
     // IPv4 router-id. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     RouterId interface{}
 
     // Router capability flags. The type is slice of Flags.
@@ -32097,7 +32094,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters of IS Router Capabilities.
@@ -32141,7 +32138,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -32670,7 +32667,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the system ID of the neighbor. The
     // type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'. Refers to
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsReachability_Neighbors_Neighbors_State_SystemId
     SystemId interface{}
 
@@ -32722,7 +32719,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     YFilter yfilter.YFilter
 
     // System-ID of IS neighbor. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 }
 
@@ -33101,7 +33098,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the IPv4 prefix. The type is string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv4InternalReachability_Prefixes_Prefixes_State_Prefix
     Prefix interface{}
@@ -33162,7 +33159,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv4 prefix contained within reachability TLVs. The type is string with
     // pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     Prefix interface{}
 }
 
@@ -33542,7 +33539,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the IPv4 prefix. The type is string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv4ExternalReachability_Prefixes_Prefixes_State_Prefix
     Prefix interface{}
@@ -33603,7 +33600,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv4 prefix contained within reachability TLVs. The type is string with
     // pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     Prefix interface{}
 }
 
@@ -34061,7 +34058,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the neighboring system's system ID.
     // The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'. Refers to
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIsReachability_Neighbors_Neighbors_State_SystemId
     SystemId interface{}
 
@@ -34105,7 +34102,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     YFilter yfilter.YFilter
 
     // System-id of the neighbor. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 
     // Metric value. The type is interface{} with range: 1..16777215.
@@ -34177,7 +34174,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters of IS neighbor state.
@@ -34309,7 +34306,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -34435,7 +34432,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A 4-octet IPv4 address for the interface described by the (main) TLV. This
     // sub-TLV can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4InterfaceAddress []interface{}
 }
 
@@ -34497,7 +34494,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A single IPv4 address for a neighboring router on this link. This sub-TLV
     // can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4NeighborAddress []interface{}
 }
 
@@ -34804,7 +34801,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for the interface described by the
     // containing  Extended IS Reachability TLV. This sub-TLV can occur multiple
     // times. The type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6InterfaceAddress []interface{}
 }
 
@@ -34867,7 +34864,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for a neighboring router on the link
     // described by the (main) TLV. This sub-TLV can occur multiple times. The
     // type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6NeighborAddress []interface{}
 }
 
@@ -35469,7 +35466,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Unconstrained TE LSP count(TE Label Switched Paths (LSPs) signalled with
@@ -35742,7 +35739,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // System ID of the neighbor associated with the LAN- Adj-Segment-ID value.
     // The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     NeighborId interface{}
 }
 
@@ -36190,7 +36187,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The available bandwidth on a link, forwarding adjacency, or bundled link in
@@ -36268,7 +36265,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The bandwidth utilization on a link, forwarding adjacency, or bundled link
@@ -36489,7 +36486,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the IPv4 prefix that the TLV
     // describes the attributes of. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_ExtendedIpv4Reachability_Prefixes_Prefix_State_Prefix
     Prefix interface{}
@@ -36547,7 +36544,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv4 prefix contained within extended reachability TLVs. The type is string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     Prefix interface{}
 
     // ISIS metric value. The type is interface{} with range: 1..16777215.
@@ -36621,7 +36618,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters for a prefix.
@@ -36681,7 +36678,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -36871,7 +36868,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Additional prefix reachability flags. The type is slice of Flags_.
@@ -36960,7 +36957,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv4 Source router ID address. In cases where the advertisement is an
@@ -36971,7 +36968,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4SourceRouterId interface{}
 }
 
@@ -37034,7 +37031,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv6 Source router ID address. In cases where the advertisement is an
@@ -37045,7 +37042,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6SourceRouterId interface{}
 }
 
@@ -37411,7 +37408,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the IPv6 prefix that the TLV
     // corresponds to. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_Ipv6Reachability_Prefixes_Prefixes_State_Prefix
     Prefix interface{}
@@ -37469,7 +37466,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv4 prefix contained within extended reachability TLVs. The type is string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     Prefix interface{}
 
     // ISIS metric value. The type is interface{} with range: 1..16777215.
@@ -37543,7 +37540,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters for a prefix.
@@ -37603,7 +37600,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -37793,7 +37790,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Additional prefix reachability flags. The type is slice of Flags_.
@@ -37882,7 +37879,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv4 Source router ID address. In cases where the advertisement is an
@@ -37893,7 +37890,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4SourceRouterId interface{}
 }
 
@@ -37956,7 +37953,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv6 Source router ID address. In cases where the advertisement is an
@@ -37967,7 +37964,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6SourceRouterId interface{}
 }
 
@@ -38483,7 +38480,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     YListKey string
 
     // This attribute is a key. Reference to the neighboring IS. The type is
-    // string with pattern: b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // string with pattern: ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_IsisNeighborAttribute_Neighbors_Neighbor_State_SystemId
     SystemId interface{}
@@ -38528,7 +38525,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     YFilter yfilter.YFilter
 
     // System-id of the neighbor. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 
     // Metric value. The type is interface{} with range: 1..16777215.
@@ -38600,7 +38597,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters of IS neighbor state.
@@ -38732,7 +38729,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -38858,7 +38855,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A 4-octet IPv4 address for the interface described by the (main) TLV. This
     // sub-TLV can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4InterfaceAddress []interface{}
 }
 
@@ -38920,7 +38917,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A single IPv4 address for a neighboring router on this link. This sub-TLV
     // can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4NeighborAddress []interface{}
 }
 
@@ -39227,7 +39224,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for the interface described by the
     // containing  Extended IS Reachability TLV. This sub-TLV can occur multiple
     // times. The type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6InterfaceAddress []interface{}
 }
 
@@ -39290,7 +39287,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for a neighboring router on the link
     // described by the (main) TLV. This sub-TLV can occur multiple times. The
     // type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6NeighborAddress []interface{}
 }
 
@@ -39892,7 +39889,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Unconstrained TE LSP count(TE Label Switched Paths (LSPs) signalled with
@@ -40165,7 +40162,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // System ID of the neighbor associated with the LAN- Adj-Segment-ID value.
     // The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     NeighborId interface{}
 }
 
@@ -40613,7 +40610,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The available bandwidth on a link, forwarding adjacency, or bundled link in
@@ -40691,7 +40688,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The bandwidth utilization on a link, forwarding adjacency, or bundled link
@@ -40876,7 +40873,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     YFilter yfilter.YFilter
 
     // List of alias ID(s). The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     AliasId interface{}
 }
 
@@ -40979,7 +40976,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the System ID of the neighbor. The
     // type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'. Refers to
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsn_Neighbors_Neighbor_State_SystemId
     SystemId interface{}
 
@@ -41028,7 +41025,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     MtId interface{}
 
     // System-id of the IS neighbor. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 
     // ISIS metric value. The type is interface{} with range: 1..16777215.
@@ -41101,7 +41098,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters of IS neighbor state.
@@ -41233,7 +41230,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -41359,7 +41356,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A 4-octet IPv4 address for the interface described by the (main) TLV. This
     // sub-TLV can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4InterfaceAddress []interface{}
 }
 
@@ -41421,7 +41418,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A single IPv4 address for a neighboring router on this link. This sub-TLV
     // can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4NeighborAddress []interface{}
 }
 
@@ -41728,7 +41725,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for the interface described by the
     // containing  Extended IS Reachability TLV. This sub-TLV can occur multiple
     // times. The type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6InterfaceAddress []interface{}
 }
 
@@ -41791,7 +41788,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for a neighboring router on the link
     // described by the (main) TLV. This sub-TLV can occur multiple times. The
     // type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6NeighborAddress []interface{}
 }
 
@@ -42393,7 +42390,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Unconstrained TE LSP count(TE Label Switched Paths (LSPs) signalled with
@@ -42666,7 +42663,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // System ID of the neighbor associated with the LAN- Adj-Segment-ID value.
     // The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     NeighborId interface{}
 }
 
@@ -43114,7 +43111,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The available bandwidth on a link, forwarding adjacency, or bundled link in
@@ -43192,7 +43189,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The bandwidth utilization on a link, forwarding adjacency, or bundled link
@@ -43416,7 +43413,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the system ID of the neighbor. The
     // type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'. Refers to
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIsisNeighborAttribute_Neighbors_Neighbor_State_SystemId
     SystemId interface{}
 
@@ -43465,7 +43462,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     MtId interface{}
 
     // System-id of the IS neighbor. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 
     // ISIS metric value. The type is interface{} with range: 1..16777215.
@@ -43538,7 +43535,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters of IS neighbor state.
@@ -43670,7 +43667,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -43796,7 +43793,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A 4-octet IPv4 address for the interface described by the (main) TLV. This
     // sub-TLV can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4InterfaceAddress []interface{}
 }
 
@@ -43858,7 +43855,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // A single IPv4 address for a neighboring router on this link. This sub-TLV
     // can occur multiple times. The type is slice of string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4NeighborAddress []interface{}
 }
 
@@ -44165,7 +44162,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for the interface described by the
     // containing  Extended IS Reachability TLV. This sub-TLV can occur multiple
     // times. The type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6InterfaceAddress []interface{}
 }
 
@@ -44228,7 +44225,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // Contains a 16-octet IPv6 address for a neighboring router on the link
     // described by the (main) TLV. This sub-TLV can occur multiple times. The
     // type is slice of string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6NeighborAddress []interface{}
 }
 
@@ -44830,7 +44827,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Unconstrained TE LSP count(TE Label Switched Paths (LSPs) signalled with
@@ -45103,7 +45100,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // System ID of the neighbor associated with the LAN- Adj-Segment-ID value.
     // The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     NeighborId interface{}
 }
 
@@ -45551,7 +45548,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The available bandwidth on a link, forwarding adjacency, or bundled link in
@@ -45629,7 +45626,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // The bandwidth utilization on a link, forwarding adjacency, or bundled link
@@ -45855,7 +45852,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the prefix to which reachability is
     // being advertised. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv4Reachability_Prefixes_Prefix_State_Prefix
     Prefix interface{}
@@ -45914,7 +45911,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv4 prefix contained within extended reachability TLVs. The type is string
     // with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     Prefix interface{}
 
     // ISIS metric value. The type is interface{} with range: 1..16777215.
@@ -45992,7 +45989,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters for a prefix.
@@ -46052,7 +46049,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -46242,7 +46239,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Additional prefix reachability flags. The type is slice of Flags_.
@@ -46331,7 +46328,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv4 Source router ID address. In cases where the advertisement is an
@@ -46342,7 +46339,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4SourceRouterId interface{}
 }
 
@@ -46405,7 +46402,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv6 Source router ID address. In cases where the advertisement is an
@@ -46416,7 +46413,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6SourceRouterId interface{}
 }
 
@@ -46784,7 +46781,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the IPv6 prefix described by the TLV.
     // The type is string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     // Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkStateDatabase_Lsp_Tlvs_Tlv_MtIpv6Reachability_Prefixes_Prefix_State_Prefix
     Prefix interface{}
@@ -46852,7 +46849,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // IPv6 prefix contained within extended reachability TLVs. The type is string
     // with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     Prefix interface{}
 
     // ISIS metric value. The type is interface{} with range: 1..16777215.
@@ -46931,7 +46928,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // This attribute is a key. Reference to the sub-TLV type. The type is one of
     // the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // State parameters for a prefix.
@@ -46991,7 +46988,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 }
 
@@ -47181,7 +47178,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // Additional prefix reachability flags. The type is slice of Flags_.
@@ -47270,7 +47267,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv4 Source router ID address. In cases where the advertisement is an
@@ -47281,7 +47278,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$.
     Ipv4SourceRouterId interface{}
 }
 
@@ -47344,7 +47341,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
 
     // The type of subTLV being described. The type of subTLV is expressed as a
     // canonical name. The type is one of the following:
-    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYADMINGROUPISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYTEDEFAULTMETRICISREACHABILITYLINKATTRIBUTESISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYADJSIDISREACHABILITYADJLANSIDISREACHABILITYLINKDELAYISREACHABILITYMINMAXLINKDELAYISREACHABILITYLINKDELAYVARIATIONISREACHABILITYLINKLOSSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYUTILIZEDBANDWIDTHIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYTAG64IPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYIPV4ROUTERIDIPREACHABILITYIPV6ROUTERIDROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHM.
+    // ISREACHABILITYSUBTLVSTYPEISREACHABILITYLINKPROTECTIONTYPEISREACHABILITYLINKLOSSISREACHABILITYIPV4INTERFACEADDRESSISREACHABILITYIPV4NEIGHBORADDRESSISREACHABILITYEXTENDEDADMINGROUPISREACHABILITYBANDWIDTHCONSTRAINTSISREACHABILITYIPV6INTERFACEADDRESSISREACHABILITYADJSIDISREACHABILITYLINKATTRIBUTESISREACHABILITYAVAILABLEBANDWIDTHISREACHABILITYADJLANSIDISREACHABILITYUTILIZEDBANDWIDTHISREACHABILITYMINMAXLINKDELAYISREACHABILITYMAXRESERVABLEBANDWIDTHISREACHABILITYMAXLINKBANDWIDTHISREACHABILITYUNRESERVEDBANDWIDTHISREACHABILITYADMINGROUPISREACHABILITYLINKDELAYISREACHABILITYTEDEFAULTMETRICISREACHABILITYUNCONSTRAINEDLSPISREACHABILITYIPV6NEIGHBORADDRESSISREACHABILITYRESIDUALBANDWIDTHISREACHABILITYLINKDELAYVARIATIONROUTERCAPABILITYSUBTLVSTYPEROUTERCAPABILITYSRCAPABILITYROUTERCAPABILITYSRALGORITHMIPREACHABILITYSUBTLVSTYPEIPREACHABILITYTAGIPREACHABILITYIPV4ROUTERIDIPREACHABILITYPREFIXSIDIPREACHABILITYPREFIXFLAGSIPREACHABILITYTAG64IPREACHABILITYIPV6ROUTERID.
     Type interface{}
 
     // IPv6 Source router ID address. In cases where the advertisement is an
@@ -47355,7 +47352,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_LinkS
     // the IS-IS instance that originated the advertisement. This would be true
     // even if the prefix had been learned from another protocol. The type is
     // string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$.
     Ipv6SourceRouterId interface{}
 }
 
@@ -47804,11 +47801,11 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_Traff
     Enabled interface{}
 
     // IPv4 MPLS Traffic Engineering Router-ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4RouterId interface{}
 
     // IPv6 MPLS Traffic Engineering Router-ID. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6RouterId interface{}
 }
 
@@ -47846,11 +47843,11 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Levels_Level_Traff
     Enabled interface{}
 
     // IPv4 MPLS Traffic Engineering Router-ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4RouterId interface{}
 
     // IPv6 MPLS Traffic Engineering Router-ID. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6RouterId interface{}
 }
 
@@ -49807,8 +49804,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     YListKey string
 
     // This attribute is a key. Reference to the IS neighbor. The type is string
-    // with pattern: b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'. Refers
-    // to
+    // with pattern: ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$. Refers to
     // network_instance.NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_Adjacencies_Adjacency_State_SystemId
     SystemId interface{}
 
@@ -49845,15 +49841,15 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     YFilter yfilter.YFilter
 
     // ISIS neighbor system-id. The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     SystemId interface{}
 
     // ISIS Neighbor IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborIpv4Address interface{}
 
     // ISIS Neighbor IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborIpv6Address interface{}
 
     // ISIS neighbor SNPA. The type is string with length: 0..20.
@@ -49872,7 +49868,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     Priority interface{}
 
     // DIS System ID(LAN hello only). The type is string with pattern:
-    // b'^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$'.
+    // ^[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}\.[0-9A-Fa-f]{4}$.
     DisSystemId interface{}
 
     // Received ISIS circuit type (level-1, level-2, level-1-2). The type is
@@ -49899,8 +49895,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     MultiTopology interface{}
 
     // ISIS topology type support(ipv4-unicast, ipv6-unicast, ipv4-multicast,
-    // ipv6-multicast). The type is slice of ['IPV4UNICAST', 'IPV6MULTICAST',
-    // 'IPV4MULTICAST', 'IPV6UNICAST'].
+    // ipv6-multicast). The type is slice of [u'IPV6UNICAST', u'IPV4MULTICAST',
+    // u'IPV6MULTICAST', u'IPV4UNICAST'].
     Topology []interface{}
 
     // When set to true, Graceful-restart signaling is supported. The type is
@@ -49918,7 +49914,7 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     RestartStatus interface{}
 
     // List of ISIS area-address(es). The type is slice of string with pattern:
-    // b'^[0-9A-Fa-f]{2}\\.([0-9A-Fa-f]{4}\\.){0,3}$'.
+    // ^[0-9A-Fa-f]{2}\.([0-9A-Fa-f]{4}\.){0,3}$.
     AreaAddress []interface{}
 
     // Supported Protocol. IPv4 is defined as (0xcc) and IPv6 - (0x8e). ISIS
@@ -50346,9 +50342,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // This attribute is a key. Reference to the prefix for which the IGP-Prefix
     // SID is to be advertised. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // Configuration parameters for the IGP Prefix SID.
@@ -50389,16 +50385,16 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // The IP prefix for which the IGP prefix SID should be advertised. The value
     // specified is a local prefix on the interface which is advertised into the
     // IGP. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // The Segment Identifier to be used when advertising the IGP Prefix SID. The
     // type is one of the following types: int with range: 16..1048575, or
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`., or string
-    // with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`., or string with
+    // pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SidId interface{}
 
     // The options associated with the IGP prefix SID for MPLS. The value of this
@@ -50451,16 +50447,16 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // The IP prefix for which the IGP prefix SID should be advertised. The value
     // specified is a local prefix on the interface which is advertised into the
     // IGP. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Prefix interface{}
 
     // The Segment Identifier to be used when advertising the IGP Prefix SID. The
     // type is one of the following types: int with range: 16..1048575, or
-    // :go:struct:`MplsLabel <ydk/models/segment_routing/MplsLabel>`., or string
-    // with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`., or string with
+    // pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SidId interface{}
 
     // The options associated with the IGP prefix SID for MPLS. The value of this
@@ -50558,16 +50554,16 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // This attribute is a key. Reference to the neighbor with which the Adjacency
     // SID is associated. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Reference to the segment identifier to be used by
     // the local system. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
     // or
     // :go:struct:`NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_AfiSafi_Af_SegmentRouting_AdjacencySids_AdjacencySid_State_SidId
     // <ydk/models/network_instance/NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interface_Levels_Level_AfiSafi_Af_SegmentRouting_AdjacencySids_AdjacencySid_State_SidId>`.
@@ -50615,8 +50611,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // allocated value. When the MPLS data plane is in use the dynamic value
     // should not fall within a reserved-label-block. The type is one of the
     // following types: int with range: 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // <ydk/models/mpls_types/MplsLabel>`., or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
     // or enumeration
     // NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.AfiSafi.Af.SegmentRouting.AdjacencySids.AdjacencySid.State.SidId.
     SidId interface{}
@@ -50636,9 +50632,9 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
 
     // The remote system on the interface with which the Adj-SID is associated.
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 }
 
@@ -50688,8 +50684,8 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
     // allocated value. When the MPLS data plane is in use the dynamic value
     // should not fall within a reserved-label-block. The type is one of the
     // following types: int with range: 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.,
+    // <ydk/models/mpls_types/MplsLabel>`., or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.,
     // or enumeration
     // NetworkInstances.NetworkInstance.Protocols.Protocol.Isis.Interfaces.Interface.Levels.Level.AfiSafi.Af.SegmentRouting.AdjacencySids.AdjacencySid.State.SidId.
     SidId interface{}
@@ -50709,17 +50705,17 @@ type NetworkInstances_NetworkInstance_Protocols_Protocol_Isis_Interfaces_Interfa
 
     // The remote system on the interface with which the Adj-SID is associated.
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // Where an Adjacency SID with a dynamic value is to be allocated by the
     // system, this leaf reports to the value of the Adj-SID allocated to this
     // interface. The type is one of the following types: int with range:
-    // 16..1048575, or :go:struct:`MplsLabel
-    // <ydk/models/segment_routing/MplsLabel>`., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // 16..1048575, or :go:struct:`MplsLabel <ydk/models/mpls_types/MplsLabel>`.,
+    // or string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AllocatedDynamicLocal interface{}
 }
 

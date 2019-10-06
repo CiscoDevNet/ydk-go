@@ -31,39 +31,18 @@ func init() {
     ydk.RegisterEntity("ietf-event-notifications:subscriptions", reflect.TypeOf(Subscriptions{}))
 }
 
+type ErrorNoSuchOption struct {
+}
+
+func (id ErrorNoSuchOption) String() string {
+	return "ietf-event-notifications:error-no-such-option"
+}
+
 type Stream struct {
 }
 
 func (id Stream) String() string {
 	return "ietf-event-notifications:stream"
-}
-
-type NETCONF struct {
-}
-
-func (id NETCONF) String() string {
-	return "ietf-event-notifications:NETCONF"
-}
-
-type SubscriptionResult struct {
-}
-
-func (id SubscriptionResult) String() string {
-	return "ietf-event-notifications:subscription-result"
-}
-
-type Ok struct {
-}
-
-func (id Ok) String() string {
-	return "ietf-event-notifications:ok"
-}
-
-type Error struct {
-}
-
-func (id Error) String() string {
-	return "ietf-event-notifications:error"
 }
 
 type ErrorNoSuchSubscription struct {
@@ -73,46 +52,11 @@ func (id ErrorNoSuchSubscription) String() string {
 	return "ietf-event-notifications:error-no-such-subscription"
 }
 
-type ErrorNoSuchOption struct {
+type NoResources struct {
 }
 
-func (id ErrorNoSuchOption) String() string {
-	return "ietf-event-notifications:error-no-such-option"
-}
-
-type ErrorInsufficientResources struct {
-}
-
-func (id ErrorInsufficientResources) String() string {
-	return "ietf-event-notifications:error-insufficient-resources"
-}
-
-type ErrorConfiguredSubscription struct {
-}
-
-func (id ErrorConfiguredSubscription) String() string {
-	return "ietf-event-notifications:error-configured-subscription"
-}
-
-type ErrorOther struct {
-}
-
-func (id ErrorOther) String() string {
-	return "ietf-event-notifications:error-other"
-}
-
-type SubscriptionStreamStatus struct {
-}
-
-func (id SubscriptionStreamStatus) String() string {
-	return "ietf-event-notifications:subscription-stream-status"
-}
-
-type Active struct {
-}
-
-func (id Active) String() string {
-	return "ietf-event-notifications:active"
+func (id NoResources) String() string {
+	return "ietf-event-notifications:no-resources"
 }
 
 type Inactive struct {
@@ -129,60 +73,11 @@ func (id Suspended) String() string {
 	return "ietf-event-notifications:suspended"
 }
 
-type InError struct {
-}
-
-func (id InError) String() string {
-	return "ietf-event-notifications:in-error"
-}
-
-type SubscriptionErrors struct {
-}
-
-func (id SubscriptionErrors) String() string {
-	return "ietf-event-notifications:subscription-errors"
-}
-
-type InternalError struct {
-}
-
-func (id InternalError) String() string {
-	return "ietf-event-notifications:internal-error"
-}
-
-type NoResources struct {
-}
-
-func (id NoResources) String() string {
-	return "ietf-event-notifications:no-resources"
-}
-
-type SubscriptionDeleted struct {
-}
-
-func (id SubscriptionDeleted) String() string {
-	return "ietf-event-notifications:subscription-deleted"
-}
-
-type Other struct {
-}
-
-func (id Other) String() string {
-	return "ietf-event-notifications:other"
-}
-
 type Encodings struct {
 }
 
 func (id Encodings) String() string {
 	return "ietf-event-notifications:encodings"
-}
-
-type EncodeXml struct {
-}
-
-func (id EncodeXml) String() string {
-	return "ietf-event-notifications:encode-xml"
 }
 
 type EncodeJson struct {
@@ -199,11 +94,116 @@ func (id Transport) String() string {
 	return "ietf-event-notifications:transport"
 }
 
+type InternalError struct {
+}
+
+func (id InternalError) String() string {
+	return "ietf-event-notifications:internal-error"
+}
+
+type ErrorOther struct {
+}
+
+func (id ErrorOther) String() string {
+	return "ietf-event-notifications:error-other"
+}
+
+type Other struct {
+}
+
+func (id Other) String() string {
+	return "ietf-event-notifications:other"
+}
+
+type InError struct {
+}
+
+func (id InError) String() string {
+	return "ietf-event-notifications:in-error"
+}
+
+type ErrorInsufficientResources struct {
+}
+
+func (id ErrorInsufficientResources) String() string {
+	return "ietf-event-notifications:error-insufficient-resources"
+}
+
 type Netconf struct {
 }
 
 func (id Netconf) String() string {
 	return "ietf-event-notifications:netconf"
+}
+
+type ErrorConfiguredSubscription struct {
+}
+
+func (id ErrorConfiguredSubscription) String() string {
+	return "ietf-event-notifications:error-configured-subscription"
+}
+
+type SubscriptionResult struct {
+}
+
+func (id SubscriptionResult) String() string {
+	return "ietf-event-notifications:subscription-result"
+}
+
+type Error struct {
+}
+
+func (id Error) String() string {
+	return "ietf-event-notifications:error"
+}
+
+type Active struct {
+}
+
+func (id Active) String() string {
+	return "ietf-event-notifications:active"
+}
+
+type NETCONF struct {
+}
+
+func (id NETCONF) String() string {
+	return "ietf-event-notifications:NETCONF"
+}
+
+type Ok struct {
+}
+
+func (id Ok) String() string {
+	return "ietf-event-notifications:ok"
+}
+
+type SubscriptionStreamStatus struct {
+}
+
+func (id SubscriptionStreamStatus) String() string {
+	return "ietf-event-notifications:subscription-stream-status"
+}
+
+type EncodeXml struct {
+}
+
+func (id EncodeXml) String() string {
+	return "ietf-event-notifications:encode-xml"
+}
+
+type SubscriptionDeleted struct {
+}
+
+func (id SubscriptionDeleted) String() string {
+	return "ietf-event-notifications:subscription-deleted"
+}
+
+type SubscriptionErrors struct {
+}
+
+func (id SubscriptionErrors) String() string {
+	return "ietf-event-notifications:subscription-errors"
 }
 
 // PushSource represents being sent by the publisher.
@@ -271,11 +271,11 @@ type EstablishSubscription_Input struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -312,7 +312,7 @@ type EstablishSubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -321,7 +321,7 @@ type EstablishSubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -336,7 +336,7 @@ type EstablishSubscription_Input struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -420,7 +420,7 @@ type EstablishSubscription_Output struct {
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
+    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 
@@ -430,11 +430,11 @@ type EstablishSubscription_Output struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -471,7 +471,7 @@ type EstablishSubscription_Output struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -480,7 +480,7 @@ type EstablishSubscription_Output struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -495,7 +495,7 @@ type EstablishSubscription_Output struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -617,11 +617,11 @@ type CreateSubscription_Input struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream. The default value is NETCONF.
+    // NETCONFCustomStreamYangPush. The default value is NETCONF.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -643,7 +643,7 @@ type CreateSubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -652,7 +652,7 @@ type CreateSubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StopTime interface{}
 }
 
@@ -769,7 +769,7 @@ type ModifySubscription_Input struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -778,7 +778,7 @@ type ModifySubscription_Input struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -793,7 +793,7 @@ type ModifySubscription_Input struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -857,7 +857,7 @@ type ModifySubscription_Output struct {
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
+    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 
@@ -867,11 +867,11 @@ type ModifySubscription_Output struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -908,7 +908,7 @@ type ModifySubscription_Output struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -917,7 +917,7 @@ type ModifySubscription_Output struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StopTime interface{}
 
     // Duration of time which should occur between periodic push updates.  Where
@@ -932,7 +932,7 @@ type ModifySubscription_Output struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1085,7 +1085,7 @@ type DeleteSubscription_Output struct {
 
     // Indicates whether subscription is operational, or if a problem was
     // encountered. The type is one of the following:
-    // OkErrorErrorNoSuchSubscriptionErrorNoSuchOptionErrorInsufficientResourcesErrorConfiguredSubscriptionErrorOtherErrorDataNotAuthorized.
+    // ErrorErrorNoSuchOptionErrorNoSuchSubscriptionErrorOtherErrorInsufficientResourcesErrorConfiguredSubscriptionErrorDataNotAuthorizedOk.
     // This attribute is mandatory.
     SubscriptionResult interface{}
 }
@@ -1121,8 +1121,8 @@ type Streams struct {
     // streams are associated with their own identities, each of which carries a
     // special semantics. In case configurable custom streams are supported, as
     // indicated by the custom-stream identity, the configuration of those custom
-    // streams is provided         separately. The type is slice of ['NETCONF',
-    // 'YangPush', 'CustomStream'].
+    // streams is provided         separately. The type is slice of [u'NETCONF',
+    // 'CustomStream', 'YangPush'].
     Stream []interface{}
 }
 
@@ -1287,11 +1287,11 @@ type SubscriptionConfig_Subscription struct {
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -1328,7 +1328,7 @@ type SubscriptionConfig_Subscription struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -1337,7 +1337,7 @@ type SubscriptionConfig_Subscription struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StopTime interface{}
 
     // References the interface for notifications. The type is string. Refers to
@@ -1349,9 +1349,9 @@ type SubscriptionConfig_Subscription struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     SourceAddress interface{}
 
@@ -1367,7 +1367,7 @@ type SubscriptionConfig_Subscription struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1499,9 +1499,9 @@ type SubscriptionConfig_Subscription_Receivers_Receiver struct {
     // remote host. One of the following must be specified: an ipv4 address, an
     // ipv6 address, or a host name. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory.., or string with length: 1..253 This attribute
     // is mandatory..
     Address interface{}
@@ -1600,16 +1600,16 @@ type Subscriptions_Subscription struct {
     ConfiguredSubscription interface{}
 
     // The status of the subscription. The type is one of the following:
-    // ActiveInactiveSuspendedInError.
+    // InactiveSuspendedInErrorActive.
     SubscriptionStatus interface{}
 
     // Indicates which stream of events is of interest. If not present, events in
     // the default NETCONF stream will be sent. The type is one of the following:
-    // NETCONFYangPushCustomStream.
+    // NETCONFCustomStreamYangPush.
     Stream interface{}
 
     // The type of encoding for the subscribed data. Default is XML. The type is
-    // one of the following: EncodeXmlEncodeJson. The default value is encode-xml.
+    // one of the following: EncodeJsonEncodeXml. The default value is encode-xml.
     Encoding interface{}
 
     // Filter per RFC 5277. Notification filter. If a filter element is specified
@@ -1646,7 +1646,7 @@ type Subscriptions_Subscription struct {
     // notification.  This parameter is of type dateTime and compliant to
     // [RFC3339].  Implementations must support time zones. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 
     // Used with the optional replay feature to indicate the newest notifications
@@ -1655,7 +1655,7 @@ type Subscriptions_Subscription struct {
     // <startTime>.  Values of <stopTime> in the future are valid.  This parameter
     // is of type dateTime and compliant to [RFC3339].  Implementations must
     // support time zones. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StopTime interface{}
 
     // References the interface for notifications. The type is string. Refers to
@@ -1667,9 +1667,9 @@ type Subscriptions_Subscription struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     SourceAddress interface{}
 
@@ -1685,7 +1685,7 @@ type Subscriptions_Subscription struct {
     // the anchor time.  For example, for an anchor time at the top of a minute
     // and a period interval of a minute, the next update will be sent at the top
     // of the next minute. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AnchorTime interface{}
 
     // This leaf acts as a flag that determines behavior at the start of the
@@ -1819,9 +1819,9 @@ type Subscriptions_Subscription_Receivers_Receiver struct {
     // remote host. One of the following must be specified: an ipv4 address, an
     // ipv6 address, or a host name. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory.., or string with length: 1..253 This attribute
     // is mandatory..
     Address interface{}

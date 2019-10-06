@@ -139,7 +139,7 @@ type Lpts_Ipolicer_Acls_Acl struct {
     YListKey string
 
     // This attribute is a key. ACL name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AclName interface{}
 
     // AFI Family.
@@ -278,7 +278,7 @@ type Lpts_Ipolicer_Acls_Acl_AfiTypes_AfiType_VrfNames_VrfName struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // pre-ifib policer rate config commands. The type is interface{} with range:
@@ -743,7 +743,7 @@ type Lpts_Punt_Flowtrap_Exclude_InterfaceNames_InterfaceName struct {
     YListKey string
 
     // This attribute is a key. Name of interface to exclude from all traps. The
-    // type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     Ifname interface{}
 
     // Enabled or disabled. The type is bool. This attribute is mandatory.

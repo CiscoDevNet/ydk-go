@@ -27,18 +27,11 @@ func init() {
     ydk.RegisterEntity("openconfig-acl:acl", reflect.TypeOf(Acl{}))
 }
 
-type ACLTYPE struct {
+type ACLL2 struct {
 }
 
-func (id ACLTYPE) String() string {
-	return "openconfig-acl:ACL_TYPE"
-}
-
-type ACLIPV4 struct {
-}
-
-func (id ACLIPV4) String() string {
-	return "openconfig-acl:ACL_IPV4"
+func (id ACLL2) String() string {
+	return "openconfig-acl:ACL_L2"
 }
 
 type ACLIPV6 struct {
@@ -48,32 +41,18 @@ func (id ACLIPV6) String() string {
 	return "openconfig-acl:ACL_IPV6"
 }
 
-type ACLL2 struct {
+type LOGNONE struct {
 }
 
-func (id ACLL2) String() string {
-	return "openconfig-acl:ACL_L2"
+func (id LOGNONE) String() string {
+	return "openconfig-acl:LOG_NONE"
 }
 
-type ACLMIXED struct {
+type ACLIPV4 struct {
 }
 
-func (id ACLMIXED) String() string {
-	return "openconfig-acl:ACL_MIXED"
-}
-
-type FORWARDINGACTION struct {
-}
-
-func (id FORWARDINGACTION) String() string {
-	return "openconfig-acl:FORWARDING_ACTION"
-}
-
-type ACCEPT struct {
-}
-
-func (id ACCEPT) String() string {
-	return "openconfig-acl:ACCEPT"
+func (id ACLIPV4) String() string {
+	return "openconfig-acl:ACL_IPV4"
 }
 
 type DROP struct {
@@ -83,39 +62,18 @@ func (id DROP) String() string {
 	return "openconfig-acl:DROP"
 }
 
-type REJECT struct {
+type ACCEPT struct {
 }
 
-func (id REJECT) String() string {
-	return "openconfig-acl:REJECT"
+func (id ACCEPT) String() string {
+	return "openconfig-acl:ACCEPT"
 }
 
-type LOGACTION struct {
+type FORWARDINGACTION struct {
 }
 
-func (id LOGACTION) String() string {
-	return "openconfig-acl:LOG_ACTION"
-}
-
-type LOGSYSLOG struct {
-}
-
-func (id LOGSYSLOG) String() string {
-	return "openconfig-acl:LOG_SYSLOG"
-}
-
-type LOGNONE struct {
-}
-
-func (id LOGNONE) String() string {
-	return "openconfig-acl:LOG_NONE"
-}
-
-type ACLCOUNTERCAPABILITY struct {
-}
-
-func (id ACLCOUNTERCAPABILITY) String() string {
-	return "openconfig-acl:ACL_COUNTER_CAPABILITY"
+func (id FORWARDINGACTION) String() string {
+	return "openconfig-acl:FORWARDING_ACTION"
 }
 
 type INTERFACEONLY struct {
@@ -125,11 +83,11 @@ func (id INTERFACEONLY) String() string {
 	return "openconfig-acl:INTERFACE_ONLY"
 }
 
-type AGGREGATEONLY struct {
+type ACLMIXED struct {
 }
 
-func (id AGGREGATEONLY) String() string {
-	return "openconfig-acl:AGGREGATE_ONLY"
+func (id ACLMIXED) String() string {
+	return "openconfig-acl:ACL_MIXED"
 }
 
 type INTERFACEAGGREGATE struct {
@@ -137,6 +95,48 @@ type INTERFACEAGGREGATE struct {
 
 func (id INTERFACEAGGREGATE) String() string {
 	return "openconfig-acl:INTERFACE_AGGREGATE"
+}
+
+type REJECT struct {
+}
+
+func (id REJECT) String() string {
+	return "openconfig-acl:REJECT"
+}
+
+type LOGSYSLOG struct {
+}
+
+func (id LOGSYSLOG) String() string {
+	return "openconfig-acl:LOG_SYSLOG"
+}
+
+type AGGREGATEONLY struct {
+}
+
+func (id AGGREGATEONLY) String() string {
+	return "openconfig-acl:AGGREGATE_ONLY"
+}
+
+type ACLTYPE struct {
+}
+
+func (id ACLTYPE) String() string {
+	return "openconfig-acl:ACL_TYPE"
+}
+
+type ACLCOUNTERCAPABILITY struct {
+}
+
+func (id ACLCOUNTERCAPABILITY) String() string {
+	return "openconfig-acl:ACL_COUNTER_CAPABILITY"
+}
+
+type LOGACTION struct {
+}
+
+func (id LOGACTION) String() string {
+	return "openconfig-acl:LOG_ACTION"
 }
 
 // Acl
@@ -216,7 +216,7 @@ type Acl_State struct {
 
     // System reported indication of how ACL counters are reported by the target.
     // The type is one of the following:
-    // INTERFACEONLYAGGREGATEONLYINTERFACEAGGREGATE.
+    // INTERFACEONLYINTERFACEAGGREGATEAGGREGATEONLY.
     CounterCapability interface{}
 }
 
@@ -287,7 +287,7 @@ type Acl_AclSets_AclSet struct {
     Name interface{}
 
     // This attribute is a key. Reference to the type list key. The type is one of
-    // the following: ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // the following: ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 
     // Access list config.
@@ -335,7 +335,7 @@ type Acl_AclSets_AclSet_Config struct {
 
     // The type determines the fields allowed in the ACL entries belonging to the
     // ACL set (e.g., IPv4, IPv6, etc.). The type is one of the following:
-    // ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 
     // Description, or comment, for the ACL set. The type is string.
@@ -375,7 +375,7 @@ type Acl_AclSets_AclSet_State struct {
 
     // The type determines the fields allowed in the ACL entries belonging to the
     // ACL set (e.g., IPv4, IPv6, etc.). The type is one of the following:
-    // ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 
     // Description, or comment, for the ACL set. The type is string.
@@ -646,19 +646,19 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_L2_Config struct {
     YFilter yfilter.YFilter
 
     // Source IEEE 802 MAC address. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     SourceMac interface{}
 
     // Source IEEE 802 MAC address mask. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     SourceMacMask interface{}
 
     // Destination IEEE 802 MAC address. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     DestinationMac interface{}
 
     // Destination IEEE 802 MAC address mask. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     DestinationMacMask interface{}
 
     // Ethertype field to match in Ethernet packets. The type is one of the
@@ -698,19 +698,19 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_L2_State struct {
     YFilter yfilter.YFilter
 
     // Source IEEE 802 MAC address. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     SourceMac interface{}
 
     // Source IEEE 802 MAC address mask. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     SourceMacMask interface{}
 
     // Destination IEEE 802 MAC address. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     DestinationMac interface{}
 
     // Destination IEEE 802 MAC address mask. The type is string with pattern:
-    // b'^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$'.
+    // ^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$.
     DestinationMacMask interface{}
 
     // Ethertype field to match in Ethernet packets. The type is one of the
@@ -784,11 +784,11 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv4_Config struct {
     YFilter yfilter.YFilter
 
     // Source IPv4 address prefix. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     SourceAddress interface{}
 
     // Destination IPv4 address prefix. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     DestinationAddress interface{}
 
     // Value of diffserv codepoint. The type is interface{} with range: 0..63.
@@ -836,11 +836,11 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv4_State struct {
     YFilter yfilter.YFilter
 
     // Source IPv4 address prefix. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     SourceAddress interface{}
 
     // Destination IPv4 address prefix. The type is string with pattern:
-    // b'^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$'.
+    // ^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$.
     DestinationAddress interface{}
 
     // Value of diffserv codepoint. The type is interface{} with range: 0..63.
@@ -922,14 +922,14 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv6_Config struct {
     YFilter yfilter.YFilter
 
     // Source IPv6 address prefix. The type is string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     SourceAddress interface{}
 
     // Source IPv6 Flow label. The type is interface{} with range: 0..1048575.
     SourceFlowLabel interface{}
 
     // Destination IPv6 address prefix. The type is string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     DestinationAddress interface{}
 
     // Destination IPv6 Flow label. The type is interface{} with range:
@@ -983,14 +983,14 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Ipv6_State struct {
     YFilter yfilter.YFilter
 
     // Source IPv6 address prefix. The type is string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     SourceAddress interface{}
 
     // Source IPv6 Flow label. The type is interface{} with range: 0..1048575.
     SourceFlowLabel interface{}
 
     // Destination IPv6 address prefix. The type is string with pattern:
-    // b'^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$'.
+    // ^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$.
     DestinationAddress interface{}
 
     // Destination IPv6 Flow label. The type is interface{} with range:
@@ -1079,18 +1079,18 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_Config struct {
 
     // Source port or range. The type is one of the following types: string with
     // pattern:
-    // b'^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\\.\\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$',
+    // ^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\.\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$,
     // or int with range: 0..65535, or enumeration PortNumRange.
     SourcePort interface{}
 
     // Destination port or range. The type is one of the following types: string
     // with pattern:
-    // b'^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\\.\\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$',
+    // ^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\.\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$,
     // or int with range: 0..65535, or enumeration PortNumRange.
     DestinationPort interface{}
 
-    // List of TCP flags to match. The type is slice of ['TCPSYN', 'TCPFIN',
-    // 'TCPRST', 'TCPPSH', 'TCPACK', 'TCPURG', 'TCPECE', 'TCPCWR'].
+    // List of TCP flags to match. The type is slice of [u'TCPACK', u'TCPSYN',
+    // u'TCPECE', u'TCPFIN', u'TCPRST', u'TCPURG', u'TCPPSH', u'TCPCWR'].
     TcpFlags []interface{}
 }
 
@@ -1124,18 +1124,18 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Transport_State struct {
 
     // Source port or range. The type is one of the following types: string with
     // pattern:
-    // b'^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\\.\\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$',
+    // ^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\.\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$,
     // or int with range: 0..65535, or enumeration PortNumRange.
     SourcePort interface{}
 
     // Destination port or range. The type is one of the following types: string
     // with pattern:
-    // b'^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\\.\\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$',
+    // ^(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)\.\.(6[0-5][0-5][0-3][0-5]|[0-5]?[0-9]?[0-9]?[0-9]?[0-9]?)$,
     // or int with range: 0..65535, or enumeration PortNumRange.
     DestinationPort interface{}
 
-    // List of TCP flags to match. The type is slice of ['TCPSYN', 'TCPFIN',
-    // 'TCPRST', 'TCPPSH', 'TCPACK', 'TCPURG', 'TCPECE', 'TCPCWR'].
+    // List of TCP flags to match. The type is slice of [u'TCPACK', u'TCPSYN',
+    // u'TCPECE', u'TCPFIN', u'TCPRST', u'TCPURG', u'TCPPSH', u'TCPCWR'].
     TcpFlags []interface{}
 }
 
@@ -1407,13 +1407,13 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Actions_Config struct {
     YFilter yfilter.YFilter
 
     // Specifies the forwarding action.  One forwarding action must be specified
-    // for each ACL entry. The type is one of the following: ACCEPTDROPREJECT.
+    // for each ACL entry. The type is one of the following: DROPACCEPTREJECT.
     // This attribute is mandatory.
     ForwardingAction interface{}
 
     // Specifies the log action and destination for matched packets.  The default
     // is not to log the packet. The type is one of the following:
-    // LOGSYSLOGLOGNONE. The default value is LOG_NONE.
+    // LOGNONELOGSYSLOG. The default value is LOG_NONE.
     LogAction interface{}
 }
 
@@ -1445,13 +1445,13 @@ type Acl_AclSets_AclSet_AclEntries_AclEntry_Actions_State struct {
     YFilter yfilter.YFilter
 
     // Specifies the forwarding action.  One forwarding action must be specified
-    // for each ACL entry. The type is one of the following: ACCEPTDROPREJECT.
+    // for each ACL entry. The type is one of the following: DROPACCEPTREJECT.
     // This attribute is mandatory.
     ForwardingAction interface{}
 
     // Specifies the log action and destination for matched packets.  The default
     // is not to log the packet. The type is one of the following:
-    // LOGSYSLOGLOGNONE. The default value is LOG_NONE.
+    // LOGNONELOGSYSLOG. The default value is LOG_NONE.
     LogAction interface{}
 }
 
@@ -1787,7 +1787,7 @@ type Acl_Interfaces_Interface_IngressAclSets_IngressAclSet struct {
     SetName interface{}
 
     // This attribute is a key. Reference to type list key. The type is one of the
-    // following: ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // following: ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 
     // Configuration data .
@@ -1835,7 +1835,7 @@ type Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_Config struct {
     SetName interface{}
 
     // Reference to the ACL set type applied on ingress. The type is one of the
-    // following: ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // following: ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 }
 
@@ -1871,7 +1871,7 @@ type Acl_Interfaces_Interface_IngressAclSets_IngressAclSet_State struct {
     SetName interface{}
 
     // Reference to the ACL set type applied on ingress. The type is one of the
-    // following: ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // following: ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 }
 
@@ -2071,7 +2071,7 @@ type Acl_Interfaces_Interface_EgressAclSets_EgressAclSet struct {
     SetName interface{}
 
     // This attribute is a key. Reference to type list key. The type is one of the
-    // following: ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // following: ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 
     // Configuration data .
@@ -2119,7 +2119,7 @@ type Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_Config struct {
     SetName interface{}
 
     // Reference to the ACL set type applied on egress. The type is one of the
-    // following: ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // following: ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 }
 
@@ -2155,7 +2155,7 @@ type Acl_Interfaces_Interface_EgressAclSets_EgressAclSet_State struct {
     SetName interface{}
 
     // Reference to the ACL set type applied on egress. The type is one of the
-    // following: ACLIPV4ACLIPV6ACLL2ACLMIXED.
+    // following: ACLL2ACLIPV6ACLIPV4ACLMIXED.
     Type interface{}
 }
 

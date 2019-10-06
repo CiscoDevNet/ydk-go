@@ -24,68 +24,40 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd", reflect.TypeOf(Ipv4Dhcpd{}))
 }
 
-// Ipv4MatchDefaultMode represents Ipv4 match default mode
-type Ipv4MatchDefaultMode string
+// Matchaction represents Matchaction
+type Matchaction string
 
 const (
-    // Server
-    Ipv4MatchDefaultMode_server Ipv4MatchDefaultMode = "server"
+    // Allow DHCP Discover
+    Matchaction_allow Matchaction = "allow"
+
+    // Drop DHCP Discover
+    Matchaction_drop Matchaction = "drop"
 )
 
-// Dhcpv4MatchOption represents Dhcpv4 match option
-type Dhcpv4MatchOption string
+// Dhcpv4AuthUsername represents Dhcpv4 auth username
+type Dhcpv4AuthUsername string
 
 const (
-    // Vendor class ID
-    Dhcpv4MatchOption_Y_60__FWD_SLASH__60 Dhcpv4MatchOption = "60/60"
+    // Authentication Username formating mac
+    Dhcpv4AuthUsername_auth_username_mac Dhcpv4AuthUsername = "auth-username-mac"
 
-    // 77 User class
-    Dhcpv4MatchOption_Y_77__FWD_SLASH__77 Dhcpv4MatchOption = "77/77"
-
-    // Vendor identifying class
-    Dhcpv4MatchOption_Y_124__FWD_SLASH__124 Dhcpv4MatchOption = "124/124"
-
-    // Vendor specific information
-    Dhcpv4MatchOption_Y_125__FWD_SLASH__125 Dhcpv4MatchOption = "125/125"
+    // Authentication Username formating giaddr
+    Dhcpv4AuthUsername_auth_username_giaddr Dhcpv4AuthUsername = "auth-username-giaddr"
 )
 
-// Ipv4dhcpdLayer represents Ipv4dhcpd layer
-type Ipv4dhcpdLayer string
+// Policy represents Policy
+type Policy string
 
 const (
-    // Layer2
-    Ipv4dhcpdLayer_layer2 Ipv4dhcpdLayer = "layer2"
+    // Ignore the broadcast policy
+    Policy_ignore Policy = "ignore"
 
-    // Layer3
-    Ipv4dhcpdLayer_layer3 Ipv4dhcpdLayer = "layer3"
-)
+    // Check for broadcast flag
+    Policy_check Policy = "check"
 
-// Dhcpv4LimitLease1 represents Dhcpv4 limit lease1
-type Dhcpv4LimitLease1 string
-
-const (
-    // Interface
-    Dhcpv4LimitLease1_interface_ Dhcpv4LimitLease1 = "interface"
-
-    // Circuit ID
-    Dhcpv4LimitLease1_circuit_id Dhcpv4LimitLease1 = "circuit-id"
-
-    // Remote ID
-    Dhcpv4LimitLease1_remote_id Dhcpv4LimitLease1 = "remote-id"
-
-    // Circuit ID Remote ID
-    Dhcpv4LimitLease1_circuit_id_remote_id Dhcpv4LimitLease1 = "circuit-id-remote-id"
-)
-
-// Ipv4dhcpdRelayGiaddrPolicy represents Ipv4dhcpd relay giaddr policy
-type Ipv4dhcpdRelayGiaddrPolicy string
-
-const (
-    // Replace
-    Ipv4dhcpdRelayGiaddrPolicy_replace Ipv4dhcpdRelayGiaddrPolicy = "replace"
-
-    // Drop
-    Ipv4dhcpdRelayGiaddrPolicy_drop Ipv4dhcpdRelayGiaddrPolicy = "drop"
+    // Always Unicast the reply
+    Policy_unicastalways Policy = "unicastalways"
 )
 
 // Matchoption represents Matchoption
@@ -115,78 +87,6 @@ const (
     Matchoption_Y_125 Matchoption = "125"
 )
 
-// Ipv4dhcpdGiaddrPolicy represents Ipv4dhcpd giaddr policy
-type Ipv4dhcpdGiaddrPolicy string
-
-const (
-    // Giaddr Policy Keep
-    Ipv4dhcpdGiaddrPolicy_giaddr_policy_keep Ipv4dhcpdGiaddrPolicy = "giaddr-policy-keep"
-)
-
-// LeaseLimitValue represents Lease limit value
-type LeaseLimitValue string
-
-const (
-    // Insert the limit lease type interface
-    LeaseLimitValue_per_interface LeaseLimitValue = "per-interface"
-
-    // Insert the limit lease type circuit-id
-    LeaseLimitValue_per_circuit_id LeaseLimitValue = "per-circuit-id"
-
-    // Insert the limit lease type remote-id
-    LeaseLimitValue_per_remote_id LeaseLimitValue = "per-remote-id"
-)
-
-// Dhcpv4AuthUsername represents Dhcpv4 auth username
-type Dhcpv4AuthUsername string
-
-const (
-    // Authentication Username formating mac
-    Dhcpv4AuthUsername_auth_username_mac Dhcpv4AuthUsername = "auth-username-mac"
-
-    // Authentication Username formating giaddr
-    Dhcpv4AuthUsername_auth_username_giaddr Dhcpv4AuthUsername = "auth-username-giaddr"
-)
-
-// ProxyAction represents Proxy action
-type ProxyAction string
-
-const (
-    // Allow vendor specific DHCP Discover
-    ProxyAction_allow ProxyAction = "allow"
-
-    // Drop vendor specific DHCP Discover
-    ProxyAction_drop ProxyAction = "drop"
-
-    // Relay vendor-id specific DHCP packets unaltered
-    ProxyAction_relay ProxyAction = "relay"
-)
-
-// Ipv4dhcpdBroadcastFlagPolicy represents Ipv4dhcpd broadcast flag policy
-type Ipv4dhcpdBroadcastFlagPolicy string
-
-const (
-    // Ignore
-    Ipv4dhcpdBroadcastFlagPolicy_ignore Ipv4dhcpdBroadcastFlagPolicy = "ignore"
-
-    // check
-    Ipv4dhcpdBroadcastFlagPolicy_check Ipv4dhcpdBroadcastFlagPolicy = "check"
-
-    // Unicast always
-    Ipv4dhcpdBroadcastFlagPolicy_unicast_always Ipv4dhcpdBroadcastFlagPolicy = "unicast-always"
-)
-
-// Ipv4ModeClassMode represents Ipv4 mode class mode
-type Ipv4ModeClassMode string
-
-const (
-    // Server
-    Ipv4ModeClassMode_server Ipv4ModeClassMode = "server"
-
-    // Proxy
-    Ipv4ModeClassMode_proxy Ipv4ModeClassMode = "proxy"
-)
-
 // BaseAction represents Base action
 type BaseAction string
 
@@ -196,6 +96,42 @@ const (
 
     // Drop vendor specific DHCP Discover
     BaseAction_drop BaseAction = "drop"
+)
+
+// Dhcpv4LimitLease1 represents Dhcpv4 limit lease1
+type Dhcpv4LimitLease1 string
+
+const (
+    // Interface
+    Dhcpv4LimitLease1_interface_ Dhcpv4LimitLease1 = "interface"
+
+    // Circuit ID
+    Dhcpv4LimitLease1_circuit_id Dhcpv4LimitLease1 = "circuit-id"
+
+    // Remote ID
+    Dhcpv4LimitLease1_remote_id Dhcpv4LimitLease1 = "remote-id"
+
+    // Circuit ID Remote ID
+    Dhcpv4LimitLease1_circuit_id_remote_id Dhcpv4LimitLease1 = "circuit-id-remote-id"
+)
+
+// Ipv4dhcpdLayer represents Ipv4dhcpd layer
+type Ipv4dhcpdLayer string
+
+const (
+    // Layer2
+    Ipv4dhcpdLayer_layer2 Ipv4dhcpdLayer = "layer2"
+
+    // Layer3
+    Ipv4dhcpdLayer_layer3 Ipv4dhcpdLayer = "layer3"
+)
+
+// Ipv4dhcpdGiaddrPolicy represents Ipv4dhcpd giaddr policy
+type Ipv4dhcpdGiaddrPolicy string
+
+const (
+    // Giaddr Policy Keep
+    Ipv4dhcpdGiaddrPolicy_giaddr_policy_keep Ipv4dhcpdGiaddrPolicy = "giaddr-policy-keep"
 )
 
 // Ipv4dhcpdMode represents Ipv4dhcpd mode
@@ -219,87 +155,6 @@ const (
 
     // Base2
     Ipv4dhcpdMode_base2 Ipv4dhcpdMode = "base2"
-)
-
-// Matchaction represents Matchaction
-type Matchaction string
-
-const (
-    // Allow DHCP Discover
-    Matchaction_allow Matchaction = "allow"
-
-    // Drop DHCP Discover
-    Matchaction_drop Matchaction = "drop"
-)
-
-// Policy represents Policy
-type Policy string
-
-const (
-    // Ignore the broadcast policy
-    Policy_ignore Policy = "ignore"
-
-    // Check for broadcast flag
-    Policy_check Policy = "check"
-
-    // Always Unicast the reply
-    Policy_unicastalways Policy = "unicastalways"
-)
-
-// Ipv4dhcpdRelayInfoOptionvpnMode represents Ipv4dhcpd relay info optionvpn mode
-type Ipv4dhcpdRelayInfoOptionvpnMode string
-
-const (
-    // RFC
-    Ipv4dhcpdRelayInfoOptionvpnMode_rfc Ipv4dhcpdRelayInfoOptionvpnMode = "rfc"
-
-    // Cisco
-    Ipv4dhcpdRelayInfoOptionvpnMode_cisco Ipv4dhcpdRelayInfoOptionvpnMode = "cisco"
-)
-
-// Ipv4dhcpdFmt represents Ipv4dhcpd fmt
-type Ipv4dhcpdFmt string
-
-const (
-    // Not a Format String
-    Ipv4dhcpdFmt_no_format Ipv4dhcpdFmt = "no-format"
-
-    // Hex Format String
-    Ipv4dhcpdFmt_hex Ipv4dhcpdFmt = "hex"
-
-    // Ascii Format String
-    Ipv4dhcpdFmt_ascii Ipv4dhcpdFmt = "ascii"
-
-    // Extended Format String
-    Ipv4dhcpdFmt_extended Ipv4dhcpdFmt = "extended"
-)
-
-// Ipv4dhcpdRelayInfoOptionAuthenticate represents Ipv4dhcpd relay info option authenticate
-type Ipv4dhcpdRelayInfoOptionAuthenticate string
-
-const (
-    // Received
-    Ipv4dhcpdRelayInfoOptionAuthenticate_received Ipv4dhcpdRelayInfoOptionAuthenticate = "received"
-
-    // Inserted
-    Ipv4dhcpdRelayInfoOptionAuthenticate_inserted Ipv4dhcpdRelayInfoOptionAuthenticate = "inserted"
-)
-
-// Ipv4dhcpdRelayInfoOptionPolicy represents Ipv4dhcpd relay info option policy
-type Ipv4dhcpdRelayInfoOptionPolicy string
-
-const (
-    // Replace
-    Ipv4dhcpdRelayInfoOptionPolicy_replace Ipv4dhcpdRelayInfoOptionPolicy = "replace"
-
-    // Keep
-    Ipv4dhcpdRelayInfoOptionPolicy_keep Ipv4dhcpdRelayInfoOptionPolicy = "keep"
-
-    // Drop
-    Ipv4dhcpdRelayInfoOptionPolicy_drop Ipv4dhcpdRelayInfoOptionPolicy = "drop"
-
-    // Encapsulate
-    Ipv4dhcpdRelayInfoOptionPolicy_encapsulate Ipv4dhcpdRelayInfoOptionPolicy = "encapsulate"
 )
 
 // Ipv4dhcpdFmtSpecifier represents Ipv4dhcpd fmt specifier
@@ -337,6 +192,23 @@ const (
     Ipv4dhcpdFmtSpecifier_host_name Ipv4dhcpdFmtSpecifier = "host-name"
 )
 
+// Ipv4dhcpdRelayInfoOptionPolicy represents Ipv4dhcpd relay info option policy
+type Ipv4dhcpdRelayInfoOptionPolicy string
+
+const (
+    // Replace
+    Ipv4dhcpdRelayInfoOptionPolicy_replace Ipv4dhcpdRelayInfoOptionPolicy = "replace"
+
+    // Keep
+    Ipv4dhcpdRelayInfoOptionPolicy_keep Ipv4dhcpdRelayInfoOptionPolicy = "keep"
+
+    // Drop
+    Ipv4dhcpdRelayInfoOptionPolicy_drop Ipv4dhcpdRelayInfoOptionPolicy = "drop"
+
+    // Encapsulate
+    Ipv4dhcpdRelayInfoOptionPolicy_encapsulate Ipv4dhcpdRelayInfoOptionPolicy = "encapsulate"
+)
+
 // MacMismatchAction represents Mac mismatch action
 type MacMismatchAction string
 
@@ -346,6 +218,115 @@ const (
 
     // Drop
     MacMismatchAction_drop MacMismatchAction = "drop"
+)
+
+// Ipv4dhcpdBroadcastFlagPolicy represents Ipv4dhcpd broadcast flag policy
+type Ipv4dhcpdBroadcastFlagPolicy string
+
+const (
+    // Ignore
+    Ipv4dhcpdBroadcastFlagPolicy_ignore Ipv4dhcpdBroadcastFlagPolicy = "ignore"
+
+    // check
+    Ipv4dhcpdBroadcastFlagPolicy_check Ipv4dhcpdBroadcastFlagPolicy = "check"
+
+    // Unicast always
+    Ipv4dhcpdBroadcastFlagPolicy_unicast_always Ipv4dhcpdBroadcastFlagPolicy = "unicast-always"
+)
+
+// Ipv4dhcpdFmt represents Ipv4dhcpd fmt
+type Ipv4dhcpdFmt string
+
+const (
+    // Not a Format String
+    Ipv4dhcpdFmt_no_format Ipv4dhcpdFmt = "no-format"
+
+    // Hex Format String
+    Ipv4dhcpdFmt_hex Ipv4dhcpdFmt = "hex"
+
+    // Ascii Format String
+    Ipv4dhcpdFmt_ascii Ipv4dhcpdFmt = "ascii"
+
+    // Extended Format String
+    Ipv4dhcpdFmt_extended Ipv4dhcpdFmt = "extended"
+)
+
+// Ipv4dhcpdRelayInfoOptionvpnMode represents Ipv4dhcpd relay info optionvpn mode
+type Ipv4dhcpdRelayInfoOptionvpnMode string
+
+const (
+    // RFC
+    Ipv4dhcpdRelayInfoOptionvpnMode_rfc Ipv4dhcpdRelayInfoOptionvpnMode = "rfc"
+
+    // Cisco
+    Ipv4dhcpdRelayInfoOptionvpnMode_cisco Ipv4dhcpdRelayInfoOptionvpnMode = "cisco"
+)
+
+// ProxyAction represents Proxy action
+type ProxyAction string
+
+const (
+    // Allow vendor specific DHCP Discover
+    ProxyAction_allow ProxyAction = "allow"
+
+    // Drop vendor specific DHCP Discover
+    ProxyAction_drop ProxyAction = "drop"
+
+    // Relay vendor-id specific DHCP packets unaltered
+    ProxyAction_relay ProxyAction = "relay"
+)
+
+// LeaseLimitValue represents Lease limit value
+type LeaseLimitValue string
+
+const (
+    // Insert the limit lease type interface
+    LeaseLimitValue_per_interface LeaseLimitValue = "per-interface"
+
+    // Insert the limit lease type circuit-id
+    LeaseLimitValue_per_circuit_id LeaseLimitValue = "per-circuit-id"
+
+    // Insert the limit lease type remote-id
+    LeaseLimitValue_per_remote_id LeaseLimitValue = "per-remote-id"
+)
+
+// Dhcpv4MatchOption represents Dhcpv4 match option
+type Dhcpv4MatchOption string
+
+const (
+    // Vendor class ID
+    Dhcpv4MatchOption_Y_60__FWD_SLASH__60 Dhcpv4MatchOption = "60/60"
+
+    // 77 User class
+    Dhcpv4MatchOption_Y_77__FWD_SLASH__77 Dhcpv4MatchOption = "77/77"
+
+    // Vendor identifying class
+    Dhcpv4MatchOption_Y_124__FWD_SLASH__124 Dhcpv4MatchOption = "124/124"
+
+    // Vendor specific information
+    Dhcpv4MatchOption_Y_125__FWD_SLASH__125 Dhcpv4MatchOption = "125/125"
+)
+
+// Ipv4dhcpdRelayInfoOptionAuthenticate represents Ipv4dhcpd relay info option authenticate
+type Ipv4dhcpdRelayInfoOptionAuthenticate string
+
+const (
+    // Received
+    Ipv4dhcpdRelayInfoOptionAuthenticate_received Ipv4dhcpdRelayInfoOptionAuthenticate = "received"
+
+    // Inserted
+    Ipv4dhcpdRelayInfoOptionAuthenticate_inserted Ipv4dhcpdRelayInfoOptionAuthenticate = "inserted"
+)
+
+// Ipv4dhcpdRelayGiaddrPolicy represents Ipv4dhcpd relay giaddr policy
+type Ipv4dhcpdRelayGiaddrPolicy string
+
+const (
+    // Replace
+    Ipv4dhcpdRelayGiaddrPolicy_replace Ipv4dhcpdRelayGiaddrPolicy = "replace"
+
+    // Drop
+    Ipv4dhcpdRelayGiaddrPolicy_drop Ipv4dhcpdRelayGiaddrPolicy = "drop"
 )
 
 // Ipv4Dhcpd
@@ -461,7 +442,7 @@ type Ipv4Dhcpd_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Profile name and mode.
@@ -566,7 +547,7 @@ type Ipv4Dhcpd_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // DHCP IPV4 Profile modes.
@@ -817,14 +798,8 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base struct {
     // client request.
     BaseRelayOpt Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseRelayOpt
 
-    // Enable to provide the list of options need to send to aaa.
-    DhcpToAaa Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa
-
     // Insert match keyword.
     BaseMatch Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch
-
-    // Default match option.
-    MatchDefault Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault
 }
 
 func (base *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base) GetEntityData() *types.CommonEntityData {
@@ -842,9 +817,7 @@ func (base *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base) GetEntityData() *types.C
     base.EntityData.Children.Append("default-profile", types.YChild{"DefaultProfile", &base.DefaultProfile})
     base.EntityData.Children.Append("match", types.YChild{"Match", &base.Match})
     base.EntityData.Children.Append("base-relay-opt", types.YChild{"BaseRelayOpt", &base.BaseRelayOpt})
-    base.EntityData.Children.Append("dhcp-to-aaa", types.YChild{"DhcpToAaa", &base.DhcpToAaa})
     base.EntityData.Children.Append("base-match", types.YChild{"BaseMatch", &base.BaseMatch})
-    base.EntityData.Children.Append("match-default", types.YChild{"MatchDefault", &base.MatchDefault})
     base.EntityData.Leafs = types.NewOrderedMap()
     base.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", base.Enable})
 
@@ -1107,101 +1080,6 @@ func (baseRelayOpt *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseRelayOpt) Get
     return &(baseRelayOpt.EntityData)
 }
 
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa
-// Enable to provide the list of options need
-// to send to aaa
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // option type.
-    BaseOption Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption
-}
-
-func (dhcpToAaa *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa) GetEntityData() *types.CommonEntityData {
-    dhcpToAaa.EntityData.YFilter = dhcpToAaa.YFilter
-    dhcpToAaa.EntityData.YangName = "dhcp-to-aaa"
-    dhcpToAaa.EntityData.BundleName = "cisco_ios_xr"
-    dhcpToAaa.EntityData.ParentYangName = "base"
-    dhcpToAaa.EntityData.SegmentPath = "dhcp-to-aaa"
-    dhcpToAaa.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/" + dhcpToAaa.EntityData.SegmentPath
-    dhcpToAaa.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    dhcpToAaa.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    dhcpToAaa.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    dhcpToAaa.EntityData.Children = types.NewOrderedMap()
-    dhcpToAaa.EntityData.Children.Append("base-option", types.YChild{"BaseOption", &dhcpToAaa.BaseOption})
-    dhcpToAaa.EntityData.Leafs = types.NewOrderedMap()
-
-    dhcpToAaa.EntityData.YListKeys = []string {}
-
-    return &(dhcpToAaa.EntityData)
-}
-
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption
-// option type
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // List of options.
-    List Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption_List
-}
-
-func (baseOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption) GetEntityData() *types.CommonEntityData {
-    baseOption.EntityData.YFilter = baseOption.YFilter
-    baseOption.EntityData.YangName = "base-option"
-    baseOption.EntityData.BundleName = "cisco_ios_xr"
-    baseOption.EntityData.ParentYangName = "dhcp-to-aaa"
-    baseOption.EntityData.SegmentPath = "base-option"
-    baseOption.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/dhcp-to-aaa/" + baseOption.EntityData.SegmentPath
-    baseOption.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    baseOption.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    baseOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    baseOption.EntityData.Children = types.NewOrderedMap()
-    baseOption.EntityData.Children.Append("list", types.YChild{"List", &baseOption.List})
-    baseOption.EntityData.Leafs = types.NewOrderedMap()
-
-    baseOption.EntityData.YListKeys = []string {}
-
-    return &(baseOption.EntityData)
-}
-
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption_List
-// List of options
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption_List struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // option all. The type is interface{} with range: 0..4294967295.
-    OptionAll interface{}
-
-    // List of options. The type is slice of interface{} with range: 1..255.
-    Option []interface{}
-}
-
-func (list *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_DhcpToAaa_BaseOption_List) GetEntityData() *types.CommonEntityData {
-    list.EntityData.YFilter = list.YFilter
-    list.EntityData.YangName = "list"
-    list.EntityData.BundleName = "cisco_ios_xr"
-    list.EntityData.ParentYangName = "base-option"
-    list.EntityData.SegmentPath = "list"
-    list.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/dhcp-to-aaa/base-option/" + list.EntityData.SegmentPath
-    list.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    list.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    list.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    list.EntityData.Children = types.NewOrderedMap()
-    list.EntityData.Leafs = types.NewOrderedMap()
-    list.EntityData.Leafs.Append("option-all", types.YLeaf{"OptionAll", list.OptionAll})
-    list.EntityData.Leafs.Append("option", types.YLeaf{"Option", list.Option})
-
-    list.EntityData.YListKeys = []string {}
-
-    return &(list.EntityData)
-}
-
 // Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch
 // Insert match keyword
 type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch struct {
@@ -1210,9 +1088,6 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch struct {
 
     // Specify match option.
     Options Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Options
-
-    // Table of ModeClass.
-    ModeClasses Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses
 }
 
 func (baseMatch *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch) GetEntityData() *types.CommonEntityData {
@@ -1228,7 +1103,6 @@ func (baseMatch *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch) GetEntity
 
     baseMatch.EntityData.Children = types.NewOrderedMap()
     baseMatch.EntityData.Children.Append("options", types.YChild{"Options", &baseMatch.Options})
-    baseMatch.EntityData.Children.Append("mode-classes", types.YChild{"ModeClasses", &baseMatch.ModeClasses})
     baseMatch.EntityData.Leafs = types.NewOrderedMap()
 
     baseMatch.EntityData.YListKeys = []string {}
@@ -1282,7 +1156,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Options_Option struct 
     Opt60 interface{}
 
     // This attribute is a key. Enter hex pattern string. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Opt60HexStr interface{}
 
     // This attribute is a key. Set constant integer. The type is interface{} with
@@ -1350,173 +1224,6 @@ func (optionProfile *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_Option
     return &(optionProfile.EntityData)
 }
 
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses
-// Table of ModeClass
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Specify PPP/IPoE class option. The type is slice of
-    // Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass.
-    ModeClass []*Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass
-}
-
-func (modeClasses *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses) GetEntityData() *types.CommonEntityData {
-    modeClasses.EntityData.YFilter = modeClasses.YFilter
-    modeClasses.EntityData.YangName = "mode-classes"
-    modeClasses.EntityData.BundleName = "cisco_ios_xr"
-    modeClasses.EntityData.ParentYangName = "base-match"
-    modeClasses.EntityData.SegmentPath = "mode-classes"
-    modeClasses.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/base-match/" + modeClasses.EntityData.SegmentPath
-    modeClasses.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    modeClasses.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    modeClasses.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    modeClasses.EntityData.Children = types.NewOrderedMap()
-    modeClasses.EntityData.Children.Append("mode-class", types.YChild{"ModeClass", nil})
-    for i := range modeClasses.ModeClass {
-        modeClasses.EntityData.Children.Append(types.GetSegmentPath(modeClasses.ModeClass[i]), types.YChild{"ModeClass", modeClasses.ModeClass[i]})
-    }
-    modeClasses.EntityData.Leafs = types.NewOrderedMap()
-
-    modeClasses.EntityData.YListKeys = []string {}
-
-    return &(modeClasses.EntityData)
-}
-
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass
-// Specify PPP/IPoE class option
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Class name. The type is string with length: 1..64.
-    ClassName interface{}
-
-    // Enter proxy or server profile.
-    Profile Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass_Profile
-}
-
-func (modeClass *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass) GetEntityData() *types.CommonEntityData {
-    modeClass.EntityData.YFilter = modeClass.YFilter
-    modeClass.EntityData.YangName = "mode-class"
-    modeClass.EntityData.BundleName = "cisco_ios_xr"
-    modeClass.EntityData.ParentYangName = "mode-classes"
-    modeClass.EntityData.SegmentPath = "mode-class" + types.AddKeyToken(modeClass.ClassName, "class-name")
-    modeClass.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/base-match/mode-classes/" + modeClass.EntityData.SegmentPath
-    modeClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    modeClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    modeClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    modeClass.EntityData.Children = types.NewOrderedMap()
-    modeClass.EntityData.Children.Append("profile", types.YChild{"Profile", &modeClass.Profile})
-    modeClass.EntityData.Leafs = types.NewOrderedMap()
-    modeClass.EntityData.Leafs.Append("class-name", types.YLeaf{"ClassName", modeClass.ClassName})
-
-    modeClass.EntityData.YListKeys = []string {"ClassName"}
-
-    return &(modeClass.EntityData)
-}
-
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass_Profile
-// Enter proxy or server profile
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass_Profile struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Profile name. The type is string with length: 1..64.
-    ProfileName interface{}
-
-    // Specify mode. The type is Ipv4ModeClassMode.
-    Mode interface{}
-}
-
-func (profile *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_BaseMatch_ModeClasses_ModeClass_Profile) GetEntityData() *types.CommonEntityData {
-    profile.EntityData.YFilter = profile.YFilter
-    profile.EntityData.YangName = "profile"
-    profile.EntityData.BundleName = "cisco_ios_xr"
-    profile.EntityData.ParentYangName = "mode-class"
-    profile.EntityData.SegmentPath = "profile"
-    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/base-match/mode-classes/mode-class/" + profile.EntityData.SegmentPath
-    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    profile.EntityData.Children = types.NewOrderedMap()
-    profile.EntityData.Leafs = types.NewOrderedMap()
-    profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
-    profile.EntityData.Leafs.Append("mode", types.YLeaf{"Mode", profile.Mode})
-
-    profile.EntityData.YListKeys = []string {}
-
-    return &(profile.EntityData)
-}
-
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault
-// Default match option
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enter server profile.
-    Profile Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault_Profile
-}
-
-func (matchDefault *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault) GetEntityData() *types.CommonEntityData {
-    matchDefault.EntityData.YFilter = matchDefault.YFilter
-    matchDefault.EntityData.YangName = "match-default"
-    matchDefault.EntityData.BundleName = "cisco_ios_xr"
-    matchDefault.EntityData.ParentYangName = "base"
-    matchDefault.EntityData.SegmentPath = "match-default"
-    matchDefault.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/" + matchDefault.EntityData.SegmentPath
-    matchDefault.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    matchDefault.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    matchDefault.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    matchDefault.EntityData.Children = types.NewOrderedMap()
-    matchDefault.EntityData.Children.Append("profile", types.YChild{"Profile", &matchDefault.Profile})
-    matchDefault.EntityData.Leafs = types.NewOrderedMap()
-
-    matchDefault.EntityData.YListKeys = []string {}
-
-    return &(matchDefault.EntityData)
-}
-
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault_Profile
-// Enter server profile
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault_Profile struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Profile name. The type is string with length: 1..64.
-    ProfileName interface{}
-
-    // Specify mode. The type is Ipv4MatchDefaultMode.
-    DefaultMode interface{}
-}
-
-func (profile *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Base_MatchDefault_Profile) GetEntityData() *types.CommonEntityData {
-    profile.EntityData.YFilter = profile.YFilter
-    profile.EntityData.YangName = "profile"
-    profile.EntityData.BundleName = "cisco_ios_xr"
-    profile.EntityData.ParentYangName = "match-default"
-    profile.EntityData.SegmentPath = "profile"
-    profile.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/base/match-default/" + profile.EntityData.SegmentPath
-    profile.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    profile.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    profile.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    profile.EntityData.Children = types.NewOrderedMap()
-    profile.EntityData.Leafs = types.NewOrderedMap()
-    profile.EntityData.Leafs.Append("profile-name", types.YLeaf{"ProfileName", profile.ProfileName})
-    profile.EntityData.Leafs.Append("default-mode", types.YLeaf{"DefaultMode", profile.DefaultMode})
-
-    profile.EntityData.YListKeys = []string {}
-
-    return &(profile.EntityData)
-}
-
 // Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server
 // DHCP Server profile
 // This type is a presence type.
@@ -1533,7 +1240,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server struct {
     Enable interface{}
 
     // Configure Subnet Mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubnetMask interface{}
 
     // Specify the Pool name. The type is string with length: 1..64.
@@ -1553,7 +1260,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server struct {
 
     // Configure the tftp-server IP to be used by the client. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextServer interface{}
 
     // Validate server ID check.
@@ -1815,7 +1522,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DefaultRouters struct {
     YFilter yfilter.YFilter
 
     // Router's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DefaultRouter []interface{}
 }
 
@@ -1876,7 +1583,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetBiosNameServers struct {
     YFilter yfilter.YFilter
 
     // NetBIOSNameServer's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetBiosNameServer []interface{}
 }
 
@@ -2261,7 +1968,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class struct {
     ClassName interface{}
 
     // Configure Subnet Mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubnetMask interface{}
 
     // Specify the pool. The type is string.
@@ -2280,7 +1987,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class struct {
 
     // Configure the tftp-server IP to be used by the client. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextServer interface{}
 
     // default routers.
@@ -2345,7 +2052,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_DefaultRouters s
     YFilter yfilter.YFilter
 
     // Router's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DefaultRouter []interface{}
 }
 
@@ -2376,7 +2083,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_NetBiosNameServe
     YFilter yfilter.YFilter
 
     // NetBIOSNameServer's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetBiosNameServer []interface{}
 }
 
@@ -2407,7 +2114,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_ClassMatch struc
     YFilter yfilter.YFilter
 
     // Specify match l2-interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Specify match VRF. The type is string with length: 1..32.
@@ -2572,7 +2279,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_NetbiosNodeType 
     // Set string. The type is string.
     PeerToPeerNode interface{}
 
-    // Hexadecimal number. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // Hexadecimal number. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Hexadecimal interface{}
 }
 
@@ -2607,7 +2314,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_DnsServers struc
     YFilter yfilter.YFilter
 
     // DNS Server's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DnsServer []interface{}
 }
 
@@ -2686,7 +2393,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_Classes_Class_OptionCodes_Opti
     ForceInsert interface{}
 
     // Server's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress []interface{}
 }
 
@@ -2806,7 +2513,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_NetbiosNodeType struct {
     // Set string. The type is string.
     PeerToPeerNode interface{}
 
-    // Hexadecimal number. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // Hexadecimal number. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Hexadecimal interface{}
 }
 
@@ -2841,7 +2548,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_DnsServers struct {
     YFilter yfilter.YFilter
 
     // DNS Server's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DnsServer []interface{}
 }
 
@@ -3015,7 +2722,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Server_OptionCodes_OptionCode struct 
     ForceInsert interface{}
 
     // Server's IP address. The type is slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress []interface{}
 }
 
@@ -3165,7 +2872,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Helper Addresses.
@@ -3235,14 +2942,14 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_Vrfs_Vrf_HelperAddresses_Helper
     YListKey string
 
     // This attribute is a key. IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Enable helper - deprecated. The type is interface{}.
     Enable interface{}
 
     // GatewayAddress. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     GatewayAddress interface{}
 }
 
@@ -3297,9 +3004,6 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayInformationOption struct {
     // Relay information option policy. The type is
     // Ipv4dhcpdRelayInfoOptionPolicy.
     Policy interface{}
-
-    // Enter remote-id value.
-    RemoteId Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayInformationOption_RemoteId
 }
 
 func (relayInformationOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayInformationOption) GetEntityData() *types.CommonEntityData {
@@ -3314,7 +3018,6 @@ func (relayInformationOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayI
     relayInformationOption.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     relayInformationOption.EntityData.Children = types.NewOrderedMap()
-    relayInformationOption.EntityData.Children.Append("remote-id", types.YChild{"RemoteId", &relayInformationOption.RemoteId})
     relayInformationOption.EntityData.Leafs = types.NewOrderedMap()
     relayInformationOption.EntityData.Leafs.Append("vpn-mode", types.YLeaf{"VpnMode", relayInformationOption.VpnMode})
     relayInformationOption.EntityData.Leafs.Append("subscriber-id", types.YLeaf{"SubscriberId", relayInformationOption.SubscriberId})
@@ -3327,40 +3030,6 @@ func (relayInformationOption *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayI
     relayInformationOption.EntityData.YListKeys = []string {}
 
     return &(relayInformationOption.EntityData)
-}
-
-// Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayInformationOption_RemoteId
-// Enter remote-id value
-type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayInformationOption_RemoteId struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Format type, 1. Hex 2. ASCII. The type is interface{} with range: 1..2.
-    FormatType interface{}
-
-    // Enter remote-id value. The type is string.
-    RemoteIdValue interface{}
-}
-
-func (remoteId *Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_RelayInformationOption_RemoteId) GetEntityData() *types.CommonEntityData {
-    remoteId.EntityData.YFilter = remoteId.YFilter
-    remoteId.EntityData.YangName = "remote-id"
-    remoteId.EntityData.BundleName = "cisco_ios_xr"
-    remoteId.EntityData.ParentYangName = "relay-information-option"
-    remoteId.EntityData.SegmentPath = "remote-id"
-    remoteId.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-dhcpd-cfg:ipv4-dhcpd/profiles/profile/modes/mode/relay/relay-information-option/" + remoteId.EntityData.SegmentPath
-    remoteId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    remoteId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    remoteId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    remoteId.EntityData.Children = types.NewOrderedMap()
-    remoteId.EntityData.Leafs = types.NewOrderedMap()
-    remoteId.EntityData.Leafs.Append("format-type", types.YLeaf{"FormatType", remoteId.FormatType})
-    remoteId.EntityData.Leafs.Append("remote-id-value", types.YLeaf{"RemoteIdValue", remoteId.RemoteIdValue})
-
-    remoteId.EntityData.YListKeys = []string {}
-
-    return &(remoteId.EntityData)
 }
 
 // Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Relay_BroadcastPolicy
@@ -3560,7 +3229,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class struct {
     YListKey string
 
     // This attribute is a key. Class name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ClassName interface{}
 
     // Enable the DHCP IPV4 proxy class. The type is interface{}. This attribute
@@ -3711,7 +3380,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Helper addresses.
@@ -3781,11 +3450,11 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Classes_Class_Vrfs_Vrf_HelperAd
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ServerAddress interface{}
 
     // Gateway address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     GatewayAddress interface{}
 }
@@ -4059,7 +3728,7 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Helper addresses.
@@ -4129,11 +3798,11 @@ type Ipv4Dhcpd_Profiles_Profile_Modes_Mode_Proxy_Vrfs_Vrf_HelperAddresses_Helper
     YListKey string
 
     // This attribute is a key. IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ServerAddress interface{}
 
     // Gateway address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     GatewayAddress interface{}
 }
@@ -4646,7 +4315,7 @@ type Ipv4Dhcpd_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // DHCP IPv4 proxy information.
@@ -5174,7 +4843,7 @@ type Ipv4Dhcpd_Interfaces_Interface_StaticMode_Statics_Static struct {
     YListKey string
 
     // This attribute is a key. MACAddress. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // This attribute is a key. Client Id. The type is interface{} with range:
@@ -5186,7 +4855,7 @@ type Ipv4Dhcpd_Interfaces_Interface_StaticMode_Statics_Static struct {
     Layer interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     StaticAddress interface{}
 }

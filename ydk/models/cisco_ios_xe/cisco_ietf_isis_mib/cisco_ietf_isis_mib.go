@@ -20,13 +20,15 @@ func init() {
     ydk.RegisterEntity("CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB", reflect.TypeOf(CISCOIETFISISMIB{}))
 }
 
-// CiiAdminState represents Values match those in RFC 2863.
-type CiiAdminState string
+// CiiMetricStyle represents Do we use 1195 style Metrics or wide metrics.
+type CiiMetricStyle string
 
 const (
-    CiiAdminState_on CiiAdminState = "on"
+    CiiMetricStyle_narrow CiiMetricStyle = "narrow"
 
-    CiiAdminState_off CiiAdminState = "off"
+    CiiMetricStyle_wide CiiMetricStyle = "wide"
+
+    CiiMetricStyle_both CiiMetricStyle = "both"
 )
 
 // CiiLevelState represents States of the IS-IS protocol.
@@ -53,6 +55,15 @@ const (
     CiiSupportedProtocol_ip CiiSupportedProtocol = "ip"
 )
 
+// CiiAdminState represents Values match those in RFC 2863.
+type CiiAdminState string
+
+const (
+    CiiAdminState_on CiiAdminState = "on"
+
+    CiiAdminState_off CiiAdminState = "off"
+)
+
 // CiiMetricType represents Is this an Internal or External Metric?
 type CiiMetricType string
 
@@ -60,17 +71,6 @@ const (
     CiiMetricType_internal CiiMetricType = "internal"
 
     CiiMetricType_external CiiMetricType = "external"
-)
-
-// CiiMetricStyle represents Do we use 1195 style Metrics or wide metrics.
-type CiiMetricStyle string
-
-const (
-    CiiMetricStyle_narrow CiiMetricStyle = "narrow"
-
-    CiiMetricStyle_wide CiiMetricStyle = "wide"
-
-    CiiMetricStyle_both CiiMetricStyle = "both"
 )
 
 // CiiISLevel represents Identifies a level.

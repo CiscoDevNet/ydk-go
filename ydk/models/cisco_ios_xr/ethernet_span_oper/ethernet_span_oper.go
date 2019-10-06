@@ -24,92 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session", reflect.TypeOf(SpanMonitorSession{}))
 }
 
-// MirrorInterval represents Monitor-session mirror intervals
-type MirrorInterval string
-
-const (
-    // Mirror all packets
-    MirrorInterval_mirror_interval_all MirrorInterval = "mirror-interval-all"
-
-    // Mirror Interval 512
-    MirrorInterval_mirror_interval512 MirrorInterval = "mirror-interval512"
-
-    // Mirror Interval 1K
-    MirrorInterval_mirror_interval1k MirrorInterval = "mirror-interval1k"
-
-    // Mirror Interval 2K
-    MirrorInterval_mirror_interval2k MirrorInterval = "mirror-interval2k"
-
-    // Mirror Interval 4K
-    MirrorInterval_mirror_interval4k MirrorInterval = "mirror-interval4k"
-
-    // Mirror Interval 8K
-    MirrorInterval_mirror_interval8k MirrorInterval = "mirror-interval8k"
-
-    // Mirror Interval 16K
-    MirrorInterval_mirror_interval16k MirrorInterval = "mirror-interval16k"
-)
-
-// TrafficDirection represents Monitor-session traffic directions
-type TrafficDirection string
-
-const (
-    // Invalid
-    TrafficDirection_invalid TrafficDirection = "invalid"
-
-    // Received
-    TrafficDirection_rx_only TrafficDirection = "rx-only"
-
-    // Transmitted
-    TrafficDirection_tx_only TrafficDirection = "tx-only"
-
-    // Both
-    TrafficDirection_both TrafficDirection = "both"
-)
-
-// DestinationClass represents Destination class
-type DestinationClass string
-
-const (
-    // Destination is an interface
-    DestinationClass_interface_class DestinationClass = "interface-class"
-
-    // Destination is a pseudowire
-    DestinationClass_pseudowire_class DestinationClass = "pseudowire-class"
-
-    // Destination is a next-hop IPv4 address
-    DestinationClass_next_hop_ipv4_class DestinationClass = "next-hop-ipv4-class"
-
-    // Destination is a next-hop IPv6 address
-    DestinationClass_next_hop_ipv6_class DestinationClass = "next-hop-ipv6-class"
-
-    // Destination is not specified
-    DestinationClass_invalid_class DestinationClass = "invalid-class"
-)
-
-// SessionClass represents Session class
-type SessionClass string
-
-const (
-    // Ethernet mirroring session
-    SessionClass_ethernet_class SessionClass = "ethernet-class"
-
-    // IPv4 mirroring session
-    SessionClass_ipv4_class SessionClass = "ipv4-class"
-
-    // IPv6 mirroring session
-    SessionClass_ipv6_class SessionClass = "ipv6-class"
-
-    // MPLS-IPv4 mirroring session
-    SessionClass_mplsipv4_class SessionClass = "mplsipv4-class"
-
-    // MPLS-IPv6 mirroring session
-    SessionClass_mplsipv6_class SessionClass = "mplsipv6-class"
-
-    // Invalid session class
-    SessionClass_invalid_class SessionClass = "invalid-class"
-)
-
 // ImStateEnum represents Im state enum
 type ImStateEnum string
 
@@ -170,6 +84,92 @@ const (
 
     // im state last
     ImStateEnum_im_state_last ImStateEnum = "im-state-last"
+)
+
+// DestinationClass represents Destination class
+type DestinationClass string
+
+const (
+    // Destination is an interface
+    DestinationClass_interface_class DestinationClass = "interface-class"
+
+    // Destination is a pseudowire
+    DestinationClass_pseudowire_class DestinationClass = "pseudowire-class"
+
+    // Destination is a next-hop IPv4 address
+    DestinationClass_next_hop_ipv4_class DestinationClass = "next-hop-ipv4-class"
+
+    // Destination is a next-hop IPv6 address
+    DestinationClass_next_hop_ipv6_class DestinationClass = "next-hop-ipv6-class"
+
+    // Destination is not specified
+    DestinationClass_invalid_class DestinationClass = "invalid-class"
+)
+
+// SessionClass represents Session class
+type SessionClass string
+
+const (
+    // Ethernet mirroring session
+    SessionClass_ethernet_class SessionClass = "ethernet-class"
+
+    // IPv4 mirroring session
+    SessionClass_ipv4_class SessionClass = "ipv4-class"
+
+    // IPv6 mirroring session
+    SessionClass_ipv6_class SessionClass = "ipv6-class"
+
+    // MPLS-IPv4 mirroring session
+    SessionClass_mplsipv4_class SessionClass = "mplsipv4-class"
+
+    // MPLS-IPv6 mirroring session
+    SessionClass_mplsipv6_class SessionClass = "mplsipv6-class"
+
+    // Invalid session class
+    SessionClass_invalid_class SessionClass = "invalid-class"
+)
+
+// MirrorInterval represents Monitor-session mirror intervals
+type MirrorInterval string
+
+const (
+    // Mirror all packets
+    MirrorInterval_mirror_interval_all MirrorInterval = "mirror-interval-all"
+
+    // Mirror Interval 512
+    MirrorInterval_mirror_interval512 MirrorInterval = "mirror-interval512"
+
+    // Mirror Interval 1K
+    MirrorInterval_mirror_interval1k MirrorInterval = "mirror-interval1k"
+
+    // Mirror Interval 2K
+    MirrorInterval_mirror_interval2k MirrorInterval = "mirror-interval2k"
+
+    // Mirror Interval 4K
+    MirrorInterval_mirror_interval4k MirrorInterval = "mirror-interval4k"
+
+    // Mirror Interval 8K
+    MirrorInterval_mirror_interval8k MirrorInterval = "mirror-interval8k"
+
+    // Mirror Interval 16K
+    MirrorInterval_mirror_interval16k MirrorInterval = "mirror-interval16k"
+)
+
+// TrafficDirection represents Monitor-session traffic directions
+type TrafficDirection string
+
+const (
+    // Invalid
+    TrafficDirection_invalid TrafficDirection = "invalid"
+
+    // Received
+    TrafficDirection_rx_only TrafficDirection = "rx-only"
+
+    // Transmitted
+    TrafficDirection_tx_only TrafficDirection = "tx-only"
+
+    // Both
+    TrafficDirection_both TrafficDirection = "both"
 )
 
 // SpanMonitorSession
@@ -286,7 +286,7 @@ type SpanMonitorSession_Global_Statistics_Statistic struct {
     Session interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // RX Packets Mirrored. The type is interface{} with range:
@@ -406,7 +406,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession struct {
     DestinationInterfaceName interface{}
 
     // Destination interface handle (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // pseudowires). The type is string with pattern: [a-zA-Z0-9._/-]+.
     DestinationInterfaceHandle interface{}
 
     // Last error observed for the destination interface (deprecated by
@@ -578,7 +578,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_Next
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // VRF name. The type is string.
@@ -617,7 +617,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationData_Next
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // VRF name. The type is string.
@@ -658,7 +658,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId struct
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -706,7 +706,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv4Ad
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // VRF. The type is string.
@@ -741,7 +741,7 @@ type SpanMonitorSession_Global_GlobalSessions_GlobalSession_DestinationId_Ipv6Ad
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // VRF. The type is string.
@@ -841,13 +841,13 @@ type SpanMonitorSession_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // Table of source interfaces configured as attached to a session.
     Attachments SpanMonitorSession_Nodes_Node_Attachments
 
-    // Table of sessions set up in the hardware.  When all sessions are operating
+    // Table of sessions set up in the hardware. When all sessions are operating
     // correctly the entries in this table should match those entries in
     // GlobalSessionTable that have a destination configured.
     HardwareSessions SpanMonitorSession_Nodes_Node_HardwareSessions
@@ -931,7 +931,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     Session interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Session Name. The type is string.
@@ -950,7 +950,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     // The Session is configured globally. The type is bool.
     SessionIsConfigured interface{}
 
-    // Source interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Source interface state. The type is ImStateEnum.
@@ -968,7 +968,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment struct {
     SourceInterfaceIsADestination interface{}
 
     // Destination interface (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // pseudowires). The type is string with pattern: [a-zA-Z0-9._/-]+.
     DestinationInterface interface{}
 
     // Traffic mirroring direction (deprecated by TrafficParameters). The type is
@@ -1077,7 +1077,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId struct {
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -1125,7 +1125,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv4Addr
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // VRF. The type is string.
@@ -1160,7 +1160,7 @@ type SpanMonitorSession_Nodes_Node_Attachments_Attachment_DestinationId_Ipv6Addr
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // VRF. The type is string.
@@ -1189,7 +1189,7 @@ func (ipv6AddressAndVrf *SpanMonitorSession_Nodes_Node_Attachments_Attachment_De
 }
 
 // SpanMonitorSession_Nodes_Node_HardwareSessions
-// Table of sessions set up in the hardware. 
+// Table of sessions set up in the hardware.
 // When all sessions are operating correctly the
 // entries in this table should match those
 // entries in GlobalSessionTable that have a
@@ -1253,7 +1253,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
     SessionClassXr interface{}
 
     // Destination interface (deprecated by DestinationID, invalid for
-    // pseudowires). The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // pseudowires). The type is string with pattern: [a-zA-Z0-9._/-]+.
     DestinationInterface interface{}
 
     // Last error observed for this session while programming the hardware. The
@@ -1261,11 +1261,11 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession struct {
     PlatformError interface{}
 
     // Inject Interface ifhandle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InjectInterfaceIfh interface{}
 
     // Inject Interface MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     InjectInterfaceMac interface{}
 
     // An inject interface is flagged as invalid on a particular node if the
@@ -1316,7 +1316,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationI
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -1364,7 +1364,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationI
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // VRF. The type is string.
@@ -1399,7 +1399,7 @@ type SpanMonitorSession_Nodes_Node_HardwareSessions_HardwareSession_DestinationI
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // VRF. The type is string.
@@ -1473,10 +1473,10 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Source interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Last error observed for this interface while programming the hardware. The
@@ -1484,7 +1484,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface struct {
     PlatformError interface{}
 
     // Destination interface (deprecated by Attachment). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     DestinationInterface interface{}
 
     // Traffic mirroring direction (deprecated by Attachment). The type is
@@ -1542,7 +1542,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId struct {
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -1590,7 +1590,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv4Addres
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // VRF. The type is string.
@@ -1625,7 +1625,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_DestinationId_Ipv6Addres
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // VRF. The type is string.
@@ -1753,7 +1753,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId
     // DestinationClass. The type is DestinationClass.
     DestinationClass interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Pseudowire XCID. The type is interface{} with range: 0..4294967295.
@@ -1801,7 +1801,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId
     YFilter yfilter.YFilter
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // VRF. The type is string.
@@ -1836,7 +1836,7 @@ type SpanMonitorSession_Nodes_Node_Interfaces_Interface_Attachment_DestinationId
     YFilter yfilter.YFilter
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // VRF. The type is string.

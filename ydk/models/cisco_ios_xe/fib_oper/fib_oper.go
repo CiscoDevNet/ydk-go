@@ -17,6 +17,38 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-fib-oper:fib-oper-data", reflect.TypeOf(FibOperData{}))
 }
 
+// FibPathType represents Type of FIB path used
+type FibPathType string
+
+const (
+    // Unknown FIB path type
+    FibPathType_fib_path_type_unknown FibPathType = "fib-path-type-unknown"
+
+    // Receive FIB path type
+    FibPathType_fib_path_type_receive FibPathType = "fib-path-type-receive"
+
+    // Connected FIB path type
+    FibPathType_fib_path_type_connected FibPathType = "fib-path-type-connected"
+
+    // Attached Prefix FIB path type
+    FibPathType_fib_path_type_attached_prefix FibPathType = "fib-path-type-attached-prefix"
+
+    // Attached Host FIB path type
+    FibPathType_fib_path_type_attached_host FibPathType = "fib-path-type-attached-host"
+
+    // Attached Nexthop FIB path type
+    FibPathType_fib_path_type_attached_nexthop FibPathType = "fib-path-type-attached-nexthop"
+
+    // Recursive FIB path type
+    FibPathType_fib_path_type_recursive FibPathType = "fib-path-type-recursive"
+
+    // Adjacency Prefix FIB path type
+    FibPathType_fib_path_type_adjacency_prefix FibPathType = "fib-path-type-adjacency-prefix"
+
+    // Special Prefix FIB path type
+    FibPathType_fib_path_type_special_prefix FibPathType = "fib-path-type-special-prefix"
+)
+
 // FibAddressFamily represents FIB Address Family Types
 type FibAddressFamily string
 
@@ -49,38 +81,6 @@ const (
 
     // MPLS encapsulation header type
     EncapsulationHeaderType_encap_hdr_type_mpls EncapsulationHeaderType = "encap-hdr-type-mpls"
-)
-
-// FibPathType represents Type of FIB path used
-type FibPathType string
-
-const (
-    // Unknown FIB path type
-    FibPathType_fib_path_type_unknown FibPathType = "fib-path-type-unknown"
-
-    // Receive FIB path type
-    FibPathType_fib_path_type_receive FibPathType = "fib-path-type-receive"
-
-    // Connected FIB path type
-    FibPathType_fib_path_type_connected FibPathType = "fib-path-type-connected"
-
-    // Attached Prefix FIB path type
-    FibPathType_fib_path_type_attached_prefix FibPathType = "fib-path-type-attached-prefix"
-
-    // Attached Host FIB path type
-    FibPathType_fib_path_type_attached_host FibPathType = "fib-path-type-attached-host"
-
-    // Attached Nexthop FIB path type
-    FibPathType_fib_path_type_attached_nexthop FibPathType = "fib-path-type-attached-nexthop"
-
-    // Recursive FIB path type
-    FibPathType_fib_path_type_recursive FibPathType = "fib-path-type-recursive"
-
-    // Adjacency Prefix FIB path type
-    FibPathType_fib_path_type_adjacency_prefix FibPathType = "fib-path-type-adjacency-prefix"
-
-    // Special Prefix FIB path type
-    FibPathType_fib_path_type_special_prefix FibPathType = "fib-path-type-special-prefix"
 )
 
 // FibOperData
@@ -185,9 +185,9 @@ type FibOperData_FibNiEntry_FibEntries struct {
 
     // This attribute is a key. IP address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     IpAddr interface{}
 
     // Instance Name. The type is string.
@@ -250,9 +250,9 @@ type FibOperData_FibNiEntry_FibEntries_FibNexthopEntries struct {
 
     // This attribute is a key. Nexthop IP Address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     NhAddr interface{}
 
     // Unique Next-hop Path Index. The type is interface{} with range:
@@ -283,9 +283,9 @@ type FibOperData_FibNiEntry_FibEntries_FibNexthopEntries struct {
 
     // Resolved Nexthop IP Address. The type is one of the following types: string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     ResolvedNhAddr interface{}
 }
 

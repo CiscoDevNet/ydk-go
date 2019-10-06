@@ -102,7 +102,7 @@ func (gs *GnmiSession) GetRootSchemaNode() types.RootSchemaNode {
 	PanicOnCStateError(cstate)
 	//ydkpath.PanicOnStateError(gs.State)
 	if rootSchema == nil {
-        ydk.YLogError("Root schema is nil!")
+		ydk.YLogError("Root schema is nil!")
 		panic(1)
 	}
 
@@ -245,8 +245,13 @@ func GnmiServiceGet(provider types.CServiceProvider, filter types.Entity, operat
 	ec := types.EntityToCollection(filter)
 	pathList := C.GnmiPathListInit()
 	for _, ent := range ec.Entities() {
-		path := parseEntityToPath(ent)
-		C.GnmiPathListAdd(pathList, path)
+		types.SetNontopEntityFilter(ent, yfilter.Read)
+		topEntity := GetTopEntity(ent)
+		if topEntity != nil {
+			path := parseEntityToPath(topEntity)
+			C.GnmiPathListAdd(pathList, path)
+		}
+		types.SetNontopEntityFilter(ent, yfilter.NotSet)
 	}
 	cdn := C.GnmiServiceGetFromPath( *cstate, realProvider, pathList, cmode)
 	PanicOnCStateError(cstate)
@@ -280,6 +285,7 @@ func ExecuteGnmiRPC(
 	input := C.RpcInput(*cstate, ydkRPC)
 	PanicOnCStateError(cstate)
 
+	operation := "get"
 	if rpcTag == "ydk:gnmi-get" {
 		mode, ok := options["mode"]
 		if !ok {
@@ -287,37 +293,31 @@ func ExecuteGnmiRPC(
 		}
 		C.DataNodeCreate(*cstate, input, C.CString("type"), C.CString(mode))
 		PanicOnCStateError(cstate)
+	} else if rpcTag == "ydk:gnmi-set" {
+		mode, ok := options["mode"]
+		operation = "update"
+		if ok && (mode == "replace" || mode == "delete") {
+			operation = mode
+		}
 	}
 
 	// Build RPC
-	var collectionFilter yfilter.YFilter = yfilter.NotSet
 	config := types.EntityToCollection(entity)
 	for _, ent := range config.Entities() {
-		entityData := ent.GetEntityData()
-		if entityData == nil {
-			continue
-		}
-		entityFilter := collectionFilter
-		if entityData.YFilter != yfilter.NotSet {
-			entityFilter = entityData.YFilter
-		}
-
-		segmentPath := entityData.SegmentPath
+		segmentPath := types.GetSegmentPath(ent)
 		aliasKey := strings.Replace(segmentPath, "'", "_", -1)
 		var entityTag string
-		switch entityFilter {
-			case yfilter.Replace:
+		switch operation {
+			case "replace":
 				entityTag = "replace[alias='" + aliasKey + "']/entity"
-			case yfilter.Update:
+			case "update":
 				entityTag = "update[alias='" + aliasKey + "']/entity"
-			case yfilter.Delete:
+			case "delete":
 				entityTag = "delete[alias='" + aliasKey + "']/entity"
-			default:
+			case "get":
 				entityTag = "request[alias='" + aliasKey + "']/entity"
-		}
-		if entityData.YFilter != yfilter.NotSet {
-			// Remove setting of the filter before payload is calculated
-			types.SetEntityFilter(ent, yfilter.NotSet)
+			default:
+				continue
 		}
 		cpayload := GetDataPayload(state, ent, rootSchema, provider)
 		defer C.free(unsafe.Pointer(cpayload))
@@ -353,9 +353,7 @@ func GetSubscribeDataPayload(provider types.ServiceProvider, entity types.Entity
 func parseEntityToPath(entity types.Entity) C.GnmiPath {
 	path := C.GnmiPathInit()
 	parseEntityPrefix(entity, path)
-	entityData := entity.GetEntityData()
-	if entityData.AbsolutePath == entityData.SegmentPath {
-		// This is top level class
+	if types.IsTopLevelEntity(entity) {
 		parseEntityChildren(entity, path);
 	} else {
 		parseEntity(entity, path);
@@ -373,7 +371,7 @@ func addPathElem(s string, path C.GnmiPath) C.GnmiPathElem {
 
 func parseEntityPrefix(entity types.Entity, path C.GnmiPath) {
 	// Add origin and following containers to the path
-	absPath := entity.GetEntityData().AbsolutePath
+	absPath := types.GetAbsolutePath(entity)
 	segments := strings.Split(absPath, "/")
 	s := strings.Split(segments[0], ":")
 	if len(s) >= 2 {

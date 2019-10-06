@@ -35,7 +35,7 @@ type Ptp struct {
     YFilter yfilter.YFilter
 
     // Clock class to be used while acquiring phase-lock to a parent clock. Note
-    // that this is deprecated and should not be  used. The type is interface{}
+    // that this is deprecated and should not be used. The type is interface{}
     // with range: 0..255.
     UncalibratedClockClass interface{}
 
@@ -228,7 +228,7 @@ type Ptp_Clock_Identity struct {
     ClockIdType interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // EUI-64 number. The type is string.
@@ -298,7 +298,7 @@ type Ptp_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // Sync unicast grant duration, in seconds. The type is interface{} with
@@ -787,7 +787,7 @@ type Ptp_Profiles_Profile_SourceIpv4Address struct {
     Enable interface{}
 
     // Source IP address to use. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceIp interface{}
 }
 
@@ -900,7 +900,7 @@ type Ptp_Profiles_Profile_Slaves_Slave_Ethernet struct {
     YListKey string
 
     // This attribute is a key. Slave MAC Address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SlaveMacAddress interface{}
 
     // Enable non-negotiated unicast on this interface. The type is bool.
@@ -937,9 +937,9 @@ type Ptp_Profiles_Profile_Slaves_Slave_Ipv4OrIpv6 struct {
 
     // This attribute is a key. Slave IP Address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SlaveIpAddress interface{}
 
     // Enable non-negotiated unicast on this interface. The type is bool.
@@ -1091,7 +1091,7 @@ type Ptp_Profiles_Profile_Masters_Master_Ethernet struct {
 
     // This attribute is a key. Master MAC Address - only used if Transport is
     // Ethernet. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MasterMacAddress interface{}
 
     // Master clock class. The type is interface{} with range: 0..255.
@@ -1184,9 +1184,9 @@ type Ptp_Profiles_Profile_Masters_Master_Ipv4OrIpv6 struct {
 
     // This attribute is a key. Master IP Address - used if Transport is not
     // Ethernet. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     MasterIpAddress interface{}
 
     // Master clock class. The type is interface{} with range: 0..255.
@@ -1353,7 +1353,7 @@ type Ptp_Profiles_Profile_SourceIpv6Address struct {
     Enable interface{}
 
     // Source IPv6 address to use. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceIpv6 interface{}
 }
 
@@ -1496,8 +1496,7 @@ type Ptp_UtcOffset_ScheduledOffsets_ScheduledOffset struct {
     YListKey string
 
     // This attribute is a key. Offset application date, in ISO-8601 format
-    // (YYYY-MM-DD). The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // (YYYY-MM-DD). The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Date interface{}
 
     // UTC offset, in seconds. The type is interface{} with range: 0..32767. This
@@ -1730,7 +1729,7 @@ type Ptp_TransparentClock_Domains_Domain struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Domain. The type is string with pattern: b'(all)'.
+    // This attribute is a key. Domain. The type is string with pattern: (all).
     Domain interface{}
 }
 

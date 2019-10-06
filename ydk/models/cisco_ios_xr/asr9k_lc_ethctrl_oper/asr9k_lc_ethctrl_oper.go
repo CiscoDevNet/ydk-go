@@ -95,7 +95,7 @@ type Mlan_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. node number. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // Table of port status.
@@ -351,7 +351,7 @@ type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Phy_Reg struc
     YFilter yfilter.YFilter
     YListKey string
 
-    // reg. The type is interface{} with range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -417,7 +417,7 @@ type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Serdes_Reg st
     YFilter yfilter.YFilter
     YListKey string
 
-    // reg. The type is interface{} with range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -483,7 +483,7 @@ type Mlan_Nodes_Node_PortStatusNumbers_PortStatusNumber_PortStatus_Mac_Reg struc
     YFilter yfilter.YFilter
     YListKey string
 
-    // reg. The type is interface{} with range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -622,7 +622,7 @@ type Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg1_Reg struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // reg. The type is interface{} with range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -688,7 +688,7 @@ type Mlan_Nodes_Node_SwitchStatusTable_SwitchStatus_SwReg2_Reg struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // reg. The type is interface{} with range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -1202,7 +1202,7 @@ type Mlan_Nodes_Node_AtuEntryNumbers_AtuEntryNumber_SwitchCounters_Atu_Macaddr s
     YFilter yfilter.YFilter
     YListKey string
 
-    // macaddr. The type is interface{} with range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 

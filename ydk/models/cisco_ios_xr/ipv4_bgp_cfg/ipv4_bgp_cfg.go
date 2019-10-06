@@ -36,6 +36,50 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-bgp-cfg:bmp-servers", reflect.TypeOf(BmpServers{}))
 }
 
+// BgpSiteOfOrigin represents Bgp site of origin
+type BgpSiteOfOrigin string
+
+const (
+    // AS format SoO
+    BgpSiteOfOrigin_as BgpSiteOfOrigin = "as"
+
+    // IPv4 address format SoO
+    BgpSiteOfOrigin_ipv4_address BgpSiteOfOrigin = "ipv4-address"
+
+    // 4-byte AS format SoO
+    BgpSiteOfOrigin_four_byte_as BgpSiteOfOrigin = "four-byte-as"
+)
+
+// BgpAsn represents Bgp asn
+type BgpAsn string
+
+const (
+    // AS plain format
+    BgpAsn_as_plain BgpAsn = "as-plain"
+
+    // AS dot format
+    BgpAsn_asdot BgpAsn = "asdot"
+)
+
+// BgpAdvRt represents Bgp adv rt
+type BgpAdvRt string
+
+const (
+    // Regular RT type
+    BgpAdvRt_bgp_regular_rt BgpAdvRt = "bgp-regular-rt"
+
+    // Stitching RT type
+    BgpAdvRt_bgp_stitching_rt BgpAdvRt = "bgp-stitching-rt"
+)
+
+// BgpAfEncapsulation represents Bgp af encapsulation
+type BgpAfEncapsulation string
+
+const (
+    // VxLAN encapsulation type
+    BgpAfEncapsulation_vx_lan BgpAfEncapsulation = "vx-lan"
+)
+
 // BgpMvpnSfsSelect represents Bgp mvpn sfs select
 type BgpMvpnSfsSelect string
 
@@ -59,64 +103,15 @@ const (
     BgpNbrgr_false_ BgpNbrgr = "false"
 )
 
-// BmpPolicySelect represents Bmp policy select
-type BmpPolicySelect string
+// BgpAigpCfgPoi represents Bgp aigp cfg poi
+type BgpAigpCfgPoi string
 
 const (
-    // Pickup routes after policy application
-    BmpPolicySelect_post_policy BmpPolicySelect = "post-policy"
-)
+    // AIGP Pre-bestpath POI
+    BgpAigpCfgPoi_pre_best_path BgpAigpCfgPoi = "pre-best-path"
 
-// BgpEbgpSendDmzEnableMode represents Bgp ebgp send dmz enable mode
-type BgpEbgpSendDmzEnableMode string
-
-const (
-    // Disable Mode - Prevent inheritance
-    BgpEbgpSendDmzEnableMode_disable BgpEbgpSendDmzEnableMode = "disable"
-
-    // Default Mode - Send dmz link bandwidth value to
-    // ebgp neighbor
-    BgpEbgpSendDmzEnableMode_default_ BgpEbgpSendDmzEnableMode = "default"
-
-    // Strict Mode - Send cumulative dmz link
-    // bandwidth value to ebgp neighbor
-    BgpEbgpSendDmzEnableMode_cumulative BgpEbgpSendDmzEnableMode = "cumulative"
-)
-
-// BgpSignal represents Bgp signal
-type BgpSignal string
-
-const (
-    // Signalling BGP disable
-    BgpSignal_bgp_disable BgpSignal = "bgp-disable"
-
-    // Signalling LDP disable
-    BgpSignal_ldp_disable BgpSignal = "ldp-disable"
-)
-
-// BgpVrfRouteTarget represents Bgp vrf route target
-type BgpVrfRouteTarget string
-
-const (
-    // AS format RT
-    BgpVrfRouteTarget_as BgpVrfRouteTarget = "as"
-
-    // IPv4 address format RT
-    BgpVrfRouteTarget_ipv4_address BgpVrfRouteTarget = "ipv4-address"
-
-    // 4-byte AS format RT
-    BgpVrfRouteTarget_four_byte_as BgpVrfRouteTarget = "four-byte-as"
-)
-
-// BgpRnhInstallFormat represents Bgp rnh install format
-type BgpRnhInstallFormat string
-
-const (
-    // Install RNH as opaque and extcomm
-    BgpRnhInstallFormat_ext_comm BgpRnhInstallFormat = "ext-comm"
-
-    // Install RNH as extcomm only
-    BgpRnhInstallFormat_ext_comm_only BgpRnhInstallFormat = "ext-comm-only"
+    // AIGP igp-cost POI
+    BgpAigpCfgPoi_igp_cost BgpAigpCfgPoi = "igp-cost"
 )
 
 // BgpBfdEnableMode represents Bgp bfd enable mode
@@ -132,6 +127,17 @@ const (
     // Strict Mode - Hold down adj until BFD session
     // up
     BgpBfdEnableMode_strict BgpBfdEnableMode = "strict"
+)
+
+// BgpRpkiTransport represents Bgp rpki transport
+type BgpRpkiTransport string
+
+const (
+    // TCP Transport
+    BgpRpkiTransport_tcp BgpRpkiTransport = "tcp"
+
+    // SSH Transport
+    BgpRpkiTransport_ssh BgpRpkiTransport = "ssh"
 )
 
 // BmpRouteDirection represents Bmp route direction
@@ -153,29 +159,32 @@ const (
     BgpSendMcastAttrCfg_disable BgpSendMcastAttrCfg = "disable"
 )
 
-// BgpAigpCfgPoi represents Bgp aigp cfg poi
-type BgpAigpCfgPoi string
+// BgpRnhInstallFormat represents Bgp rnh install format
+type BgpRnhInstallFormat string
 
 const (
-    // AIGP Pre-bestpath POI
-    BgpAigpCfgPoi_pre_best_path BgpAigpCfgPoi = "pre-best-path"
+    // Install RNH as opaque and extcomm
+    BgpRnhInstallFormat_ext_comm BgpRnhInstallFormat = "ext-comm"
 
-    // AIGP igp-cost POI
-    BgpAigpCfgPoi_igp_cost BgpAigpCfgPoi = "igp-cost"
+    // Install RNH as extcomm only
+    BgpRnhInstallFormat_ext_comm_only BgpRnhInstallFormat = "ext-comm-only"
 )
 
-// BgpFlowspecValidationCfg represents Bgp flowspec validation cfg
-type BgpFlowspecValidationCfg string
+// BgpRouteDistinguisher represents Bgp route distinguisher
+type BgpRouteDistinguisher string
 
 const (
-    // Enable Flowspec validation
-    BgpFlowspecValidationCfg_enable BgpFlowspecValidationCfg = "enable"
+    // Automatically assigned
+    BgpRouteDistinguisher_auto BgpRouteDistinguisher = "auto"
 
-    // Disable Flowspec validation
-    BgpFlowspecValidationCfg_disable BgpFlowspecValidationCfg = "disable"
+    // AS format RD
+    BgpRouteDistinguisher_as BgpRouteDistinguisher = "as"
 
-    // Disable Flowspec redirect nexthop validation
-    BgpFlowspecValidationCfg_redirect_nexhop_disable BgpFlowspecValidationCfg = "redirect-nexhop-disable"
+    // 4-byte AS format RD
+    BgpRouteDistinguisher_four_byte_as BgpRouteDistinguisher = "four-byte-as"
+
+    // IPv4 address format RD
+    BgpRouteDistinguisher_ipv4_address BgpRouteDistinguisher = "ipv4-address"
 )
 
 // BgpOrf represents Bgp orf
@@ -195,26 +204,117 @@ const (
     BgpOrf_both BgpOrf = "both"
 )
 
-// BgpAsn represents Bgp asn
-type BgpAsn string
+// BgpVrfRouteTarget represents Bgp vrf route target
+type BgpVrfRouteTarget string
 
 const (
-    // AS plain format
-    BgpAsn_as_plain BgpAsn = "as-plain"
+    // AS format RT
+    BgpVrfRouteTarget_as BgpVrfRouteTarget = "as"
 
-    // AS dot format
-    BgpAsn_asdot BgpAsn = "asdot"
+    // IPv4 address format RT
+    BgpVrfRouteTarget_ipv4_address BgpVrfRouteTarget = "ipv4-address"
+
+    // 4-byte AS format RT
+    BgpVrfRouteTarget_four_byte_as BgpVrfRouteTarget = "four-byte-as"
 )
 
-// BgpRpkiTransport represents Bgp rpki transport
-type BgpRpkiTransport string
+// BgpEbgpSendDmzEnableMode represents Bgp ebgp send dmz enable mode
+type BgpEbgpSendDmzEnableMode string
 
 const (
-    // TCP Transport
-    BgpRpkiTransport_tcp BgpRpkiTransport = "tcp"
+    // Disable Mode - Prevent inheritance
+    BgpEbgpSendDmzEnableMode_disable BgpEbgpSendDmzEnableMode = "disable"
 
-    // SSH Transport
-    BgpRpkiTransport_ssh BgpRpkiTransport = "ssh"
+    // Default Mode - Send dmz link bandwidth value to
+    // ebgp neighbor
+    BgpEbgpSendDmzEnableMode_default_ BgpEbgpSendDmzEnableMode = "default"
+
+    // Strict Mode - Send cumulative dmz link
+    // bandwidth value to ebgp neighbor
+    BgpEbgpSendDmzEnableMode_cumulative BgpEbgpSendDmzEnableMode = "cumulative"
+)
+
+// BgpClusterId represents Bgp cluster id
+type BgpClusterId string
+
+const (
+    // Number
+    BgpClusterId_number BgpClusterId = "number"
+
+    // IPv4 Address
+    BgpClusterId_ipv4_address BgpClusterId = "ipv4-address"
+)
+
+// BgpTcpMode represents Bgp tcp mode
+type BgpTcpMode string
+
+const (
+    // Either active or passive mode
+    BgpTcpMode_either BgpTcpMode = "either"
+
+    // Active mode only
+    BgpTcpMode_active_only BgpTcpMode = "active-only"
+
+    // Passive mode only
+    BgpTcpMode_passive_only BgpTcpMode = "passive-only"
+)
+
+// BgpAigpCfg represents Bgp aigp cfg
+type BgpAigpCfg string
+
+const (
+    // Enable AIGP
+    BgpAigpCfg_enable BgpAigpCfg = "enable"
+
+    // Disable AIGP
+    BgpAigpCfg_disable BgpAigpCfg = "disable"
+)
+
+// BmpPolicySelect represents Bmp policy select
+type BmpPolicySelect string
+
+const (
+    // Pickup routes after policy application
+    BmpPolicySelect_post_policy BmpPolicySelect = "post-policy"
+)
+
+// BgpFlowspecValidationCfg represents Bgp flowspec validation cfg
+type BgpFlowspecValidationCfg string
+
+const (
+    // Enable Flowspec validation
+    BgpFlowspecValidationCfg_enable BgpFlowspecValidationCfg = "enable"
+
+    // Disable Flowspec validation
+    BgpFlowspecValidationCfg_disable BgpFlowspecValidationCfg = "disable"
+
+    // Disable Flowspec redirect nexthop validation
+    BgpFlowspecValidationCfg_redirect_nexhop_disable BgpFlowspecValidationCfg = "redirect-nexhop-disable"
+)
+
+// BgpSignal represents Bgp signal
+type BgpSignal string
+
+const (
+    // Signalling BGP disable
+    BgpSignal_bgp_disable BgpSignal = "bgp-disable"
+
+    // Signalling LDP disable
+    BgpSignal_ldp_disable BgpSignal = "ldp-disable"
+)
+
+// BgpGlobalRouteDistinguisher represents Bgp global route distinguisher
+type BgpGlobalRouteDistinguisher string
+
+const (
+    // AS format RD
+    BgpGlobalRouteDistinguisher_as BgpGlobalRouteDistinguisher = "as"
+
+    // 4-byte AS format RD
+    BgpGlobalRouteDistinguisher_four_byte_as BgpGlobalRouteDistinguisher = "four-byte-as"
+
+    // IPv4 address format RD
+    BgpGlobalRouteDistinguisher_ipv4_address BgpGlobalRouteDistinguisher = "ipv4-address"
 )
 
 // BgpReorgOpt represents Bgp reorg opt
@@ -238,110 +338,6 @@ const (
 
     // Disable adv of VRF ReImported routes
     BgpReorgOpt_bgp_cfg_adv_vrf_re_imp_disable BgpReorgOpt = "bgp-cfg-adv-vrf-re-imp-disable"
-
-    // Disable adv of VRF EVPN extranet Imported
-    // routes
-    BgpReorgOpt_bgp_cfg_adv_vrf_evpn_re_imp_disable BgpReorgOpt = "bgp-cfg-adv-vrf-evpn-re-imp-disable"
-)
-
-// BgpAfEncapsulation represents Bgp af encapsulation
-type BgpAfEncapsulation string
-
-const (
-    // VxLAN encapsulation type
-    BgpAfEncapsulation_vx_lan BgpAfEncapsulation = "vx-lan"
-)
-
-// BgpAigpCfg represents Bgp aigp cfg
-type BgpAigpCfg string
-
-const (
-    // Enable AIGP
-    BgpAigpCfg_enable BgpAigpCfg = "enable"
-
-    // Disable AIGP
-    BgpAigpCfg_disable BgpAigpCfg = "disable"
-)
-
-// BgpRouteDistinguisher represents Bgp route distinguisher
-type BgpRouteDistinguisher string
-
-const (
-    // Automatically assigned
-    BgpRouteDistinguisher_auto BgpRouteDistinguisher = "auto"
-
-    // AS format RD
-    BgpRouteDistinguisher_as BgpRouteDistinguisher = "as"
-
-    // 4-byte AS format RD
-    BgpRouteDistinguisher_four_byte_as BgpRouteDistinguisher = "four-byte-as"
-
-    // IPv4 address format RD
-    BgpRouteDistinguisher_ipv4_address BgpRouteDistinguisher = "ipv4-address"
-)
-
-// BgpAdvRt represents Bgp adv rt
-type BgpAdvRt string
-
-const (
-    // Regular RT type
-    BgpAdvRt_bgp_regular_rt BgpAdvRt = "bgp-regular-rt"
-
-    // Stitching RT type
-    BgpAdvRt_bgp_stitching_rt BgpAdvRt = "bgp-stitching-rt"
-)
-
-// BgpTcpMode represents Bgp tcp mode
-type BgpTcpMode string
-
-const (
-    // Either active or passive mode
-    BgpTcpMode_either BgpTcpMode = "either"
-
-    // Active mode only
-    BgpTcpMode_active_only BgpTcpMode = "active-only"
-
-    // Passive mode only
-    BgpTcpMode_passive_only BgpTcpMode = "passive-only"
-)
-
-// BgpSiteOfOrigin represents Bgp site of origin
-type BgpSiteOfOrigin string
-
-const (
-    // AS format SoO
-    BgpSiteOfOrigin_as BgpSiteOfOrigin = "as"
-
-    // IPv4 address format SoO
-    BgpSiteOfOrigin_ipv4_address BgpSiteOfOrigin = "ipv4-address"
-
-    // 4-byte AS format SoO
-    BgpSiteOfOrigin_four_byte_as BgpSiteOfOrigin = "four-byte-as"
-)
-
-// BgpClusterId represents Bgp cluster id
-type BgpClusterId string
-
-const (
-    // Number
-    BgpClusterId_number BgpClusterId = "number"
-
-    // IPv4 Address
-    BgpClusterId_ipv4_address BgpClusterId = "ipv4-address"
-)
-
-// BgpGlobalRouteDistinguisher represents Bgp global route distinguisher
-type BgpGlobalRouteDistinguisher string
-
-const (
-    // AS format RD
-    BgpGlobalRouteDistinguisher_as BgpGlobalRouteDistinguisher = "as"
-
-    // 4-byte AS format RD
-    BgpGlobalRouteDistinguisher_four_byte_as BgpGlobalRouteDistinguisher = "four-byte-as"
-
-    // IPv4 address format RD
-    BgpGlobalRouteDistinguisher_ipv4_address BgpGlobalRouteDistinguisher = "ipv4-address"
 )
 
 // Bgp
@@ -385,7 +381,7 @@ type Bgp_Instance struct {
     YListKey string
 
     // This attribute is a key. Instance Name. For Default instance use - default.
-    // The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Autonomous system. The type is slice of Bgp_Instance_InstanceAs.
@@ -543,7 +539,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // VRF attribute config.
@@ -586,7 +582,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal struct {
     Exists interface{}
 
     // Configure Router-id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     RouterId interface{}
 
@@ -775,7 +771,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_RouteDistinguisher st
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address index. The type is interface{} with range: 0..65535.
@@ -893,6 +889,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     // RPKI bestpath use origin-AS validity. The type is interface{}.
     RpkiBestpathUseOriginAsValidity interface{}
 
+    // Label allocation mode: per-ce  Set per CE label mode,per-vrf Set per VRF
+    // label mode. The type is string.
+    Srv6LabelAllocationMode interface{}
+
     // RPKI bestpath origin-AS allow invalid. The type is interface{}.
     RpkiBestpathOriginAsAllowInvalid interface{}
 
@@ -977,9 +977,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Redistribute subscriber routes.
     SubscriberRoutes Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SubscriberRoutes
-
-    // Segment-routing Configurations.
-    SegmentRouting Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting
 }
 
 func (vrfGlobalAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf) GetEntityData() *types.CommonEntityData {
@@ -1015,7 +1012,6 @@ func (vrfGlobalAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
     vrfGlobalAf.EntityData.Children.Append("ospf-routes", types.YChild{"OspfRoutes", &vrfGlobalAf.OspfRoutes})
     vrfGlobalAf.EntityData.Children.Append("mobile-routes", types.YChild{"MobileRoutes", &vrfGlobalAf.MobileRoutes})
     vrfGlobalAf.EntityData.Children.Append("subscriber-routes", types.YChild{"SubscriberRoutes", &vrfGlobalAf.SubscriberRoutes})
-    vrfGlobalAf.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &vrfGlobalAf.SegmentRouting})
     vrfGlobalAf.EntityData.Leafs = types.NewOrderedMap()
     vrfGlobalAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", vrfGlobalAf.AfName})
     vrfGlobalAf.EntityData.Leafs.Append("rt-download", types.YLeaf{"RtDownload", vrfGlobalAf.RtDownload})
@@ -1030,6 +1026,7 @@ func (vrfGlobalAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlob
     vrfGlobalAf.EntityData.Leafs.Append("additional-paths-receive", types.YLeaf{"AdditionalPathsReceive", vrfGlobalAf.AdditionalPathsReceive})
     vrfGlobalAf.EntityData.Leafs.Append("permanent-network", types.YLeaf{"PermanentNetwork", vrfGlobalAf.PermanentNetwork})
     vrfGlobalAf.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", vrfGlobalAf.RpkiBestpathUseOriginAsValidity})
+    vrfGlobalAf.EntityData.Leafs.Append("srv6-label-allocation-mode", types.YLeaf{"Srv6LabelAllocationMode", vrfGlobalAf.Srv6LabelAllocationMode})
     vrfGlobalAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", vrfGlobalAf.RpkiBestpathOriginAsAllowInvalid})
     vrfGlobalAf.EntityData.Leafs.Append("next-hop-resolution-prefix-length-minimum", types.YLeaf{"NextHopResolutionPrefixLengthMinimum", vrfGlobalAf.NextHopResolutionPrefixLengthMinimum})
     vrfGlobalAf.EntityData.Leafs.Append("reset-weight-on-import", types.YLeaf{"ResetWeightOnImport", vrfGlobalAf.ResetWeightOnImport})
@@ -1257,9 +1254,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // This attribute is a key. Aggregate in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AggregateAddr interface{}
 
     // This attribute is a key. Aggregate in prefix/length format (prefix part).
@@ -1352,28 +1349,28 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YListKey string
 
     // This attribute is a key. Name of the ORR group. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     GroupName interface{}
 
     // Primary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrimaryRootAddress interface{}
 
     // Secondary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SecondaryRootAddress interface{}
 
     // Tertiary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     TertiaryRootAddress interface{}
 }
 
@@ -1413,15 +1410,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     HalfLife interface{}
 
     // Value to start reusing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     ReuseThreshold interface{}
 
     // Value to start suppressing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     SuppressThreshold interface{}
 
     // Maximum duration to suppress a stable route (seconds). The type is
-    // interface{} with range: 1..255. Units are second.
+    // interface{} with range: 1..255. This attribute is mandatory. Units are
+    // second.
     SuppressTime interface{}
 
     // Route policy to specify criteria for dampening. This cannot be specified if
@@ -1571,22 +1569,20 @@ func (staticRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlo
 
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_Distance
 // Define an administrative distance
-// This type is a presence type.
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_Distance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Distance for routes external to the AS. The type is interface{} with range:
-    // 1..255. This attribute is mandatory.
+    // 1..255. The default value is 20.
     ExternalRoutes interface{}
 
     // Distance for routes internal to the AS. The type is interface{} with range:
-    // 1..255. This attribute is mandatory.
+    // 1..255. The default value is 200.
     InternalRoutes interface{}
 
-    // Distance for local routes. The type is interface{} with range: 1..255. This
-    // attribute is mandatory.
+    // Distance for local routes. The type is interface{} with range: 1..255. The
+    // default value is 200.
     LocalRoutes interface{}
 }
 
@@ -1654,7 +1650,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YListKey string
 
     // This attribute is a key. OnePK application name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -1692,11 +1688,9 @@ func (applicationRoute *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
 
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_LabelMode
 // BGP 6PE/MPLS-VPN label allocation mode
-// This type is a presence type.
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_LabelMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Label allocation mode: per-ce  Set per CE label mode, per-vrf Set per VRF
     // label mode, per-prefix Set per Prefix label mode (for MPLS-VPN only). The
@@ -1770,7 +1764,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YListKey string
 
     // This attribute is a key. EIGRP router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -1781,7 +1775,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // Redistribution type: 01 for internal routes, 02 for external routes,
     // Logical combinations permitted. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -1851,9 +1845,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
 
     // This attribute is a key. Network in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NetworkAddr interface{}
 
     // This attribute is a key. Network in prefix/length format (prefix part). The
@@ -1932,11 +1926,9 @@ func (connectedRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vrf
 
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AllocateLabel
 // Label allocation policy
-// This type is a presence type.
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_AllocateLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Whether all nets should be labeled, default is FALSE. The type is bool.
     All interface{}
@@ -2046,7 +2038,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     YListKey string
 
     // This attribute is a key. OSPF router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -2059,7 +2051,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGloba
     // 1, 04 for external routes of type 2, 08 for NSSA external routes of type 1,
     // 10 for NSSA external routes of type 2, 20 for external routes, 40 for NSSA
     // external routes.  Logical combinations permitted. The type is string with
-    // pattern: b'[0-9a-fA-F]{1,8}'.
+    // pattern: [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -2166,75 +2158,6 @@ func (subscriberRoutes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_Vr
     return &(subscriberRoutes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting
-// Segment-routing Configurations
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // SRv6 Configurations.
-    Srv6 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting_Srv6
-}
-
-func (segmentRouting *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting) GetEntityData() *types.CommonEntityData {
-    segmentRouting.EntityData.YFilter = segmentRouting.YFilter
-    segmentRouting.EntityData.YangName = "segment-routing"
-    segmentRouting.EntityData.BundleName = "cisco_ios_xr"
-    segmentRouting.EntityData.ParentYangName = "vrf-global-af"
-    segmentRouting.EntityData.SegmentPath = "segment-routing"
-    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/" + segmentRouting.EntityData.SegmentPath
-    segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    segmentRouting.EntityData.Children = types.NewOrderedMap()
-    segmentRouting.EntityData.Children.Append("srv6", types.YChild{"Srv6", &segmentRouting.Srv6})
-    segmentRouting.EntityData.Leafs = types.NewOrderedMap()
-
-    segmentRouting.EntityData.YListKeys = []string {}
-
-    return &(segmentRouting.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting_Srv6
-// SRv6 Configurations
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting_Srv6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable SRv6 configuration submode. The type is interface{}.
-    Enable interface{}
-
-    // SID allocation mode: per-ce  Set per CE SID mode,per-vrf Set per VRF SID
-    // mode. The type is string.
-    Srv6sidAllocationMode interface{}
-
-    // Configure Locator name for SID allocation. The type is string.
-    LocatorName interface{}
-}
-
-func (srv6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_VrfGlobalAfs_VrfGlobalAf_SegmentRouting_Srv6) GetEntityData() *types.CommonEntityData {
-    srv6.EntityData.YFilter = srv6.YFilter
-    srv6.EntityData.YangName = "srv6"
-    srv6.EntityData.BundleName = "cisco_ios_xr"
-    srv6.EntityData.ParentYangName = "segment-routing"
-    srv6.EntityData.SegmentPath = "srv6"
-    srv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-global/vrf-global-afs/vrf-global-af/segment-routing/" + srv6.EntityData.SegmentPath
-    srv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6.EntityData.Children = types.NewOrderedMap()
-    srv6.EntityData.Leafs = types.NewOrderedMap()
-    srv6.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", srv6.Enable})
-    srv6.EntityData.Leafs.Append("srv6sid-allocation-mode", types.YLeaf{"Srv6sidAllocationMode", srv6.Srv6sidAllocationMode})
-    srv6.EntityData.Leafs.Append("locator-name", types.YLeaf{"LocatorName", srv6.LocatorName})
-
-    srv6.EntityData.YListKeys = []string {}
-
-    return &(srv6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfaces
 // Configure list of MPLS activated interfaces
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfaces struct {
@@ -2277,7 +2200,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfGlobal_MplsActivatedInterfac
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2503,9 +2426,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -2519,10 +2442,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     // TRUE to enable egress peer engineering FALSE to disable egress peer
     // engineering and to prevent inheritance from a parent. The type is bool.
     EgressPeerEngineering interface{}
-
-    // TRUE to merge updates FALSE to not merge updates and to prevent inheritance
-    // from a parent. The type is bool.
-    MergeSafi1And4InboundUpdates interface{}
 
     // Maximum time to wait for restart of GR capable peer. The type is
     // interface{} with range: 1..4095. Units are second. The default value is
@@ -2615,19 +2534,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor struct
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Address family type of a VRF neighbor.
     VrfNeighborAfs Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs
-
-    // Local Address subnet of routing updates.
-    LocalAddressSubNet Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalAddressSubNet
 
     // Local ip address.
     LocalAddress Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalAddress
@@ -2700,7 +2616,6 @@ func (vrfNeighbor *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
 
     vrfNeighbor.EntityData.Children = types.NewOrderedMap()
     vrfNeighbor.EntityData.Children.Append("vrf-neighbor-afs", types.YChild{"VrfNeighborAfs", &vrfNeighbor.VrfNeighborAfs})
-    vrfNeighbor.EntityData.Children.Append("local-address-sub-net", types.YChild{"LocalAddressSubNet", &vrfNeighbor.LocalAddressSubNet})
     vrfNeighbor.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &vrfNeighbor.LocalAddress})
     vrfNeighbor.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &vrfNeighbor.BmpActivates})
     vrfNeighbor.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &vrfNeighbor.EbgpMultihop})
@@ -2725,7 +2640,6 @@ func (vrfNeighbor *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfN
     vrfNeighbor.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", vrfNeighbor.InternalVpnClientIbgpCe})
     vrfNeighbor.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", vrfNeighbor.SessionGroupAddMember})
     vrfNeighbor.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", vrfNeighbor.EgressPeerEngineering})
-    vrfNeighbor.EntityData.Leafs.Append("merge-safi1-and4-inbound-updates", types.YLeaf{"MergeSafi1And4InboundUpdates", vrfNeighbor.MergeSafi1And4InboundUpdates})
     vrfNeighbor.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", vrfNeighbor.NeighborGracefulRestartStalepathTime})
     vrfNeighbor.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", vrfNeighbor.Shutdown})
     vrfNeighbor.EntityData.Leafs.Append("description", types.YLeaf{"Description", vrfNeighbor.Description})
@@ -2809,11 +2723,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -2869,10 +2783,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     // Prefix ORF policy name for incoming updates. The type is string.
     PrefixOrfPolicy interface{}
 
-    // Enable/disable Originator loop check for this neighbor-group/af-group. The
-    // type is interface{}.
-    UpdateOutOrigLoopChkDisable interface{}
-
     // Enable Accumulated IGP Metric for this neighbor. The type is BgpAigpCfg.
     Aigp interface{}
 
@@ -2887,7 +2797,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -2938,17 +2848,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     // Maximum number of prefixes to accept from this peer.
     MaximumPrefixes Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_MaximumPrefixes
 
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV6 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6
-
     // Remove private AS number from inbound updates.
     RemovePrivateAsEntireAsPathInbound Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPathInbound
 
     // Disable Advertise Of Default VRF Imported Routes.
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseDefImpDisableV4
-
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4
 
     // Advertise Translated Routes to the peer.
     AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
@@ -3010,10 +2914,8 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &vrfNeighborAf.AdvertiseDefImpDisableV6})
     vrfNeighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &vrfNeighborAf.AdvertiseDisable})
     vrfNeighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &vrfNeighborAf.MaximumPrefixes})
-    vrfNeighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v6", types.YChild{"AdvertiseBridgeDomainImpDisableV6", &vrfNeighborAf.AdvertiseBridgeDomainImpDisableV6})
     vrfNeighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &vrfNeighborAf.RemovePrivateAsEntireAsPathInbound})
     vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &vrfNeighborAf.AdvertiseDefImpDisableV4})
-    vrfNeighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v4", types.YChild{"AdvertiseBridgeDomainImpDisableV4", &vrfNeighborAf.AdvertiseBridgeDomainImpDisableV4})
     vrfNeighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &vrfNeighborAf.AdvertiseL2vpnEvpn})
     vrfNeighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &vrfNeighborAf.AdvertiseLocalL2vpnEvpn})
     vrfNeighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &vrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
@@ -3046,7 +2948,6 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", vrfNeighborAf.SendCommunityEbgpGracefulShutdown})
     vrfNeighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", vrfNeighborAf.Activate})
     vrfNeighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", vrfNeighborAf.PrefixOrfPolicy})
-    vrfNeighborAf.EntityData.Leafs.Append("update-out-orig-loop-chk-disable", types.YLeaf{"UpdateOutOrigLoopChkDisable", vrfNeighborAf.UpdateOutOrigLoopChkDisable})
     vrfNeighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", vrfNeighborAf.Aigp})
     vrfNeighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", vrfNeighborAf.AigpSendMed})
     vrfNeighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", vrfNeighborAf.AllowAsIn})
@@ -3239,45 +3140,6 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
     return &(maximumPrefixes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV6.EntityData.YFilter = advertiseBridgeDomainImpDisableV6.YFilter
-    advertiseBridgeDomainImpDisableV6.EntityData.YangName = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV6.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV6.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV6.AfName})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV6.AdvOption})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV6.RtType})
-
-    advertiseBridgeDomainImpDisableV6.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPathInbound
 // Remove private AS number from inbound updates
 // This type is a presence type.
@@ -3354,45 +3216,6 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
 
     return &(advertiseDefImpDisableV4.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV4.EntityData.YFilter = advertiseBridgeDomainImpDisableV4.YFilter
-    advertiseBridgeDomainImpDisableV4.EntityData.YangName = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV4.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV4.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV4.AfName})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV4.AdvOption})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV4.RtType})
-
-    advertiseBridgeDomainImpDisableV4.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV4.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
@@ -3529,7 +3352,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_VrfNei
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -3946,44 +3769,6 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalAddressSubNet
-// Local Address subnet of routing updates
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalAddressSubNet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // local address subnet ip address . The type is one of the following types:
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    LocalAddresssSubnet interface{}
-
-    // prefix length. The type is interface{} with range: 0..128.
-    PrefixLen interface{}
-}
-
-func (localAddressSubNet *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalAddressSubNet) GetEntityData() *types.CommonEntityData {
-    localAddressSubNet.EntityData.YFilter = localAddressSubNet.YFilter
-    localAddressSubNet.EntityData.YangName = "local-address-sub-net"
-    localAddressSubNet.EntityData.BundleName = "cisco_ios_xr"
-    localAddressSubNet.EntityData.ParentYangName = "vrf-neighbor"
-    localAddressSubNet.EntityData.SegmentPath = "local-address-sub-net"
-    localAddressSubNet.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor/" + localAddressSubNet.EntityData.SegmentPath
-    localAddressSubNet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    localAddressSubNet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    localAddressSubNet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    localAddressSubNet.EntityData.Children = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs.Append("local-addresss-subnet", types.YLeaf{"LocalAddresssSubnet", localAddressSubNet.LocalAddresssSubnet})
-    localAddressSubNet.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", localAddressSubNet.PrefixLen})
-
-    localAddressSubNet.EntityData.YListKeys = []string {}
-
-    return &(localAddressSubNet.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalAddress
 // Local ip address
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalAddress struct {
@@ -3996,9 +3781,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_LocalA
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -4224,7 +4009,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_Passwo
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -4300,7 +4085,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighbor_Neighb
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -4877,9 +4662,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -4893,10 +4678,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // TRUE to enable egress peer engineering FALSE to disable egress peer
     // engineering and to prevent inheritance from a parent. The type is bool.
     EgressPeerEngineering interface{}
-
-    // TRUE to merge updates FALSE to not merge updates and to prevent inheritance
-    // from a parent. The type is bool.
-    MergeSafi1And4InboundUpdates interface{}
 
     // Maximum time to wait for restart of GR capable peer. The type is
     // interface{} with range: 1..4095. Units are second. The default value is
@@ -4989,19 +4770,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Address family type of a VRF neighbor.
     VrfNeighborAfs Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs
-
-    // Local Address subnet of routing updates.
-    LocalAddressSubNet Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_LocalAddressSubNet
 
     // Local ip address.
     LocalAddress Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_LocalAddress
@@ -5074,7 +4852,6 @@ func (vrfNeighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
 
     vrfNeighborPrefixLength.EntityData.Children = types.NewOrderedMap()
     vrfNeighborPrefixLength.EntityData.Children.Append("vrf-neighbor-afs", types.YChild{"VrfNeighborAfs", &vrfNeighborPrefixLength.VrfNeighborAfs})
-    vrfNeighborPrefixLength.EntityData.Children.Append("local-address-sub-net", types.YChild{"LocalAddressSubNet", &vrfNeighborPrefixLength.LocalAddressSubNet})
     vrfNeighborPrefixLength.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &vrfNeighborPrefixLength.LocalAddress})
     vrfNeighborPrefixLength.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &vrfNeighborPrefixLength.BmpActivates})
     vrfNeighborPrefixLength.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &vrfNeighborPrefixLength.EbgpMultihop})
@@ -5100,7 +4877,6 @@ func (vrfNeighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNe
     vrfNeighborPrefixLength.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", vrfNeighborPrefixLength.InternalVpnClientIbgpCe})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", vrfNeighborPrefixLength.SessionGroupAddMember})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", vrfNeighborPrefixLength.EgressPeerEngineering})
-    vrfNeighborPrefixLength.EntityData.Leafs.Append("merge-safi1-and4-inbound-updates", types.YLeaf{"MergeSafi1And4InboundUpdates", vrfNeighborPrefixLength.MergeSafi1And4InboundUpdates})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", vrfNeighborPrefixLength.NeighborGracefulRestartStalepathTime})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", vrfNeighborPrefixLength.Shutdown})
     vrfNeighborPrefixLength.EntityData.Leafs.Append("description", types.YLeaf{"Description", vrfNeighborPrefixLength.Description})
@@ -5184,11 +4960,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     NeighborAfLongLivedGracefulRestartCapable interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -5244,10 +5020,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // Prefix ORF policy name for incoming updates. The type is string.
     PrefixOrfPolicy interface{}
 
-    // Enable/disable Originator loop check for this neighbor-group/af-group. The
-    // type is interface{}.
-    UpdateOutOrigLoopChkDisable interface{}
-
     // Enable Accumulated IGP Metric for this neighbor. The type is BgpAigpCfg.
     Aigp interface{}
 
@@ -5262,7 +5034,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -5313,17 +5085,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     // Maximum number of prefixes to accept from this peer.
     MaximumPrefixes Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_MaximumPrefixes
 
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV6 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6
-
     // Remove private AS number from inbound updates.
     RemovePrivateAsEntireAsPathInbound Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPathInbound
 
     // Disable Advertise Of Default VRF Imported Routes.
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseDefImpDisableV4
-
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4
 
     // Advertise Translated Routes to the peer.
     AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
@@ -5385,10 +5151,8 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &vrfNeighborAf.AdvertiseDefImpDisableV6})
     vrfNeighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &vrfNeighborAf.AdvertiseDisable})
     vrfNeighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &vrfNeighborAf.MaximumPrefixes})
-    vrfNeighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v6", types.YChild{"AdvertiseBridgeDomainImpDisableV6", &vrfNeighborAf.AdvertiseBridgeDomainImpDisableV6})
     vrfNeighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &vrfNeighborAf.RemovePrivateAsEntireAsPathInbound})
     vrfNeighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &vrfNeighborAf.AdvertiseDefImpDisableV4})
-    vrfNeighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v4", types.YChild{"AdvertiseBridgeDomainImpDisableV4", &vrfNeighborAf.AdvertiseBridgeDomainImpDisableV4})
     vrfNeighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &vrfNeighborAf.AdvertiseL2vpnEvpn})
     vrfNeighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &vrfNeighborAf.AdvertiseLocalL2vpnEvpn})
     vrfNeighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &vrfNeighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
@@ -5421,7 +5185,6 @@ func (vrfNeighborAf *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_Vr
     vrfNeighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", vrfNeighborAf.SendCommunityEbgpGracefulShutdown})
     vrfNeighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", vrfNeighborAf.Activate})
     vrfNeighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", vrfNeighborAf.PrefixOrfPolicy})
-    vrfNeighborAf.EntityData.Leafs.Append("update-out-orig-loop-chk-disable", types.YLeaf{"UpdateOutOrigLoopChkDisable", vrfNeighborAf.UpdateOutOrigLoopChkDisable})
     vrfNeighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", vrfNeighborAf.Aigp})
     vrfNeighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", vrfNeighborAf.AigpSendMed})
     vrfNeighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", vrfNeighborAf.AllowAsIn})
@@ -5614,45 +5377,6 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_
     return &(maximumPrefixes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV6) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV6.EntityData.YFilter = advertiseBridgeDomainImpDisableV6.YFilter
-    advertiseBridgeDomainImpDisableV6.EntityData.YangName = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV6.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV6.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV6.AfName})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV6.AdvOption})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV6.RtType})
-
-    advertiseBridgeDomainImpDisableV6.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_RemovePrivateAsEntireAsPathInbound
 // Remove private AS number from inbound updates
 // This type is a presence type.
@@ -5729,45 +5453,6 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
 
     return &(advertiseDefImpDisableV4.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseBridgeDomainImpDisableV4) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV4.EntityData.YFilter = advertiseBridgeDomainImpDisableV4.YFilter
-    advertiseBridgeDomainImpDisableV4.EntityData.YangName = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV4.EntityData.ParentYangName = "vrf-neighbor-af"
-    advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/vrf-neighbor-afs/vrf-neighbor-af/" + advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV4.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV4.AfName})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV4.AdvOption})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV4.RtType})
-
-    advertiseBridgeDomainImpDisableV4.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV4.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_VrfNeighborAfs_VrfNeighborAf_AdvertiseL2vpnEvpn
@@ -5904,7 +5589,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -6321,44 +6006,6 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfN
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_LocalAddressSubNet
-// Local Address subnet of routing updates
-type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_LocalAddressSubNet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // local address subnet ip address . The type is one of the following types:
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    LocalAddresssSubnet interface{}
-
-    // prefix length. The type is interface{} with range: 0..128.
-    PrefixLen interface{}
-}
-
-func (localAddressSubNet *Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_LocalAddressSubNet) GetEntityData() *types.CommonEntityData {
-    localAddressSubNet.EntityData.YFilter = localAddressSubNet.YFilter
-    localAddressSubNet.EntityData.YangName = "local-address-sub-net"
-    localAddressSubNet.EntityData.BundleName = "cisco_ios_xr"
-    localAddressSubNet.EntityData.ParentYangName = "vrf-neighbor-prefix-length"
-    localAddressSubNet.EntityData.SegmentPath = "local-address-sub-net"
-    localAddressSubNet.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/vrfs/vrf/vrf-neighbors/vrf-neighbor-prefix-length/" + localAddressSubNet.EntityData.SegmentPath
-    localAddressSubNet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    localAddressSubNet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    localAddressSubNet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    localAddressSubNet.EntityData.Children = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs.Append("local-addresss-subnet", types.YLeaf{"LocalAddresssSubnet", localAddressSubNet.LocalAddresssSubnet})
-    localAddressSubNet.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", localAddressSubNet.PrefixLen})
-
-    localAddressSubNet.EntityData.YListKeys = []string {}
-
-    return &(localAddressSubNet.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_LocalAddress
 // Local ip address
 type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixLength_LocalAddress struct {
@@ -6371,9 +6018,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -6599,7 +6246,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -6675,7 +6322,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_Vrfs_Vrf_VrfNeighbors_VrfNeighborPrefixL
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -7367,9 +7014,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -7383,10 +7030,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
     // TRUE to enable egress peer engineering FALSE to disable egress peer
     // engineering and to prevent inheritance from a parent. The type is bool.
     EgressPeerEngineering interface{}
-
-    // TRUE to merge updates FALSE to not merge updates and to prevent inheritance
-    // from a parent. The type is bool.
-    MergeSafi1And4InboundUpdates interface{}
 
     // Maximum time to wait for restart of GR capable peer. The type is
     // interface{} with range: 1..4095. Units are second. The default value is
@@ -7479,19 +7122,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor 
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // BGP neighbor AF configuration table.
     NeighborAfs Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs
-
-    // Local Address subnet of routing updates.
-    LocalAddressSubNet Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_LocalAddressSubNet
 
     // Local ip address.
     LocalAddress Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_LocalAddress
@@ -7564,7 +7204,6 @@ func (neighbor *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
 
     neighbor.EntityData.Children = types.NewOrderedMap()
     neighbor.EntityData.Children.Append("neighbor-afs", types.YChild{"NeighborAfs", &neighbor.NeighborAfs})
-    neighbor.EntityData.Children.Append("local-address-sub-net", types.YChild{"LocalAddressSubNet", &neighbor.LocalAddressSubNet})
     neighbor.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &neighbor.LocalAddress})
     neighbor.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &neighbor.BmpActivates})
     neighbor.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &neighbor.EbgpMultihop})
@@ -7589,7 +7228,6 @@ func (neighbor *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbor
     neighbor.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", neighbor.InternalVpnClientIbgpCe})
     neighbor.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", neighbor.SessionGroupAddMember})
     neighbor.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", neighbor.EgressPeerEngineering})
-    neighbor.EntityData.Leafs.Append("merge-safi1-and4-inbound-updates", types.YLeaf{"MergeSafi1And4InboundUpdates", neighbor.MergeSafi1And4InboundUpdates})
     neighbor.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", neighbor.NeighborGracefulRestartStalepathTime})
     neighbor.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", neighbor.Shutdown})
     neighbor.EntityData.Leafs.Append("description", types.YLeaf{"Description", neighbor.Description})
@@ -7676,11 +7314,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -7740,10 +7378,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     // Prefix ORF policy name for incoming updates. The type is string.
     PrefixOrfPolicy interface{}
 
-    // Enable/disable Originator loop check for this neighbor-group/af-group. The
-    // type is interface{}.
-    UpdateOutOrigLoopChkDisable interface{}
-
     // Enable Accumulated IGP Metric for this neighbor. The type is BgpAigpCfg.
     Aigp interface{}
 
@@ -7758,7 +7392,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -7809,17 +7443,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     // Maximum number of prefixes to accept from this peer.
     MaximumPrefixes Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_MaximumPrefixes
 
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6
-
     // Remove private AS number from inbound updates.
     RemovePrivateAsEntireAsPathInbound Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPathInbound
 
     // Disable Advertise Of Default VRF Imported Routes.
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseDefImpDisableV4
-
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4
 
     // Advertise Translated Routes to the peer.
     AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
@@ -7878,10 +7506,8 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &neighborAf.AdvertiseDefImpDisableV6})
     neighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &neighborAf.AdvertiseDisable})
     neighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &neighborAf.MaximumPrefixes})
-    neighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v6", types.YChild{"AdvertiseBridgeDomainImpDisableV6", &neighborAf.AdvertiseBridgeDomainImpDisableV6})
     neighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborAf.RemovePrivateAsEntireAsPathInbound})
     neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &neighborAf.AdvertiseDefImpDisableV4})
-    neighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v4", types.YChild{"AdvertiseBridgeDomainImpDisableV4", &neighborAf.AdvertiseBridgeDomainImpDisableV4})
     neighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &neighborAf.AdvertiseL2vpnEvpn})
     neighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &neighborAf.AdvertiseLocalL2vpnEvpn})
     neighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
@@ -7915,7 +7541,6 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborAf.SendCommunityEbgpGracefulShutdown})
     neighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", neighborAf.Activate})
     neighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", neighborAf.PrefixOrfPolicy})
-    neighborAf.EntityData.Leafs.Append("update-out-orig-loop-chk-disable", types.YLeaf{"UpdateOutOrigLoopChkDisable", neighborAf.UpdateOutOrigLoopChkDisable})
     neighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", neighborAf.Aigp})
     neighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", neighborAf.AigpSendMed})
     neighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", neighborAf.AllowAsIn})
@@ -8108,45 +7733,6 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     return &(maximumPrefixes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV6.EntityData.YFilter = advertiseBridgeDomainImpDisableV6.YFilter
-    advertiseBridgeDomainImpDisableV6.EntityData.YangName = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV6.EntityData.ParentYangName = "neighbor-af"
-    advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV6.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV6.AfName})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV6.AdvOption})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV6.RtType})
-
-    advertiseBridgeDomainImpDisableV6.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPathInbound
 // Remove private AS number from inbound updates
 // This type is a presence type.
@@ -8223,45 +7809,6 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
 
     return &(advertiseDefImpDisableV4.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV4.EntityData.YFilter = advertiseBridgeDomainImpDisableV4.YFilter
-    advertiseBridgeDomainImpDisableV4.EntityData.YangName = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV4.EntityData.ParentYangName = "neighbor-af"
-    advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/neighbor-afs/neighbor-af/" + advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV4.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV4.AfName})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV4.AdvOption})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV4.RtType})
-
-    advertiseBridgeDomainImpDisableV4.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV4.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
@@ -8763,44 +8310,6 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_LocalAddressSubNet
-// Local Address subnet of routing updates
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_LocalAddressSubNet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // local address subnet ip address . The type is one of the following types:
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    LocalAddresssSubnet interface{}
-
-    // prefix length. The type is interface{} with range: 0..128.
-    PrefixLen interface{}
-}
-
-func (localAddressSubNet *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_LocalAddressSubNet) GetEntityData() *types.CommonEntityData {
-    localAddressSubNet.EntityData.YFilter = localAddressSubNet.YFilter
-    localAddressSubNet.EntityData.YangName = "local-address-sub-net"
-    localAddressSubNet.EntityData.BundleName = "cisco_ios_xr"
-    localAddressSubNet.EntityData.ParentYangName = "neighbor"
-    localAddressSubNet.EntityData.SegmentPath = "local-address-sub-net"
-    localAddressSubNet.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor/" + localAddressSubNet.EntityData.SegmentPath
-    localAddressSubNet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    localAddressSubNet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    localAddressSubNet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    localAddressSubNet.EntityData.Children = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs.Append("local-addresss-subnet", types.YLeaf{"LocalAddresssSubnet", localAddressSubNet.LocalAddresssSubnet})
-    localAddressSubNet.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", localAddressSubNet.PrefixLen})
-
-    localAddressSubNet.EntityData.YListKeys = []string {}
-
-    return &(localAddressSubNet.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_LocalAddress
 // Local ip address
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_LocalAddress struct {
@@ -8813,9 +8322,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -9041,7 +8550,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -9117,7 +8626,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_Neighbor_
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -9694,9 +9203,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // This attribute is a key. Neighbor address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // TRUE to preserve the CE path attributes.FALSE to override CE path
@@ -9710,10 +9219,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // TRUE to enable egress peer engineering FALSE to disable egress peer
     // engineering and to prevent inheritance from a parent. The type is bool.
     EgressPeerEngineering interface{}
-
-    // TRUE to merge updates FALSE to not merge updates and to prevent inheritance
-    // from a parent. The type is bool.
-    MergeSafi1And4InboundUpdates interface{}
 
     // Maximum time to wait for restart of GR capable peer. The type is
     // interface{} with range: 1..4095. Units are second. The default value is
@@ -9806,19 +9311,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // BGP neighbor AF configuration table.
     NeighborAfs Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs
-
-    // Local Address subnet of routing updates.
-    LocalAddressSubNet Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_LocalAddressSubNet
 
     // Local ip address.
     LocalAddress Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_LocalAddress
@@ -9891,7 +9393,6 @@ func (neighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnt
 
     neighborPrefixLength.EntityData.Children = types.NewOrderedMap()
     neighborPrefixLength.EntityData.Children.Append("neighbor-afs", types.YChild{"NeighborAfs", &neighborPrefixLength.NeighborAfs})
-    neighborPrefixLength.EntityData.Children.Append("local-address-sub-net", types.YChild{"LocalAddressSubNet", &neighborPrefixLength.LocalAddressSubNet})
     neighborPrefixLength.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &neighborPrefixLength.LocalAddress})
     neighborPrefixLength.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &neighborPrefixLength.BmpActivates})
     neighborPrefixLength.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &neighborPrefixLength.EbgpMultihop})
@@ -9917,7 +9418,6 @@ func (neighborPrefixLength *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEnt
     neighborPrefixLength.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", neighborPrefixLength.InternalVpnClientIbgpCe})
     neighborPrefixLength.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", neighborPrefixLength.SessionGroupAddMember})
     neighborPrefixLength.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", neighborPrefixLength.EgressPeerEngineering})
-    neighborPrefixLength.EntityData.Leafs.Append("merge-safi1-and4-inbound-updates", types.YLeaf{"MergeSafi1And4InboundUpdates", neighborPrefixLength.MergeSafi1And4InboundUpdates})
     neighborPrefixLength.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", neighborPrefixLength.NeighborGracefulRestartStalepathTime})
     neighborPrefixLength.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", neighborPrefixLength.Shutdown})
     neighborPrefixLength.EntityData.Leafs.Append("description", types.YLeaf{"Description", neighborPrefixLength.Description})
@@ -10004,11 +9504,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -10068,10 +9568,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // Prefix ORF policy name for incoming updates. The type is string.
     PrefixOrfPolicy interface{}
 
-    // Enable/disable Originator loop check for this neighbor-group/af-group. The
-    // type is interface{}.
-    UpdateOutOrigLoopChkDisable interface{}
-
     // Enable Accumulated IGP Metric for this neighbor. The type is BgpAigpCfg.
     Aigp interface{}
 
@@ -10086,7 +9582,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -10137,17 +9633,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     // Maximum number of prefixes to accept from this peer.
     MaximumPrefixes Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_MaximumPrefixes
 
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6
-
     // Remove private AS number from inbound updates.
     RemovePrivateAsEntireAsPathInbound Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPathInbound
 
     // Disable Advertise Of Default VRF Imported Routes.
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseDefImpDisableV4
-
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4
 
     // Advertise Translated Routes to the peer.
     AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
@@ -10206,10 +9696,8 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &neighborAf.AdvertiseDefImpDisableV6})
     neighborAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &neighborAf.AdvertiseDisable})
     neighborAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &neighborAf.MaximumPrefixes})
-    neighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v6", types.YChild{"AdvertiseBridgeDomainImpDisableV6", &neighborAf.AdvertiseBridgeDomainImpDisableV6})
     neighborAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborAf.RemovePrivateAsEntireAsPathInbound})
     neighborAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &neighborAf.AdvertiseDefImpDisableV4})
-    neighborAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v4", types.YChild{"AdvertiseBridgeDomainImpDisableV4", &neighborAf.AdvertiseBridgeDomainImpDisableV4})
     neighborAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &neighborAf.AdvertiseL2vpnEvpn})
     neighborAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &neighborAf.AdvertiseLocalL2vpnEvpn})
     neighborAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborAf.NeighborAfLongLivedGracefulRestartStaleTime})
@@ -10243,7 +9731,6 @@ func (neighborAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighb
     neighborAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborAf.SendCommunityEbgpGracefulShutdown})
     neighborAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", neighborAf.Activate})
     neighborAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", neighborAf.PrefixOrfPolicy})
-    neighborAf.EntityData.Leafs.Append("update-out-orig-loop-chk-disable", types.YLeaf{"UpdateOutOrigLoopChkDisable", neighborAf.UpdateOutOrigLoopChkDisable})
     neighborAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", neighborAf.Aigp})
     neighborAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", neighborAf.AigpSendMed})
     neighborAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", neighborAf.AllowAsIn})
@@ -10436,45 +9923,6 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     return &(maximumPrefixes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV6) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV6.EntityData.YFilter = advertiseBridgeDomainImpDisableV6.YFilter
-    advertiseBridgeDomainImpDisableV6.EntityData.YangName = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV6.EntityData.ParentYangName = "neighbor-af"
-    advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV6.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV6.AfName})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV6.AdvOption})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV6.RtType})
-
-    advertiseBridgeDomainImpDisableV6.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_RemovePrivateAsEntireAsPathInbound
 // Remove private AS number from inbound updates
 // This type is a presence type.
@@ -10551,45 +9999,6 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
 
     return &(advertiseDefImpDisableV4.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseBridgeDomainImpDisableV4) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV4.EntityData.YFilter = advertiseBridgeDomainImpDisableV4.YFilter
-    advertiseBridgeDomainImpDisableV4.EntityData.YangName = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV4.EntityData.ParentYangName = "neighbor-af"
-    advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/neighbor-afs/neighbor-af/" + advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV4.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV4.AfName})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV4.AdvOption})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV4.RtType})
-
-    advertiseBridgeDomainImpDisableV4.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV4.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_NeighborAfs_NeighborAf_AdvertiseL2vpnEvpn
@@ -11091,44 +10500,6 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_LocalAddressSubNet
-// Local Address subnet of routing updates
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_LocalAddressSubNet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // local address subnet ip address . The type is one of the following types:
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    LocalAddresssSubnet interface{}
-
-    // prefix length. The type is interface{} with range: 0..128.
-    PrefixLen interface{}
-}
-
-func (localAddressSubNet *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_LocalAddressSubNet) GetEntityData() *types.CommonEntityData {
-    localAddressSubNet.EntityData.YFilter = localAddressSubNet.YFilter
-    localAddressSubNet.EntityData.YangName = "local-address-sub-net"
-    localAddressSubNet.EntityData.BundleName = "cisco_ios_xr"
-    localAddressSubNet.EntityData.ParentYangName = "neighbor-prefix-length"
-    localAddressSubNet.EntityData.SegmentPath = "local-address-sub-net"
-    localAddressSubNet.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbors/neighbor-prefix-length/" + localAddressSubNet.EntityData.SegmentPath
-    localAddressSubNet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    localAddressSubNet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    localAddressSubNet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    localAddressSubNet.EntityData.Children = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs.Append("local-addresss-subnet", types.YLeaf{"LocalAddresssSubnet", localAddressSubNet.LocalAddresssSubnet})
-    localAddressSubNet.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", localAddressSubNet.PrefixLen})
-
-    localAddressSubNet.EntityData.YListKeys = []string {}
-
-    return &(localAddressSubNet.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_LocalAddress
 // Local ip address
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborPrefixLength_LocalAddress struct {
@@ -11141,9 +10512,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -11369,7 +10740,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -11445,7 +10816,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Neighbors_NeighborP
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -12051,7 +11422,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     YListKey string
 
     // This attribute is a key. BGP neighbor group name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     NeighborGroupName interface{}
 
     // Inherit configuration from a neighbor-group. The type is string.
@@ -12068,10 +11439,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // TRUE to enable egress peer engineering FALSE to disable egress peer
     // engineering and to prevent inheritance from a parent. The type is bool.
     EgressPeerEngineering interface{}
-
-    // TRUE to merge updates FALSE to not merge updates and to prevent inheritance
-    // from a parent. The type is bool.
-    MergeSafi1And4InboundUpdates interface{}
 
     // Maximum time to wait for restart of GR capable peer. The type is
     // interface{} with range: 1..4095. Units are second. The default value is
@@ -12161,12 +11528,12 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Create this group. Deletion of this object causes deletion of all the
@@ -12176,9 +11543,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
 
     // BGP neighbor-group AF configuration table.
     NeighborGroupAfs Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs
-
-    // Local Address subnet of routing updates.
-    LocalAddressSubNet Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_LocalAddressSubNet
 
     // Local ip address.
     LocalAddress Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_LocalAddress
@@ -12251,7 +11615,6 @@ func (neighborGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Nei
 
     neighborGroup.EntityData.Children = types.NewOrderedMap()
     neighborGroup.EntityData.Children.Append("neighbor-group-afs", types.YChild{"NeighborGroupAfs", &neighborGroup.NeighborGroupAfs})
-    neighborGroup.EntityData.Children.Append("local-address-sub-net", types.YChild{"LocalAddressSubNet", &neighborGroup.LocalAddressSubNet})
     neighborGroup.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &neighborGroup.LocalAddress})
     neighborGroup.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &neighborGroup.BmpActivates})
     neighborGroup.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &neighborGroup.EbgpMultihop})
@@ -12277,7 +11640,6 @@ func (neighborGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Nei
     neighborGroup.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", neighborGroup.InternalVpnClientIbgpCe})
     neighborGroup.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", neighborGroup.SessionGroupAddMember})
     neighborGroup.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", neighborGroup.EgressPeerEngineering})
-    neighborGroup.EntityData.Leafs.Append("merge-safi1-and4-inbound-updates", types.YLeaf{"MergeSafi1And4InboundUpdates", neighborGroup.MergeSafi1And4InboundUpdates})
     neighborGroup.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", neighborGroup.NeighborGracefulRestartStalepathTime})
     neighborGroup.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", neighborGroup.Shutdown})
     neighborGroup.EntityData.Leafs.Append("description", types.YLeaf{"Description", neighborGroup.Description})
@@ -12364,11 +11726,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -12428,10 +11790,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // Prefix ORF policy name for incoming updates. The type is string.
     PrefixOrfPolicy interface{}
 
-    // Enable/disable Originator loop check for this neighbor-group/af-group. The
-    // type is interface{}.
-    UpdateOutOrigLoopChkDisable interface{}
-
     // Enable Accumulated IGP Metric for this neighbor. The type is BgpAigpCfg.
     Aigp interface{}
 
@@ -12446,7 +11804,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -12497,17 +11855,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     // Maximum number of prefixes to accept from this peer.
     MaximumPrefixes Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_MaximumPrefixes
 
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV6
-
     // Remove private AS number from inbound updates.
     RemovePrivateAsEntireAsPathInbound Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_RemovePrivateAsEntireAsPathInbound
 
     // Disable Advertise Of Default VRF Imported Routes.
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseDefImpDisableV4
-
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV4
 
     // Advertise Translated Routes to the peer.
     AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2vpnEvpn
@@ -12569,10 +11921,8 @@ func (neighborGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     neighborGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &neighborGroupAf.AdvertiseDefImpDisableV6})
     neighborGroupAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &neighborGroupAf.AdvertiseDisable})
     neighborGroupAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &neighborGroupAf.MaximumPrefixes})
-    neighborGroupAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v6", types.YChild{"AdvertiseBridgeDomainImpDisableV6", &neighborGroupAf.AdvertiseBridgeDomainImpDisableV6})
     neighborGroupAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &neighborGroupAf.RemovePrivateAsEntireAsPathInbound})
     neighborGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &neighborGroupAf.AdvertiseDefImpDisableV4})
-    neighborGroupAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v4", types.YChild{"AdvertiseBridgeDomainImpDisableV4", &neighborGroupAf.AdvertiseBridgeDomainImpDisableV4})
     neighborGroupAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &neighborGroupAf.AdvertiseL2vpnEvpn})
     neighborGroupAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &neighborGroupAf.AdvertiseLocalL2vpnEvpn})
     neighborGroupAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &neighborGroupAf.NeighborAfLongLivedGracefulRestartStaleTime})
@@ -12607,7 +11957,6 @@ func (neighborGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     neighborGroupAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", neighborGroupAf.SendCommunityEbgpGracefulShutdown})
     neighborGroupAf.EntityData.Leafs.Append("activate", types.YLeaf{"Activate", neighborGroupAf.Activate})
     neighborGroupAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", neighborGroupAf.PrefixOrfPolicy})
-    neighborGroupAf.EntityData.Leafs.Append("update-out-orig-loop-chk-disable", types.YLeaf{"UpdateOutOrigLoopChkDisable", neighborGroupAf.UpdateOutOrigLoopChkDisable})
     neighborGroupAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", neighborGroupAf.Aigp})
     neighborGroupAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", neighborGroupAf.AigpSendMed})
     neighborGroupAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", neighborGroupAf.AllowAsIn})
@@ -12800,45 +12149,6 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_N
     return &(maximumPrefixes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV6
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV6) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV6.EntityData.YFilter = advertiseBridgeDomainImpDisableV6.YFilter
-    advertiseBridgeDomainImpDisableV6.EntityData.YangName = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV6.EntityData.ParentYangName = "neighbor-group-af"
-    advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV6.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV6.AfName})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV6.AdvOption})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV6.RtType})
-
-    advertiseBridgeDomainImpDisableV6.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_RemovePrivateAsEntireAsPathInbound
 // Remove private AS number from inbound updates
 // This type is a presence type.
@@ -12915,45 +12225,6 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
 
     return &(advertiseDefImpDisableV4.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV4
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseBridgeDomainImpDisableV4) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV4.EntityData.YFilter = advertiseBridgeDomainImpDisableV4.YFilter
-    advertiseBridgeDomainImpDisableV4.EntityData.YangName = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV4.EntityData.ParentYangName = "neighbor-group-af"
-    advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/neighbor-group-afs/neighbor-group-af/" + advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV4.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV4.AfName})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV4.AdvOption})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV4.RtType})
-
-    advertiseBridgeDomainImpDisableV4.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV4.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_NeighborGroupAfs_NeighborGroupAf_AdvertiseL2vpnEvpn
@@ -13090,7 +12361,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -13507,44 +12778,6 @@ func (advertiseVrfImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     return &(advertiseVrfImpDisableV4.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_LocalAddressSubNet
-// Local Address subnet of routing updates
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_LocalAddressSubNet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // local address subnet ip address . The type is one of the following types:
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    LocalAddresssSubnet interface{}
-
-    // prefix length. The type is interface{} with range: 0..128.
-    PrefixLen interface{}
-}
-
-func (localAddressSubNet *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_LocalAddressSubNet) GetEntityData() *types.CommonEntityData {
-    localAddressSubNet.EntityData.YFilter = localAddressSubNet.YFilter
-    localAddressSubNet.EntityData.YangName = "local-address-sub-net"
-    localAddressSubNet.EntityData.BundleName = "cisco_ios_xr"
-    localAddressSubNet.EntityData.ParentYangName = "neighbor-group"
-    localAddressSubNet.EntityData.SegmentPath = "local-address-sub-net"
-    localAddressSubNet.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/neighbor-groups/neighbor-group/" + localAddressSubNet.EntityData.SegmentPath
-    localAddressSubNet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    localAddressSubNet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    localAddressSubNet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    localAddressSubNet.EntityData.Children = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs.Append("local-addresss-subnet", types.YLeaf{"LocalAddresssSubnet", localAddressSubNet.LocalAddresssSubnet})
-    localAddressSubNet.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", localAddressSubNet.PrefixLen})
-
-    localAddressSubNet.EntityData.YListKeys = []string {}
-
-    return &(localAddressSubNet.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_LocalAddress
 // Local ip address
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_NeighborGroup_LocalAddress struct {
@@ -13557,9 +12790,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -13785,7 +13018,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -13861,7 +13094,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_NeighborGroups_Neig
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -14467,7 +13700,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup st
     YListKey string
 
     // This attribute is a key. BGP AF group name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     AfGroupName interface{}
 
     // AF group configuration table.
@@ -14558,11 +13791,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     L2vpnSignalling interface{}
 
     // TRUE to send extended communities to the external
-    // neighbor/neighbor-group/af-group.  FALSE not to send and to prevent
+    // neighbor/neighbor-group/af-group. FALSE not to send and to prevent
     // inheritance from a parent. The type is bool.
     SendExtCommunityEbgp interface{}
 
-    // TRUE to configure as a accept-route-legacy-RT.  FALSE to prevent
+    // TRUE to configure as a accept-route-legacy-RT. FALSE to prevent
     // accept-route-legacy-RT from being inherited. The type is bool.
     AcceptRouteLegacyRt interface{}
 
@@ -14616,10 +13849,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     // Prefix ORF policy name for incoming updates. The type is string.
     PrefixOrfPolicy interface{}
 
-    // Enable/disable Originator loop check for this neighbor-group/af-group. The
-    // type is interface{}.
-    UpdateOutOrigLoopChkDisable interface{}
-
     // Enable Accumulated IGP Metric for this neighbor. The type is BgpAigpCfg.
     Aigp interface{}
 
@@ -14634,7 +13863,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     // is none.
     AdvertiseOrf interface{}
 
-    // TRUE to configure as a route-reflector-client.  FALSE to prevent
+    // TRUE to configure as a route-reflector-client. FALSE to prevent
     // route-reflector-client from being inherited. The type is bool.
     RouteReflectorClient interface{}
 
@@ -14681,17 +13910,11 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     // Maximum number of prefixes to accept from this peer.
     MaximumPrefixes Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_MaximumPrefixes
 
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV6
-
     // Remove private AS number from inbound updates.
     RemovePrivateAsEntireAsPathInbound Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_RemovePrivateAsEntireAsPathInbound
 
     // Disable Advertise Of Default VRF Imported Routes.
     AdvertiseDefImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseDefImpDisableV4
-
-    // Disable Advertise Of VRF EVPN Extranet Imported Routes.
-    AdvertiseBridgeDomainImpDisableV4 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV4
 
     // Advertise Translated Routes to the peer.
     AdvertiseL2vpnEvpn Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2vpnEvpn
@@ -14753,10 +13976,8 @@ func (afGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroup
     afGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v6", types.YChild{"AdvertiseDefImpDisableV6", &afGroupAf.AdvertiseDefImpDisableV6})
     afGroupAf.EntityData.Children.Append("advertise-disable", types.YChild{"AdvertiseDisable", &afGroupAf.AdvertiseDisable})
     afGroupAf.EntityData.Children.Append("maximum-prefixes", types.YChild{"MaximumPrefixes", &afGroupAf.MaximumPrefixes})
-    afGroupAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v6", types.YChild{"AdvertiseBridgeDomainImpDisableV6", &afGroupAf.AdvertiseBridgeDomainImpDisableV6})
     afGroupAf.EntityData.Children.Append("remove-private-as-entire-as-path-inbound", types.YChild{"RemovePrivateAsEntireAsPathInbound", &afGroupAf.RemovePrivateAsEntireAsPathInbound})
     afGroupAf.EntityData.Children.Append("advertise-def-imp-disable-v4", types.YChild{"AdvertiseDefImpDisableV4", &afGroupAf.AdvertiseDefImpDisableV4})
-    afGroupAf.EntityData.Children.Append("advertise-bridge-domain-imp-disable-v4", types.YChild{"AdvertiseBridgeDomainImpDisableV4", &afGroupAf.AdvertiseBridgeDomainImpDisableV4})
     afGroupAf.EntityData.Children.Append("advertise-l2vpn-evpn", types.YChild{"AdvertiseL2vpnEvpn", &afGroupAf.AdvertiseL2vpnEvpn})
     afGroupAf.EntityData.Children.Append("advertise-local-l2vpn-evpn", types.YChild{"AdvertiseLocalL2vpnEvpn", &afGroupAf.AdvertiseLocalL2vpnEvpn})
     afGroupAf.EntityData.Children.Append("neighbor-af-long-lived-graceful-restart-stale-time", types.YChild{"NeighborAfLongLivedGracefulRestartStaleTime", &afGroupAf.NeighborAfLongLivedGracefulRestartStaleTime})
@@ -14792,7 +14013,6 @@ func (afGroupAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroup
     afGroupAf.EntityData.Leafs.Append("multipath", types.YLeaf{"Multipath", afGroupAf.Multipath})
     afGroupAf.EntityData.Leafs.Append("send-community-ebgp-graceful-shutdown", types.YLeaf{"SendCommunityEbgpGracefulShutdown", afGroupAf.SendCommunityEbgpGracefulShutdown})
     afGroupAf.EntityData.Leafs.Append("prefix-orf-policy", types.YLeaf{"PrefixOrfPolicy", afGroupAf.PrefixOrfPolicy})
-    afGroupAf.EntityData.Leafs.Append("update-out-orig-loop-chk-disable", types.YLeaf{"UpdateOutOrigLoopChkDisable", afGroupAf.UpdateOutOrigLoopChkDisable})
     afGroupAf.EntityData.Leafs.Append("aigp", types.YLeaf{"Aigp", afGroupAf.Aigp})
     afGroupAf.EntityData.Leafs.Append("aigp-send-med", types.YLeaf{"AigpSendMed", afGroupAf.AigpSendMed})
     afGroupAf.EntityData.Leafs.Append("allow-as-in", types.YLeaf{"AllowAsIn", afGroupAf.AllowAsIn})
@@ -14984,45 +14204,6 @@ func (maximumPrefixes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_A
     return &(maximumPrefixes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV6
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV6) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV6.EntityData.YFilter = advertiseBridgeDomainImpDisableV6.YFilter
-    advertiseBridgeDomainImpDisableV6.EntityData.YangName = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV6.EntityData.ParentYangName = "af-group-af"
-    advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v6"
-    advertiseBridgeDomainImpDisableV6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseBridgeDomainImpDisableV6.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV6.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV6.AfName})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV6.AdvOption})
-    advertiseBridgeDomainImpDisableV6.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV6.RtType})
-
-    advertiseBridgeDomainImpDisableV6.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_RemovePrivateAsEntireAsPathInbound
 // Remove private AS number from inbound updates
 // This type is a presence type.
@@ -15099,45 +14280,6 @@ func (advertiseDefImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Bg
     advertiseDefImpDisableV4.EntityData.YListKeys = []string {}
 
     return &(advertiseDefImpDisableV4.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV4
-// Disable Advertise Of VRF EVPN Extranet Imported
-// Routes
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Address family. The type is BgpAddressFamily.
-    AfName interface{}
-
-    // Advertise option. The type is BgpReorgOpt.
-    AdvOption interface{}
-
-    // RT type. The type is BgpAdvRt.
-    RtType interface{}
-}
-
-func (advertiseBridgeDomainImpDisableV4 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseBridgeDomainImpDisableV4) GetEntityData() *types.CommonEntityData {
-    advertiseBridgeDomainImpDisableV4.EntityData.YFilter = advertiseBridgeDomainImpDisableV4.YFilter
-    advertiseBridgeDomainImpDisableV4.EntityData.YangName = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleName = "cisco_ios_xr"
-    advertiseBridgeDomainImpDisableV4.EntityData.ParentYangName = "af-group-af"
-    advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath = "advertise-bridge-domain-imp-disable-v4"
-    advertiseBridgeDomainImpDisableV4.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/af-groups/af-group/af-group-afs/af-group-af/" + advertiseBridgeDomainImpDisableV4.EntityData.SegmentPath
-    advertiseBridgeDomainImpDisableV4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    advertiseBridgeDomainImpDisableV4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    advertiseBridgeDomainImpDisableV4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    advertiseBridgeDomainImpDisableV4.EntityData.Children = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs = types.NewOrderedMap()
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", advertiseBridgeDomainImpDisableV4.AfName})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("adv-option", types.YLeaf{"AdvOption", advertiseBridgeDomainImpDisableV4.AdvOption})
-    advertiseBridgeDomainImpDisableV4.EntityData.Leafs.Append("rt-type", types.YLeaf{"RtType", advertiseBridgeDomainImpDisableV4.RtType})
-
-    advertiseBridgeDomainImpDisableV4.EntityData.YListKeys = []string {}
-
-    return &(advertiseBridgeDomainImpDisableV4.EntityData)
 }
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_AfGroupAfs_AfGroupAf_AdvertiseL2vpnEvpn
@@ -15274,7 +14416,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_AfGroups_AfGroup_Af
     AsIndex interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // IP address Index. The type is interface{} with range: 0..65535.
@@ -15733,7 +14875,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     YListKey string
 
     // This attribute is a key. BGP session group name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SessionGroupName interface{}
 
     // Inherit address-family independent config from a session-group. The type is
@@ -15747,10 +14889,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     // TRUE to enable egress peer engineering FALSE to disable egress peer
     // engineering and to prevent inheritance from a parent. The type is bool.
     EgressPeerEngineering interface{}
-
-    // TRUE to merge updates FALSE to not merge updates and to prevent inheritance
-    // from a parent. The type is bool.
-    MergeSafi1And4InboundUpdates interface{}
 
     // Maximum time to wait for restart of GR capable peer. The type is
     // interface{} with range: 1..4095. Units are second. The default value is
@@ -15840,21 +14978,18 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     // the connected nexthop check for this peer. The type is bool.
     IgnoreConnectedCheckEbgp interface{}
 
-    // TRUE to suppress BGP 4-byte-as capability.  FALSE to not suppress it and to
+    // TRUE to suppress BGP 4-byte-as capability. FALSE to not suppress it and to
     // prevent inheritance from a parent. The type is bool.
     SuppressFourByteAsCapability interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Create this group. Deletion of this object causes deletion of all the
     // objects under NeighborGroup/SessionGroup associated with this object. The
     // type is interface{}.
     Create interface{}
-
-    // Local Address subnet of routing updates.
-    LocalAddressSubNet Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_LocalAddressSubNet
 
     // Local ip address.
     LocalAddress Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_LocalAddress
@@ -15926,7 +15061,6 @@ func (sessionGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     sessionGroup.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionGroup.EntityData.Children = types.NewOrderedMap()
-    sessionGroup.EntityData.Children.Append("local-address-sub-net", types.YChild{"LocalAddressSubNet", &sessionGroup.LocalAddressSubNet})
     sessionGroup.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &sessionGroup.LocalAddress})
     sessionGroup.EntityData.Children.Append("bmp-activates", types.YChild{"BmpActivates", &sessionGroup.BmpActivates})
     sessionGroup.EntityData.Children.Append("ebgp-multihop", types.YChild{"EbgpMultihop", &sessionGroup.EbgpMultihop})
@@ -15951,7 +15085,6 @@ func (sessionGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     sessionGroup.EntityData.Leafs.Append("session-group-add-member", types.YLeaf{"SessionGroupAddMember", sessionGroup.SessionGroupAddMember})
     sessionGroup.EntityData.Leafs.Append("internal-vpn-client-ibgp-ce", types.YLeaf{"InternalVpnClientIbgpCe", sessionGroup.InternalVpnClientIbgpCe})
     sessionGroup.EntityData.Leafs.Append("egress-peer-engineering", types.YLeaf{"EgressPeerEngineering", sessionGroup.EgressPeerEngineering})
-    sessionGroup.EntityData.Leafs.Append("merge-safi1-and4-inbound-updates", types.YLeaf{"MergeSafi1And4InboundUpdates", sessionGroup.MergeSafi1And4InboundUpdates})
     sessionGroup.EntityData.Leafs.Append("neighbor-graceful-restart-stalepath-time", types.YLeaf{"NeighborGracefulRestartStalepathTime", sessionGroup.NeighborGracefulRestartStalepathTime})
     sessionGroup.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", sessionGroup.Shutdown})
     sessionGroup.EntityData.Leafs.Append("description", types.YLeaf{"Description", sessionGroup.Description})
@@ -15984,44 +15117,6 @@ func (sessionGroup *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_Sess
     return &(sessionGroup.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_LocalAddressSubNet
-// Local Address subnet of routing updates
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_LocalAddressSubNet struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // local address subnet ip address . The type is one of the following types:
-    // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
-    // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
-    LocalAddresssSubnet interface{}
-
-    // prefix length. The type is interface{} with range: 0..128.
-    PrefixLen interface{}
-}
-
-func (localAddressSubNet *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_LocalAddressSubNet) GetEntityData() *types.CommonEntityData {
-    localAddressSubNet.EntityData.YFilter = localAddressSubNet.YFilter
-    localAddressSubNet.EntityData.YangName = "local-address-sub-net"
-    localAddressSubNet.EntityData.BundleName = "cisco_ios_xr"
-    localAddressSubNet.EntityData.ParentYangName = "session-group"
-    localAddressSubNet.EntityData.SegmentPath = "local-address-sub-net"
-    localAddressSubNet.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/bgp-entity/session-groups/session-group/" + localAddressSubNet.EntityData.SegmentPath
-    localAddressSubNet.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    localAddressSubNet.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    localAddressSubNet.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    localAddressSubNet.EntityData.Children = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs = types.NewOrderedMap()
-    localAddressSubNet.EntityData.Leafs.Append("local-addresss-subnet", types.YLeaf{"LocalAddresssSubnet", localAddressSubNet.LocalAddresssSubnet})
-    localAddressSubNet.EntityData.Leafs.Append("prefix-len", types.YLeaf{"PrefixLen", localAddressSubNet.PrefixLen})
-
-    localAddressSubNet.EntityData.YListKeys = []string {}
-
-    return &(localAddressSubNet.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_LocalAddress
 // Local ip address
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_SessionGroup_LocalAddress struct {
@@ -16034,9 +15129,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
 
     // Local ip address for neighbor. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 }
 
@@ -16262,7 +15357,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
     PasswordDisable interface{}
 
     // The neighbor password.  Leave unspecified when disabling the password. The
-    // type is string with pattern: b'(!.+)|([^!].+)'.
+    // type is string with pattern: (!.+)|([^!].+).
     Password interface{}
 }
 
@@ -16338,7 +15433,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_BgpEntity_SessionGroups_Sessi
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -16938,8 +16033,8 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     // interface{} with range: 5..3600. Units are second. The default value is 60.
     GlobalScanTime interface{}
 
-    // Prefix validation time (in seconds). Range  : 5 - 60. Specify 0 for timer
-    // off. The type is interface{} with range: 0..60. Units are second.
+    // Prefix validation time (in seconds). Range : 5 - 60. Specify 0 to disable
+    // the timer. The type is interface{} with range: 0..60. Units are second.
     RpkiOriginAsValidationTime interface{}
 
     // RPKI bestpath origin-AS allow invalid. The type is interface{}.
@@ -16995,7 +16090,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global struct {
     UpdateErrorHandlingExtendedIbgp interface{}
 
     // Configure Router-id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     RouterId interface{}
 
@@ -17244,7 +16339,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_ClusterId struct {
 
     // Route-Reflector Cluster ID in IPV4 address format. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -17494,7 +16589,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiServers_RpkiServer
     YListKey string
 
     // This attribute is a key. Server address (opaque string). The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Server interface{}
 
     // RPKI server configuration. The type is interface{}.
@@ -17631,7 +16726,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AsListGroups_AsListGro
     YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AsListGroupName interface{}
 
     // AS-List group creation. The type is interface{}.
@@ -17912,7 +17007,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_AttributeFilterGroups_
     YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AttributeFilterGroupName interface{}
 
     // Attribute-filter group creation. The type is interface{}.
@@ -18213,6 +17308,10 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf str
     // RPKI bestpath use origin-AS validity. The type is interface{}.
     RpkiBestpathUseOriginAsValidity interface{}
 
+    // Label allocation mode: per-ce  Set per CE label mode,per-vrf Set per VRF
+    // label mode. The type is string.
+    Srv6LabelAllocationMode interface{}
+
     // RPKI bestpath origin-AS allow invalid. The type is interface{}.
     RpkiBestpathOriginAsAllowInvalid interface{}
 
@@ -18315,9 +17414,6 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf str
 
     // Redistribute subscriber routes.
     SubscriberRoutes Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SubscriberRoutes
-
-    // Segment-routing Configurations.
-    SegmentRouting Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting
 }
 
 func (globalAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf) GetEntityData() *types.CommonEntityData {
@@ -18359,7 +17455,6 @@ func (globalAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     globalAf.EntityData.Children.Append("ospf-routes", types.YChild{"OspfRoutes", &globalAf.OspfRoutes})
     globalAf.EntityData.Children.Append("mobile-routes", types.YChild{"MobileRoutes", &globalAf.MobileRoutes})
     globalAf.EntityData.Children.Append("subscriber-routes", types.YChild{"SubscriberRoutes", &globalAf.SubscriberRoutes})
-    globalAf.EntityData.Children.Append("segment-routing", types.YChild{"SegmentRouting", &globalAf.SegmentRouting})
     globalAf.EntityData.Leafs = types.NewOrderedMap()
     globalAf.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", globalAf.AfName})
     globalAf.EntityData.Leafs.Append("rnh-install-format", types.YLeaf{"RnhInstallFormat", globalAf.RnhInstallFormat})
@@ -18393,6 +17488,7 @@ func (globalAf *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_G
     globalAf.EntityData.Leafs.Append("additional-paths-receive", types.YLeaf{"AdditionalPathsReceive", globalAf.AdditionalPathsReceive})
     globalAf.EntityData.Leafs.Append("permanent-network", types.YLeaf{"PermanentNetwork", globalAf.PermanentNetwork})
     globalAf.EntityData.Leafs.Append("rpki-bestpath-use-origin-as-validity", types.YLeaf{"RpkiBestpathUseOriginAsValidity", globalAf.RpkiBestpathUseOriginAsValidity})
+    globalAf.EntityData.Leafs.Append("srv6-label-allocation-mode", types.YLeaf{"Srv6LabelAllocationMode", globalAf.Srv6LabelAllocationMode})
     globalAf.EntityData.Leafs.Append("rpki-bestpath-origin-as-allow-invalid", types.YLeaf{"RpkiBestpathOriginAsAllowInvalid", globalAf.RpkiBestpathOriginAsAllowInvalid})
     globalAf.EntityData.Leafs.Append("next-hop-resolution-prefix-length-minimum", types.YLeaf{"NextHopResolutionPrefixLengthMinimum", globalAf.NextHopResolutionPrefixLengthMinimum})
     globalAf.EntityData.Leafs.Append("reset-weight-on-import", types.YLeaf{"ResetWeightOnImport", globalAf.ResetWeightOnImport})
@@ -18448,7 +17544,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Isi
     YListKey string
 
     // This attribute is a key. IS-IS instance name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -18459,7 +17555,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Isi
 
     // Redistribution type: 01 for level 1 routes, 02 for level 2 routes, 04 for
     // level 1 inter-area routes. Logical combinations permitted. The type is
-    // string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // string with pattern: [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -18500,7 +17596,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dom
     As interface{}
 
     // Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     RouterId interface{}
 }
@@ -18544,9 +17640,13 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Vrf
     // Configure policy for installation of routes to RIB. The type is string.
     TablePolicy interface{}
 
-    // Enable sourcing of import route-targets  from import-policy. The type is
+    // Enable sourcing of import route-targets from import-policy. The type is
     // interface{}.
     SourceRtImportPolicy interface{}
+
+    // Label allocation mode: per-ce  Set per CE label mode,per-vrf Set per VRF
+    // label mode. The type is string.
+    Srv6LabelAllocationMode interface{}
 
     // MPLS-VPN label allocation mode.
     LabelMode Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_VrfAll_LabelMode
@@ -18570,6 +17670,7 @@ func (vrfAll *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_Glo
     vrfAll.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", vrfAll.Enable})
     vrfAll.EntityData.Leafs.Append("table-policy", types.YLeaf{"TablePolicy", vrfAll.TablePolicy})
     vrfAll.EntityData.Leafs.Append("source-rt-import-policy", types.YLeaf{"SourceRtImportPolicy", vrfAll.SourceRtImportPolicy})
+    vrfAll.EntityData.Leafs.Append("srv6-label-allocation-mode", types.YLeaf{"Srv6LabelAllocationMode", vrfAll.Srv6LabelAllocationMode})
 
     vrfAll.EntityData.YListKeys = []string {}
 
@@ -18735,9 +17836,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dis
 
     // This attribute is a key. Cluster ID: if configured as an IP Address. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ClusterIdAddress interface{}
 }
 
@@ -19057,9 +18158,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Agg
 
     // This attribute is a key. Aggregate in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AggregateAddr interface{}
 
     // This attribute is a key. Aggregate in prefix/length format (prefix part).
@@ -19152,28 +18253,28 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Opt
     YListKey string
 
     // This attribute is a key. Name of the ORR group. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     GroupName interface{}
 
     // Primary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PrimaryRootAddress interface{}
 
     // Secondary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SecondaryRootAddress interface{}
 
     // Tertiary Root for the ORR group. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     TertiaryRootAddress interface{}
 }
 
@@ -19213,15 +18314,16 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Dam
     HalfLife interface{}
 
     // Value to start reusing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     ReuseThreshold interface{}
 
     // Value to start suppressing a route. The type is interface{} with range:
-    // 1..20000.
+    // 1..20000. This attribute is mandatory.
     SuppressThreshold interface{}
 
     // Maximum duration to suppress a stable route (seconds). The type is
-    // interface{} with range: 1..255. Units are second.
+    // interface{} with range: 1..255. This attribute is mandatory. Units are
+    // second.
     SuppressTime interface{}
 
     // Route policy to specify criteria for dampening. This cannot be specified if
@@ -19371,22 +18473,20 @@ func (staticRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalA
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Distance
 // Define an administrative distance
-// This type is a presence type.
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Distance struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Distance for routes external to the AS. The type is interface{} with range:
-    // 1..255. This attribute is mandatory.
+    // 1..255. The default value is 20.
     ExternalRoutes interface{}
 
     // Distance for routes internal to the AS. The type is interface{} with range:
-    // 1..255. This attribute is mandatory.
+    // 1..255. The default value is 200.
     InternalRoutes interface{}
 
-    // Distance for local routes. The type is interface{} with range: 1..255. This
-    // attribute is mandatory.
+    // Distance for local routes. The type is interface{} with range: 1..255. The
+    // default value is 200.
     LocalRoutes interface{}
 }
 
@@ -19454,7 +18554,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_App
     YListKey string
 
     // This attribute is a key. OnePK application name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -19492,11 +18592,9 @@ func (applicationRoute *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_LabelMode
 // BGP 6PE/MPLS-VPN label allocation mode
-// This type is a presence type.
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_LabelMode struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Label allocation mode: per-ce  Set per CE label mode, per-vrf Set per VRF
     // label mode, per-prefix Set per Prefix label mode (for MPLS-VPN only). The
@@ -19570,7 +18668,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Eig
     YListKey string
 
     // This attribute is a key. EIGRP router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -19581,7 +18679,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Eig
 
     // Redistribution type: 01 for internal routes, 02 for external routes,
     // Logical combinations permitted. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -19651,9 +18749,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Sou
 
     // This attribute is a key. Network in prefix/length format (address part).
     // The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NetworkAddr interface{}
 
     // This attribute is a key. Network in prefix/length format (prefix part). The
@@ -19732,11 +18830,9 @@ func (connectedRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glob
 
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AllocateLabel
 // Label allocation policy
-// This type is a presence type.
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_AllocateLabel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Whether all nets should be labeled, default is FALSE. The type is bool.
     All interface{}
@@ -19846,7 +18942,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Osp
     YListKey string
 
     // This attribute is a key. OSPF router tag. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Default metric. The type is interface{} with range: 0..4294967295.
@@ -19859,7 +18955,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_Osp
     // 1, 04 for external routes of type 2, 08 for NSSA external routes of type 1,
     // 10 for NSSA external routes of type 2, 20 for external routes, 40 for NSSA
     // external routes.  Logical combinations permitted. The type is string with
-    // pattern: b'[0-9a-fA-F]{1,8}'.
+    // pattern: [0-9a-fA-F]{1,8}.
     RedistType interface{}
 }
 
@@ -19966,75 +19062,6 @@ func (subscriberRoutes *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_Glo
     return &(subscriberRoutes.EntityData)
 }
 
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting
-// Segment-routing Configurations
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // SRv6 Configurations.
-    Srv6 Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting_Srv6
-}
-
-func (segmentRouting *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting) GetEntityData() *types.CommonEntityData {
-    segmentRouting.EntityData.YFilter = segmentRouting.YFilter
-    segmentRouting.EntityData.YangName = "segment-routing"
-    segmentRouting.EntityData.BundleName = "cisco_ios_xr"
-    segmentRouting.EntityData.ParentYangName = "global-af"
-    segmentRouting.EntityData.SegmentPath = "segment-routing"
-    segmentRouting.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/" + segmentRouting.EntityData.SegmentPath
-    segmentRouting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    segmentRouting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    segmentRouting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    segmentRouting.EntityData.Children = types.NewOrderedMap()
-    segmentRouting.EntityData.Children.Append("srv6", types.YChild{"Srv6", &segmentRouting.Srv6})
-    segmentRouting.EntityData.Leafs = types.NewOrderedMap()
-
-    segmentRouting.EntityData.YListKeys = []string {}
-
-    return &(segmentRouting.EntityData)
-}
-
-// Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting_Srv6
-// SRv6 Configurations
-type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting_Srv6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Enable SRv6 configuration submode. The type is interface{}.
-    Enable interface{}
-
-    // SID allocation mode: per-ce  Set per CE SID mode,per-vrf Set per VRF SID
-    // mode. The type is string.
-    Srv6sidAllocationMode interface{}
-
-    // Configure Locator name for SID allocation. The type is string.
-    LocatorName interface{}
-}
-
-func (srv6 *Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_GlobalAfs_GlobalAf_SegmentRouting_Srv6) GetEntityData() *types.CommonEntityData {
-    srv6.EntityData.YFilter = srv6.YFilter
-    srv6.EntityData.YangName = "srv6"
-    srv6.EntityData.BundleName = "cisco_ios_xr"
-    srv6.EntityData.ParentYangName = "segment-routing"
-    srv6.EntityData.SegmentPath = "srv6"
-    srv6.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp/instance/instance-as/four-byte-as/default-vrf/global/global-afs/global-af/segment-routing/" + srv6.EntityData.SegmentPath
-    srv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6.EntityData.Children = types.NewOrderedMap()
-    srv6.EntityData.Leafs = types.NewOrderedMap()
-    srv6.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", srv6.Enable})
-    srv6.EntityData.Leafs.Append("srv6sid-allocation-mode", types.YLeaf{"Srv6sidAllocationMode", srv6.Srv6sidAllocationMode})
-    srv6.EntityData.Leafs.Append("locator-name", types.YLeaf{"LocatorName", srv6.LocatorName})
-
-    srv6.EntityData.YListKeys = []string {}
-
-    return &(srv6.EntityData)
-}
-
 // Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes
 // RPKI static route configuration
 type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes struct {
@@ -20078,9 +19105,9 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_RpkiStaticRoutes_RpkiS
 
     // This attribute is a key. Address. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Minimum Prefix Length. The type is interface{}
@@ -20161,7 +19188,7 @@ type Bgp_Instance_InstanceAs_FourByteAs_DefaultVrf_Global_MplsActivatedInterface
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -20500,7 +19527,7 @@ type BmpServers_BmpServer struct {
     Shutdown interface{}
 
     // Select an interface to configure. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     UpdateSourceInterface interface{}
 
     // Initial refresh to generate BGP updates.

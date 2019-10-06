@@ -271,7 +271,7 @@ type DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry struct {
     // docsQosPktClassInetSourceAddr object as long as
     // docsQosPktClassInetSourceAddrType is ipv4(1). Otherwise, the value of this
     // object shall be 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DocsQosPktClassIpSourceAddr interface{}
 
     // This object is deprecated in favor of the object pair
@@ -283,7 +283,7 @@ type DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry struct {
     // implementation of previous versions of this MIB report 0.0.0.0 as the value
     // when the reference parameter is not present, rather than 255.255.255.255.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DocsQosPktClassIpSourceMask interface{}
 
     // This object is deprecated in favor of the object pair
@@ -292,7 +292,7 @@ type DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry struct {
     // docsQosPktClassInetDestAddr object as long as
     // docsQosPktClassInetDestAddrType is ipv4(1). Otherwise, the value of this
     // object shall be 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DocsQosPktClassIpDestAddr interface{}
 
     // This object is deprecated in favor of the object pair
@@ -304,7 +304,7 @@ type DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry struct {
     // implementation of previous versions of this MIB report 0.0.0.0 as the value
     // when the reference parameter is not present, rather than 255.255.255.255.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DocsQosPktClassIpDestMask interface{}
 
     // This object specifies the low end inclusive range of TCP/UDP source port
@@ -337,20 +337,20 @@ type DOCSQOSMIB_DocsQosPktClassTable_DocsQosPktClassEntry struct {
     // bitwise ANDed with  docsQosPktClassDestMacMask equals the value of 
     // docsQosPktClassDestMacAddr.   If the referenced parameter is not present in
     // a classifier, this object reports the value of  '000000000000'H. The type
-    // is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsQosPktClassDestMacAddr interface{}
 
     // An Ethernet packet matches an entry when its  destination MAC address
     // bitwise ANDed with  docsQosPktClassDestMacMask equals the value of 
     // docsQosPktClassDestMacAddr.  If the referenced parameter is not present in
     // a classifier, this object reports the value of  '000000000000'H. The type
-    // is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsQosPktClassDestMacMask interface{}
 
     // An Ethernet packet matches this entry when its  source MAC address equals
     // the value of  this object.  If the referenced parameter is not present in a
     // classifier, this object reports the value of  'FFFFFFFFFFFF'H. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsQosPktClassSourceMacAddr interface{}
 
     // This object indicates the format of the layer 3  protocol id in the
@@ -1569,7 +1569,7 @@ type DOCSQOSMIB_DocsQosServiceFlowLogTable_DocsQosServiceFlowLogEntry struct {
     DocsQosServiceFlowLogSFID interface{}
 
     // The MAC address for the cable modem associated with  the service flow. The
-    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsQosServiceFlowLogCmMac interface{}
 
     // The number of packets counted on this service flow  after payload header
@@ -2132,7 +2132,7 @@ type DOCSQOSMIB_DocsQosCmtsMacToSrvFlowTable_DocsQosCmtsMacToSrvFlowEntry struct
     YListKey string
 
     // This attribute is a key. The MAC address for the referenced CM. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsQosCmtsCmMac interface{}
 
     // This attribute is a key. An index assigned to a service flow by CMTS. The

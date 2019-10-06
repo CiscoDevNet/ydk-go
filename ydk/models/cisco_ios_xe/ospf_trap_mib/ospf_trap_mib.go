@@ -80,7 +80,7 @@ type OSPFTRAPMIB_OspfTrapControl struct {
     // instance.  When the last value of a trap using this object is needed, but
     // no traps of that type have been sent, this value pertaining to this object
     // should be returned as 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OspfPacketSrc interface{}
 }
 

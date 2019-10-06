@@ -319,7 +319,7 @@ type FlowSpec_Vrfs_Vrf_Afs_Af struct {
     YListKey string
 
     // This attribute is a key. Set string. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AfName interface{}
 
     // FlowSpec summary for VRF+AFI tables.
@@ -436,7 +436,7 @@ type FlowSpec_Vrfs_Vrf_Afs_Af_Nlris_Nlri struct {
     YListKey string
 
     // This attribute is a key. Enter NLRI hex string. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     NlriBytes interface{}
 
     // Flow statistics.

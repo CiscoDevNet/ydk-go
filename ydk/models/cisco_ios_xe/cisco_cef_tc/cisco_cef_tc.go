@@ -13,62 +13,34 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package cisco_cef_tc"))
 }
 
-// CefIpVersion represents The version of CEF IP forwarding.
-type CefIpVersion string
+// CefFailureReason represents                          detected for CEF
+type CefFailureReason string
 
 const (
-    CefIpVersion_ipv4 CefIpVersion = "ipv4"
+    CefFailureReason_none CefFailureReason = "none"
 
-    CefIpVersion_ipv6 CefIpVersion = "ipv6"
+    CefFailureReason_mallocFailure CefFailureReason = "mallocFailure"
+
+    CefFailureReason_hwFailure CefFailureReason = "hwFailure"
+
+    CefFailureReason_keepaliveFailure CefFailureReason = "keepaliveFailure"
+
+    CefFailureReason_noMsgBuffer CefFailureReason = "noMsgBuffer"
+
+    CefFailureReason_invalidMsgSize CefFailureReason = "invalidMsgSize"
+
+    CefFailureReason_internalError CefFailureReason = "internalError"
 )
 
-// CefAdjLinkType represents process packets fed through adjacency.
-type CefAdjLinkType string
+// CefCCStatus represents                       
+type CefCCStatus string
 
 const (
-    CefAdjLinkType_ipv4 CefAdjLinkType = "ipv4"
+    CefCCStatus_ccStatusIdle CefCCStatus = "ccStatusIdle"
 
-    CefAdjLinkType_ipv6 CefAdjLinkType = "ipv6"
+    CefCCStatus_ccStatusRunning CefCCStatus = "ccStatusRunning"
 
-    CefAdjLinkType_mpls CefAdjLinkType = "mpls"
-
-    CefAdjLinkType_raw CefAdjLinkType = "raw"
-
-    CefAdjLinkType_unknown CefAdjLinkType = "unknown"
-)
-
-// CefPathType represents .
-type CefPathType string
-
-const (
-    CefPathType_receive CefPathType = "receive"
-
-    CefPathType_connectedPrefix CefPathType = "connectedPrefix"
-
-    CefPathType_attachedPrefix CefPathType = "attachedPrefix"
-
-    CefPathType_attachedHost CefPathType = "attachedHost"
-
-    CefPathType_attachedNexthop CefPathType = "attachedNexthop"
-
-    CefPathType_recursiveNexthop CefPathType = "recursiveNexthop"
-
-    CefPathType_adjacencyPrefix CefPathType = "adjacencyPrefix"
-
-    CefPathType_specialPrefix CefPathType = "specialPrefix"
-
-    CefPathType_unknown CefPathType = "unknown"
-)
-
-// CefPrefixSearchState represents                     match has not been found.
-type CefPrefixSearchState string
-
-const (
-    CefPrefixSearchState_running CefPrefixSearchState = "running"
-
-    CefPrefixSearchState_matchFound CefPrefixSearchState = "matchFound"
-
-    CefPrefixSearchState_noMatchFound CefPrefixSearchState = "noMatchFound"
+    CefCCStatus_ccStatusDone CefCCStatus = "ccStatusDone"
 )
 
 // CefForwardingElementSpecialType represents                ignored 
@@ -94,41 +66,38 @@ const (
     CefForwardingElementSpecialType_none CefForwardingElementSpecialType = "none"
 )
 
-// CefAdminStatus represents upon the success of the admin operation.
-type CefAdminStatus string
+// CefPrefixSearchState represents                     match has not been found.
+type CefPrefixSearchState string
 
 const (
-    CefAdminStatus_enabled CefAdminStatus = "enabled"
+    CefPrefixSearchState_running CefPrefixSearchState = "running"
 
-    CefAdminStatus_disabled CefAdminStatus = "disabled"
+    CefPrefixSearchState_matchFound CefPrefixSearchState = "matchFound"
+
+    CefPrefixSearchState_noMatchFound CefPrefixSearchState = "noMatchFound"
 )
 
-// CefOperStatus represents Operational status of CEF.
-type CefOperStatus string
+// CefPathType represents .
+type CefPathType string
 
 const (
-    CefOperStatus_up CefOperStatus = "up"
+    CefPathType_receive CefPathType = "receive"
 
-    CefOperStatus_down CefOperStatus = "down"
-)
+    CefPathType_connectedPrefix CefPathType = "connectedPrefix"
 
-// CefFailureReason represents                          detected for CEF
-type CefFailureReason string
+    CefPathType_attachedPrefix CefPathType = "attachedPrefix"
 
-const (
-    CefFailureReason_none CefFailureReason = "none"
+    CefPathType_attachedHost CefPathType = "attachedHost"
 
-    CefFailureReason_mallocFailure CefFailureReason = "mallocFailure"
+    CefPathType_attachedNexthop CefPathType = "attachedNexthop"
 
-    CefFailureReason_hwFailure CefFailureReason = "hwFailure"
+    CefPathType_recursiveNexthop CefPathType = "recursiveNexthop"
 
-    CefFailureReason_keepaliveFailure CefFailureReason = "keepaliveFailure"
+    CefPathType_adjacencyPrefix CefPathType = "adjacencyPrefix"
 
-    CefFailureReason_noMsgBuffer CefFailureReason = "noMsgBuffer"
+    CefPathType_specialPrefix CefPathType = "specialPrefix"
 
-    CefFailureReason_invalidMsgSize CefFailureReason = "invalidMsgSize"
-
-    CefFailureReason_internalError CefFailureReason = "internalError"
+    CefPathType_unknown CefPathType = "unknown"
 )
 
 // CefCCType represents                    inconsistencies.
@@ -162,6 +131,30 @@ const (
     CefCCType_fullScanFibSwHw CefCCType = "fullScanFibSwHw"
 )
 
+// CefOperStatus represents Operational status of CEF.
+type CefOperStatus string
+
+const (
+    CefOperStatus_up CefOperStatus = "up"
+
+    CefOperStatus_down CefOperStatus = "down"
+)
+
+// CefAdjLinkType represents process packets fed through adjacency.
+type CefAdjLinkType string
+
+const (
+    CefAdjLinkType_ipv4 CefAdjLinkType = "ipv4"
+
+    CefAdjLinkType_ipv6 CefAdjLinkType = "ipv6"
+
+    CefAdjLinkType_mpls CefAdjLinkType = "mpls"
+
+    CefAdjLinkType_raw CefAdjLinkType = "raw"
+
+    CefAdjLinkType_unknown CefAdjLinkType = "unknown"
+)
+
 // CefCCAction represents                         on consistency checkers.
 type CefCCAction string
 
@@ -173,14 +166,21 @@ const (
     CefCCAction_ccActionNone CefCCAction = "ccActionNone"
 )
 
-// CefCCStatus represents                       
-type CefCCStatus string
+// CefAdminStatus represents upon the success of the admin operation.
+type CefAdminStatus string
 
 const (
-    CefCCStatus_ccStatusIdle CefCCStatus = "ccStatusIdle"
+    CefAdminStatus_enabled CefAdminStatus = "enabled"
 
-    CefCCStatus_ccStatusRunning CefCCStatus = "ccStatusRunning"
+    CefAdminStatus_disabled CefAdminStatus = "disabled"
+)
 
-    CefCCStatus_ccStatusDone CefCCStatus = "ccStatusDone"
+// CefIpVersion represents The version of CEF IP forwarding.
+type CefIpVersion string
+
+const (
+    CefIpVersion_ipv4 CefIpVersion = "ipv4"
+
+    CefIpVersion_ipv6 CefIpVersion = "ipv6"
 )
 

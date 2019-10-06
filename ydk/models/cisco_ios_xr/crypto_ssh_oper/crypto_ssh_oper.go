@@ -27,6 +27,81 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-ssh-oper:ssh", reflect.TypeOf(Ssh{}))
 }
 
+// KexName represents Different key-exchange(kex) algorithms
+type KexName string
+
+const (
+    // unknown
+    KexName_kex_not_applicable KexName = "kex-not-applicable"
+
+    // Diffie-Hellman group 1 key exchange algorithm
+    KexName_diffie_hellman_group1 KexName = "diffie-hellman-group1"
+
+    // Diffie-Hellman group 14 key exchange algorithm
+    KexName_diffie_hellman_group14 KexName = "diffie-hellman-group14"
+
+    // Diffie-Hellman group 14 key exchange algorithm
+    KexName_diffie_hellman_group15 KexName = "diffie-hellman-group15"
+
+    // Diffie-Hellman group 16 key exchange algorithm
+    KexName_diffie_hellman_group16 KexName = "diffie-hellman-group16"
+
+    // Diffie-Hellman group 17 key exchange algorithm
+    KexName_diffie_hellman_group17 KexName = "diffie-hellman-group17"
+
+    // Diffie-Hellman key group 18 exchange algorithm
+    KexName_diffie_hellman_group18 KexName = "diffie-hellman-group18"
+
+    // Elliptical curve Diffie-Hellman prime 256 key
+    // exchange algorithm
+    KexName_ecdh_nistp256 KexName = "ecdh-nistp256"
+
+    // Elliptical curve Diffie-Hellman prime 384 key
+    // exchange algorithm
+    KexName_ecdh_nistp384 KexName = "ecdh-nistp384"
+
+    // Elliptical curve Diffie-Hellman prime 521
+    // exchange algorithm
+    KexName_ecdh_nistp521 KexName = "ecdh-nistp521"
+
+    // Password authenticated key agreement algorithm
+    KexName_password_authenticated KexName = "password-authenticated"
+)
+
+// Hostkey represents SSH session authentication types
+type Hostkey string
+
+const (
+    // unknown
+    Hostkey_host_key_not_applicable Hostkey = "host-key-not-applicable"
+
+    // Algorithm type DSS
+    Hostkey_ssh_dss Hostkey = "ssh-dss"
+
+    // Algorithm type RSA
+    Hostkey_ssh_rsa Hostkey = "ssh-rsa"
+
+    // Algorithm type ECDSA NISTP521
+    Hostkey_ecdsa_sha2_nistp521 Hostkey = "ecdsa-sha2-nistp521"
+
+    // Algorithm type ECDSA NISTP384
+    Hostkey_ecdsa_sha2_nistp384 Hostkey = "ecdsa-sha2-nistp384"
+
+    // Algorithm type ECDSA NISTP256
+    Hostkey_ecdsa_sha2_nistp256 Hostkey = "ecdsa-sha2-nistp256"
+)
+
+// Version represents SSH state versions
+type Version string
+
+const (
+    // Version V2
+    Version_v2 Version = "v2"
+
+    // Version V1
+    Version_v1 Version = "v1"
+)
+
 // Connection represents SSH channel connection types
 type Connection string
 
@@ -54,31 +129,6 @@ const (
 
     // Netconf XML Subsystem
     Connection_netconf_xml_subsystem Connection = "netconf-xml-subsystem"
-)
-
-// Authen represents SSH session authentication types
-type Authen string
-
-const (
-    // Password
-    Authen_password Authen = "password"
-
-    // RSA public key encryption type
-    Authen_rsa_public_key Authen = "rsa-public-key"
-
-    // Keyboard interactive
-    Authen_keyboard_interactive Authen = "keyboard-interactive"
-)
-
-// Version represents SSH state versions
-type Version string
-
-const (
-    // Version V2
-    Version_v2 Version = "v2"
-
-    // Version V1
-    Version_v1 Version = "v1"
 )
 
 // States represents SSH session states
@@ -197,68 +247,18 @@ const (
     Cipher_aes256_gcm Cipher = "aes256-gcm"
 )
 
-// Hostkey represents SSH session authentication types
-type Hostkey string
+// Authen represents SSH session authentication types
+type Authen string
 
 const (
-    // unknown
-    Hostkey_host_key_not_applicable Hostkey = "host-key-not-applicable"
+    // Password
+    Authen_password Authen = "password"
 
-    // Algorithm type DSS
-    Hostkey_ssh_dss Hostkey = "ssh-dss"
+    // RSA public key encryption type
+    Authen_rsa_public_key Authen = "rsa-public-key"
 
-    // Algorithm type RSA
-    Hostkey_ssh_rsa Hostkey = "ssh-rsa"
-
-    // Algorithm type ECDSA NISTP521
-    Hostkey_ecdsa_sha2_nistp521 Hostkey = "ecdsa-sha2-nistp521"
-
-    // Algorithm type ECDSA NISTP384
-    Hostkey_ecdsa_sha2_nistp384 Hostkey = "ecdsa-sha2-nistp384"
-
-    // Algorithm type ECDSA NISTP256
-    Hostkey_ecdsa_sha2_nistp256 Hostkey = "ecdsa-sha2-nistp256"
-)
-
-// KexName represents Different key-exchange(kex) algorithms
-type KexName string
-
-const (
-    // unknown
-    KexName_kex_not_applicable KexName = "kex-not-applicable"
-
-    // Diffie-Hellman group 1 key exchange algorithm
-    KexName_diffie_hellman_group1 KexName = "diffie-hellman-group1"
-
-    // Diffie-Hellman group 14 key exchange algorithm
-    KexName_diffie_hellman_group14 KexName = "diffie-hellman-group14"
-
-    // Diffie-Hellman group 14 key exchange algorithm
-    KexName_diffie_hellman_group15 KexName = "diffie-hellman-group15"
-
-    // Diffie-Hellman group 16 key exchange algorithm
-    KexName_diffie_hellman_group16 KexName = "diffie-hellman-group16"
-
-    // Diffie-Hellman group 17 key exchange algorithm
-    KexName_diffie_hellman_group17 KexName = "diffie-hellman-group17"
-
-    // Diffie-Hellman key group 18 exchange algorithm
-    KexName_diffie_hellman_group18 KexName = "diffie-hellman-group18"
-
-    // Elliptical curve Diffie-Hellman prime 256 key
-    // exchange algorithm
-    KexName_ecdh_nistp256 KexName = "ecdh-nistp256"
-
-    // Elliptical curve Diffie-Hellman prime 384 key
-    // exchange algorithm
-    KexName_ecdh_nistp384 KexName = "ecdh-nistp384"
-
-    // Elliptical curve Diffie-Hellman prime 521
-    // exchange algorithm
-    KexName_ecdh_nistp521 KexName = "ecdh-nistp521"
-
-    // Password authenticated key agreement algorithm
-    KexName_password_authenticated KexName = "password-authenticated"
+    // Keyboard interactive
+    Authen_keyboard_interactive Authen = "keyboard-interactive"
 )
 
 // Ssh1
@@ -363,7 +363,7 @@ type Ssh1_Kex_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // List of incoming sessions.
@@ -463,9 +463,6 @@ type Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo struct {
 
     // session end time. The type is string.
     EndTime interface{}
-
-    // next session.
-    NextSession Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo_NextSession
 }
 
 func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo) GetEntityData() *types.CommonEntityData {
@@ -480,7 +477,6 @@ func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo)
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionDetailInfo.EntityData.Children = types.NewOrderedMap()
-    sessionDetailInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionDetailInfo.NextSession})
     sessionDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionDetailInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionDetailInfo.SessionId})
     sessionDetailInfo.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", sessionDetailInfo.KeyExchange})
@@ -495,32 +491,6 @@ func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo)
     sessionDetailInfo.EntityData.YListKeys = []string {}
 
     return &(sessionDetailInfo.EntityData)
-}
-
-// Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo_NextSession
-// next session
-type Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh1_Kex_Nodes_Node_IncomingSessions_SessionDetailInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-detail-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/node/incoming-sessions/session-detail-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh1_Kex_Nodes_Node_OutgoingConnections
@@ -591,9 +561,6 @@ type Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailInfo struct {
 
     // session end time. The type is string.
     EndTime interface{}
-
-    // next session.
-    NextSession Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailInfo_NextSession
 }
 
 func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailInfo) GetEntityData() *types.CommonEntityData {
@@ -608,7 +575,6 @@ func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailIn
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionDetailInfo.EntityData.Children = types.NewOrderedMap()
-    sessionDetailInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionDetailInfo.NextSession})
     sessionDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionDetailInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionDetailInfo.SessionId})
     sessionDetailInfo.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", sessionDetailInfo.KeyExchange})
@@ -623,32 +589,6 @@ func (sessionDetailInfo *Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailIn
     sessionDetailInfo.EntityData.YListKeys = []string {}
 
     return &(sessionDetailInfo.EntityData)
-}
-
-// Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailInfo_NextSession
-// next session
-type Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh1_Kex_Nodes_Node_OutgoingConnections_SessionDetailInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-detail-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/node/outgoing-connections/session-detail-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh
@@ -814,9 +754,6 @@ type Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo struct {
 
     // Volume To Rekey. The type is string.
     VolumeToRekey interface{}
-
-    // next session.
-    NextSession Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo_NextSession
 }
 
 func (sessionRekeyInfo *Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo) GetEntityData() *types.CommonEntityData {
@@ -831,7 +768,6 @@ func (sessionRekeyInfo *Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo) Get
     sessionRekeyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionRekeyInfo.EntityData.Children = types.NewOrderedMap()
-    sessionRekeyInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionRekeyInfo.NextSession})
     sessionRekeyInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionRekeyInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionRekeyInfo.SessionId})
     sessionRekeyInfo.EntityData.Leafs.Append("session-rekey-count", types.YLeaf{"SessionRekeyCount", sessionRekeyInfo.SessionRekeyCount})
@@ -841,32 +777,6 @@ func (sessionRekeyInfo *Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo) Get
     sessionRekeyInfo.EntityData.YListKeys = []string {}
 
     return &(sessionRekeyInfo.EntityData)
-}
-
-// Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo_NextSession
-// next session
-type Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_Rekey_IncomingSessions_SessionRekeyInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-rekey-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/session-rekey-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_Rekey_OutgoingConnections
@@ -922,9 +832,6 @@ type Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo struct {
 
     // Volume To Rekey. The type is string.
     VolumeToRekey interface{}
-
-    // next session.
-    NextSession Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo_NextSession
 }
 
 func (sessionRekeyInfo *Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo) GetEntityData() *types.CommonEntityData {
@@ -939,7 +846,6 @@ func (sessionRekeyInfo *Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo) 
     sessionRekeyInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionRekeyInfo.EntityData.Children = types.NewOrderedMap()
-    sessionRekeyInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionRekeyInfo.NextSession})
     sessionRekeyInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionRekeyInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionRekeyInfo.SessionId})
     sessionRekeyInfo.EntityData.Leafs.Append("session-rekey-count", types.YLeaf{"SessionRekeyCount", sessionRekeyInfo.SessionRekeyCount})
@@ -949,32 +855,6 @@ func (sessionRekeyInfo *Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo) 
     sessionRekeyInfo.EntityData.YListKeys = []string {}
 
     return &(sessionRekeyInfo.EntityData)
-}
-
-// Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo_NextSession
-// next session
-type Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_Rekey_OutgoingConnections_SessionRekeyInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-rekey-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/session-rekey-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_HistoryDetail
@@ -1079,9 +959,6 @@ type Ssh_Session_HistoryDetail_IncomingSessions_SessionDetailInfo struct {
 
     // session end time. The type is string.
     EndTime interface{}
-
-    // next session.
-    NextSession Ssh_Session_HistoryDetail_IncomingSessions_SessionDetailInfo_NextSession
 }
 
 func (sessionDetailInfo *Ssh_Session_HistoryDetail_IncomingSessions_SessionDetailInfo) GetEntityData() *types.CommonEntityData {
@@ -1096,7 +973,6 @@ func (sessionDetailInfo *Ssh_Session_HistoryDetail_IncomingSessions_SessionDetai
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionDetailInfo.EntityData.Children = types.NewOrderedMap()
-    sessionDetailInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionDetailInfo.NextSession})
     sessionDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionDetailInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionDetailInfo.SessionId})
     sessionDetailInfo.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", sessionDetailInfo.KeyExchange})
@@ -1111,32 +987,6 @@ func (sessionDetailInfo *Ssh_Session_HistoryDetail_IncomingSessions_SessionDetai
     sessionDetailInfo.EntityData.YListKeys = []string {}
 
     return &(sessionDetailInfo.EntityData)
-}
-
-// Ssh_Session_HistoryDetail_IncomingSessions_SessionDetailInfo_NextSession
-// next session
-type Ssh_Session_HistoryDetail_IncomingSessions_SessionDetailInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_HistoryDetail_IncomingSessions_SessionDetailInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-detail-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/incoming-sessions/session-detail-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_HistoryDetail_OutgoingConnections
@@ -1207,9 +1057,6 @@ type Ssh_Session_HistoryDetail_OutgoingConnections_SessionDetailInfo struct {
 
     // session end time. The type is string.
     EndTime interface{}
-
-    // next session.
-    NextSession Ssh_Session_HistoryDetail_OutgoingConnections_SessionDetailInfo_NextSession
 }
 
 func (sessionDetailInfo *Ssh_Session_HistoryDetail_OutgoingConnections_SessionDetailInfo) GetEntityData() *types.CommonEntityData {
@@ -1224,7 +1071,6 @@ func (sessionDetailInfo *Ssh_Session_HistoryDetail_OutgoingConnections_SessionDe
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionDetailInfo.EntityData.Children = types.NewOrderedMap()
-    sessionDetailInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionDetailInfo.NextSession})
     sessionDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionDetailInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionDetailInfo.SessionId})
     sessionDetailInfo.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", sessionDetailInfo.KeyExchange})
@@ -1239,32 +1085,6 @@ func (sessionDetailInfo *Ssh_Session_HistoryDetail_OutgoingConnections_SessionDe
     sessionDetailInfo.EntityData.YListKeys = []string {}
 
     return &(sessionDetailInfo.EntityData)
-}
-
-// Ssh_Session_HistoryDetail_OutgoingConnections_SessionDetailInfo_NextSession
-// next session
-type Ssh_Session_HistoryDetail_OutgoingConnections_SessionDetailInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_HistoryDetail_OutgoingConnections_SessionDetailInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-detail-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/outgoing-connections/session-detail-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_Brief
@@ -1347,7 +1167,7 @@ type Ssh_Session_Brief_IncomingSessions_SessionBriefInfo struct {
     SessionId interface{}
 
     // Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // SSH session state. The type is States.
@@ -1364,9 +1184,6 @@ type Ssh_Session_Brief_IncomingSessions_SessionBriefInfo struct {
 
     // Authentication method. The type is Authen.
     AuthenticationType interface{}
-
-    // next session.
-    NextSession Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_NextSession
 
     // List of channel info. The type is slice of
     // Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_McInfo.
@@ -1385,7 +1202,6 @@ func (sessionBriefInfo *Ssh_Session_Brief_IncomingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionBriefInfo.EntityData.Children = types.NewOrderedMap()
-    sessionBriefInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionBriefInfo.NextSession})
     sessionBriefInfo.EntityData.Children.Append("mc-info", types.YChild{"McInfo", nil})
     for i := range sessionBriefInfo.McInfo {
         types.SetYListKey(sessionBriefInfo.McInfo[i], i)
@@ -1403,32 +1219,6 @@ func (sessionBriefInfo *Ssh_Session_Brief_IncomingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.YListKeys = []string {}
 
     return &(sessionBriefInfo.EntityData)
-}
-
-// Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_NextSession
-// next session
-type Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-brief-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/session-brief-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_Brief_IncomingSessions_SessionBriefInfo_McInfo
@@ -1520,7 +1310,7 @@ type Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo struct {
     SessionId interface{}
 
     // Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // SSH session state. The type is States.
@@ -1537,9 +1327,6 @@ type Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo struct {
 
     // Authentication method. The type is Authen.
     AuthenticationType interface{}
-
-    // next session.
-    NextSession Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_NextSession
 
     // List of channel info. The type is slice of
     // Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_McInfo.
@@ -1558,7 +1345,6 @@ func (sessionBriefInfo *Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionBriefInfo.EntityData.Children = types.NewOrderedMap()
-    sessionBriefInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionBriefInfo.NextSession})
     sessionBriefInfo.EntityData.Children.Append("mc-info", types.YChild{"McInfo", nil})
     for i := range sessionBriefInfo.McInfo {
         types.SetYListKey(sessionBriefInfo.McInfo[i], i)
@@ -1576,32 +1362,6 @@ func (sessionBriefInfo *Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo) Get
     sessionBriefInfo.EntityData.YListKeys = []string {}
 
     return &(sessionBriefInfo.EntityData)
-}
-
-// Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_NextSession
-// next session
-type Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-brief-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/session-brief-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_Brief_OutgoingSessions_SessionBriefInfo_McInfo
@@ -1723,7 +1483,7 @@ type Ssh_Session_History_IncomingSessions_SessionHistoryInfo struct {
     SessionId interface{}
 
     // Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // User ID. The type is string.
@@ -1737,9 +1497,6 @@ type Ssh_Session_History_IncomingSessions_SessionHistoryInfo struct {
 
     // Authentication method. The type is Authen.
     AuthenticationType interface{}
-
-    // next session.
-    NextSession Ssh_Session_History_IncomingSessions_SessionHistoryInfo_NextSession
 
     // List of channel info. The type is slice of
     // Ssh_Session_History_IncomingSessions_SessionHistoryInfo_McInfo.
@@ -1758,7 +1515,6 @@ func (sessionHistoryInfo *Ssh_Session_History_IncomingSessions_SessionHistoryInf
     sessionHistoryInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionHistoryInfo.EntityData.Children = types.NewOrderedMap()
-    sessionHistoryInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionHistoryInfo.NextSession})
     sessionHistoryInfo.EntityData.Children.Append("mc-info", types.YChild{"McInfo", nil})
     for i := range sessionHistoryInfo.McInfo {
         types.SetYListKey(sessionHistoryInfo.McInfo[i], i)
@@ -1775,32 +1531,6 @@ func (sessionHistoryInfo *Ssh_Session_History_IncomingSessions_SessionHistoryInf
     sessionHistoryInfo.EntityData.YListKeys = []string {}
 
     return &(sessionHistoryInfo.EntityData)
-}
-
-// Ssh_Session_History_IncomingSessions_SessionHistoryInfo_NextSession
-// next session
-type Ssh_Session_History_IncomingSessions_SessionHistoryInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_History_IncomingSessions_SessionHistoryInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-history-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/session-history-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_History_IncomingSessions_SessionHistoryInfo_McInfo
@@ -1948,9 +1678,6 @@ type Ssh_Session_Detail_IncomingSessions_SessionDetailInfo struct {
 
     // session end time. The type is string.
     EndTime interface{}
-
-    // next session.
-    NextSession Ssh_Session_Detail_IncomingSessions_SessionDetailInfo_NextSession
 }
 
 func (sessionDetailInfo *Ssh_Session_Detail_IncomingSessions_SessionDetailInfo) GetEntityData() *types.CommonEntityData {
@@ -1965,7 +1692,6 @@ func (sessionDetailInfo *Ssh_Session_Detail_IncomingSessions_SessionDetailInfo) 
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionDetailInfo.EntityData.Children = types.NewOrderedMap()
-    sessionDetailInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionDetailInfo.NextSession})
     sessionDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionDetailInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionDetailInfo.SessionId})
     sessionDetailInfo.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", sessionDetailInfo.KeyExchange})
@@ -1980,32 +1706,6 @@ func (sessionDetailInfo *Ssh_Session_Detail_IncomingSessions_SessionDetailInfo) 
     sessionDetailInfo.EntityData.YListKeys = []string {}
 
     return &(sessionDetailInfo.EntityData)
-}
-
-// Ssh_Session_Detail_IncomingSessions_SessionDetailInfo_NextSession
-// next session
-type Ssh_Session_Detail_IncomingSessions_SessionDetailInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_Detail_IncomingSessions_SessionDetailInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-detail-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/session-detail-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 
 // Ssh_Session_Detail_OutgoingConnections
@@ -2076,9 +1776,6 @@ type Ssh_Session_Detail_OutgoingConnections_SessionDetailInfo struct {
 
     // session end time. The type is string.
     EndTime interface{}
-
-    // next session.
-    NextSession Ssh_Session_Detail_OutgoingConnections_SessionDetailInfo_NextSession
 }
 
 func (sessionDetailInfo *Ssh_Session_Detail_OutgoingConnections_SessionDetailInfo) GetEntityData() *types.CommonEntityData {
@@ -2093,7 +1790,6 @@ func (sessionDetailInfo *Ssh_Session_Detail_OutgoingConnections_SessionDetailInf
     sessionDetailInfo.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     sessionDetailInfo.EntityData.Children = types.NewOrderedMap()
-    sessionDetailInfo.EntityData.Children.Append("next-session", types.YChild{"NextSession", &sessionDetailInfo.NextSession})
     sessionDetailInfo.EntityData.Leafs = types.NewOrderedMap()
     sessionDetailInfo.EntityData.Leafs.Append("session-id", types.YLeaf{"SessionId", sessionDetailInfo.SessionId})
     sessionDetailInfo.EntityData.Leafs.Append("key-exchange", types.YLeaf{"KeyExchange", sessionDetailInfo.KeyExchange})
@@ -2108,31 +1804,5 @@ func (sessionDetailInfo *Ssh_Session_Detail_OutgoingConnections_SessionDetailInf
     sessionDetailInfo.EntityData.YListKeys = []string {}
 
     return &(sessionDetailInfo.EntityData)
-}
-
-// Ssh_Session_Detail_OutgoingConnections_SessionDetailInfo_NextSession
-// next session
-type Ssh_Session_Detail_OutgoingConnections_SessionDetailInfo_NextSession struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-}
-
-func (nextSession *Ssh_Session_Detail_OutgoingConnections_SessionDetailInfo_NextSession) GetEntityData() *types.CommonEntityData {
-    nextSession.EntityData.YFilter = nextSession.YFilter
-    nextSession.EntityData.YangName = "next-session"
-    nextSession.EntityData.BundleName = "cisco_ios_xr"
-    nextSession.EntityData.ParentYangName = "session-detail-info"
-    nextSession.EntityData.SegmentPath = "next-session"
-    nextSession.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/session-detail-info/" + nextSession.EntityData.SegmentPath
-    nextSession.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nextSession.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nextSession.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nextSession.EntityData.Children = types.NewOrderedMap()
-    nextSession.EntityData.Leafs = types.NewOrderedMap()
-
-    nextSession.EntityData.YListKeys = []string {}
-
-    return &(nextSession.EntityData)
 }
 

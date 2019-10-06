@@ -4,7 +4,7 @@
 // This module contains a collection of YANG
 // definitions for Cisco IOS-XR SysAdmin configuration.
 // 
-// This module contains a collection of derived 
+// This module contains a collection of derived
 // YANG data types specific to Sysadmin.
 // 
 // Copyright(c) 2011-2016 by Cisco Systems, Inc.
@@ -22,6 +22,33 @@ import (
 func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package sysadmin_types"))
 }
+
+// GenericOperStatus
+type GenericOperStatus string
+
+const (
+    GenericOperStatus_up GenericOperStatus = "up"
+
+    GenericOperStatus_down GenericOperStatus = "down"
+)
+
+// GenericHaRole
+type GenericHaRole string
+
+const (
+    GenericHaRole_no_ha_role GenericHaRole = "no-ha-role"
+
+    GenericHaRole_Active GenericHaRole = "Active"
+
+    GenericHaRole_Standby GenericHaRole = "Standby"
+)
+
+// Adminstate
+type Adminstate string
+
+const (
+    Adminstate_disable Adminstate = "disable"
+)
 
 // RackId represents BSC racks are identified by numbers 128..129
 type RackId string
@@ -72,51 +99,6 @@ const (
     RackId_B1 RackId = "B1"
 )
 
-// Adminstate
-type Adminstate string
-
-const (
-    Adminstate_disable Adminstate = "disable"
-)
-
-// GenericOperStatus
-type GenericOperStatus string
-
-const (
-    GenericOperStatus_up GenericOperStatus = "up"
-
-    GenericOperStatus_down GenericOperStatus = "down"
-)
-
-// GenericOperStatus_
-type GenericOperStatus_ string
-
-const (
-    GenericOperStatus__up GenericOperStatus_ = "up"
-
-    GenericOperStatus__down GenericOperStatus_ = "down"
-)
-
-// GenericOperStatus_
-type GenericOperStatus_ string
-
-const (
-    GenericOperStatus__up GenericOperStatus_ = "up"
-
-    GenericOperStatus__down GenericOperStatus_ = "down"
-)
-
-// GenericHaRole
-type GenericHaRole string
-
-const (
-    GenericHaRole_no_ha_role GenericHaRole = "no-ha-role"
-
-    GenericHaRole_Active GenericHaRole = "Active"
-
-    GenericHaRole_Standby GenericHaRole = "Standby"
-)
-
 // FabricLinkTypes
 type FabricLinkTypes string
 
@@ -126,5 +108,23 @@ const (
     FabricLinkTypes_S2 FabricLinkTypes = "S2"
 
     FabricLinkTypes_S3 FabricLinkTypes = "S3"
+)
+
+// GenericOperStatus_
+type GenericOperStatus_ string
+
+const (
+    GenericOperStatus__up GenericOperStatus_ = "up"
+
+    GenericOperStatus__down GenericOperStatus_ = "down"
+)
+
+// GenericOperStatus_
+type GenericOperStatus_ string
+
+const (
+    GenericOperStatus__up GenericOperStatus_ = "up"
+
+    GenericOperStatus__down GenericOperStatus_ = "down"
 )
 

@@ -25,65 +25,88 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-rcmd-oper:rcmd", reflect.TypeOf(Rcmd{}))
 }
 
-// RcmdShowInstState represents instance state
-type RcmdShowInstState string
+// RcmdBagEnblDsbl represents status enum
+type RcmdBagEnblDsbl string
 
 const (
-    // Unknown state
-    RcmdShowInstState_unknown RcmdShowInstState = "unknown"
+    // Disabled
+    RcmdBagEnblDsbl_dsbl RcmdBagEnblDsbl = "dsbl"
 
-    // Active state
-    RcmdShowInstState_active RcmdShowInstState = "active"
-
-    // InActive state
-    RcmdShowInstState_in_active RcmdShowInstState = "in-active"
-
-    // Max state
-    RcmdShowInstState_na RcmdShowInstState = "na"
+    // Enabled
+    RcmdBagEnblDsbl_enbl RcmdBagEnblDsbl = "enbl"
 )
 
-// RcmdShowIntfEvent represents Rcmd show intf event
-type RcmdShowIntfEvent string
+// RcmdBoolYesNo represents Boolean enum
+type RcmdBoolYesNo string
 
 const (
-    // Create
-    RcmdShowIntfEvent_create RcmdShowIntfEvent = "create"
+    // No
+    RcmdBoolYesNo_no RcmdBoolYesNo = "no"
 
-    // Delete
-    RcmdShowIntfEvent_delete_ RcmdShowIntfEvent = "delete"
+    // Yes
+    RcmdBoolYesNo_yes RcmdBoolYesNo = "yes"
+)
 
-    // LinkUp
-    RcmdShowIntfEvent_link_up RcmdShowIntfEvent = "link-up"
+// RcmdPriorityLevel represents Level of priority
+type RcmdPriorityLevel string
 
-    // LinkDown
-    RcmdShowIntfEvent_link_down RcmdShowIntfEvent = "link-down"
+const (
+    // Critical
+    RcmdPriorityLevel_critical RcmdPriorityLevel = "critical"
 
-    // PrimaryAddress
-    RcmdShowIntfEvent_primary_address RcmdShowIntfEvent = "primary-address"
+    // High
+    RcmdPriorityLevel_high RcmdPriorityLevel = "high"
 
-    // SecondaryAddress
-    RcmdShowIntfEvent_secondary_address RcmdShowIntfEvent = "secondary-address"
+    // Medium
+    RcmdPriorityLevel_medium RcmdPriorityLevel = "medium"
 
-    // Ipv6LinkLocalAddress
-    RcmdShowIntfEvent_ipv6_link_local_address RcmdShowIntfEvent = "ipv6-link-local-address"
+    // Low
+    RcmdPriorityLevel_low RcmdPriorityLevel = "low"
+)
 
-    // Ipv6GlobalAddress
-    RcmdShowIntfEvent_ipv6_global_address RcmdShowIntfEvent = "ipv6-global-address"
+// RcmdSpfState represents Type of an ISIS Level
+type RcmdSpfState string
 
-    // MTU
-    RcmdShowIntfEvent_mtu RcmdShowIntfEvent = "mtu"
+const (
+    // Complete
+    RcmdSpfState_complete RcmdSpfState = "complete"
 
-    // BandWidth
-    RcmdShowIntfEvent_band_width RcmdShowIntfEvent = "band-width"
+    // InComplete
+    RcmdSpfState_in_complete RcmdSpfState = "in-complete"
 
-    // LDPSync
-    RcmdShowIntfEvent_ldp_sync RcmdShowIntfEvent = "ldp-sync"
+    // Collecting data
+    RcmdSpfState_collecting RcmdSpfState = "collecting"
 
-    // ForwardReference
-    RcmdShowIntfEvent_forward_reference RcmdShowIntfEvent = "forward-reference"
+    // No Route Change
+    RcmdSpfState_no_route_change RcmdSpfState = "no-route-change"
+)
 
-    // LDPNoSync
-    RcmdShowIntfEvent_ldp_no_sync RcmdShowIntfEvent = "ldp-no-sync"
+// RcmdShowIpfrrLfa represents IP Frr LFA Types
+type RcmdShowIpfrrLfa string
+
+const (
+    // No IP Frr LFA Type 
+    RcmdShowIpfrrLfa_none RcmdShowIpfrrLfa = "none"
+
+    // IP Frr Local LFA
+    RcmdShowIpfrrLfa_local RcmdShowIpfrrLfa = "local"
+
+    // IP Frr Remote LFA
+    RcmdShowIpfrrLfa_remote RcmdShowIpfrrLfa = "remote"
+)
+
+// RcmdShowPrcsState represents Post Processing Info
+type RcmdShowPrcsState string
+
+const (
+    // Success
+    RcmdShowPrcsState_success RcmdShowPrcsState = "success"
+
+    // Cpu overload
+    RcmdShowPrcsState_cpu RcmdShowPrcsState = "cpu"
+
+    // Memory overload
+    RcmdShowPrcsState_memory RcmdShowPrcsState = "memory"
 )
 
 // RcmdShowCompId represents Component Info
@@ -98,26 +121,6 @@ const (
 
     // Max NA
     RcmdShowCompId_un_known RcmdShowCompId = "un-known"
-)
-
-// RcmdShowLdpConvState represents LDP Convergence States
-type RcmdShowLdpConvState string
-
-const (
-    // Not Fully Covered
-    RcmdShowLdpConvState_not_full RcmdShowLdpConvState = "not-full"
-
-    // Fully Covered
-    RcmdShowLdpConvState_fully_covered RcmdShowLdpConvState = "fully-covered"
-
-    // Backup Coverage Above Threshold
-    RcmdShowLdpConvState_coverage_above_threshold RcmdShowLdpConvState = "coverage-above-threshold"
-
-    // Backup Coverage Below Threshold
-    RcmdShowLdpConvState_coverage_below_threshold RcmdShowLdpConvState = "coverage-below-threshold"
-
-    // Backup Coverage is Flappping
-    RcmdShowLdpConvState_coverage_flapping RcmdShowLdpConvState = "coverage-flapping"
 )
 
 // RcmdShowLdpSessionState represents LDP Session State
@@ -160,6 +163,54 @@ const (
     RcmdProtocolId_na RcmdProtocolId = "na"
 )
 
+// RcmdShowLdpConvState represents LDP Convergence States
+type RcmdShowLdpConvState string
+
+const (
+    // Not Fully Covered
+    RcmdShowLdpConvState_not_full RcmdShowLdpConvState = "not-full"
+
+    // Fully Covered
+    RcmdShowLdpConvState_fully_covered RcmdShowLdpConvState = "fully-covered"
+
+    // Backup Coverage Above Threshold
+    RcmdShowLdpConvState_coverage_above_threshold RcmdShowLdpConvState = "coverage-above-threshold"
+
+    // Backup Coverage Below Threshold
+    RcmdShowLdpConvState_coverage_below_threshold RcmdShowLdpConvState = "coverage-below-threshold"
+
+    // Backup Coverage is Flappping
+    RcmdShowLdpConvState_coverage_flapping RcmdShowLdpConvState = "coverage-flapping"
+)
+
+// RcmdLinecardSpeed represents Comparative speed of programming on linecard
+type RcmdLinecardSpeed string
+
+const (
+    // Other linecard
+    RcmdLinecardSpeed_other RcmdLinecardSpeed = "other"
+
+    // Fastest linecard
+    RcmdLinecardSpeed_fastest RcmdLinecardSpeed = "fastest"
+
+    // Slowest linecard
+    RcmdLinecardSpeed_slowest RcmdLinecardSpeed = "slowest"
+)
+
+// RcmdShowNode represents Type of Node
+type RcmdShowNode string
+
+const (
+    // Unknown Type
+    RcmdShowNode_unknown RcmdShowNode = "unknown"
+
+    // LC Type
+    RcmdShowNode_lc RcmdShowNode = "lc"
+
+    // RP Type
+    RcmdShowNode_rp RcmdShowNode = "rp"
+)
+
 // RcmdShowLdpNeighbourStatus represents LDP Adjacency Session Status
 type RcmdShowLdpNeighbourStatus string
 
@@ -169,40 +220,6 @@ const (
 
     // Up State
     RcmdShowLdpNeighbourStatus_up RcmdShowLdpNeighbourStatus = "up"
-)
-
-// RcmdLdpEvent represents Type of LDP Event
-type RcmdLdpEvent string
-
-const (
-    // Neighbor Event
-    RcmdLdpEvent_neighbor RcmdLdpEvent = "neighbor"
-
-    // Adjacency Event
-    RcmdLdpEvent_adjacency RcmdLdpEvent = "adjacency"
-)
-
-// RcmdShowMem represents RCMD Memory Manager type
-type RcmdShowMem string
-
-const (
-    // Standard type
-    RcmdShowMem_standard RcmdShowMem = "standard"
-
-    // Chunk type
-    RcmdShowMem_chunk RcmdShowMem = "chunk"
-
-    // EDM type
-    RcmdShowMem_edm RcmdShowMem = "edm"
-
-    // String type
-    RcmdShowMem_string_ RcmdShowMem = "string"
-
-    // Static type
-    RcmdShowMem_static RcmdShowMem = "static"
-
-    // Unknown type
-    RcmdShowMem_unknown RcmdShowMem = "unknown"
 )
 
 // RcmdIsisSpf represents Type of an ISIS SPF run
@@ -222,92 +239,6 @@ const (
     RcmdIsisSpf_partial_route RcmdIsisSpf = "partial-route"
 )
 
-// RcmdIsisLvl represents Type of an ISIS Level
-type RcmdIsisLvl string
-
-const (
-    // Level 1
-    RcmdIsisLvl_l1 RcmdIsisLvl = "l1"
-
-    // Level 2
-    RcmdIsisLvl_l2 RcmdIsisLvl = "l2"
-)
-
-// RcmdBagEnblDsbl represents status enum
-type RcmdBagEnblDsbl string
-
-const (
-    // Disabled
-    RcmdBagEnblDsbl_dsbl RcmdBagEnblDsbl = "dsbl"
-
-    // Enabled
-    RcmdBagEnblDsbl_enbl RcmdBagEnblDsbl = "enbl"
-)
-
-// RcmdShowNode represents Type of Node
-type RcmdShowNode string
-
-const (
-    // Unknown Type
-    RcmdShowNode_unknown RcmdShowNode = "unknown"
-
-    // LC Type
-    RcmdShowNode_lc RcmdShowNode = "lc"
-
-    // RP Type
-    RcmdShowNode_rp RcmdShowNode = "rp"
-)
-
-// RcmdBoolYesNo represents Boolean enum
-type RcmdBoolYesNo string
-
-const (
-    // No
-    RcmdBoolYesNo_no RcmdBoolYesNo = "no"
-
-    // Yes
-    RcmdBoolYesNo_yes RcmdBoolYesNo = "yes"
-)
-
-// RcmdShowPrcsState represents Post Processing Info
-type RcmdShowPrcsState string
-
-const (
-    // Success
-    RcmdShowPrcsState_success RcmdShowPrcsState = "success"
-
-    // Cpu overload
-    RcmdShowPrcsState_cpu RcmdShowPrcsState = "cpu"
-
-    // Memory overload
-    RcmdShowPrcsState_memory RcmdShowPrcsState = "memory"
-)
-
-// RcmdBagEnableDisable represents status enum
-type RcmdBagEnableDisable string
-
-const (
-    // Disabled
-    RcmdBagEnableDisable_disable RcmdBagEnableDisable = "disable"
-
-    // Enabled
-    RcmdBagEnableDisable_enable RcmdBagEnableDisable = "enable"
-)
-
-// RcmdShowIpfrrLfa represents IP Frr LFA Types
-type RcmdShowIpfrrLfa string
-
-const (
-    // No IP Frr LFA Type 
-    RcmdShowIpfrrLfa_none RcmdShowIpfrrLfa = "none"
-
-    // IP Frr Local LFA
-    RcmdShowIpfrrLfa_local RcmdShowIpfrrLfa = "local"
-
-    // IP Frr Remote LFA
-    RcmdShowIpfrrLfa_remote RcmdShowIpfrrLfa = "remote"
-)
-
 // RcmdShowRoutePathChange represents Type of route change
 type RcmdShowRoutePathChange string
 
@@ -319,81 +250,15 @@ const (
     RcmdShowRoutePathChange_backup RcmdShowRoutePathChange = "backup"
 )
 
-// RcmdLinecardSpeed represents Comparative speed of programming on linecard
-type RcmdLinecardSpeed string
+// RcmdIsisLvl represents Type of an ISIS Level
+type RcmdIsisLvl string
 
 const (
-    // Other linecard
-    RcmdLinecardSpeed_other RcmdLinecardSpeed = "other"
+    // Level 1
+    RcmdIsisLvl_l1 RcmdIsisLvl = "l1"
 
-    // Fastest linecard
-    RcmdLinecardSpeed_fastest RcmdLinecardSpeed = "fastest"
-
-    // Slowest linecard
-    RcmdLinecardSpeed_slowest RcmdLinecardSpeed = "slowest"
-)
-
-// RcmdLsChange represents Type of change
-type RcmdLsChange string
-
-const (
-    // Added
-    RcmdLsChange_new_ RcmdLsChange = "new"
-
-    // Deleted
-    RcmdLsChange_delete_ RcmdLsChange = "delete"
-
-    // Modified
-    RcmdLsChange_modify RcmdLsChange = "modify"
-
-    // No operation
-    RcmdLsChange_noop RcmdLsChange = "noop"
-)
-
-// RcmdLsa represents Type of LSA
-type RcmdLsa string
-
-const (
-    // Invalid LSA
-    RcmdLsa_unknown RcmdLsa = "unknown"
-
-    // Router LSA
-    RcmdLsa_router RcmdLsa = "router"
-
-    // Network LSA
-    RcmdLsa_network RcmdLsa = "network"
-
-    // Summary LSA
-    RcmdLsa_summary RcmdLsa = "summary"
-
-    // ASBR LSA
-    RcmdLsa_asbr RcmdLsa = "asbr"
-
-    // External LSA
-    RcmdLsa_external RcmdLsa = "external"
-
-    // Multicast LSA
-    RcmdLsa_multicast RcmdLsa = "multicast"
-
-    // NSSA LSA
-    RcmdLsa_nssa RcmdLsa = "nssa"
-)
-
-// RcmdSpfState represents Type of an ISIS Level
-type RcmdSpfState string
-
-const (
-    // Complete
-    RcmdSpfState_complete RcmdSpfState = "complete"
-
-    // InComplete
-    RcmdSpfState_in_complete RcmdSpfState = "in-complete"
-
-    // Collecting data
-    RcmdSpfState_collecting RcmdSpfState = "collecting"
-
-    // No Route Change
-    RcmdSpfState_no_route_change RcmdSpfState = "no-route-change"
+    // Level 2
+    RcmdIsisLvl_l2 RcmdIsisLvl = "l2"
 )
 
 // RcmdChange represents Type of change
@@ -466,21 +331,156 @@ const (
     RcmdShowRoute_default_attached RcmdShowRoute = "default-attached"
 )
 
-// RcmdPriorityLevel represents Level of priority
-type RcmdPriorityLevel string
+// RcmdLdpEvent represents Type of LDP Event
+type RcmdLdpEvent string
 
 const (
-    // Critical
-    RcmdPriorityLevel_critical RcmdPriorityLevel = "critical"
+    // Neighbor Event
+    RcmdLdpEvent_neighbor RcmdLdpEvent = "neighbor"
 
-    // High
-    RcmdPriorityLevel_high RcmdPriorityLevel = "high"
+    // Adjacency Event
+    RcmdLdpEvent_adjacency RcmdLdpEvent = "adjacency"
+)
 
-    // Medium
-    RcmdPriorityLevel_medium RcmdPriorityLevel = "medium"
+// RcmdLsa represents Type of LSA
+type RcmdLsa string
 
-    // Low
-    RcmdPriorityLevel_low RcmdPriorityLevel = "low"
+const (
+    // Invalid LSA
+    RcmdLsa_unknown RcmdLsa = "unknown"
+
+    // Router LSA
+    RcmdLsa_router RcmdLsa = "router"
+
+    // Network LSA
+    RcmdLsa_network RcmdLsa = "network"
+
+    // Summary LSA
+    RcmdLsa_summary RcmdLsa = "summary"
+
+    // ASBR LSA
+    RcmdLsa_asbr RcmdLsa = "asbr"
+
+    // External LSA
+    RcmdLsa_external RcmdLsa = "external"
+
+    // Multicast LSA
+    RcmdLsa_multicast RcmdLsa = "multicast"
+
+    // NSSA LSA
+    RcmdLsa_nssa RcmdLsa = "nssa"
+)
+
+// RcmdShowMem represents RCMD Memory Manager type
+type RcmdShowMem string
+
+const (
+    // Standard type
+    RcmdShowMem_standard RcmdShowMem = "standard"
+
+    // Chunk type
+    RcmdShowMem_chunk RcmdShowMem = "chunk"
+
+    // EDM type
+    RcmdShowMem_edm RcmdShowMem = "edm"
+
+    // String type
+    RcmdShowMem_string_ RcmdShowMem = "string"
+
+    // Static type
+    RcmdShowMem_static RcmdShowMem = "static"
+
+    // Unknown type
+    RcmdShowMem_unknown RcmdShowMem = "unknown"
+)
+
+// RcmdBagEnableDisable represents status enum
+type RcmdBagEnableDisable string
+
+const (
+    // Disabled
+    RcmdBagEnableDisable_disable RcmdBagEnableDisable = "disable"
+
+    // Enabled
+    RcmdBagEnableDisable_enable RcmdBagEnableDisable = "enable"
+)
+
+// RcmdShowInstState represents instance state
+type RcmdShowInstState string
+
+const (
+    // Unknown state
+    RcmdShowInstState_unknown RcmdShowInstState = "unknown"
+
+    // Active state
+    RcmdShowInstState_active RcmdShowInstState = "active"
+
+    // InActive state
+    RcmdShowInstState_in_active RcmdShowInstState = "in-active"
+
+    // Max state
+    RcmdShowInstState_na RcmdShowInstState = "na"
+)
+
+// RcmdLsChange represents Type of change
+type RcmdLsChange string
+
+const (
+    // Added
+    RcmdLsChange_new_ RcmdLsChange = "new"
+
+    // Deleted
+    RcmdLsChange_delete_ RcmdLsChange = "delete"
+
+    // Modified
+    RcmdLsChange_modify RcmdLsChange = "modify"
+
+    // No operation
+    RcmdLsChange_noop RcmdLsChange = "noop"
+)
+
+// RcmdShowIntfEvent represents Rcmd show intf event
+type RcmdShowIntfEvent string
+
+const (
+    // Create
+    RcmdShowIntfEvent_create RcmdShowIntfEvent = "create"
+
+    // Delete
+    RcmdShowIntfEvent_delete_ RcmdShowIntfEvent = "delete"
+
+    // LinkUp
+    RcmdShowIntfEvent_link_up RcmdShowIntfEvent = "link-up"
+
+    // LinkDown
+    RcmdShowIntfEvent_link_down RcmdShowIntfEvent = "link-down"
+
+    // PrimaryAddress
+    RcmdShowIntfEvent_primary_address RcmdShowIntfEvent = "primary-address"
+
+    // SecondaryAddress
+    RcmdShowIntfEvent_secondary_address RcmdShowIntfEvent = "secondary-address"
+
+    // Ipv6LinkLocalAddress
+    RcmdShowIntfEvent_ipv6_link_local_address RcmdShowIntfEvent = "ipv6-link-local-address"
+
+    // Ipv6GlobalAddress
+    RcmdShowIntfEvent_ipv6_global_address RcmdShowIntfEvent = "ipv6-global-address"
+
+    // MTU
+    RcmdShowIntfEvent_mtu RcmdShowIntfEvent = "mtu"
+
+    // BandWidth
+    RcmdShowIntfEvent_band_width RcmdShowIntfEvent = "band-width"
+
+    // LDPSync
+    RcmdShowIntfEvent_ldp_sync RcmdShowIntfEvent = "ldp-sync"
+
+    // ForwardReference
+    RcmdShowIntfEvent_forward_reference RcmdShowIntfEvent = "forward-reference"
+
+    // LDPNoSync
+    RcmdShowIntfEvent_ldp_no_sync RcmdShowIntfEvent = "ldp-no-sync"
 )
 
 // Rcmd
@@ -614,7 +614,7 @@ type Rcmd_Ospf_Instances_Instance struct {
     YListKey string
 
     // This attribute is a key. Operational data for a particular instance. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // OSPF IP-FRR events summary data.
@@ -884,14 +884,14 @@ type Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNo
     YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Number of paths protected by this Remote Node. The type is interface{} with
@@ -947,7 +947,7 @@ type Rcmd_Ospf_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNo
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 }
 
@@ -1015,13 +1015,13 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventStatistics_PrefixEventStatistic str
 
     // This attribute is a key. Events with Prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     PrefixInfo interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -1529,7 +1529,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun stru
     DijkstraRunNumber interface{}
 
     // Area ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AreaId interface{}
 
     // Threshold exceeded. The type is bool.
@@ -1611,7 +1611,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Trig
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -1621,7 +1621,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Trig
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -2516,7 +2516,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Prio
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -2552,7 +2552,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_Prio
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -2588,7 +2588,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_LsaP
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -2598,7 +2598,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_DijkstraRun_LsaP
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -3488,7 +3488,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExte
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -3524,7 +3524,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunSummaries_SpfRunSummary_InterAreaAndExte
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -3759,14 +3759,14 @@ type Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNod
     YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Number of paths protected by this Remote Node. The type is interface{} with
@@ -3822,7 +3822,7 @@ type Rcmd_Ospf_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNod
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 }
 
@@ -4267,7 +4267,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun struc
     DijkstraRunNumber interface{}
 
     // Area ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AreaId interface{}
 
     // Threshold exceeded. The type is bool.
@@ -4349,7 +4349,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Trigg
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -4359,7 +4359,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Trigg
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -5254,7 +5254,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Prior
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -5290,7 +5290,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_Prior
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -5326,7 +5326,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_LsaPr
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -5336,7 +5336,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_DijkstraRun_LsaPr
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -6226,7 +6226,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExter
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -6262,7 +6262,7 @@ type Rcmd_Ospf_Instances_Instance_SpfRunOfflines_SpfRunOffline_InterAreaAndExter
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -6337,7 +6337,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     EventId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -6547,7 +6547,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -6603,7 +6603,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -6613,7 +6613,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     PathMetric interface{}
 
     // Remote Node ID, in case of Remote LFA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 }
 
@@ -6650,7 +6650,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -6660,7 +6660,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -6860,7 +6860,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -6870,7 +6870,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventSummaries_SummaryExternalE
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -6951,7 +6951,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary struct
     EventId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -7161,7 +7161,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path s
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -7217,7 +7217,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path_L
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -7227,7 +7227,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path_L
     PathMetric interface{}
 
     // Remote Node ID, in case of Remote LFA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 }
 
@@ -7264,7 +7264,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Trigge
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -7274,7 +7274,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Trigge
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -7474,7 +7474,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_LsaPro
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -7484,7 +7484,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_LsaPro
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -7568,7 +7568,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     EventId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -7778,7 +7778,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -7834,7 +7834,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -7844,7 +7844,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     PathMetric interface{}
 
     // Remote Node ID, in case of Remote LFA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 }
 
@@ -7881,7 +7881,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -7891,7 +7891,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -8091,7 +8091,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -8101,7 +8101,7 @@ type Rcmd_Ospf_Instances_Instance_SummaryExternalEventOfflines_SummaryExternalEv
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -8184,7 +8184,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline struct 
     EventId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -8394,7 +8394,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path st
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -8450,7 +8450,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path_Lf
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -8460,7 +8460,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path_Lf
     PathMetric interface{}
 
     // Remote Node ID, in case of Remote LFA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 }
 
@@ -8497,7 +8497,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Trigger
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -8507,7 +8507,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Trigger
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -8707,7 +8707,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_LsaProc
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -8717,7 +8717,7 @@ type Rcmd_Ospf_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_LsaProc
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -9696,7 +9696,7 @@ type Rcmd_Isis_Instances_Instance struct {
     YListKey string
 
     // This attribute is a key. Operational data for a particular instance. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // ISIS IP-FRR events summary data.
@@ -9958,14 +9958,14 @@ type Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNo
     YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Number of paths protected by this Remote Node. The type is interface{} with
@@ -10021,7 +10021,7 @@ type Rcmd_Isis_Instances_Instance_IpfrrEventSummaries_IpfrrEventSummary_RemoteNo
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 }
 
@@ -10089,13 +10089,13 @@ type Rcmd_Isis_Instances_Instance_PrefixEventStatistics_PrefixEventStatistic str
 
     // This attribute is a key. Events with Prefix. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     PrefixInfo interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -11574,7 +11574,7 @@ type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_LeafNet
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -11610,7 +11610,7 @@ type Rcmd_Isis_Instances_Instance_SpfRunSummaries_SpfRunSummary_Priority_LeafNet
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -11945,14 +11945,14 @@ type Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNod
     YListKey string
 
     // Remote-LFA Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Number of paths protected by this Remote Node. The type is interface{} with
@@ -12008,7 +12008,7 @@ type Rcmd_Isis_Instances_Instance_IpfrrEventOfflines_IpfrrEventOffline_RemoteNod
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 }
 
@@ -13424,7 +13424,7 @@ type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_LeafNetw
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -13460,7 +13460,7 @@ type Rcmd_Isis_Instances_Instance_SpfRunOfflines_SpfRunOffline_Priority_LeafNetw
     YListKey string
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is interface{} with range: 0..255.
@@ -13634,7 +13634,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary struct
     EventId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -13844,7 +13844,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path s
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -13900,7 +13900,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path_L
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -13910,7 +13910,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Path_L
     PathMetric interface{}
 
     // Remote Node ID, in case of Remote LFA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 }
 
@@ -13947,7 +13947,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Trigge
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -13957,7 +13957,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_Trigge
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -14157,7 +14157,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_LsaPro
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -14167,7 +14167,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventSummaries_PrefixEventSummary_LsaPro
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -14250,7 +14250,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline struct 
     EventId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -14460,7 +14460,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path st
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -14516,7 +14516,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path_Lf
     InterfaceName interface{}
 
     // Nexthop Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighbourAddress interface{}
 
     // Event Add/Delete. The type is RcmdChange.
@@ -14526,7 +14526,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Path_Lf
     PathMetric interface{}
 
     // Remote Node ID, in case of Remote LFA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 }
 
@@ -14563,7 +14563,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Trigger
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -14573,7 +14573,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_Trigger
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -14773,7 +14773,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_LsaProc
     YListKey string
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsaId interface{}
 
     // Sequence Number. The type is string.
@@ -14783,7 +14783,7 @@ type Rcmd_Isis_Instances_Instance_PrefixEventOfflines_PrefixEventOffline_LsaProc
     LsaType interface{}
 
     // Originating Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OriginRouterId interface{}
 
     // Add, Delete, Modify. The type is RcmdLsChange.
@@ -15198,14 +15198,14 @@ type Rcmd_Ldp_Sessions_Session struct {
     EventTime interface{}
 
     // Label Space Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsrId interface{}
 
     // Interface Name. The type is string.
     InterfaceName interface{}
 
     // transport address or adjacency address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Adjacency Session Status. The type is RcmdShowLdpNeighbourStatus.
@@ -15419,15 +15419,15 @@ type Rcmd_Ldp_RemoteLfaS_RemoteLfa_RemoteNode struct {
     YListKey string
 
     // Remote Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 
     // Label Space Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsrId interface{}
 
     // Transport Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TransportAddress interface{}
 
     // Inuse time of the Session. The type is string.
@@ -15706,15 +15706,15 @@ type Rcmd_Ldp_RemoteLfaSummaries_RemoteLfaSummary_RemoteNode struct {
     YListKey string
 
     // Remote Node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteNodeId interface{}
 
     // Label Space Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LsrId interface{}
 
     // Transport Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TransportAddress interface{}
 
     // Inuse time of the Session. The type is string.
@@ -15901,7 +15901,7 @@ type Rcmd_Intf_Events_Event struct {
     EventTime interface{}
 
     // Primary Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryAddress interface{}
 }
 

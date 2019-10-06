@@ -24,15 +24,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-iep-oper:explicit-paths", reflect.TypeOf(ExplicitPaths{}))
 }
 
-// IepHop represents Hop types of the next-address configured
-type IepHop string
+// IepStatus represents Status of the path
+type IepStatus string
 
 const (
-    // Hop type is strict
-    IepHop_strict IepHop = "strict"
+    // Status is enabled
+    IepStatus_enabled IepStatus = "enabled"
 
-    // Hop type is loose
-    IepHop_loose IepHop = "loose"
+    // Status is disabled
+    IepStatus_disabled IepStatus = "disabled"
 )
 
 // IepAddress represents Address types
@@ -49,15 +49,15 @@ const (
     IepAddress_exclude_srlg IepAddress = "exclude-srlg"
 )
 
-// IepStatus represents Status of the path
-type IepStatus string
+// IepHop represents Hop types of the next-address configured
+type IepHop string
 
 const (
-    // Status is enabled
-    IepStatus_enabled IepStatus = "enabled"
+    // Hop type is strict
+    IepHop_strict IepHop = "strict"
 
-    // Status is disabled
-    IepStatus_disabled IepStatus = "disabled"
+    // Hop type is loose
+    IepHop_loose IepHop = "loose"
 )
 
 // ExplicitPaths
@@ -201,7 +201,7 @@ type ExplicitPaths_Identifiers_Identifier_Address struct {
     HopType interface{}
 
     // IPv4 unicast address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // MPLS label. The type is interface{} with range: 0..4294967295.
@@ -277,7 +277,7 @@ type ExplicitPaths_Names_Name struct {
     YListKey string
 
     // This attribute is a key. Path name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PathName interface{}
 
     // Status of the path. The type is IepStatus.
@@ -338,7 +338,7 @@ type ExplicitPaths_Names_Name_Address struct {
     HopType interface{}
 
     // IPv4 unicast address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // MPLS label. The type is interface{} with range: 0..4294967295.

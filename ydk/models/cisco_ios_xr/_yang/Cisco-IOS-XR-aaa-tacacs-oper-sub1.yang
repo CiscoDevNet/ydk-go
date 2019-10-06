@@ -191,7 +191,7 @@ submodule Cisco-IOS-XR-aaa-tacacs-oper-sub1 {
       "TACACS REQUESTBAG";
     list tacacs-requestbag {
       description
-        "address in tacascd proc space of this req";
+        "tacacs requestbag";
       leaf time-remaining {
         type uint32;
         description

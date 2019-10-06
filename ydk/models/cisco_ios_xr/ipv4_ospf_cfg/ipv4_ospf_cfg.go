@@ -28,135 +28,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv4-ospf-cfg:ospf", reflect.TypeOf(Ospf{}))
 }
 
-// OspfProcFrrRlfaTunnel represents Ospf proc frr rlfa tunnel
-type OspfProcFrrRlfaTunnel string
-
-const (
-    // Disabled
-    OspfProcFrrRlfaTunnel_none OspfProcFrrRlfaTunnel = "none"
-
-    // MPLS LDP
-    OspfProcFrrRlfaTunnel_mpls_ldp OspfProcFrrRlfaTunnel = "mpls-ldp"
-)
-
-// OspfSubAddressFamily represents Ospf sub address family
-type OspfSubAddressFamily string
-
-const (
-    // Unicast
-    OspfSubAddressFamily_unicast OspfSubAddressFamily = "unicast"
-)
-
-// OspfNetwork represents Ospf network
-type OspfNetwork string
-
-const (
-    // Broadcast
-    OspfNetwork_broadcast OspfNetwork = "broadcast"
-
-    // NonBroadcast
-    OspfNetwork_non_broadcast OspfNetwork = "non-broadcast"
-
-    // Point to Point
-    OspfNetwork_point_to_point OspfNetwork = "point-to-point"
-
-    // Point to Multipoint
-    OspfNetwork_point_to_multipoint OspfNetwork = "point-to-multipoint"
-
-    // NonBroadcast Point to Multipoint
-    OspfNetwork_non_broadcast_point_to_multipoint OspfNetwork = "non-broadcast-point-to-multipoint"
-)
-
-// OspfFastRerouteTiebreakersIntf represents Ospf fast reroute tiebreakers intf
-type OspfFastRerouteTiebreakersIntf string
-
-const (
-    // Downstream
-    OspfFastRerouteTiebreakersIntf_downstream OspfFastRerouteTiebreakersIntf = "downstream"
-
-    // LC Disjoint
-    OspfFastRerouteTiebreakersIntf_line_card_disjoint OspfFastRerouteTiebreakersIntf = "line-card-disjoint"
-
-    // Lowest metric
-    OspfFastRerouteTiebreakersIntf_lowest_metric OspfFastRerouteTiebreakersIntf = "lowest-metric"
-
-    // Node protection
-    OspfFastRerouteTiebreakersIntf_node_protect OspfFastRerouteTiebreakersIntf = "node-protect"
-
-    // Primary path
-    OspfFastRerouteTiebreakersIntf_primary_path OspfFastRerouteTiebreakersIntf = "primary-path"
-
-    // Secondar path
-    OspfFastRerouteTiebreakersIntf_secondary_path OspfFastRerouteTiebreakersIntf = "secondary-path"
-
-    // SRLG
-    OspfFastRerouteTiebreakersIntf_srlg_disjoint OspfFastRerouteTiebreakersIntf = "srlg-disjoint"
-
-    // Intf Disjoint
-    OspfFastRerouteTiebreakersIntf_interface_disjoint OspfFastRerouteTiebreakersIntf = "interface-disjoint"
-)
-
-// OspfAuthentication represents Ospf authentication
-type OspfAuthentication string
-
-const (
-    // No Authentication
-    OspfAuthentication_none OspfAuthentication = "none"
-
-    // Plain Text Authentication
-    OspfAuthentication_plain OspfAuthentication = "plain"
-
-    // MD5 Message Digest
-    OspfAuthentication_md5 OspfAuthentication = "md5"
-
-    // Keychain Authentication
-    OspfAuthentication_keychain OspfAuthentication = "keychain"
-)
-
-// OspfEigrpRoute represents Ospf eigrp route
-type OspfEigrpRoute string
-
-const (
-    // EIGRP Internal Type
-    OspfEigrpRoute_internal OspfEigrpRoute = "internal"
-
-    // EIGRP External Type
-    OspfEigrpRoute_external OspfEigrpRoute = "external"
-)
-
-// OspfSid represents Ospf sid
-type OspfSid string
-
-const (
-    // Index
-    OspfSid_index OspfSid = "index"
-
-    // Absolute
-    OspfSid_absolute OspfSid = "absolute"
-)
-
-// OspfLinkStateMetric represents Ospf link state metric
-type OspfLinkStateMetric string
-
-const (
-    // Type 1 External
-    OspfLinkStateMetric_type1 OspfLinkStateMetric = "type1"
-
-    // Type 2 External
-    OspfLinkStateMetric_type2 OspfLinkStateMetric = "type2"
-)
-
-// OspfKeychainAuth represents Ospf keychain auth
-type OspfKeychainAuth string
-
-const (
-    // No Keychain Authentication
-    OspfKeychainAuth_none OspfKeychainAuth = "none"
-
-    // Keychain Authentication
-    OspfKeychainAuth_keychain OspfKeychainAuth = "keychain"
-)
-
 // OspfFastRerouteTiebreakers represents Ospf fast reroute tiebreakers
 type OspfFastRerouteTiebreakers string
 
@@ -186,76 +57,6 @@ const (
     OspfFastRerouteTiebreakers_interface_disjoint OspfFastRerouteTiebreakers = "interface-disjoint"
 )
 
-// OspfUloopAvoidance represents Ospf uloop avoidance
-type OspfUloopAvoidance string
-
-const (
-    // Protected prefixes only
-    OspfUloopAvoidance_protected OspfUloopAvoidance = "protected"
-
-    // All prefixes
-    OspfUloopAvoidance_all OspfUloopAvoidance = "all"
-
-    // Microloop avoidance using Segment Routing
-    OspfUloopAvoidance_segment_routing OspfUloopAvoidance = "segment-routing"
-)
-
-// OspfShutdown represents Ospf shutdown
-type OspfShutdown string
-
-const (
-    // Full graceful shutdown
-    OspfShutdown_full OspfShutdown = "full"
-
-    // Enter host only mode
-    OspfShutdown_hostmode OspfShutdown = "hostmode"
-
-    // Full graceful shutdown post reload
-    OspfShutdown_onreload OspfShutdown = "onreload"
-)
-
-// OspfDomainId represents Ospf domain id
-type OspfDomainId string
-
-const (
-    // Type 0x0005
-    OspfDomainId_type0005 OspfDomainId = "type0005"
-
-    // Type 0x0105
-    OspfDomainId_type0105 OspfDomainId = "type0105"
-
-    // Type 0x0205
-    OspfDomainId_type0205 OspfDomainId = "type0205"
-
-    // Type 0x8005
-    OspfDomainId_type8005 OspfDomainId = "type8005"
-)
-
-// OspfFrrRlfaTunnel represents Ospf frr rlfa tunnel
-type OspfFrrRlfaTunnel string
-
-const (
-    // Disabled
-    OspfFrrRlfaTunnel_none OspfFrrRlfaTunnel = "none"
-
-    // MPLS LDP
-    OspfFrrRlfaTunnel_mpls_ldp OspfFrrRlfaTunnel = "mpls-ldp"
-)
-
-// OspfLogAdj represents Ospf log adj
-type OspfLogAdj string
-
-const (
-    // Limited output
-    OspfLogAdj_brief OspfLogAdj = "brief"
-
-    // Verbose output
-    OspfLogAdj_detail OspfLogAdj = "detail"
-
-    // No output
-    OspfLogAdj_suppress OspfLogAdj = "suppress"
-)
-
 // OspfFastReroute represents Ospf fast reroute
 type OspfFastReroute string
 
@@ -268,109 +69,6 @@ const (
 
     // Per prefix
     OspfFastReroute_per_prefix OspfFastReroute = "per-prefix"
-)
-
-// OspfCiscoNsf represents Ospf cisco nsf
-type OspfCiscoNsf string
-
-const (
-    // Do not require all neighbors to run NSF
-    OspfCiscoNsf_always OspfCiscoNsf = "always"
-
-    // Require all neighbors to run NSF
-    OspfCiscoNsf_require_nsf_neighbors OspfCiscoNsf = "require-nsf-neighbors"
-)
-
-// OspfProcFastReroute represents Ospf proc fast reroute
-type OspfProcFastReroute string
-
-const (
-    // None
-    OspfProcFastReroute_none OspfProcFastReroute = "none"
-
-    // Per link
-    OspfProcFastReroute_per_link OspfProcFastReroute = "per-link"
-
-    // Per prefix
-    OspfProcFastReroute_per_prefix OspfProcFastReroute = "per-prefix"
-)
-
-// OspfRedistLsa represents Ospf redist lsa
-type OspfRedistLsa string
-
-const (
-    // Type 3 (summary) LSA
-    OspfRedistLsa_summary OspfRedistLsa = "summary"
-
-    // Type 5 (external) LSA
-    OspfRedistLsa_external OspfRedistLsa = "external"
-)
-
-// OspfDistListProtocol represents Ospf dist list protocol
-type OspfDistListProtocol string
-
-const (
-    // Default
-    OspfDistListProtocol_all OspfDistListProtocol = "all"
-
-    // Connected Routes
-    OspfDistListProtocol_connected OspfDistListProtocol = "connected"
-
-    // Static Routes
-    OspfDistListProtocol_static OspfDistListProtocol = "static"
-
-    // BGP
-    OspfDistListProtocol_bgp OspfDistListProtocol = "bgp"
-
-    // OSPF
-    OspfDistListProtocol_ospf OspfDistListProtocol = "ospf"
-
-    // DAGR
-    OspfDistListProtocol_dagr OspfDistListProtocol = "dagr"
-)
-
-// BfdEnableMode represents Bfd enable mode
-type BfdEnableMode string
-
-const (
-    // Disable Mode - Prevent inheritance
-    BfdEnableMode_disable BfdEnableMode = "disable"
-
-    // Default Mode - Default BFD behavior
-    BfdEnableMode_default_ BfdEnableMode = "default"
-
-    // Strict Mode - Hold down adj until BFD sesion up
-    BfdEnableMode_strict BfdEnableMode = "strict"
-)
-
-// OspfSegmentRoutingForwarding represents Ospf segment routing forwarding
-type OspfSegmentRoutingForwarding string
-
-const (
-    // Disable
-    OspfSegmentRoutingForwarding_disable OspfSegmentRoutingForwarding = "disable"
-
-    // Mpls
-    OspfSegmentRoutingForwarding_mpls OspfSegmentRoutingForwarding = "mpls"
-)
-
-// OspfIetfNsf represents Ospf ietf nsf
-type OspfIetfNsf string
-
-const (
-    // Use IETF NSF in planned and unplanned cases
-    OspfIetfNsf_all OspfIetfNsf = "all"
-)
-
-// Nsr represents Nsr
-type Nsr string
-
-const (
-    // Enable non-stop routing
-    Nsr_true_ Nsr = "true"
-
-    // Disable non-stop routing
-    Nsr_false_ Nsr = "false"
 )
 
 // OspfTraceBufSize represents Ospf trace buf size
@@ -406,6 +104,67 @@ const (
 
     // Buffer size 65536
     OspfTraceBufSize_size65536 OspfTraceBufSize = "size65536"
+)
+
+// OspfRedistLsa represents Ospf redist lsa
+type OspfRedistLsa string
+
+const (
+    // Type 3 (summary) LSA
+    OspfRedistLsa_summary OspfRedistLsa = "summary"
+
+    // Type 5 (external) LSA
+    OspfRedistLsa_external OspfRedistLsa = "external"
+)
+
+// OspfIetfNsf represents Ospf ietf nsf
+type OspfIetfNsf string
+
+const (
+    // Use IETF NSF in planned and unplanned cases
+    OspfIetfNsf_all OspfIetfNsf = "all"
+)
+
+// BfdEnableMode represents Bfd enable mode
+type BfdEnableMode string
+
+const (
+    // Disable Mode - Prevent inheritance
+    BfdEnableMode_disable BfdEnableMode = "disable"
+
+    // Default Mode - Default BFD behavior
+    BfdEnableMode_default_ BfdEnableMode = "default"
+
+    // Strict Mode - Hold down adj until BFD sesion up
+    BfdEnableMode_strict BfdEnableMode = "strict"
+)
+
+// OspfFastReroutePriority represents Ospf fast reroute priority
+type OspfFastReroutePriority string
+
+const (
+    // Critical
+    OspfFastReroutePriority_critical OspfFastReroutePriority = "critical"
+
+    // High
+    OspfFastReroutePriority_high OspfFastReroutePriority = "high"
+
+    // Medium
+    OspfFastReroutePriority_medium OspfFastReroutePriority = "medium"
+
+    // low
+    OspfFastReroutePriority_low OspfFastReroutePriority = "low"
+)
+
+// OspfCiscoNsf represents Ospf cisco nsf
+type OspfCiscoNsf string
+
+const (
+    // Do not require all neighbors to run NSF
+    OspfCiscoNsf_always OspfCiscoNsf = "always"
+
+    // Require all neighbors to run NSF
+    OspfCiscoNsf_require_nsf_neighbors OspfCiscoNsf = "require-nsf-neighbors"
 )
 
 // OspfRedistProtocol represents Ospf redist protocol
@@ -449,6 +208,235 @@ const (
     OspfRedistProtocol_mobile OspfRedistProtocol = "mobile"
 )
 
+// OspfSegmentRouting represents Ospf segment routing
+type OspfSegmentRouting string
+
+const (
+    // Disable
+    OspfSegmentRouting_disable OspfSegmentRouting = "disable"
+
+    // Mpls
+    OspfSegmentRouting_mpls OspfSegmentRouting = "mpls"
+)
+
+// OspfUloopAvoidance represents Ospf uloop avoidance
+type OspfUloopAvoidance string
+
+const (
+    // Protected prefixes only
+    OspfUloopAvoidance_protected OspfUloopAvoidance = "protected"
+
+    // All prefixes
+    OspfUloopAvoidance_all OspfUloopAvoidance = "all"
+
+    // Microloop avoidance using Segment Routing
+    OspfUloopAvoidance_segment_routing OspfUloopAvoidance = "segment-routing"
+)
+
+// OspfSegmentRoutingForwarding represents Ospf segment routing forwarding
+type OspfSegmentRoutingForwarding string
+
+const (
+    // Disable
+    OspfSegmentRoutingForwarding_disable OspfSegmentRoutingForwarding = "disable"
+
+    // Mpls
+    OspfSegmentRoutingForwarding_mpls OspfSegmentRoutingForwarding = "mpls"
+)
+
+// OspfAddressFamily represents Ospf address family
+type OspfAddressFamily string
+
+const (
+    // IPv4
+    OspfAddressFamily_ipv4 OspfAddressFamily = "ipv4"
+)
+
+// OspfProcFastReroute represents Ospf proc fast reroute
+type OspfProcFastReroute string
+
+const (
+    // None
+    OspfProcFastReroute_none OspfProcFastReroute = "none"
+
+    // Per link
+    OspfProcFastReroute_per_link OspfProcFastReroute = "per-link"
+
+    // Per prefix
+    OspfProcFastReroute_per_prefix OspfProcFastReroute = "per-prefix"
+)
+
+// OspfProcFrrRlfaTunnel represents Ospf proc frr rlfa tunnel
+type OspfProcFrrRlfaTunnel string
+
+const (
+    // Disabled
+    OspfProcFrrRlfaTunnel_none OspfProcFrrRlfaTunnel = "none"
+
+    // MPLS LDP
+    OspfProcFrrRlfaTunnel_mpls_ldp OspfProcFrrRlfaTunnel = "mpls-ldp"
+)
+
+// OspfIetfNsfSupport represents Ospf ietf nsf support
+type OspfIetfNsfSupport string
+
+const (
+    // Do not perform IETF NSF helper role
+    OspfIetfNsfSupport_never OspfIetfNsfSupport = "never"
+)
+
+// OspfLinkStateMetric represents Ospf link state metric
+type OspfLinkStateMetric string
+
+const (
+    // Type 1 External
+    OspfLinkStateMetric_type1 OspfLinkStateMetric = "type1"
+
+    // Type 2 External
+    OspfLinkStateMetric_type2 OspfLinkStateMetric = "type2"
+)
+
+// OspfAuthentication represents Ospf authentication
+type OspfAuthentication string
+
+const (
+    // No Authentication
+    OspfAuthentication_none OspfAuthentication = "none"
+
+    // Plain Text Authentication
+    OspfAuthentication_plain OspfAuthentication = "plain"
+
+    // MD5 Message Digest
+    OspfAuthentication_md5 OspfAuthentication = "md5"
+
+    // Keychain Authentication
+    OspfAuthentication_keychain OspfAuthentication = "keychain"
+)
+
+// OspfLogAdj represents Ospf log adj
+type OspfLogAdj string
+
+const (
+    // Limited output
+    OspfLogAdj_brief OspfLogAdj = "brief"
+
+    // Verbose output
+    OspfLogAdj_detail OspfLogAdj = "detail"
+
+    // No output
+    OspfLogAdj_suppress OspfLogAdj = "suppress"
+)
+
+// OspfSubAddressFamily represents Ospf sub address family
+type OspfSubAddressFamily string
+
+const (
+    // Unicast
+    OspfSubAddressFamily_unicast OspfSubAddressFamily = "unicast"
+)
+
+// OspfDomainId represents Ospf domain id
+type OspfDomainId string
+
+const (
+    // Type 0x0005
+    OspfDomainId_type0005 OspfDomainId = "type0005"
+
+    // Type 0x0105
+    OspfDomainId_type0105 OspfDomainId = "type0105"
+
+    // Type 0x0205
+    OspfDomainId_type0205 OspfDomainId = "type0205"
+
+    // Type 0x8005
+    OspfDomainId_type8005 OspfDomainId = "type8005"
+)
+
+// OspfEigrpRoute represents Ospf eigrp route
+type OspfEigrpRoute string
+
+const (
+    // EIGRP Internal Type
+    OspfEigrpRoute_internal OspfEigrpRoute = "internal"
+
+    // EIGRP External Type
+    OspfEigrpRoute_external OspfEigrpRoute = "external"
+)
+
+// OspfSid represents Ospf sid
+type OspfSid string
+
+const (
+    // Index
+    OspfSid_index OspfSid = "index"
+
+    // Absolute
+    OspfSid_absolute OspfSid = "absolute"
+)
+
+// Nsr represents Nsr
+type Nsr string
+
+const (
+    // Enable non-stop routing
+    Nsr_true_ Nsr = "true"
+
+    // Disable non-stop routing
+    Nsr_false_ Nsr = "false"
+)
+
+// OspfFastRerouteTiebreakersIntf represents Ospf fast reroute tiebreakers intf
+type OspfFastRerouteTiebreakersIntf string
+
+const (
+    // Downstream
+    OspfFastRerouteTiebreakersIntf_downstream OspfFastRerouteTiebreakersIntf = "downstream"
+
+    // LC Disjoint
+    OspfFastRerouteTiebreakersIntf_line_card_disjoint OspfFastRerouteTiebreakersIntf = "line-card-disjoint"
+
+    // Lowest metric
+    OspfFastRerouteTiebreakersIntf_lowest_metric OspfFastRerouteTiebreakersIntf = "lowest-metric"
+
+    // Node protection
+    OspfFastRerouteTiebreakersIntf_node_protect OspfFastRerouteTiebreakersIntf = "node-protect"
+
+    // Primary path
+    OspfFastRerouteTiebreakersIntf_primary_path OspfFastRerouteTiebreakersIntf = "primary-path"
+
+    // Secondar path
+    OspfFastRerouteTiebreakersIntf_secondary_path OspfFastRerouteTiebreakersIntf = "secondary-path"
+
+    // SRLG
+    OspfFastRerouteTiebreakersIntf_srlg_disjoint OspfFastRerouteTiebreakersIntf = "srlg-disjoint"
+
+    // Intf Disjoint
+    OspfFastRerouteTiebreakersIntf_interface_disjoint OspfFastRerouteTiebreakersIntf = "interface-disjoint"
+)
+
+// OspfDistListProtocol represents Ospf dist list protocol
+type OspfDistListProtocol string
+
+const (
+    // Default
+    OspfDistListProtocol_all OspfDistListProtocol = "all"
+
+    // Connected Routes
+    OspfDistListProtocol_connected OspfDistListProtocol = "connected"
+
+    // Static Routes
+    OspfDistListProtocol_static OspfDistListProtocol = "static"
+
+    // BGP
+    OspfDistListProtocol_bgp OspfDistListProtocol = "bgp"
+
+    // OSPF
+    OspfDistListProtocol_ospf OspfDistListProtocol = "ospf"
+
+    // DAGR
+    OspfDistListProtocol_dagr OspfDistListProtocol = "dagr"
+)
+
 // OspfRouteLevel represents Ospf route level
 type OspfRouteLevel string
 
@@ -463,48 +451,60 @@ const (
     OspfRouteLevel_type1_and2 OspfRouteLevel = "type1-and2"
 )
 
-// OspfIetfNsfSupport represents Ospf ietf nsf support
-type OspfIetfNsfSupport string
+// OspfNetwork represents Ospf network
+type OspfNetwork string
 
 const (
-    // Do not perform IETF NSF helper role
-    OspfIetfNsfSupport_never OspfIetfNsfSupport = "never"
+    // Broadcast
+    OspfNetwork_broadcast OspfNetwork = "broadcast"
+
+    // NonBroadcast
+    OspfNetwork_non_broadcast OspfNetwork = "non-broadcast"
+
+    // Point to Point
+    OspfNetwork_point_to_point OspfNetwork = "point-to-point"
+
+    // Point to Multipoint
+    OspfNetwork_point_to_multipoint OspfNetwork = "point-to-multipoint"
+
+    // NonBroadcast Point to Multipoint
+    OspfNetwork_non_broadcast_point_to_multipoint OspfNetwork = "non-broadcast-point-to-multipoint"
 )
 
-// OspfSegmentRouting represents Ospf segment routing
-type OspfSegmentRouting string
+// OspfFrrRlfaTunnel represents Ospf frr rlfa tunnel
+type OspfFrrRlfaTunnel string
 
 const (
-    // Disable
-    OspfSegmentRouting_disable OspfSegmentRouting = "disable"
+    // Disabled
+    OspfFrrRlfaTunnel_none OspfFrrRlfaTunnel = "none"
 
-    // Mpls
-    OspfSegmentRouting_mpls OspfSegmentRouting = "mpls"
+    // MPLS LDP
+    OspfFrrRlfaTunnel_mpls_ldp OspfFrrRlfaTunnel = "mpls-ldp"
 )
 
-// OspfAddressFamily represents Ospf address family
-type OspfAddressFamily string
+// OspfShutdown represents Ospf shutdown
+type OspfShutdown string
 
 const (
-    // IPv4
-    OspfAddressFamily_ipv4 OspfAddressFamily = "ipv4"
+    // Full graceful shutdown
+    OspfShutdown_full OspfShutdown = "full"
+
+    // Enter host only mode
+    OspfShutdown_hostmode OspfShutdown = "hostmode"
+
+    // Full graceful shutdown post reload
+    OspfShutdown_onreload OspfShutdown = "onreload"
 )
 
-// OspfFastReroutePriority represents Ospf fast reroute priority
-type OspfFastReroutePriority string
+// OspfKeychainAuth represents Ospf keychain auth
+type OspfKeychainAuth string
 
 const (
-    // Critical
-    OspfFastReroutePriority_critical OspfFastReroutePriority = "critical"
+    // No Keychain Authentication
+    OspfKeychainAuth_none OspfKeychainAuth = "none"
 
-    // High
-    OspfFastReroutePriority_high OspfFastReroutePriority = "high"
-
-    // Medium
-    OspfFastReroutePriority_medium OspfFastReroutePriority = "medium"
-
-    // low
-    OspfFastReroutePriority_low OspfFastReroutePriority = "low"
+    // Keychain Authentication
+    OspfKeychainAuth_keychain OspfKeychainAuth = "keychain"
 )
 
 // Ospf
@@ -587,11 +587,17 @@ type Ospf_Processes_Process struct {
     // with length: 1..32.
     ProcessName interface{}
 
+    // Start OSPF configuration. The type is interface{}.
+    Start interface{}
+
     // Enable non-stop routing. The type is Nsr. The default value is true.
     Nsr interface{}
 
     // Type of protocol shutdown. The type is OspfShutdown.
     ProtocolShutdown interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // OSPF SNMP configuration.
     Snmp Ospf_Processes_Process_Snmp
@@ -632,8 +638,10 @@ func (process *Ospf_Processes_Process) GetEntityData() *types.CommonEntityData {
     process.EntityData.Children.Append("default-vrf", types.YChild{"DefaultVrf", &process.DefaultVrf})
     process.EntityData.Leafs = types.NewOrderedMap()
     process.EntityData.Leafs.Append("process-name", types.YLeaf{"ProcessName", process.ProcessName})
+    process.EntityData.Leafs.Append("start", types.YLeaf{"Start", process.Start})
     process.EntityData.Leafs.Append("nsr", types.YLeaf{"Nsr", process.Nsr})
     process.EntityData.Leafs.Append("protocol-shutdown", types.YLeaf{"ProtocolShutdown", process.ProtocolShutdown})
+    process.EntityData.Leafs.Append("running", types.YLeaf{"Running", process.Running})
 
     process.EntityData.YListKeys = []string {"ProcessName"}
 
@@ -787,8 +795,11 @@ type Ospf_Processes_Process_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name for this vrf. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
+
+    // Start OSPF VRF configuration. The type is interface{}.
+    VrfStart interface{}
 
     // Enable/disable OSPF SNMP trap. The type is bool. The default value is
     // false.
@@ -808,7 +819,7 @@ type Ospf_Processes_Process_Vrfs_Vrf struct {
 
     // Router ID for this OSPF process. Enter an IP Address. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Prefer type7 externals over type5. The type is interface{}.
@@ -881,9 +892,6 @@ type Ospf_Processes_Process_Vrfs_Vrf struct {
     // Unequal Cost Multi-ptah configuration.
     Ucmp Ospf_Processes_Process_Vrfs_Vrf_Ucmp
 
-    // Apply weights feature enable configuration.
-    ApplyWeight Ospf_Processes_Process_Vrfs_Vrf_ApplyWeight
-
     // Fast-reroute instance scoped parameters.
     FastReroute Ospf_Processes_Process_Vrfs_Vrf_FastReroute
 
@@ -929,7 +937,6 @@ func (vrf *Ospf_Processes_Process_Vrfs_Vrf) GetEntityData() *types.CommonEntityD
     vrf.EntityData.Children.Append("max-lsa", types.YChild{"MaxLsa", &vrf.MaxLsa})
     vrf.EntityData.Children.Append("auto-cost", types.YChild{"AutoCost", &vrf.AutoCost})
     vrf.EntityData.Children.Append("ucmp", types.YChild{"Ucmp", &vrf.Ucmp})
-    vrf.EntityData.Children.Append("apply-weight", types.YChild{"ApplyWeight", &vrf.ApplyWeight})
     vrf.EntityData.Children.Append("fast-reroute", types.YChild{"FastReroute", &vrf.FastReroute})
     vrf.EntityData.Children.Append("summary-prefixes", types.YChild{"SummaryPrefixes", &vrf.SummaryPrefixes})
     vrf.EntityData.Children.Append("outgoing-route-updates", types.YChild{"OutgoingRouteUpdates", &vrf.OutgoingRouteUpdates})
@@ -938,6 +945,7 @@ func (vrf *Ospf_Processes_Process_Vrfs_Vrf) GetEntityData() *types.CommonEntityD
     vrf.EntityData.Children.Append("timers", types.YChild{"Timers", &vrf.Timers})
     vrf.EntityData.Leafs = types.NewOrderedMap()
     vrf.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", vrf.VrfName})
+    vrf.EntityData.Leafs.Append("vrf-start", types.YLeaf{"VrfStart", vrf.VrfStart})
     vrf.EntityData.Leafs.Append("snmp-trap-enabled", types.YLeaf{"SnmpTrapEnabled", vrf.SnmpTrapEnabled})
     vrf.EntityData.Leafs.Append("domain-tag", types.YLeaf{"DomainTag", vrf.DomainTag})
     vrf.EntityData.Leafs.Append("vrf-lite", types.YLeaf{"VrfLite", vrf.VrfLite})
@@ -1072,7 +1080,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_DomainId_SecondaryDomainIds_SecondaryDomain
     DomainIdType interface{}
 
     // This attribute is a key. Secondary domain ID value. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     DomainIdName interface{}
 }
 
@@ -1751,9 +1759,6 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope struct {
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
 
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
-
     // Enable/Disable an OSPF area to advertise intra-area prefixes out of this
     // area as external. The type is bool.
     ExternalOut interface{}
@@ -1887,7 +1892,6 @@ func (processScope *Ospf_Processes_Process_Vrfs_Vrf_ProcessScope) GetEntityData(
     processScope.EntityData.Children.Append("cost-fallback", types.YChild{"CostFallback", &processScope.CostFallback})
     processScope.EntityData.Leafs = types.NewOrderedMap()
     processScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", processScope.Cost})
-    processScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", processScope.Weight})
     processScope.EntityData.Leafs.Append("external-out", types.YLeaf{"ExternalOut", processScope.ExternalOut})
     processScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", processScope.PrefixSuppressionPrimary})
     processScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", processScope.MtuIgnore})
@@ -2075,7 +2079,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_CandidateI
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2143,7 +2147,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerLink_ExcludeInt
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2292,7 +2296,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_Candidat
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2360,7 +2364,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_FastReroute_PerPrefix_ExcludeI
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -2468,7 +2472,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication struct {
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -2587,8 +2591,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_ProcessScope_Authentication_MessageDigestKe
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -2974,8 +2978,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Redistribution_Redistributes_Redistribute_A
     YListKey string
 
     // This attribute is a key. OSPF or ISIS process name or protocol name: bgp,
-    // eigrp, connected. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // eigrp, connected. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Disallow subnetting. The type is bool. The default value is false.
@@ -3070,8 +3073,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Redistribution_Redistributes_Redistribute_B
     YListKey string
 
     // This attribute is a key. OSPF or ISIS process name or protocol name: bgp,
-    // eigrp, connected. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // eigrp, connected. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // This attribute is a key. First half of BGP AS number in XX.YY format.
@@ -3180,8 +3182,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Redistribution_Redistributes_Redistribute_E
     YListKey string
 
     // This attribute is a key. OSPF or ISIS process name or protocol name: bgp,
-    // eigrp, connected. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // eigrp, connected. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // This attribute is a key. First half of BGP AS number in XX.YY format.
@@ -3527,7 +3528,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_Ucmp_ExcludeInterfaces_ExcludeInterface str
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -3549,50 +3550,6 @@ func (excludeInterface *Ospf_Processes_Process_Vrfs_Vrf_Ucmp_ExcludeInterfaces_E
     excludeInterface.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(excludeInterface.EntityData)
-}
-
-// Ospf_Processes_Process_Vrfs_Vrf_ApplyWeight
-// Apply weights feature enable configuration
-// This type is a presence type.
-type Ospf_Processes_Process_Vrfs_Vrf_ApplyWeight struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Use interface bandwidth when calculating weights. The type is bool. This
-    // attribute is mandatory.
-    Bandwidth interface{}
-
-    // Reference bandwidth to use for calculation (Mbits/sec). The type is
-    // interface{} with range: 1..4294967. Units are Mbit/s. The default value is
-    // 100.
-    ReferenceBandwidth interface{}
-
-    // Default weight to use when weight not configured under interface. The type
-    // is interface{} with range: 1..16777214. The default value is 1.
-    DefaultWeight interface{}
-}
-
-func (applyWeight *Ospf_Processes_Process_Vrfs_Vrf_ApplyWeight) GetEntityData() *types.CommonEntityData {
-    applyWeight.EntityData.YFilter = applyWeight.YFilter
-    applyWeight.EntityData.YangName = "apply-weight"
-    applyWeight.EntityData.BundleName = "cisco_ios_xr"
-    applyWeight.EntityData.ParentYangName = "vrf"
-    applyWeight.EntityData.SegmentPath = "apply-weight"
-    applyWeight.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/vrfs/vrf/" + applyWeight.EntityData.SegmentPath
-    applyWeight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    applyWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    applyWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    applyWeight.EntityData.Children = types.NewOrderedMap()
-    applyWeight.EntityData.Leafs = types.NewOrderedMap()
-    applyWeight.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", applyWeight.Bandwidth})
-    applyWeight.EntityData.Leafs.Append("reference-bandwidth", types.YLeaf{"ReferenceBandwidth", applyWeight.ReferenceBandwidth})
-    applyWeight.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", applyWeight.DefaultWeight})
-
-    applyWeight.EntityData.YListKeys = []string {}
-
-    return &(applyWeight.EntityData)
 }
 
 // Ospf_Processes_Process_Vrfs_Vrf_FastReroute
@@ -3868,11 +3825,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_SummaryPrefixes_PrefixAndNetmask struct {
 
     // This attribute is a key. IP summary prefix. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // This attribute is a key. Summary netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise when translating OSPF type-7 LSA. The type is bool. The
@@ -3915,7 +3872,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_SummaryPrefixes_Prefix struct {
 
     // This attribute is a key. IP summary prefix. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Do not advertise when translating OSPF type-7 LSA. The type is bool. The
@@ -3956,7 +3913,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_SummaryPrefixes_Netmask struct {
     YListKey string
 
     // This attribute is a key. Summary netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise when translating OSPF type-7 LSA. The type is bool. The
@@ -4039,7 +3996,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_OutgoingRouteUpdates_OutgoingRouteUpdate st
     // Access Control List name. The type is string.
     AccessListName interface{}
 
-    // First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP
+    // First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP
     // and must not be specified otherwise. Must be a non-zero value if second
     // half is zero. The type is interface{} with range: 0..65535.
     AsXx interface{}
@@ -4203,12 +4160,12 @@ type Ospf_Processes_Process_Vrfs_Vrf_Distance_IpDistances_IpDistance struct {
 
     // This attribute is a key. IP source address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP wild card bits -- inverted mask. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Wildcard interface{}
 
     // Administrative distance. The type is interface{} with range: 1..255. The
@@ -4293,7 +4250,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress struct {
 
     // This attribute is a key. Area ID if in IP address format. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Configure a route policy for inbound type-3 lsa filtering. The type is
@@ -4331,6 +4288,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress struct {
     // segment-routing configuration Applicable only in Default VRF. The type is
     // OspfSegmentRouting.
     SegmentRouting interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Virtual Link scope configurations.
     VirtualLinkScopes Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes
@@ -4384,6 +4344,7 @@ func (areaAddress *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress) Ge
     areaAddress.EntityData.Leafs.Append("external-out", types.YLeaf{"ExternalOut", areaAddress.ExternalOut})
     areaAddress.EntityData.Leafs.Append("summary-in", types.YLeaf{"SummaryIn", areaAddress.SummaryIn})
     areaAddress.EntityData.Leafs.Append("segment-routing", types.YLeaf{"SegmentRouting", areaAddress.SegmentRouting})
+    areaAddress.EntityData.Leafs.Append("running", types.YLeaf{"Running", areaAddress.Running})
 
     areaAddress.EntityData.YListKeys = []string {"Address"}
 
@@ -4433,7 +4394,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interval between HELLO packets in seconds. The type is interface{} with
@@ -4448,6 +4409,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication
@@ -4475,6 +4439,7 @@ func (virtualLinkScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddres
     virtualLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", virtualLinkScope.HelloInterval})
     virtualLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", virtualLinkScope.TransmitDelay})
     virtualLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", virtualLinkScope.RetransmitInterval})
+    virtualLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", virtualLinkScope.Running})
 
     virtualLinkScope.EntityData.YListKeys = []string {"Address"}
 
@@ -4488,7 +4453,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -4607,8 +4572,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_VirtualLinkScopes
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -4711,17 +4676,17 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_Sh
 
     // This attribute is a key. Address of the local sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Address of the remote sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Address of the local sham-link endpoint. Enter an IP Address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -4739,6 +4704,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_Sh
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication
@@ -4769,6 +4737,7 @@ func (shamLinkScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_S
     shamLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", shamLinkScope.HelloInterval})
     shamLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", shamLinkScope.TransmitDelay})
     shamLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", shamLinkScope.RetransmitInterval})
+    shamLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", shamLinkScope.Running})
 
     shamLinkScope.EntityData.YListKeys = []string {"SourceAddress", "DestinationAddress"}
 
@@ -4782,7 +4751,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_Sh
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -4901,8 +4870,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_ShamLinkScopes_Sh
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -4970,9 +4939,6 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope struct 
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -5091,7 +5057,6 @@ func (areaScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaS
     areaScope.EntityData.Children.Append("cost-fallback", types.YChild{"CostFallback", &areaScope.CostFallback})
     areaScope.EntityData.Leafs = types.NewOrderedMap()
     areaScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", areaScope.Cost})
-    areaScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", areaScope.Weight})
     areaScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", areaScope.PrefixSuppressionPrimary})
     areaScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", areaScope.MtuIgnore})
     areaScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", areaScope.LdpSyncIgpShortcuts})
@@ -5201,7 +5166,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authent
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -5320,8 +5285,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_Authent
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -5567,7 +5532,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5635,7 +5600,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5859,7 +5824,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -5927,7 +5892,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaScope_FastRer
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6027,14 +5992,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YListKey string
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -6109,8 +6071,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     // false.
     FloodReduction interface{}
 
-    // Configured Adjacency SID information.
-    AdjacencySids Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Prefix SID.
     PrefixSid Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_PrefixSid
@@ -6156,7 +6118,6 @@ func (nameScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameS
     nameScope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     nameScope.EntityData.Children = types.NewOrderedMap()
-    nameScope.EntityData.Children.Append("adjacency-sids", types.YChild{"AdjacencySids", &nameScope.AdjacencySids})
     nameScope.EntityData.Children.Append("prefix-sid", types.YChild{"PrefixSid", &nameScope.PrefixSid})
     nameScope.EntityData.Children.Append("prefix-sid-strict", types.YChild{"PrefixSidStrict", &nameScope.PrefixSidStrict})
     nameScope.EntityData.Children.Append("distribute-list", types.YChild{"DistributeList", &nameScope.DistributeList})
@@ -6170,7 +6131,6 @@ func (nameScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameS
     nameScope.EntityData.Leafs = types.NewOrderedMap()
     nameScope.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nameScope.InterfaceName})
     nameScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", nameScope.Cost})
-    nameScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", nameScope.Weight})
     nameScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", nameScope.PrefixSuppressionPrimary})
     nameScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", nameScope.MtuIgnore})
     nameScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", nameScope.LdpSyncIgpShortcuts})
@@ -6190,91 +6150,11 @@ func (nameScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameS
     nameScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", nameScope.RetransmitInterval})
     nameScope.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nameScope.Priority})
     nameScope.EntityData.Leafs.Append("flood-reduction", types.YLeaf{"FloodReduction", nameScope.FloodReduction})
+    nameScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", nameScope.Running})
 
     nameScope.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(nameScope.EntityData)
-}
-
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids
-// Configured Adjacency SID information
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configured Adjacency SID. The type is slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid.
-    AdjacencySid []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid
-}
-
-func (adjacencySids *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids) GetEntityData() *types.CommonEntityData {
-    adjacencySids.EntityData.YFilter = adjacencySids.YFilter
-    adjacencySids.EntityData.YangName = "adjacency-sids"
-    adjacencySids.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySids.EntityData.ParentYangName = "name-scope"
-    adjacencySids.EntityData.SegmentPath = "adjacency-sids"
-    adjacencySids.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/vrfs/vrf/area-addresses/area-address/name-scopes/name-scope/" + adjacencySids.EntityData.SegmentPath
-    adjacencySids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySids.EntityData.Children = types.NewOrderedMap()
-    adjacencySids.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", nil})
-    for i := range adjacencySids.AdjacencySid {
-        adjacencySids.EntityData.Children.Append(types.GetSegmentPath(adjacencySids.AdjacencySid[i]), types.YChild{"AdjacencySid", adjacencySids.AdjacencySid[i]})
-    }
-    adjacencySids.EntityData.Leafs = types.NewOrderedMap()
-
-    adjacencySids.EntityData.YListKeys = []string {}
-
-    return &(adjacencySids.EntityData)
-}
-
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid
-// Configured Adjacency SID
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. OSPF Adj SID Type. The type is OspfSid.
-    SidType interface{}
-
-    // This attribute is a key. SID Value. The type is interface{} with range:
-    // 0..1048575.
-    SidValue interface{}
-
-    // Adj SID eligible for protection. The type is bool. The default value is
-    // false.
-    Protected interface{}
-
-    // Neighbor IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // The default value is 0.0.0.0.
-    NeighborAddress interface{}
-}
-
-func (adjacencySid *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid) GetEntityData() *types.CommonEntityData {
-    adjacencySid.EntityData.YFilter = adjacencySid.YFilter
-    adjacencySid.EntityData.YangName = "adjacency-sid"
-    adjacencySid.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySid.EntityData.ParentYangName = "adjacency-sids"
-    adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.SidType, "sid-type") + types.AddKeyToken(adjacencySid.SidValue, "sid-value")
-    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/vrfs/vrf/area-addresses/area-address/name-scopes/name-scope/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
-    adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySid.EntityData.Children = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
-    adjacencySid.EntityData.Leafs.Append("sid-value", types.YLeaf{"SidValue", adjacencySid.SidValue})
-    adjacencySid.EntityData.Leafs.Append("protected", types.YLeaf{"Protected", adjacencySid.Protected})
-    adjacencySid.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", adjacencySid.NeighborAddress})
-
-    adjacencySid.EntityData.YListKeys = []string {"SidType", "SidValue"}
-
-    return &(adjacencySid.EntityData)
 }
 
 // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameScope_PrefixSid
@@ -6453,7 +6333,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -6572,8 +6452,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -6708,7 +6588,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -6908,7 +6788,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -6976,7 +6856,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7200,7 +7080,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7268,7 +7148,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_NameScopes_NameSc
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7368,7 +7248,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YListKey string
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -7402,6 +7282,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Filter networks intalled to RIB (disable as ACL name means filtering is
     // disabled).
@@ -7451,6 +7334,7 @@ func (multiAreaInterfaceScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_Are
     multiAreaInterfaceScope.EntityData.Leafs.Append("packet-size", types.YLeaf{"PacketSize", multiAreaInterfaceScope.PacketSize})
     multiAreaInterfaceScope.EntityData.Leafs.Append("database-filter", types.YLeaf{"DatabaseFilter", multiAreaInterfaceScope.DatabaseFilter})
     multiAreaInterfaceScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", multiAreaInterfaceScope.RetransmitInterval})
+    multiAreaInterfaceScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", multiAreaInterfaceScope.Running})
 
     multiAreaInterfaceScope.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -7501,7 +7385,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -7620,8 +7504,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -7691,7 +7575,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -7891,7 +7775,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7959,7 +7843,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -8183,7 +8067,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -8251,7 +8135,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_MultiAreaInterfac
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -8353,12 +8237,12 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAddress_AreaRanges_AreaRa
 
     // This attribute is a key. IP address to match. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP netmask for address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise this range. The type is bool.
@@ -8484,6 +8368,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId struct {
     // OspfSegmentRouting.
     SegmentRouting interface{}
 
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
+
     // Virtual Link scope configurations.
     VirtualLinkScopes Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes
 
@@ -8536,6 +8423,7 @@ func (areaAreaId *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId) GetE
     areaAreaId.EntityData.Leafs.Append("external-out", types.YLeaf{"ExternalOut", areaAreaId.ExternalOut})
     areaAreaId.EntityData.Leafs.Append("summary-in", types.YLeaf{"SummaryIn", areaAreaId.SummaryIn})
     areaAreaId.EntityData.Leafs.Append("segment-routing", types.YLeaf{"SegmentRouting", areaAreaId.SegmentRouting})
+    areaAreaId.EntityData.Leafs.Append("running", types.YLeaf{"Running", areaAreaId.Running})
 
     areaAreaId.EntityData.YListKeys = []string {"AreaId"}
 
@@ -8585,7 +8473,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interval between HELLO packets in seconds. The type is interface{} with
@@ -8600,6 +8488,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication
@@ -8627,6 +8518,7 @@ func (virtualLinkScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId
     virtualLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", virtualLinkScope.HelloInterval})
     virtualLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", virtualLinkScope.TransmitDelay})
     virtualLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", virtualLinkScope.RetransmitInterval})
+    virtualLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", virtualLinkScope.Running})
 
     virtualLinkScope.EntityData.YListKeys = []string {"Address"}
 
@@ -8640,7 +8532,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -8759,8 +8651,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -8863,17 +8755,17 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_Sha
 
     // This attribute is a key. Address of the local sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Address of the remote sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Address of the local sham-link endpoint. Enter an IP Address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -8891,6 +8783,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_Sha
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication
@@ -8921,6 +8816,7 @@ func (shamLinkScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_Sh
     shamLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", shamLinkScope.HelloInterval})
     shamLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", shamLinkScope.TransmitDelay})
     shamLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", shamLinkScope.RetransmitInterval})
+    shamLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", shamLinkScope.Running})
 
     shamLinkScope.EntityData.YListKeys = []string {"SourceAddress", "DestinationAddress"}
 
@@ -8934,7 +8830,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_Sha
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -9053,8 +8949,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_ShamLinkScopes_Sha
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -9122,9 +9018,6 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope struct {
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -9243,7 +9136,6 @@ func (areaScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaSc
     areaScope.EntityData.Children.Append("cost-fallback", types.YChild{"CostFallback", &areaScope.CostFallback})
     areaScope.EntityData.Leafs = types.NewOrderedMap()
     areaScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", areaScope.Cost})
-    areaScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", areaScope.Weight})
     areaScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", areaScope.PrefixSuppressionPrimary})
     areaScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", areaScope.MtuIgnore})
     areaScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", areaScope.LdpSyncIgpShortcuts})
@@ -9353,7 +9245,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authenti
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -9472,8 +9364,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_Authenti
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -9719,7 +9611,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9787,7 +9679,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10011,7 +9903,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10079,7 +9971,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaScope_FastRero
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -10179,14 +10071,11 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YListKey string
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -10261,8 +10150,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     // false.
     FloodReduction interface{}
 
-    // Configured Adjacency SID information.
-    AdjacencySids Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Prefix SID.
     PrefixSid Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_PrefixSid
@@ -10308,7 +10197,6 @@ func (nameScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameSc
     nameScope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     nameScope.EntityData.Children = types.NewOrderedMap()
-    nameScope.EntityData.Children.Append("adjacency-sids", types.YChild{"AdjacencySids", &nameScope.AdjacencySids})
     nameScope.EntityData.Children.Append("prefix-sid", types.YChild{"PrefixSid", &nameScope.PrefixSid})
     nameScope.EntityData.Children.Append("prefix-sid-strict", types.YChild{"PrefixSidStrict", &nameScope.PrefixSidStrict})
     nameScope.EntityData.Children.Append("distribute-list", types.YChild{"DistributeList", &nameScope.DistributeList})
@@ -10322,7 +10210,6 @@ func (nameScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameSc
     nameScope.EntityData.Leafs = types.NewOrderedMap()
     nameScope.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nameScope.InterfaceName})
     nameScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", nameScope.Cost})
-    nameScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", nameScope.Weight})
     nameScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", nameScope.PrefixSuppressionPrimary})
     nameScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", nameScope.MtuIgnore})
     nameScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", nameScope.LdpSyncIgpShortcuts})
@@ -10342,91 +10229,11 @@ func (nameScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameSc
     nameScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", nameScope.RetransmitInterval})
     nameScope.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nameScope.Priority})
     nameScope.EntityData.Leafs.Append("flood-reduction", types.YLeaf{"FloodReduction", nameScope.FloodReduction})
+    nameScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", nameScope.Running})
 
     nameScope.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(nameScope.EntityData)
-}
-
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids
-// Configured Adjacency SID information
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configured Adjacency SID. The type is slice of
-    // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid.
-    AdjacencySid []*Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid
-}
-
-func (adjacencySids *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids) GetEntityData() *types.CommonEntityData {
-    adjacencySids.EntityData.YFilter = adjacencySids.YFilter
-    adjacencySids.EntityData.YangName = "adjacency-sids"
-    adjacencySids.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySids.EntityData.ParentYangName = "name-scope"
-    adjacencySids.EntityData.SegmentPath = "adjacency-sids"
-    adjacencySids.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/vrfs/vrf/area-addresses/area-area-id/name-scopes/name-scope/" + adjacencySids.EntityData.SegmentPath
-    adjacencySids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySids.EntityData.Children = types.NewOrderedMap()
-    adjacencySids.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", nil})
-    for i := range adjacencySids.AdjacencySid {
-        adjacencySids.EntityData.Children.Append(types.GetSegmentPath(adjacencySids.AdjacencySid[i]), types.YChild{"AdjacencySid", adjacencySids.AdjacencySid[i]})
-    }
-    adjacencySids.EntityData.Leafs = types.NewOrderedMap()
-
-    adjacencySids.EntityData.YListKeys = []string {}
-
-    return &(adjacencySids.EntityData)
-}
-
-// Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid
-// Configured Adjacency SID
-type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. OSPF Adj SID Type. The type is OspfSid.
-    SidType interface{}
-
-    // This attribute is a key. SID Value. The type is interface{} with range:
-    // 0..1048575.
-    SidValue interface{}
-
-    // Adj SID eligible for protection. The type is bool. The default value is
-    // false.
-    Protected interface{}
-
-    // Neighbor IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // The default value is 0.0.0.0.
-    NeighborAddress interface{}
-}
-
-func (adjacencySid *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid) GetEntityData() *types.CommonEntityData {
-    adjacencySid.EntityData.YFilter = adjacencySid.YFilter
-    adjacencySid.EntityData.YangName = "adjacency-sid"
-    adjacencySid.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySid.EntityData.ParentYangName = "adjacency-sids"
-    adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.SidType, "sid-type") + types.AddKeyToken(adjacencySid.SidValue, "sid-value")
-    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/vrfs/vrf/area-addresses/area-area-id/name-scopes/name-scope/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
-    adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySid.EntityData.Children = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
-    adjacencySid.EntityData.Leafs.Append("sid-value", types.YLeaf{"SidValue", adjacencySid.SidValue})
-    adjacencySid.EntityData.Leafs.Append("protected", types.YLeaf{"Protected", adjacencySid.Protected})
-    adjacencySid.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", adjacencySid.NeighborAddress})
-
-    adjacencySid.EntityData.YListKeys = []string {"SidType", "SidValue"}
-
-    return &(adjacencySid.EntityData)
 }
 
 // Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_PrefixSid
@@ -10605,7 +10412,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -10724,8 +10531,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -10860,7 +10667,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -11060,7 +10867,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11128,7 +10935,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11352,7 +11159,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11420,7 +11227,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_NameScopes_NameSco
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -11520,7 +11327,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YListKey string
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -11554,6 +11361,9 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Filter networks intalled to RIB (disable as ACL name means filtering is
     // disabled).
@@ -11603,6 +11413,7 @@ func (multiAreaInterfaceScope *Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_Are
     multiAreaInterfaceScope.EntityData.Leafs.Append("packet-size", types.YLeaf{"PacketSize", multiAreaInterfaceScope.PacketSize})
     multiAreaInterfaceScope.EntityData.Leafs.Append("database-filter", types.YLeaf{"DatabaseFilter", multiAreaInterfaceScope.DatabaseFilter})
     multiAreaInterfaceScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", multiAreaInterfaceScope.RetransmitInterval})
+    multiAreaInterfaceScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", multiAreaInterfaceScope.Running})
 
     multiAreaInterfaceScope.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -11653,7 +11464,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -11772,8 +11583,8 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -11843,7 +11654,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -12043,7 +11854,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12111,7 +11922,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12335,7 +12146,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12403,7 +12214,7 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_MultiAreaInterface
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12505,12 +12316,12 @@ type Ospf_Processes_Process_Vrfs_Vrf_AreaAddresses_AreaAreaId_AreaRanges_AreaRan
 
     // This attribute is a key. IP address to match. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP netmask for address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise this range. The type is bool.
@@ -12780,7 +12591,7 @@ type Ospf_Processes_Process_TraceBufs_TraceBuf struct {
     YListKey string
 
     // This attribute is a key. Name for this trace buffer. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     TraceBufName interface{}
 
     // Buffer size. The type is OspfTraceBufSize. This attribute is mandatory.
@@ -12856,7 +12667,7 @@ type Ospf_Processes_Process_DefaultVrf struct {
 
     // Router ID for this OSPF process. Enter an IP Address. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 
     // Prefer type7 externals over type5. The type is interface{}.
@@ -12935,9 +12746,6 @@ type Ospf_Processes_Process_DefaultVrf struct {
     // Unequal Cost Multi-ptah configuration.
     Ucmp Ospf_Processes_Process_DefaultVrf_Ucmp
 
-    // Apply weights feature enable configuration.
-    ApplyWeight Ospf_Processes_Process_DefaultVrf_ApplyWeight
-
     // Fast-reroute instance scoped parameters.
     FastReroute Ospf_Processes_Process_DefaultVrf_FastReroute
 
@@ -12985,7 +12793,6 @@ func (defaultVrf *Ospf_Processes_Process_DefaultVrf) GetEntityData() *types.Comm
     defaultVrf.EntityData.Children.Append("max-lsa", types.YChild{"MaxLsa", &defaultVrf.MaxLsa})
     defaultVrf.EntityData.Children.Append("auto-cost", types.YChild{"AutoCost", &defaultVrf.AutoCost})
     defaultVrf.EntityData.Children.Append("ucmp", types.YChild{"Ucmp", &defaultVrf.Ucmp})
-    defaultVrf.EntityData.Children.Append("apply-weight", types.YChild{"ApplyWeight", &defaultVrf.ApplyWeight})
     defaultVrf.EntityData.Children.Append("fast-reroute", types.YChild{"FastReroute", &defaultVrf.FastReroute})
     defaultVrf.EntityData.Children.Append("summary-prefixes", types.YChild{"SummaryPrefixes", &defaultVrf.SummaryPrefixes})
     defaultVrf.EntityData.Children.Append("outgoing-route-updates", types.YChild{"OutgoingRouteUpdates", &defaultVrf.OutgoingRouteUpdates})
@@ -13191,11 +12998,11 @@ type Ospf_Processes_Process_DefaultVrf_Mpls_MplsRouterId struct {
 
     // MPLS-TE stable IP address for this OSPF process. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // MPLS-TE stable loopback interface for this OSPF process. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -13874,9 +13681,6 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope struct {
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
 
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
-
     // Enable/Disable an OSPF area to advertise intra-area prefixes out of this
     // area as external. The type is bool.
     ExternalOut interface{}
@@ -14010,7 +13814,6 @@ func (processScope *Ospf_Processes_Process_DefaultVrf_ProcessScope) GetEntityDat
     processScope.EntityData.Children.Append("cost-fallback", types.YChild{"CostFallback", &processScope.CostFallback})
     processScope.EntityData.Leafs = types.NewOrderedMap()
     processScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", processScope.Cost})
-    processScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", processScope.Weight})
     processScope.EntityData.Leafs.Append("external-out", types.YLeaf{"ExternalOut", processScope.ExternalOut})
     processScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", processScope.PrefixSuppressionPrimary})
     processScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", processScope.MtuIgnore})
@@ -14198,7 +14001,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_Candidat
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14266,7 +14069,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerLink_ExcludeI
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14415,7 +14218,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Candid
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14483,7 +14286,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_FastReroute_PerPrefix_Exclud
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -14591,7 +14394,7 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication struct {
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -14710,8 +14513,8 @@ type Ospf_Processes_Process_DefaultVrf_ProcessScope_Authentication_MessageDigest
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -15097,8 +14900,7 @@ type Ospf_Processes_Process_DefaultVrf_Redistribution_Redistributes_Redistribute
     YListKey string
 
     // This attribute is a key. OSPF or ISIS process name or protocol name: bgp,
-    // eigrp, connected. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // eigrp, connected. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // Disallow subnetting. The type is bool. The default value is false.
@@ -15193,8 +14995,7 @@ type Ospf_Processes_Process_DefaultVrf_Redistribution_Redistributes_Redistribute
     YListKey string
 
     // This attribute is a key. OSPF or ISIS process name or protocol name: bgp,
-    // eigrp, connected. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // eigrp, connected. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // This attribute is a key. First half of BGP AS number in XX.YY format.
@@ -15303,8 +15104,7 @@ type Ospf_Processes_Process_DefaultVrf_Redistribution_Redistributes_Redistribute
     YListKey string
 
     // This attribute is a key. OSPF or ISIS process name or protocol name: bgp,
-    // eigrp, connected. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // eigrp, connected. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InstanceName interface{}
 
     // This attribute is a key. First half of BGP AS number in XX.YY format.
@@ -15650,7 +15450,7 @@ type Ospf_Processes_Process_DefaultVrf_Ucmp_ExcludeInterfaces_ExcludeInterface s
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -15672,50 +15472,6 @@ func (excludeInterface *Ospf_Processes_Process_DefaultVrf_Ucmp_ExcludeInterfaces
     excludeInterface.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(excludeInterface.EntityData)
-}
-
-// Ospf_Processes_Process_DefaultVrf_ApplyWeight
-// Apply weights feature enable configuration
-// This type is a presence type.
-type Ospf_Processes_Process_DefaultVrf_ApplyWeight struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YPresence bool
-
-    // Use interface bandwidth when calculating weights. The type is bool. This
-    // attribute is mandatory.
-    Bandwidth interface{}
-
-    // Reference bandwidth to use for calculation (Mbits/sec). The type is
-    // interface{} with range: 1..4294967. Units are Mbit/s. The default value is
-    // 100.
-    ReferenceBandwidth interface{}
-
-    // Default weight to use when weight not configured under interface. The type
-    // is interface{} with range: 1..16777214. The default value is 1.
-    DefaultWeight interface{}
-}
-
-func (applyWeight *Ospf_Processes_Process_DefaultVrf_ApplyWeight) GetEntityData() *types.CommonEntityData {
-    applyWeight.EntityData.YFilter = applyWeight.YFilter
-    applyWeight.EntityData.YangName = "apply-weight"
-    applyWeight.EntityData.BundleName = "cisco_ios_xr"
-    applyWeight.EntityData.ParentYangName = "default-vrf"
-    applyWeight.EntityData.SegmentPath = "apply-weight"
-    applyWeight.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/default-vrf/" + applyWeight.EntityData.SegmentPath
-    applyWeight.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    applyWeight.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    applyWeight.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    applyWeight.EntityData.Children = types.NewOrderedMap()
-    applyWeight.EntityData.Leafs = types.NewOrderedMap()
-    applyWeight.EntityData.Leafs.Append("bandwidth", types.YLeaf{"Bandwidth", applyWeight.Bandwidth})
-    applyWeight.EntityData.Leafs.Append("reference-bandwidth", types.YLeaf{"ReferenceBandwidth", applyWeight.ReferenceBandwidth})
-    applyWeight.EntityData.Leafs.Append("default-weight", types.YLeaf{"DefaultWeight", applyWeight.DefaultWeight})
-
-    applyWeight.EntityData.YListKeys = []string {}
-
-    return &(applyWeight.EntityData)
 }
 
 // Ospf_Processes_Process_DefaultVrf_FastReroute
@@ -15991,11 +15747,11 @@ type Ospf_Processes_Process_DefaultVrf_SummaryPrefixes_PrefixAndNetmask struct {
 
     // This attribute is a key. IP summary prefix. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // This attribute is a key. Summary netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise when translating OSPF type-7 LSA. The type is bool. The
@@ -16038,7 +15794,7 @@ type Ospf_Processes_Process_DefaultVrf_SummaryPrefixes_Prefix struct {
 
     // This attribute is a key. IP summary prefix. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Do not advertise when translating OSPF type-7 LSA. The type is bool. The
@@ -16079,7 +15835,7 @@ type Ospf_Processes_Process_DefaultVrf_SummaryPrefixes_Netmask struct {
     YListKey string
 
     // This attribute is a key. Summary netmask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise when translating OSPF type-7 LSA. The type is bool. The
@@ -16162,7 +15918,7 @@ type Ospf_Processes_Process_DefaultVrf_OutgoingRouteUpdates_OutgoingRouteUpdate 
     // Access Control List name. The type is string.
     AccessListName interface{}
 
-    // First half of BGP AS number in XX.YY format.  Mandatory if Protocol is BGP
+    // First half of BGP AS number in XX.YY format. Mandatory if Protocol is BGP
     // and must not be specified otherwise. Must be a non-zero value if second
     // half is zero. The type is interface{} with range: 0..65535.
     AsXx interface{}
@@ -16326,12 +16082,12 @@ type Ospf_Processes_Process_DefaultVrf_Distance_IpDistances_IpDistance struct {
 
     // This attribute is a key. IP source address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP wild card bits -- inverted mask. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Wildcard interface{}
 
     // Administrative distance. The type is interface{} with range: 1..255. The
@@ -16416,7 +16172,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress struct {
 
     // This attribute is a key. Area ID if in IP address format. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Configure a route policy for inbound type-3 lsa filtering. The type is
@@ -16454,6 +16210,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress struct {
     // segment-routing configuration Applicable only in Default VRF. The type is
     // OspfSegmentRouting.
     SegmentRouting interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Virtual Link scope configurations.
     VirtualLinkScopes Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes
@@ -16507,6 +16266,7 @@ func (areaAddress *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress) 
     areaAddress.EntityData.Leafs.Append("external-out", types.YLeaf{"ExternalOut", areaAddress.ExternalOut})
     areaAddress.EntityData.Leafs.Append("summary-in", types.YLeaf{"SummaryIn", areaAddress.SummaryIn})
     areaAddress.EntityData.Leafs.Append("segment-routing", types.YLeaf{"SegmentRouting", areaAddress.SegmentRouting})
+    areaAddress.EntityData.Leafs.Append("running", types.YLeaf{"Running", areaAddress.Running})
 
     areaAddress.EntityData.YListKeys = []string {"Address"}
 
@@ -16556,7 +16316,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScop
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interval between HELLO packets in seconds. The type is interface{} with
@@ -16571,6 +16331,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScop
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScopes_VirtualLinkScope_Authentication
@@ -16598,6 +16361,7 @@ func (virtualLinkScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddr
     virtualLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", virtualLinkScope.HelloInterval})
     virtualLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", virtualLinkScope.TransmitDelay})
     virtualLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", virtualLinkScope.RetransmitInterval})
+    virtualLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", virtualLinkScope.Running})
 
     virtualLinkScope.EntityData.YListKeys = []string {"Address"}
 
@@ -16611,7 +16375,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScop
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -16730,8 +16494,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_VirtualLinkScop
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -16834,17 +16598,17 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_
 
     // This attribute is a key. Address of the local sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Address of the remote sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Address of the local sham-link endpoint. Enter an IP Address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -16862,6 +16626,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_ShamLinkScope_Authentication
@@ -16892,6 +16659,7 @@ func (shamLinkScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress
     shamLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", shamLinkScope.HelloInterval})
     shamLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", shamLinkScope.TransmitDelay})
     shamLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", shamLinkScope.RetransmitInterval})
+    shamLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", shamLinkScope.Running})
 
     shamLinkScope.EntityData.YListKeys = []string {"SourceAddress", "DestinationAddress"}
 
@@ -16905,7 +16673,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -17024,8 +16792,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_ShamLinkScopes_
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -17093,9 +16861,6 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope struc
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -17214,7 +16979,6 @@ func (areaScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Are
     areaScope.EntityData.Children.Append("cost-fallback", types.YChild{"CostFallback", &areaScope.CostFallback})
     areaScope.EntityData.Leafs = types.NewOrderedMap()
     areaScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", areaScope.Cost})
-    areaScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", areaScope.Weight})
     areaScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", areaScope.PrefixSuppressionPrimary})
     areaScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", areaScope.MtuIgnore})
     areaScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", areaScope.LdpSyncIgpShortcuts})
@@ -17324,7 +17088,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authe
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -17443,8 +17207,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_Authe
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -17690,7 +17454,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17758,7 +17522,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -17982,7 +17746,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -18050,7 +17814,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaScope_FastR
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -18150,14 +17914,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YListKey string
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -18232,8 +17993,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     // false.
     FloodReduction interface{}
 
-    // Configured Adjacency SID information.
-    AdjacencySids Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Prefix SID.
     PrefixSid Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_PrefixSid
@@ -18279,7 +18040,6 @@ func (nameScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Nam
     nameScope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     nameScope.EntityData.Children = types.NewOrderedMap()
-    nameScope.EntityData.Children.Append("adjacency-sids", types.YChild{"AdjacencySids", &nameScope.AdjacencySids})
     nameScope.EntityData.Children.Append("prefix-sid", types.YChild{"PrefixSid", &nameScope.PrefixSid})
     nameScope.EntityData.Children.Append("prefix-sid-strict", types.YChild{"PrefixSidStrict", &nameScope.PrefixSidStrict})
     nameScope.EntityData.Children.Append("distribute-list", types.YChild{"DistributeList", &nameScope.DistributeList})
@@ -18293,7 +18053,6 @@ func (nameScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Nam
     nameScope.EntityData.Leafs = types.NewOrderedMap()
     nameScope.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nameScope.InterfaceName})
     nameScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", nameScope.Cost})
-    nameScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", nameScope.Weight})
     nameScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", nameScope.PrefixSuppressionPrimary})
     nameScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", nameScope.MtuIgnore})
     nameScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", nameScope.LdpSyncIgpShortcuts})
@@ -18313,91 +18072,11 @@ func (nameScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_Nam
     nameScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", nameScope.RetransmitInterval})
     nameScope.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nameScope.Priority})
     nameScope.EntityData.Leafs.Append("flood-reduction", types.YLeaf{"FloodReduction", nameScope.FloodReduction})
+    nameScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", nameScope.Running})
 
     nameScope.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(nameScope.EntityData)
-}
-
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids
-// Configured Adjacency SID information
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configured Adjacency SID. The type is slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid.
-    AdjacencySid []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid
-}
-
-func (adjacencySids *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids) GetEntityData() *types.CommonEntityData {
-    adjacencySids.EntityData.YFilter = adjacencySids.YFilter
-    adjacencySids.EntityData.YangName = "adjacency-sids"
-    adjacencySids.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySids.EntityData.ParentYangName = "name-scope"
-    adjacencySids.EntityData.SegmentPath = "adjacency-sids"
-    adjacencySids.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/default-vrf/area-addresses/area-address/name-scopes/name-scope/" + adjacencySids.EntityData.SegmentPath
-    adjacencySids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySids.EntityData.Children = types.NewOrderedMap()
-    adjacencySids.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", nil})
-    for i := range adjacencySids.AdjacencySid {
-        adjacencySids.EntityData.Children.Append(types.GetSegmentPath(adjacencySids.AdjacencySid[i]), types.YChild{"AdjacencySid", adjacencySids.AdjacencySid[i]})
-    }
-    adjacencySids.EntityData.Leafs = types.NewOrderedMap()
-
-    adjacencySids.EntityData.YListKeys = []string {}
-
-    return &(adjacencySids.EntityData)
-}
-
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid
-// Configured Adjacency SID
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. OSPF Adj SID Type. The type is OspfSid.
-    SidType interface{}
-
-    // This attribute is a key. SID Value. The type is interface{} with range:
-    // 0..1048575.
-    SidValue interface{}
-
-    // Adj SID eligible for protection. The type is bool. The default value is
-    // false.
-    Protected interface{}
-
-    // Neighbor IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // The default value is 0.0.0.0.
-    NeighborAddress interface{}
-}
-
-func (adjacencySid *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_AdjacencySids_AdjacencySid) GetEntityData() *types.CommonEntityData {
-    adjacencySid.EntityData.YFilter = adjacencySid.YFilter
-    adjacencySid.EntityData.YangName = "adjacency-sid"
-    adjacencySid.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySid.EntityData.ParentYangName = "adjacency-sids"
-    adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.SidType, "sid-type") + types.AddKeyToken(adjacencySid.SidValue, "sid-value")
-    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/default-vrf/area-addresses/area-address/name-scopes/name-scope/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
-    adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySid.EntityData.Children = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
-    adjacencySid.EntityData.Leafs.Append("sid-value", types.YLeaf{"SidValue", adjacencySid.SidValue})
-    adjacencySid.EntityData.Leafs.Append("protected", types.YLeaf{"Protected", adjacencySid.Protected})
-    adjacencySid.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", adjacencySid.NeighborAddress})
-
-    adjacencySid.EntityData.YListKeys = []string {"SidType", "SidValue"}
-
-    return &(adjacencySid.EntityData)
 }
 
 // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_NameScope_PrefixSid
@@ -18576,7 +18255,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -18695,8 +18374,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -18831,7 +18510,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -19031,7 +18710,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19099,7 +18778,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19323,7 +19002,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19391,7 +19070,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_NameScopes_Name
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -19491,7 +19170,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YListKey string
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -19525,6 +19204,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Filter networks intalled to RIB (disable as ACL name means filtering is
     // disabled).
@@ -19574,6 +19256,7 @@ func (multiAreaInterfaceScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_A
     multiAreaInterfaceScope.EntityData.Leafs.Append("packet-size", types.YLeaf{"PacketSize", multiAreaInterfaceScope.PacketSize})
     multiAreaInterfaceScope.EntityData.Leafs.Append("database-filter", types.YLeaf{"DatabaseFilter", multiAreaInterfaceScope.DatabaseFilter})
     multiAreaInterfaceScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", multiAreaInterfaceScope.RetransmitInterval})
+    multiAreaInterfaceScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", multiAreaInterfaceScope.Running})
 
     multiAreaInterfaceScope.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -19624,7 +19307,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -19743,8 +19426,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -19814,7 +19497,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -20014,7 +19697,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -20082,7 +19765,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -20306,7 +19989,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -20374,7 +20057,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_MultiAreaInterf
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -20476,12 +20159,12 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAddress_AreaRanges_Area
 
     // This attribute is a key. IP address to match. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP netmask for address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise this range. The type is bool.
@@ -20607,6 +20290,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId struct {
     // OspfSegmentRouting.
     SegmentRouting interface{}
 
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
+
     // Virtual Link scope configurations.
     VirtualLinkScopes Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes
 
@@ -20659,6 +20345,7 @@ func (areaAreaId *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId) Ge
     areaAreaId.EntityData.Leafs.Append("external-out", types.YLeaf{"ExternalOut", areaAreaId.ExternalOut})
     areaAreaId.EntityData.Leafs.Append("summary-in", types.YLeaf{"SummaryIn", areaAreaId.SummaryIn})
     areaAreaId.EntityData.Leafs.Append("segment-routing", types.YLeaf{"SegmentRouting", areaAreaId.SegmentRouting})
+    areaAreaId.EntityData.Leafs.Append("running", types.YLeaf{"Running", areaAreaId.Running})
 
     areaAreaId.EntityData.YListKeys = []string {"AreaId"}
 
@@ -20708,7 +20395,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScope
 
     // This attribute is a key. Router ID of virtual link neighbor. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Interval between HELLO packets in seconds. The type is interface{} with
@@ -20723,6 +20410,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScope
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScopes_VirtualLinkScope_Authentication
@@ -20750,6 +20440,7 @@ func (virtualLinkScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaArea
     virtualLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", virtualLinkScope.HelloInterval})
     virtualLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", virtualLinkScope.TransmitDelay})
     virtualLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", virtualLinkScope.RetransmitInterval})
+    virtualLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", virtualLinkScope.Running})
 
     virtualLinkScope.EntityData.YListKeys = []string {"Address"}
 
@@ -20763,7 +20454,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScope
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -20882,8 +20573,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_VirtualLinkScope
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -20986,17 +20677,17 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_S
 
     // This attribute is a key. Address of the local sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Address of the remote sham-link endpoint. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Address of the local sham-link endpoint. Enter an IP Address. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -21014,6 +20705,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_S
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Authentication.
     Authentication Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_ShamLinkScope_Authentication
@@ -21044,6 +20738,7 @@ func (shamLinkScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_
     shamLinkScope.EntityData.Leafs.Append("hello-interval", types.YLeaf{"HelloInterval", shamLinkScope.HelloInterval})
     shamLinkScope.EntityData.Leafs.Append("transmit-delay", types.YLeaf{"TransmitDelay", shamLinkScope.TransmitDelay})
     shamLinkScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", shamLinkScope.RetransmitInterval})
+    shamLinkScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", shamLinkScope.Running})
 
     shamLinkScope.EntityData.YListKeys = []string {"SourceAddress", "DestinationAddress"}
 
@@ -21057,7 +20752,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_S
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -21176,8 +20871,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_ShamLinkScopes_S
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -21245,9 +20940,6 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope struct
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -21366,7 +21058,6 @@ func (areaScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Area
     areaScope.EntityData.Children.Append("cost-fallback", types.YChild{"CostFallback", &areaScope.CostFallback})
     areaScope.EntityData.Leafs = types.NewOrderedMap()
     areaScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", areaScope.Cost})
-    areaScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", areaScope.Weight})
     areaScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", areaScope.PrefixSuppressionPrimary})
     areaScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", areaScope.MtuIgnore})
     areaScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", areaScope.LdpSyncIgpShortcuts})
@@ -21476,7 +21167,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authen
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -21595,8 +21286,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_Authen
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -21842,7 +21533,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -21910,7 +21601,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -22134,7 +21825,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -22202,7 +21893,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaScope_FastRe
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -22302,14 +21993,11 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YListKey string
 
     // This attribute is a key. Name of Interface to configure. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
     Cost interface{}
-
-    // Interface weight. The type is interface{} with range: 1..16777214.
-    Weight interface{}
 
     // Enable/Disable prefix suppression for primary addresses. The type is bool.
     // The default value is false.
@@ -22384,8 +22072,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     // false.
     FloodReduction interface{}
 
-    // Configured Adjacency SID information.
-    AdjacencySids Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Prefix SID.
     PrefixSid Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_PrefixSid
@@ -22431,7 +22119,6 @@ func (nameScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Name
     nameScope.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     nameScope.EntityData.Children = types.NewOrderedMap()
-    nameScope.EntityData.Children.Append("adjacency-sids", types.YChild{"AdjacencySids", &nameScope.AdjacencySids})
     nameScope.EntityData.Children.Append("prefix-sid", types.YChild{"PrefixSid", &nameScope.PrefixSid})
     nameScope.EntityData.Children.Append("prefix-sid-strict", types.YChild{"PrefixSidStrict", &nameScope.PrefixSidStrict})
     nameScope.EntityData.Children.Append("distribute-list", types.YChild{"DistributeList", &nameScope.DistributeList})
@@ -22445,7 +22132,6 @@ func (nameScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Name
     nameScope.EntityData.Leafs = types.NewOrderedMap()
     nameScope.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", nameScope.InterfaceName})
     nameScope.EntityData.Leafs.Append("cost", types.YLeaf{"Cost", nameScope.Cost})
-    nameScope.EntityData.Leafs.Append("weight", types.YLeaf{"Weight", nameScope.Weight})
     nameScope.EntityData.Leafs.Append("prefix-suppression-primary", types.YLeaf{"PrefixSuppressionPrimary", nameScope.PrefixSuppressionPrimary})
     nameScope.EntityData.Leafs.Append("mtu-ignore", types.YLeaf{"MtuIgnore", nameScope.MtuIgnore})
     nameScope.EntityData.Leafs.Append("ldp-sync-igp-shortcuts", types.YLeaf{"LdpSyncIgpShortcuts", nameScope.LdpSyncIgpShortcuts})
@@ -22465,91 +22151,11 @@ func (nameScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_Name
     nameScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", nameScope.RetransmitInterval})
     nameScope.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", nameScope.Priority})
     nameScope.EntityData.Leafs.Append("flood-reduction", types.YLeaf{"FloodReduction", nameScope.FloodReduction})
+    nameScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", nameScope.Running})
 
     nameScope.EntityData.YListKeys = []string {"InterfaceName"}
 
     return &(nameScope.EntityData)
-}
-
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids
-// Configured Adjacency SID information
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configured Adjacency SID. The type is slice of
-    // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid.
-    AdjacencySid []*Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid
-}
-
-func (adjacencySids *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids) GetEntityData() *types.CommonEntityData {
-    adjacencySids.EntityData.YFilter = adjacencySids.YFilter
-    adjacencySids.EntityData.YangName = "adjacency-sids"
-    adjacencySids.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySids.EntityData.ParentYangName = "name-scope"
-    adjacencySids.EntityData.SegmentPath = "adjacency-sids"
-    adjacencySids.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/default-vrf/area-addresses/area-area-id/name-scopes/name-scope/" + adjacencySids.EntityData.SegmentPath
-    adjacencySids.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySids.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySids.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySids.EntityData.Children = types.NewOrderedMap()
-    adjacencySids.EntityData.Children.Append("adjacency-sid", types.YChild{"AdjacencySid", nil})
-    for i := range adjacencySids.AdjacencySid {
-        adjacencySids.EntityData.Children.Append(types.GetSegmentPath(adjacencySids.AdjacencySid[i]), types.YChild{"AdjacencySid", adjacencySids.AdjacencySid[i]})
-    }
-    adjacencySids.EntityData.Leafs = types.NewOrderedMap()
-
-    adjacencySids.EntityData.YListKeys = []string {}
-
-    return &(adjacencySids.EntityData)
-}
-
-// Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid
-// Configured Adjacency SID
-type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. OSPF Adj SID Type. The type is OspfSid.
-    SidType interface{}
-
-    // This attribute is a key. SID Value. The type is interface{} with range:
-    // 0..1048575.
-    SidValue interface{}
-
-    // Adj SID eligible for protection. The type is bool. The default value is
-    // false.
-    Protected interface{}
-
-    // Neighbor IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    // The default value is 0.0.0.0.
-    NeighborAddress interface{}
-}
-
-func (adjacencySid *Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_AdjacencySids_AdjacencySid) GetEntityData() *types.CommonEntityData {
-    adjacencySid.EntityData.YFilter = adjacencySid.YFilter
-    adjacencySid.EntityData.YangName = "adjacency-sid"
-    adjacencySid.EntityData.BundleName = "cisco_ios_xr"
-    adjacencySid.EntityData.ParentYangName = "adjacency-sids"
-    adjacencySid.EntityData.SegmentPath = "adjacency-sid" + types.AddKeyToken(adjacencySid.SidType, "sid-type") + types.AddKeyToken(adjacencySid.SidValue, "sid-value")
-    adjacencySid.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv4-ospf-cfg:ospf/processes/process/default-vrf/area-addresses/area-area-id/name-scopes/name-scope/adjacency-sids/" + adjacencySid.EntityData.SegmentPath
-    adjacencySid.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    adjacencySid.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    adjacencySid.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    adjacencySid.EntityData.Children = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs = types.NewOrderedMap()
-    adjacencySid.EntityData.Leafs.Append("sid-type", types.YLeaf{"SidType", adjacencySid.SidType})
-    adjacencySid.EntityData.Leafs.Append("sid-value", types.YLeaf{"SidValue", adjacencySid.SidValue})
-    adjacencySid.EntityData.Leafs.Append("protected", types.YLeaf{"Protected", adjacencySid.Protected})
-    adjacencySid.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", adjacencySid.NeighborAddress})
-
-    adjacencySid.EntityData.YListKeys = []string {"SidType", "SidValue"}
-
-    return &(adjacencySid.EntityData)
 }
 
 // Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameScope_PrefixSid
@@ -22728,7 +22334,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -22847,8 +22453,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -22983,7 +22589,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -23183,7 +22789,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -23251,7 +22857,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -23475,7 +23081,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -23543,7 +23149,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_NameScopes_NameS
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -23643,7 +23249,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YListKey string
 
     // This attribute is a key. Name of Multi Area Interface to configure. The
-    // type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -23677,6 +23283,9 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     // type is interface{} with range: 1..65535. Units are second. The default
     // value is 5.
     RetransmitInterval interface{}
+
+    // Enable routing on an IP network. The type is interface{}.
+    Running interface{}
 
     // Filter networks intalled to RIB (disable as ACL name means filtering is
     // disabled).
@@ -23726,6 +23335,7 @@ func (multiAreaInterfaceScope *Ospf_Processes_Process_DefaultVrf_AreaAddresses_A
     multiAreaInterfaceScope.EntityData.Leafs.Append("packet-size", types.YLeaf{"PacketSize", multiAreaInterfaceScope.PacketSize})
     multiAreaInterfaceScope.EntityData.Leafs.Append("database-filter", types.YLeaf{"DatabaseFilter", multiAreaInterfaceScope.DatabaseFilter})
     multiAreaInterfaceScope.EntityData.Leafs.Append("retransmit-interval", types.YLeaf{"RetransmitInterval", multiAreaInterfaceScope.RetransmitInterval})
+    multiAreaInterfaceScope.EntityData.Leafs.Append("running", types.YLeaf{"Running", multiAreaInterfaceScope.Running})
 
     multiAreaInterfaceScope.EntityData.YListKeys = []string {"InterfaceName"}
 
@@ -23776,7 +23386,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YFilter yfilter.YFilter
 
     // Authentication key configuration. The type is string with pattern:
-    // b'(!.+)|([^!].+)'.
+    // (!.+)|([^!].+).
     Key interface{}
 
     // Authentication type.
@@ -23895,8 +23505,8 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     // 1..255.
     KeyId interface{}
 
-    // Password. The type is string with pattern: b'(!.+)|([^!].+)'. This
-    // attribute is mandatory.
+    // Password. The type is string with pattern: (!.+)|([^!].+). This attribute
+    // is mandatory.
     Password interface{}
 }
 
@@ -23966,7 +23576,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // OSPF priority of non-broadcast neighbor. The type is interface{} with
@@ -24166,7 +23776,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -24234,7 +23844,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -24458,7 +24068,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -24526,7 +24136,7 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_MultiAreaInterfa
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -24628,12 +24238,12 @@ type Ospf_Processes_Process_DefaultVrf_AreaAddresses_AreaAreaId_AreaRanges_AreaR
 
     // This attribute is a key. IP address to match. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. IP netmask for address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Do not advertise this range. The type is bool.

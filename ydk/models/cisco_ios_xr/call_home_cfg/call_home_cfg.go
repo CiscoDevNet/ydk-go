@@ -24,20 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-call-home-cfg:call-home", reflect.TypeOf(CallHome{}))
 }
 
-// CallHomeMailSendInterval represents Call home mail send interval
-type CallHomeMailSendInterval string
-
-const (
-    // Daily call-home message
-    CallHomeMailSendInterval_daily CallHomeMailSendInterval = "daily"
-
-    // Weekly call-home message
-    CallHomeMailSendInterval_weekly CallHomeMailSendInterval = "weekly"
-
-    // Monthly call-home message
-    CallHomeMailSendInterval_monthly CallHomeMailSendInterval = "monthly"
-)
-
 // CallHomeDayOfWeek represents Call home day of week
 type CallHomeDayOfWeek string
 
@@ -62,6 +48,34 @@ const (
 
     // Saturday
     CallHomeDayOfWeek_saturday CallHomeDayOfWeek = "saturday"
+)
+
+// DataPrivacyLevel represents Data privacy level
+type DataPrivacyLevel string
+
+const (
+    // Normal
+    DataPrivacyLevel_normal DataPrivacyLevel = "normal"
+
+    // High
+    DataPrivacyLevel_high DataPrivacyLevel = "high"
+
+    // HostName
+    DataPrivacyLevel_host_name DataPrivacyLevel = "host-name"
+)
+
+// CallHomeMailSendInterval represents Call home mail send interval
+type CallHomeMailSendInterval string
+
+const (
+    // Daily call-home message
+    CallHomeMailSendInterval_daily CallHomeMailSendInterval = "daily"
+
+    // Weekly call-home message
+    CallHomeMailSendInterval_weekly CallHomeMailSendInterval = "weekly"
+
+    // Monthly call-home message
+    CallHomeMailSendInterval_monthly CallHomeMailSendInterval = "monthly"
 )
 
 // CallHomeEventSeverity represents Call home event severity
@@ -124,20 +138,6 @@ const (
     CallHomeTransMethod_http CallHomeTransMethod = "http"
 )
 
-// DataPrivacyLevel represents Data privacy level
-type DataPrivacyLevel string
-
-const (
-    // Normal
-    DataPrivacyLevel_normal DataPrivacyLevel = "normal"
-
-    // High
-    DataPrivacyLevel_high DataPrivacyLevel = "high"
-
-    // HostName
-    DataPrivacyLevel_host_name DataPrivacyLevel = "host-name"
-)
-
 // CallHome
 // Set CallHome parameters
 type CallHome struct {
@@ -174,7 +174,7 @@ type CallHome struct {
     StreetAddress interface{}
 
     // Source interface name to send call-home messages. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Contract identification for Cisco Smart Call Home. The type is string with
@@ -430,7 +430,7 @@ type CallHome_Profiles_Profile struct {
     YListKey string
 
     // This attribute is a key. Profile name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ProfileName interface{}
 
     // none. The type is string.
@@ -1183,7 +1183,7 @@ type CallHome_AlertGroups_AlertGroup struct {
     YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     AlertGroupName interface{}
 
     // Enable the alert-group. The type is bool.

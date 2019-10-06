@@ -66,7 +66,7 @@ type HardwareModulePortMode_ConfigMode struct {
     YListKey string
 
     // This attribute is a key. act- or pre-config. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Id1 interface{}
 
     // A node. The type is slice of HardwareModulePortMode_ConfigMode_Node.
@@ -105,7 +105,7 @@ type HardwareModulePortMode_ConfigMode_Node struct {
     YListKey string
 
     // This attribute is a key. Fully qualified line card specification. The type
-    // is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Id2 interface{}
 
     // Linecard port-mode.

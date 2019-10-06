@@ -32,6 +32,17 @@ const (
     HwModuleSpaPhysicalMode_cem HwModuleSpaPhysicalMode = "cem"
 )
 
+// HwModuleShutdownPowerMode represents Hw module shutdown power mode
+type HwModuleShutdownPowerMode string
+
+const (
+    // Keep the showdown module unpowered
+    HwModuleShutdownPowerMode_unpowered HwModuleShutdownPowerMode = "unpowered"
+
+    // Keep the showdown module powered (default)
+    HwModuleShutdownPowerMode_powered HwModuleShutdownPowerMode = "powered"
+)
+
 // HwModuleSpaPhysicalInterface represents Hw module spa physical interface
 type HwModuleSpaPhysicalInterface string
 
@@ -53,17 +64,6 @@ const (
 
     // SDH interface type
     HwModuleSpaPhysicalInterface_sdh HwModuleSpaPhysicalInterface = "sdh"
-)
-
-// HwModuleShutdownPowerMode represents Hw module shutdown power mode
-type HwModuleShutdownPowerMode string
-
-const (
-    // Keep the showdown module unpowered
-    HwModuleShutdownPowerMode_unpowered HwModuleShutdownPowerMode = "unpowered"
-
-    // Keep the showdown module powered (default)
-    HwModuleShutdownPowerMode_powered HwModuleShutdownPowerMode = "powered"
 )
 
 // HardwareModule
@@ -168,7 +168,7 @@ type HardwareModule_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. A SPA node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Configure the SPA physical interface type. The type is

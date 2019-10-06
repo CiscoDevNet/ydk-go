@@ -225,7 +225,7 @@ type UtdOperData_UtdIpsUpdateStatus_IpsUpdateStatus struct {
     Version interface{}
 
     // Time of last attempted update. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateTime interface{}
 
     // Status of last attempted update. The type is UtdUpdateStatusVal.
@@ -235,7 +235,7 @@ type UtdOperData_UtdIpsUpdateStatus_IpsUpdateStatus struct {
     LastUpdateReason interface{}
 
     // Time of last successful update. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastSuccessfulUpdateTime interface{}
 }
 
@@ -305,7 +305,7 @@ type UtdOperData_UtdUrlfUpdateStatus_UrlfUpdateStatus struct {
     Version interface{}
 
     // Time of last attempted update. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdateTime interface{}
 
     // Status of last attempted update. The type is UtdUpdateStatusVal.
@@ -315,7 +315,7 @@ type UtdOperData_UtdUrlfUpdateStatus_UrlfUpdateStatus struct {
     LastUpdateReason interface{}
 
     // Time of last successful update. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastSuccessfulUpdateTime interface{}
 }
 

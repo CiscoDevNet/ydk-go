@@ -27,60 +27,38 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-mpls-lsd-oper:mpls-lsd", reflect.TypeOf(MplsLsd{}))
 }
 
-// MgmtLsdIntfState represents Mgmt lsd intf state
-type MgmtLsdIntfState string
+// MgmtLsdClient represents Mgmt lsd client
+type MgmtLsdClient string
 
 const (
-    // unknown
-    MgmtLsdIntfState_mgmt_lsd_intf_state_unknown MgmtLsdIntfState = "mgmt-lsd-intf-state-unknown"
+    // Application
+    MgmtLsdClient_mgmt_lsd_client_type_app MgmtLsdClient = "mgmt-lsd-client-type-app"
 
-    // up
-    MgmtLsdIntfState_mgmt_lsd_intf_state_up MgmtLsdIntfState = "mgmt-lsd-intf-state-up"
-
-    // down
-    MgmtLsdIntfState_mgmt_lsd_intf_state_down MgmtLsdIntfState = "mgmt-lsd-intf-state-down"
+    // BCDL Agent
+    MgmtLsdClient_mgmt_lsd_client_type_ba MgmtLsdClient = "mgmt-lsd-client-type-ba"
 )
 
-// MgmtLsdAppState represents Mgmt lsd app state
-type MgmtLsdAppState string
+// MgmtLsdFrrState represents Mgmt lsd frr state
+type MgmtLsdFrrState string
 
 const (
+    // Partial
+    MgmtLsdFrrState_mgmt_lsd_frr_state_partial MgmtLsdFrrState = "mgmt-lsd-frr-state-partial"
+
     // Active
-    MgmtLsdAppState_mgmt_lsd_app_state_active MgmtLsdAppState = "mgmt-lsd-app-state-active"
+    MgmtLsdFrrState_mgmt_lsd_frr_state_active MgmtLsdFrrState = "mgmt-lsd-frr-state-active"
 
-    // Zombie
-    MgmtLsdAppState_mgmt_lsd_app_state_zombie MgmtLsdAppState = "mgmt-lsd-app-state-zombie"
+    // Ready
+    MgmtLsdFrrState_mgmt_lsd_frr_state_ready MgmtLsdFrrState = "mgmt-lsd-frr-state-ready"
 
-    // Recover
-    MgmtLsdAppState_mgmt_lsd_app_state_recover MgmtLsdAppState = "mgmt-lsd-app-state-recover"
-)
+    // Complete
+    MgmtLsdFrrState_mgmt_lsd_frr_state_complete MgmtLsdFrrState = "mgmt-lsd-frr-state-complete"
 
-// MgmtLsdRwId represents Mgmt lsd rw id
-type MgmtLsdRwId string
+    // Any
+    MgmtLsdFrrState_mgmt_lsd_frr_state_any MgmtLsdFrrState = "mgmt-lsd-frr-state-any"
 
-const (
-    // None
-    MgmtLsdRwId_mgmt_lsd_rw_id_type_none MgmtLsdRwId = "mgmt-lsd-rw-id-type-none"
-
-    // Label Context
-    MgmtLsdRwId_mgmt_lsd_rw_id_type_lbl_ctx MgmtLsdRwId = "mgmt-lsd-rw-id-type-lbl-ctx"
-
-    // Local Label
-    MgmtLsdRwId_mgmt_lsd_rw_id_type_loc_lbl MgmtLsdRwId = "mgmt-lsd-rw-id-type-loc-lbl"
-)
-
-// MplsLsdNnh represents Mpls lsd nnh
-type MplsLsdNnh string
-
-const (
-    // None - Invalid
-    MplsLsdNnh_none MplsLsdNnh = "none"
-
-    // IPv4 Address
-    MplsLsdNnh_ipv4_address MplsLsdNnh = "ipv4-address"
-
-    // Interface
-    MplsLsdNnh_interface_name MplsLsdNnh = "interface-name"
+    // IGP
+    MgmtLsdFrrState_mgmt_lsd_frr_state_igp MgmtLsdFrrState = "mgmt-lsd-frr-state-igp"
 )
 
 // MgmtLsdMoi represents Mgmt lsd moi
@@ -166,57 +144,6 @@ const (
 
     // Label Range Opaque Message Key
     MgmtLsdFpi_mgmt_lsd_fpi_type_label_range MgmtLsdFpi = "mgmt-lsd-fpi-type-label-range"
-)
-
-// MgmtLsdFrrState represents Mgmt lsd frr state
-type MgmtLsdFrrState string
-
-const (
-    // Partial
-    MgmtLsdFrrState_mgmt_lsd_frr_state_partial MgmtLsdFrrState = "mgmt-lsd-frr-state-partial"
-
-    // Active
-    MgmtLsdFrrState_mgmt_lsd_frr_state_active MgmtLsdFrrState = "mgmt-lsd-frr-state-active"
-
-    // Ready
-    MgmtLsdFrrState_mgmt_lsd_frr_state_ready MgmtLsdFrrState = "mgmt-lsd-frr-state-ready"
-
-    // Complete
-    MgmtLsdFrrState_mgmt_lsd_frr_state_complete MgmtLsdFrrState = "mgmt-lsd-frr-state-complete"
-
-    // Any
-    MgmtLsdFrrState_mgmt_lsd_frr_state_any MgmtLsdFrrState = "mgmt-lsd-frr-state-any"
-
-    // IGP
-    MgmtLsdFrrState_mgmt_lsd_frr_state_igp MgmtLsdFrrState = "mgmt-lsd-frr-state-igp"
-)
-
-// MgmtLsdLspRole represents Mgmt lsd lsp role
-type MgmtLsdLspRole string
-
-const (
-    // Head
-    MgmtLsdLspRole_mgmt_lsd_lsp_role_head MgmtLsdLspRole = "mgmt-lsd-lsp-role-head"
-
-    // Midpoint
-    MgmtLsdLspRole_mgmt_lsd_lsp_role_mid MgmtLsdLspRole = "mgmt-lsd-lsp-role-mid"
-)
-
-// MgmtLsdTeBinding represents Mgmt lsd te binding
-type MgmtLsdTeBinding string
-
-const (
-    // mgmt lsd ident p2p tun id
-    MgmtLsdTeBinding_mgmt_lsd_ident_p2p_tun_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2p-tun-id"
-
-    // mgmt lsd ident p2p grp id
-    MgmtLsdTeBinding_mgmt_lsd_ident_p2p_grp_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2p-grp-id"
-
-    // mgmt lsd ident p2mp tun id
-    MgmtLsdTeBinding_mgmt_lsd_ident_p2mp_tun_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2mp-tun-id"
-
-    // mgmt lsd ident p2mp grp id
-    MgmtLsdTeBinding_mgmt_lsd_ident_p2mp_grp_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2mp-grp-id"
 )
 
 // MgmtLsdLblCtx represents Mgmt lsd lbl ctx
@@ -317,6 +244,17 @@ const (
     MgmtLsdLblCtx_mgmt_lsd_lbl_ctx_type_lbl_blk_srlb MgmtLsdLblCtx = "mgmt-lsd-lbl-ctx-type-lbl-blk-srlb"
 )
 
+// MgmtLsdLspRole represents Mgmt lsd lsp role
+type MgmtLsdLspRole string
+
+const (
+    // Head
+    MgmtLsdLspRole_mgmt_lsd_lsp_role_head MgmtLsdLspRole = "mgmt-lsd-lsp-role-head"
+
+    // Midpoint
+    MgmtLsdLspRole_mgmt_lsd_lsp_role_mid MgmtLsdLspRole = "mgmt-lsd-lsp-role-mid"
+)
+
 // MgmtLsdAppRsrcState represents Mgmt lsd app rsrc state
 type MgmtLsdAppRsrcState string
 
@@ -329,6 +267,20 @@ const (
 
     // Pending Server
     MgmtLsdAppRsrcState_mgmt_lsd_app_rsrc_state_pnd_svr MgmtLsdAppRsrcState = "mgmt-lsd-app-rsrc-state-pnd-svr"
+)
+
+// MplsLsdNnh represents Mpls lsd nnh
+type MplsLsdNnh string
+
+const (
+    // None - Invalid
+    MplsLsdNnh_none MplsLsdNnh = "none"
+
+    // IPv4 Address
+    MplsLsdNnh_ipv4_address MplsLsdNnh = "ipv4-address"
+
+    // Interface
+    MplsLsdNnh_interface_name MplsLsdNnh = "interface-name"
 )
 
 // MgmtLsdApp represents Mgmt lsd app
@@ -396,15 +348,63 @@ const (
     MgmtLsdApp_mgmt_lsd_app_type_any MgmtLsdApp = "mgmt-lsd-app-type-any"
 )
 
-// MgmtLsdClient represents Mgmt lsd client
-type MgmtLsdClient string
+// MgmtLsdTeBinding represents Mgmt lsd te binding
+type MgmtLsdTeBinding string
 
 const (
-    // Application
-    MgmtLsdClient_mgmt_lsd_client_type_app MgmtLsdClient = "mgmt-lsd-client-type-app"
+    // mgmt lsd ident p2p tun id
+    MgmtLsdTeBinding_mgmt_lsd_ident_p2p_tun_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2p-tun-id"
 
-    // BCDL Agent
-    MgmtLsdClient_mgmt_lsd_client_type_ba MgmtLsdClient = "mgmt-lsd-client-type-ba"
+    // mgmt lsd ident p2p grp id
+    MgmtLsdTeBinding_mgmt_lsd_ident_p2p_grp_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2p-grp-id"
+
+    // mgmt lsd ident p2mp tun id
+    MgmtLsdTeBinding_mgmt_lsd_ident_p2mp_tun_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2mp-tun-id"
+
+    // mgmt lsd ident p2mp grp id
+    MgmtLsdTeBinding_mgmt_lsd_ident_p2mp_grp_id MgmtLsdTeBinding = "mgmt-lsd-ident-p2mp-grp-id"
+)
+
+// MgmtLsdAppState represents Mgmt lsd app state
+type MgmtLsdAppState string
+
+const (
+    // Active
+    MgmtLsdAppState_mgmt_lsd_app_state_active MgmtLsdAppState = "mgmt-lsd-app-state-active"
+
+    // Zombie
+    MgmtLsdAppState_mgmt_lsd_app_state_zombie MgmtLsdAppState = "mgmt-lsd-app-state-zombie"
+
+    // Recover
+    MgmtLsdAppState_mgmt_lsd_app_state_recover MgmtLsdAppState = "mgmt-lsd-app-state-recover"
+)
+
+// MgmtLsdIntfState represents Mgmt lsd intf state
+type MgmtLsdIntfState string
+
+const (
+    // unknown
+    MgmtLsdIntfState_mgmt_lsd_intf_state_unknown MgmtLsdIntfState = "mgmt-lsd-intf-state-unknown"
+
+    // up
+    MgmtLsdIntfState_mgmt_lsd_intf_state_up MgmtLsdIntfState = "mgmt-lsd-intf-state-up"
+
+    // down
+    MgmtLsdIntfState_mgmt_lsd_intf_state_down MgmtLsdIntfState = "mgmt-lsd-intf-state-down"
+)
+
+// MgmtLsdRwId represents Mgmt lsd rw id
+type MgmtLsdRwId string
+
+const (
+    // None
+    MgmtLsdRwId_mgmt_lsd_rw_id_type_none MgmtLsdRwId = "mgmt-lsd-rw-id-type-none"
+
+    // Label Context
+    MgmtLsdRwId_mgmt_lsd_rw_id_type_lbl_ctx MgmtLsdRwId = "mgmt-lsd-rw-id-type-lbl-ctx"
+
+    // Local Label
+    MgmtLsdRwId_mgmt_lsd_rw_id_type_loc_lbl MgmtLsdRwId = "mgmt-lsd-rw-id-type-loc-lbl"
 )
 
 // MplsLsdNodes
@@ -450,7 +450,7 @@ type MplsLsdNodes_MplsLsdNode struct {
     YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Table of MPLS clients using LSD.
@@ -559,16 +559,16 @@ type MplsLsdNodes_MplsLsdNode_Clients_Client struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Client Instance name in the form of    
-    // 'Application-<client_name>' or      'BCDL_Agent-<index:parent_index>'. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // This attribute is a key. Client Instance name in the form of
+    // 'Application-<client_name>' or 'BCDL_Agent-<index:parent_index>'. The type
+    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ClientName interface{}
 
     // Client Index Value. The type is interface{} with range: 0..4294967295.
     ClientIndex interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Client union.
@@ -916,7 +916,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext struct {
     YFilter yfilter.YFilter
 
     // Application opaque data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ApplicationData interface{}
 
     // Label Key.
@@ -1100,7 +1100,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv4Data struct {
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -1147,7 +1147,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -1194,11 +1194,11 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Tev4Data struct {
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -1248,7 +1248,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv4l3vpnData struct
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -1288,7 +1288,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv6l3vpnData struct
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -1365,7 +1365,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Cev4l3vpnData struct
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -1404,7 +1404,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Cev6l3vpnData struct
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -1440,7 +1440,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_PseudowireData struc
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -1450,7 +1450,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_PseudowireData struc
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -1532,7 +1532,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_IpSubData struct {
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -1567,7 +1567,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Tev4p2mpData struct 
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -1583,7 +1583,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Tev4p2mpData struct 
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -1629,7 +1629,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_MldPv4Data struct {
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -1667,7 +1667,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_PseudowireHeadEndDat
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -1701,7 +1701,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_TpData struct {
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -1709,7 +1709,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_TpData struct {
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -1755,7 +1755,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_GenericRoutingEncaps
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -1786,7 +1786,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv6GenericRoutingEn
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -1823,7 +1823,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_EvpnData struct {
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -1859,11 +1859,11 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv4blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -1894,11 +1894,11 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_Ipv6blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -1971,7 +1971,7 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_PiMsPmsiData struct 
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -2093,11 +2093,11 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_SrAdjSegmentIpv4 str
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -2136,11 +2136,11 @@ type MplsLsdNodes_MplsLsdNode_Labels_Label_LabelContext_Key_SrAdjSegmentIpv6 str
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -2422,7 +2422,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelMidpoints_TunnelMidpoint struct 
     // 0..4294967295.
     Label interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -2513,7 +2513,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelMidpoints_TunnelMidpoint_FrrEntr
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range: 0..255.
@@ -2548,7 +2548,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelMidpoints_TunnelMidpoint_FrrEntr
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -2587,17 +2587,17 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelMidpoints_TunnelMidpoint_OutPath
     YFilter yfilter.YFilter
     YListKey string
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -2670,10 +2670,10 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelHeads_TunnelHead struct {
     YListKey string
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -2764,7 +2764,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelHeads_TunnelHead_FrrEntryId_Head
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range: 0..255.
@@ -2799,7 +2799,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelHeads_TunnelHead_FrrEntryId_Midp
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -2838,17 +2838,17 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_TunnelHeads_TunnelHead_OutPath struct 
     YFilter yfilter.YFilter
     YListKey string
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -2968,7 +2968,7 @@ type MplsLsdNodes_MplsLsdNode_FrrDatabase_SummaryProtectedInterfaces_SummaryProt
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:
@@ -3444,7 +3444,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -3482,7 +3482,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -3529,7 +3529,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -3602,8 +3602,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -3933,7 +3932,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -3980,7 +3979,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -4027,11 +4026,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -4081,7 +4080,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -4121,7 +4120,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -4198,7 +4197,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -4237,7 +4236,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -4273,7 +4272,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -4283,7 +4282,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -4365,7 +4364,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -4400,7 +4399,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -4416,7 +4415,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -4462,7 +4461,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -4500,7 +4499,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -4534,7 +4533,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -4542,7 +4541,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -4588,7 +4587,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -4619,7 +4618,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -4656,7 +4655,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -4692,11 +4691,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -4727,11 +4726,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -4804,7 +4803,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -4926,11 +4925,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -4969,11 +4968,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -5153,7 +5152,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -5319,7 +5318,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -5357,7 +5356,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -5404,7 +5403,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -5477,8 +5476,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -5595,7 +5593,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -5631,7 +5629,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -6005,15 +6003,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -6095,7 +6093,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -6105,7 +6103,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -6124,7 +6122,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -6175,7 +6173,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -6185,14 +6183,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -6201,21 +6199,21 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -6269,7 +6267,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -6283,7 +6281,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -6334,7 +6332,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -6379,14 +6377,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -6404,7 +6402,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -6451,11 +6449,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -6539,15 +6537,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -6674,8 +6672,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -6783,7 +6781,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -6793,7 +6791,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -6812,7 +6810,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -6908,8 +6906,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -7028,8 +7026,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -7145,15 +7142,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -7280,8 +7277,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -7351,10 +7348,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -7468,7 +7465,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -7478,7 +7475,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -7497,7 +7494,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -7593,8 +7590,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -7664,10 +7661,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -8017,7 +8014,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_TeData str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -8055,7 +8052,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_Ipv4Data s
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -8102,7 +8099,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_Ipv6Data s
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -8175,8 +8172,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_DmtcExtInt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -8506,7 +8502,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -8553,7 +8549,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -8600,11 +8596,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -8654,7 +8650,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -8694,7 +8690,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -8771,7 +8767,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -8810,7 +8806,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -8846,7 +8842,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -8856,7 +8852,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -8938,7 +8934,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -8973,7 +8969,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -8989,7 +8985,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -9035,7 +9031,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -9073,7 +9069,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -9107,7 +9103,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -9115,7 +9111,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -9161,7 +9157,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -9192,7 +9188,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -9229,7 +9225,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -9265,11 +9261,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -9300,11 +9296,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -9377,7 +9373,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -9499,11 +9495,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -9542,11 +9538,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -9726,7 +9722,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -9892,7 +9888,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_TeD
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -9930,7 +9926,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_Ipv
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -9977,7 +9973,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_Ipv
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -10050,8 +10046,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -10168,7 +10163,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -10204,7 +10199,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -10578,15 +10573,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -10668,7 +10663,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -10678,7 +10673,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -10697,7 +10692,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -10748,7 +10743,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -10758,14 +10753,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -10774,21 +10769,21 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -10842,7 +10837,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -10856,7 +10851,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Pse
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -10907,7 +10902,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_IpS
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -10952,14 +10947,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -10977,7 +10972,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Pse
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -11024,11 +11019,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PwL
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -11112,15 +11107,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -11247,8 +11242,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -11356,7 +11351,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -11366,7 +11361,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -11385,7 +11380,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -11481,8 +11476,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Sta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -11601,8 +11596,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -11718,15 +11712,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -11853,8 +11847,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -11924,10 +11918,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12041,7 +12035,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -12051,7 +12045,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -12070,7 +12064,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -12166,8 +12160,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -12237,10 +12231,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Nnh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -12343,15 +12337,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4 struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // RSI table name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // RSI table name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     RsiTableName interface{}
 
-    // RSI table ID. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // RSI table ID. The type is string with pattern: [0-9a-fA-F]{1,8}.
     RsiTableId interface{}
 
     // IPv4 Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -12604,7 +12597,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_TeData
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -12642,7 +12635,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_Ipv4Da
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -12689,7 +12682,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_Ipv6Da
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -12762,8 +12755,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_DmtcEx
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -13093,7 +13085,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -13140,7 +13132,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -13187,11 +13179,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -13241,7 +13233,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -13281,7 +13273,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -13358,7 +13350,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -13397,7 +13389,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -13433,7 +13425,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -13443,7 +13435,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -13525,7 +13517,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -13560,7 +13552,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -13576,7 +13568,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -13622,7 +13614,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -13660,7 +13652,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -13694,7 +13686,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -13702,7 +13694,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -13748,7 +13740,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -13779,7 +13771,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -13816,7 +13808,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -13852,11 +13844,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -13887,11 +13879,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -13964,7 +13956,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -14086,11 +14078,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -14129,11 +14121,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -14313,7 +14305,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_Rewrite
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -14479,7 +14471,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -14517,7 +14509,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -14564,7 +14556,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -14637,8 +14629,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -14755,7 +14746,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -14791,7 +14782,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -15165,15 +15156,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -15255,7 +15246,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -15265,7 +15256,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -15284,7 +15275,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -15335,7 +15326,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -15345,14 +15336,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -15361,21 +15352,21 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -15429,7 +15420,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -15443,7 +15434,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -15494,7 +15485,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -15539,14 +15530,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -15564,7 +15555,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -15611,11 +15602,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -15699,15 +15690,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -15834,8 +15825,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -15943,7 +15934,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -15953,7 +15944,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -15972,7 +15963,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -16068,8 +16059,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -16188,8 +16179,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -16305,15 +16295,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -16440,8 +16430,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -16511,10 +16501,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -16628,7 +16618,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -16638,7 +16628,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -16657,7 +16647,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -16753,8 +16743,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -16824,10 +16814,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -16930,7 +16920,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe struct {
     YListKey string
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Rewrite version. The type is interface{} with range:
@@ -17177,7 +17167,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_TeData str
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -17215,7 +17205,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_Ipv4Data s
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -17262,7 +17252,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_Ipv6Data s
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -17335,8 +17325,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_DmtcExtInt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -17666,7 +17655,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -17713,7 +17702,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -17760,11 +17749,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -17814,7 +17803,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -17854,7 +17843,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -17931,7 +17920,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -17970,7 +17959,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -18006,7 +17995,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -18016,7 +18005,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -18098,7 +18087,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -18133,7 +18122,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -18149,7 +18138,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -18195,7 +18184,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -18233,7 +18222,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -18267,7 +18256,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -18275,7 +18264,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -18321,7 +18310,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -18352,7 +18341,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -18389,7 +18378,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -18425,11 +18414,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -18460,11 +18449,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -18537,7 +18526,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -18659,11 +18648,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -18702,11 +18691,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -18886,7 +18875,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_L
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -19052,7 +19041,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_TeD
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -19090,7 +19079,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_Ipv
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -19137,7 +19126,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_Ipv
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -19210,8 +19199,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -19328,7 +19316,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -19364,7 +19352,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -19738,15 +19726,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -19828,7 +19816,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -19838,7 +19826,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -19857,7 +19845,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -19908,7 +19896,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -19918,14 +19906,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -19934,21 +19922,21 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -20002,7 +19990,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -20016,7 +20004,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Pse
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -20067,7 +20055,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_IpS
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -20112,14 +20100,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Pse
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -20137,7 +20125,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Pse
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -20184,11 +20172,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PwL
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -20272,15 +20260,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -20407,8 +20395,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -20516,7 +20504,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -20526,7 +20514,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -20545,7 +20533,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -20641,8 +20629,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Sta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -20761,8 +20749,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Dmt
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -20878,15 +20865,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -21013,8 +21000,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -21084,10 +21071,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -21201,7 +21188,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -21211,7 +21198,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -21230,7 +21217,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -21326,8 +21313,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -21397,10 +21384,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Nnh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -21750,7 +21737,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_TeDa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -21788,7 +21775,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_Ipv4
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -21835,7 +21822,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_Ipv6
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -21908,8 +21895,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_Dmtc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -22239,7 +22225,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -22286,7 +22272,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -22333,11 +22319,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -22387,7 +22373,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -22427,7 +22413,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -22504,7 +22490,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -22543,7 +22529,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -22579,7 +22565,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -22589,7 +22575,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -22671,7 +22657,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -22706,7 +22692,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -22722,7 +22708,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -22768,7 +22754,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -22806,7 +22792,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -22840,7 +22826,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -22848,7 +22834,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -22894,7 +22880,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -22925,7 +22911,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -22962,7 +22948,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -22998,11 +22984,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -23033,11 +23019,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -23110,7 +23096,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -23232,11 +23218,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -23275,11 +23261,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -23459,7 +23445,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_RewriteId_Rewri
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -23625,7 +23611,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_F
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -23663,7 +23649,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_F
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -23710,7 +23696,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_F
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -23783,8 +23769,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_F
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -23901,7 +23886,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -23937,7 +23922,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -24311,15 +24296,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -24401,7 +24386,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -24411,7 +24396,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -24430,7 +24415,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -24481,7 +24466,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -24491,14 +24476,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -24507,21 +24492,21 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -24575,7 +24560,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -24589,7 +24574,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -24640,7 +24625,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -24685,14 +24670,14 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -24710,7 +24695,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -24757,11 +24742,11 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -24845,15 +24830,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -24980,8 +24965,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -25089,7 +25074,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -25099,7 +25084,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -25118,7 +25103,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -25214,8 +25199,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -25334,8 +25319,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -25451,15 +25435,15 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -25586,8 +25570,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -25657,10 +25641,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -25774,7 +25758,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -25784,7 +25768,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -25803,7 +25787,7 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -25899,8 +25883,8 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -25970,10 +25954,10 @@ type MplsLsdNodes_MplsLsdNode_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_M
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -26309,7 +26293,7 @@ type MplsLsdNodes_MplsLsdNode_Applications_Application struct {
 
     // This attribute is a key. Application Instance name in the form of
     // '<app_type_name>[:<instance>]'. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ApplicationName interface{}
 
     // Application name. The type is string.
@@ -26363,7 +26347,7 @@ type MplsLsdNodes_MplsLsdNode_Applications_Application struct {
     RecoveryTimeRegisterSeconds interface{}
 
     // Node ID where application is/was running. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Application Statistics.
@@ -26517,7 +26501,7 @@ type MplsLsdNodes_MplsLsdNode_Applications_Application_ApplicationStatistics_Lab
     YFilter yfilter.YFilter
     YListKey string
 
-    // Label context count. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -26548,8 +26532,7 @@ type MplsLsdNodes_MplsLsdNode_Applications_Application_ApplicationStatistics_Lab
     YFilter yfilter.YFilter
     YListKey string
 
-    // Label context pending count. The type is interface{} with range:
-    // 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -26615,7 +26598,7 @@ type MplsLsdNodes_MplsLsdNode_LabelSummaryVrfs_LabelSummaryVrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // VRF Name. The type is string.
@@ -26796,7 +26779,7 @@ type MplsLsdNodes_MplsLsdNode_RewriteSummaryVrfs_RewriteSummaryVrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Number of label FPI. The type is interface{} with range: 0..4294967295.
@@ -27068,10 +27051,10 @@ type MplsLsdNodes_MplsLsdNode_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface state. The type is MgmtLsdIntfState.
@@ -27268,16 +27251,16 @@ type MplsLsd_Clients_Client struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // This attribute is a key. Client Instance name in the form of    
-    // 'Application-<client_name>' or      'BCDL_Agent-<index:parent_index>'. The
-    // type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // This attribute is a key. Client Instance name in the form of
+    // 'Application-<client_name>' or 'BCDL_Agent-<index:parent_index>'. The type
+    // is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ClientName interface{}
 
     // Client Index Value. The type is interface{} with range: 0..4294967295.
     ClientIndex interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Client union.
@@ -27624,7 +27607,7 @@ type MplsLsd_Labels_Label_LabelContext struct {
     YFilter yfilter.YFilter
 
     // Application opaque data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ApplicationData interface{}
 
     // Label Key.
@@ -27808,7 +27791,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv4Data struct {
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -27855,7 +27838,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -27902,11 +27885,11 @@ type MplsLsd_Labels_Label_LabelContext_Key_Tev4Data struct {
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -27956,7 +27939,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv4l3vpnData struct {
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -27996,7 +27979,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv6l3vpnData struct {
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -28073,7 +28056,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Cev4l3vpnData struct {
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -28112,7 +28095,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Cev6l3vpnData struct {
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -28148,7 +28131,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_PseudowireData struct {
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -28158,7 +28141,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_PseudowireData struct {
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -28240,7 +28223,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_IpSubData struct {
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -28275,7 +28258,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Tev4p2mpData struct {
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -28291,7 +28274,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Tev4p2mpData struct {
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -28337,7 +28320,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_MldPv4Data struct {
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -28375,7 +28358,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_PseudowireHeadEndData struct {
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -28409,7 +28392,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_TpData struct {
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -28417,7 +28400,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_TpData struct {
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -28463,7 +28446,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_GenericRoutingEncapsulation struct {
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -28494,7 +28477,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv6GenericRoutingEncapsulation struc
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -28531,7 +28514,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_EvpnData struct {
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -28567,11 +28550,11 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv4blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -28602,11 +28585,11 @@ type MplsLsd_Labels_Label_LabelContext_Key_Ipv6blbData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -28679,7 +28662,7 @@ type MplsLsd_Labels_Label_LabelContext_Key_PiMsPmsiData struct {
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -28801,11 +28784,11 @@ type MplsLsd_Labels_Label_LabelContext_Key_SrAdjSegmentIpv4 struct {
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -28844,11 +28827,11 @@ type MplsLsd_Labels_Label_LabelContext_Key_SrAdjSegmentIpv6 struct {
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -29130,7 +29113,7 @@ type MplsLsd_FrrDatabase_TunnelMidpoints_TunnelMidpoint struct {
     // 0..4294967295.
     Label interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -29221,7 +29204,7 @@ type MplsLsd_FrrDatabase_TunnelMidpoints_TunnelMidpoint_FrrEntryId_Head struct {
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range: 0..255.
@@ -29256,7 +29239,7 @@ type MplsLsd_FrrDatabase_TunnelMidpoints_TunnelMidpoint_FrrEntryId_Midpoint stru
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -29295,17 +29278,17 @@ type MplsLsd_FrrDatabase_TunnelMidpoints_TunnelMidpoint_OutPath struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -29378,10 +29361,10 @@ type MplsLsd_FrrDatabase_TunnelHeads_TunnelHead struct {
     YListKey string
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Input label. The type is interface{} with range: 0..4294967295.
@@ -29472,7 +29455,7 @@ type MplsLsd_FrrDatabase_TunnelHeads_TunnelHead_FrrEntryId_Head struct {
     YFilter yfilter.YFilter
 
     // Destination prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationPrefix interface{}
 
     // Destination prefix length. The type is interface{} with range: 0..255.
@@ -29507,7 +29490,7 @@ type MplsLsd_FrrDatabase_TunnelHeads_TunnelHead_FrrEntryId_Midpoint struct {
     YFilter yfilter.YFilter
 
     // Source IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
@@ -29546,17 +29529,17 @@ type MplsLsd_FrrDatabase_TunnelHeads_TunnelHead_OutPath struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // Next hop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // FRR interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // FRR interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     FrrInterface interface{}
 
     // FRR output label. The type is interface{} with range: 0..4294967295.
@@ -29676,7 +29659,7 @@ type MplsLsd_FrrDatabase_SummaryProtectedInterfaces_SummaryProtectedInterface st
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of FRR rewrites in Active state. The type is interface{} with range:
@@ -30152,7 +30135,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_TeDat
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -30190,7 +30173,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv4D
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -30237,7 +30220,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_Ipv6D
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -30310,8 +30293,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_FpiKey_Fpi_DmtcE
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -30641,7 +30623,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -30688,7 +30670,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -30735,11 +30717,11 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -30789,7 +30771,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -30829,7 +30811,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -30906,7 +30888,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -30945,7 +30927,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -30981,7 +30963,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -30991,7 +30973,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -31073,7 +31055,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -31108,7 +31090,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -31124,7 +31106,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -31170,7 +31152,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -31208,7 +31190,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -31242,7 +31224,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -31250,7 +31232,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -31296,7 +31278,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -31327,7 +31309,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -31364,7 +31346,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -31400,11 +31382,11 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -31435,11 +31417,11 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -31512,7 +31494,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -31634,11 +31616,11 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -31677,11 +31659,11 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -31861,7 +31843,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_RewriteId_Rewrit
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -32027,7 +32009,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fp
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -32065,7 +32047,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fp
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -32112,7 +32094,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fp
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -32185,8 +32167,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_AssociatedFpi_Fp
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -32303,7 +32284,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -32339,7 +32320,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -32713,15 +32694,15 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -32803,7 +32784,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -32813,7 +32794,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -32832,7 +32813,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -32883,7 +32864,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -32893,14 +32874,14 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -32909,21 +32890,21 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -32977,7 +32958,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -32991,7 +32972,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -33042,7 +33023,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -33087,14 +33068,14 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -33112,7 +33093,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -33159,11 +33140,11 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -33247,15 +33228,15 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -33382,8 +33363,8 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -33491,7 +33472,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -33501,7 +33482,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -33520,7 +33501,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -33616,8 +33597,8 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -33736,8 +33717,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -33853,15 +33833,15 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -33988,8 +33968,8 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -34059,10 +34039,10 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -34176,7 +34156,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -34186,7 +34166,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -34205,7 +34185,7 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -34301,8 +34281,8 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -34372,10 +34352,10 @@ type MplsLsd_Rewrite_RewriteLabelRangeCnts_RewriteLabelRangeCnt_Mois_MoiArray_Mo
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -34724,7 +34704,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -34762,7 +34742,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_Ipv4Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -34809,7 +34789,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -34882,8 +34862,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_FpiKey_Fpi_DmtcExtIntfData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -35213,7 +35192,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv4D
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -35260,7 +35239,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv6D
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -35307,11 +35286,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Tev4D
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -35361,7 +35340,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv4l
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -35401,7 +35380,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv6l
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -35478,7 +35457,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Cev4l
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -35517,7 +35496,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Cev6l
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -35553,7 +35532,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Pseud
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -35563,7 +35542,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Pseud
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -35645,7 +35624,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_IpSub
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -35680,7 +35659,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Tev4p
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -35696,7 +35675,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Tev4p
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -35742,7 +35721,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_MldPv
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -35780,7 +35759,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Pseud
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -35814,7 +35793,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_TpDat
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -35822,7 +35801,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_TpDat
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -35868,7 +35847,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Gener
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -35899,7 +35878,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv6G
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -35936,7 +35915,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_EvpnD
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -35972,11 +35951,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv4b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -36007,11 +35986,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_Ipv6b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -36084,7 +36063,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_PiMsP
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -36206,11 +36185,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -36249,11 +36228,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -36433,7 +36412,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_RewriteId_RewriteId_LocalLabelRewrite_
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -36599,7 +36578,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -36637,7 +36616,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_Ipv4Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -36684,7 +36663,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -36757,8 +36736,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_AssociatedFpi_Fpi_DmtcExtIntfData stru
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -36875,7 +36853,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -36911,7 +36889,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -37285,15 +37263,15 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -37375,7 +37353,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv6Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -37385,7 +37363,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv6Data struct {
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -37404,7 +37382,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Ipv6Data struct {
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -37455,7 +37433,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -37465,14 +37443,14 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev4Data struct {
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -37481,21 +37459,21 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Tev4Data struct {
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -37549,7 +37527,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PseudowireData struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -37563,7 +37541,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PseudowireData struc
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -37614,7 +37592,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_IpSubData struct {
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -37659,14 +37637,14 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PseudowireHeadEndDat
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -37684,7 +37662,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PseudowireHeadEndDat
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -37731,11 +37709,11 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_PwListData struct {
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -37819,15 +37797,15 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv4Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -37954,8 +37932,8 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv4Data_InnerSta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -38063,7 +38041,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -38073,7 +38051,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -38092,7 +38070,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -38188,8 +38166,8 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_Stackv6Data_InnerSta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -38308,8 +38286,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_DmtcData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -38425,15 +38402,15 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -38560,8 +38537,8 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -38631,10 +38608,10 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv4Data_Neigh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -38748,7 +38725,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -38758,7 +38735,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -38777,7 +38754,7 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -38873,8 +38850,8 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -38944,10 +38921,10 @@ type MplsLsd_Rewrite_RewritePws_RewritePw_Mois_MoiArray_Moi_NnhStackv6Data_Neigh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -39050,15 +39027,14 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4 struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // RSI table name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // RSI table name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     RsiTableName interface{}
 
-    // RSI table ID. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // RSI table ID. The type is string with pattern: [0-9a-fA-F]{1,8}.
     RsiTableId interface{}
 
     // IPv4 Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..4294967295.
@@ -39310,7 +39286,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -39348,7 +39324,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_Ipv4Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -39395,7 +39371,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -39468,8 +39444,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_FpiKey_Fpi_DmtcExtIntfData struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -39799,7 +39774,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -39846,7 +39821,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -39893,11 +39868,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_T
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -39947,7 +39922,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -39987,7 +39962,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -40064,7 +40039,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_C
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -40103,7 +40078,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_C
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -40139,7 +40114,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_P
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -40149,7 +40124,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_P
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -40231,7 +40206,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -40266,7 +40241,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_T
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -40282,7 +40257,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_T
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -40328,7 +40303,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_M
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -40366,7 +40341,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_P
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -40400,7 +40375,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_T
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -40408,7 +40383,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_T
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -40454,7 +40429,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_G
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -40485,7 +40460,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -40522,7 +40497,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_E
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -40558,11 +40533,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -40593,11 +40568,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_I
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -40670,7 +40645,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_P
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -40792,11 +40767,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_S
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -40835,11 +40810,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LabelContext_S
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -41019,7 +40994,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_RewriteId_RewriteId_LocalLabelRewr
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -41185,7 +41160,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -41223,7 +41198,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_Ipv4Data struct 
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -41270,7 +41245,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_Ipv6Data struct 
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -41343,8 +41318,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_AssociatedFpi_Fpi_DmtcExtIntfData 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -41461,7 +41435,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -41497,7 +41471,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -41871,15 +41845,15 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv4Data struct 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -41961,7 +41935,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv6Data struct 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -41971,7 +41945,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv6Data struct 
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -41990,7 +41964,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Ipv6Data struct 
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -42041,7 +42015,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Tev4Data struct 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -42051,14 +42025,14 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Tev4Data struct 
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -42067,21 +42041,21 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Tev4Data struct 
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -42135,7 +42109,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PseudowireData s
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -42149,7 +42123,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PseudowireData s
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -42200,7 +42174,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_IpSubData struct
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -42245,14 +42219,14 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PseudowireHeadEn
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -42270,7 +42244,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PseudowireHeadEn
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -42317,11 +42291,11 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_PwListData struc
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -42405,15 +42379,15 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv4Data_Next
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -42540,8 +42514,8 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv4Data_Inne
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -42649,7 +42623,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv6Data_Next
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -42659,7 +42633,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv6Data_Next
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -42678,7 +42652,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv6Data_Next
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -42774,8 +42748,8 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_Stackv6Data_Inne
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -42894,8 +42868,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_DmtcData struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -43011,15 +42984,15 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_I
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -43146,8 +43119,8 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_I
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -43217,10 +43190,10 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv4Data_N
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -43334,7 +43307,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_I
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -43344,7 +43317,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_I
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -43363,7 +43336,7 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_I
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -43459,8 +43432,8 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_I
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -43530,10 +43503,10 @@ type MplsLsd_Rewrite_RewriteIpv4s_RewriteIpv4_Mois_MoiArray_Moi_NnhStackv6Data_N
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -43636,7 +43609,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe struct {
     YListKey string
 
     // This attribute is a key. Tunnel interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Rewrite version. The type is interface{} with range:
@@ -43882,7 +43855,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -43920,7 +43893,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_Ipv4Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -43967,7 +43940,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -44040,8 +44013,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_FpiKey_Fpi_DmtcExtIntfData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -44371,7 +44343,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv4D
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -44418,7 +44390,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv6D
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -44465,11 +44437,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Tev4D
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -44519,7 +44491,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv4l
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -44559,7 +44531,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv6l
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -44636,7 +44608,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Cev4l
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -44675,7 +44647,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Cev6l
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -44711,7 +44683,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Pseud
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -44721,7 +44693,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Pseud
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -44803,7 +44775,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_IpSub
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -44838,7 +44810,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Tev4p
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -44854,7 +44826,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Tev4p
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -44900,7 +44872,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_MldPv
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -44938,7 +44910,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Pseud
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -44972,7 +44944,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_TpDat
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -44980,7 +44952,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_TpDat
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -45026,7 +44998,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Gener
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -45057,7 +45029,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv6G
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -45094,7 +45066,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_EvpnD
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -45130,11 +45102,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv4b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -45165,11 +45137,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_Ipv6b
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -45242,7 +45214,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_PiMsP
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -45364,11 +45336,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -45407,11 +45379,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LabelContext_SrAdj
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -45591,7 +45563,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_RewriteId_RewriteId_LocalLabelRewrite_
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -45757,7 +45729,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -45795,7 +45767,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_Ipv4Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -45842,7 +45814,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -45915,8 +45887,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_AssociatedFpi_Fpi_DmtcExtIntfData stru
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -46033,7 +46004,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -46069,7 +46040,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -46443,15 +46414,15 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -46533,7 +46504,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv6Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -46543,7 +46514,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv6Data struct {
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -46562,7 +46533,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Ipv6Data struct {
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -46613,7 +46584,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev4Data struct {
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -46623,14 +46594,14 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev4Data struct {
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -46639,21 +46610,21 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Tev4Data struct {
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -46707,7 +46678,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PseudowireData struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -46721,7 +46692,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PseudowireData struc
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -46772,7 +46743,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_IpSubData struct {
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -46817,14 +46788,14 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PseudowireHeadEndDat
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -46842,7 +46813,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PseudowireHeadEndDat
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -46889,11 +46860,11 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_PwListData struct {
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -46977,15 +46948,15 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv4Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -47112,8 +47083,8 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv4Data_InnerSta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -47221,7 +47192,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -47231,7 +47202,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -47250,7 +47221,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv6Data_Nexthop 
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -47346,8 +47317,8 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_Stackv6Data_InnerSta
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -47466,8 +47437,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_DmtcData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -47583,15 +47553,15 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -47718,8 +47688,8 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_Ipv4S
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -47789,10 +47759,10 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv4Data_Neigh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -47906,7 +47876,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -47916,7 +47886,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -47935,7 +47905,7 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -48031,8 +48001,8 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Ipv6S
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -48102,10 +48072,10 @@ type MplsLsd_Rewrite_RewriteTes_RewriteTe_Mois_MoiArray_Moi_NnhStackv6Data_Neigh
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -48454,7 +48424,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_TeData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -48492,7 +48462,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_Ipv4Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -48539,7 +48509,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_Ipv6Data struct {
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -48612,8 +48582,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_FpiKey_Fpi_DmtcExtIntfData struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -48943,7 +48912,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     TableId interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // IPv4 prefix length. The type is interface{} with range: 0..255.
@@ -48990,7 +48959,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -49037,11 +49006,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Tunnel destination. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelDest interface{}
 
     // Tunnel ID. The type is interface{} with range: 0..4294967295.
@@ -49091,7 +49060,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -49131,7 +49100,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..255.
@@ -49208,7 +49177,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     TableId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -49247,7 +49216,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     TableId interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Security ID. The type is interface{} with range: 0..4294967295.
@@ -49283,7 +49252,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // Address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Pseudo-wire ID. The type is interface{} with range:
@@ -49293,7 +49262,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Remote L2 Router ID. The type is interface{} with range: 0..4294967295.
     RemoteL2RouterId interface{}
 
-    // Subinterface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Subinterface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Subinterface interface{}
 }
 
@@ -49375,7 +49344,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Table Id. The type is interface{} with range: 0..4294967295.
     TableId interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 }
 
@@ -49410,7 +49379,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     TableId interface{}
 
     // Tunnel source. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     TunnelSource interface{}
 
     // Point to multipoint ID. The type is interface{} with range: 0..4294967295.
@@ -49426,7 +49395,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     TunnelLspId interface{}
 
     // Previous hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PreviousHop interface{}
 }
 
@@ -49472,7 +49441,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     LsmId interface{}
 
     // Peer LSR Id. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerLsrid interface{}
 
     // Peer Label Space Id. The type is interface{} with range: 0..65535.
@@ -49510,7 +49479,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheIntf interface{}
 }
 
@@ -49544,7 +49513,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     SourceGlobalId interface{}
 
     // TP source node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceNodeId interface{}
 
     // TP destination global ID. The type is interface{} with range:
@@ -49552,7 +49521,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     DestGlobalId interface{}
 
     // TP destination node ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestNodeId interface{}
 
     // TP source tunnel ID. The type is interface{} with range: 0..65535.
@@ -49598,7 +49567,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     GreInterface interface{}
 }
 
@@ -49629,7 +49598,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     YFilter yfilter.YFilter
 
     // Generic routing encapsulation IPv6 interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     Greipv6Interface interface{}
 }
 
@@ -49666,7 +49635,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     EvpnTag interface{}
 
     // Ethernet Segment ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     EthernetSegment interface{}
 
     // EVPN Encap. The type is interface{} with range: 0..255.
@@ -49702,11 +49671,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv4 prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -49737,11 +49706,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // BFD BLB interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // BFD BLB interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BlbIntf interface{}
 
     // IPv6 prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 }
 
@@ -49814,7 +49783,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     VrfId interface{}
 
     // Originating Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Head. The type is interface{} with range: -2147483648..2147483647.
@@ -49936,11 +49905,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -49979,11 +49948,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LabelContext
     // Adjacency type. The type is interface{} with range: 0..4294967295.
     Type interface{}
 
-    // Adjacency interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Adjacency interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Intf interface{}
 
     // Adjacency nexthop IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Addr interface{}
 }
 
@@ -50163,7 +50132,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_RewriteId_RewriteId_LocalLabelRe
     YFilter yfilter.YFilter
     YListKey string
 
-    // label data. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -50329,7 +50298,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_TeData struct 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Local label. The type is interface{} with range: 0..4294967295.
@@ -50367,7 +50336,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_Ipv4Data struc
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix Length. The type is interface{} with range: 0..255.
@@ -50414,7 +50383,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_Ipv6Data struc
     TableId interface{}
 
     // Prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Route flags. The type is interface{} with range: 0..4294967295.
@@ -50487,8 +50456,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_AssociatedFpi_Fpi_DmtcExtIntfDat
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -50605,7 +50573,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_V4Rpf struct {
     TableId interface{}
 
     // V4 RPF Neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     V4RpfNeighbor interface{}
 }
 
@@ -50641,7 +50609,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_V6Rpf struct {
     TableId interface{}
 
     // V6 RPF Neighbor. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     V6RpfNeighbor interface{}
 }
 
@@ -51015,15 +50983,15 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv4Data struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -51105,7 +51073,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv6Data struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -51115,7 +51083,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv6Data struc
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -51134,7 +51102,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Ipv6Data struc
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -51185,7 +51153,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Tev4Data struc
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -51195,14 +51163,14 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Tev4Data struc
     OutLabelName interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
-    // Backup interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Backup interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupIpv4NextHop interface{}
 
     // Merge point label. The type is interface{} with range: 0..4294967295.
@@ -51211,21 +51179,21 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Tev4Data struc
     // Backup local label. The type is interface{} with range: 0..4294967295.
     BackupLocalLabel interface{}
 
-    // Tunnel interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     TunnelInterface interface{}
 
     // Tunnel weight. The type is interface{} with range: 0..4294967295.
     TunnelWeight interface{}
 
     // Outgoing data parent interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     DataOutParentInterface interface{}
 
     // Tunnel class. The type is interface{} with range: 0..4294967295.
     TunnelClass interface{}
 
     // IPv4 next nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextNextHop interface{}
 }
 
@@ -51279,7 +51247,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PseudowireData
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
@@ -51293,7 +51261,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PseudowireData
     PseuodoWireConnectId interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Bridge ID. The type is interface{} with range: 0..4294967295.
@@ -51344,7 +51312,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_IpSubData stru
     // VRF table name. The type is string.
     TableName interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Path flag decoded string. The type is string.
@@ -51389,14 +51357,14 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PseudowireHead
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Label. The type is interface{} with range: 0..4294967295.
     OutLabel interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Is control word present. The type is interface{} with range:
@@ -51414,7 +51382,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PseudowireHead
     PwListId interface{}
 
     // Pseudo-wire Head-end interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     PwheInterface interface{}
 }
 
@@ -51461,11 +51429,11 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_PwListData str
     TableName interface{}
 
     // Pseudo-wire Layer 3 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L3Interface interface{}
 
     // Pseudo-wire Layer 2 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     L2Interface interface{}
 
     // Path flag decoded string. The type is string.
@@ -51549,15 +51517,15 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv4Data_Ne
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -51684,8 +51652,8 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv4Data_In
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -51793,7 +51761,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv6Data_Ne
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -51803,7 +51771,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv6Data_Ne
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -51822,7 +51790,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv6Data_Ne
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -51918,8 +51886,8 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_Stackv6Data_In
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -52038,8 +52006,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_DmtcData struc
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DMTC External Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // DMTC External Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     DmtcExtIfh interface{}
 }
 
@@ -52155,15 +52122,15 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 
     // IPv4 nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -52290,8 +52257,8 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -52361,10 +52328,10 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv4Data
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -52478,7 +52445,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
     // Path flag decoded string. The type is string.
     PathFlagsDecode interface{}
 
-    // Outgoing interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Outgoing interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Outgoing label. The type is interface{} with range: 0..4294967295.
@@ -52488,7 +52455,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
     OutLabelName interface{}
 
     // IPv6 nexthop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6NextHop interface{}
 
     // Routing path id. The type is interface{} with range: 0..255.
@@ -52507,7 +52474,7 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
     NextHopId interface{}
 
     // Outgoing Interface's parent. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutInterfaceParent interface{}
 }
 
@@ -52603,8 +52570,8 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
     YFilter yfilter.YFilter
     YListKey string
 
-    // Remote nexthop addresses. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -52674,10 +52641,10 @@ type MplsLsd_Rewrite_RewriteLabels_RewriteLabel_Mois_MoiArray_Moi_NnhStackv6Data
     NnhType interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -53013,7 +52980,7 @@ type MplsLsd_Applications_Application struct {
 
     // This attribute is a key. Application Instance name in the form of
     // '<app_type_name>[:<instance>]'. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ApplicationName interface{}
 
     // Application name. The type is string.
@@ -53067,7 +53034,7 @@ type MplsLsd_Applications_Application struct {
     RecoveryTimeRegisterSeconds interface{}
 
     // Node ID where application is/was running. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Application Statistics.
@@ -53221,7 +53188,7 @@ type MplsLsd_Applications_Application_ApplicationStatistics_LabelContextCount st
     YFilter yfilter.YFilter
     YListKey string
 
-    // Label context count. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -53252,8 +53219,7 @@ type MplsLsd_Applications_Application_ApplicationStatistics_LabelContextPendingC
     YFilter yfilter.YFilter
     YListKey string
 
-    // Label context pending count. The type is interface{} with range:
-    // 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -53319,7 +53285,7 @@ type MplsLsd_LabelSummaryVrfs_LabelSummaryVrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // VRF Name. The type is string.
@@ -53500,7 +53466,7 @@ type MplsLsd_RewriteSummaryVrfs_RewriteSummaryVrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Number of label FPI. The type is interface{} with range: 0..4294967295.
@@ -53771,10 +53737,10 @@ type MplsLsd_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interface state. The type is MgmtLsdIntfState.

@@ -121,7 +121,7 @@ type Cdp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The identifier for the node. The type is string
-    // with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // The CDP neighbor tables on this node.
@@ -238,13 +238,13 @@ type Cdp_Nodes_Node_Neighbors_Details_Detail struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The neighboring device identifier. The type is string.
     DeviceId interface{}
 
-    // Next neighbor in the list. The type is slice of
+    // cdp neighbor. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor.
     CdpNeighbor []*Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor
 }
@@ -276,14 +276,14 @@ func (detail *Cdp_Nodes_Node_Neighbors_Details_Detail) GetEntityData() *types.Co
 }
 
 // Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor
-// Next neighbor in the list
+// cdp neighbor
 type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     ReceivingInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -395,7 +395,7 @@ type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next address entry in list. The type is slice of
+    // cdp addr entry. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry.
     CdpAddrEntry []*Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry
 }
@@ -425,7 +425,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Deta
 }
 
 // Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry
-// Next address entry in list
+// cdp addr entry
 type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -465,11 +465,11 @@ type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_NetworkAddresses
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -501,7 +501,7 @@ type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_ProtocolHelloLis
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next protocol hello entry in list. The type is slice of
+    // cdp prot hello entry. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry.
     CdpProtHelloEntry []*Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry
 }
@@ -531,14 +531,14 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Det
 }
 
 // Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry
-// Next protocol hello entry in list
+// cdp prot hello entry
 type Cdp_Nodes_Node_Neighbors_Details_Detail_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Protocol Hello msg. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HelloMessage interface{}
 }
 
@@ -608,7 +608,7 @@ type Cdp_Nodes_Node_Neighbors_Devices_Device struct {
     // string.
     DeviceId interface{}
 
-    // Next neighbor in the list. The type is slice of
+    // cdp neighbor. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor.
     CdpNeighbor []*Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor
 }
@@ -639,14 +639,14 @@ func (device *Cdp_Nodes_Node_Neighbors_Devices_Device) GetEntityData() *types.Co
 }
 
 // Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor
-// Next neighbor in the list
+// cdp neighbor
 type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     ReceivingInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -758,7 +758,7 @@ type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next address entry in list. The type is slice of
+    // cdp addr entry. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry.
     CdpAddrEntry []*Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry
 }
@@ -788,7 +788,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Deta
 }
 
 // Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry
-// Next address entry in list
+// cdp addr entry
 type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -828,11 +828,11 @@ type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_NetworkAddresses
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -864,7 +864,7 @@ type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_ProtocolHelloLis
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next protocol hello entry in list. The type is slice of
+    // cdp prot hello entry. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry.
     CdpProtHelloEntry []*Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry
 }
@@ -894,14 +894,14 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Det
 }
 
 // Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry
-// Next protocol hello entry in list
+// cdp prot hello entry
 type Cdp_Nodes_Node_Neighbors_Devices_Device_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Protocol Hello msg. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HelloMessage interface{}
 }
 
@@ -967,13 +967,13 @@ type Cdp_Nodes_Node_Neighbors_Summaries_Summary struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // The interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // The interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The neighboring device identifier. The type is string.
     DeviceId interface{}
 
-    // Next neighbor in the list. The type is slice of
+    // cdp neighbor. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor.
     CdpNeighbor []*Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor
 }
@@ -1005,14 +1005,14 @@ func (summary *Cdp_Nodes_Node_Neighbors_Summaries_Summary) GetEntityData() *type
 }
 
 // Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor
-// Next neighbor in the list
+// cdp neighbor
 type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Interface the neighbor entry was received on . The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     ReceivingInterfaceName interface{}
 
     // Device identifier. The type is string.
@@ -1124,7 +1124,7 @@ type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddres
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next address entry in list. The type is slice of
+    // cdp addr entry. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry.
     CdpAddrEntry []*Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry
 }
@@ -1154,7 +1154,7 @@ func (networkAddresses *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_D
 }
 
 // Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry
-// Next address entry in list
+// cdp addr entry
 type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddresses_CdpAddrEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
@@ -1194,11 +1194,11 @@ type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_NetworkAddres
     AddressType interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1230,7 +1230,7 @@ type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_ProtocolHello
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Next protocol hello entry in list. The type is slice of
+    // cdp prot hello entry. The type is slice of
     // Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry.
     CdpProtHelloEntry []*Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry
 }
@@ -1260,14 +1260,14 @@ func (protocolHelloList *Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_
 }
 
 // Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry
-// Next protocol hello entry in list
+// cdp prot hello entry
 type Cdp_Nodes_Node_Neighbors_Summaries_Summary_CdpNeighbor_Detail_ProtocolHelloList_CdpProtHelloEntry struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // Protocol Hello msg. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HelloMessage interface{}
 }
 
@@ -1420,10 +1420,10 @@ type Cdp_Nodes_Node_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The interface name. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // Interface basecaps state. The type is interface{} with range:

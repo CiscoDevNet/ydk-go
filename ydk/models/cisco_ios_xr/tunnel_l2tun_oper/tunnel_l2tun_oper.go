@@ -44,8 +44,26 @@ type L2tp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of nodes for which subscriber data is collected.
-    Nodes L2tp_Nodes
+    // L2TP control messages counters.
+    Counters L2tp_Counters
+
+    // List of tunnel IDs.
+    TunnelConfigurations L2tp_TunnelConfigurations
+
+    // Failure events leading to disconnection.
+    CounterHistFail L2tp_CounterHistFail
+
+    // List of L2TP class names.
+    Classes L2tp_Classes
+
+    // List of tunnel IDs.
+    Tunnels L2tp_Tunnels
+
+    // List of session IDs.
+    Sessions L2tp_Sessions
+
+    // L2TP control messages counters.
+    Session L2tp_Session
 }
 
 func (l2tp *L2tp) GetEntityData() *types.CommonEntityData {
@@ -60,7 +78,13 @@ func (l2tp *L2tp) GetEntityData() *types.CommonEntityData {
     l2tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     l2tp.EntityData.Children = types.NewOrderedMap()
-    l2tp.EntityData.Children.Append("nodes", types.YChild{"Nodes", &l2tp.Nodes})
+    l2tp.EntityData.Children.Append("counters", types.YChild{"Counters", &l2tp.Counters})
+    l2tp.EntityData.Children.Append("tunnel-configurations", types.YChild{"TunnelConfigurations", &l2tp.TunnelConfigurations})
+    l2tp.EntityData.Children.Append("counter-hist-fail", types.YChild{"CounterHistFail", &l2tp.CounterHistFail})
+    l2tp.EntityData.Children.Append("classes", types.YChild{"Classes", &l2tp.Classes})
+    l2tp.EntityData.Children.Append("tunnels", types.YChild{"Tunnels", &l2tp.Tunnels})
+    l2tp.EntityData.Children.Append("sessions", types.YChild{"Sessions", &l2tp.Sessions})
+    l2tp.EntityData.Children.Append("session", types.YChild{"Session", &l2tp.Session})
     l2tp.EntityData.Leafs = types.NewOrderedMap()
 
     l2tp.EntityData.YListKeys = []string {}
@@ -68,122 +92,23 @@ func (l2tp *L2tp) GetEntityData() *types.CommonEntityData {
     return &(l2tp.EntityData)
 }
 
-// L2tp_Nodes
-// List of nodes for which subscriber data is
-// collected
-type L2tp_Nodes struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subscriber data for a particular node. The type is slice of
-    // L2tp_Nodes_Node.
-    Node []*L2tp_Nodes_Node
-}
-
-func (nodes *L2tp_Nodes) GetEntityData() *types.CommonEntityData {
-    nodes.EntityData.YFilter = nodes.YFilter
-    nodes.EntityData.YangName = "nodes"
-    nodes.EntityData.BundleName = "cisco_ios_xr"
-    nodes.EntityData.ParentYangName = "l2tp"
-    nodes.EntityData.SegmentPath = "nodes"
-    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + nodes.EntityData.SegmentPath
-    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nodes.EntityData.Children = types.NewOrderedMap()
-    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
-    for i := range nodes.Node {
-        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
-    }
-    nodes.EntityData.Leafs = types.NewOrderedMap()
-
-    nodes.EntityData.YListKeys = []string {}
-
-    return &(nodes.EntityData)
-}
-
-// L2tp_Nodes_Node
-// Subscriber data for a particular node
-type L2tp_Nodes_Node struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
-    NodeName interface{}
-
-    // L2TP control messages counters.
-    Counters L2tp_Nodes_Node_Counters
-
-    // List of tunnel IDs.
-    TunnelConfigurations L2tp_Nodes_Node_TunnelConfigurations
-
-    // Failure events leading to disconnection.
-    CounterHistFail L2tp_Nodes_Node_CounterHistFail
-
-    // List of L2TP class names.
-    Classes L2tp_Nodes_Node_Classes
-
-    // List of tunnel IDs.
-    Tunnels L2tp_Nodes_Node_Tunnels
-
-    // List of session IDs.
-    Sessions L2tp_Nodes_Node_Sessions
-
-    // L2TP control messages counters.
-    Session L2tp_Nodes_Node_Session
-
-    // L2TP v2/v3 internal information.
-    Internal L2tp_Nodes_Node_Internal
-}
-
-func (node *L2tp_Nodes_Node) GetEntityData() *types.CommonEntityData {
-    node.EntityData.YFilter = node.YFilter
-    node.EntityData.YangName = "node"
-    node.EntityData.BundleName = "cisco_ios_xr"
-    node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
-    node.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/" + node.EntityData.SegmentPath
-    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    node.EntityData.Children = types.NewOrderedMap()
-    node.EntityData.Children.Append("counters", types.YChild{"Counters", &node.Counters})
-    node.EntityData.Children.Append("tunnel-configurations", types.YChild{"TunnelConfigurations", &node.TunnelConfigurations})
-    node.EntityData.Children.Append("counter-hist-fail", types.YChild{"CounterHistFail", &node.CounterHistFail})
-    node.EntityData.Children.Append("classes", types.YChild{"Classes", &node.Classes})
-    node.EntityData.Children.Append("tunnels", types.YChild{"Tunnels", &node.Tunnels})
-    node.EntityData.Children.Append("sessions", types.YChild{"Sessions", &node.Sessions})
-    node.EntityData.Children.Append("session", types.YChild{"Session", &node.Session})
-    node.EntityData.Children.Append("internal", types.YChild{"Internal", &node.Internal})
-    node.EntityData.Leafs = types.NewOrderedMap()
-    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
-
-    node.EntityData.YListKeys = []string {"NodeName"}
-
-    return &(node.EntityData)
-}
-
-// L2tp_Nodes_Node_Counters
+// L2tp_Counters
 // L2TP control messages counters
-type L2tp_Nodes_Node_Counters struct {
+type L2tp_Counters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control messages counters.
-    Control L2tp_Nodes_Node_Counters_Control
+    Control L2tp_Counters_Control
 }
 
-func (counters *L2tp_Nodes_Node_Counters) GetEntityData() *types.CommonEntityData {
+func (counters *L2tp_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.YFilter = counters.YFilter
     counters.EntityData.YangName = "counters"
     counters.EntityData.BundleName = "cisco_ios_xr"
-    counters.EntityData.ParentYangName = "node"
+    counters.EntityData.ParentYangName = "l2tp"
     counters.EntityData.SegmentPath = "counters"
-    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + counters.EntityData.SegmentPath
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -197,26 +122,26 @@ func (counters *L2tp_Nodes_Node_Counters) GetEntityData() *types.CommonEntityDat
     return &(counters.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control
+// L2tp_Counters_Control
 // L2TP control messages counters
-type L2tp_Nodes_Node_Counters_Control struct {
+type L2tp_Counters_Control struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control tunnel messages counters.
-    TunnelXr L2tp_Nodes_Node_Counters_Control_TunnelXr
+    TunnelXr L2tp_Counters_Control_TunnelXr
 
     // Table of tunnel IDs of control message counters.
-    Tunnels L2tp_Nodes_Node_Counters_Control_Tunnels
+    Tunnels L2tp_Counters_Control_Tunnels
 }
 
-func (control *L2tp_Nodes_Node_Counters_Control) GetEntityData() *types.CommonEntityData {
+func (control *L2tp_Counters_Control) GetEntityData() *types.CommonEntityData {
     control.EntityData.YFilter = control.YFilter
     control.EntityData.YangName = "control"
     control.EntityData.BundleName = "cisco_ios_xr"
     control.EntityData.ParentYangName = "counters"
     control.EntityData.SegmentPath = "control"
-    control.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/" + control.EntityData.SegmentPath
+    control.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/" + control.EntityData.SegmentPath
     control.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     control.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     control.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -231,26 +156,26 @@ func (control *L2tp_Nodes_Node_Counters_Control) GetEntityData() *types.CommonEn
     return &(control.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr
+// L2tp_Counters_Control_TunnelXr
 // L2TP control tunnel messages counters
-type L2tp_Nodes_Node_Counters_Control_TunnelXr struct {
+type L2tp_Counters_Control_TunnelXr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel authentication counters.
-    Authentication L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication
+    Authentication L2tp_Counters_Control_TunnelXr_Authentication
 
     // Tunnel counters.
-    Global L2tp_Nodes_Node_Counters_Control_TunnelXr_Global
+    Global L2tp_Counters_Control_TunnelXr_Global
 }
 
-func (tunnelXr *L2tp_Nodes_Node_Counters_Control_TunnelXr) GetEntityData() *types.CommonEntityData {
+func (tunnelXr *L2tp_Counters_Control_TunnelXr) GetEntityData() *types.CommonEntityData {
     tunnelXr.EntityData.YFilter = tunnelXr.YFilter
     tunnelXr.EntityData.YangName = "tunnel-xr"
     tunnelXr.EntityData.BundleName = "cisco_ios_xr"
     tunnelXr.EntityData.ParentYangName = "control"
     tunnelXr.EntityData.SegmentPath = "tunnel-xr"
-    tunnelXr.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/" + tunnelXr.EntityData.SegmentPath
+    tunnelXr.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/" + tunnelXr.EntityData.SegmentPath
     tunnelXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -265,47 +190,47 @@ func (tunnelXr *L2tp_Nodes_Node_Counters_Control_TunnelXr) GetEntityData() *type
     return &(tunnelXr.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication
+// L2tp_Counters_Control_TunnelXr_Authentication
 // Tunnel authentication counters
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication struct {
+type L2tp_Counters_Control_TunnelXr_Authentication struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Nonce AVP statistics.
-    NonceAvp L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp
+    NonceAvp L2tp_Counters_Control_TunnelXr_Authentication_NonceAvp
 
     // Common digest statistics.
-    CommonDigest L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest
+    CommonDigest L2tp_Counters_Control_TunnelXr_Authentication_CommonDigest
 
     // Primary digest statistics.
-    PrimaryDigest L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest
+    PrimaryDigest L2tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest
 
     // Secondary digest statistics.
-    SecondaryDigest L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest
+    SecondaryDigest L2tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest
 
     // Integrity check statistics.
-    IntegrityCheck L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck
+    IntegrityCheck L2tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck
 
     // Local secret statistics.
-    LocalSecret L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret
+    LocalSecret L2tp_Counters_Control_TunnelXr_Authentication_LocalSecret
 
     // Challenge AVP statistics.
-    ChallengeAvp L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp
+    ChallengeAvp L2tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp
 
     // Challenge response statistics.
-    ChallengeReponse L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse
+    ChallengeReponse L2tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse
 
     // Overall statistics.
-    OverallStatistics L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics
+    OverallStatistics L2tp_Counters_Control_TunnelXr_Authentication_OverallStatistics
 }
 
-func (authentication *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication) GetEntityData() *types.CommonEntityData {
+func (authentication *L2tp_Counters_Control_TunnelXr_Authentication) GetEntityData() *types.CommonEntityData {
     authentication.EntityData.YFilter = authentication.YFilter
     authentication.EntityData.YangName = "authentication"
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "tunnel-xr"
     authentication.EntityData.SegmentPath = "authentication"
-    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/" + authentication.EntityData.SegmentPath
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -327,9 +252,9 @@ func (authentication *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication) 
     return &(authentication.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp
+// L2tp_Counters_Control_TunnelXr_Authentication_NonceAvp
 // Nonce AVP statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -367,13 +292,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
     UnexpectedZlb interface{}
 }
 
-func (nonceAvp *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEntityData() *types.CommonEntityData {
+func (nonceAvp *L2tp_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEntityData() *types.CommonEntityData {
     nonceAvp.EntityData.YFilter = nonceAvp.YFilter
     nonceAvp.EntityData.YangName = "nonce-avp"
     nonceAvp.EntityData.BundleName = "cisco_ios_xr"
     nonceAvp.EntityData.ParentYangName = "authentication"
     nonceAvp.EntityData.SegmentPath = "nonce-avp"
-    nonceAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + nonceAvp.EntityData.SegmentPath
+    nonceAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + nonceAvp.EntityData.SegmentPath
     nonceAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonceAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonceAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -397,9 +322,9 @@ func (nonceAvp *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAv
     return &(nonceAvp.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest
+// L2tp_Counters_Control_TunnelXr_Authentication_CommonDigest
 // Common digest statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -437,13 +362,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest struc
     UnexpectedZlb interface{}
 }
 
-func (commonDigest *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest) GetEntityData() *types.CommonEntityData {
+func (commonDigest *L2tp_Counters_Control_TunnelXr_Authentication_CommonDigest) GetEntityData() *types.CommonEntityData {
     commonDigest.EntityData.YFilter = commonDigest.YFilter
     commonDigest.EntityData.YangName = "common-digest"
     commonDigest.EntityData.BundleName = "cisco_ios_xr"
     commonDigest.EntityData.ParentYangName = "authentication"
     commonDigest.EntityData.SegmentPath = "common-digest"
-    commonDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + commonDigest.EntityData.SegmentPath
+    commonDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + commonDigest.EntityData.SegmentPath
     commonDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -467,9 +392,9 @@ func (commonDigest *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_Com
     return &(commonDigest.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest
+// L2tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest
 // Primary digest statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -507,13 +432,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest stru
     UnexpectedZlb interface{}
 }
 
-func (primaryDigest *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetEntityData() *types.CommonEntityData {
+func (primaryDigest *L2tp_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetEntityData() *types.CommonEntityData {
     primaryDigest.EntityData.YFilter = primaryDigest.YFilter
     primaryDigest.EntityData.YangName = "primary-digest"
     primaryDigest.EntityData.BundleName = "cisco_ios_xr"
     primaryDigest.EntityData.ParentYangName = "authentication"
     primaryDigest.EntityData.SegmentPath = "primary-digest"
-    primaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + primaryDigest.EntityData.SegmentPath
+    primaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + primaryDigest.EntityData.SegmentPath
     primaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -537,9 +462,9 @@ func (primaryDigest *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_Pr
     return &(primaryDigest.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest
+// L2tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest
 // Secondary digest statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -577,13 +502,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest st
     UnexpectedZlb interface{}
 }
 
-func (secondaryDigest *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetEntityData() *types.CommonEntityData {
+func (secondaryDigest *L2tp_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetEntityData() *types.CommonEntityData {
     secondaryDigest.EntityData.YFilter = secondaryDigest.YFilter
     secondaryDigest.EntityData.YangName = "secondary-digest"
     secondaryDigest.EntityData.BundleName = "cisco_ios_xr"
     secondaryDigest.EntityData.ParentYangName = "authentication"
     secondaryDigest.EntityData.SegmentPath = "secondary-digest"
-    secondaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + secondaryDigest.EntityData.SegmentPath
+    secondaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + secondaryDigest.EntityData.SegmentPath
     secondaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -607,9 +532,9 @@ func (secondaryDigest *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_
     return &(secondaryDigest.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck
+// L2tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck
 // Integrity check statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -647,13 +572,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck str
     UnexpectedZlb interface{}
 }
 
-func (integrityCheck *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetEntityData() *types.CommonEntityData {
+func (integrityCheck *L2tp_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetEntityData() *types.CommonEntityData {
     integrityCheck.EntityData.YFilter = integrityCheck.YFilter
     integrityCheck.EntityData.YangName = "integrity-check"
     integrityCheck.EntityData.BundleName = "cisco_ios_xr"
     integrityCheck.EntityData.ParentYangName = "authentication"
     integrityCheck.EntityData.SegmentPath = "integrity-check"
-    integrityCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + integrityCheck.EntityData.SegmentPath
+    integrityCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + integrityCheck.EntityData.SegmentPath
     integrityCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     integrityCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     integrityCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -677,9 +602,9 @@ func (integrityCheck *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_I
     return &(integrityCheck.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret
+// L2tp_Counters_Control_TunnelXr_Authentication_LocalSecret
 // Local secret statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -717,13 +642,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret struct
     UnexpectedZlb interface{}
 }
 
-func (localSecret *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret) GetEntityData() *types.CommonEntityData {
+func (localSecret *L2tp_Counters_Control_TunnelXr_Authentication_LocalSecret) GetEntityData() *types.CommonEntityData {
     localSecret.EntityData.YFilter = localSecret.YFilter
     localSecret.EntityData.YangName = "local-secret"
     localSecret.EntityData.BundleName = "cisco_ios_xr"
     localSecret.EntityData.ParentYangName = "authentication"
     localSecret.EntityData.SegmentPath = "local-secret"
-    localSecret.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + localSecret.EntityData.SegmentPath
+    localSecret.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + localSecret.EntityData.SegmentPath
     localSecret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localSecret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localSecret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -747,9 +672,9 @@ func (localSecret *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_Loca
     return &(localSecret.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp
+// L2tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp
 // Challenge AVP statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -787,13 +712,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp struc
     UnexpectedZlb interface{}
 }
 
-func (challengeAvp *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetEntityData() *types.CommonEntityData {
+func (challengeAvp *L2tp_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetEntityData() *types.CommonEntityData {
     challengeAvp.EntityData.YFilter = challengeAvp.YFilter
     challengeAvp.EntityData.YangName = "challenge-avp"
     challengeAvp.EntityData.BundleName = "cisco_ios_xr"
     challengeAvp.EntityData.ParentYangName = "authentication"
     challengeAvp.EntityData.SegmentPath = "challenge-avp"
-    challengeAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + challengeAvp.EntityData.SegmentPath
+    challengeAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + challengeAvp.EntityData.SegmentPath
     challengeAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -817,9 +742,9 @@ func (challengeAvp *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_Cha
     return &(challengeAvp.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse
+// L2tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse
 // Challenge response statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -857,13 +782,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse s
     UnexpectedZlb interface{}
 }
 
-func (challengeReponse *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetEntityData() *types.CommonEntityData {
+func (challengeReponse *L2tp_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetEntityData() *types.CommonEntityData {
     challengeReponse.EntityData.YFilter = challengeReponse.YFilter
     challengeReponse.EntityData.YangName = "challenge-reponse"
     challengeReponse.EntityData.BundleName = "cisco_ios_xr"
     challengeReponse.EntityData.ParentYangName = "authentication"
     challengeReponse.EntityData.SegmentPath = "challenge-reponse"
-    challengeReponse.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + challengeReponse.EntityData.SegmentPath
+    challengeReponse.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + challengeReponse.EntityData.SegmentPath
     challengeReponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeReponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeReponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -887,9 +812,9 @@ func (challengeReponse *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication
     return &(challengeReponse.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics
+// L2tp_Counters_Control_TunnelXr_Authentication_OverallStatistics
 // Overall statistics
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
+type L2tp_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -927,13 +852,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics 
     UnexpectedZlb interface{}
 }
 
-func (overallStatistics *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetEntityData() *types.CommonEntityData {
+func (overallStatistics *L2tp_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetEntityData() *types.CommonEntityData {
     overallStatistics.EntityData.YFilter = overallStatistics.YFilter
     overallStatistics.EntityData.YangName = "overall-statistics"
     overallStatistics.EntityData.BundleName = "cisco_ios_xr"
     overallStatistics.EntityData.ParentYangName = "authentication"
     overallStatistics.EntityData.SegmentPath = "overall-statistics"
-    overallStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/authentication/" + overallStatistics.EntityData.SegmentPath
+    overallStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/" + overallStatistics.EntityData.SegmentPath
     overallStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overallStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overallStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -957,9 +882,9 @@ func (overallStatistics *L2tp_Nodes_Node_Counters_Control_TunnelXr_Authenticatio
     return &(overallStatistics.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Global
+// L2tp_Counters_Control_TunnelXr_Global
 // Tunnel counters
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global struct {
+type L2tp_Counters_Control_TunnelXr_Global struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -976,25 +901,25 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global struct {
     TotalDrop interface{}
 
     // Transmit data.
-    Transmit L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit
+    Transmit L2tp_Counters_Control_TunnelXr_Global_Transmit
 
     // Re transmit data.
-    Retransmit L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit
+    Retransmit L2tp_Counters_Control_TunnelXr_Global_Retransmit
 
     // Received data.
-    Received L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Received
+    Received L2tp_Counters_Control_TunnelXr_Global_Received
 
     // Drop data.
-    Drop L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Drop
+    Drop L2tp_Counters_Control_TunnelXr_Global_Drop
 }
 
-func (global *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global) GetEntityData() *types.CommonEntityData {
+func (global *L2tp_Counters_Control_TunnelXr_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.YFilter = global.YFilter
     global.EntityData.YangName = "global"
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel-xr"
     global.EntityData.SegmentPath = "global"
-    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/" + global.EntityData.SegmentPath
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1015,9 +940,9 @@ func (global *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global) GetEntityData() 
     return &(global.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit
+// L2tp_Counters_Control_TunnelXr_Global_Transmit
 // Transmit data
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit struct {
+type L2tp_Counters_Control_TunnelXr_Global_Transmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1090,13 +1015,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit) GetEntityData() *types.CommonEntityData {
+func (transmit *L2tp_Counters_Control_TunnelXr_Global_Transmit) GetEntityData() *types.CommonEntityData {
     transmit.EntityData.YFilter = transmit.YFilter
     transmit.EntityData.YangName = "transmit"
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
-    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/global/" + transmit.EntityData.SegmentPath
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1128,9 +1053,9 @@ func (transmit *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit) GetEn
     return &(transmit.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit
+// L2tp_Counters_Control_TunnelXr_Global_Retransmit
 // Re transmit data
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit struct {
+type L2tp_Counters_Control_TunnelXr_Global_Retransmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1203,13 +1128,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+func (retransmit *L2tp_Counters_Control_TunnelXr_Global_Retransmit) GetEntityData() *types.CommonEntityData {
     retransmit.EntityData.YFilter = retransmit.YFilter
     retransmit.EntityData.YangName = "retransmit"
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
-    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/global/" + retransmit.EntityData.SegmentPath
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1241,9 +1166,9 @@ func (retransmit *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit) G
     return &(retransmit.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Received
+// L2tp_Counters_Control_TunnelXr_Global_Received
 // Received data
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Received struct {
+type L2tp_Counters_Control_TunnelXr_Global_Received struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1316,13 +1241,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Received) GetEntityData() *types.CommonEntityData {
+func (received *L2tp_Counters_Control_TunnelXr_Global_Received) GetEntityData() *types.CommonEntityData {
     received.EntityData.YFilter = received.YFilter
     received.EntityData.YangName = "received"
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
-    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/global/" + received.EntityData.SegmentPath
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1354,9 +1279,9 @@ func (received *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Received) GetEn
     return &(received.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Drop
+// L2tp_Counters_Control_TunnelXr_Global_Drop
 // Drop data
-type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Drop struct {
+type L2tp_Counters_Control_TunnelXr_Global_Drop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1429,13 +1354,13 @@ type L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types.CommonEntityData {
+func (drop *L2tp_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types.CommonEntityData {
     drop.EntityData.YFilter = drop.YFilter
     drop.EntityData.YangName = "drop"
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
-    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnel-xr/global/" + drop.EntityData.SegmentPath
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1467,24 +1392,24 @@ func (drop *L2tp_Nodes_Node_Counters_Control_TunnelXr_Global_Drop) GetEntityData
     return &(drop.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels
+// L2tp_Counters_Control_Tunnels
 // Table of tunnel IDs of control message counters
-type L2tp_Nodes_Node_Counters_Control_Tunnels struct {
+type L2tp_Counters_Control_Tunnels struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel control message counters. The type is slice of
-    // L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel.
-    Tunnel []*L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel
+    // L2tp_Counters_Control_Tunnels_Tunnel.
+    Tunnel []*L2tp_Counters_Control_Tunnels_Tunnel
 }
 
-func (tunnels *L2tp_Nodes_Node_Counters_Control_Tunnels) GetEntityData() *types.CommonEntityData {
+func (tunnels *L2tp_Counters_Control_Tunnels) GetEntityData() *types.CommonEntityData {
     tunnels.EntityData.YFilter = tunnels.YFilter
     tunnels.EntityData.YangName = "tunnels"
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "control"
     tunnels.EntityData.SegmentPath = "tunnels"
-    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/" + tunnels.EntityData.SegmentPath
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1501,9 +1426,9 @@ func (tunnels *L2tp_Nodes_Node_Counters_Control_Tunnels) GetEntityData() *types.
     return &(tunnels.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel
+// L2tp_Counters_Control_Tunnels_Tunnel
 // L2TP tunnel control message counters
-type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel struct {
+type L2tp_Counters_Control_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -1513,19 +1438,19 @@ type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel struct {
     TunnelId interface{}
 
     // L2TP control message local and remote addresses.
-    Brief L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief
+    Brief L2tp_Counters_Control_Tunnels_Tunnel_Brief
 
     // Global data.
-    Global L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global
+    Global L2tp_Counters_Control_Tunnels_Tunnel_Global
 }
 
-func (tunnel *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+func (tunnel *L2tp_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.YFilter = tunnel.YFilter
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.TunnelId, "tunnel-id")
-    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnels/" + tunnel.EntityData.SegmentPath
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1541,9 +1466,9 @@ func (tunnel *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel) GetEntityData() *
     return &(tunnel.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief
+// L2tp_Counters_Control_Tunnels_Tunnel_Brief
 // L2TP control message local and remote addresses
-type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief struct {
+type L2tp_Counters_Control_Tunnels_Tunnel_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1551,21 +1476,21 @@ type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief struct {
     RemoteTunnelId interface{}
 
     // Local IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Remote IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteAddress interface{}
 }
 
-func (brief *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *types.CommonEntityData {
+func (brief *L2tp_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.YFilter = brief.YFilter
     brief.EntityData.YangName = "brief"
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "tunnel"
     brief.EntityData.SegmentPath = "brief"
-    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnels/tunnel/" + brief.EntityData.SegmentPath
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1581,9 +1506,9 @@ func (brief *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief) GetEntityDat
     return &(brief.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global
+// L2tp_Counters_Control_Tunnels_Tunnel_Global
 // Global data
-type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global struct {
+type L2tp_Counters_Control_Tunnels_Tunnel_Global struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1600,25 +1525,25 @@ type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global struct {
     TotalDrop interface{}
 
     // Transmit data.
-    Transmit L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit
+    Transmit L2tp_Counters_Control_Tunnels_Tunnel_Global_Transmit
 
     // Re transmit data.
-    Retransmit L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit
+    Retransmit L2tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit
 
     // Received data.
-    Received L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received
+    Received L2tp_Counters_Control_Tunnels_Tunnel_Global_Received
 
     // Drop data.
-    Drop L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop
+    Drop L2tp_Counters_Control_Tunnels_Tunnel_Global_Drop
 }
 
-func (global *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *types.CommonEntityData {
+func (global *L2tp_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.YFilter = global.YFilter
     global.EntityData.YangName = "global"
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel"
     global.EntityData.SegmentPath = "global"
-    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnels/tunnel/" + global.EntityData.SegmentPath
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1639,9 +1564,9 @@ func (global *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global) GetEntityD
     return &(global.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit
+// L2tp_Counters_Control_Tunnels_Tunnel_Global_Transmit
 // Transmit data
-type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
+type L2tp_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1714,13 +1639,13 @@ type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntityData() *types.CommonEntityData {
+func (transmit *L2tp_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntityData() *types.CommonEntityData {
     transmit.EntityData.YFilter = transmit.YFilter
     transmit.EntityData.YangName = "transmit"
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
-    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnels/tunnel/global/" + transmit.EntityData.SegmentPath
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1752,9 +1677,9 @@ func (transmit *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit)
     return &(transmit.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit
+// L2tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit
 // Re transmit data
-type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
+type L2tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1827,13 +1752,13 @@ type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+func (retransmit *L2tp_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetEntityData() *types.CommonEntityData {
     retransmit.EntityData.YFilter = retransmit.YFilter
     retransmit.EntityData.YangName = "retransmit"
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
-    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnels/tunnel/global/" + retransmit.EntityData.SegmentPath
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1865,9 +1790,9 @@ func (retransmit *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retrans
     return &(retransmit.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received
+// L2tp_Counters_Control_Tunnels_Tunnel_Global_Received
 // Received data
-type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received struct {
+type L2tp_Counters_Control_Tunnels_Tunnel_Global_Received struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1940,13 +1865,13 @@ type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntityData() *types.CommonEntityData {
+func (received *L2tp_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntityData() *types.CommonEntityData {
     received.EntityData.YFilter = received.YFilter
     received.EntityData.YangName = "received"
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
-    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnels/tunnel/global/" + received.EntityData.SegmentPath
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1978,9 +1903,9 @@ func (received *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received)
     return &(received.EntityData)
 }
 
-// L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop
+// L2tp_Counters_Control_Tunnels_Tunnel_Global_Drop
 // Drop data
-type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
+type L2tp_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2053,13 +1978,13 @@ type L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() *types.CommonEntityData {
+func (drop *L2tp_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() *types.CommonEntityData {
     drop.EntityData.YFilter = drop.YFilter
     drop.EntityData.YangName = "drop"
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
-    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counters/control/tunnels/tunnel/global/" + drop.EntityData.SegmentPath
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/tunnel/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2091,24 +2016,24 @@ func (drop *L2tp_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEnti
     return &(drop.EntityData)
 }
 
-// L2tp_Nodes_Node_TunnelConfigurations
+// L2tp_TunnelConfigurations
 // List of tunnel IDs
-type L2tp_Nodes_Node_TunnelConfigurations struct {
+type L2tp_TunnelConfigurations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel information. The type is slice of
-    // L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration.
-    TunnelConfiguration []*L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration
+    // L2tp_TunnelConfigurations_TunnelConfiguration.
+    TunnelConfiguration []*L2tp_TunnelConfigurations_TunnelConfiguration
 }
 
-func (tunnelConfigurations *L2tp_Nodes_Node_TunnelConfigurations) GetEntityData() *types.CommonEntityData {
+func (tunnelConfigurations *L2tp_TunnelConfigurations) GetEntityData() *types.CommonEntityData {
     tunnelConfigurations.EntityData.YFilter = tunnelConfigurations.YFilter
     tunnelConfigurations.EntityData.YangName = "tunnel-configurations"
     tunnelConfigurations.EntityData.BundleName = "cisco_ios_xr"
-    tunnelConfigurations.EntityData.ParentYangName = "node"
+    tunnelConfigurations.EntityData.ParentYangName = "l2tp"
     tunnelConfigurations.EntityData.SegmentPath = "tunnel-configurations"
-    tunnelConfigurations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + tunnelConfigurations.EntityData.SegmentPath
+    tunnelConfigurations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + tunnelConfigurations.EntityData.SegmentPath
     tunnelConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2125,9 +2050,9 @@ func (tunnelConfigurations *L2tp_Nodes_Node_TunnelConfigurations) GetEntityData(
     return &(tunnelConfigurations.EntityData)
 }
 
-// L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration
+// L2tp_TunnelConfigurations_TunnelConfiguration
 // L2TP tunnel information
-type L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration struct {
+type L2tp_TunnelConfigurations_TunnelConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -2140,16 +2065,16 @@ type L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration struct {
     RemoteTunnelId interface{}
 
     // L2Tp class data.
-    L2tpClass L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass
+    L2tpClass L2tp_TunnelConfigurations_TunnelConfiguration_L2tpClass
 }
 
-func (tunnelConfiguration *L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration) GetEntityData() *types.CommonEntityData {
+func (tunnelConfiguration *L2tp_TunnelConfigurations_TunnelConfiguration) GetEntityData() *types.CommonEntityData {
     tunnelConfiguration.EntityData.YFilter = tunnelConfiguration.YFilter
     tunnelConfiguration.EntityData.YangName = "tunnel-configuration"
     tunnelConfiguration.EntityData.BundleName = "cisco_ios_xr"
     tunnelConfiguration.EntityData.ParentYangName = "tunnel-configurations"
     tunnelConfiguration.EntityData.SegmentPath = "tunnel-configuration" + types.AddKeyToken(tunnelConfiguration.LocalTunnelId, "local-tunnel-id")
-    tunnelConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/tunnel-configurations/" + tunnelConfiguration.EntityData.SegmentPath
+    tunnelConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnel-configurations/" + tunnelConfiguration.EntityData.SegmentPath
     tunnelConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2165,9 +2090,9 @@ func (tunnelConfiguration *L2tp_Nodes_Node_TunnelConfigurations_TunnelConfigurat
     return &(tunnelConfiguration.EntityData)
 }
 
-// L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass
+// L2tp_TunnelConfigurations_TunnelConfiguration_L2tpClass
 // L2Tp class data
-type L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass struct {
+type L2tp_TunnelConfigurations_TunnelConfiguration_L2tpClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2251,13 +2176,13 @@ type L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass struct {
     IsPeerAddressChecked interface{}
 }
 
-func (l2tpClass *L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass) GetEntityData() *types.CommonEntityData {
+func (l2tpClass *L2tp_TunnelConfigurations_TunnelConfiguration_L2tpClass) GetEntityData() *types.CommonEntityData {
     l2tpClass.EntityData.YFilter = l2tpClass.YFilter
     l2tpClass.EntityData.YangName = "l2tp-class"
     l2tpClass.EntityData.BundleName = "cisco_ios_xr"
     l2tpClass.EntityData.ParentYangName = "tunnel-configuration"
     l2tpClass.EntityData.SegmentPath = "l2tp-class"
-    l2tpClass.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/tunnel-configurations/tunnel-configuration/" + l2tpClass.EntityData.SegmentPath
+    l2tpClass.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnel-configurations/tunnel-configuration/" + l2tpClass.EntityData.SegmentPath
     l2tpClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2294,9 +2219,9 @@ func (l2tpClass *L2tp_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpCl
     return &(l2tpClass.EntityData)
 }
 
-// L2tp_Nodes_Node_CounterHistFail
+// L2tp_CounterHistFail
 // Failure events leading to disconnection
-type L2tp_Nodes_Node_CounterHistFail struct {
+type L2tp_CounterHistFail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2305,25 +2230,25 @@ type L2tp_Nodes_Node_CounterHistFail struct {
     SessDownTmout interface{}
 
     // Send side counters. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     TxCounters interface{}
 
     // Receive side counters. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RxCounters interface{}
 
     // timeout events by packet. The type is slice of
-    // L2tp_Nodes_Node_CounterHistFail_PktTimeout.
-    PktTimeout []*L2tp_Nodes_Node_CounterHistFail_PktTimeout
+    // L2tp_CounterHistFail_PktTimeout.
+    PktTimeout []*L2tp_CounterHistFail_PktTimeout
 }
 
-func (counterHistFail *L2tp_Nodes_Node_CounterHistFail) GetEntityData() *types.CommonEntityData {
+func (counterHistFail *L2tp_CounterHistFail) GetEntityData() *types.CommonEntityData {
     counterHistFail.EntityData.YFilter = counterHistFail.YFilter
     counterHistFail.EntityData.YangName = "counter-hist-fail"
     counterHistFail.EntityData.BundleName = "cisco_ios_xr"
-    counterHistFail.EntityData.ParentYangName = "node"
+    counterHistFail.EntityData.ParentYangName = "l2tp"
     counterHistFail.EntityData.SegmentPath = "counter-hist-fail"
-    counterHistFail.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + counterHistFail.EntityData.SegmentPath
+    counterHistFail.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + counterHistFail.EntityData.SegmentPath
     counterHistFail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counterHistFail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2344,25 +2269,24 @@ func (counterHistFail *L2tp_Nodes_Node_CounterHistFail) GetEntityData() *types.C
     return &(counterHistFail.EntityData)
 }
 
-// L2tp_Nodes_Node_CounterHistFail_PktTimeout
+// L2tp_CounterHistFail_PktTimeout
 // timeout events by packet
-type L2tp_Nodes_Node_CounterHistFail_PktTimeout struct {
+type L2tp_CounterHistFail_PktTimeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // timeout events by packet. The type is interface{} with range:
-    // 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
-func (pktTimeout *L2tp_Nodes_Node_CounterHistFail_PktTimeout) GetEntityData() *types.CommonEntityData {
+func (pktTimeout *L2tp_CounterHistFail_PktTimeout) GetEntityData() *types.CommonEntityData {
     pktTimeout.EntityData.YFilter = pktTimeout.YFilter
     pktTimeout.EntityData.YangName = "pkt-timeout"
     pktTimeout.EntityData.BundleName = "cisco_ios_xr"
     pktTimeout.EntityData.ParentYangName = "counter-hist-fail"
     pktTimeout.EntityData.SegmentPath = "pkt-timeout" + types.AddNoKeyToken(pktTimeout)
-    pktTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/counter-hist-fail/" + pktTimeout.EntityData.SegmentPath
+    pktTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counter-hist-fail/" + pktTimeout.EntityData.SegmentPath
     pktTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pktTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pktTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2376,23 +2300,23 @@ func (pktTimeout *L2tp_Nodes_Node_CounterHistFail_PktTimeout) GetEntityData() *t
     return &(pktTimeout.EntityData)
 }
 
-// L2tp_Nodes_Node_Classes
+// L2tp_Classes
 // List of L2TP class names
-type L2tp_Nodes_Node_Classes struct {
+type L2tp_Classes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // L2TP class name. The type is slice of L2tp_Nodes_Node_Classes_Class.
-    Class []*L2tp_Nodes_Node_Classes_Class
+    // L2TP class name. The type is slice of L2tp_Classes_Class.
+    Class []*L2tp_Classes_Class
 }
 
-func (classes *L2tp_Nodes_Node_Classes) GetEntityData() *types.CommonEntityData {
+func (classes *L2tp_Classes) GetEntityData() *types.CommonEntityData {
     classes.EntityData.YFilter = classes.YFilter
     classes.EntityData.YangName = "classes"
     classes.EntityData.BundleName = "cisco_ios_xr"
-    classes.EntityData.ParentYangName = "node"
+    classes.EntityData.ParentYangName = "l2tp"
     classes.EntityData.SegmentPath = "classes"
-    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + classes.EntityData.SegmentPath
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2409,9 +2333,9 @@ func (classes *L2tp_Nodes_Node_Classes) GetEntityData() *types.CommonEntityData 
     return &(classes.EntityData)
 }
 
-// L2tp_Nodes_Node_Classes_Class
+// L2tp_Classes_Class
 // L2TP class name
-type L2tp_Nodes_Node_Classes_Class struct {
+type L2tp_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -2500,13 +2424,13 @@ type L2tp_Nodes_Node_Classes_Class struct {
     IsPeerAddressChecked interface{}
 }
 
-func (class *L2tp_Nodes_Node_Classes_Class) GetEntityData() *types.CommonEntityData {
+func (class *L2tp_Classes_Class) GetEntityData() *types.CommonEntityData {
     class.EntityData.YFilter = class.YFilter
     class.EntityData.YangName = "class"
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
-    class.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/classes/" + class.EntityData.SegmentPath
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2544,24 +2468,23 @@ func (class *L2tp_Nodes_Node_Classes_Class) GetEntityData() *types.CommonEntityD
     return &(class.EntityData)
 }
 
-// L2tp_Nodes_Node_Tunnels
+// L2tp_Tunnels
 // List of tunnel IDs
-type L2tp_Nodes_Node_Tunnels struct {
+type L2tp_Tunnels struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // L2TP tunnel  information. The type is slice of
-    // L2tp_Nodes_Node_Tunnels_Tunnel.
-    Tunnel []*L2tp_Nodes_Node_Tunnels_Tunnel
+    // L2TP tunnel  information. The type is slice of L2tp_Tunnels_Tunnel.
+    Tunnel []*L2tp_Tunnels_Tunnel
 }
 
-func (tunnels *L2tp_Nodes_Node_Tunnels) GetEntityData() *types.CommonEntityData {
+func (tunnels *L2tp_Tunnels) GetEntityData() *types.CommonEntityData {
     tunnels.EntityData.YFilter = tunnels.YFilter
     tunnels.EntityData.YangName = "tunnels"
     tunnels.EntityData.BundleName = "cisco_ios_xr"
-    tunnels.EntityData.ParentYangName = "node"
+    tunnels.EntityData.ParentYangName = "l2tp"
     tunnels.EntityData.SegmentPath = "tunnels"
-    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + tunnels.EntityData.SegmentPath
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2578,9 +2501,9 @@ func (tunnels *L2tp_Nodes_Node_Tunnels) GetEntityData() *types.CommonEntityData 
     return &(tunnels.EntityData)
 }
 
-// L2tp_Nodes_Node_Tunnels_Tunnel
+// L2tp_Tunnels_Tunnel
 // L2TP tunnel  information
-type L2tp_Nodes_Node_Tunnels_Tunnel struct {
+type L2tp_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -2590,11 +2513,11 @@ type L2tp_Nodes_Node_Tunnels_Tunnel struct {
     LocalTunnelId interface{}
 
     // Local tunnel address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Remote tunnel address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteAddress interface{}
 
     // Local port. The type is interface{} with range: 0..65535.
@@ -2694,17 +2617,17 @@ type L2tp_Nodes_Node_Tunnels_Tunnel struct {
     IsCongestionControlEnabled interface{}
 
     // Retransmit time distribution in seconds. The type is slice of
-    // L2tp_Nodes_Node_Tunnels_Tunnel_RetransmitTime.
-    RetransmitTime []*L2tp_Nodes_Node_Tunnels_Tunnel_RetransmitTime
+    // L2tp_Tunnels_Tunnel_RetransmitTime.
+    RetransmitTime []*L2tp_Tunnels_Tunnel_RetransmitTime
 }
 
-func (tunnel *L2tp_Nodes_Node_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+func (tunnel *L2tp_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.YFilter = tunnel.YFilter
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.LocalTunnelId, "local-tunnel-id")
-    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/tunnels/" + tunnel.EntityData.SegmentPath
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2754,25 +2677,24 @@ func (tunnel *L2tp_Nodes_Node_Tunnels_Tunnel) GetEntityData() *types.CommonEntit
     return &(tunnel.EntityData)
 }
 
-// L2tp_Nodes_Node_Tunnels_Tunnel_RetransmitTime
+// L2tp_Tunnels_Tunnel_RetransmitTime
 // Retransmit time distribution in seconds
-type L2tp_Nodes_Node_Tunnels_Tunnel_RetransmitTime struct {
+type L2tp_Tunnels_Tunnel_RetransmitTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // Retransmit time distribution in seconds. The type is interface{} with
-    // range: 0..65535. Units are second.
+    // The type is interface{} with range: 0..65535. Units are second.
     Entry interface{}
 }
 
-func (retransmitTime *L2tp_Nodes_Node_Tunnels_Tunnel_RetransmitTime) GetEntityData() *types.CommonEntityData {
+func (retransmitTime *L2tp_Tunnels_Tunnel_RetransmitTime) GetEntityData() *types.CommonEntityData {
     retransmitTime.EntityData.YFilter = retransmitTime.YFilter
     retransmitTime.EntityData.YangName = "retransmit-time"
     retransmitTime.EntityData.BundleName = "cisco_ios_xr"
     retransmitTime.EntityData.ParentYangName = "tunnel"
     retransmitTime.EntityData.SegmentPath = "retransmit-time" + types.AddNoKeyToken(retransmitTime)
-    retransmitTime.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/tunnels/tunnel/" + retransmitTime.EntityData.SegmentPath
+    retransmitTime.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnels/tunnel/" + retransmitTime.EntityData.SegmentPath
     retransmitTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2786,24 +2708,24 @@ func (retransmitTime *L2tp_Nodes_Node_Tunnels_Tunnel_RetransmitTime) GetEntityDa
     return &(retransmitTime.EntityData)
 }
 
-// L2tp_Nodes_Node_Sessions
+// L2tp_Sessions
 // List of session IDs
-type L2tp_Nodes_Node_Sessions struct {
+type L2tp_Sessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP information for a particular session. The type is slice of
-    // L2tp_Nodes_Node_Sessions_Session.
-    Session []*L2tp_Nodes_Node_Sessions_Session
+    // L2tp_Sessions_Session.
+    Session []*L2tp_Sessions_Session
 }
 
-func (sessions *L2tp_Nodes_Node_Sessions) GetEntityData() *types.CommonEntityData {
+func (sessions *L2tp_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.YFilter = sessions.YFilter
     sessions.EntityData.YangName = "sessions"
     sessions.EntityData.BundleName = "cisco_ios_xr"
-    sessions.EntityData.ParentYangName = "node"
+    sessions.EntityData.ParentYangName = "l2tp"
     sessions.EntityData.SegmentPath = "sessions"
-    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + sessions.EntityData.SegmentPath
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2820,9 +2742,9 @@ func (sessions *L2tp_Nodes_Node_Sessions) GetEntityData() *types.CommonEntityDat
     return &(sessions.EntityData)
 }
 
-// L2tp_Nodes_Node_Sessions_Session
+// L2tp_Sessions_Session
 // L2TP information for a particular session
-type L2tp_Nodes_Node_Sessions_Session struct {
+type L2tp_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -2836,11 +2758,11 @@ type L2tp_Nodes_Node_Sessions_Session struct {
     LocalSessionId interface{}
 
     // Local session IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 
     // Remote session IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteIpAddress interface{}
 
     // l2tp sh sess udp lport. The type is interface{} with range: 0..65535.
@@ -2903,16 +2825,16 @@ type L2tp_Nodes_Node_Sessions_Session struct {
     InterfaceName interface{}
 
     // Session application data.
-    SessionApplicationData L2tp_Nodes_Node_Sessions_Session_SessionApplicationData
+    SessionApplicationData L2tp_Sessions_Session_SessionApplicationData
 }
 
-func (session *L2tp_Nodes_Node_Sessions_Session) GetEntityData() *types.CommonEntityData {
+func (session *L2tp_Sessions_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.LocalTunnelId, "local-tunnel-id") + types.AddKeyToken(session.LocalSessionId, "local-session-id")
-    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/sessions/" + session.EntityData.SegmentPath
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2949,9 +2871,9 @@ func (session *L2tp_Nodes_Node_Sessions_Session) GetEntityData() *types.CommonEn
     return &(session.EntityData)
 }
 
-// L2tp_Nodes_Node_Sessions_Session_SessionApplicationData
+// L2tp_Sessions_Session_SessionApplicationData
 // Session application data
-type L2tp_Nodes_Node_Sessions_Session_SessionApplicationData struct {
+type L2tp_Sessions_Session_SessionApplicationData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -2959,19 +2881,19 @@ type L2tp_Nodes_Node_Sessions_Session_SessionApplicationData struct {
     L2tpShSessAppType interface{}
 
     // Xconnect data.
-    Xconnect L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect
+    Xconnect L2tp_Sessions_Session_SessionApplicationData_Xconnect
 
     // VPDN data.
-    Vpdn L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn
+    Vpdn L2tp_Sessions_Session_SessionApplicationData_Vpdn
 }
 
-func (sessionApplicationData *L2tp_Nodes_Node_Sessions_Session_SessionApplicationData) GetEntityData() *types.CommonEntityData {
+func (sessionApplicationData *L2tp_Sessions_Session_SessionApplicationData) GetEntityData() *types.CommonEntityData {
     sessionApplicationData.EntityData.YFilter = sessionApplicationData.YFilter
     sessionApplicationData.EntityData.YangName = "session-application-data"
     sessionApplicationData.EntityData.BundleName = "cisco_ios_xr"
     sessionApplicationData.EntityData.ParentYangName = "session"
     sessionApplicationData.EntityData.SegmentPath = "session-application-data"
-    sessionApplicationData.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/sessions/session/" + sessionApplicationData.EntityData.SegmentPath
+    sessionApplicationData.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/session/" + sessionApplicationData.EntityData.SegmentPath
     sessionApplicationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionApplicationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionApplicationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -2987,9 +2909,9 @@ func (sessionApplicationData *L2tp_Nodes_Node_Sessions_Session_SessionApplicatio
     return &(sessionApplicationData.EntityData)
 }
 
-// L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect
+// L2tp_Sessions_Session_SessionApplicationData_Xconnect
 // Xconnect data
-type L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect struct {
+type L2tp_Sessions_Session_SessionApplicationData_Xconnect struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3012,13 +2934,13 @@ type L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect struct {
     Ipv6ProtocolTunneling interface{}
 }
 
-func (xconnect *L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect) GetEntityData() *types.CommonEntityData {
+func (xconnect *L2tp_Sessions_Session_SessionApplicationData_Xconnect) GetEntityData() *types.CommonEntityData {
     xconnect.EntityData.YFilter = xconnect.YFilter
     xconnect.EntityData.YangName = "xconnect"
     xconnect.EntityData.BundleName = "cisco_ios_xr"
     xconnect.EntityData.ParentYangName = "session-application-data"
     xconnect.EntityData.SegmentPath = "xconnect"
-    xconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/sessions/session/session-application-data/" + xconnect.EntityData.SegmentPath
+    xconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/session/session-application-data/" + xconnect.EntityData.SegmentPath
     xconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3037,26 +2959,26 @@ func (xconnect *L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect
     return &(xconnect.EntityData)
 }
 
-// L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn
+// L2tp_Sessions_Session_SessionApplicationData_Vpdn
 // VPDN data
-type L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn struct {
+type L2tp_Sessions_Session_SessionApplicationData_Vpdn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session username. The type is string.
     Username interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (vpdn *L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData() *types.CommonEntityData {
+func (vpdn *L2tp_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData() *types.CommonEntityData {
     vpdn.EntityData.YFilter = vpdn.YFilter
     vpdn.EntityData.YangName = "vpdn"
     vpdn.EntityData.BundleName = "cisco_ios_xr"
     vpdn.EntityData.ParentYangName = "session-application-data"
     vpdn.EntityData.SegmentPath = "vpdn"
-    vpdn.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/sessions/session/session-application-data/" + vpdn.EntityData.SegmentPath
+    vpdn.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/session/session-application-data/" + vpdn.EntityData.SegmentPath
     vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3071,23 +2993,23 @@ func (vpdn *L2tp_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn) GetEnt
     return &(vpdn.EntityData)
 }
 
-// L2tp_Nodes_Node_Session
+// L2tp_Session
 // L2TP control messages counters
-type L2tp_Nodes_Node_Session struct {
+type L2tp_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP session unavailable  information.
-    Unavailable L2tp_Nodes_Node_Session_Unavailable
+    Unavailable L2tp_Session_Unavailable
 }
 
-func (session *L2tp_Nodes_Node_Session) GetEntityData() *types.CommonEntityData {
+func (session *L2tp_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
-    session.EntityData.ParentYangName = "node"
+    session.EntityData.ParentYangName = "l2tp"
     session.EntityData.SegmentPath = "session"
-    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + session.EntityData.SegmentPath
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3101,9 +3023,9 @@ func (session *L2tp_Nodes_Node_Session) GetEntityData() *types.CommonEntityData 
     return &(session.EntityData)
 }
 
-// L2tp_Nodes_Node_Session_Unavailable
+// L2tp_Session_Unavailable
 // L2TP session unavailable  information
-type L2tp_Nodes_Node_Session_Unavailable struct {
+type L2tp_Session_Unavailable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -3112,13 +3034,13 @@ type L2tp_Nodes_Node_Session_Unavailable struct {
     SessionsOnHold interface{}
 }
 
-func (unavailable *L2tp_Nodes_Node_Session_Unavailable) GetEntityData() *types.CommonEntityData {
+func (unavailable *L2tp_Session_Unavailable) GetEntityData() *types.CommonEntityData {
     unavailable.EntityData.YFilter = unavailable.YFilter
     unavailable.EntityData.YangName = "unavailable"
     unavailable.EntityData.BundleName = "cisco_ios_xr"
     unavailable.EntityData.ParentYangName = "session"
     unavailable.EntityData.SegmentPath = "unavailable"
-    unavailable.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/session/" + unavailable.EntityData.SegmentPath
+    unavailable.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/session/" + unavailable.EntityData.SegmentPath
     unavailable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unavailable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unavailable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3132,688 +3054,38 @@ func (unavailable *L2tp_Nodes_Node_Session_Unavailable) GetEntityData() *types.C
     return &(unavailable.EntityData)
 }
 
-// L2tp_Nodes_Node_Internal
-// L2TP v2/v3 internal information
-type L2tp_Nodes_Node_Internal struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // time last clear. The type is interface{} with range: 0..4294967295.
-    TimeLastClear interface{}
-
-    // internal stats.
-    InternalStats L2tp_Nodes_Node_Internal_InternalStats
-
-    // internal stats last clear.
-    InternalStatsLastClear L2tp_Nodes_Node_Internal_InternalStatsLastClear
-}
-
-func (internal *L2tp_Nodes_Node_Internal) GetEntityData() *types.CommonEntityData {
-    internal.EntityData.YFilter = internal.YFilter
-    internal.EntityData.YangName = "internal"
-    internal.EntityData.BundleName = "cisco_ios_xr"
-    internal.EntityData.ParentYangName = "node"
-    internal.EntityData.SegmentPath = "internal"
-    internal.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/" + internal.EntityData.SegmentPath
-    internal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    internal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    internal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    internal.EntityData.Children = types.NewOrderedMap()
-    internal.EntityData.Children.Append("internal-stats", types.YChild{"InternalStats", &internal.InternalStats})
-    internal.EntityData.Children.Append("internal-stats-last-clear", types.YChild{"InternalStatsLastClear", &internal.InternalStatsLastClear})
-    internal.EntityData.Leafs = types.NewOrderedMap()
-    internal.EntityData.Leafs.Append("time-last-clear", types.YLeaf{"TimeLastClear", internal.TimeLastClear})
-
-    internal.EntityData.YListKeys = []string {}
-
-    return &(internal.EntityData)
-}
-
-// L2tp_Nodes_Node_Internal_InternalStats
-// internal stats
-type L2tp_Nodes_Node_Internal_InternalStats struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // l2tp sh l2x num tunnels. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTunnels interface{}
-
-    // l2tp sh l2x num sessions. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumSessions interface{}
-
-    // l2tp sh l2x rx high water mark. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xRxHighWaterMark interface{}
-
-    // l2tp sh l2x ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2xAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2x num rx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumRxMsgs interface{}
-
-    // l2tp sh l2x num tx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTxMsgs interface{}
-
-    // l2tp sh l2x num tx err drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxErrDrops interface{}
-
-    // l2tp sh l2x num tx conn drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxConnDrops interface{}
-
-    // l2tp sh l2x num reordered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumReorderedMsgs interface{}
-
-    // l2tp sh l2x max reorder deviation. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xMaxReorderDeviation interface{}
-
-    // l2tp sh l2x num ooo msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumOooMsgs interface{}
-
-    // l2tp sh l2x num rx path drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDrops interface{}
-
-    // l2tp sh l2x num rx path data pkt drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDataPktDrops interface{}
-
-    // l2tp sh l2x num rx queue drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxQueueDrops interface{}
-
-    // l2tp sh l2x num rx ooo drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxOooDrops interface{}
-
-    // l2tp sh l2x num buffered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBufferedMsgs interface{}
-
-    // l2tp sh l2x num mutex block. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMutexBlock interface{}
-
-    // l2tp sh l2x num bad len drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadLenDrops interface{}
-
-    // l2tp sh l2x num bad avp drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadAvpDrops interface{}
-
-    // l2tp sh l2x num missing cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingCcIdDrops interface{}
-
-    // l2tp sh l2x num missing sess id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingSessIdDrops interface{}
-
-    // l2tp sh l2x num mismatch cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMismatchCcIdDrops interface{}
-
-    // l2tp sh l2x num unknown cc drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownCcDrops interface{}
-
-    // l2tp sh l2x num unknown sess drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownSessDrops interface{}
-
-    // l2tp sh l2x num linear id search. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearch interface{}
-
-    // l2tp sh l2x num linear id search fail. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearchFail interface{}
-
-    // l2tp sh l2x num netio pkt rx. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumNetioPktRx interface{}
-
-    // l2tp sh l2tun ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2tunAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2tun num rx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumRxMsgs interface{}
-
-    // l2tp sh l2tun num tx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumTxMsgs interface{}
-
-    // l2tp l2tun socket ens send error cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpL2tunSocketEnsSendErrorCnt interface{}
-
-    // l2tp l2tun socket session accept. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionAccept interface{}
-
-    // l2tp l2tun socket session destroy. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionDestroy interface{}
-
-    // l2tp l2tun socket session connect. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnect interface{}
-
-    // l2tp l2tun socket session connect continue. The type is interface{} with
-    // range: 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnectContinue interface{}
-
-    // l2tp l2tun session connecting. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnecting interface{}
-
-    // l2tp l2tun session connected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnected interface{}
-
-    // l2tp l2tun session disconnected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionDisconnected interface{}
-
-    // l2tp l2tun session incoming. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionIncoming interface{}
-
-    // l2tp l2tun session updated. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionUpdated interface{}
-
-    // l2tp l2tun session circuit status. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionCircuitStatus interface{}
-
-    // l2x lpts pa stats setup cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsSetupCnt interface{}
-
-    // l2x lpts pa stats destroy cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsDestroyCnt interface{}
-
-    // l2x lpts pa stats alloc cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocCnt interface{}
-
-    // l2x lpts pa stats alloc fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocFailCnt interface{}
-
-    // l2x lpts pa stats init cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitCnt interface{}
-
-    // l2x lpts pa stats init fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitFailCnt interface{}
-
-    // l2x lpts pa stats free cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsFreeCnt interface{}
-
-    // l2x lpts pa stats pulse cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseCnt interface{}
-
-    // l2x lpts pa stats pulse fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseFailCnt interface{}
-
-    // l2x lpts pa stats bind cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindCnt interface{}
-
-    // l2x lpts pa stats bind fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindFailCnt interface{}
-
-    // l2x lpts pa stats bind batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchCnt interface{}
-
-    // l2x lpts pa stats bind batch fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchFailCnt interface{}
-
-    // l2x lpts pa stats bind time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindTime interface{}
-
-    // l2x lpts pa stats expire cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsExpireCnt interface{}
-
-    // l2x lpts pa stats replay cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayCnt interface{}
-
-    // l2x lpts pa stats replay batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayBatchCnt interface{}
-
-    // l2x lpts pa stats replay time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayTime interface{}
-}
-
-func (internalStats *L2tp_Nodes_Node_Internal_InternalStats) GetEntityData() *types.CommonEntityData {
-    internalStats.EntityData.YFilter = internalStats.YFilter
-    internalStats.EntityData.YangName = "internal-stats"
-    internalStats.EntityData.BundleName = "cisco_ios_xr"
-    internalStats.EntityData.ParentYangName = "internal"
-    internalStats.EntityData.SegmentPath = "internal-stats"
-    internalStats.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/internal/" + internalStats.EntityData.SegmentPath
-    internalStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    internalStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    internalStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    internalStats.EntityData.Children = types.NewOrderedMap()
-    internalStats.EntityData.Leafs = types.NewOrderedMap()
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tunnels", types.YLeaf{"L2tpShL2xNumTunnels", internalStats.L2tpShL2xNumTunnels})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-sessions", types.YLeaf{"L2tpShL2xNumSessions", internalStats.L2tpShL2xNumSessions})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-rx-high-water-mark", types.YLeaf{"L2tpShL2xRxHighWaterMark", internalStats.L2tpShL2xRxHighWaterMark})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-ave-msg-process-usecs", types.YLeaf{"L2tpShL2xAveMsgProcessUsecs", internalStats.L2tpShL2xAveMsgProcessUsecs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-msgs", types.YLeaf{"L2tpShL2xNumRxMsgs", internalStats.L2tpShL2xNumRxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-msgs", types.YLeaf{"L2tpShL2xNumTxMsgs", internalStats.L2tpShL2xNumTxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-err-drops", types.YLeaf{"L2tpShL2xNumTxErrDrops", internalStats.L2tpShL2xNumTxErrDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-conn-drops", types.YLeaf{"L2tpShL2xNumTxConnDrops", internalStats.L2tpShL2xNumTxConnDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-reordered-msgs", types.YLeaf{"L2tpShL2xNumReorderedMsgs", internalStats.L2tpShL2xNumReorderedMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-max-reorder-deviation", types.YLeaf{"L2tpShL2xMaxReorderDeviation", internalStats.L2tpShL2xMaxReorderDeviation})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-ooo-msgs", types.YLeaf{"L2tpShL2xNumOooMsgs", internalStats.L2tpShL2xNumOooMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-drops", types.YLeaf{"L2tpShL2xNumRxPathDrops", internalStats.L2tpShL2xNumRxPathDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-data-pkt-drops", types.YLeaf{"L2tpShL2xNumRxPathDataPktDrops", internalStats.L2tpShL2xNumRxPathDataPktDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-queue-drops", types.YLeaf{"L2tpShL2xNumRxQueueDrops", internalStats.L2tpShL2xNumRxQueueDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-ooo-drops", types.YLeaf{"L2tpShL2xNumRxOooDrops", internalStats.L2tpShL2xNumRxOooDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-buffered-msgs", types.YLeaf{"L2tpShL2xNumBufferedMsgs", internalStats.L2tpShL2xNumBufferedMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-mutex-block", types.YLeaf{"L2tpShL2xNumMutexBlock", internalStats.L2tpShL2xNumMutexBlock})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-len-drops", types.YLeaf{"L2tpShL2xNumBadLenDrops", internalStats.L2tpShL2xNumBadLenDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-avp-drops", types.YLeaf{"L2tpShL2xNumBadAvpDrops", internalStats.L2tpShL2xNumBadAvpDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-cc-id-drops", types.YLeaf{"L2tpShL2xNumMissingCcIdDrops", internalStats.L2tpShL2xNumMissingCcIdDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-sess-id-drops", types.YLeaf{"L2tpShL2xNumMissingSessIdDrops", internalStats.L2tpShL2xNumMissingSessIdDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-mismatch-cc-id-drops", types.YLeaf{"L2tpShL2xNumMismatchCcIdDrops", internalStats.L2tpShL2xNumMismatchCcIdDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-cc-drops", types.YLeaf{"L2tpShL2xNumUnknownCcDrops", internalStats.L2tpShL2xNumUnknownCcDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-sess-drops", types.YLeaf{"L2tpShL2xNumUnknownSessDrops", internalStats.L2tpShL2xNumUnknownSessDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search", types.YLeaf{"L2tpShL2xNumLinearIdSearch", internalStats.L2tpShL2xNumLinearIdSearch})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search-fail", types.YLeaf{"L2tpShL2xNumLinearIdSearchFail", internalStats.L2tpShL2xNumLinearIdSearchFail})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-netio-pkt-rx", types.YLeaf{"L2tpShL2xNumNetioPktRx", internalStats.L2tpShL2xNumNetioPktRx})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2tun-ave-msg-process-usecs", types.YLeaf{"L2tpShL2tunAveMsgProcessUsecs", internalStats.L2tpShL2tunAveMsgProcessUsecs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2tun-num-rx-msgs", types.YLeaf{"L2tpShL2tunNumRxMsgs", internalStats.L2tpShL2tunNumRxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2tun-num-tx-msgs", types.YLeaf{"L2tpShL2tunNumTxMsgs", internalStats.L2tpShL2tunNumTxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-ens-send-error-cnt", types.YLeaf{"L2tpL2tunSocketEnsSendErrorCnt", internalStats.L2tpL2tunSocketEnsSendErrorCnt})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-accept", types.YLeaf{"L2tpL2tunSocketSessionAccept", internalStats.L2tpL2tunSocketSessionAccept})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-destroy", types.YLeaf{"L2tpL2tunSocketSessionDestroy", internalStats.L2tpL2tunSocketSessionDestroy})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect", types.YLeaf{"L2tpL2tunSocketSessionConnect", internalStats.L2tpL2tunSocketSessionConnect})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect-continue", types.YLeaf{"L2tpL2tunSocketSessionConnectContinue", internalStats.L2tpL2tunSocketSessionConnectContinue})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-connecting", types.YLeaf{"L2tpL2tunSessionConnecting", internalStats.L2tpL2tunSessionConnecting})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-connected", types.YLeaf{"L2tpL2tunSessionConnected", internalStats.L2tpL2tunSessionConnected})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-disconnected", types.YLeaf{"L2tpL2tunSessionDisconnected", internalStats.L2tpL2tunSessionDisconnected})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-incoming", types.YLeaf{"L2tpL2tunSessionIncoming", internalStats.L2tpL2tunSessionIncoming})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-updated", types.YLeaf{"L2tpL2tunSessionUpdated", internalStats.L2tpL2tunSessionUpdated})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-circuit-status", types.YLeaf{"L2tpL2tunSessionCircuitStatus", internalStats.L2tpL2tunSessionCircuitStatus})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-setup-cnt", types.YLeaf{"L2xLptsPaStatsSetupCnt", internalStats.L2xLptsPaStatsSetupCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-destroy-cnt", types.YLeaf{"L2xLptsPaStatsDestroyCnt", internalStats.L2xLptsPaStatsDestroyCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-cnt", types.YLeaf{"L2xLptsPaStatsAllocCnt", internalStats.L2xLptsPaStatsAllocCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-fail-cnt", types.YLeaf{"L2xLptsPaStatsAllocFailCnt", internalStats.L2xLptsPaStatsAllocFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-cnt", types.YLeaf{"L2xLptsPaStatsInitCnt", internalStats.L2xLptsPaStatsInitCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-fail-cnt", types.YLeaf{"L2xLptsPaStatsInitFailCnt", internalStats.L2xLptsPaStatsInitFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-free-cnt", types.YLeaf{"L2xLptsPaStatsFreeCnt", internalStats.L2xLptsPaStatsFreeCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-cnt", types.YLeaf{"L2xLptsPaStatsPulseCnt", internalStats.L2xLptsPaStatsPulseCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-fail-cnt", types.YLeaf{"L2xLptsPaStatsPulseFailCnt", internalStats.L2xLptsPaStatsPulseFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-cnt", types.YLeaf{"L2xLptsPaStatsBindCnt", internalStats.L2xLptsPaStatsBindCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindFailCnt", internalStats.L2xLptsPaStatsBindFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchCnt", internalStats.L2xLptsPaStatsBindBatchCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchFailCnt", internalStats.L2xLptsPaStatsBindBatchFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-time", types.YLeaf{"L2xLptsPaStatsBindTime", internalStats.L2xLptsPaStatsBindTime})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-expire-cnt", types.YLeaf{"L2xLptsPaStatsExpireCnt", internalStats.L2xLptsPaStatsExpireCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-cnt", types.YLeaf{"L2xLptsPaStatsReplayCnt", internalStats.L2xLptsPaStatsReplayCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-batch-cnt", types.YLeaf{"L2xLptsPaStatsReplayBatchCnt", internalStats.L2xLptsPaStatsReplayBatchCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-time", types.YLeaf{"L2xLptsPaStatsReplayTime", internalStats.L2xLptsPaStatsReplayTime})
-
-    internalStats.EntityData.YListKeys = []string {}
-
-    return &(internalStats.EntityData)
-}
-
-// L2tp_Nodes_Node_Internal_InternalStatsLastClear
-// internal stats last clear
-type L2tp_Nodes_Node_Internal_InternalStatsLastClear struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // l2tp sh l2x num tunnels. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTunnels interface{}
-
-    // l2tp sh l2x num sessions. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumSessions interface{}
-
-    // l2tp sh l2x rx high water mark. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xRxHighWaterMark interface{}
-
-    // l2tp sh l2x ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2xAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2x num rx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumRxMsgs interface{}
-
-    // l2tp sh l2x num tx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTxMsgs interface{}
-
-    // l2tp sh l2x num tx err drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxErrDrops interface{}
-
-    // l2tp sh l2x num tx conn drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxConnDrops interface{}
-
-    // l2tp sh l2x num reordered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumReorderedMsgs interface{}
-
-    // l2tp sh l2x max reorder deviation. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xMaxReorderDeviation interface{}
-
-    // l2tp sh l2x num ooo msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumOooMsgs interface{}
-
-    // l2tp sh l2x num rx path drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDrops interface{}
-
-    // l2tp sh l2x num rx path data pkt drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDataPktDrops interface{}
-
-    // l2tp sh l2x num rx queue drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxQueueDrops interface{}
-
-    // l2tp sh l2x num rx ooo drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxOooDrops interface{}
-
-    // l2tp sh l2x num buffered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBufferedMsgs interface{}
-
-    // l2tp sh l2x num mutex block. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMutexBlock interface{}
-
-    // l2tp sh l2x num bad len drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadLenDrops interface{}
-
-    // l2tp sh l2x num bad avp drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadAvpDrops interface{}
-
-    // l2tp sh l2x num missing cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingCcIdDrops interface{}
-
-    // l2tp sh l2x num missing sess id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingSessIdDrops interface{}
-
-    // l2tp sh l2x num mismatch cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMismatchCcIdDrops interface{}
-
-    // l2tp sh l2x num unknown cc drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownCcDrops interface{}
-
-    // l2tp sh l2x num unknown sess drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownSessDrops interface{}
-
-    // l2tp sh l2x num linear id search. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearch interface{}
-
-    // l2tp sh l2x num linear id search fail. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearchFail interface{}
-
-    // l2tp sh l2x num netio pkt rx. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumNetioPktRx interface{}
-
-    // l2tp sh l2tun ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2tunAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2tun num rx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumRxMsgs interface{}
-
-    // l2tp sh l2tun num tx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumTxMsgs interface{}
-
-    // l2tp l2tun socket ens send error cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpL2tunSocketEnsSendErrorCnt interface{}
-
-    // l2tp l2tun socket session accept. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionAccept interface{}
-
-    // l2tp l2tun socket session destroy. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionDestroy interface{}
-
-    // l2tp l2tun socket session connect. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnect interface{}
-
-    // l2tp l2tun socket session connect continue. The type is interface{} with
-    // range: 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnectContinue interface{}
-
-    // l2tp l2tun session connecting. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnecting interface{}
-
-    // l2tp l2tun session connected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnected interface{}
-
-    // l2tp l2tun session disconnected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionDisconnected interface{}
-
-    // l2tp l2tun session incoming. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionIncoming interface{}
-
-    // l2tp l2tun session updated. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionUpdated interface{}
-
-    // l2tp l2tun session circuit status. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionCircuitStatus interface{}
-
-    // l2x lpts pa stats setup cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsSetupCnt interface{}
-
-    // l2x lpts pa stats destroy cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsDestroyCnt interface{}
-
-    // l2x lpts pa stats alloc cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocCnt interface{}
-
-    // l2x lpts pa stats alloc fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocFailCnt interface{}
-
-    // l2x lpts pa stats init cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitCnt interface{}
-
-    // l2x lpts pa stats init fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitFailCnt interface{}
-
-    // l2x lpts pa stats free cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsFreeCnt interface{}
-
-    // l2x lpts pa stats pulse cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseCnt interface{}
-
-    // l2x lpts pa stats pulse fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseFailCnt interface{}
-
-    // l2x lpts pa stats bind cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindCnt interface{}
-
-    // l2x lpts pa stats bind fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindFailCnt interface{}
-
-    // l2x lpts pa stats bind batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchCnt interface{}
-
-    // l2x lpts pa stats bind batch fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchFailCnt interface{}
-
-    // l2x lpts pa stats bind time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindTime interface{}
-
-    // l2x lpts pa stats expire cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsExpireCnt interface{}
-
-    // l2x lpts pa stats replay cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayCnt interface{}
-
-    // l2x lpts pa stats replay batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayBatchCnt interface{}
-
-    // l2x lpts pa stats replay time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayTime interface{}
-}
-
-func (internalStatsLastClear *L2tp_Nodes_Node_Internal_InternalStatsLastClear) GetEntityData() *types.CommonEntityData {
-    internalStatsLastClear.EntityData.YFilter = internalStatsLastClear.YFilter
-    internalStatsLastClear.EntityData.YangName = "internal-stats-last-clear"
-    internalStatsLastClear.EntityData.BundleName = "cisco_ios_xr"
-    internalStatsLastClear.EntityData.ParentYangName = "internal"
-    internalStatsLastClear.EntityData.SegmentPath = "internal-stats-last-clear"
-    internalStatsLastClear.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/nodes/node/internal/" + internalStatsLastClear.EntityData.SegmentPath
-    internalStatsLastClear.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    internalStatsLastClear.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    internalStatsLastClear.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    internalStatsLastClear.EntityData.Children = types.NewOrderedMap()
-    internalStatsLastClear.EntityData.Leafs = types.NewOrderedMap()
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tunnels", types.YLeaf{"L2tpShL2xNumTunnels", internalStatsLastClear.L2tpShL2xNumTunnels})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-sessions", types.YLeaf{"L2tpShL2xNumSessions", internalStatsLastClear.L2tpShL2xNumSessions})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-rx-high-water-mark", types.YLeaf{"L2tpShL2xRxHighWaterMark", internalStatsLastClear.L2tpShL2xRxHighWaterMark})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-ave-msg-process-usecs", types.YLeaf{"L2tpShL2xAveMsgProcessUsecs", internalStatsLastClear.L2tpShL2xAveMsgProcessUsecs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-msgs", types.YLeaf{"L2tpShL2xNumRxMsgs", internalStatsLastClear.L2tpShL2xNumRxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-msgs", types.YLeaf{"L2tpShL2xNumTxMsgs", internalStatsLastClear.L2tpShL2xNumTxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-err-drops", types.YLeaf{"L2tpShL2xNumTxErrDrops", internalStatsLastClear.L2tpShL2xNumTxErrDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-conn-drops", types.YLeaf{"L2tpShL2xNumTxConnDrops", internalStatsLastClear.L2tpShL2xNumTxConnDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-reordered-msgs", types.YLeaf{"L2tpShL2xNumReorderedMsgs", internalStatsLastClear.L2tpShL2xNumReorderedMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-max-reorder-deviation", types.YLeaf{"L2tpShL2xMaxReorderDeviation", internalStatsLastClear.L2tpShL2xMaxReorderDeviation})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-ooo-msgs", types.YLeaf{"L2tpShL2xNumOooMsgs", internalStatsLastClear.L2tpShL2xNumOooMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-drops", types.YLeaf{"L2tpShL2xNumRxPathDrops", internalStatsLastClear.L2tpShL2xNumRxPathDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-data-pkt-drops", types.YLeaf{"L2tpShL2xNumRxPathDataPktDrops", internalStatsLastClear.L2tpShL2xNumRxPathDataPktDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-queue-drops", types.YLeaf{"L2tpShL2xNumRxQueueDrops", internalStatsLastClear.L2tpShL2xNumRxQueueDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-ooo-drops", types.YLeaf{"L2tpShL2xNumRxOooDrops", internalStatsLastClear.L2tpShL2xNumRxOooDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-buffered-msgs", types.YLeaf{"L2tpShL2xNumBufferedMsgs", internalStatsLastClear.L2tpShL2xNumBufferedMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-mutex-block", types.YLeaf{"L2tpShL2xNumMutexBlock", internalStatsLastClear.L2tpShL2xNumMutexBlock})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-len-drops", types.YLeaf{"L2tpShL2xNumBadLenDrops", internalStatsLastClear.L2tpShL2xNumBadLenDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-avp-drops", types.YLeaf{"L2tpShL2xNumBadAvpDrops", internalStatsLastClear.L2tpShL2xNumBadAvpDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-cc-id-drops", types.YLeaf{"L2tpShL2xNumMissingCcIdDrops", internalStatsLastClear.L2tpShL2xNumMissingCcIdDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-sess-id-drops", types.YLeaf{"L2tpShL2xNumMissingSessIdDrops", internalStatsLastClear.L2tpShL2xNumMissingSessIdDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-mismatch-cc-id-drops", types.YLeaf{"L2tpShL2xNumMismatchCcIdDrops", internalStatsLastClear.L2tpShL2xNumMismatchCcIdDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-cc-drops", types.YLeaf{"L2tpShL2xNumUnknownCcDrops", internalStatsLastClear.L2tpShL2xNumUnknownCcDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-sess-drops", types.YLeaf{"L2tpShL2xNumUnknownSessDrops", internalStatsLastClear.L2tpShL2xNumUnknownSessDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search", types.YLeaf{"L2tpShL2xNumLinearIdSearch", internalStatsLastClear.L2tpShL2xNumLinearIdSearch})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search-fail", types.YLeaf{"L2tpShL2xNumLinearIdSearchFail", internalStatsLastClear.L2tpShL2xNumLinearIdSearchFail})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-netio-pkt-rx", types.YLeaf{"L2tpShL2xNumNetioPktRx", internalStatsLastClear.L2tpShL2xNumNetioPktRx})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2tun-ave-msg-process-usecs", types.YLeaf{"L2tpShL2tunAveMsgProcessUsecs", internalStatsLastClear.L2tpShL2tunAveMsgProcessUsecs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2tun-num-rx-msgs", types.YLeaf{"L2tpShL2tunNumRxMsgs", internalStatsLastClear.L2tpShL2tunNumRxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2tun-num-tx-msgs", types.YLeaf{"L2tpShL2tunNumTxMsgs", internalStatsLastClear.L2tpShL2tunNumTxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-ens-send-error-cnt", types.YLeaf{"L2tpL2tunSocketEnsSendErrorCnt", internalStatsLastClear.L2tpL2tunSocketEnsSendErrorCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-accept", types.YLeaf{"L2tpL2tunSocketSessionAccept", internalStatsLastClear.L2tpL2tunSocketSessionAccept})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-destroy", types.YLeaf{"L2tpL2tunSocketSessionDestroy", internalStatsLastClear.L2tpL2tunSocketSessionDestroy})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect", types.YLeaf{"L2tpL2tunSocketSessionConnect", internalStatsLastClear.L2tpL2tunSocketSessionConnect})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect-continue", types.YLeaf{"L2tpL2tunSocketSessionConnectContinue", internalStatsLastClear.L2tpL2tunSocketSessionConnectContinue})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-connecting", types.YLeaf{"L2tpL2tunSessionConnecting", internalStatsLastClear.L2tpL2tunSessionConnecting})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-connected", types.YLeaf{"L2tpL2tunSessionConnected", internalStatsLastClear.L2tpL2tunSessionConnected})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-disconnected", types.YLeaf{"L2tpL2tunSessionDisconnected", internalStatsLastClear.L2tpL2tunSessionDisconnected})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-incoming", types.YLeaf{"L2tpL2tunSessionIncoming", internalStatsLastClear.L2tpL2tunSessionIncoming})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-updated", types.YLeaf{"L2tpL2tunSessionUpdated", internalStatsLastClear.L2tpL2tunSessionUpdated})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-circuit-status", types.YLeaf{"L2tpL2tunSessionCircuitStatus", internalStatsLastClear.L2tpL2tunSessionCircuitStatus})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-setup-cnt", types.YLeaf{"L2xLptsPaStatsSetupCnt", internalStatsLastClear.L2xLptsPaStatsSetupCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-destroy-cnt", types.YLeaf{"L2xLptsPaStatsDestroyCnt", internalStatsLastClear.L2xLptsPaStatsDestroyCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-cnt", types.YLeaf{"L2xLptsPaStatsAllocCnt", internalStatsLastClear.L2xLptsPaStatsAllocCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-fail-cnt", types.YLeaf{"L2xLptsPaStatsAllocFailCnt", internalStatsLastClear.L2xLptsPaStatsAllocFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-cnt", types.YLeaf{"L2xLptsPaStatsInitCnt", internalStatsLastClear.L2xLptsPaStatsInitCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-fail-cnt", types.YLeaf{"L2xLptsPaStatsInitFailCnt", internalStatsLastClear.L2xLptsPaStatsInitFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-free-cnt", types.YLeaf{"L2xLptsPaStatsFreeCnt", internalStatsLastClear.L2xLptsPaStatsFreeCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-cnt", types.YLeaf{"L2xLptsPaStatsPulseCnt", internalStatsLastClear.L2xLptsPaStatsPulseCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-fail-cnt", types.YLeaf{"L2xLptsPaStatsPulseFailCnt", internalStatsLastClear.L2xLptsPaStatsPulseFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-cnt", types.YLeaf{"L2xLptsPaStatsBindCnt", internalStatsLastClear.L2xLptsPaStatsBindCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindFailCnt", internalStatsLastClear.L2xLptsPaStatsBindFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchCnt", internalStatsLastClear.L2xLptsPaStatsBindBatchCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchFailCnt", internalStatsLastClear.L2xLptsPaStatsBindBatchFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-time", types.YLeaf{"L2xLptsPaStatsBindTime", internalStatsLastClear.L2xLptsPaStatsBindTime})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-expire-cnt", types.YLeaf{"L2xLptsPaStatsExpireCnt", internalStatsLastClear.L2xLptsPaStatsExpireCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-cnt", types.YLeaf{"L2xLptsPaStatsReplayCnt", internalStatsLastClear.L2xLptsPaStatsReplayCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-batch-cnt", types.YLeaf{"L2xLptsPaStatsReplayBatchCnt", internalStatsLastClear.L2xLptsPaStatsReplayBatchCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-time", types.YLeaf{"L2xLptsPaStatsReplayTime", internalStatsLastClear.L2xLptsPaStatsReplayTime})
-
-    internalStatsLastClear.EntityData.YListKeys = []string {}
-
-    return &(internalStatsLastClear.EntityData)
-}
-
 // L2tpv2
 // l2tpv2
 type L2tpv2 struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of nodes for which subscriber data is collected.
-    Nodes L2tpv2_Nodes
+    // L2TP control messages counters.
+    Counters L2tpv2_Counters
+
+    // L2TP v2 statistics information.
+    Statistics L2tpv2_Statistics
+
+    // L2TPv2 tunnel .
+    Tunnel L2tpv2_Tunnel
+
+    // List of tunnel IDs.
+    TunnelConfigurations L2tpv2_TunnelConfigurations
+
+    // Failure events leading to disconnection.
+    CounterHistFail L2tpv2_CounterHistFail
+
+    // List of L2TP class names.
+    Classes L2tpv2_Classes
+
+    // List of tunnel IDs.
+    Tunnels L2tpv2_Tunnels
+
+    // List of session IDs.
+    Sessions L2tpv2_Sessions
+
+    // L2TP control messages counters.
+    Session L2tpv2_Session
 }
 
 func (l2tpv2 *L2tpv2) GetEntityData() *types.CommonEntityData {
@@ -3828,7 +3100,15 @@ func (l2tpv2 *L2tpv2) GetEntityData() *types.CommonEntityData {
     l2tpv2.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     l2tpv2.EntityData.Children = types.NewOrderedMap()
-    l2tpv2.EntityData.Children.Append("nodes", types.YChild{"Nodes", &l2tpv2.Nodes})
+    l2tpv2.EntityData.Children.Append("counters", types.YChild{"Counters", &l2tpv2.Counters})
+    l2tpv2.EntityData.Children.Append("statistics", types.YChild{"Statistics", &l2tpv2.Statistics})
+    l2tpv2.EntityData.Children.Append("tunnel", types.YChild{"Tunnel", &l2tpv2.Tunnel})
+    l2tpv2.EntityData.Children.Append("tunnel-configurations", types.YChild{"TunnelConfigurations", &l2tpv2.TunnelConfigurations})
+    l2tpv2.EntityData.Children.Append("counter-hist-fail", types.YChild{"CounterHistFail", &l2tpv2.CounterHistFail})
+    l2tpv2.EntityData.Children.Append("classes", types.YChild{"Classes", &l2tpv2.Classes})
+    l2tpv2.EntityData.Children.Append("tunnels", types.YChild{"Tunnels", &l2tpv2.Tunnels})
+    l2tpv2.EntityData.Children.Append("sessions", types.YChild{"Sessions", &l2tpv2.Sessions})
+    l2tpv2.EntityData.Children.Append("session", types.YChild{"Session", &l2tpv2.Session})
     l2tpv2.EntityData.Leafs = types.NewOrderedMap()
 
     l2tpv2.EntityData.YListKeys = []string {}
@@ -3836,133 +3116,26 @@ func (l2tpv2 *L2tpv2) GetEntityData() *types.CommonEntityData {
     return &(l2tpv2.EntityData)
 }
 
-// L2tpv2_Nodes
-// List of nodes for which subscriber data is
-// collected
-type L2tpv2_Nodes struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subscriber data for a particular node. The type is slice of
-    // L2tpv2_Nodes_Node.
-    Node []*L2tpv2_Nodes_Node
-}
-
-func (nodes *L2tpv2_Nodes) GetEntityData() *types.CommonEntityData {
-    nodes.EntityData.YFilter = nodes.YFilter
-    nodes.EntityData.YangName = "nodes"
-    nodes.EntityData.BundleName = "cisco_ios_xr"
-    nodes.EntityData.ParentYangName = "l2tpv2"
-    nodes.EntityData.SegmentPath = "nodes"
-    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + nodes.EntityData.SegmentPath
-    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nodes.EntityData.Children = types.NewOrderedMap()
-    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
-    for i := range nodes.Node {
-        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
-    }
-    nodes.EntityData.Leafs = types.NewOrderedMap()
-
-    nodes.EntityData.YListKeys = []string {}
-
-    return &(nodes.EntityData)
-}
-
-// L2tpv2_Nodes_Node
-// Subscriber data for a particular node
-type L2tpv2_Nodes_Node struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
-    NodeName interface{}
-
-    // L2TP control messages counters.
-    Counters L2tpv2_Nodes_Node_Counters
-
-    // L2TP v2 statistics information.
-    Statistics L2tpv2_Nodes_Node_Statistics
-
-    // L2TPv2 tunnel .
-    Tunnel L2tpv2_Nodes_Node_Tunnel
-
-    // List of tunnel IDs.
-    TunnelConfigurations L2tpv2_Nodes_Node_TunnelConfigurations
-
-    // Failure events leading to disconnection.
-    CounterHistFail L2tpv2_Nodes_Node_CounterHistFail
-
-    // List of L2TP class names.
-    Classes L2tpv2_Nodes_Node_Classes
-
-    // List of tunnel IDs.
-    Tunnels L2tpv2_Nodes_Node_Tunnels
-
-    // List of session IDs.
-    Sessions L2tpv2_Nodes_Node_Sessions
-
-    // L2TP control messages counters.
-    Session L2tpv2_Nodes_Node_Session
-
-    // L2TP v2/v3 internal information.
-    Internal L2tpv2_Nodes_Node_Internal
-}
-
-func (node *L2tpv2_Nodes_Node) GetEntityData() *types.CommonEntityData {
-    node.EntityData.YFilter = node.YFilter
-    node.EntityData.YangName = "node"
-    node.EntityData.BundleName = "cisco_ios_xr"
-    node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
-    node.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/" + node.EntityData.SegmentPath
-    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    node.EntityData.Children = types.NewOrderedMap()
-    node.EntityData.Children.Append("counters", types.YChild{"Counters", &node.Counters})
-    node.EntityData.Children.Append("statistics", types.YChild{"Statistics", &node.Statistics})
-    node.EntityData.Children.Append("tunnel", types.YChild{"Tunnel", &node.Tunnel})
-    node.EntityData.Children.Append("tunnel-configurations", types.YChild{"TunnelConfigurations", &node.TunnelConfigurations})
-    node.EntityData.Children.Append("counter-hist-fail", types.YChild{"CounterHistFail", &node.CounterHistFail})
-    node.EntityData.Children.Append("classes", types.YChild{"Classes", &node.Classes})
-    node.EntityData.Children.Append("tunnels", types.YChild{"Tunnels", &node.Tunnels})
-    node.EntityData.Children.Append("sessions", types.YChild{"Sessions", &node.Sessions})
-    node.EntityData.Children.Append("session", types.YChild{"Session", &node.Session})
-    node.EntityData.Children.Append("internal", types.YChild{"Internal", &node.Internal})
-    node.EntityData.Leafs = types.NewOrderedMap()
-    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
-
-    node.EntityData.YListKeys = []string {"NodeName"}
-
-    return &(node.EntityData)
-}
-
-// L2tpv2_Nodes_Node_Counters
+// L2tpv2_Counters
 // L2TP control messages counters
-type L2tpv2_Nodes_Node_Counters struct {
+type L2tpv2_Counters struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP forwarding messages counters.
-    Forwarding L2tpv2_Nodes_Node_Counters_Forwarding
+    Forwarding L2tpv2_Counters_Forwarding
 
     // L2TP control messages counters.
-    Control L2tpv2_Nodes_Node_Counters_Control
+    Control L2tpv2_Counters_Control
 }
 
-func (counters *L2tpv2_Nodes_Node_Counters) GetEntityData() *types.CommonEntityData {
+func (counters *L2tpv2_Counters) GetEntityData() *types.CommonEntityData {
     counters.EntityData.YFilter = counters.YFilter
     counters.EntityData.YangName = "counters"
     counters.EntityData.BundleName = "cisco_ios_xr"
-    counters.EntityData.ParentYangName = "node"
+    counters.EntityData.ParentYangName = "l2tpv2"
     counters.EntityData.SegmentPath = "counters"
-    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + counters.EntityData.SegmentPath
+    counters.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + counters.EntityData.SegmentPath
     counters.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counters.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counters.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3977,23 +3150,23 @@ func (counters *L2tpv2_Nodes_Node_Counters) GetEntityData() *types.CommonEntityD
     return &(counters.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Forwarding
+// L2tpv2_Counters_Forwarding
 // L2TP forwarding messages counters
-type L2tpv2_Nodes_Node_Counters_Forwarding struct {
+type L2tpv2_Counters_Forwarding struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // List of class and session IDs.
-    Sessions L2tpv2_Nodes_Node_Counters_Forwarding_Sessions
+    Sessions L2tpv2_Counters_Forwarding_Sessions
 }
 
-func (forwarding *L2tpv2_Nodes_Node_Counters_Forwarding) GetEntityData() *types.CommonEntityData {
+func (forwarding *L2tpv2_Counters_Forwarding) GetEntityData() *types.CommonEntityData {
     forwarding.EntityData.YFilter = forwarding.YFilter
     forwarding.EntityData.YangName = "forwarding"
     forwarding.EntityData.BundleName = "cisco_ios_xr"
     forwarding.EntityData.ParentYangName = "counters"
     forwarding.EntityData.SegmentPath = "forwarding"
-    forwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/" + forwarding.EntityData.SegmentPath
+    forwarding.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/" + forwarding.EntityData.SegmentPath
     forwarding.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     forwarding.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     forwarding.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4007,24 +3180,24 @@ func (forwarding *L2tpv2_Nodes_Node_Counters_Forwarding) GetEntityData() *types.
     return &(forwarding.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Forwarding_Sessions
+// L2tpv2_Counters_Forwarding_Sessions
 // List of class and session IDs
-type L2tpv2_Nodes_Node_Counters_Forwarding_Sessions struct {
+type L2tpv2_Counters_Forwarding_Sessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP information for a particular session. The type is slice of
-    // L2tpv2_Nodes_Node_Counters_Forwarding_Sessions_Session.
-    Session []*L2tpv2_Nodes_Node_Counters_Forwarding_Sessions_Session
+    // L2tpv2_Counters_Forwarding_Sessions_Session.
+    Session []*L2tpv2_Counters_Forwarding_Sessions_Session
 }
 
-func (sessions *L2tpv2_Nodes_Node_Counters_Forwarding_Sessions) GetEntityData() *types.CommonEntityData {
+func (sessions *L2tpv2_Counters_Forwarding_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.YFilter = sessions.YFilter
     sessions.EntityData.YangName = "sessions"
     sessions.EntityData.BundleName = "cisco_ios_xr"
     sessions.EntityData.ParentYangName = "forwarding"
     sessions.EntityData.SegmentPath = "sessions"
-    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/forwarding/" + sessions.EntityData.SegmentPath
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4041,9 +3214,9 @@ func (sessions *L2tpv2_Nodes_Node_Counters_Forwarding_Sessions) GetEntityData() 
     return &(sessions.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Forwarding_Sessions_Session
+// L2tpv2_Counters_Forwarding_Sessions_Session
 // L2TP information for a particular session
-type L2tpv2_Nodes_Node_Counters_Forwarding_Sessions_Session struct {
+type L2tpv2_Counters_Forwarding_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -4076,13 +3249,13 @@ type L2tpv2_Nodes_Node_Counters_Forwarding_Sessions_Session struct {
     OutBytes interface{}
 }
 
-func (session *L2tpv2_Nodes_Node_Counters_Forwarding_Sessions_Session) GetEntityData() *types.CommonEntityData {
+func (session *L2tpv2_Counters_Forwarding_Sessions_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.TunnelId, "tunnel-id") + types.AddKeyToken(session.SessionId, "session-id")
-    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/forwarding/sessions/" + session.EntityData.SegmentPath
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4102,26 +3275,26 @@ func (session *L2tpv2_Nodes_Node_Counters_Forwarding_Sessions_Session) GetEntity
     return &(session.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control
+// L2tpv2_Counters_Control
 // L2TP control messages counters
-type L2tpv2_Nodes_Node_Counters_Control struct {
+type L2tpv2_Counters_Control struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP control tunnel messages counters.
-    TunnelXr L2tpv2_Nodes_Node_Counters_Control_TunnelXr
+    TunnelXr L2tpv2_Counters_Control_TunnelXr
 
     // Table of tunnel IDs of control message counters.
-    Tunnels L2tpv2_Nodes_Node_Counters_Control_Tunnels
+    Tunnels L2tpv2_Counters_Control_Tunnels
 }
 
-func (control *L2tpv2_Nodes_Node_Counters_Control) GetEntityData() *types.CommonEntityData {
+func (control *L2tpv2_Counters_Control) GetEntityData() *types.CommonEntityData {
     control.EntityData.YFilter = control.YFilter
     control.EntityData.YangName = "control"
     control.EntityData.BundleName = "cisco_ios_xr"
     control.EntityData.ParentYangName = "counters"
     control.EntityData.SegmentPath = "control"
-    control.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/" + control.EntityData.SegmentPath
+    control.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/" + control.EntityData.SegmentPath
     control.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     control.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     control.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4136,26 +3309,26 @@ func (control *L2tpv2_Nodes_Node_Counters_Control) GetEntityData() *types.Common
     return &(control.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr
+// L2tpv2_Counters_Control_TunnelXr
 // L2TP control tunnel messages counters
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr struct {
+type L2tpv2_Counters_Control_TunnelXr struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel authentication counters.
-    Authentication L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication
+    Authentication L2tpv2_Counters_Control_TunnelXr_Authentication
 
     // Tunnel counters.
-    Global L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global
+    Global L2tpv2_Counters_Control_TunnelXr_Global
 }
 
-func (tunnelXr *L2tpv2_Nodes_Node_Counters_Control_TunnelXr) GetEntityData() *types.CommonEntityData {
+func (tunnelXr *L2tpv2_Counters_Control_TunnelXr) GetEntityData() *types.CommonEntityData {
     tunnelXr.EntityData.YFilter = tunnelXr.YFilter
     tunnelXr.EntityData.YangName = "tunnel-xr"
     tunnelXr.EntityData.BundleName = "cisco_ios_xr"
     tunnelXr.EntityData.ParentYangName = "control"
     tunnelXr.EntityData.SegmentPath = "tunnel-xr"
-    tunnelXr.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/" + tunnelXr.EntityData.SegmentPath
+    tunnelXr.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/" + tunnelXr.EntityData.SegmentPath
     tunnelXr.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelXr.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelXr.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4170,47 +3343,47 @@ func (tunnelXr *L2tpv2_Nodes_Node_Counters_Control_TunnelXr) GetEntityData() *ty
     return &(tunnelXr.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication
+// L2tpv2_Counters_Control_TunnelXr_Authentication
 // Tunnel authentication counters
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Nonce AVP statistics.
-    NonceAvp L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp
+    NonceAvp L2tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp
 
     // Common digest statistics.
-    CommonDigest L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest
+    CommonDigest L2tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest
 
     // Primary digest statistics.
-    PrimaryDigest L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest
+    PrimaryDigest L2tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest
 
     // Secondary digest statistics.
-    SecondaryDigest L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest
+    SecondaryDigest L2tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest
 
     // Integrity check statistics.
-    IntegrityCheck L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck
+    IntegrityCheck L2tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck
 
     // Local secret statistics.
-    LocalSecret L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret
+    LocalSecret L2tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret
 
     // Challenge AVP statistics.
-    ChallengeAvp L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp
+    ChallengeAvp L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp
 
     // Challenge response statistics.
-    ChallengeReponse L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse
+    ChallengeReponse L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse
 
     // Overall statistics.
-    OverallStatistics L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics
+    OverallStatistics L2tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics
 }
 
-func (authentication *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication) GetEntityData() *types.CommonEntityData {
+func (authentication *L2tpv2_Counters_Control_TunnelXr_Authentication) GetEntityData() *types.CommonEntityData {
     authentication.EntityData.YFilter = authentication.YFilter
     authentication.EntityData.YangName = "authentication"
     authentication.EntityData.BundleName = "cisco_ios_xr"
     authentication.EntityData.ParentYangName = "tunnel-xr"
     authentication.EntityData.SegmentPath = "authentication"
-    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/" + authentication.EntityData.SegmentPath
+    authentication.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/" + authentication.EntityData.SegmentPath
     authentication.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     authentication.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     authentication.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4232,9 +3405,9 @@ func (authentication *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication
     return &(authentication.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp
+// L2tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp
 // Nonce AVP statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4272,13 +3445,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp struct 
     UnexpectedZlb interface{}
 }
 
-func (nonceAvp *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEntityData() *types.CommonEntityData {
+func (nonceAvp *L2tpv2_Counters_Control_TunnelXr_Authentication_NonceAvp) GetEntityData() *types.CommonEntityData {
     nonceAvp.EntityData.YFilter = nonceAvp.YFilter
     nonceAvp.EntityData.YangName = "nonce-avp"
     nonceAvp.EntityData.BundleName = "cisco_ios_xr"
     nonceAvp.EntityData.ParentYangName = "authentication"
     nonceAvp.EntityData.SegmentPath = "nonce-avp"
-    nonceAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + nonceAvp.EntityData.SegmentPath
+    nonceAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + nonceAvp.EntityData.SegmentPath
     nonceAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     nonceAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     nonceAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4302,9 +3475,9 @@ func (nonceAvp *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_Nonce
     return &(nonceAvp.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest
+// L2tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest
 // Common digest statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4342,13 +3515,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest str
     UnexpectedZlb interface{}
 }
 
-func (commonDigest *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_CommonDigest) GetEntityData() *types.CommonEntityData {
+func (commonDigest *L2tpv2_Counters_Control_TunnelXr_Authentication_CommonDigest) GetEntityData() *types.CommonEntityData {
     commonDigest.EntityData.YFilter = commonDigest.YFilter
     commonDigest.EntityData.YangName = "common-digest"
     commonDigest.EntityData.BundleName = "cisco_ios_xr"
     commonDigest.EntityData.ParentYangName = "authentication"
     commonDigest.EntityData.SegmentPath = "common-digest"
-    commonDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + commonDigest.EntityData.SegmentPath
+    commonDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + commonDigest.EntityData.SegmentPath
     commonDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     commonDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     commonDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4372,9 +3545,9 @@ func (commonDigest *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_C
     return &(commonDigest.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest
+// L2tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest
 // Primary digest statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4412,13 +3585,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest st
     UnexpectedZlb interface{}
 }
 
-func (primaryDigest *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetEntityData() *types.CommonEntityData {
+func (primaryDigest *L2tpv2_Counters_Control_TunnelXr_Authentication_PrimaryDigest) GetEntityData() *types.CommonEntityData {
     primaryDigest.EntityData.YFilter = primaryDigest.YFilter
     primaryDigest.EntityData.YangName = "primary-digest"
     primaryDigest.EntityData.BundleName = "cisco_ios_xr"
     primaryDigest.EntityData.ParentYangName = "authentication"
     primaryDigest.EntityData.SegmentPath = "primary-digest"
-    primaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + primaryDigest.EntityData.SegmentPath
+    primaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + primaryDigest.EntityData.SegmentPath
     primaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     primaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     primaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4442,9 +3615,9 @@ func (primaryDigest *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_
     return &(primaryDigest.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest
+// L2tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest
 // Secondary digest statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4482,13 +3655,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest 
     UnexpectedZlb interface{}
 }
 
-func (secondaryDigest *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetEntityData() *types.CommonEntityData {
+func (secondaryDigest *L2tpv2_Counters_Control_TunnelXr_Authentication_SecondaryDigest) GetEntityData() *types.CommonEntityData {
     secondaryDigest.EntityData.YFilter = secondaryDigest.YFilter
     secondaryDigest.EntityData.YangName = "secondary-digest"
     secondaryDigest.EntityData.BundleName = "cisco_ios_xr"
     secondaryDigest.EntityData.ParentYangName = "authentication"
     secondaryDigest.EntityData.SegmentPath = "secondary-digest"
-    secondaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + secondaryDigest.EntityData.SegmentPath
+    secondaryDigest.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + secondaryDigest.EntityData.SegmentPath
     secondaryDigest.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     secondaryDigest.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     secondaryDigest.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4512,9 +3685,9 @@ func (secondaryDigest *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authenticatio
     return &(secondaryDigest.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck
+// L2tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck
 // Integrity check statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4552,13 +3725,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck s
     UnexpectedZlb interface{}
 }
 
-func (integrityCheck *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetEntityData() *types.CommonEntityData {
+func (integrityCheck *L2tpv2_Counters_Control_TunnelXr_Authentication_IntegrityCheck) GetEntityData() *types.CommonEntityData {
     integrityCheck.EntityData.YFilter = integrityCheck.YFilter
     integrityCheck.EntityData.YangName = "integrity-check"
     integrityCheck.EntityData.BundleName = "cisco_ios_xr"
     integrityCheck.EntityData.ParentYangName = "authentication"
     integrityCheck.EntityData.SegmentPath = "integrity-check"
-    integrityCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + integrityCheck.EntityData.SegmentPath
+    integrityCheck.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + integrityCheck.EntityData.SegmentPath
     integrityCheck.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     integrityCheck.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     integrityCheck.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4582,9 +3755,9 @@ func (integrityCheck *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication
     return &(integrityCheck.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret
+// L2tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret
 // Local secret statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4622,13 +3795,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret stru
     UnexpectedZlb interface{}
 }
 
-func (localSecret *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_LocalSecret) GetEntityData() *types.CommonEntityData {
+func (localSecret *L2tpv2_Counters_Control_TunnelXr_Authentication_LocalSecret) GetEntityData() *types.CommonEntityData {
     localSecret.EntityData.YFilter = localSecret.YFilter
     localSecret.EntityData.YangName = "local-secret"
     localSecret.EntityData.BundleName = "cisco_ios_xr"
     localSecret.EntityData.ParentYangName = "authentication"
     localSecret.EntityData.SegmentPath = "local-secret"
-    localSecret.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + localSecret.EntityData.SegmentPath
+    localSecret.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + localSecret.EntityData.SegmentPath
     localSecret.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     localSecret.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     localSecret.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4652,9 +3825,9 @@ func (localSecret *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_Lo
     return &(localSecret.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp
+// L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp
 // Challenge AVP statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4692,13 +3865,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp str
     UnexpectedZlb interface{}
 }
 
-func (challengeAvp *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetEntityData() *types.CommonEntityData {
+func (challengeAvp *L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeAvp) GetEntityData() *types.CommonEntityData {
     challengeAvp.EntityData.YFilter = challengeAvp.YFilter
     challengeAvp.EntityData.YangName = "challenge-avp"
     challengeAvp.EntityData.BundleName = "cisco_ios_xr"
     challengeAvp.EntityData.ParentYangName = "authentication"
     challengeAvp.EntityData.SegmentPath = "challenge-avp"
-    challengeAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + challengeAvp.EntityData.SegmentPath
+    challengeAvp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + challengeAvp.EntityData.SegmentPath
     challengeAvp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeAvp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeAvp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4722,9 +3895,9 @@ func (challengeAvp *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_C
     return &(challengeAvp.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse
+// L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse
 // Challenge response statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4762,13 +3935,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse
     UnexpectedZlb interface{}
 }
 
-func (challengeReponse *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetEntityData() *types.CommonEntityData {
+func (challengeReponse *L2tpv2_Counters_Control_TunnelXr_Authentication_ChallengeReponse) GetEntityData() *types.CommonEntityData {
     challengeReponse.EntityData.YFilter = challengeReponse.YFilter
     challengeReponse.EntityData.YangName = "challenge-reponse"
     challengeReponse.EntityData.BundleName = "cisco_ios_xr"
     challengeReponse.EntityData.ParentYangName = "authentication"
     challengeReponse.EntityData.SegmentPath = "challenge-reponse"
-    challengeReponse.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + challengeReponse.EntityData.SegmentPath
+    challengeReponse.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + challengeReponse.EntityData.SegmentPath
     challengeReponse.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     challengeReponse.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     challengeReponse.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4792,9 +3965,9 @@ func (challengeReponse *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authenticati
     return &(challengeReponse.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics
+// L2tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics
 // Overall statistics
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
+type L2tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4832,13 +4005,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistic
     UnexpectedZlb interface{}
 }
 
-func (overallStatistics *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetEntityData() *types.CommonEntityData {
+func (overallStatistics *L2tpv2_Counters_Control_TunnelXr_Authentication_OverallStatistics) GetEntityData() *types.CommonEntityData {
     overallStatistics.EntityData.YFilter = overallStatistics.YFilter
     overallStatistics.EntityData.YangName = "overall-statistics"
     overallStatistics.EntityData.BundleName = "cisco_ios_xr"
     overallStatistics.EntityData.ParentYangName = "authentication"
     overallStatistics.EntityData.SegmentPath = "overall-statistics"
-    overallStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/authentication/" + overallStatistics.EntityData.SegmentPath
+    overallStatistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/" + overallStatistics.EntityData.SegmentPath
     overallStatistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     overallStatistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     overallStatistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4862,9 +4035,9 @@ func (overallStatistics *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Authenticat
     return &(overallStatistics.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global
+// L2tpv2_Counters_Control_TunnelXr_Global
 // Tunnel counters
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global struct {
+type L2tpv2_Counters_Control_TunnelXr_Global struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4881,25 +4054,25 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global struct {
     TotalDrop interface{}
 
     // Transmit data.
-    Transmit L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit
+    Transmit L2tpv2_Counters_Control_TunnelXr_Global_Transmit
 
     // Re transmit data.
-    Retransmit L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit
+    Retransmit L2tpv2_Counters_Control_TunnelXr_Global_Retransmit
 
     // Received data.
-    Received L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Received
+    Received L2tpv2_Counters_Control_TunnelXr_Global_Received
 
     // Drop data.
-    Drop L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Drop
+    Drop L2tpv2_Counters_Control_TunnelXr_Global_Drop
 }
 
-func (global *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global) GetEntityData() *types.CommonEntityData {
+func (global *L2tpv2_Counters_Control_TunnelXr_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.YFilter = global.YFilter
     global.EntityData.YangName = "global"
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel-xr"
     global.EntityData.SegmentPath = "global"
-    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/" + global.EntityData.SegmentPath
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -4920,9 +4093,9 @@ func (global *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global) GetEntityData(
     return &(global.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit
+// L2tpv2_Counters_Control_TunnelXr_Global_Transmit
 // Transmit data
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit struct {
+type L2tpv2_Counters_Control_TunnelXr_Global_Transmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -4995,13 +4168,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit) GetEntityData() *types.CommonEntityData {
+func (transmit *L2tpv2_Counters_Control_TunnelXr_Global_Transmit) GetEntityData() *types.CommonEntityData {
     transmit.EntityData.YFilter = transmit.YFilter
     transmit.EntityData.YangName = "transmit"
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
-    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/global/" + transmit.EntityData.SegmentPath
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5033,9 +4206,9 @@ func (transmit *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Transmit) Get
     return &(transmit.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit
+// L2tpv2_Counters_Control_TunnelXr_Global_Retransmit
 // Re transmit data
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit struct {
+type L2tpv2_Counters_Control_TunnelXr_Global_Retransmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5108,13 +4281,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+func (retransmit *L2tpv2_Counters_Control_TunnelXr_Global_Retransmit) GetEntityData() *types.CommonEntityData {
     retransmit.EntityData.YFilter = retransmit.YFilter
     retransmit.EntityData.YangName = "retransmit"
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
-    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/global/" + retransmit.EntityData.SegmentPath
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5146,9 +4319,9 @@ func (retransmit *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Retransmit)
     return &(retransmit.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Received
+// L2tpv2_Counters_Control_TunnelXr_Global_Received
 // Received data
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Received struct {
+type L2tpv2_Counters_Control_TunnelXr_Global_Received struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5221,13 +4394,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Received) GetEntityData() *types.CommonEntityData {
+func (received *L2tpv2_Counters_Control_TunnelXr_Global_Received) GetEntityData() *types.CommonEntityData {
     received.EntityData.YFilter = received.YFilter
     received.EntityData.YangName = "received"
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
-    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/global/" + received.EntityData.SegmentPath
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5259,9 +4432,9 @@ func (received *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Received) Get
     return &(received.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Drop
+// L2tpv2_Counters_Control_TunnelXr_Global_Drop
 // Drop data
-type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Drop struct {
+type L2tpv2_Counters_Control_TunnelXr_Global_Drop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5334,13 +4507,13 @@ type L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types.CommonEntityData {
+func (drop *L2tpv2_Counters_Control_TunnelXr_Global_Drop) GetEntityData() *types.CommonEntityData {
     drop.EntityData.YFilter = drop.YFilter
     drop.EntityData.YangName = "drop"
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
-    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnel-xr/global/" + drop.EntityData.SegmentPath
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5372,24 +4545,24 @@ func (drop *L2tpv2_Nodes_Node_Counters_Control_TunnelXr_Global_Drop) GetEntityDa
     return &(drop.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels
+// L2tpv2_Counters_Control_Tunnels
 // Table of tunnel IDs of control message counters
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels struct {
+type L2tpv2_Counters_Control_Tunnels struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel control message counters. The type is slice of
-    // L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel.
-    Tunnel []*L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel
+    // L2tpv2_Counters_Control_Tunnels_Tunnel.
+    Tunnel []*L2tpv2_Counters_Control_Tunnels_Tunnel
 }
 
-func (tunnels *L2tpv2_Nodes_Node_Counters_Control_Tunnels) GetEntityData() *types.CommonEntityData {
+func (tunnels *L2tpv2_Counters_Control_Tunnels) GetEntityData() *types.CommonEntityData {
     tunnels.EntityData.YFilter = tunnels.YFilter
     tunnels.EntityData.YangName = "tunnels"
     tunnels.EntityData.BundleName = "cisco_ios_xr"
     tunnels.EntityData.ParentYangName = "control"
     tunnels.EntityData.SegmentPath = "tunnels"
-    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/" + tunnels.EntityData.SegmentPath
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5406,9 +4579,9 @@ func (tunnels *L2tpv2_Nodes_Node_Counters_Control_Tunnels) GetEntityData() *type
     return &(tunnels.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel
+// L2tpv2_Counters_Control_Tunnels_Tunnel
 // L2TP tunnel control message counters
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel struct {
+type L2tpv2_Counters_Control_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -5418,19 +4591,19 @@ type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel struct {
     TunnelId interface{}
 
     // L2TP control message local and remote addresses.
-    Brief L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief
+    Brief L2tpv2_Counters_Control_Tunnels_Tunnel_Brief
 
     // Global data.
-    Global L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global
+    Global L2tpv2_Counters_Control_Tunnels_Tunnel_Global
 }
 
-func (tunnel *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+func (tunnel *L2tpv2_Counters_Control_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.YFilter = tunnel.YFilter
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.TunnelId, "tunnel-id")
-    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnels/" + tunnel.EntityData.SegmentPath
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5446,9 +4619,9 @@ func (tunnel *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel) GetEntityData()
     return &(tunnel.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief
+// L2tpv2_Counters_Control_Tunnels_Tunnel_Brief
 // L2TP control message local and remote addresses
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief struct {
+type L2tpv2_Counters_Control_Tunnels_Tunnel_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5456,21 +4629,21 @@ type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief struct {
     RemoteTunnelId interface{}
 
     // Local IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Remote IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteAddress interface{}
 }
 
-func (brief *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *types.CommonEntityData {
+func (brief *L2tpv2_Counters_Control_Tunnels_Tunnel_Brief) GetEntityData() *types.CommonEntityData {
     brief.EntityData.YFilter = brief.YFilter
     brief.EntityData.YangName = "brief"
     brief.EntityData.BundleName = "cisco_ios_xr"
     brief.EntityData.ParentYangName = "tunnel"
     brief.EntityData.SegmentPath = "brief"
-    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnels/tunnel/" + brief.EntityData.SegmentPath
+    brief.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/" + brief.EntityData.SegmentPath
     brief.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     brief.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     brief.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5486,9 +4659,9 @@ func (brief *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Brief) GetEntityD
     return &(brief.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global
+// L2tpv2_Counters_Control_Tunnels_Tunnel_Global
 // Global data
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global struct {
+type L2tpv2_Counters_Control_Tunnels_Tunnel_Global struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5505,25 +4678,25 @@ type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global struct {
     TotalDrop interface{}
 
     // Transmit data.
-    Transmit L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit
+    Transmit L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit
 
     // Re transmit data.
-    Retransmit L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit
+    Retransmit L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit
 
     // Received data.
-    Received L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received
+    Received L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Received
 
     // Drop data.
-    Drop L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop
+    Drop L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop
 }
 
-func (global *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *types.CommonEntityData {
+func (global *L2tpv2_Counters_Control_Tunnels_Tunnel_Global) GetEntityData() *types.CommonEntityData {
     global.EntityData.YFilter = global.YFilter
     global.EntityData.YangName = "global"
     global.EntityData.BundleName = "cisco_ios_xr"
     global.EntityData.ParentYangName = "tunnel"
     global.EntityData.SegmentPath = "global"
-    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnels/tunnel/" + global.EntityData.SegmentPath
+    global.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/" + global.EntityData.SegmentPath
     global.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     global.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     global.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5544,9 +4717,9 @@ func (global *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global) GetEntit
     return &(global.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit
+// L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit
 // Transmit data
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
+type L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5619,13 +4792,13 @@ type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit struct {
     AcknowledgementPackets interface{}
 }
 
-func (transmit *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntityData() *types.CommonEntityData {
+func (transmit *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Transmit) GetEntityData() *types.CommonEntityData {
     transmit.EntityData.YFilter = transmit.YFilter
     transmit.EntityData.YangName = "transmit"
     transmit.EntityData.BundleName = "cisco_ios_xr"
     transmit.EntityData.ParentYangName = "global"
     transmit.EntityData.SegmentPath = "transmit"
-    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnels/tunnel/global/" + transmit.EntityData.SegmentPath
+    transmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + transmit.EntityData.SegmentPath
     transmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     transmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     transmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5657,9 +4830,9 @@ func (transmit *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Transmi
     return &(transmit.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit
+// L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit
 // Re transmit data
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
+type L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5732,13 +4905,13 @@ type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit struct 
     AcknowledgementPackets interface{}
 }
 
-func (retransmit *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetEntityData() *types.CommonEntityData {
+func (retransmit *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Retransmit) GetEntityData() *types.CommonEntityData {
     retransmit.EntityData.YFilter = retransmit.YFilter
     retransmit.EntityData.YangName = "retransmit"
     retransmit.EntityData.BundleName = "cisco_ios_xr"
     retransmit.EntityData.ParentYangName = "global"
     retransmit.EntityData.SegmentPath = "retransmit"
-    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnels/tunnel/global/" + retransmit.EntityData.SegmentPath
+    retransmit.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + retransmit.EntityData.SegmentPath
     retransmit.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmit.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmit.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5770,9 +4943,9 @@ func (retransmit *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Retra
     return &(retransmit.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received
+// L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Received
 // Received data
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received struct {
+type L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Received struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5845,13 +5018,13 @@ type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received struct {
     AcknowledgementPackets interface{}
 }
 
-func (received *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntityData() *types.CommonEntityData {
+func (received *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Received) GetEntityData() *types.CommonEntityData {
     received.EntityData.YFilter = received.YFilter
     received.EntityData.YangName = "received"
     received.EntityData.BundleName = "cisco_ios_xr"
     received.EntityData.ParentYangName = "global"
     received.EntityData.SegmentPath = "received"
-    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnels/tunnel/global/" + received.EntityData.SegmentPath
+    received.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + received.EntityData.SegmentPath
     received.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     received.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     received.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5883,9 +5056,9 @@ func (received *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Receive
     return &(received.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop
+// L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop
 // Drop data
-type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
+type L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -5958,13 +5131,13 @@ type L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop struct {
     AcknowledgementPackets interface{}
 }
 
-func (drop *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() *types.CommonEntityData {
+func (drop *L2tpv2_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEntityData() *types.CommonEntityData {
     drop.EntityData.YFilter = drop.YFilter
     drop.EntityData.YangName = "drop"
     drop.EntityData.BundleName = "cisco_ios_xr"
     drop.EntityData.ParentYangName = "global"
     drop.EntityData.SegmentPath = "drop"
-    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counters/control/tunnels/tunnel/global/" + drop.EntityData.SegmentPath
+    drop.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/tunnel/global/" + drop.EntityData.SegmentPath
     drop.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     drop.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     drop.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -5996,9 +5169,9 @@ func (drop *L2tpv2_Nodes_Node_Counters_Control_Tunnels_Tunnel_Global_Drop) GetEn
     return &(drop.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Statistics
+// L2tpv2_Statistics
 // L2TP v2 statistics information
-type L2tpv2_Nodes_Node_Statistics struct {
+type L2tpv2_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -6015,7 +5188,7 @@ type L2tpv2_Nodes_Node_Statistics struct {
     // 0..4294967295.
     ReceivedPackets interface{}
 
-    // Average processing time for received packets  (in micro seconds). The type
+    // Average processing time for received packets (in micro seconds). The type
     // is interface{} with range: 0..4294967295. Units are microsecond.
     AveragePacketProcessingTime interface{}
 
@@ -6040,13 +5213,13 @@ type L2tpv2_Nodes_Node_Statistics struct {
     NetioPackets interface{}
 }
 
-func (statistics *L2tpv2_Nodes_Node_Statistics) GetEntityData() *types.CommonEntityData {
+func (statistics *L2tpv2_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.YFilter = statistics.YFilter
     statistics.EntityData.YangName = "statistics"
     statistics.EntityData.BundleName = "cisco_ios_xr"
-    statistics.EntityData.ParentYangName = "node"
+    statistics.EntityData.ParentYangName = "l2tpv2"
     statistics.EntityData.SegmentPath = "statistics"
-    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + statistics.EntityData.SegmentPath
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6070,23 +5243,23 @@ func (statistics *L2tpv2_Nodes_Node_Statistics) GetEntityData() *types.CommonEnt
     return &(statistics.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Tunnel
+// L2tpv2_Tunnel
 // L2TPv2 tunnel 
-type L2tpv2_Nodes_Node_Tunnel struct {
+type L2tpv2_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel accounting counters.
-    Accounting L2tpv2_Nodes_Node_Tunnel_Accounting
+    Accounting L2tpv2_Tunnel_Accounting
 }
 
-func (tunnel *L2tpv2_Nodes_Node_Tunnel) GetEntityData() *types.CommonEntityData {
+func (tunnel *L2tpv2_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.YFilter = tunnel.YFilter
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "cisco_ios_xr"
-    tunnel.EntityData.ParentYangName = "node"
+    tunnel.EntityData.ParentYangName = "l2tpv2"
     tunnel.EntityData.SegmentPath = "tunnel"
-    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + tunnel.EntityData.SegmentPath
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6100,23 +5273,23 @@ func (tunnel *L2tpv2_Nodes_Node_Tunnel) GetEntityData() *types.CommonEntityData 
     return &(tunnel.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Tunnel_Accounting
+// L2tpv2_Tunnel_Accounting
 // Tunnel accounting counters
-type L2tpv2_Nodes_Node_Tunnel_Accounting struct {
+type L2tpv2_Tunnel_Accounting struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Tunnel accounting statistics.
-    Statistics L2tpv2_Nodes_Node_Tunnel_Accounting_Statistics
+    Statistics L2tpv2_Tunnel_Accounting_Statistics
 }
 
-func (accounting *L2tpv2_Nodes_Node_Tunnel_Accounting) GetEntityData() *types.CommonEntityData {
+func (accounting *L2tpv2_Tunnel_Accounting) GetEntityData() *types.CommonEntityData {
     accounting.EntityData.YFilter = accounting.YFilter
     accounting.EntityData.YangName = "accounting"
     accounting.EntityData.BundleName = "cisco_ios_xr"
     accounting.EntityData.ParentYangName = "tunnel"
     accounting.EntityData.SegmentPath = "accounting"
-    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/tunnel/" + accounting.EntityData.SegmentPath
+    accounting.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/" + accounting.EntityData.SegmentPath
     accounting.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     accounting.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     accounting.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6130,9 +5303,9 @@ func (accounting *L2tpv2_Nodes_Node_Tunnel_Accounting) GetEntityData() *types.Co
     return &(accounting.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Tunnel_Accounting_Statistics
+// L2tpv2_Tunnel_Accounting_Statistics
 // Tunnel accounting statistics
-type L2tpv2_Nodes_Node_Tunnel_Accounting_Statistics struct {
+type L2tpv2_Tunnel_Accounting_Statistics struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -6194,13 +5367,13 @@ type L2tpv2_Nodes_Node_Tunnel_Accounting_Statistics struct {
     QueueStatisticsSize interface{}
 }
 
-func (statistics *L2tpv2_Nodes_Node_Tunnel_Accounting_Statistics) GetEntityData() *types.CommonEntityData {
+func (statistics *L2tpv2_Tunnel_Accounting_Statistics) GetEntityData() *types.CommonEntityData {
     statistics.EntityData.YFilter = statistics.YFilter
     statistics.EntityData.YangName = "statistics"
     statistics.EntityData.BundleName = "cisco_ios_xr"
     statistics.EntityData.ParentYangName = "accounting"
     statistics.EntityData.SegmentPath = "statistics"
-    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/tunnel/accounting/" + statistics.EntityData.SegmentPath
+    statistics.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/accounting/" + statistics.EntityData.SegmentPath
     statistics.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     statistics.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     statistics.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6228,24 +5401,24 @@ func (statistics *L2tpv2_Nodes_Node_Tunnel_Accounting_Statistics) GetEntityData(
     return &(statistics.EntityData)
 }
 
-// L2tpv2_Nodes_Node_TunnelConfigurations
+// L2tpv2_TunnelConfigurations
 // List of tunnel IDs
-type L2tpv2_Nodes_Node_TunnelConfigurations struct {
+type L2tpv2_TunnelConfigurations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP tunnel information. The type is slice of
-    // L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration.
-    TunnelConfiguration []*L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration
+    // L2tpv2_TunnelConfigurations_TunnelConfiguration.
+    TunnelConfiguration []*L2tpv2_TunnelConfigurations_TunnelConfiguration
 }
 
-func (tunnelConfigurations *L2tpv2_Nodes_Node_TunnelConfigurations) GetEntityData() *types.CommonEntityData {
+func (tunnelConfigurations *L2tpv2_TunnelConfigurations) GetEntityData() *types.CommonEntityData {
     tunnelConfigurations.EntityData.YFilter = tunnelConfigurations.YFilter
     tunnelConfigurations.EntityData.YangName = "tunnel-configurations"
     tunnelConfigurations.EntityData.BundleName = "cisco_ios_xr"
-    tunnelConfigurations.EntityData.ParentYangName = "node"
+    tunnelConfigurations.EntityData.ParentYangName = "l2tpv2"
     tunnelConfigurations.EntityData.SegmentPath = "tunnel-configurations"
-    tunnelConfigurations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + tunnelConfigurations.EntityData.SegmentPath
+    tunnelConfigurations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + tunnelConfigurations.EntityData.SegmentPath
     tunnelConfigurations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfigurations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfigurations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6262,9 +5435,9 @@ func (tunnelConfigurations *L2tpv2_Nodes_Node_TunnelConfigurations) GetEntityDat
     return &(tunnelConfigurations.EntityData)
 }
 
-// L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration
+// L2tpv2_TunnelConfigurations_TunnelConfiguration
 // L2TP tunnel information
-type L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration struct {
+type L2tpv2_TunnelConfigurations_TunnelConfiguration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -6277,16 +5450,16 @@ type L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration struct {
     RemoteTunnelId interface{}
 
     // L2Tp class data.
-    L2tpClass L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass
+    L2tpClass L2tpv2_TunnelConfigurations_TunnelConfiguration_L2tpClass
 }
 
-func (tunnelConfiguration *L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration) GetEntityData() *types.CommonEntityData {
+func (tunnelConfiguration *L2tpv2_TunnelConfigurations_TunnelConfiguration) GetEntityData() *types.CommonEntityData {
     tunnelConfiguration.EntityData.YFilter = tunnelConfiguration.YFilter
     tunnelConfiguration.EntityData.YangName = "tunnel-configuration"
     tunnelConfiguration.EntityData.BundleName = "cisco_ios_xr"
     tunnelConfiguration.EntityData.ParentYangName = "tunnel-configurations"
     tunnelConfiguration.EntityData.SegmentPath = "tunnel-configuration" + types.AddKeyToken(tunnelConfiguration.LocalTunnelId, "local-tunnel-id")
-    tunnelConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/tunnel-configurations/" + tunnelConfiguration.EntityData.SegmentPath
+    tunnelConfiguration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel-configurations/" + tunnelConfiguration.EntityData.SegmentPath
     tunnelConfiguration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelConfiguration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelConfiguration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6302,9 +5475,9 @@ func (tunnelConfiguration *L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfigur
     return &(tunnelConfiguration.EntityData)
 }
 
-// L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass
+// L2tpv2_TunnelConfigurations_TunnelConfiguration_L2tpClass
 // L2Tp class data
-type L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass struct {
+type L2tpv2_TunnelConfigurations_TunnelConfiguration_L2tpClass struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -6388,13 +5561,13 @@ type L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass struct
     IsPeerAddressChecked interface{}
 }
 
-func (l2tpClass *L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tpClass) GetEntityData() *types.CommonEntityData {
+func (l2tpClass *L2tpv2_TunnelConfigurations_TunnelConfiguration_L2tpClass) GetEntityData() *types.CommonEntityData {
     l2tpClass.EntityData.YFilter = l2tpClass.YFilter
     l2tpClass.EntityData.YangName = "l2tp-class"
     l2tpClass.EntityData.BundleName = "cisco_ios_xr"
     l2tpClass.EntityData.ParentYangName = "tunnel-configuration"
     l2tpClass.EntityData.SegmentPath = "l2tp-class"
-    l2tpClass.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/tunnel-configurations/tunnel-configuration/" + l2tpClass.EntityData.SegmentPath
+    l2tpClass.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel-configurations/tunnel-configuration/" + l2tpClass.EntityData.SegmentPath
     l2tpClass.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tpClass.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tpClass.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6431,9 +5604,9 @@ func (l2tpClass *L2tpv2_Nodes_Node_TunnelConfigurations_TunnelConfiguration_L2tp
     return &(l2tpClass.EntityData)
 }
 
-// L2tpv2_Nodes_Node_CounterHistFail
+// L2tpv2_CounterHistFail
 // Failure events leading to disconnection
-type L2tpv2_Nodes_Node_CounterHistFail struct {
+type L2tpv2_CounterHistFail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -6442,25 +5615,25 @@ type L2tpv2_Nodes_Node_CounterHistFail struct {
     SessDownTmout interface{}
 
     // Send side counters. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     TxCounters interface{}
 
     // Receive side counters. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RxCounters interface{}
 
     // timeout events by packet. The type is slice of
-    // L2tpv2_Nodes_Node_CounterHistFail_PktTimeout.
-    PktTimeout []*L2tpv2_Nodes_Node_CounterHistFail_PktTimeout
+    // L2tpv2_CounterHistFail_PktTimeout.
+    PktTimeout []*L2tpv2_CounterHistFail_PktTimeout
 }
 
-func (counterHistFail *L2tpv2_Nodes_Node_CounterHistFail) GetEntityData() *types.CommonEntityData {
+func (counterHistFail *L2tpv2_CounterHistFail) GetEntityData() *types.CommonEntityData {
     counterHistFail.EntityData.YFilter = counterHistFail.YFilter
     counterHistFail.EntityData.YangName = "counter-hist-fail"
     counterHistFail.EntityData.BundleName = "cisco_ios_xr"
-    counterHistFail.EntityData.ParentYangName = "node"
+    counterHistFail.EntityData.ParentYangName = "l2tpv2"
     counterHistFail.EntityData.SegmentPath = "counter-hist-fail"
-    counterHistFail.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + counterHistFail.EntityData.SegmentPath
+    counterHistFail.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + counterHistFail.EntityData.SegmentPath
     counterHistFail.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     counterHistFail.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     counterHistFail.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6481,25 +5654,24 @@ func (counterHistFail *L2tpv2_Nodes_Node_CounterHistFail) GetEntityData() *types
     return &(counterHistFail.EntityData)
 }
 
-// L2tpv2_Nodes_Node_CounterHistFail_PktTimeout
+// L2tpv2_CounterHistFail_PktTimeout
 // timeout events by packet
-type L2tpv2_Nodes_Node_CounterHistFail_PktTimeout struct {
+type L2tpv2_CounterHistFail_PktTimeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // timeout events by packet. The type is interface{} with range:
-    // 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
-func (pktTimeout *L2tpv2_Nodes_Node_CounterHistFail_PktTimeout) GetEntityData() *types.CommonEntityData {
+func (pktTimeout *L2tpv2_CounterHistFail_PktTimeout) GetEntityData() *types.CommonEntityData {
     pktTimeout.EntityData.YFilter = pktTimeout.YFilter
     pktTimeout.EntityData.YangName = "pkt-timeout"
     pktTimeout.EntityData.BundleName = "cisco_ios_xr"
     pktTimeout.EntityData.ParentYangName = "counter-hist-fail"
     pktTimeout.EntityData.SegmentPath = "pkt-timeout" + types.AddNoKeyToken(pktTimeout)
-    pktTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/counter-hist-fail/" + pktTimeout.EntityData.SegmentPath
+    pktTimeout.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counter-hist-fail/" + pktTimeout.EntityData.SegmentPath
     pktTimeout.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     pktTimeout.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     pktTimeout.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6513,23 +5685,23 @@ func (pktTimeout *L2tpv2_Nodes_Node_CounterHistFail_PktTimeout) GetEntityData() 
     return &(pktTimeout.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Classes
+// L2tpv2_Classes
 // List of L2TP class names
-type L2tpv2_Nodes_Node_Classes struct {
+type L2tpv2_Classes struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // L2TP class name. The type is slice of L2tpv2_Nodes_Node_Classes_Class.
-    Class []*L2tpv2_Nodes_Node_Classes_Class
+    // L2TP class name. The type is slice of L2tpv2_Classes_Class.
+    Class []*L2tpv2_Classes_Class
 }
 
-func (classes *L2tpv2_Nodes_Node_Classes) GetEntityData() *types.CommonEntityData {
+func (classes *L2tpv2_Classes) GetEntityData() *types.CommonEntityData {
     classes.EntityData.YFilter = classes.YFilter
     classes.EntityData.YangName = "classes"
     classes.EntityData.BundleName = "cisco_ios_xr"
-    classes.EntityData.ParentYangName = "node"
+    classes.EntityData.ParentYangName = "l2tpv2"
     classes.EntityData.SegmentPath = "classes"
-    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + classes.EntityData.SegmentPath
+    classes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + classes.EntityData.SegmentPath
     classes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     classes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     classes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6546,9 +5718,9 @@ func (classes *L2tpv2_Nodes_Node_Classes) GetEntityData() *types.CommonEntityDat
     return &(classes.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Classes_Class
+// L2tpv2_Classes_Class
 // L2TP class name
-type L2tpv2_Nodes_Node_Classes_Class struct {
+type L2tpv2_Classes_Class struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -6637,13 +5809,13 @@ type L2tpv2_Nodes_Node_Classes_Class struct {
     IsPeerAddressChecked interface{}
 }
 
-func (class *L2tpv2_Nodes_Node_Classes_Class) GetEntityData() *types.CommonEntityData {
+func (class *L2tpv2_Classes_Class) GetEntityData() *types.CommonEntityData {
     class.EntityData.YFilter = class.YFilter
     class.EntityData.YangName = "class"
     class.EntityData.BundleName = "cisco_ios_xr"
     class.EntityData.ParentYangName = "classes"
     class.EntityData.SegmentPath = "class" + types.AddKeyToken(class.ClassName, "class-name")
-    class.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/classes/" + class.EntityData.SegmentPath
+    class.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/classes/" + class.EntityData.SegmentPath
     class.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     class.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     class.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6681,24 +5853,23 @@ func (class *L2tpv2_Nodes_Node_Classes_Class) GetEntityData() *types.CommonEntit
     return &(class.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Tunnels
+// L2tpv2_Tunnels
 // List of tunnel IDs
-type L2tpv2_Nodes_Node_Tunnels struct {
+type L2tpv2_Tunnels struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // L2TP tunnel  information. The type is slice of
-    // L2tpv2_Nodes_Node_Tunnels_Tunnel.
-    Tunnel []*L2tpv2_Nodes_Node_Tunnels_Tunnel
+    // L2TP tunnel  information. The type is slice of L2tpv2_Tunnels_Tunnel.
+    Tunnel []*L2tpv2_Tunnels_Tunnel
 }
 
-func (tunnels *L2tpv2_Nodes_Node_Tunnels) GetEntityData() *types.CommonEntityData {
+func (tunnels *L2tpv2_Tunnels) GetEntityData() *types.CommonEntityData {
     tunnels.EntityData.YFilter = tunnels.YFilter
     tunnels.EntityData.YangName = "tunnels"
     tunnels.EntityData.BundleName = "cisco_ios_xr"
-    tunnels.EntityData.ParentYangName = "node"
+    tunnels.EntityData.ParentYangName = "l2tpv2"
     tunnels.EntityData.SegmentPath = "tunnels"
-    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + tunnels.EntityData.SegmentPath
+    tunnels.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + tunnels.EntityData.SegmentPath
     tunnels.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnels.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnels.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6715,9 +5886,9 @@ func (tunnels *L2tpv2_Nodes_Node_Tunnels) GetEntityData() *types.CommonEntityDat
     return &(tunnels.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Tunnels_Tunnel
+// L2tpv2_Tunnels_Tunnel
 // L2TP tunnel  information
-type L2tpv2_Nodes_Node_Tunnels_Tunnel struct {
+type L2tpv2_Tunnels_Tunnel struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -6727,11 +5898,11 @@ type L2tpv2_Nodes_Node_Tunnels_Tunnel struct {
     LocalTunnelId interface{}
 
     // Local tunnel address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Remote tunnel address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteAddress interface{}
 
     // Local port. The type is interface{} with range: 0..65535.
@@ -6831,17 +6002,17 @@ type L2tpv2_Nodes_Node_Tunnels_Tunnel struct {
     IsCongestionControlEnabled interface{}
 
     // Retransmit time distribution in seconds. The type is slice of
-    // L2tpv2_Nodes_Node_Tunnels_Tunnel_RetransmitTime.
-    RetransmitTime []*L2tpv2_Nodes_Node_Tunnels_Tunnel_RetransmitTime
+    // L2tpv2_Tunnels_Tunnel_RetransmitTime.
+    RetransmitTime []*L2tpv2_Tunnels_Tunnel_RetransmitTime
 }
 
-func (tunnel *L2tpv2_Nodes_Node_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
+func (tunnel *L2tpv2_Tunnels_Tunnel) GetEntityData() *types.CommonEntityData {
     tunnel.EntityData.YFilter = tunnel.YFilter
     tunnel.EntityData.YangName = "tunnel"
     tunnel.EntityData.BundleName = "cisco_ios_xr"
     tunnel.EntityData.ParentYangName = "tunnels"
     tunnel.EntityData.SegmentPath = "tunnel" + types.AddKeyToken(tunnel.LocalTunnelId, "local-tunnel-id")
-    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/tunnels/" + tunnel.EntityData.SegmentPath
+    tunnel.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnels/" + tunnel.EntityData.SegmentPath
     tunnel.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnel.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnel.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6891,25 +6062,24 @@ func (tunnel *L2tpv2_Nodes_Node_Tunnels_Tunnel) GetEntityData() *types.CommonEnt
     return &(tunnel.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Tunnels_Tunnel_RetransmitTime
+// L2tpv2_Tunnels_Tunnel_RetransmitTime
 // Retransmit time distribution in seconds
-type L2tpv2_Nodes_Node_Tunnels_Tunnel_RetransmitTime struct {
+type L2tpv2_Tunnels_Tunnel_RetransmitTime struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // Retransmit time distribution in seconds. The type is interface{} with
-    // range: 0..65535. Units are second.
+    // The type is interface{} with range: 0..65535. Units are second.
     Entry interface{}
 }
 
-func (retransmitTime *L2tpv2_Nodes_Node_Tunnels_Tunnel_RetransmitTime) GetEntityData() *types.CommonEntityData {
+func (retransmitTime *L2tpv2_Tunnels_Tunnel_RetransmitTime) GetEntityData() *types.CommonEntityData {
     retransmitTime.EntityData.YFilter = retransmitTime.YFilter
     retransmitTime.EntityData.YangName = "retransmit-time"
     retransmitTime.EntityData.BundleName = "cisco_ios_xr"
     retransmitTime.EntityData.ParentYangName = "tunnel"
     retransmitTime.EntityData.SegmentPath = "retransmit-time" + types.AddNoKeyToken(retransmitTime)
-    retransmitTime.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/tunnels/tunnel/" + retransmitTime.EntityData.SegmentPath
+    retransmitTime.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnels/tunnel/" + retransmitTime.EntityData.SegmentPath
     retransmitTime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     retransmitTime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     retransmitTime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6923,24 +6093,24 @@ func (retransmitTime *L2tpv2_Nodes_Node_Tunnels_Tunnel_RetransmitTime) GetEntity
     return &(retransmitTime.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Sessions
+// L2tpv2_Sessions
 // List of session IDs
-type L2tpv2_Nodes_Node_Sessions struct {
+type L2tpv2_Sessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP information for a particular session. The type is slice of
-    // L2tpv2_Nodes_Node_Sessions_Session.
-    Session []*L2tpv2_Nodes_Node_Sessions_Session
+    // L2tpv2_Sessions_Session.
+    Session []*L2tpv2_Sessions_Session
 }
 
-func (sessions *L2tpv2_Nodes_Node_Sessions) GetEntityData() *types.CommonEntityData {
+func (sessions *L2tpv2_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.YFilter = sessions.YFilter
     sessions.EntityData.YangName = "sessions"
     sessions.EntityData.BundleName = "cisco_ios_xr"
-    sessions.EntityData.ParentYangName = "node"
+    sessions.EntityData.ParentYangName = "l2tpv2"
     sessions.EntityData.SegmentPath = "sessions"
-    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + sessions.EntityData.SegmentPath
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -6957,9 +6127,9 @@ func (sessions *L2tpv2_Nodes_Node_Sessions) GetEntityData() *types.CommonEntityD
     return &(sessions.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Sessions_Session
+// L2tpv2_Sessions_Session
 // L2TP information for a particular session
-type L2tpv2_Nodes_Node_Sessions_Session struct {
+type L2tpv2_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -6973,11 +6143,11 @@ type L2tpv2_Nodes_Node_Sessions_Session struct {
     LocalSessionId interface{}
 
     // Local session IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIpAddress interface{}
 
     // Remote session IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteIpAddress interface{}
 
     // l2tp sh sess udp lport. The type is interface{} with range: 0..65535.
@@ -7040,16 +6210,16 @@ type L2tpv2_Nodes_Node_Sessions_Session struct {
     InterfaceName interface{}
 
     // Session application data.
-    SessionApplicationData L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData
+    SessionApplicationData L2tpv2_Sessions_Session_SessionApplicationData
 }
 
-func (session *L2tpv2_Nodes_Node_Sessions_Session) GetEntityData() *types.CommonEntityData {
+func (session *L2tpv2_Sessions_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.LocalTunnelId, "local-tunnel-id") + types.AddKeyToken(session.LocalSessionId, "local-session-id")
-    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/sessions/" + session.EntityData.SegmentPath
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7086,9 +6256,9 @@ func (session *L2tpv2_Nodes_Node_Sessions_Session) GetEntityData() *types.Common
     return &(session.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData
+// L2tpv2_Sessions_Session_SessionApplicationData
 // Session application data
-type L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData struct {
+type L2tpv2_Sessions_Session_SessionApplicationData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7096,19 +6266,19 @@ type L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData struct {
     L2tpShSessAppType interface{}
 
     // Xconnect data.
-    Xconnect L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect
+    Xconnect L2tpv2_Sessions_Session_SessionApplicationData_Xconnect
 
     // VPDN data.
-    Vpdn L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn
+    Vpdn L2tpv2_Sessions_Session_SessionApplicationData_Vpdn
 }
 
-func (sessionApplicationData *L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData) GetEntityData() *types.CommonEntityData {
+func (sessionApplicationData *L2tpv2_Sessions_Session_SessionApplicationData) GetEntityData() *types.CommonEntityData {
     sessionApplicationData.EntityData.YFilter = sessionApplicationData.YFilter
     sessionApplicationData.EntityData.YangName = "session-application-data"
     sessionApplicationData.EntityData.BundleName = "cisco_ios_xr"
     sessionApplicationData.EntityData.ParentYangName = "session"
     sessionApplicationData.EntityData.SegmentPath = "session-application-data"
-    sessionApplicationData.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/sessions/session/" + sessionApplicationData.EntityData.SegmentPath
+    sessionApplicationData.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/session/" + sessionApplicationData.EntityData.SegmentPath
     sessionApplicationData.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessionApplicationData.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessionApplicationData.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7124,9 +6294,9 @@ func (sessionApplicationData *L2tpv2_Nodes_Node_Sessions_Session_SessionApplicat
     return &(sessionApplicationData.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect
+// L2tpv2_Sessions_Session_SessionApplicationData_Xconnect
 // Xconnect data
-type L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect struct {
+type L2tpv2_Sessions_Session_SessionApplicationData_Xconnect struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7149,13 +6319,13 @@ type L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect struct {
     Ipv6ProtocolTunneling interface{}
 }
 
-func (xconnect *L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Xconnect) GetEntityData() *types.CommonEntityData {
+func (xconnect *L2tpv2_Sessions_Session_SessionApplicationData_Xconnect) GetEntityData() *types.CommonEntityData {
     xconnect.EntityData.YFilter = xconnect.YFilter
     xconnect.EntityData.YangName = "xconnect"
     xconnect.EntityData.BundleName = "cisco_ios_xr"
     xconnect.EntityData.ParentYangName = "session-application-data"
     xconnect.EntityData.SegmentPath = "xconnect"
-    xconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/sessions/session/session-application-data/" + xconnect.EntityData.SegmentPath
+    xconnect.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/session/session-application-data/" + xconnect.EntityData.SegmentPath
     xconnect.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     xconnect.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     xconnect.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7174,26 +6344,26 @@ func (xconnect *L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Xconne
     return &(xconnect.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn
+// L2tpv2_Sessions_Session_SessionApplicationData_Vpdn
 // VPDN data
-type L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn struct {
+type L2tpv2_Sessions_Session_SessionApplicationData_Vpdn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Session username. The type is string.
     Username interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
-func (vpdn *L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData() *types.CommonEntityData {
+func (vpdn *L2tpv2_Sessions_Session_SessionApplicationData_Vpdn) GetEntityData() *types.CommonEntityData {
     vpdn.EntityData.YFilter = vpdn.YFilter
     vpdn.EntityData.YangName = "vpdn"
     vpdn.EntityData.BundleName = "cisco_ios_xr"
     vpdn.EntityData.ParentYangName = "session-application-data"
     vpdn.EntityData.SegmentPath = "vpdn"
-    vpdn.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/sessions/session/session-application-data/" + vpdn.EntityData.SegmentPath
+    vpdn.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/session/session-application-data/" + vpdn.EntityData.SegmentPath
     vpdn.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdn.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7208,23 +6378,23 @@ func (vpdn *L2tpv2_Nodes_Node_Sessions_Session_SessionApplicationData_Vpdn) GetE
     return &(vpdn.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Session
+// L2tpv2_Session
 // L2TP control messages counters
-type L2tpv2_Nodes_Node_Session struct {
+type L2tpv2_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // L2TP session unavailable  information.
-    Unavailable L2tpv2_Nodes_Node_Session_Unavailable
+    Unavailable L2tpv2_Session_Unavailable
 }
 
-func (session *L2tpv2_Nodes_Node_Session) GetEntityData() *types.CommonEntityData {
+func (session *L2tpv2_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
-    session.EntityData.ParentYangName = "node"
+    session.EntityData.ParentYangName = "l2tpv2"
     session.EntityData.SegmentPath = "session"
-    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + session.EntityData.SegmentPath
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7238,9 +6408,9 @@ func (session *L2tpv2_Nodes_Node_Session) GetEntityData() *types.CommonEntityDat
     return &(session.EntityData)
 }
 
-// L2tpv2_Nodes_Node_Session_Unavailable
+// L2tpv2_Session_Unavailable
 // L2TP session unavailable  information
-type L2tpv2_Nodes_Node_Session_Unavailable struct {
+type L2tpv2_Session_Unavailable struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -7249,13 +6419,13 @@ type L2tpv2_Nodes_Node_Session_Unavailable struct {
     SessionsOnHold interface{}
 }
 
-func (unavailable *L2tpv2_Nodes_Node_Session_Unavailable) GetEntityData() *types.CommonEntityData {
+func (unavailable *L2tpv2_Session_Unavailable) GetEntityData() *types.CommonEntityData {
     unavailable.EntityData.YFilter = unavailable.YFilter
     unavailable.EntityData.YangName = "unavailable"
     unavailable.EntityData.BundleName = "cisco_ios_xr"
     unavailable.EntityData.ParentYangName = "session"
     unavailable.EntityData.SegmentPath = "unavailable"
-    unavailable.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/session/" + unavailable.EntityData.SegmentPath
+    unavailable.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/session/" + unavailable.EntityData.SegmentPath
     unavailable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     unavailable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     unavailable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -7267,679 +6437,5 @@ func (unavailable *L2tpv2_Nodes_Node_Session_Unavailable) GetEntityData() *types
     unavailable.EntityData.YListKeys = []string {}
 
     return &(unavailable.EntityData)
-}
-
-// L2tpv2_Nodes_Node_Internal
-// L2TP v2/v3 internal information
-type L2tpv2_Nodes_Node_Internal struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // time last clear. The type is interface{} with range: 0..4294967295.
-    TimeLastClear interface{}
-
-    // internal stats.
-    InternalStats L2tpv2_Nodes_Node_Internal_InternalStats
-
-    // internal stats last clear.
-    InternalStatsLastClear L2tpv2_Nodes_Node_Internal_InternalStatsLastClear
-}
-
-func (internal *L2tpv2_Nodes_Node_Internal) GetEntityData() *types.CommonEntityData {
-    internal.EntityData.YFilter = internal.YFilter
-    internal.EntityData.YangName = "internal"
-    internal.EntityData.BundleName = "cisco_ios_xr"
-    internal.EntityData.ParentYangName = "node"
-    internal.EntityData.SegmentPath = "internal"
-    internal.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/" + internal.EntityData.SegmentPath
-    internal.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    internal.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    internal.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    internal.EntityData.Children = types.NewOrderedMap()
-    internal.EntityData.Children.Append("internal-stats", types.YChild{"InternalStats", &internal.InternalStats})
-    internal.EntityData.Children.Append("internal-stats-last-clear", types.YChild{"InternalStatsLastClear", &internal.InternalStatsLastClear})
-    internal.EntityData.Leafs = types.NewOrderedMap()
-    internal.EntityData.Leafs.Append("time-last-clear", types.YLeaf{"TimeLastClear", internal.TimeLastClear})
-
-    internal.EntityData.YListKeys = []string {}
-
-    return &(internal.EntityData)
-}
-
-// L2tpv2_Nodes_Node_Internal_InternalStats
-// internal stats
-type L2tpv2_Nodes_Node_Internal_InternalStats struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // l2tp sh l2x num tunnels. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTunnels interface{}
-
-    // l2tp sh l2x num sessions. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumSessions interface{}
-
-    // l2tp sh l2x rx high water mark. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xRxHighWaterMark interface{}
-
-    // l2tp sh l2x ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2xAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2x num rx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumRxMsgs interface{}
-
-    // l2tp sh l2x num tx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTxMsgs interface{}
-
-    // l2tp sh l2x num tx err drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxErrDrops interface{}
-
-    // l2tp sh l2x num tx conn drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxConnDrops interface{}
-
-    // l2tp sh l2x num reordered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumReorderedMsgs interface{}
-
-    // l2tp sh l2x max reorder deviation. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xMaxReorderDeviation interface{}
-
-    // l2tp sh l2x num ooo msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumOooMsgs interface{}
-
-    // l2tp sh l2x num rx path drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDrops interface{}
-
-    // l2tp sh l2x num rx path data pkt drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDataPktDrops interface{}
-
-    // l2tp sh l2x num rx queue drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxQueueDrops interface{}
-
-    // l2tp sh l2x num rx ooo drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxOooDrops interface{}
-
-    // l2tp sh l2x num buffered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBufferedMsgs interface{}
-
-    // l2tp sh l2x num mutex block. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMutexBlock interface{}
-
-    // l2tp sh l2x num bad len drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadLenDrops interface{}
-
-    // l2tp sh l2x num bad avp drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadAvpDrops interface{}
-
-    // l2tp sh l2x num missing cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingCcIdDrops interface{}
-
-    // l2tp sh l2x num missing sess id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingSessIdDrops interface{}
-
-    // l2tp sh l2x num mismatch cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMismatchCcIdDrops interface{}
-
-    // l2tp sh l2x num unknown cc drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownCcDrops interface{}
-
-    // l2tp sh l2x num unknown sess drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownSessDrops interface{}
-
-    // l2tp sh l2x num linear id search. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearch interface{}
-
-    // l2tp sh l2x num linear id search fail. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearchFail interface{}
-
-    // l2tp sh l2x num netio pkt rx. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumNetioPktRx interface{}
-
-    // l2tp sh l2tun ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2tunAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2tun num rx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumRxMsgs interface{}
-
-    // l2tp sh l2tun num tx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumTxMsgs interface{}
-
-    // l2tp l2tun socket ens send error cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpL2tunSocketEnsSendErrorCnt interface{}
-
-    // l2tp l2tun socket session accept. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionAccept interface{}
-
-    // l2tp l2tun socket session destroy. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionDestroy interface{}
-
-    // l2tp l2tun socket session connect. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnect interface{}
-
-    // l2tp l2tun socket session connect continue. The type is interface{} with
-    // range: 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnectContinue interface{}
-
-    // l2tp l2tun session connecting. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnecting interface{}
-
-    // l2tp l2tun session connected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnected interface{}
-
-    // l2tp l2tun session disconnected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionDisconnected interface{}
-
-    // l2tp l2tun session incoming. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionIncoming interface{}
-
-    // l2tp l2tun session updated. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionUpdated interface{}
-
-    // l2tp l2tun session circuit status. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionCircuitStatus interface{}
-
-    // l2x lpts pa stats setup cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsSetupCnt interface{}
-
-    // l2x lpts pa stats destroy cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsDestroyCnt interface{}
-
-    // l2x lpts pa stats alloc cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocCnt interface{}
-
-    // l2x lpts pa stats alloc fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocFailCnt interface{}
-
-    // l2x lpts pa stats init cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitCnt interface{}
-
-    // l2x lpts pa stats init fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitFailCnt interface{}
-
-    // l2x lpts pa stats free cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsFreeCnt interface{}
-
-    // l2x lpts pa stats pulse cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseCnt interface{}
-
-    // l2x lpts pa stats pulse fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseFailCnt interface{}
-
-    // l2x lpts pa stats bind cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindCnt interface{}
-
-    // l2x lpts pa stats bind fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindFailCnt interface{}
-
-    // l2x lpts pa stats bind batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchCnt interface{}
-
-    // l2x lpts pa stats bind batch fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchFailCnt interface{}
-
-    // l2x lpts pa stats bind time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindTime interface{}
-
-    // l2x lpts pa stats expire cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsExpireCnt interface{}
-
-    // l2x lpts pa stats replay cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayCnt interface{}
-
-    // l2x lpts pa stats replay batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayBatchCnt interface{}
-
-    // l2x lpts pa stats replay time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayTime interface{}
-}
-
-func (internalStats *L2tpv2_Nodes_Node_Internal_InternalStats) GetEntityData() *types.CommonEntityData {
-    internalStats.EntityData.YFilter = internalStats.YFilter
-    internalStats.EntityData.YangName = "internal-stats"
-    internalStats.EntityData.BundleName = "cisco_ios_xr"
-    internalStats.EntityData.ParentYangName = "internal"
-    internalStats.EntityData.SegmentPath = "internal-stats"
-    internalStats.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/internal/" + internalStats.EntityData.SegmentPath
-    internalStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    internalStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    internalStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    internalStats.EntityData.Children = types.NewOrderedMap()
-    internalStats.EntityData.Leafs = types.NewOrderedMap()
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tunnels", types.YLeaf{"L2tpShL2xNumTunnels", internalStats.L2tpShL2xNumTunnels})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-sessions", types.YLeaf{"L2tpShL2xNumSessions", internalStats.L2tpShL2xNumSessions})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-rx-high-water-mark", types.YLeaf{"L2tpShL2xRxHighWaterMark", internalStats.L2tpShL2xRxHighWaterMark})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-ave-msg-process-usecs", types.YLeaf{"L2tpShL2xAveMsgProcessUsecs", internalStats.L2tpShL2xAveMsgProcessUsecs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-msgs", types.YLeaf{"L2tpShL2xNumRxMsgs", internalStats.L2tpShL2xNumRxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-msgs", types.YLeaf{"L2tpShL2xNumTxMsgs", internalStats.L2tpShL2xNumTxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-err-drops", types.YLeaf{"L2tpShL2xNumTxErrDrops", internalStats.L2tpShL2xNumTxErrDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-conn-drops", types.YLeaf{"L2tpShL2xNumTxConnDrops", internalStats.L2tpShL2xNumTxConnDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-reordered-msgs", types.YLeaf{"L2tpShL2xNumReorderedMsgs", internalStats.L2tpShL2xNumReorderedMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-max-reorder-deviation", types.YLeaf{"L2tpShL2xMaxReorderDeviation", internalStats.L2tpShL2xMaxReorderDeviation})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-ooo-msgs", types.YLeaf{"L2tpShL2xNumOooMsgs", internalStats.L2tpShL2xNumOooMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-drops", types.YLeaf{"L2tpShL2xNumRxPathDrops", internalStats.L2tpShL2xNumRxPathDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-data-pkt-drops", types.YLeaf{"L2tpShL2xNumRxPathDataPktDrops", internalStats.L2tpShL2xNumRxPathDataPktDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-queue-drops", types.YLeaf{"L2tpShL2xNumRxQueueDrops", internalStats.L2tpShL2xNumRxQueueDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-ooo-drops", types.YLeaf{"L2tpShL2xNumRxOooDrops", internalStats.L2tpShL2xNumRxOooDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-buffered-msgs", types.YLeaf{"L2tpShL2xNumBufferedMsgs", internalStats.L2tpShL2xNumBufferedMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-mutex-block", types.YLeaf{"L2tpShL2xNumMutexBlock", internalStats.L2tpShL2xNumMutexBlock})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-len-drops", types.YLeaf{"L2tpShL2xNumBadLenDrops", internalStats.L2tpShL2xNumBadLenDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-avp-drops", types.YLeaf{"L2tpShL2xNumBadAvpDrops", internalStats.L2tpShL2xNumBadAvpDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-cc-id-drops", types.YLeaf{"L2tpShL2xNumMissingCcIdDrops", internalStats.L2tpShL2xNumMissingCcIdDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-sess-id-drops", types.YLeaf{"L2tpShL2xNumMissingSessIdDrops", internalStats.L2tpShL2xNumMissingSessIdDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-mismatch-cc-id-drops", types.YLeaf{"L2tpShL2xNumMismatchCcIdDrops", internalStats.L2tpShL2xNumMismatchCcIdDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-cc-drops", types.YLeaf{"L2tpShL2xNumUnknownCcDrops", internalStats.L2tpShL2xNumUnknownCcDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-sess-drops", types.YLeaf{"L2tpShL2xNumUnknownSessDrops", internalStats.L2tpShL2xNumUnknownSessDrops})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search", types.YLeaf{"L2tpShL2xNumLinearIdSearch", internalStats.L2tpShL2xNumLinearIdSearch})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search-fail", types.YLeaf{"L2tpShL2xNumLinearIdSearchFail", internalStats.L2tpShL2xNumLinearIdSearchFail})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2x-num-netio-pkt-rx", types.YLeaf{"L2tpShL2xNumNetioPktRx", internalStats.L2tpShL2xNumNetioPktRx})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2tun-ave-msg-process-usecs", types.YLeaf{"L2tpShL2tunAveMsgProcessUsecs", internalStats.L2tpShL2tunAveMsgProcessUsecs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2tun-num-rx-msgs", types.YLeaf{"L2tpShL2tunNumRxMsgs", internalStats.L2tpShL2tunNumRxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-sh-l2tun-num-tx-msgs", types.YLeaf{"L2tpShL2tunNumTxMsgs", internalStats.L2tpShL2tunNumTxMsgs})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-ens-send-error-cnt", types.YLeaf{"L2tpL2tunSocketEnsSendErrorCnt", internalStats.L2tpL2tunSocketEnsSendErrorCnt})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-accept", types.YLeaf{"L2tpL2tunSocketSessionAccept", internalStats.L2tpL2tunSocketSessionAccept})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-destroy", types.YLeaf{"L2tpL2tunSocketSessionDestroy", internalStats.L2tpL2tunSocketSessionDestroy})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect", types.YLeaf{"L2tpL2tunSocketSessionConnect", internalStats.L2tpL2tunSocketSessionConnect})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect-continue", types.YLeaf{"L2tpL2tunSocketSessionConnectContinue", internalStats.L2tpL2tunSocketSessionConnectContinue})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-connecting", types.YLeaf{"L2tpL2tunSessionConnecting", internalStats.L2tpL2tunSessionConnecting})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-connected", types.YLeaf{"L2tpL2tunSessionConnected", internalStats.L2tpL2tunSessionConnected})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-disconnected", types.YLeaf{"L2tpL2tunSessionDisconnected", internalStats.L2tpL2tunSessionDisconnected})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-incoming", types.YLeaf{"L2tpL2tunSessionIncoming", internalStats.L2tpL2tunSessionIncoming})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-updated", types.YLeaf{"L2tpL2tunSessionUpdated", internalStats.L2tpL2tunSessionUpdated})
-    internalStats.EntityData.Leafs.Append("l2tp-l2tun-session-circuit-status", types.YLeaf{"L2tpL2tunSessionCircuitStatus", internalStats.L2tpL2tunSessionCircuitStatus})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-setup-cnt", types.YLeaf{"L2xLptsPaStatsSetupCnt", internalStats.L2xLptsPaStatsSetupCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-destroy-cnt", types.YLeaf{"L2xLptsPaStatsDestroyCnt", internalStats.L2xLptsPaStatsDestroyCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-cnt", types.YLeaf{"L2xLptsPaStatsAllocCnt", internalStats.L2xLptsPaStatsAllocCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-fail-cnt", types.YLeaf{"L2xLptsPaStatsAllocFailCnt", internalStats.L2xLptsPaStatsAllocFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-cnt", types.YLeaf{"L2xLptsPaStatsInitCnt", internalStats.L2xLptsPaStatsInitCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-fail-cnt", types.YLeaf{"L2xLptsPaStatsInitFailCnt", internalStats.L2xLptsPaStatsInitFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-free-cnt", types.YLeaf{"L2xLptsPaStatsFreeCnt", internalStats.L2xLptsPaStatsFreeCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-cnt", types.YLeaf{"L2xLptsPaStatsPulseCnt", internalStats.L2xLptsPaStatsPulseCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-fail-cnt", types.YLeaf{"L2xLptsPaStatsPulseFailCnt", internalStats.L2xLptsPaStatsPulseFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-cnt", types.YLeaf{"L2xLptsPaStatsBindCnt", internalStats.L2xLptsPaStatsBindCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindFailCnt", internalStats.L2xLptsPaStatsBindFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchCnt", internalStats.L2xLptsPaStatsBindBatchCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchFailCnt", internalStats.L2xLptsPaStatsBindBatchFailCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-time", types.YLeaf{"L2xLptsPaStatsBindTime", internalStats.L2xLptsPaStatsBindTime})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-expire-cnt", types.YLeaf{"L2xLptsPaStatsExpireCnt", internalStats.L2xLptsPaStatsExpireCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-cnt", types.YLeaf{"L2xLptsPaStatsReplayCnt", internalStats.L2xLptsPaStatsReplayCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-batch-cnt", types.YLeaf{"L2xLptsPaStatsReplayBatchCnt", internalStats.L2xLptsPaStatsReplayBatchCnt})
-    internalStats.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-time", types.YLeaf{"L2xLptsPaStatsReplayTime", internalStats.L2xLptsPaStatsReplayTime})
-
-    internalStats.EntityData.YListKeys = []string {}
-
-    return &(internalStats.EntityData)
-}
-
-// L2tpv2_Nodes_Node_Internal_InternalStatsLastClear
-// internal stats last clear
-type L2tpv2_Nodes_Node_Internal_InternalStatsLastClear struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // l2tp sh l2x num tunnels. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTunnels interface{}
-
-    // l2tp sh l2x num sessions. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumSessions interface{}
-
-    // l2tp sh l2x rx high water mark. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xRxHighWaterMark interface{}
-
-    // l2tp sh l2x ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2xAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2x num rx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumRxMsgs interface{}
-
-    // l2tp sh l2x num tx msgs. The type is interface{} with range: 0..4294967295.
-    L2tpShL2xNumTxMsgs interface{}
-
-    // l2tp sh l2x num tx err drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxErrDrops interface{}
-
-    // l2tp sh l2x num tx conn drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumTxConnDrops interface{}
-
-    // l2tp sh l2x num reordered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumReorderedMsgs interface{}
-
-    // l2tp sh l2x max reorder deviation. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xMaxReorderDeviation interface{}
-
-    // l2tp sh l2x num ooo msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumOooMsgs interface{}
-
-    // l2tp sh l2x num rx path drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDrops interface{}
-
-    // l2tp sh l2x num rx path data pkt drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxPathDataPktDrops interface{}
-
-    // l2tp sh l2x num rx queue drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxQueueDrops interface{}
-
-    // l2tp sh l2x num rx ooo drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumRxOooDrops interface{}
-
-    // l2tp sh l2x num buffered msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBufferedMsgs interface{}
-
-    // l2tp sh l2x num mutex block. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMutexBlock interface{}
-
-    // l2tp sh l2x num bad len drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadLenDrops interface{}
-
-    // l2tp sh l2x num bad avp drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumBadAvpDrops interface{}
-
-    // l2tp sh l2x num missing cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingCcIdDrops interface{}
-
-    // l2tp sh l2x num missing sess id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMissingSessIdDrops interface{}
-
-    // l2tp sh l2x num mismatch cc id drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumMismatchCcIdDrops interface{}
-
-    // l2tp sh l2x num unknown cc drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownCcDrops interface{}
-
-    // l2tp sh l2x num unknown sess drops. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumUnknownSessDrops interface{}
-
-    // l2tp sh l2x num linear id search. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearch interface{}
-
-    // l2tp sh l2x num linear id search fail. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumLinearIdSearchFail interface{}
-
-    // l2tp sh l2x num netio pkt rx. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2xNumNetioPktRx interface{}
-
-    // l2tp sh l2tun ave msg process usecs. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpShL2tunAveMsgProcessUsecs interface{}
-
-    // l2tp sh l2tun num rx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumRxMsgs interface{}
-
-    // l2tp sh l2tun num tx msgs. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpShL2tunNumTxMsgs interface{}
-
-    // l2tp l2tun socket ens send error cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2tpL2tunSocketEnsSendErrorCnt interface{}
-
-    // l2tp l2tun socket session accept. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionAccept interface{}
-
-    // l2tp l2tun socket session destroy. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionDestroy interface{}
-
-    // l2tp l2tun socket session connect. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnect interface{}
-
-    // l2tp l2tun socket session connect continue. The type is interface{} with
-    // range: 0..18446744073709551615.
-    L2tpL2tunSocketSessionConnectContinue interface{}
-
-    // l2tp l2tun session connecting. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnecting interface{}
-
-    // l2tp l2tun session connected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionConnected interface{}
-
-    // l2tp l2tun session disconnected. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionDisconnected interface{}
-
-    // l2tp l2tun session incoming. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionIncoming interface{}
-
-    // l2tp l2tun session updated. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionUpdated interface{}
-
-    // l2tp l2tun session circuit status. The type is interface{} with range:
-    // 0..18446744073709551615.
-    L2tpL2tunSessionCircuitStatus interface{}
-
-    // l2x lpts pa stats setup cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsSetupCnt interface{}
-
-    // l2x lpts pa stats destroy cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsDestroyCnt interface{}
-
-    // l2x lpts pa stats alloc cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocCnt interface{}
-
-    // l2x lpts pa stats alloc fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsAllocFailCnt interface{}
-
-    // l2x lpts pa stats init cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitCnt interface{}
-
-    // l2x lpts pa stats init fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsInitFailCnt interface{}
-
-    // l2x lpts pa stats free cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsFreeCnt interface{}
-
-    // l2x lpts pa stats pulse cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseCnt interface{}
-
-    // l2x lpts pa stats pulse fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsPulseFailCnt interface{}
-
-    // l2x lpts pa stats bind cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindCnt interface{}
-
-    // l2x lpts pa stats bind fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindFailCnt interface{}
-
-    // l2x lpts pa stats bind batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchCnt interface{}
-
-    // l2x lpts pa stats bind batch fail cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindBatchFailCnt interface{}
-
-    // l2x lpts pa stats bind time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsBindTime interface{}
-
-    // l2x lpts pa stats expire cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsExpireCnt interface{}
-
-    // l2x lpts pa stats replay cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayCnt interface{}
-
-    // l2x lpts pa stats replay batch cnt. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayBatchCnt interface{}
-
-    // l2x lpts pa stats replay time. The type is interface{} with range:
-    // 0..4294967295.
-    L2xLptsPaStatsReplayTime interface{}
-}
-
-func (internalStatsLastClear *L2tpv2_Nodes_Node_Internal_InternalStatsLastClear) GetEntityData() *types.CommonEntityData {
-    internalStatsLastClear.EntityData.YFilter = internalStatsLastClear.YFilter
-    internalStatsLastClear.EntityData.YangName = "internal-stats-last-clear"
-    internalStatsLastClear.EntityData.BundleName = "cisco_ios_xr"
-    internalStatsLastClear.EntityData.ParentYangName = "internal"
-    internalStatsLastClear.EntityData.SegmentPath = "internal-stats-last-clear"
-    internalStatsLastClear.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/nodes/node/internal/" + internalStatsLastClear.EntityData.SegmentPath
-    internalStatsLastClear.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    internalStatsLastClear.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    internalStatsLastClear.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    internalStatsLastClear.EntityData.Children = types.NewOrderedMap()
-    internalStatsLastClear.EntityData.Leafs = types.NewOrderedMap()
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tunnels", types.YLeaf{"L2tpShL2xNumTunnels", internalStatsLastClear.L2tpShL2xNumTunnels})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-sessions", types.YLeaf{"L2tpShL2xNumSessions", internalStatsLastClear.L2tpShL2xNumSessions})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-rx-high-water-mark", types.YLeaf{"L2tpShL2xRxHighWaterMark", internalStatsLastClear.L2tpShL2xRxHighWaterMark})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-ave-msg-process-usecs", types.YLeaf{"L2tpShL2xAveMsgProcessUsecs", internalStatsLastClear.L2tpShL2xAveMsgProcessUsecs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-msgs", types.YLeaf{"L2tpShL2xNumRxMsgs", internalStatsLastClear.L2tpShL2xNumRxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-msgs", types.YLeaf{"L2tpShL2xNumTxMsgs", internalStatsLastClear.L2tpShL2xNumTxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-err-drops", types.YLeaf{"L2tpShL2xNumTxErrDrops", internalStatsLastClear.L2tpShL2xNumTxErrDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-tx-conn-drops", types.YLeaf{"L2tpShL2xNumTxConnDrops", internalStatsLastClear.L2tpShL2xNumTxConnDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-reordered-msgs", types.YLeaf{"L2tpShL2xNumReorderedMsgs", internalStatsLastClear.L2tpShL2xNumReorderedMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-max-reorder-deviation", types.YLeaf{"L2tpShL2xMaxReorderDeviation", internalStatsLastClear.L2tpShL2xMaxReorderDeviation})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-ooo-msgs", types.YLeaf{"L2tpShL2xNumOooMsgs", internalStatsLastClear.L2tpShL2xNumOooMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-drops", types.YLeaf{"L2tpShL2xNumRxPathDrops", internalStatsLastClear.L2tpShL2xNumRxPathDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-path-data-pkt-drops", types.YLeaf{"L2tpShL2xNumRxPathDataPktDrops", internalStatsLastClear.L2tpShL2xNumRxPathDataPktDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-queue-drops", types.YLeaf{"L2tpShL2xNumRxQueueDrops", internalStatsLastClear.L2tpShL2xNumRxQueueDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-rx-ooo-drops", types.YLeaf{"L2tpShL2xNumRxOooDrops", internalStatsLastClear.L2tpShL2xNumRxOooDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-buffered-msgs", types.YLeaf{"L2tpShL2xNumBufferedMsgs", internalStatsLastClear.L2tpShL2xNumBufferedMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-mutex-block", types.YLeaf{"L2tpShL2xNumMutexBlock", internalStatsLastClear.L2tpShL2xNumMutexBlock})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-len-drops", types.YLeaf{"L2tpShL2xNumBadLenDrops", internalStatsLastClear.L2tpShL2xNumBadLenDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-bad-avp-drops", types.YLeaf{"L2tpShL2xNumBadAvpDrops", internalStatsLastClear.L2tpShL2xNumBadAvpDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-cc-id-drops", types.YLeaf{"L2tpShL2xNumMissingCcIdDrops", internalStatsLastClear.L2tpShL2xNumMissingCcIdDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-missing-sess-id-drops", types.YLeaf{"L2tpShL2xNumMissingSessIdDrops", internalStatsLastClear.L2tpShL2xNumMissingSessIdDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-mismatch-cc-id-drops", types.YLeaf{"L2tpShL2xNumMismatchCcIdDrops", internalStatsLastClear.L2tpShL2xNumMismatchCcIdDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-cc-drops", types.YLeaf{"L2tpShL2xNumUnknownCcDrops", internalStatsLastClear.L2tpShL2xNumUnknownCcDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-unknown-sess-drops", types.YLeaf{"L2tpShL2xNumUnknownSessDrops", internalStatsLastClear.L2tpShL2xNumUnknownSessDrops})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search", types.YLeaf{"L2tpShL2xNumLinearIdSearch", internalStatsLastClear.L2tpShL2xNumLinearIdSearch})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-linear-id-search-fail", types.YLeaf{"L2tpShL2xNumLinearIdSearchFail", internalStatsLastClear.L2tpShL2xNumLinearIdSearchFail})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2x-num-netio-pkt-rx", types.YLeaf{"L2tpShL2xNumNetioPktRx", internalStatsLastClear.L2tpShL2xNumNetioPktRx})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2tun-ave-msg-process-usecs", types.YLeaf{"L2tpShL2tunAveMsgProcessUsecs", internalStatsLastClear.L2tpShL2tunAveMsgProcessUsecs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2tun-num-rx-msgs", types.YLeaf{"L2tpShL2tunNumRxMsgs", internalStatsLastClear.L2tpShL2tunNumRxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-sh-l2tun-num-tx-msgs", types.YLeaf{"L2tpShL2tunNumTxMsgs", internalStatsLastClear.L2tpShL2tunNumTxMsgs})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-ens-send-error-cnt", types.YLeaf{"L2tpL2tunSocketEnsSendErrorCnt", internalStatsLastClear.L2tpL2tunSocketEnsSendErrorCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-accept", types.YLeaf{"L2tpL2tunSocketSessionAccept", internalStatsLastClear.L2tpL2tunSocketSessionAccept})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-destroy", types.YLeaf{"L2tpL2tunSocketSessionDestroy", internalStatsLastClear.L2tpL2tunSocketSessionDestroy})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect", types.YLeaf{"L2tpL2tunSocketSessionConnect", internalStatsLastClear.L2tpL2tunSocketSessionConnect})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-socket-session-connect-continue", types.YLeaf{"L2tpL2tunSocketSessionConnectContinue", internalStatsLastClear.L2tpL2tunSocketSessionConnectContinue})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-connecting", types.YLeaf{"L2tpL2tunSessionConnecting", internalStatsLastClear.L2tpL2tunSessionConnecting})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-connected", types.YLeaf{"L2tpL2tunSessionConnected", internalStatsLastClear.L2tpL2tunSessionConnected})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-disconnected", types.YLeaf{"L2tpL2tunSessionDisconnected", internalStatsLastClear.L2tpL2tunSessionDisconnected})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-incoming", types.YLeaf{"L2tpL2tunSessionIncoming", internalStatsLastClear.L2tpL2tunSessionIncoming})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-updated", types.YLeaf{"L2tpL2tunSessionUpdated", internalStatsLastClear.L2tpL2tunSessionUpdated})
-    internalStatsLastClear.EntityData.Leafs.Append("l2tp-l2tun-session-circuit-status", types.YLeaf{"L2tpL2tunSessionCircuitStatus", internalStatsLastClear.L2tpL2tunSessionCircuitStatus})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-setup-cnt", types.YLeaf{"L2xLptsPaStatsSetupCnt", internalStatsLastClear.L2xLptsPaStatsSetupCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-destroy-cnt", types.YLeaf{"L2xLptsPaStatsDestroyCnt", internalStatsLastClear.L2xLptsPaStatsDestroyCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-cnt", types.YLeaf{"L2xLptsPaStatsAllocCnt", internalStatsLastClear.L2xLptsPaStatsAllocCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-alloc-fail-cnt", types.YLeaf{"L2xLptsPaStatsAllocFailCnt", internalStatsLastClear.L2xLptsPaStatsAllocFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-cnt", types.YLeaf{"L2xLptsPaStatsInitCnt", internalStatsLastClear.L2xLptsPaStatsInitCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-init-fail-cnt", types.YLeaf{"L2xLptsPaStatsInitFailCnt", internalStatsLastClear.L2xLptsPaStatsInitFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-free-cnt", types.YLeaf{"L2xLptsPaStatsFreeCnt", internalStatsLastClear.L2xLptsPaStatsFreeCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-cnt", types.YLeaf{"L2xLptsPaStatsPulseCnt", internalStatsLastClear.L2xLptsPaStatsPulseCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-pulse-fail-cnt", types.YLeaf{"L2xLptsPaStatsPulseFailCnt", internalStatsLastClear.L2xLptsPaStatsPulseFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-cnt", types.YLeaf{"L2xLptsPaStatsBindCnt", internalStatsLastClear.L2xLptsPaStatsBindCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindFailCnt", internalStatsLastClear.L2xLptsPaStatsBindFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchCnt", internalStatsLastClear.L2xLptsPaStatsBindBatchCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-batch-fail-cnt", types.YLeaf{"L2xLptsPaStatsBindBatchFailCnt", internalStatsLastClear.L2xLptsPaStatsBindBatchFailCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-bind-time", types.YLeaf{"L2xLptsPaStatsBindTime", internalStatsLastClear.L2xLptsPaStatsBindTime})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-expire-cnt", types.YLeaf{"L2xLptsPaStatsExpireCnt", internalStatsLastClear.L2xLptsPaStatsExpireCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-cnt", types.YLeaf{"L2xLptsPaStatsReplayCnt", internalStatsLastClear.L2xLptsPaStatsReplayCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-batch-cnt", types.YLeaf{"L2xLptsPaStatsReplayBatchCnt", internalStatsLastClear.L2xLptsPaStatsReplayBatchCnt})
-    internalStatsLastClear.EntityData.Leafs.Append("l2x-lpts-pa-stats-replay-time", types.YLeaf{"L2xLptsPaStatsReplayTime", internalStatsLastClear.L2xLptsPaStatsReplayTime})
-
-    internalStatsLastClear.EntityData.YListKeys = []string {}
-
-    return &(internalStatsLastClear.EntityData)
 }
 

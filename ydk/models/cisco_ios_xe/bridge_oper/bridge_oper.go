@@ -19,15 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-bridge-oper:bridge-instances", reflect.TypeOf(BridgeInstances{}))
 }
 
-// IntfStatusType represents Interface status type
-type IntfStatusType string
-
-const (
-    IntfStatusType_up IntfStatusType = "up"
-
-    IntfStatusType_down IntfStatusType = "down"
-)
-
 // BridgeMacType represents MAC address type
 type BridgeMacType string
 
@@ -35,6 +26,15 @@ const (
     BridgeMacType_bridge_mac_type_static BridgeMacType = "bridge-mac-type-static"
 
     BridgeMacType_bridge_mac_type_dynamic BridgeMacType = "bridge-mac-type-dynamic"
+)
+
+// IntfStatusType represents Interface status type
+type IntfStatusType string
+
+const (
+    IntfStatusType_up IntfStatusType = "up"
+
+    IntfStatusType_down IntfStatusType = "down"
 )
 
 // BridgeInstances
@@ -335,7 +335,7 @@ type BridgeInstances_BridgeEntry_BridgeMatmEntries_BridgeMatmEntry struct {
     YListKey string
 
     // This attribute is a key. MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Interface name which MAC learnt from. The type is slice of string.

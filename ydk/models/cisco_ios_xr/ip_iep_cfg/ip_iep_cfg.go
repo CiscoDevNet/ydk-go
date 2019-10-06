@@ -24,15 +24,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths", reflect.TypeOf(IpExplicitPaths{}))
 }
 
-// IpIepNum represents Ip iep num
-type IpIepNum string
+// IpIepPath represents Ip iep path
+type IpIepPath string
 
 const (
-    // Unnumbered
-    IpIepNum_unnumbered IpIepNum = "unnumbered"
+    // Identifier
+    IpIepPath_identifier IpIepPath = "identifier"
 
-    // Numbered
-    IpIepNum_numbered IpIepNum = "numbered"
+    // Name
+    IpIepPath_name IpIepPath = "name"
 )
 
 // IpIepHop represents Ip iep hop
@@ -55,15 +55,15 @@ const (
     IpIepHop_next_label IpIepHop = "next-label"
 )
 
-// IpIepPath represents Ip iep path
-type IpIepPath string
+// IpIepNum represents Ip iep num
+type IpIepNum string
 
 const (
-    // Identifier
-    IpIepPath_identifier IpIepPath = "identifier"
+    // Unnumbered
+    IpIepNum_unnumbered IpIepNum = "unnumbered"
 
-    // Name
-    IpIepPath_name IpIepPath = "name"
+    // Numbered
+    IpIepNum_numbered IpIepNum = "numbered"
 )
 
 // IpExplicitPaths
@@ -183,7 +183,7 @@ type IpExplicitPaths_Paths_Path_Name struct {
     YListKey string
 
     // This attribute is a key. Path name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Disable the explicit path. The type is interface{}.
@@ -261,7 +261,7 @@ type IpExplicitPaths_Paths_Path_Name_Hops_Hop struct {
     IndexNumber interface{}
 
     // IP address of the hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     IpAddress interface{}
 
@@ -392,7 +392,7 @@ type IpExplicitPaths_Paths_Path_Identifier_Hops_Hop struct {
     IndexNumber interface{}
 
     // IP address of the hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 0.0.0.0.
     IpAddress interface{}
 

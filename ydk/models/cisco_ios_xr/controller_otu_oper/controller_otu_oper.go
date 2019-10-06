@@ -24,201 +24,44 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-controller-otu-oper:otu", reflect.TypeOf(Otu{}))
 }
 
-// OtuAinsStateEt represents Otu ains state et
-type OtuAinsStateEt string
+// OtuPrbsStatus represents Otu prbs status
+type OtuPrbsStatus string
 
 const (
-    // None
-    OtuAinsStateEt_none OtuAinsStateEt = "none"
+    // Locked
+    OtuPrbsStatus_locked OtuPrbsStatus = "locked"
 
-    // Running
-    OtuAinsStateEt_active_running OtuAinsStateEt = "active-running"
+    // Unlocked
+    OtuPrbsStatus_unlocked OtuPrbsStatus = "unlocked"
 
-    // Pending
-    OtuAinsStateEt_active_pending OtuAinsStateEt = "active-pending"
+    // Not Applicable
+    OtuPrbsStatus_not_applicable OtuPrbsStatus = "not-applicable"
 )
 
-// GmplsOtuTtiMode represents Gmpls otu tti mode
-type GmplsOtuTtiMode string
+// OtuPrbsPattern represents Otu prbs pattern
+type OtuPrbsPattern string
 
 const (
-    // Not Set
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_none GmplsOtuTtiMode = "gmpls-otu-tti-mode-none"
+    // OTU PRBS pattern not applicable
+    OtuPrbsPattern_not_applicable OtuPrbsPattern = "not-applicable"
 
-    // Section Monitoring
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_sm GmplsOtuTtiMode = "gmpls-otu-tti-mode-sm"
+    // PN31
+    OtuPrbsPattern_pn31 OtuPrbsPattern = "pn31"
 
-    // Path Monitoring
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_pm GmplsOtuTtiMode = "gmpls-otu-tti-mode-pm"
+    // PN23
+    OtuPrbsPattern_pn23 OtuPrbsPattern = "pn23"
 
-    // Tandem Connection Monitoring
-    GmplsOtuTtiMode_gmpls_otu_tti_mode_tcm GmplsOtuTtiMode = "gmpls-otu-tti-mode-tcm"
-)
+    // PN11
+    OtuPrbsPattern_pn11 OtuPrbsPattern = "pn11"
 
-// OtuPpIntfState represents Otu pp intf state
-type OtuPpIntfState string
+    // INVERTED PN31
+    OtuPrbsPattern_inverted_pn31 OtuPrbsPattern = "inverted-pn31"
 
-const (
-    // Interface is Up
-    OtuPpIntfState_otu_pp_intf_up OtuPpIntfState = "otu-pp-intf-up"
+    // INVERTED PN11
+    OtuPrbsPattern_inverted_pn11 OtuPrbsPattern = "inverted-pn11"
 
-    // Interface is Going Down
-    OtuPpIntfState_otu_pp_intf_failing OtuPpIntfState = "otu-pp-intf-failing"
-
-    // Interface Down
-    OtuPpIntfState_otu_pp_intf_down OtuPpIntfState = "otu-pp-intf-down"
-)
-
-// OtuPpFsmState represents Otu pp fsm state
-type OtuPpFsmState string
-
-const (
-    // In Active
-    OtuPpFsmState_otu_in_active OtuPpFsmState = "otu-in-active"
-
-    // Disabled
-    OtuPpFsmState_otu_disabled OtuPpFsmState = "otu-disabled"
-
-    // Normal
-    OtuPpFsmState_otu_normal_state OtuPpFsmState = "otu-normal-state"
-
-    // Local Failing
-    OtuPpFsmState_otu_local_failing OtuPpFsmState = "otu-local-failing"
-
-    // Remote Failing
-    OtuPpFsmState_otu_remote_failing OtuPpFsmState = "otu-remote-failing"
-
-    // Maintance Failing
-    OtuPpFsmState_otu_main_t_failing OtuPpFsmState = "otu-main-t-failing"
-
-    // Regenerator Failing
-    OtuPpFsmState_otu_regen_failing OtuPpFsmState = "otu-regen-failing"
-
-    // Local Failed
-    OtuPpFsmState_otu_local_failed OtuPpFsmState = "otu-local-failed"
-
-    // Remote Failed
-    OtuPpFsmState_otu_remote_failed OtuPpFsmState = "otu-remote-failed"
-
-    // Maintance Failed
-    OtuPpFsmState_otu_main_t_failed OtuPpFsmState = "otu-main-t-failed"
-
-    // Regenerator Failed
-    OtuPpFsmState_otu_regen_failed OtuPpFsmState = "otu-regen-failed"
-)
-
-// OtuPerMon represents Otu per mon
-type OtuPerMon string
-
-const (
-    // Disable
-    OtuPerMon_disable OtuPerMon = "disable"
-
-    // Enable
-    OtuPerMon_enable OtuPerMon = "enable"
-)
-
-// OtuSecState represents Otu sec state
-type OtuSecState string
-
-const (
-    // Normal
-    OtuSecState_normal OtuSecState = "normal"
-
-    // Maintenance
-    OtuSecState_maintenance OtuSecState = "maintenance"
-
-    // Automatic In Service
-    OtuSecState_ains OtuSecState = "ains"
-)
-
-// OtuDerState represents Otu der state
-type OtuDerState string
-
-const (
-    // Out Of Service
-    OtuDerState_out_of_service OtuDerState = "out-of-service"
-
-    // In Service
-    OtuDerState_in_service OtuDerState = "in-service"
-
-    // Maintenance
-    OtuDerState_maintenance OtuDerState = "maintenance"
-
-    // Automatic In Service
-    OtuDerState_ains OtuDerState = "ains"
-)
-
-// OtuG709fecMode represents Otu g709fec mode
-type OtuG709fecMode string
-
-const (
-    // NONE
-    OtuG709fecMode_otu_bag_none_fec OtuG709fecMode = "otu-bag-none-fec"
-
-    // STANDARD
-    OtuG709fecMode_otu_bag_standard_fec OtuG709fecMode = "otu-bag-standard-fec"
-
-    // ENHANCEDI.7
-    OtuG709fecMode_otu_bag_1_i_7_fec OtuG709fecMode = "otu-bag-1-i-7-fec"
-
-    // ENHANCEDI.4
-    OtuG709fecMode_otu_bag_1_i_4_fec OtuG709fecMode = "otu-bag-1-i-4-fec"
-
-    // SWIZZLE
-    OtuG709fecMode_otu_bag_swizzle_fec OtuG709fecMode = "otu-bag-swizzle-fec"
-
-    // HIGH GAIN20
-    OtuG709fecMode_otu_bag_hg20_fec OtuG709fecMode = "otu-bag-hg20-fec"
-
-    // Enhanced High Gain 7
-    OtuG709fecMode_otu_bag_enhanced_hg7_fec OtuG709fecMode = "otu-bag-enhanced-hg7-fec"
-
-    // Soft-Decision 20
-    OtuG709fecMode_otu_bag_sd20_fec OtuG709fecMode = "otu-bag-sd20-fec"
-
-    // Soft-Decision 7
-    OtuG709fecMode_otu_bag_sd7_fec OtuG709fecMode = "otu-bag-sd7-fec"
-
-    // Soft-Decision 15
-    OtuG709fecMode_otu_bag_sd15_fec OtuG709fecMode = "otu-bag-sd15-fec"
-
-    // Soft-Decision 27
-    OtuG709fecMode_otu_bag_sd27_fec OtuG709fecMode = "otu-bag-sd27-fec"
-
-    // ALL
-    OtuG709fecMode_otu_bag_all_fec OtuG709fecMode = "otu-bag-all-fec"
-)
-
-// OtuLoopBackMode represents Otu loop back mode
-type OtuLoopBackMode string
-
-const (
-    // None
-    OtuLoopBackMode_none OtuLoopBackMode = "none"
-
-    // Line
-    OtuLoopBackMode_line OtuLoopBackMode = "line"
-
-    // Internal
-    OtuLoopBackMode_internal OtuLoopBackMode = "internal"
-)
-
-// OtuTtiEt represents Otu tti et
-type OtuTtiEt string
-
-const (
-    // ASCII
-    OtuTtiEt_ascii OtuTtiEt = "ascii"
-
-    // HEX
-    OtuTtiEt_hex OtuTtiEt = "hex"
-
-    // FULL ASCII
-    OtuTtiEt_full_ascii OtuTtiEt = "full-ascii"
-
-    // FULL HEX
-    OtuTtiEt_full_hex OtuTtiEt = "full-hex"
+    // PN15
+    OtuPrbsPattern_pn15 OtuPrbsPattern = "pn15"
 )
 
 // OtuStateEt represents Otu state et
@@ -283,44 +126,108 @@ const (
     OtuStateEt_last OtuStateEt = "last"
 )
 
-// OtuPrbsStatus represents Otu prbs status
-type OtuPrbsStatus string
+// OtuPrbsTest represents Otu prbs test
+type OtuPrbsTest string
 
 const (
-    // Locked
-    OtuPrbsStatus_locked OtuPrbsStatus = "locked"
+    // Disable
+    OtuPrbsTest_disable OtuPrbsTest = "disable"
 
-    // Unlocked
-    OtuPrbsStatus_unlocked OtuPrbsStatus = "unlocked"
-
-    // Not Applicable
-    OtuPrbsStatus_not_applicable OtuPrbsStatus = "not-applicable"
+    // Enable
+    OtuPrbsTest_enable OtuPrbsTest = "enable"
 )
 
-// OtuPrbsPattern represents Otu prbs pattern
-type OtuPrbsPattern string
+// OtuAinsStateEt represents Otu ains state et
+type OtuAinsStateEt string
 
 const (
-    // OTU PRBS pattern not applicable
-    OtuPrbsPattern_not_applicable OtuPrbsPattern = "not-applicable"
+    // None
+    OtuAinsStateEt_none OtuAinsStateEt = "none"
 
-    // PN31
-    OtuPrbsPattern_pn31 OtuPrbsPattern = "pn31"
+    // Running
+    OtuAinsStateEt_active_running OtuAinsStateEt = "active-running"
 
-    // PN23
-    OtuPrbsPattern_pn23 OtuPrbsPattern = "pn23"
+    // Pending
+    OtuAinsStateEt_active_pending OtuAinsStateEt = "active-pending"
+)
 
-    // PN11
-    OtuPrbsPattern_pn11 OtuPrbsPattern = "pn11"
+// OtuPpFsmState represents Otu pp fsm state
+type OtuPpFsmState string
 
-    // INVERTED PN31
-    OtuPrbsPattern_inverted_pn31 OtuPrbsPattern = "inverted-pn31"
+const (
+    // In Active
+    OtuPpFsmState_otu_in_active OtuPpFsmState = "otu-in-active"
 
-    // INVERTED PN11
-    OtuPrbsPattern_inverted_pn11 OtuPrbsPattern = "inverted-pn11"
+    // Disabled
+    OtuPpFsmState_otu_disabled OtuPpFsmState = "otu-disabled"
 
-    // PN15
-    OtuPrbsPattern_pn15 OtuPrbsPattern = "pn15"
+    // Normal
+    OtuPpFsmState_otu_normal_state OtuPpFsmState = "otu-normal-state"
+
+    // Local Failing
+    OtuPpFsmState_otu_local_failing OtuPpFsmState = "otu-local-failing"
+
+    // Remote Failing
+    OtuPpFsmState_otu_remote_failing OtuPpFsmState = "otu-remote-failing"
+
+    // Maintance Failing
+    OtuPpFsmState_otu_main_t_failing OtuPpFsmState = "otu-main-t-failing"
+
+    // Regenerator Failing
+    OtuPpFsmState_otu_regen_failing OtuPpFsmState = "otu-regen-failing"
+
+    // Local Failed
+    OtuPpFsmState_otu_local_failed OtuPpFsmState = "otu-local-failed"
+
+    // Remote Failed
+    OtuPpFsmState_otu_remote_failed OtuPpFsmState = "otu-remote-failed"
+
+    // Maintance Failed
+    OtuPpFsmState_otu_main_t_failed OtuPpFsmState = "otu-main-t-failed"
+
+    // Regenerator Failed
+    OtuPpFsmState_otu_regen_failed OtuPpFsmState = "otu-regen-failed"
+)
+
+// OtuG709fecMode represents Otu g709fec mode
+type OtuG709fecMode string
+
+const (
+    // NONE
+    OtuG709fecMode_otu_bag_none_fec OtuG709fecMode = "otu-bag-none-fec"
+
+    // STANDARD
+    OtuG709fecMode_otu_bag_standard_fec OtuG709fecMode = "otu-bag-standard-fec"
+
+    // ENHANCEDI.7
+    OtuG709fecMode_otu_bag_1_i_7_fec OtuG709fecMode = "otu-bag-1-i-7-fec"
+
+    // ENHANCEDI.4
+    OtuG709fecMode_otu_bag_1_i_4_fec OtuG709fecMode = "otu-bag-1-i-4-fec"
+
+    // SWIZZLE
+    OtuG709fecMode_otu_bag_swizzle_fec OtuG709fecMode = "otu-bag-swizzle-fec"
+
+    // HIGH GAIN20
+    OtuG709fecMode_otu_bag_hg20_fec OtuG709fecMode = "otu-bag-hg20-fec"
+
+    // Enhanced High Gain 7
+    OtuG709fecMode_otu_bag_enhanced_hg7_fec OtuG709fecMode = "otu-bag-enhanced-hg7-fec"
+
+    // Soft-Decision 20
+    OtuG709fecMode_otu_bag_sd20_fec OtuG709fecMode = "otu-bag-sd20-fec"
+
+    // Soft-Decision 7
+    OtuG709fecMode_otu_bag_sd7_fec OtuG709fecMode = "otu-bag-sd7-fec"
+
+    // Soft-Decision 15
+    OtuG709fecMode_otu_bag_sd15_fec OtuG709fecMode = "otu-bag-sd15-fec"
+
+    // Soft-Decision 27
+    OtuG709fecMode_otu_bag_sd27_fec OtuG709fecMode = "otu-bag-sd27-fec"
+
+    // ALL
+    OtuG709fecMode_otu_bag_all_fec OtuG709fecMode = "otu-bag-all-fec"
 )
 
 // OtuPrbsMode represents Otu prbs mode
@@ -340,15 +247,108 @@ const (
     OtuPrbsMode_source_sink OtuPrbsMode = "source-sink"
 )
 
-// OtuPrbsTest represents Otu prbs test
-type OtuPrbsTest string
+// OtuPerMon represents Otu per mon
+type OtuPerMon string
 
 const (
     // Disable
-    OtuPrbsTest_disable OtuPrbsTest = "disable"
+    OtuPerMon_disable OtuPerMon = "disable"
 
     // Enable
-    OtuPrbsTest_enable OtuPrbsTest = "enable"
+    OtuPerMon_enable OtuPerMon = "enable"
+)
+
+// OtuTtiEt represents Otu tti et
+type OtuTtiEt string
+
+const (
+    // ASCII
+    OtuTtiEt_ascii OtuTtiEt = "ascii"
+
+    // HEX
+    OtuTtiEt_hex OtuTtiEt = "hex"
+
+    // FULL ASCII
+    OtuTtiEt_full_ascii OtuTtiEt = "full-ascii"
+
+    // FULL HEX
+    OtuTtiEt_full_hex OtuTtiEt = "full-hex"
+)
+
+// OtuPpIntfState represents Otu pp intf state
+type OtuPpIntfState string
+
+const (
+    // Interface is Up
+    OtuPpIntfState_otu_pp_intf_up OtuPpIntfState = "otu-pp-intf-up"
+
+    // Interface is Going Down
+    OtuPpIntfState_otu_pp_intf_failing OtuPpIntfState = "otu-pp-intf-failing"
+
+    // Interface Down
+    OtuPpIntfState_otu_pp_intf_down OtuPpIntfState = "otu-pp-intf-down"
+)
+
+// OtuSecState represents Otu sec state
+type OtuSecState string
+
+const (
+    // Normal
+    OtuSecState_normal OtuSecState = "normal"
+
+    // Maintenance
+    OtuSecState_maintenance OtuSecState = "maintenance"
+
+    // Automatic In Service
+    OtuSecState_ains OtuSecState = "ains"
+)
+
+// OtuLoopBackMode represents Otu loop back mode
+type OtuLoopBackMode string
+
+const (
+    // None
+    OtuLoopBackMode_none OtuLoopBackMode = "none"
+
+    // Line
+    OtuLoopBackMode_line OtuLoopBackMode = "line"
+
+    // Internal
+    OtuLoopBackMode_internal OtuLoopBackMode = "internal"
+)
+
+// GmplsOtuTtiMode represents Gmpls otu tti mode
+type GmplsOtuTtiMode string
+
+const (
+    // Not Set
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_none GmplsOtuTtiMode = "gmpls-otu-tti-mode-none"
+
+    // Section Monitoring
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_sm GmplsOtuTtiMode = "gmpls-otu-tti-mode-sm"
+
+    // Path Monitoring
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_pm GmplsOtuTtiMode = "gmpls-otu-tti-mode-pm"
+
+    // Tandem Connection Monitoring
+    GmplsOtuTtiMode_gmpls_otu_tti_mode_tcm GmplsOtuTtiMode = "gmpls-otu-tti-mode-tcm"
+)
+
+// OtuDerState represents Otu der state
+type OtuDerState string
+
+const (
+    // Out Of Service
+    OtuDerState_out_of_service OtuDerState = "out-of-service"
+
+    // In Service
+    OtuDerState_in_service OtuDerState = "in-service"
+
+    // Maintenance
+    OtuDerState_maintenance OtuDerState = "maintenance"
+
+    // Automatic In Service
+    OtuDerState_ains OtuDerState = "ains"
 )
 
 // Otu
@@ -422,7 +422,7 @@ type Otu_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // OTU port PRBS operational data.
@@ -858,7 +858,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Tx_Sapi struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // tx String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -889,7 +889,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Tx_Dapi struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // exp String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -920,7 +920,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Tx_OperatorSpecific struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // rec String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1008,7 +1008,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Exp_Sapi struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // tx String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1039,7 +1039,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Exp_Dapi struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // exp String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1070,7 +1070,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Exp_OperatorSpecific struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // rec String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1158,7 +1158,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Rec_Sapi struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // tx String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1189,7 +1189,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Rec_Dapi struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // exp String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1220,7 +1220,7 @@ type Otu_Controllers_Controller_Info_TtiMode_Rec_OperatorSpecific struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // rec String . The type is interface{} with range: 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -1330,8 +1330,7 @@ type Otu_Controllers_Controller_Info_NetworkSrlg_SrlgInfo_Srlg struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Shared Risk Link Group information expressed in  integer format. The type
-    // is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 

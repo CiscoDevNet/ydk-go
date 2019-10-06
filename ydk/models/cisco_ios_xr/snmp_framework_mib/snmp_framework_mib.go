@@ -60,8 +60,7 @@ type SNMPFRAMEWORKMIB_SnmpEngine struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // The type is string with pattern:
-    // b'(([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?'.
+    // The type is string with pattern: (([0-9a-fA-F]){2}(:([0-9a-fA-F]){2})*)?.
     SnmpEngineID interface{}
 
     // The type is interface{} with range: 1..2147483647.

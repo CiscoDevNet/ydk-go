@@ -133,9 +133,6 @@ type Traceroute_Input_Destination struct {
     // verbose output. The type is bool.
     Verbose interface{}
 
-    // srv6 header. The type is interface{}.
-    Srv6Header interface{}
-
     // Priority of hte packet. The type is interface{} with range: 0..15.
     Priority interface{}
 
@@ -167,7 +164,6 @@ func (destination *Traceroute_Input_Destination) GetEntityData() *types.CommonEn
     destination.EntityData.Leafs.Append("max-ttl", types.YLeaf{"MaxTtl", destination.MaxTtl})
     destination.EntityData.Leafs.Append("port", types.YLeaf{"Port", destination.Port})
     destination.EntityData.Leafs.Append("verbose", types.YLeaf{"Verbose", destination.Verbose})
-    destination.EntityData.Leafs.Append("srv6-header", types.YLeaf{"Srv6Header", destination.Srv6Header})
     destination.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", destination.Priority})
     destination.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", destination.OutgoingInterface})
 
@@ -217,9 +213,6 @@ type Traceroute_Input_Ipv4 struct {
 
     // verbose output. The type is bool.
     Verbose interface{}
-
-    // srv6 header. The type is interface{}.
-    Srv6Header interface{}
 }
 
 func (ipv4 *Traceroute_Input_Ipv4) GetEntityData() *types.CommonEntityData {
@@ -245,7 +238,6 @@ func (ipv4 *Traceroute_Input_Ipv4) GetEntityData() *types.CommonEntityData {
     ipv4.EntityData.Leafs.Append("max-ttl", types.YLeaf{"MaxTtl", ipv4.MaxTtl})
     ipv4.EntityData.Leafs.Append("port", types.YLeaf{"Port", ipv4.Port})
     ipv4.EntityData.Leafs.Append("verbose", types.YLeaf{"Verbose", ipv4.Verbose})
-    ipv4.EntityData.Leafs.Append("srv6-header", types.YLeaf{"Srv6Header", ipv4.Srv6Header})
 
     ipv4.EntityData.YListKeys = []string {}
 
@@ -294,9 +286,6 @@ type Traceroute_Input_Ipv6 struct {
     // verbose output. The type is bool.
     Verbose interface{}
 
-    // srv6 header. The type is interface{}.
-    Srv6Header interface{}
-
     // Priority of hte packet. The type is interface{} with range: 0..15.
     Priority interface{}
 
@@ -328,7 +317,6 @@ func (ipv6 *Traceroute_Input_Ipv6) GetEntityData() *types.CommonEntityData {
     ipv6.EntityData.Leafs.Append("max-ttl", types.YLeaf{"MaxTtl", ipv6.MaxTtl})
     ipv6.EntityData.Leafs.Append("port", types.YLeaf{"Port", ipv6.Port})
     ipv6.EntityData.Leafs.Append("verbose", types.YLeaf{"Verbose", ipv6.Verbose})
-    ipv6.EntityData.Leafs.Append("srv6-header", types.YLeaf{"Srv6Header", ipv6.Srv6Header})
     ipv6.EntityData.Leafs.Append("priority", types.YLeaf{"Priority", ipv6.Priority})
     ipv6.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", ipv6.OutgoingInterface})
 
@@ -567,9 +555,6 @@ type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe struct {
 
     // Hostname of the hop. The type is string.
     HopHostname interface{}
-
-    
-    Srv6Header Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header
 }
 
 func (probe *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe) GetEntityData() *types.CommonEntityData {
@@ -584,7 +569,6 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe) Ge
     probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     probe.EntityData.Children = types.NewOrderedMap()
-    probe.EntityData.Children.Append("srv6-header", types.YChild{"Srv6Header", &probe.Srv6Header})
     probe.EntityData.Leafs = types.NewOrderedMap()
     probe.EntityData.Leafs.Append("probe-index", types.YLeaf{"ProbeIndex", probe.ProbeIndex})
     probe.EntityData.Leafs.Append("result", types.YLeaf{"Result", probe.Result})
@@ -595,73 +579,6 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe) Ge
     probe.EntityData.YListKeys = []string {"ProbeIndex"}
 
     return &(probe.EntityData)
-}
-
-// Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header
-type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Destination address for srv6 header. The type is interface{} with range:
-    // 0..4294967295.
-    DestinationAddress interface{}
-
-    // Number of segments left. The type is interface{} with range: 0..4294967295.
-    SegmentsLeft interface{}
-
-    
-    Segments Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header_Segments
-}
-
-func (srv6Header *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header) GetEntityData() *types.CommonEntityData {
-    srv6Header.EntityData.YFilter = srv6Header.YFilter
-    srv6Header.EntityData.YangName = "srv6-header"
-    srv6Header.EntityData.BundleName = "cisco_ios_xr"
-    srv6Header.EntityData.ParentYangName = "probe"
-    srv6Header.EntityData.SegmentPath = "srv6-header"
-    srv6Header.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv4/hops/hop/probes/probe/" + srv6Header.EntityData.SegmentPath
-    srv6Header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6Header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6Header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6Header.EntityData.Children = types.NewOrderedMap()
-    srv6Header.EntityData.Children.Append("segments", types.YChild{"Segments", &srv6Header.Segments})
-    srv6Header.EntityData.Leafs = types.NewOrderedMap()
-    srv6Header.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", srv6Header.DestinationAddress})
-    srv6Header.EntityData.Leafs.Append("segments-left", types.YLeaf{"SegmentsLeft", srv6Header.SegmentsLeft})
-
-    srv6Header.EntityData.YListKeys = []string {}
-
-    return &(srv6Header.EntityData)
-}
-
-// Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header_Segments
-type Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header_Segments struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // sid in sidlist. The type is slice of string.
-    Segment []interface{}
-}
-
-func (segments *Traceroute_Output_TracerouteResponse_Ipv4_Hops_Hop_Probes_Probe_Srv6Header_Segments) GetEntityData() *types.CommonEntityData {
-    segments.EntityData.YFilter = segments.YFilter
-    segments.EntityData.YangName = "segments"
-    segments.EntityData.BundleName = "cisco_ios_xr"
-    segments.EntityData.ParentYangName = "srv6-header"
-    segments.EntityData.SegmentPath = "segments"
-    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv4/hops/hop/probes/probe/srv6-header/" + segments.EntityData.SegmentPath
-    segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    segments.EntityData.Children = types.NewOrderedMap()
-    segments.EntityData.Leafs = types.NewOrderedMap()
-    segments.EntityData.Leafs.Append("segment", types.YLeaf{"Segment", segments.Segment})
-
-    segments.EntityData.YListKeys = []string {}
-
-    return &(segments.EntityData)
 }
 
 // Traceroute_Output_TracerouteResponse_Ipv6
@@ -832,9 +749,6 @@ type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe struct {
 
     // Hostname of the hop. The type is string.
     HopHostname interface{}
-
-    
-    Srv6Header Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header
 }
 
 func (probe *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe) GetEntityData() *types.CommonEntityData {
@@ -849,7 +763,6 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe) Ge
     probe.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     probe.EntityData.Children = types.NewOrderedMap()
-    probe.EntityData.Children.Append("srv6-header", types.YChild{"Srv6Header", &probe.Srv6Header})
     probe.EntityData.Leafs = types.NewOrderedMap()
     probe.EntityData.Leafs.Append("probe-index", types.YLeaf{"ProbeIndex", probe.ProbeIndex})
     probe.EntityData.Leafs.Append("result", types.YLeaf{"Result", probe.Result})
@@ -860,72 +773,5 @@ func (probe *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe) Ge
     probe.EntityData.YListKeys = []string {"ProbeIndex"}
 
     return &(probe.EntityData)
-}
-
-// Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header
-type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Destination address for srv6 header. The type is interface{} with range:
-    // 0..4294967295.
-    DestinationAddress interface{}
-
-    // Number of segments left. The type is interface{} with range: 0..4294967295.
-    SegmentsLeft interface{}
-
-    
-    Segments Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header_Segments
-}
-
-func (srv6Header *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header) GetEntityData() *types.CommonEntityData {
-    srv6Header.EntityData.YFilter = srv6Header.YFilter
-    srv6Header.EntityData.YangName = "srv6-header"
-    srv6Header.EntityData.BundleName = "cisco_ios_xr"
-    srv6Header.EntityData.ParentYangName = "probe"
-    srv6Header.EntityData.SegmentPath = "srv6-header"
-    srv6Header.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv6/hops/hop/probes/probe/" + srv6Header.EntityData.SegmentPath
-    srv6Header.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    srv6Header.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    srv6Header.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    srv6Header.EntityData.Children = types.NewOrderedMap()
-    srv6Header.EntityData.Children.Append("segments", types.YChild{"Segments", &srv6Header.Segments})
-    srv6Header.EntityData.Leafs = types.NewOrderedMap()
-    srv6Header.EntityData.Leafs.Append("destination-address", types.YLeaf{"DestinationAddress", srv6Header.DestinationAddress})
-    srv6Header.EntityData.Leafs.Append("segments-left", types.YLeaf{"SegmentsLeft", srv6Header.SegmentsLeft})
-
-    srv6Header.EntityData.YListKeys = []string {}
-
-    return &(srv6Header.EntityData)
-}
-
-// Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header_Segments
-type Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header_Segments struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // sid in sidlist. The type is slice of string.
-    Segment []interface{}
-}
-
-func (segments *Traceroute_Output_TracerouteResponse_Ipv6_Hops_Hop_Probes_Probe_Srv6Header_Segments) GetEntityData() *types.CommonEntityData {
-    segments.EntityData.YFilter = segments.YFilter
-    segments.EntityData.YangName = "segments"
-    segments.EntityData.BundleName = "cisco_ios_xr"
-    segments.EntityData.ParentYangName = "srv6-header"
-    segments.EntityData.SegmentPath = "segments"
-    segments.EntityData.AbsolutePath = "Cisco-IOS-XR-traceroute-act:traceroute/output/traceroute-response/ipv6/hops/hop/probes/probe/srv6-header/" + segments.EntityData.SegmentPath
-    segments.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    segments.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    segments.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    segments.EntityData.Children = types.NewOrderedMap()
-    segments.EntityData.Leafs = types.NewOrderedMap()
-    segments.EntityData.Leafs.Append("segment", types.YLeaf{"Segment", segments.Segment})
-
-    segments.EntityData.YListKeys = []string {}
-
-    return &(segments.EntityData)
 }
 

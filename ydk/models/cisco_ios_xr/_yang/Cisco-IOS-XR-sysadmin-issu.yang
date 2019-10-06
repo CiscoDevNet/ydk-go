@@ -8,9 +8,6 @@ module Cisco-IOS-XR-sysadmin-issu {
   import ietf-yang-types {
     prefix ietf-types;
   }
-  import Cisco-IOS-XR-sysadmin-types {
-    prefix calvados;
-  }
 
   organization
     "Cisco Systems Inc.";
@@ -32,13 +29,9 @@ module Cisco-IOS-XR-sysadmin-issu {
      Copyright(c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-12-13 {
+  revision 2018-08-24 {
     description
-      "Change the type for the location key leaf of a client list item from string to calvados:location-id. This is only a string with a regex but will block entered CLI which uses an obviously incorrect node string.";
-  }
-  revision 2018-07-05 {
-    description
-      "Split of the ISSU container into separate information and action containers. Addition of some more leaves to op_start_output, and some more options to the op-start-result enum.";
+      "Addition of some more leaves to op_start_output, and some more options to the op-start-result enum.";
   }
   revision 2018-03-12 {
     description
@@ -226,14 +219,14 @@ module Cisco-IOS-XR-sysadmin-issu {
     }
   }
 
-  container issu_action {
+  container issu {
     config false;
     description
-      "ISSU action commands";
+      "ISSU actions and operational state";
     tailf:cli-incomplete-show-path;
-    tailf:hidden "internal-command";
     tailf:action "prepare" {
       tailf:actionpoint "prepare";
+      tailf:hidden "internal-command";
       description
         "Prepare software for ISSU activation, without changing the running software";
       input {
@@ -260,6 +253,7 @@ module Cisco-IOS-XR-sysadmin-issu {
     }
     tailf:action "activate" {
       tailf:actionpoint "activate";
+      tailf:hidden "internal-command";
       description
         "Activate prepared software using ISSU";
       input;
@@ -269,6 +263,7 @@ module Cisco-IOS-XR-sysadmin-issu {
     }
     tailf:action "deactivate" {
       tailf:actionpoint "deactivate";
+      tailf:hidden "internal-command";
       description
         "Deactivate software using ISSU";
       input {
@@ -289,6 +284,7 @@ module Cisco-IOS-XR-sysadmin-issu {
     }
     tailf:action "recover" {
       tailf:actionpoint "recover";
+      tailf:hidden "internal-command";
       description
         "Perform an in-service recovery to bring the system back to its original state after a failed ISSU activate or deactivate operation. This is a continuation of the original activate or deactivate operation (so in particular it has the same operation ID)";
       input;
@@ -296,12 +292,6 @@ module Cisco-IOS-XR-sysadmin-issu {
         uses op-start-output;
       }
     }
-  }
-  container issu {
-    config false;
-    description
-      "ISSU operational state";
-    tailf:cli-incomplete-show-path;
     container status {
       config false;
       description
@@ -577,7 +567,7 @@ module Cisco-IOS-XR-sysadmin-issu {
             "Name of the registered feature";
         }
         leaf location {
-          type calvados:location-id;
+          type string;
           description
             "Node on which the feature process is running";
         }
