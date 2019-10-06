@@ -22,6 +22,6 @@ before_install:
     - if [[ "$DOCKER" == "true" ]]; then docker pull ${OS_TYPE}:${OS_VERSION}  ; fi
 
 script:
-     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "centos" ]]; then docker run -v `pwd`:/ydk-go ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-go && ./dependencies_centos.sh && ./install.sh && ./tests.sh" ; fi
-     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "ubuntu" ]]; then docker run -v `pwd`:/ydk-go ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-go && ./dependencies_ubuntu.sh && ./install.sh && ./tests.sh" ; fi
-     - if [[ "$DOCKER" != "true" ]]; then ./install.sh && ./tests.sh ; fi
+     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "centos" ]]; then docker run -v `pwd`:/ydk-go ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-go && ./dependencies_centos.sh && ./tests.sh" ; fi
+     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "ubuntu" ]]; then docker run -v `pwd`:/ydk-go ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-go && ./dependencies_ubuntu.sh && ./tests.sh" ; fi
+     - if [[ "$DOCKER" != "true" ]]; then ./tests.sh ; fi

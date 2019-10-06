@@ -20,22 +20,6 @@ function install_libssh {
     cd -
 }
 
-function install_golang {
-    print_msg "Installing Go1.9.2"
-    bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-    source /Users/travis/.gvm/scripts/gvm
-    print_msg "GO version before installation: $(go version)"
-    gvm install go1.4 -B
-    gvm use go1.4
-    export GOROOT_BOOTSTRAP=$GOROOT
-    gvm install go1.9.2
-    gvm use go1.9.2
-    print_msg "GOROOT: $GOROOT"
-    print_msg "GOPATH: $GOPATH"
-    print_msg "GO version: $(go version)"
-    print_msg " "
-}
-
 function install_libydk {
     print_msg "Installing YDK C++ core library"
     curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.4/libydk-0.8.4-Darwin.pkg
@@ -50,5 +34,4 @@ MSG_COLOR=$YELLOW
 
 install_os_dependencies
 install_libssh
-install_golang
 install_libydk
