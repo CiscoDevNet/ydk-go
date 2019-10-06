@@ -42,20 +42,6 @@ func init() {
     ydk.RegisterEntity("EtherLike-MIB:EtherLike-MIB", reflect.TypeOf(EtherLikeMIB{}))
 }
 
-type Dot3TestTdr struct {
-}
-
-func (id Dot3TestTdr) String() string {
-	return "EtherLike-MIB:dot3TestTdr"
-}
-
-type Dot3TestLoopBack struct {
-}
-
-func (id Dot3TestLoopBack) String() string {
-	return "EtherLike-MIB:dot3TestLoopBack"
-}
-
 type Dot3ErrorInitError struct {
 }
 
@@ -63,11 +49,25 @@ func (id Dot3ErrorInitError) String() string {
 	return "EtherLike-MIB:dot3ErrorInitError"
 }
 
+type Dot3TestTdr struct {
+}
+
+func (id Dot3TestTdr) String() string {
+	return "EtherLike-MIB:dot3TestTdr"
+}
+
 type Dot3ErrorLoopbackError struct {
 }
 
 func (id Dot3ErrorLoopbackError) String() string {
 	return "EtherLike-MIB:dot3ErrorLoopbackError"
+}
+
+type Dot3TestLoopBack struct {
+}
+
+func (id Dot3TestLoopBack) String() string {
+	return "EtherLike-MIB:dot3TestLoopBack"
 }
 
 // EtherLikeMIB
@@ -383,7 +383,7 @@ type EtherLikeMIB_Dot3StatsTable_Dot3StatsEntry struct {
     // feedback indicates that it is of limited use for debugging network problems
     // in the field, and the administrative overhead involved in maintaining a
     // registry of chipset OIDs is not justified. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     Dot3StatsEtherChipSet interface{}
 
     // For an interface operating at 100 Mb/s, the number of times there was an

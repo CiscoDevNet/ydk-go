@@ -473,7 +473,7 @@ type CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry struct {
     // managementDomainVersionInUse is version3(4), this object has the value of
     // 0.0.0.0.  Before an advertisement has been received, this value is 0.0.0.0.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ManagementDomainLastUpdater interface{}
 
     // The time at which the Configuration Revision Number was (last) increased to
@@ -493,7 +493,7 @@ type CISCOVTPMIB_ManagementDomainTable_ManagementDomainEntry struct {
     // management domain is to be stored/retrieved.  If the information is being
     // locally stored in NVRAM, this object should take the value 0.0.0.0. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ManagementDomainTftpServer interface{}
 
     // The complete pathname of the file at the TFTP Server identified by the

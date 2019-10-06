@@ -24,18 +24,18 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package diffserv_target"))
 }
 
-type Direction struct {
-}
-
-func (id Direction) String() string {
-	return "ietf-diffserv-target:direction"
-}
-
 type Inbound struct {
 }
 
 func (id Inbound) String() string {
 	return "ietf-diffserv-target:inbound"
+}
+
+type Direction struct {
+}
+
+func (id Direction) String() string {
+	return "ietf-diffserv-target:direction"
 }
 
 type Outbound struct {

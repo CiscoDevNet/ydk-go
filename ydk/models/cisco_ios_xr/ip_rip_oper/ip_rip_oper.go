@@ -24,23 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-rip-oper:rip", reflect.TypeOf(Rip{}))
 }
 
-// InterfaceState represents Interface state
-type InterfaceState string
-
-const (
-    // Interface does not exist
-    InterfaceState_interface_none InterfaceState = "interface-none"
-
-    // Interface exists but IP is down
-    InterfaceState_interface_down InterfaceState = "interface-down"
-
-    // Interface exists and IP is up
-    InterfaceState_interface_up InterfaceState = "interface-up"
-
-    // Unknown state
-    InterfaceState_interface_unknown InterfaceState = "interface-unknown"
-)
-
 // RipRouteOrigin represents Rip route origin
 type RipRouteOrigin string
 
@@ -62,6 +45,23 @@ const (
 
     // route stay in for triggered rip
     RipRouteOrigin_rip_rt_org_unused RipRouteOrigin = "rip-rt-org-unused"
+)
+
+// InterfaceState represents Interface state
+type InterfaceState string
+
+const (
+    // Interface does not exist
+    InterfaceState_interface_none InterfaceState = "interface-none"
+
+    // Interface exists but IP is down
+    InterfaceState_interface_down InterfaceState = "interface-down"
+
+    // Interface exists and IP is up
+    InterfaceState_interface_up InterfaceState = "interface-up"
+
+    // Unknown state
+    InterfaceState_interface_unknown InterfaceState = "interface-unknown"
 )
 
 // Rip
@@ -143,7 +143,7 @@ type Rip_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of the VRF. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // RIP route database.
@@ -230,14 +230,14 @@ type Rip_Vrfs_Vrf_Routes_Route struct {
     YListKey string
 
     // Network prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // Destination IP Address for this route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of IP address. The type is interface{} with range:
@@ -327,11 +327,11 @@ type Rip_Vrfs_Vrf_Routes_Route_Paths struct {
     YListKey string
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Next hop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
     // Metric. The type is interface{} with range: 0..65535.
@@ -340,7 +340,7 @@ type Rip_Vrfs_Vrf_Routes_Route_Paths struct {
     // Tag. The type is interface{} with range: 0..65535.
     Tag interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Up time. The type is interface{} with range: 0..4294967295.
@@ -610,13 +610,13 @@ type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
     Interface interface{}
 
-    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IfHandle interface{}
 
     // Whether RIP is enabled on this interface. The type is bool.
@@ -643,7 +643,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     State interface{}
 
     // IP Address of this interface. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of the IP address. The type is interface{} with range:
@@ -664,7 +664,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface struct {
     TriggeredRip interface{}
 
     // Interface's triggered RIP neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Out-of-memory status flags. The type is interface{} with range:
@@ -788,7 +788,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface_RipSummary struct {
     YListKey string
 
     // Summary address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Summary address prefix length. The type is interface{} with range:
@@ -796,7 +796,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface_RipSummary struct {
     PrefixLength interface{}
 
     // Summary address next hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
     // Summary metric. The type is interface{} with range:
@@ -838,7 +838,7 @@ type Rip_Vrfs_Vrf_Interfaces_Interface_RipPeer struct {
     PeerUptime interface{}
 
     // IP Address of this peer. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // RIP version for this peer. The type is interface{} with range: 0..255.
@@ -1012,7 +1012,7 @@ type Rip_Vrfs_Vrf_Global_InterfaceSummary struct {
     State interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of IP address. The type is interface{} with range:
@@ -1330,14 +1330,14 @@ type Rip_Protocol_DefaultVrf_Routes_Route struct {
     YListKey string
 
     // Network prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // Destination IP Address for this route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of IP address. The type is interface{} with range:
@@ -1427,11 +1427,11 @@ type Rip_Protocol_DefaultVrf_Routes_Route_Paths struct {
     YListKey string
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Next hop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
     // Metric. The type is interface{} with range: 0..65535.
@@ -1440,7 +1440,7 @@ type Rip_Protocol_DefaultVrf_Routes_Route_Paths struct {
     // Tag. The type is interface{} with range: 0..65535.
     Tag interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Up time. The type is interface{} with range: 0..4294967295.
@@ -1710,13 +1710,13 @@ type Rip_Protocol_DefaultVrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
     Interface interface{}
 
-    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IfHandle interface{}
 
     // Whether RIP is enabled on this interface. The type is bool.
@@ -1743,7 +1743,7 @@ type Rip_Protocol_DefaultVrf_Interfaces_Interface struct {
     State interface{}
 
     // IP Address of this interface. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of the IP address. The type is interface{} with range:
@@ -1764,7 +1764,7 @@ type Rip_Protocol_DefaultVrf_Interfaces_Interface struct {
     TriggeredRip interface{}
 
     // Interface's triggered RIP neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Out-of-memory status flags. The type is interface{} with range:
@@ -1888,7 +1888,7 @@ type Rip_Protocol_DefaultVrf_Interfaces_Interface_RipSummary struct {
     YListKey string
 
     // Summary address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Summary address prefix length. The type is interface{} with range:
@@ -1896,7 +1896,7 @@ type Rip_Protocol_DefaultVrf_Interfaces_Interface_RipSummary struct {
     PrefixLength interface{}
 
     // Summary address next hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
     // Summary metric. The type is interface{} with range:
@@ -1938,7 +1938,7 @@ type Rip_Protocol_DefaultVrf_Interfaces_Interface_RipPeer struct {
     PeerUptime interface{}
 
     // IP Address of this peer. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // RIP version for this peer. The type is interface{} with range: 0..255.
@@ -2112,7 +2112,7 @@ type Rip_Protocol_DefaultVrf_Global_InterfaceSummary struct {
     State interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of IP address. The type is interface{} with range:
@@ -2252,14 +2252,14 @@ type Rip_DefaultVrf_Routes_Route struct {
     YListKey string
 
     // Network prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Prefix length. The type is interface{} with range: 0..32.
     PrefixLength interface{}
 
     // Destination IP Address for this route. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of IP address. The type is interface{} with range:
@@ -2349,11 +2349,11 @@ type Rip_DefaultVrf_Routes_Route_Paths struct {
     YListKey string
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Next hop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
     // Metric. The type is interface{} with range: 0..65535.
@@ -2362,7 +2362,7 @@ type Rip_DefaultVrf_Routes_Route_Paths struct {
     // Tag. The type is interface{} with range: 0..65535.
     Tag interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Up time. The type is interface{} with range: 0..4294967295.
@@ -2632,13 +2632,13 @@ type Rip_DefaultVrf_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
     Interface interface{}
 
-    // Interface handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     IfHandle interface{}
 
     // Whether RIP is enabled on this interface. The type is bool.
@@ -2665,7 +2665,7 @@ type Rip_DefaultVrf_Interfaces_Interface struct {
     State interface{}
 
     // IP Address of this interface. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of the IP address. The type is interface{} with range:
@@ -2686,7 +2686,7 @@ type Rip_DefaultVrf_Interfaces_Interface struct {
     TriggeredRip interface{}
 
     // Interface's triggered RIP neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Out-of-memory status flags. The type is interface{} with range:
@@ -2810,7 +2810,7 @@ type Rip_DefaultVrf_Interfaces_Interface_RipSummary struct {
     YListKey string
 
     // Summary address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Summary address prefix length. The type is interface{} with range:
@@ -2818,7 +2818,7 @@ type Rip_DefaultVrf_Interfaces_Interface_RipSummary struct {
     PrefixLength interface{}
 
     // Summary address next hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
     // Summary metric. The type is interface{} with range:
@@ -2860,7 +2860,7 @@ type Rip_DefaultVrf_Interfaces_Interface_RipPeer struct {
     PeerUptime interface{}
 
     // IP Address of this peer. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // RIP version for this peer. The type is interface{} with range: 0..255.
@@ -3034,7 +3034,7 @@ type Rip_DefaultVrf_Global_InterfaceSummary struct {
     State interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Prefix length of IP address. The type is interface{} with range:

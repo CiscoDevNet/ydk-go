@@ -23,8 +23,8 @@
 package path
 
 // #cgo CXXFLAGS: -g -std=c++11
-// #cgo darwin LDFLAGS: -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lpython -lc++
-// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lpython2.7 -lm -ldl
+// #cgo darwin LDFLAGS: -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lc++
+// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lm -ldl
 // #include <ydk/ydk.h>
 // #include <stdlib.h>
 import "C"
@@ -259,17 +259,37 @@ func createFromChildren(
 	}
 }
 
-func getTopEntityFromFilter(filter types.Entity) types.Entity {
-	parent := types.GetParent(filter)
-	if parent == nil {
-		return filter
+// GetTopEntity traverses the entity hierarchy up to the top-level entity.
+// Develops error if Parent for non-top-level entity is not set.
+func GetTopEntity(entity types.Entity) types.Entity {
+	if types.IsEntityCollection(entity) {
+		entCollection := types.EntityToCollection(entity)
+		topEntityCollection := types.NewEntityCollection()
+	        for _, ent := range entCollection.Entities() {
+	        	topEntity := GetTopEntity(ent)
+	        	if topEntity != nil {
+		        	topEntityCollection.Add(topEntity)
+	        	}
+	        }
+	        return topEntityCollection
+	} else {
+		parent := types.GetParent(entity)
+		if parent == nil {
+			if types.IsTopLevelEntity(entity) {
+				return entity
+			} else {
+				entData := entity.GetEntityData()
+				msg := fmt.Sprintf("Parent is not set for non-top entity '%s'", entData.SegmentPath)
+				ydk.YLogError(msg)
+				return nil
+			}
+		}
+		return GetTopEntity(parent)
 	}
-
-	return getTopEntityFromFilter(parent)
 }
 
 func findEntityInChildren(parentEntity types.Entity, filterAbsPath string) types.Entity {
-	parentAbsPath := parentEntity.GetEntityData().AbsolutePath
+	parentAbsPath := types.GetAbsolutePath(parentEntity)
 	if (filterAbsPath == parentAbsPath) {
 		ydk.YLogDebug("path.findEntityInChildren: Filter matches with parent entity, returning")
 		return parentEntity
@@ -283,7 +303,7 @@ func findEntityInChildren(parentEntity types.Entity, filterAbsPath string) types
 		if child == nil {
 			continue
 	    	}
-	    	childAbsPath := child.GetEntityData().AbsolutePath
+	    	childAbsPath := types.GetAbsolutePath(child)
 	        if childAbsPath == filterAbsPath {
 	            return child
 	        }
@@ -348,8 +368,7 @@ func ReadDatanode(filter types.Entity, readDataNode types.DataNode) types.Entity
 		// Follow filter order
 		for _, key := range filterEC.Keys() {
 			filterEntity, _ := filterEC.Get(key)
-			entityData := filterEntity.GetEntityData()
-			filterAbsPath := entityData.AbsolutePath
+			filterAbsPath := types.GetAbsolutePath(filterEntity)
 			topEntity := filterEntity
 			for _, dn := range children {
 				path := C.GoString(C.DataNodeGetPath(dn))[1:]
@@ -359,7 +378,7 @@ func ReadDatanode(filter types.Entity, readDataNode types.DataNode) types.Entity
 				}
 				if strings.Index(filterAbsPath, path) == 0 {			
 					if dn != nil {
-						if entityData.AbsolutePath == entityData.SegmentPath {
+						if types.IsTopLevelEntity(filterEntity) {
 							// Top level Entity
 							getEntityFromDataNode(dn, topEntity)
 						} else {
@@ -864,7 +883,7 @@ func getDataNodeFromEntity(
 	}
 
 	entPath := types.GetEntityPath(entity)
-	entAbsPath := entity.GetEntityData().AbsolutePath
+	entAbsPath := types.GetAbsolutePath(entity)
 	path := C.CString(entAbsPath)
 	defer C.free(unsafe.Pointer(path))
 
@@ -1169,7 +1188,7 @@ func GetRootSchemaNode(provider types.CServiceProvider) types.RootSchemaNode {
 	rootSchema := C.ServiceProviderGetRootSchemaNode(*cstate, realProvider)
 	PanicOnCStateError(cstate)
 	if rootSchema == nil {
-        ydk.YLogError("Root schema is nil!")
+	        ydk.YLogError("Root schema is nil!")
 		panic(1)
 	}
 

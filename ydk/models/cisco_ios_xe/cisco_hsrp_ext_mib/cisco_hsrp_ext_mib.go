@@ -356,7 +356,7 @@ type CISCOHSRPEXTMIB_CHsrpExtSecAddrTable_CHsrpExtSecAddrEntry struct {
     // cHsrpExtSecAddrEntry, a primary address must exist before a secondary
     // address for  the same {ifIndex, cHsrpGrpNumber} pair can be created. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CHsrpExtSecAddrAddress interface{}
 
     // The control that allows modification, creation, and deletion of entries.

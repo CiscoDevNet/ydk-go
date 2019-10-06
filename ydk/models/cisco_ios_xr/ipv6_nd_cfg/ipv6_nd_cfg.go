@@ -29,17 +29,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor", reflect.TypeOf(Ipv6Neighbor{}))
 }
 
-// Ipv6srpEncapsulation represents Ipv6srp encapsulation
-type Ipv6srpEncapsulation string
-
-const (
-    // Encapsulation type SRP, prefer side A
-    Ipv6srpEncapsulation_srpa Ipv6srpEncapsulation = "srpa"
-
-    // Encapsulation type SRP, prefer side B
-    Ipv6srpEncapsulation_srpb Ipv6srpEncapsulation = "srpb"
-)
-
 // Ipv6ndMonth represents Ipv6nd month
 type Ipv6ndMonth string
 
@@ -95,6 +84,17 @@ const (
     Ipv6NdRouterPref_low Ipv6NdRouterPref = "low"
 )
 
+// Ipv6srpEncapsulation represents Ipv6srp encapsulation
+type Ipv6srpEncapsulation string
+
+const (
+    // Encapsulation type SRP, prefer side A
+    Ipv6srpEncapsulation_srpa Ipv6srpEncapsulation = "srpa"
+
+    // Encapsulation type SRP, prefer side B
+    Ipv6srpEncapsulation_srpb Ipv6srpEncapsulation = "srpb"
+)
+
 // Ipv6Neighbor
 // IPv6 neighbor or neighbor discovery configuration
 type Ipv6Neighbor struct {
@@ -104,10 +104,6 @@ type Ipv6Neighbor struct {
     // Set lifetime for stale neighbor. The type is interface{} with range:
     // 1..43200. Units are second.
     ScavengeTimeout interface{}
-
-    // Set cos value for both outer vlan and inner vlan (if present) in all
-    // ougoing ND control packets. The type is interface{} with range: 0..7.
-    Cos interface{}
 
     // IPv6 neighbors.
     Neighbors Ipv6Neighbor_Neighbors
@@ -128,7 +124,6 @@ func (ipv6Neighbor *Ipv6Neighbor) GetEntityData() *types.CommonEntityData {
     ipv6Neighbor.EntityData.Children.Append("neighbors", types.YChild{"Neighbors", &ipv6Neighbor.Neighbors})
     ipv6Neighbor.EntityData.Leafs = types.NewOrderedMap()
     ipv6Neighbor.EntityData.Leafs.Append("scavenge-timeout", types.YLeaf{"ScavengeTimeout", ipv6Neighbor.ScavengeTimeout})
-    ipv6Neighbor.EntityData.Leafs.Append("cos", types.YLeaf{"Cos", ipv6Neighbor.Cos})
 
     ipv6Neighbor.EntityData.YListKeys = []string {}
 
@@ -177,18 +172,18 @@ type Ipv6Neighbor_Neighbors_Neighbor struct {
     YListKey string
 
     // This attribute is a key. IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // IPv6 address zone. The type is string. The default value is 0.
     Zone interface{}
 
     // 48-bit hardware address H.H.H. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. This attribute is mandatory.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. This attribute is mandatory.
     MacAddress interface{}
 
     // Encapsulation type only if interface type is SRP. The type is

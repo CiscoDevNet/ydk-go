@@ -18,16 +18,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ipv4_io_cfg"))
 }
 
-// Ipv4Reachable represents Ipv4 reachable
-type Ipv4Reachable string
+// Ipv4DefaultPing represents Ipv4 default ping
+type Ipv4DefaultPing string
 
 const (
-    // Source is reachable via any interface
-    Ipv4Reachable_any Ipv4Reachable = "any"
+    // Default route is not allowed to match when
+    // checking source address
+    Ipv4DefaultPing_disabled Ipv4DefaultPing = "disabled"
 
-    // Source is reachable via interface on which
-    // packet was received
-    Ipv4Reachable_received Ipv4Reachable = "received"
+    // Allow default route to match when checking
+    // source address
+    Ipv4DefaultPing_enabled Ipv4DefaultPing = "enabled"
 )
 
 // Ipv4SelfPing represents Ipv4 self ping
@@ -41,17 +42,16 @@ const (
     Ipv4SelfPing_enabled Ipv4SelfPing = "enabled"
 )
 
-// Ipv4DefaultPing represents Ipv4 default ping
-type Ipv4DefaultPing string
+// Ipv4Reachable represents Ipv4 reachable
+type Ipv4Reachable string
 
 const (
-    // Default route is not allowed to match when
-    // checking source address
-    Ipv4DefaultPing_disabled Ipv4DefaultPing = "disabled"
+    // Source is reachable via any interface
+    Ipv4Reachable_any Ipv4Reachable = "any"
 
-    // Allow default route to match when checking
-    // source address
-    Ipv4DefaultPing_enabled Ipv4DefaultPing = "enabled"
+    // Source is reachable via interface on which
+    // packet was received
+    Ipv4Reachable_received Ipv4Reachable = "received"
 )
 
 // Ipv4InterfaceQppb represents Ipv4 interface qppb

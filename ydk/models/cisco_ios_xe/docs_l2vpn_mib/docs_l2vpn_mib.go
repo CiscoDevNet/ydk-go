@@ -1098,7 +1098,7 @@ type DOCSL2VPNMIB_DocsL2vpnCmVpnCpeTable_DocsL2vpnCmVpnCpeEntry struct {
     // This attribute is a key. The Customer Premise Equipment (CPE) Mac Address 
     // that is attached to this instances Cable Modem  and bridging on this
     // instance's VPN Id. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsL2vpnCmVpnCpeMacAddress interface{}
 }
 
@@ -1181,7 +1181,7 @@ type DOCSL2VPNMIB_DocsL2vpnVpnCmCpeTable_DocsL2vpnVpnCmCpeEntry struct {
     // This attribute is a key. The Customer Premise Equipment (CPE) Mac Address 
     // that is attached to this instances Cable Modem  and bridging on this
     // instance's L2vpn Index. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsL2vpnVpnCmCpeMacAddress interface{}
 }
 
@@ -1259,7 +1259,7 @@ type DOCSL2VPNMIB_DocsL2vpnDot1qTpFdbExtTable_DocsL2vpnDot1qTpFdbExtEntry struct
     Dot1qFdbId interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. Refers to
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. Refers to
     // q_bridge_mib.QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry_Dot1qTpFdbAddress
     Dot1qTpFdbAddress interface{}
 
@@ -1352,7 +1352,7 @@ type DOCSL2VPNMIB_DocsL2vpnDot1qTpGroupExtTable_DocsL2vpnDot1qTpGroupExtEntry st
     Dot1qVlanIndex interface{}
 
     // This attribute is a key. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'. Refers to
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}. Refers to
     // q_bridge_mib.QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry_Dot1qTpGroupAddress
     Dot1qTpGroupAddress interface{}
 

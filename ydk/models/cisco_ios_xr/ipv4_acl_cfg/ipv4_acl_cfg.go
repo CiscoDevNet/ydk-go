@@ -210,7 +210,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     Protocol interface{}
 
     // Protocol2 to match. It is used in upper bound (range operator). Any value
-    // not in the permissible range will  be rejected. The type is one of the
+    // not in the permissible range will be rejected. The type is one of the
     // following types: enumeration Ipv4AclProtocolNumber, or int with range:
     // 0..255.
     Protocol2 interface{}
@@ -224,9 +224,9 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     // length: 1..64.
     CounterName interface{}
 
-    // IGMP message type to match. Leave unspecified if  no message type
-    // comparison is to be done. The type is one of the following types:
-    // enumeration Ipv4AclIgmpNumber, or int with range: 0..255.
+    // IGMP message type to match. Leave unspecified if no message type comparison
+    // is to be done. The type is one of the following types: enumeration
+    // Ipv4AclIgmpNumber, or int with range: 0..255.
     IgmpMessageType interface{}
 
     // Precedence value to match (if a protocol was specified). Any value not in
@@ -253,8 +253,8 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     // type is interface{} with range: 0..255.
     SetTtl interface{}
 
-    // Check non-initial fragments. Item is mutually  exclusive with TCP, SCTP,
-    // UDP, IGMP and ICMP  comparions and with logging. The type is interface{}.
+    // Check non-initial fragments. Item is mutually exclusive with TCP, SCTP,
+    // UDP, IGMP and ICMP comparions and with logging. The type is interface{}.
     Fragments interface{}
 
     // Description for the access-list-entry/rule. The type is string with length:
@@ -371,16 +371,16 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
 
     // Source IPv4 address to match, leave unspecified for any. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
-    // Wildcard bits to apply to source address  (if specified), leave unspecified
-    // for no  wildcarding. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // Wildcard bits to apply to source address (if specified), leave unspecified
+    // for no wildcarding. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceWildCardBits interface{}
 
-    // Prefix length to apply to source address  (if specified), leave unspecified
-    // for no  wildcarding. The type is interface{} with range: 0..32.
+    // Prefix length to apply to source address (if specified), leave unspecified
+    // for no wildcarding. The type is interface{} with range: 0..32.
     SourcePrefixLength interface{}
 }
 
@@ -414,16 +414,16 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dest
 
     // Destination IPv4 address to match (if a protocol was specified), leave
     // unspecified for any. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Wildcard bits to apply to destination address (if specified), leave
-    // unspecified for no  wildcarding. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // unspecified for no wildcarding. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationWildCardBits interface{}
 
-    // Prefix length to apply to destination address  (if specified), leave
-    // unspecified for no  wildcarding. The type is interface{} with range: 0..32.
+    // Prefix length to apply to destination address (if specified), leave
+    // unspecified for no wildcarding. The type is interface{} with range: 0..32.
     DestinationPrefixLength interface{}
 }
 
@@ -455,7 +455,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Source port comparison operator. This is a required  field if any source
+    // Source port comparison operator. This is a required field if any source
     // port value is given, otherwise, config will be rejected. Leave unspecified
     // if no source port comparison is to be done. The type is
     // Ipv4AclOperatorEnum.
@@ -551,8 +551,8 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Well known ICMP message code types to match,  leave unspecified if ICMP
-    // message code type  comparion is not to be performed. The type is
+    // Well known ICMP message code types to match, leave unspecified if ICMP
+    // message code type comparion is not to be performed. The type is
     // Ipv4AclIcmpTypeCodeEnum.
     IcmpTypeCode interface{}
 }
@@ -583,8 +583,8 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // TCP Bits match operator. Leave unspecified if  flexible comparison of TCP
-    // bits is not  required. The type is Ipv4AclTcpMatchOperatorEnum.
+    // TCP Bits match operator. Leave unspecified if flexible comparison of TCP
+    // bits is not required. The type is Ipv4AclTcpMatchOperatorEnum.
     TcpBitsMatchOperator interface{}
 
     // TCP bits to match. Leave unspecified if comparison of TCP bits is not
@@ -592,7 +592,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp 
     TcpBits interface{}
 
     // TCP bits mask to use for flexible TCP matching. Leave unspecified if
-    // tcp-bits-match-operator is  unspecified. The type is map[string]bool.
+    // tcp-bits-match-operator is unspecified. The type is map[string]bool.
     TcpBitsMask interface{}
 }
 
@@ -625,7 +625,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Pack
     YFilter yfilter.YFilter
 
     // Packet length operator applicable if packet length is to be compared. This
-    // is a required field if any packet-length value is given, otherwise, config 
+    // is a required field if any packet-length value is given, otherwise, config
     // will be rejected. The type is Ipv4AclOperatorEnum.
     PacketLengthOperator interface{}
 
@@ -804,7 +804,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     YFilter yfilter.YFilter
 
     // The IPv4 address of the next-hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string with length: 1..32.
@@ -844,7 +844,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     YFilter yfilter.YFilter
 
     // The IPv4 address of the next-hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string with length: 1..32.
@@ -884,7 +884,7 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     YFilter yfilter.YFilter
 
     // The IPv4 address of the next-hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string with length: 1..32.
@@ -923,12 +923,11 @@ type Ipv4AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dscp
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // DSCP operator is applicable only when DSCP  range is configured. Leave
-    // unspecified if  DSCP range is not required. The type is
-    // Ipv4AclOperatorEnum.
+    // DSCP operator is applicable only when DSCP range is configured. Leave
+    // unspecified if DSCP range is not required. The type is Ipv4AclOperatorEnum.
     DscpOperator interface{}
 
-    // Mininum DSCP value for comparison. It can be used for the  lower bound
+    // Mininum DSCP value for comparison. It can be used for the lower bound
     // (range operator) or single value (equal, less, greater..etc). Any value not
     // in the permissible range will be rejected. Leave unspecified otherwise. The
     // type is one of the following types: enumeration Ipv4AclDscpNumber, or int
@@ -1088,11 +1087,11 @@ type Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry stru
     Grant interface{}
 
     // IPv4 address prefix to match. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // Mask of IPv4 address prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Netmask interface{}
 
     // Set to perform an exact prefix length match. Item is mutually exclusive

@@ -18,17 +18,17 @@ func init() {
     ydk.RegisterEntity("DOCS-IF-MIB:DOCS-IF-MIB", reflect.TypeOf(DOCSIFMIB{}))
 }
 
-// DocsisVersion represents 'docsis30' indicates DOCSIS 3.0.
-type DocsisVersion string
+// DocsisUpstreamTypeStatus represents this type is used to specifically identify PHY mode.
+type DocsisUpstreamTypeStatus string
 
 const (
-    DocsisVersion_docsis10 DocsisVersion = "docsis10"
+    DocsisUpstreamTypeStatus_unknown DocsisUpstreamTypeStatus = "unknown"
 
-    DocsisVersion_docsis11 DocsisVersion = "docsis11"
+    DocsisUpstreamTypeStatus_tdma DocsisUpstreamTypeStatus = "tdma"
 
-    DocsisVersion_docsis20 DocsisVersion = "docsis20"
+    DocsisUpstreamTypeStatus_atdma DocsisUpstreamTypeStatus = "atdma"
 
-    DocsisVersion_docsis30 DocsisVersion = "docsis30"
+    DocsisUpstreamTypeStatus_scdma DocsisUpstreamTypeStatus = "scdma"
 )
 
 // DocsisQosVersion represents Indicates the quality of service level.
@@ -55,17 +55,17 @@ const (
     DocsisUpstreamType_tdmaAndAtdma DocsisUpstreamType = "tdmaAndAtdma"
 )
 
-// DocsisUpstreamTypeStatus represents this type is used to specifically identify PHY mode.
-type DocsisUpstreamTypeStatus string
+// DocsisVersion represents 'docsis30' indicates DOCSIS 3.0.
+type DocsisVersion string
 
 const (
-    DocsisUpstreamTypeStatus_unknown DocsisUpstreamTypeStatus = "unknown"
+    DocsisVersion_docsis10 DocsisVersion = "docsis10"
 
-    DocsisUpstreamTypeStatus_tdma DocsisUpstreamTypeStatus = "tdma"
+    DocsisVersion_docsis11 DocsisVersion = "docsis11"
 
-    DocsisUpstreamTypeStatus_atdma DocsisUpstreamTypeStatus = "atdma"
+    DocsisVersion_docsis20 DocsisVersion = "docsis20"
 
-    DocsisUpstreamTypeStatus_scdma DocsisUpstreamTypeStatus = "scdma"
+    DocsisVersion_docsis30 DocsisVersion = "docsis30"
 )
 
 // DOCSIFMIB
@@ -1071,7 +1071,7 @@ type DOCSIFMIB_DocsIfCmMacTable_DocsIfCmMacEntry struct {
     // Identifies the CMTS that is believed to control this MAC domain. At the CM,
     // this will be the source address from SYNC, MAP, and other MAC-layer
     // messages. If the CMTS is unknown, returns 00-00-00-00-00-00. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIfCmCmtsAddress interface{}
 
     // Identifies the capabilities of the MAC implementation at this interface.
@@ -1738,7 +1738,7 @@ type DOCSIFMIB_DocsIfCmtsCmStatusTable_DocsIfCmtsCmStatusEntry struct {
 
     // MAC address of this Cable Modem. If the Cable Modem has multiple MAC
     // addresses, this is the MAC address associated with the Cable interface. The
-    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIfCmtsCmStatusMacAddress interface{}
 
     // IP address of this Cable Modem. If the Cable Modem has no IP address
@@ -1748,7 +1748,7 @@ type DOCSIFMIB_DocsIfCmtsCmStatusTable_DocsIfCmtsCmStatusEntry struct {
     // deprecated and replaced by docsIfCmtsCmStatusInetAddressType and
     // docsIfCmtsCmStatusInetAddress, to enable IPv6 addressing in the future. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DocsIfCmtsCmStatusIpAddress interface{}
 
     // IfIndex of the downstream channel this CM is connected to. If the
@@ -2376,7 +2376,7 @@ type DOCSIFMIB_DocsIfCmtsMacToCmTable_DocsIfCmtsMacToCmEntry struct {
     // This attribute is a key. The RF side MAC address for the referenced CM.
     // (E.g. the interface on the CM that has docsCableMacLayer(127) as its
     // ifType. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIfCmtsCmMac interface{}
 
     // An row index into docsIfCmtsCmStatusTable. When queried with the correct

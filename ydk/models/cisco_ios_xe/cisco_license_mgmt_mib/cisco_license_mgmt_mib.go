@@ -265,27 +265,6 @@ func init() {
     ydk.RegisterEntity("CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB", reflect.TypeOf(CISCOLICENSEMGMTMIB{}))
 }
 
-// ClmgmtLicenseTransferProtocol represents which protocol is supported and use.
-type ClmgmtLicenseTransferProtocol string
-
-const (
-    ClmgmtLicenseTransferProtocol_none ClmgmtLicenseTransferProtocol = "none"
-
-    ClmgmtLicenseTransferProtocol_local ClmgmtLicenseTransferProtocol = "local"
-
-    ClmgmtLicenseTransferProtocol_tftp ClmgmtLicenseTransferProtocol = "tftp"
-
-    ClmgmtLicenseTransferProtocol_ftp ClmgmtLicenseTransferProtocol = "ftp"
-
-    ClmgmtLicenseTransferProtocol_rcp ClmgmtLicenseTransferProtocol = "rcp"
-
-    ClmgmtLicenseTransferProtocol_http ClmgmtLicenseTransferProtocol = "http"
-
-    ClmgmtLicenseTransferProtocol_scp ClmgmtLicenseTransferProtocol = "scp"
-
-    ClmgmtLicenseTransferProtocol_sftp ClmgmtLicenseTransferProtocol = "sftp"
-)
-
 // ClmgmtLicenseActionState represents failed(6)              - action has failed.
 type ClmgmtLicenseActionState string
 
@@ -350,6 +329,27 @@ const (
     ClmgmtLicenseActionFailCause_licenseClearInProgress ClmgmtLicenseActionFailCause = "licenseClearInProgress"
 
     ClmgmtLicenseActionFailCause_invalidLicenseEULAFile ClmgmtLicenseActionFailCause = "invalidLicenseEULAFile"
+)
+
+// ClmgmtLicenseTransferProtocol represents which protocol is supported and use.
+type ClmgmtLicenseTransferProtocol string
+
+const (
+    ClmgmtLicenseTransferProtocol_none ClmgmtLicenseTransferProtocol = "none"
+
+    ClmgmtLicenseTransferProtocol_local ClmgmtLicenseTransferProtocol = "local"
+
+    ClmgmtLicenseTransferProtocol_tftp ClmgmtLicenseTransferProtocol = "tftp"
+
+    ClmgmtLicenseTransferProtocol_ftp ClmgmtLicenseTransferProtocol = "ftp"
+
+    ClmgmtLicenseTransferProtocol_rcp ClmgmtLicenseTransferProtocol = "rcp"
+
+    ClmgmtLicenseTransferProtocol_http ClmgmtLicenseTransferProtocol = "http"
+
+    ClmgmtLicenseTransferProtocol_scp ClmgmtLicenseTransferProtocol = "scp"
+
+    ClmgmtLicenseTransferProtocol_sftp ClmgmtLicenseTransferProtocol = "sftp"
 )
 
 // CISCOLICENSEMGMTMIB

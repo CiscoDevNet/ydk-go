@@ -216,7 +216,7 @@ type Nacm_RuleList struct {
     // List of administrative groups that will be assigned the associated access
     // rights defined by the 'rule' list.  The string '*' indicates that all
     // groups apply to the entry. The type is one of the following types: slice of
-    // string with pattern: b'\\*', or slice of string with length:
+    // string with pattern: \*, or slice of string with length:
     // 1..18446744073709551615.
     Group []interface{}
 
@@ -273,18 +273,18 @@ type Nacm_RuleList_Rule struct {
     // Name of the module associated with this rule.  This leaf matches if it has
     // the value '*' or if the object being accessed is defined in the module with
     // the specified module name. The type is one of the following types: string
-    // with pattern: b'\\*' The default value is *., or string The default value
-    // is *..
+    // with pattern: \* The default value is *., or string The default value is
+    // *..
     ModuleName interface{}
 
     // This leaf matches if it has the value '*' or if its value equals the
     // requested protocol operation name. The type is one of the following types:
-    // string with pattern: b'\\*', or string.
+    // string with pattern: \*, or string.
     RpcName interface{}
 
     // This leaf matches if it has the value '*' or if its value equals the
     // requested notification name. The type is one of the following types: string
-    // with pattern: b'\\*', or string.
+    // with pattern: \*, or string.
     NotificationName interface{}
 
     // Data Node Instance Identifier associated with the data node controlled by
@@ -296,9 +296,9 @@ type Nacm_RuleList_Rule struct {
 
     // Access operations associated with this rule.  This leaf matches if it has
     // the value '*' or if the bit corresponding to the requested operation is
-    // set. The type is one of the following types: string with pattern: b'\\*'
-    // The default value is *., or :go:struct:`Bits <ydk/models/netconf_acm/Bits>`
-    // The default value is *..
+    // set. The type is one of the following types: string with pattern: \* The
+    // default value is *., or :go:struct:`Bits <ydk/models/netconf_acm/Bits>` The
+    // default value is *..
     AccessOperations interface{}
 
     // The access control action associated with the rule.  If a rule is

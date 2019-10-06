@@ -24,6 +24,26 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-crypto-macsec-mka-oper:macsec", reflect.TypeOf(Macsec{}))
 }
 
+// MacsecCipherSuite represents Macsec cipher suite
+type MacsecCipherSuite string
+
+const (
+    // Invalid MACsec cipher
+    MacsecCipherSuite_cipher_suite_none MacsecCipherSuite = "cipher-suite-none"
+
+    // 128 bit GCM_AES MACsec cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_128 MacsecCipherSuite = "cipher-suite-gcm-aes-128"
+
+    // 256 bit GCM_AES MACsec cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_256 MacsecCipherSuite = "cipher-suite-gcm-aes-256"
+
+    // 128 bit GCM_AES MACsec XPN cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_128_xpn MacsecCipherSuite = "cipher-suite-gcm-aes-128-xpn"
+
+    // 256 bit GCM_AES MACsec XPN cipher suite
+    MacsecCipherSuite_cipher_suite_gcm_aes_256_xpn MacsecCipherSuite = "cipher-suite-gcm-aes-256-xpn"
+)
+
 // MkaAuthenticationMode represents Mka authentication mode
 type MkaAuthenticationMode string
 
@@ -50,26 +70,6 @@ const (
 
     // Macsec Service Decryption Port
     MacsecServicePort_macsec_service_port_decryption MacsecServicePort = "macsec-service-port-decryption"
-)
-
-// MacsecCipherSuite represents Macsec cipher suite
-type MacsecCipherSuite string
-
-const (
-    // Invalid MACsec cipher
-    MacsecCipherSuite_cipher_suite_none MacsecCipherSuite = "cipher-suite-none"
-
-    // 128 bit GCM_AES MACsec cipher suite
-    MacsecCipherSuite_cipher_suite_gcm_aes_128 MacsecCipherSuite = "cipher-suite-gcm-aes-128"
-
-    // 256 bit GCM_AES MACsec cipher suite
-    MacsecCipherSuite_cipher_suite_gcm_aes_256 MacsecCipherSuite = "cipher-suite-gcm-aes-256"
-
-    // 128 bit GCM_AES MACsec XPN cipher suite
-    MacsecCipherSuite_cipher_suite_gcm_aes_128_xpn MacsecCipherSuite = "cipher-suite-gcm-aes-128-xpn"
-
-    // 256 bit GCM_AES MACsec XPN cipher suite
-    MacsecCipherSuite_cipher_suite_gcm_aes_256_xpn MacsecCipherSuite = "cipher-suite-gcm-aes-256-xpn"
 )
 
 // Macsec
@@ -174,7 +174,7 @@ type Macsec_Mka_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // MKA Session Data.

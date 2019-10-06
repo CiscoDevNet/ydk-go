@@ -63,19 +63,6 @@ const (
     CpeExtLldpPwrSrc_unknown CpeExtLldpPwrSrc = "unknown"
 )
 
-// CpeExtPwrPriority represents 'unknown'  - power priority level is unknown.
-type CpeExtPwrPriority string
-
-const (
-    CpeExtPwrPriority_critical CpeExtPwrPriority = "critical"
-
-    CpeExtPwrPriority_high CpeExtPwrPriority = "high"
-
-    CpeExtPwrPriority_low CpeExtPwrPriority = "low"
-
-    CpeExtPwrPriority_unknown CpeExtPwrPriority = "unknown"
-)
-
 // CpeExtLldpPwrClassOrZero represents             class 4 in IEEE specifications.
 type CpeExtLldpPwrClassOrZero string
 
@@ -91,6 +78,19 @@ const (
     CpeExtLldpPwrClassOrZero_class3 CpeExtLldpPwrClassOrZero = "class3"
 
     CpeExtLldpPwrClassOrZero_class4 CpeExtLldpPwrClassOrZero = "class4"
+)
+
+// CpeExtPwrPriority represents 'unknown'  - power priority level is unknown.
+type CpeExtPwrPriority string
+
+const (
+    CpeExtPwrPriority_critical CpeExtPwrPriority = "critical"
+
+    CpeExtPwrPriority_high CpeExtPwrPriority = "high"
+
+    CpeExtPwrPriority_low CpeExtPwrPriority = "low"
+
+    CpeExtPwrPriority_unknown CpeExtPwrPriority = "unknown"
 )
 
 // CISCOPOWERETHERNETEXTMIB

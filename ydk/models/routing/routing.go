@@ -40,11 +40,39 @@ func init() {
     ydk.RegisterEntity("ietf-routing:fib-route", reflect.TypeOf(FibRoute{}))
 }
 
-type AddressFamily struct {
+type VrfRoutingInstance struct {
 }
 
-func (id AddressFamily) String() string {
-	return "ietf-routing:address-family"
+func (id VrfRoutingInstance) String() string {
+	return "ietf-routing:vrf-routing-instance"
+}
+
+type Direct struct {
+}
+
+func (id Direct) String() string {
+	return "ietf-routing:direct"
+}
+
+type DefaultRoutingInstance struct {
+}
+
+func (id DefaultRoutingInstance) String() string {
+	return "ietf-routing:default-routing-instance"
+}
+
+type RoutingProtocol struct {
+}
+
+func (id RoutingProtocol) String() string {
+	return "ietf-routing:routing-protocol"
+}
+
+type Static struct {
+}
+
+func (id Static) String() string {
+	return "ietf-routing:static"
 }
 
 type Ipv4 struct {
@@ -68,39 +96,11 @@ func (id RoutingInstance) String() string {
 	return "ietf-routing:routing-instance"
 }
 
-type DefaultRoutingInstance struct {
+type AddressFamily struct {
 }
 
-func (id DefaultRoutingInstance) String() string {
-	return "ietf-routing:default-routing-instance"
-}
-
-type VrfRoutingInstance struct {
-}
-
-func (id VrfRoutingInstance) String() string {
-	return "ietf-routing:vrf-routing-instance"
-}
-
-type RoutingProtocol struct {
-}
-
-func (id RoutingProtocol) String() string {
-	return "ietf-routing:routing-protocol"
-}
-
-type Direct struct {
-}
-
-func (id Direct) String() string {
-	return "ietf-routing:direct"
-}
-
-type Static struct {
-}
-
-func (id Static) String() string {
-	return "ietf-routing:static"
+func (id AddressFamily) String() string {
+	return "ietf-routing:address-family"
 }
 
 // RoutingState
@@ -167,12 +167,12 @@ type RoutingState_RoutingInstance struct {
     Name interface{}
 
     // The routing instance type. The type is one of the following:
-    // DefaultRoutingInstanceVrfRoutingInstance.
+    // VrfRoutingInstanceDefaultRoutingInstance.
     Type interface{}
 
     // A 32-bit number in the form of a dotted quad that is used by some routing
     // protocols identifying a router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Network layer interfaces belonging to the routing instance.
@@ -291,7 +291,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol struct {
     YListKey string
 
     // This attribute is a key. Type of the routing protocol. The type is one of
-    // the following: OspfOspfv2Ospfv3DirectStatic.
+    // the following: Ospfv3Ospfv2OspfDirectStatic.
     Type interface{}
 
     // This attribute is a key. The name of the routing protocol instance.  For
@@ -376,7 +376,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Defined in RFC 2328. A 32-bit number that uniquely identifies the router.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // List of OSPF areas. The type is slice of
@@ -434,7 +434,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 
     // List of OSPF interfaces. The type is slice of
@@ -544,11 +544,11 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     WaitTimer interface{}
 
     // DR. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Dr interface{}
 
     // BDR. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Bdr interface{}
 
     // Configure ospf multi-area.
@@ -643,7 +643,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // Multi-area ID. The type is one of the following types: int with range:
     // 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     MultiAreaId interface{}
 
     // Interface cost for multi-area. The type is interface{} with range:
@@ -715,9 +715,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Neighbor cost. The type is interface{} with range: 1..65535.
@@ -997,22 +997,22 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YListKey string
 
     // This attribute is a key. Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborId interface{}
 
     // Neighbor address. The type is one of the following types: string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Designated Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Dr interface{}
 
     // Backup Designated Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Bdr interface{}
 
     // OSPF neighbor state. The type is NbrStateType.
@@ -1092,20 +1092,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LsaId interface{}
 
     // This attribute is a key. Advertising router. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvRouter interface{}
 
     // The OSPF LSA body is fully decoded. The type is bool.
     DecodedCompleted interface{}
 
     // The complete LSA in network byte order as received/sent over the wire. The
-    // type is string with pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // OSPFv2 LSA.
@@ -1184,7 +1184,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Options interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     LsaId interface{}
 
@@ -1205,7 +1205,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -1346,14 +1346,14 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     LinkId interface{}
 
     // This attribute is a key. Link data. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LinkData interface{}
 
@@ -1434,12 +1434,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -1471,7 +1471,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
@@ -1546,7 +1546,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
@@ -1596,7 +1596,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Metric interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -1684,7 +1684,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -1717,7 +1717,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterAddress interface{}
 }
 
@@ -1752,20 +1752,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     LinkType interface{}
 
     // Link ID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
     // This attribute is mandatory..
     LinkId interface{}
 
     // List of local interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIfIpv4Addr []interface{}
 
     // List of remote interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalRemoteIpv4Addr []interface{}
 
     // TE metric. The type is interface{} with range: 0..4294967295.
@@ -1839,7 +1839,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -1918,7 +1918,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -2082,7 +2082,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor Router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     NeighborRouterId interface{}
 
     // Link type. The type is interface{} with range: 0..255.
@@ -2128,7 +2128,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -2206,7 +2206,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The Router ID of the router being described by the LSA. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     DestinationRouterId interface{}
 }
 
@@ -2254,7 +2254,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -2314,7 +2314,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -2368,9 +2368,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The originating router's link-local interface address on the link. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkLocalInterfaceAddress interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..4294967295.
@@ -2457,7 +2457,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     ReferencedLinkStateId interface{}
 
     // Referenced Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferencedAdvRouter interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..65535.
@@ -2633,20 +2633,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LsaId interface{}
 
     // This attribute is a key. Advertising router. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvRouter interface{}
 
     // The OSPF LSA body is fully decoded. The type is bool.
     DecodedCompleted interface{}
 
     // The complete LSA in network byte order as received/sent over the wire. The
-    // type is string with pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // OSPFv2 LSA.
@@ -2725,7 +2725,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Options interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     LsaId interface{}
 
@@ -2746,7 +2746,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -2887,14 +2887,14 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     LinkId interface{}
 
     // This attribute is a key. Link data. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LinkData interface{}
 
@@ -2975,12 +2975,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -3012,7 +3012,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
@@ -3087,7 +3087,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
@@ -3137,7 +3137,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Metric interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -3225,7 +3225,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -3258,7 +3258,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterAddress interface{}
 }
 
@@ -3293,20 +3293,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     LinkType interface{}
 
     // Link ID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
     // This attribute is mandatory..
     LinkId interface{}
 
     // List of local interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIfIpv4Addr []interface{}
 
     // List of remote interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalRemoteIpv4Addr []interface{}
 
     // TE metric. The type is interface{} with range: 0..4294967295.
@@ -3380,7 +3380,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -3459,7 +3459,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -3623,7 +3623,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor Router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     NeighborRouterId interface{}
 
     // Link type. The type is interface{} with range: 0..255.
@@ -3669,7 +3669,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -3747,7 +3747,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The Router ID of the router being described by the LSA. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     DestinationRouterId interface{}
 }
 
@@ -3795,7 +3795,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -3855,7 +3855,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -3909,9 +3909,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The originating router's link-local interface address on the link. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkLocalInterfaceAddress interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..4294967295.
@@ -3998,7 +3998,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     ReferencedLinkStateId interface{}
 
     // Referenced Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferencedAdvRouter interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..65535.
@@ -4124,20 +4124,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. LSA ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LsaId interface{}
 
     // This attribute is a key. Advertising router. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AdvRouter interface{}
 
     // The OSPF LSA body is fully decoded. The type is bool.
     DecodedCompleted interface{}
 
     // The complete LSA in network byte order as received/sent over the wire. The
-    // type is string with pattern: b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // OSPFv2 LSA.
@@ -4216,7 +4216,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Options interface{}
 
     // LSA ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     LsaId interface{}
 
@@ -4237,7 +4237,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -4378,14 +4378,14 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Link ID. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     LinkId interface{}
 
     // This attribute is a key. Link data. The type is one of the following types:
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or int with range: 0..4294967295.
     LinkData interface{}
 
@@ -4466,12 +4466,12 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -4503,7 +4503,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
@@ -4578,7 +4578,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // The IP address mask for the network. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NetworkMask interface{}
 
     // Topology specific information. The type is slice of
@@ -4628,7 +4628,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Metric interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -4716,7 +4716,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4749,7 +4749,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     YFilter yfilter.YFilter
 
     // Router address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterAddress interface{}
 }
 
@@ -4784,20 +4784,20 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     LinkType interface{}
 
     // Link ID. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
     // This attribute is mandatory..
     LinkId interface{}
 
     // List of local interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalIfIpv4Addr []interface{}
 
     // List of remote interface IPv4 addresses. The type is slice of string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalRemoteIpv4Addr []interface{}
 
     // TE metric. The type is interface{} with range: 0..4294967295.
@@ -4871,7 +4871,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Length interface{}
 
     // TLV value. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4950,7 +4950,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     Type interface{}
 
     // LSA advertising router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     // This attribute is mandatory.
     AdvRouter interface{}
 
@@ -5114,7 +5114,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Neighbor Router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     NeighborRouterId interface{}
 
     // Link type. The type is interface{} with range: 0..255.
@@ -5160,7 +5160,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // List of the routers attached to the network. The type is slice of string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AttachedRouter []interface{}
 }
 
@@ -5238,7 +5238,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The Router ID of the router being described by the LSA. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     DestinationRouterId interface{}
 }
 
@@ -5286,7 +5286,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -5346,7 +5346,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     PrefixOptions interface{}
 
     // Forwarding address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     ForwardingAddress interface{}
 
     // Route tag. The type is interface{} with range: 0..4294967295.
@@ -5400,9 +5400,9 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // The originating router's link-local interface address on the link. The type
     // is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LinkLocalInterfaceAddress interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..4294967295.
@@ -5489,7 +5489,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
     ReferencedLinkStateId interface{}
 
     // Referenced Advertising Router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferencedAdvRouter interface{}
 
     // Number of prefixes. The type is interface{} with range: 0..65535.
@@ -5615,7 +5615,7 @@ type RoutingState_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 }
 
@@ -5787,7 +5787,7 @@ type RoutingState_RoutingInstance_Ribs_Rib_Routes_Route struct {
     Metric interface{}
 
     // Type of the routing protocol from which the route originated. The type is
-    // one of the following: OspfOspfv2Ospfv3DirectStatic. This attribute is
+    // one of the following: Ospfv3Ospfv2OspfDirectStatic. This attribute is
     // mandatory.
     SourceProtocol interface{}
 
@@ -5799,7 +5799,7 @@ type RoutingState_RoutingInstance_Ribs_Rib_Routes_Route struct {
     // Time stamp of the last modification of the route. If the route was never
     // modified, it is the time when the route was inserted into the RIB. The type
     // is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdated interface{}
 
     // Update source for the route. The type is string.
@@ -5975,7 +5975,7 @@ type Routing_RoutingInstance struct {
     Name interface{}
 
     // The type of the routing instance. The type is one of the following:
-    // DefaultRoutingInstanceVrfRoutingInstance. The default value is
+    // VrfRoutingInstanceDefaultRoutingInstance. The default value is
     // rt:default-routing-instance.
     Type interface{}
 
@@ -5987,7 +5987,7 @@ type Routing_RoutingInstance struct {
 
     // A 32-bit number in the form of a dotted quad that is used by some routing
     // protocols identifying a router. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Textual description of the routing instance. The type is string.
@@ -6106,7 +6106,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol struct {
 
     // This attribute is a key. Type of the routing protocol - an identity derived
     // from the 'routing-protocol' base identity. The type is one of the
-    // following: OspfOspfv2Ospfv3DirectStatic.
+    // following: Ospfv3Ospfv2OspfDirectStatic.
     Type interface{}
 
     // This attribute is a key. An arbitrary name of the routing protocol
@@ -6159,11 +6159,11 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes struc
 
     // Configuration of a 'static' pseudo-protocol instance consists of a list of
     // routes.
-    Ipv4 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
+    Ipv6 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6
 
     // Configuration of a 'static' pseudo-protocol instance consists of a list of
     // routes.
-    Ipv6 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6
+    Ipv4 Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
 }
 
 func (staticRoutes *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes) GetEntityData() *types.CommonEntityData {
@@ -6178,151 +6178,14 @@ func (staticRoutes *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Sta
     staticRoutes.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
 
     staticRoutes.EntityData.Children = types.NewOrderedMap()
-    staticRoutes.EntityData.Children.Append("ietf-ipv4-unicast-routing:ipv4", types.YChild{"Ipv4", &staticRoutes.Ipv4})
     staticRoutes.EntityData.Children.Append("ietf-ipv6-unicast-routing:ipv6", types.YChild{"Ipv6", &staticRoutes.Ipv6})
+    staticRoutes.EntityData.Children.Append("ietf-ipv4-unicast-routing:ipv4", types.YChild{"Ipv4", &staticRoutes.Ipv4})
     staticRoutes.EntityData.Leafs = types.NewOrderedMap()
 
     staticRoutes.EntityData.YListKeys = []string {}
 
     return &(staticRoutes.EntityData)
 }
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
-// Configuration of a 'static' pseudo-protocol instance
-// consists of a list of routes.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // A user-ordered list of static routes. The type is slice of
-    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route.
-    Route []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
-}
-
-func (ipv4 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4) GetEntityData() *types.CommonEntityData {
-    ipv4.EntityData.YFilter = ipv4.YFilter
-    ipv4.EntityData.YangName = "ipv4"
-    ipv4.EntityData.BundleName = "ietf"
-    ipv4.EntityData.ParentYangName = "static-routes"
-    ipv4.EntityData.SegmentPath = "ietf-ipv4-unicast-routing:ipv4"
-    ipv4.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/" + ipv4.EntityData.SegmentPath
-    ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
-    ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    ipv4.EntityData.Children = types.NewOrderedMap()
-    ipv4.EntityData.Children.Append("route", types.YChild{"Route", nil})
-    for i := range ipv4.Route {
-        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Route[i]), types.YChild{"Route", ipv4.Route[i]})
-    }
-    ipv4.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv4.EntityData.YListKeys = []string {}
-
-    return &(ipv4.EntityData)
-}
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
-// A user-ordered list of static routes.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. IPv4 destination prefix. The type is string with
-    // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
-    // This attribute is mandatory.
-    DestinationPrefix interface{}
-
-    // Textual description of the route. The type is string.
-    Description interface{}
-
-    // Configuration of next-hop.
-    NextHop Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
-}
-
-func (route *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route) GetEntityData() *types.CommonEntityData {
-    route.EntityData.YFilter = route.YFilter
-    route.EntityData.YangName = "route"
-    route.EntityData.BundleName = "ietf"
-    route.EntityData.ParentYangName = "ipv4"
-    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
-    route.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv4-unicast-routing:ipv4/" + route.EntityData.SegmentPath
-    route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    route.EntityData.NamespaceTable = ietf.GetNamespaces()
-    route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    route.EntityData.Children = types.NewOrderedMap()
-    route.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &route.NextHop})
-    route.EntityData.Leafs = types.NewOrderedMap()
-    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"DestinationPrefix", route.DestinationPrefix})
-    route.EntityData.Leafs.Append("description", types.YLeaf{"Description", route.Description})
-
-    route.EntityData.YListKeys = []string {"DestinationPrefix"}
-
-    return &(route.EntityData)
-}
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
-// Configuration of next-hop.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Name of the outgoing interface. The type is string.
-    OutgoingInterface interface{}
-
-    // Special next-hop options. The type is SpecialNextHop.
-    SpecialNextHop interface{}
-
-    // IPv4 address of the next-hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    NextHopAddress interface{}
-}
-
-func (nextHop *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop) GetEntityData() *types.CommonEntityData {
-    nextHop.EntityData.YFilter = nextHop.YFilter
-    nextHop.EntityData.YangName = "next-hop"
-    nextHop.EntityData.BundleName = "ietf"
-    nextHop.EntityData.ParentYangName = "route"
-    nextHop.EntityData.SegmentPath = "next-hop"
-    nextHop.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv4-unicast-routing:ipv4/route/" + nextHop.EntityData.SegmentPath
-    nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
-    nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
-    nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
-
-    nextHop.EntityData.Children = types.NewOrderedMap()
-    nextHop.EntityData.Leafs = types.NewOrderedMap()
-    nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
-    nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})
-    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", nextHop.NextHopAddress})
-
-    nextHop.EntityData.YListKeys = []string {}
-
-    return &(nextHop.EntityData)
-}
-
-// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop represents Special next-hop options.
-type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop string
-
-const (
-    // Silently discard the packet.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_blackhole Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "blackhole"
-
-    // Discard the packet and notify the sender with an error
-    // message indicating that the destination host is
-    // unreachable.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_unreachable Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "unreachable"
-
-    // Discard the packet and notify the sender with an error
-    // message indicating that the communication is
-    // administratively prohibited.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_prohibit Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "prohibit"
-
-    // The packet will be received by the local system.
-    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_receive Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "receive"
-)
 
 // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6
 // Configuration of a 'static' pseudo-protocol instance
@@ -6368,7 +6231,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_
 
     // This attribute is a key. IPv6 destination prefix. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     // This attribute is mandatory.
     DestinationPrefix interface{}
 
@@ -6414,7 +6277,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_
     SpecialNextHop interface{}
 
     // IPv6 address of the next-hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 }
 
@@ -6459,6 +6322,143 @@ const (
 
     // The packet will be received by the local system.
     Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route_NextHop_SpecialNextHop_receive Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv6_Route_NextHop_SpecialNextHop = "receive"
+)
+
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4
+// Configuration of a 'static' pseudo-protocol instance
+// consists of a list of routes.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4 struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // A user-ordered list of static routes. The type is slice of
+    // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route.
+    Route []*Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
+}
+
+func (ipv4 *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4) GetEntityData() *types.CommonEntityData {
+    ipv4.EntityData.YFilter = ipv4.YFilter
+    ipv4.EntityData.YangName = "ipv4"
+    ipv4.EntityData.BundleName = "ietf"
+    ipv4.EntityData.ParentYangName = "static-routes"
+    ipv4.EntityData.SegmentPath = "ietf-ipv4-unicast-routing:ipv4"
+    ipv4.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/" + ipv4.EntityData.SegmentPath
+    ipv4.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    ipv4.EntityData.NamespaceTable = ietf.GetNamespaces()
+    ipv4.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    ipv4.EntityData.Children = types.NewOrderedMap()
+    ipv4.EntityData.Children.Append("route", types.YChild{"Route", nil})
+    for i := range ipv4.Route {
+        ipv4.EntityData.Children.Append(types.GetSegmentPath(ipv4.Route[i]), types.YChild{"Route", ipv4.Route[i]})
+    }
+    ipv4.EntityData.Leafs = types.NewOrderedMap()
+
+    ipv4.EntityData.YListKeys = []string {}
+
+    return &(ipv4.EntityData)
+}
+
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route
+// A user-ordered list of static routes.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+    YListKey string
+
+    // This attribute is a key. IPv4 destination prefix. The type is string with
+    // pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
+    // This attribute is mandatory.
+    DestinationPrefix interface{}
+
+    // Textual description of the route. The type is string.
+    Description interface{}
+
+    // Configuration of next-hop.
+    NextHop Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
+}
+
+func (route *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route) GetEntityData() *types.CommonEntityData {
+    route.EntityData.YFilter = route.YFilter
+    route.EntityData.YangName = "route"
+    route.EntityData.BundleName = "ietf"
+    route.EntityData.ParentYangName = "ipv4"
+    route.EntityData.SegmentPath = "route" + types.AddKeyToken(route.DestinationPrefix, "destination-prefix")
+    route.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv4-unicast-routing:ipv4/" + route.EntityData.SegmentPath
+    route.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    route.EntityData.NamespaceTable = ietf.GetNamespaces()
+    route.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    route.EntityData.Children = types.NewOrderedMap()
+    route.EntityData.Children.Append("next-hop", types.YChild{"NextHop", &route.NextHop})
+    route.EntityData.Leafs = types.NewOrderedMap()
+    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"DestinationPrefix", route.DestinationPrefix})
+    route.EntityData.Leafs.Append("description", types.YLeaf{"Description", route.Description})
+
+    route.EntityData.YListKeys = []string {"DestinationPrefix"}
+
+    return &(route.EntityData)
+}
+
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop
+// Configuration of next-hop.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Name of the outgoing interface. The type is string.
+    OutgoingInterface interface{}
+
+    // Special next-hop options. The type is SpecialNextHop.
+    SpecialNextHop interface{}
+
+    // IPv4 address of the next-hop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    NextHopAddress interface{}
+}
+
+func (nextHop *Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop) GetEntityData() *types.CommonEntityData {
+    nextHop.EntityData.YFilter = nextHop.YFilter
+    nextHop.EntityData.YangName = "next-hop"
+    nextHop.EntityData.BundleName = "ietf"
+    nextHop.EntityData.ParentYangName = "route"
+    nextHop.EntityData.SegmentPath = "next-hop"
+    nextHop.EntityData.AbsolutePath = "ietf-routing:routing/routing-instance/routing-protocols/routing-protocol/static-routes/ietf-ipv4-unicast-routing:ipv4/route/" + nextHop.EntityData.SegmentPath
+    nextHop.EntityData.CapabilitiesTable = ietf.GetCapabilities()
+    nextHop.EntityData.NamespaceTable = ietf.GetNamespaces()
+    nextHop.EntityData.BundleYangModelsLocation = ietf.GetModelsPath()
+
+    nextHop.EntityData.Children = types.NewOrderedMap()
+    nextHop.EntityData.Leafs = types.NewOrderedMap()
+    nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
+    nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", nextHop.NextHopAddress})
+
+    nextHop.EntityData.YListKeys = []string {}
+
+    return &(nextHop.EntityData)
+}
+
+// Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop represents Special next-hop options.
+type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop string
+
+const (
+    // Silently discard the packet.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_blackhole Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "blackhole"
+
+    // Discard the packet and notify the sender with an error
+    // message indicating that the destination host is
+    // unreachable.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_unreachable Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "unreachable"
+
+    // Discard the packet and notify the sender with an error
+    // message indicating that the communication is
+    // administratively prohibited.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_prohibit Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "prohibit"
+
+    // The packet will be received by the local system.
+    Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop_receive Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_StaticRoutes_Ipv4_Route_NextHop_SpecialNextHop = "receive"
 )
 
 // Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf
@@ -6605,7 +6605,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance stru
 
     // Defined in RFC 2328. A 32-bit number that uniquely identifies the router.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Enable/Disable the protocol. The type is bool. The default value is true.
@@ -6977,7 +6977,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Mpls
     Interface interface{}
 
     // Explicitly configure the TE router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RouterId interface{}
 }
 
@@ -7193,10 +7193,10 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 
-    // Area type. The type is one of the following: NormalStubNssa. The default
+    // Area type. The type is one of the following: NormalNssaStub. The default
     // value is normal.
     AreaType interface{}
 
@@ -7375,7 +7375,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Virtual link router ID. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     RouterId interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -7596,16 +7596,16 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Address of the local end-point. The type is one of
     // the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     LocalId interface{}
 
     // This attribute is a key. Address of the remote end-point. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     RemoteId interface{}
 
     // Interface cost. The type is interface{} with range: 1..65535.
@@ -7948,7 +7948,7 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // Multi-area ID. The type is one of the following types: int with range:
     // 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     MultiAreaId interface{}
 
     // Interface cost for multi-area. The type is interface{} with range:
@@ -8020,9 +8020,9 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Area
 
     // This attribute is a key. Neighbor IP address. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Neighbor cost. The type is interface{} with range: 1..65535.
@@ -8398,10 +8398,10 @@ type Routing_RoutingInstance_RoutingProtocols_RoutingProtocol_Ospf_Instance_Topo
 
     // This attribute is a key. Area ID. The type is one of the following types:
     // int with range: 0..4294967295, or string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]).
     AreaId interface{}
 
-    // Area type. The type is one of the following: NormalStubNssa. The default
+    // Area type. The type is one of the following: NormalNssaStub. The default
     // value is normal.
     AreaType interface{}
 
@@ -8658,13 +8658,13 @@ type FibRoute_Input_DestinationAddress struct {
     // Ipv4Ipv4UnicastIpv6Ipv6Unicast. This attribute is mandatory.
     AddressFamily interface{}
 
-    // IPv4 destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    IetfIpv4UnicastRoutingAddress interface{}
-
     // IPv6 destination address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IetfIpv6UnicastRoutingAddress interface{}
+
+    // IPv4 destination address. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IetfIpv4UnicastRoutingAddress interface{}
 }
 
 func (destinationAddress *FibRoute_Input_DestinationAddress) GetEntityData() *types.CommonEntityData {
@@ -8681,8 +8681,8 @@ func (destinationAddress *FibRoute_Input_DestinationAddress) GetEntityData() *ty
     destinationAddress.EntityData.Children = types.NewOrderedMap()
     destinationAddress.EntityData.Leafs = types.NewOrderedMap()
     destinationAddress.EntityData.Leafs.Append("address-family", types.YLeaf{"AddressFamily", destinationAddress.AddressFamily})
-    destinationAddress.EntityData.Leafs.Append("address", types.YLeaf{"IetfIpv4UnicastRoutingAddress", destinationAddress.IetfIpv4UnicastRoutingAddress})
     destinationAddress.EntityData.Leafs.Append("address", types.YLeaf{"IetfIpv6UnicastRoutingAddress", destinationAddress.IetfIpv6UnicastRoutingAddress})
+    destinationAddress.EntityData.Leafs.Append("address", types.YLeaf{"IetfIpv4UnicastRoutingAddress", destinationAddress.IetfIpv4UnicastRoutingAddress})
 
     destinationAddress.EntityData.YListKeys = []string {}
 
@@ -8741,7 +8741,7 @@ type FibRoute_Output_Route struct {
     AddressFamily interface{}
 
     // Type of the routing protocol from which the route originated. The type is
-    // one of the following: OspfOspfv2Ospfv3DirectStatic. This attribute is
+    // one of the following: Ospfv3Ospfv2OspfDirectStatic. This attribute is
     // mandatory.
     SourceProtocol interface{}
 
@@ -8753,16 +8753,16 @@ type FibRoute_Output_Route struct {
     // Time stamp of the last modification of the route. If the route was never
     // modified, it is the time when the route was inserted into the RIB. The type
     // is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdated interface{}
 
-    // IPv4 destination prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))'.
-    IetfIpv4UnicastRoutingDestinationPrefix interface{}
-
     // IPv6 destination prefix. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     IetfIpv6UnicastRoutingDestinationPrefix interface{}
+
+    // IPv4 destination prefix. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])).
+    IetfIpv4UnicastRoutingDestinationPrefix interface{}
 
     // Route's next-hop attribute.
     NextHop FibRoute_Output_Route_NextHop
@@ -8786,8 +8786,8 @@ func (route *FibRoute_Output_Route) GetEntityData() *types.CommonEntityData {
     route.EntityData.Leafs.Append("source-protocol", types.YLeaf{"SourceProtocol", route.SourceProtocol})
     route.EntityData.Leafs.Append("active", types.YLeaf{"Active", route.Active})
     route.EntityData.Leafs.Append("last-updated", types.YLeaf{"LastUpdated", route.LastUpdated})
-    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"IetfIpv4UnicastRoutingDestinationPrefix", route.IetfIpv4UnicastRoutingDestinationPrefix})
     route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"IetfIpv6UnicastRoutingDestinationPrefix", route.IetfIpv6UnicastRoutingDestinationPrefix})
+    route.EntityData.Leafs.Append("destination-prefix", types.YLeaf{"IetfIpv4UnicastRoutingDestinationPrefix", route.IetfIpv4UnicastRoutingDestinationPrefix})
 
     route.EntityData.YListKeys = []string {}
 
@@ -8806,13 +8806,13 @@ type FibRoute_Output_Route_NextHop struct {
     // IP address. The type is string.
     NextHopAddress interface{}
 
-    // IPv4 address of the next-hop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
-    IetfIpv4UnicastRoutingNextHopAddress interface{}
-
     // IPv6 address of the next-hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IetfIpv6UnicastRoutingNextHopAddress interface{}
+
+    // IPv4 address of the next-hop. The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
+    IetfIpv4UnicastRoutingNextHopAddress interface{}
 
     // Special next-hop options. The type is SpecialNextHop.
     SpecialNextHop interface{}
@@ -8833,8 +8833,8 @@ func (nextHop *FibRoute_Output_Route_NextHop) GetEntityData() *types.CommonEntit
     nextHop.EntityData.Leafs = types.NewOrderedMap()
     nextHop.EntityData.Leafs.Append("outgoing-interface", types.YLeaf{"OutgoingInterface", nextHop.OutgoingInterface})
     nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"NextHopAddress", nextHop.NextHopAddress})
-    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfIpv4UnicastRoutingNextHopAddress", nextHop.IetfIpv4UnicastRoutingNextHopAddress})
     nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfIpv6UnicastRoutingNextHopAddress", nextHop.IetfIpv6UnicastRoutingNextHopAddress})
+    nextHop.EntityData.Leafs.Append("next-hop-address", types.YLeaf{"IetfIpv4UnicastRoutingNextHopAddress", nextHop.IetfIpv4UnicastRoutingNextHopAddress})
     nextHop.EntityData.Leafs.Append("special-next-hop", types.YLeaf{"SpecialNextHop", nextHop.SpecialNextHop})
 
     nextHop.EntityData.YListKeys = []string {}

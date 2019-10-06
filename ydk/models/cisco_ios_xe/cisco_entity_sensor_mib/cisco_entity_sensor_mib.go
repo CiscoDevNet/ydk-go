@@ -18,6 +18,30 @@ func init() {
     ydk.RegisterEntity("CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB", reflect.TypeOf(CISCOENTITYSENSORMIB{}))
 }
 
+// SensorThresholdSeverity represents               threshold.
+type SensorThresholdSeverity string
+
+const (
+    SensorThresholdSeverity_other SensorThresholdSeverity = "other"
+
+    SensorThresholdSeverity_minor SensorThresholdSeverity = "minor"
+
+    SensorThresholdSeverity_major SensorThresholdSeverity = "major"
+
+    SensorThresholdSeverity_critical SensorThresholdSeverity = "critical"
+)
+
+// SensorStatus represents readings.
+type SensorStatus string
+
+const (
+    SensorStatus_ok SensorStatus = "ok"
+
+    SensorStatus_unavailable SensorStatus = "unavailable"
+
+    SensorStatus_nonoperational SensorStatus = "nonoperational"
+)
+
 // SensorDataType represents dBm(14):         dB relative to 1mW of power
 type SensorDataType string
 
@@ -49,6 +73,23 @@ const (
     SensorDataType_specialEnum SensorDataType = "specialEnum"
 
     SensorDataType_dBm SensorDataType = "dBm"
+)
+
+// SensorThresholdRelation represents                     the threshold value
+type SensorThresholdRelation string
+
+const (
+    SensorThresholdRelation_lessThan SensorThresholdRelation = "lessThan"
+
+    SensorThresholdRelation_lessOrEqual SensorThresholdRelation = "lessOrEqual"
+
+    SensorThresholdRelation_greaterThan SensorThresholdRelation = "greaterThan"
+
+    SensorThresholdRelation_greaterOrEqual SensorThresholdRelation = "greaterOrEqual"
+
+    SensorThresholdRelation_equalTo SensorThresholdRelation = "equalTo"
+
+    SensorThresholdRelation_notEqualTo SensorThresholdRelation = "notEqualTo"
 )
 
 // SensorDataScale represents International System of Units (SI) prefixes.
@@ -88,47 +129,6 @@ const (
     SensorDataScale_zetta SensorDataScale = "zetta"
 
     SensorDataScale_yotta SensorDataScale = "yotta"
-)
-
-// SensorStatus represents readings.
-type SensorStatus string
-
-const (
-    SensorStatus_ok SensorStatus = "ok"
-
-    SensorStatus_unavailable SensorStatus = "unavailable"
-
-    SensorStatus_nonoperational SensorStatus = "nonoperational"
-)
-
-// SensorThresholdSeverity represents               threshold.
-type SensorThresholdSeverity string
-
-const (
-    SensorThresholdSeverity_other SensorThresholdSeverity = "other"
-
-    SensorThresholdSeverity_minor SensorThresholdSeverity = "minor"
-
-    SensorThresholdSeverity_major SensorThresholdSeverity = "major"
-
-    SensorThresholdSeverity_critical SensorThresholdSeverity = "critical"
-)
-
-// SensorThresholdRelation represents                     the threshold value
-type SensorThresholdRelation string
-
-const (
-    SensorThresholdRelation_lessThan SensorThresholdRelation = "lessThan"
-
-    SensorThresholdRelation_lessOrEqual SensorThresholdRelation = "lessOrEqual"
-
-    SensorThresholdRelation_greaterThan SensorThresholdRelation = "greaterThan"
-
-    SensorThresholdRelation_greaterOrEqual SensorThresholdRelation = "greaterOrEqual"
-
-    SensorThresholdRelation_equalTo SensorThresholdRelation = "equalTo"
-
-    SensorThresholdRelation_notEqualTo SensorThresholdRelation = "notEqualTo"
 )
 
 // CISCOENTITYSENSORMIB

@@ -162,7 +162,7 @@ type SNMPTARGETMIB_SnmpTargetAddrTable_SnmpTargetAddrEntry struct {
 
     // This object indicates the transport type of the address contained in the
     // snmpTargetAddrTAddress object. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     SnmpTargetAddrTDomain interface{}
 
     // This object contains a transport address.  The format of this address

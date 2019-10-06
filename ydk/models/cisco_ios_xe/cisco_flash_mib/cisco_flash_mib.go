@@ -403,7 +403,7 @@ type CISCOFLASHMIB_CiscoFlashDeviceTable_CiscoFlashDeviceEntry struct {
     // such as the MC. This object will therefore be used to essentially index
     // into cardTable to retrieve details about the card such as cardDescr,
     // cardSlotNumber, etc. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CiscoFlashDeviceCard interface{}
 
     // This object gives the state of a jumper (if present and can be determined)
@@ -1383,7 +1383,7 @@ type CISCOFLASHMIB_CiscoFlashCopyTable_CiscoFlashCopyEntry struct {
     // 'FFFFFFFF'H  (or 255.255.255.255).  Since this object can just hold only
     // IPv4 Transport type, it is deprecated and replaced by
     // ciscoFlashCopyServerAddrRev1. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CiscoFlashCopyServerAddress interface{}
 
     // Source file name, either in Flash or on a server, depending on the type of

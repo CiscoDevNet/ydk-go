@@ -327,7 +327,7 @@ type RoutingPolicy_Policies_RoutePolicies_RoutePolicy struct {
     YListKey string
 
     // This attribute is a key. Route policy name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     RoutePolicyName interface{}
 
     // Information about which policies and sets this policy uses.
@@ -1101,7 +1101,7 @@ type RoutingPolicy_Sets_Etag_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -1536,7 +1536,7 @@ type RoutingPolicy_Sets_OspfArea_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -1972,7 +1972,7 @@ type RoutingPolicy_Sets_ExtendedCommunityOpaque_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -2407,7 +2407,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySegNh_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -2842,7 +2842,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySoo_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -3277,7 +3277,7 @@ type RoutingPolicy_Sets_Tag_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -3712,7 +3712,7 @@ type RoutingPolicy_Sets_Prefix_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -4147,7 +4147,7 @@ type RoutingPolicy_Sets_Community_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -4582,7 +4582,7 @@ type RoutingPolicy_Sets_AsPath_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -5017,7 +5017,7 @@ type RoutingPolicy_Sets_LargeCommunity_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -5452,7 +5452,7 @@ type RoutingPolicy_Sets_Esi_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -5884,7 +5884,7 @@ type RoutingPolicy_Sets_ExtendedCommunityBandwidth_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -6288,7 +6288,7 @@ type RoutingPolicy_Sets_ExtendedCommunityRt_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -6723,7 +6723,7 @@ type RoutingPolicy_Sets_Rd_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -7158,7 +7158,7 @@ type RoutingPolicy_Sets_Mac_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -7593,7 +7593,7 @@ type RoutingPolicy_Sets_ExtendedCommunityCost_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -8128,7 +8128,7 @@ type RoutingPolicyShadow_Policies_RoutePolicies_RoutePolicy struct {
     YListKey string
 
     // This attribute is a key. Route policy name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     RoutePolicyName interface{}
 
     // Information about which policies and sets this policy uses.
@@ -8902,7 +8902,7 @@ type RoutingPolicyShadow_Sets_Etag_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -9337,7 +9337,7 @@ type RoutingPolicyShadow_Sets_OspfArea_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -9773,7 +9773,7 @@ type RoutingPolicyShadow_Sets_ExtendedCommunityOpaque_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -10208,7 +10208,7 @@ type RoutingPolicyShadow_Sets_ExtendedCommunitySegNh_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -10643,7 +10643,7 @@ type RoutingPolicyShadow_Sets_ExtendedCommunitySoo_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -11078,7 +11078,7 @@ type RoutingPolicyShadow_Sets_Tag_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -11513,7 +11513,7 @@ type RoutingPolicyShadow_Sets_Prefix_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -11948,7 +11948,7 @@ type RoutingPolicyShadow_Sets_Community_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -12383,7 +12383,7 @@ type RoutingPolicyShadow_Sets_AsPath_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -12818,7 +12818,7 @@ type RoutingPolicyShadow_Sets_LargeCommunity_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -13253,7 +13253,7 @@ type RoutingPolicyShadow_Sets_Esi_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -13685,7 +13685,7 @@ type RoutingPolicyShadow_Sets_ExtendedCommunityBandwidth_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -14089,7 +14089,7 @@ type RoutingPolicyShadow_Sets_ExtendedCommunityRt_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -14524,7 +14524,7 @@ type RoutingPolicyShadow_Sets_Rd_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -14959,7 +14959,7 @@ type RoutingPolicyShadow_Sets_Mac_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.
@@ -15394,7 +15394,7 @@ type RoutingPolicyShadow_Sets_ExtendedCommunityCost_Sets_Set struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Policies that use this object, directly or indirectly.

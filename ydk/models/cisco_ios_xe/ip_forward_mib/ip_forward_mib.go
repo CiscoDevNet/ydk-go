@@ -137,7 +137,7 @@ type IPFORWARDMIB_IpForwardTable_IpForwardEntry struct {
     // must be rejected if the bitwise logical-AND of  x  with the  value of the
     // corresponding instance of the ipForwardMask object is not equal to x. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpForwardDest interface{}
 
     // This attribute is a key. The routing mechanism via which this route was
@@ -170,7 +170,7 @@ type IPFORWARDMIB_IpForwardTable_IpForwardEntry struct {
 
     // This attribute is a key. On remote routes, the address of the next sys- tem
     // en route; Otherwise, 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpForwardNextHop interface{}
 
     // Indicate the mask to be logical-ANDed with the destination  address  before
@@ -181,7 +181,7 @@ type IPFORWARDMIB_IpForwardTable_IpForwardEntry struct {
     // to a value x must be rejected if the bitwise logical-AND of  x  with the 
     // value of the corresponding instance of the ipForwardDest object is not
     // equal to ipForward- Dest. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpForwardMask interface{}
 
     // The ifIndex value which identifies  the  local interface  through  which 
@@ -217,7 +217,7 @@ type IPFORWARDMIB_IpForwardTable_IpForwardEntry struct {
     // is a syntactically valid object  identif- ier, and any implementation
     // conforming to ASN.1 and the Basic Encoding Rules must  be  able  to
     // generate and recognize this value. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     IpForwardInfo interface{}
 
     // The Autonomous System Number of the Next  Hop. When  this  is  unknown  or
@@ -387,7 +387,7 @@ type IPFORWARDMIB_IpCidrRouteTable_IpCidrRouteEntry struct {
     // must be rejected if the bitwise logical-AND of  x  with the  value of the
     // corresponding instance of the ipCidrRouteMask object is not equal to x. The
     // type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpCidrRouteDest interface{}
 
     // This attribute is a key. Indicate the mask to be logical-ANDed with the
@@ -399,7 +399,7 @@ type IPFORWARDMIB_IpCidrRouteTable_IpCidrRouteEntry struct {
     // must be rejected if the bitwise logical-AND of  x  with the  value of the
     // corresponding instance of the ipCidrRouteDest object is not equal to
     // ipCidrRoute- Dest. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpCidrRouteMask interface{}
 
     // This attribute is a key. The policy specifier is the IP TOS Field.  The
@@ -420,7 +420,7 @@ type IPFORWARDMIB_IpCidrRouteTable_IpCidrRouteEntry struct {
 
     // This attribute is a key. On remote routes, the address of the next sys- tem
     // en route; Otherwise, 0.0.0.0. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpCidrRouteNextHop interface{}
 
     // The ifIndex value which identifies  the  local interface  through  which 
@@ -457,7 +457,7 @@ type IPFORWARDMIB_IpCidrRouteTable_IpCidrRouteEntry struct {
     // which is a syntactically valid object  identif- ier, and any implementation
     // conforming to ASN.1 and the Basic Encoding Rules must  be  able  to
     // generate and recognize this value. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     IpCidrRouteInfo interface{}
 
     // The Autonomous System Number of the Next  Hop. The  semantics of this

@@ -48,9 +48,9 @@ module Cisco-IOS-XR-sysadmin-cm {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-07-03 {
+  revision 2017-04-12 {
     description
-      "Suppress Tail-f warnings in ConfD 6.4.5";
+      "Changed the namespace and module name";
   }
 
   typedef area_type {
@@ -69,7 +69,7 @@ module Cisco-IOS-XR-sysadmin-cm {
     container summary {
       config false;
       description
-        "System Admin Manager Node Inventory. All accesses are 
+        "System Admin Manager Node Inventory. All accesses are
          read-only. CLI show command looks like show node-inventory
          location <location>";
       list node_locations {
@@ -86,7 +86,7 @@ module Cisco-IOS-XR-sysadmin-cm {
     container detail {
       config false;
       description
-        "System Admin Manager Node Inventory. All accesses are 
+        "System Admin Manager Node Inventory. All accesses are
          read-only. CLI show command looks like show node-inventory
          location <location>";
       list node_locations {
@@ -399,7 +399,7 @@ module Cisco-IOS-XR-sysadmin-cm {
   container node-inventory {
     config false;
     description
-      "System Admin Manager Node Inventory. All accesses are 
+      "System Admin Manager Node Inventory. All accesses are
        read-only. CLI show command looks like show node-inventory
        location <location>";
     uses nodeInfoGroup;
@@ -407,7 +407,7 @@ module Cisco-IOS-XR-sysadmin-cm {
   container card-inventory {
     config false;
     description
-      "System Admin Manager Card Inventory. All accesses are 
+      "System Admin Manager Card Inventory. All accesses are
        read-only. CLI show command looks like show card-inventory
        location <location>";
     list card_locations {

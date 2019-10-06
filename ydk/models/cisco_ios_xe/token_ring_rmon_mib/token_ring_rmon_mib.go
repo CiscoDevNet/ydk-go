@@ -160,7 +160,7 @@ type TOKENRINGRMONMIB_TokenRingMLStatsTable_TokenRingMLStatsEntry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingMLStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     TokenRingMLStatsDataSource interface{}
 
     // The total number of events in which packets were dropped by the probe due
@@ -403,7 +403,7 @@ type TOKENRINGRMONMIB_TokenRingPStatsTable_TokenRingPStatsEntry struct {
     // attached to the identified interface.  This object may not be modified if
     // the associated tokenRingPStatsStatus object is equal to valid(1). The type
     // is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     TokenRingPStatsDataSource interface{}
 
     // The total number of events in which packets were dropped by the probe due

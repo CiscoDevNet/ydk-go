@@ -353,36 +353,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
-  grouping XTC-TOPO-SUMMARY-BAG {
-    description
-      "XTC Topology Node Summary Information";
-    leaf nodes {
-      type uint32;
-      description
-        "Number of nodes";
-    }
-    leaf prefixes {
-      type uint32;
-      description
-        "Number of prefixes";
-    }
-    leaf prefix-sids {
-      type uint32;
-      description
-        "Number of prefix SIDs";
-    }
-    leaf links {
-      type uint32;
-      description
-        "Number of links";
-    }
-    leaf adjacency-sids {
-      type uint32;
-      description
-        "Number of adjacency SIDs";
-    }
-  }
-
   grouping XTC-IPV6-LINK-BAG {
     description
       "XTC IPv6 Link Information";
@@ -433,17 +403,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
     }
   }
 
-  grouping XTC-LINK-PM-METRICS {
-    description
-      "Link performance metric information";
-    leaf unidirectional-minimum-delay-microseconds {
-      type uint32;
-      units "microsecond";
-      description
-        "Min delay in microseconds";
-    }
-  }
-
   grouping XTC-IPV4-LINK-BAG {
     description
       "XTC IPv4 Link Information";
@@ -456,11 +415,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "Remote node protocol identifier";
       uses XTC-NODE-PID-BAG;
-    }
-    container performance-metrics {
-      description
-        "Performance metrics";
-      uses XTC-LINK-PM-METRICS;
     }
     leaf local-ipv4-address {
       type inet:ipv4-address;
@@ -496,11 +450,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Link admin-groups";
-    }
-    leaf-list extended-administrative-group {
-      type uint32;
-      description
-        "Link Extended admin-groups";
     }
     leaf-list srlgs {
       type uint32;
@@ -698,6 +647,36 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       description
         "IPv6 Link information";
       uses XTC-IPV6-LINK-BAG;
+    }
+  }
+
+  grouping XTC-TOPO-SUMMARY-BAG {
+    description
+      "XTC Topology Node Summary Information";
+    leaf nodes {
+      type uint32;
+      description
+        "Number of nodes";
+    }
+    leaf prefixes {
+      type uint32;
+      description
+        "Number of prefixes";
+    }
+    leaf prefix-sids {
+      type uint32;
+      description
+        "Number of prefix SIDs";
+    }
+    leaf links {
+      type uint32;
+      description
+        "Number of links";
+    }
+    leaf adjacency-sids {
+      type uint32;
+      description
+        "Number of adjacency SIDs";
     }
   }
 
@@ -1178,11 +1157,6 @@ submodule Cisco-IOS-XR-infra-xtc-agent-oper-sub1 {
       type uint32;
       description
         "Affinity value";
-    }
-    leaf-list extended-value {
-      type uint32;
-      description
-        "Extended Affinity values";
     }
     list color {
       description

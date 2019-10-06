@@ -24,14 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-vservice-cfg:vservice", reflect.TypeOf(Vservice{}))
 }
 
-// SfcMetadataType1AllocFormat represents Sfc metadata type1 alloc format
-type SfcMetadataType1AllocFormat string
-
-const (
-    // data center allocation
-    SfcMetadataType1AllocFormat_dc_allocation SfcMetadataType1AllocFormat = "dc-allocation"
-)
-
 // SfcSfTransport represents Sfc sf transport
 type SfcSfTransport string
 
@@ -48,20 +40,28 @@ const (
     SfcMetadataDispositionMatch_type1_dcalloc_tenant_id SfcMetadataDispositionMatch = "type1-dcalloc-tenant-id"
 )
 
-// SfcMetadataDispositionAction represents Sfc metadata disposition action
-type SfcMetadataDispositionAction string
-
-const (
-    // redirect nexthop action
-    SfcMetadataDispositionAction_redirect_nexthop SfcMetadataDispositionAction = "redirect-nexthop"
-)
-
 // SfcMetadataAlloc represents Sfc metadata alloc
 type SfcMetadataAlloc string
 
 const (
     // type 1 allocation
     SfcMetadataAlloc_type1 SfcMetadataAlloc = "type1"
+)
+
+// SfcMetadataType1AllocFormat represents Sfc metadata type1 alloc format
+type SfcMetadataType1AllocFormat string
+
+const (
+    // data center allocation
+    SfcMetadataType1AllocFormat_dc_allocation SfcMetadataType1AllocFormat = "dc-allocation"
+)
+
+// SfcMetadataDispositionAction represents Sfc metadata disposition action
+type SfcMetadataDispositionAction string
+
+const (
+    // redirect nexthop action
+    SfcMetadataDispositionAction_redirect_nexthop SfcMetadataDispositionAction = "redirect-nexthop"
 )
 
 // Vservice
@@ -182,7 +182,7 @@ type Vservice_ServiceFunctionLocator_Names_Name struct {
     YListKey string
 
     // This attribute is a key. Service function/forwarder name. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     FunctionName interface{}
 
     // This attribute is a key. Specify locator id. The type is interface{} with
@@ -225,11 +225,11 @@ type Vservice_ServiceFunctionLocator_Names_Name_Node struct {
     Transport interface{}
 
     // IPv4 source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4SourceAddress interface{}
 
     // IPv4 destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4DestinationAddress interface{}
 
     // VNI. The type is interface{} with range: 0..4294967295.
@@ -301,7 +301,7 @@ type Vservice_MetadataDispositions_MetadataDisposition struct {
     YListKey string
 
     // This attribute is a key. disposition name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     DispositionName interface{}
 
     // This attribute is a key. Specify Format. The type is
@@ -346,7 +346,7 @@ type Vservice_MetadataDispositions_MetadataDisposition_MatchEntry struct {
     YListKey string
 
     // This attribute is a key. match entry name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     MatchEntryName interface{}
 
     // configure disposition data.
@@ -390,7 +390,7 @@ type Vservice_MetadataDispositions_MetadataDisposition_MatchEntry_Node struct {
     Vrf interface{}
 
     // IPv4 nexthop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NexthopIpv4Address interface{}
 
     // 24-bit tenant id. The type is slice of interface{} with range:
@@ -494,7 +494,7 @@ type Vservice_ServiceFunctionForwardLocator_Names_Name struct {
     YListKey string
 
     // This attribute is a key. Service function/forwarder name. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     FunctionName interface{}
 
     // This attribute is a key. Specify locator id. The type is interface{} with
@@ -537,11 +537,11 @@ type Vservice_ServiceFunctionForwardLocator_Names_Name_Node struct {
     Transport interface{}
 
     // IPv4 source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4SourceAddress interface{}
 
     // IPv4 destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4DestinationAddress interface{}
 
     // VNI. The type is interface{} with range: 0..4294967295.
@@ -613,7 +613,7 @@ type Vservice_MetadataTemplates_MetadataTemplate struct {
     YListKey string
 
     // This attribute is a key. metadata name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     MetadataName interface{}
 
     // This attribute is a key. Specify Type . The type is SfcMetadataAlloc.
@@ -841,7 +841,7 @@ type Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_Terminate_Node struct 
     Vrf interface{}
 
     // IPv4 nexthop address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NexthopIpv4Address interface{}
 
     // metadata-disposition name. The type is string.
@@ -913,7 +913,7 @@ type Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SffNames_SffName struc
     YListKey string
 
     // This attribute is a key. SFF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // configure SFP.
@@ -1017,7 +1017,7 @@ type Vservice_ServiceFunctionPath_Paths_Path_ServiceIndex_SfNames_SfName struct 
     YListKey string
 
     // This attribute is a key. SF Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // configure SFP.

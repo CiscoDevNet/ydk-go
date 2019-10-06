@@ -41,20 +41,13 @@ module Cisco-IOS-XR-pbr-subscriber-cfg {
     container pbr {
       description
         "Dynamic Template PBR configuration";
-      container service-policies {
+      container service-policy {
         description
-          "Ingress service policy";
-        list service-policy {
-          key "service-policy";
+          "PBR service policy configuration";
+        leaf input {
+          type string;
           description
-            "Service policy details";
-          leaf service-policy {
-            type string {
-              length "1..64";
-            }
-            description
-              "Name of policy-map";
-          }
+            "Ingress service policy";
         }
       }
       leaf service-policy-in {

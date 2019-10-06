@@ -452,7 +452,7 @@ type RouterConvergence_CollectDiagnostics_CollectDiagnostic struct {
     YListKey string
 
     // This attribute is a key. Specified location. The type is string with
-    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Enables collection of diagnostics on the specified location. The type is
@@ -525,7 +525,7 @@ type RouterConvergence_Nodes_Node struct {
 
     // This attribute is a key. Wildcard expression(eg. */*/*, R/*/*, R/S/*,
     // R/S/I). The type is string with pattern:
-    // b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'.
+    // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
     NodeName interface{}
 
     // Disables the monitoring of route convergence on specified location. The

@@ -13,6 +13,53 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package bgp_common_oper"))
 }
 
+// TcpFsmState represents TCP state machine states
+type TcpFsmState string
+
+const (
+    // no connection
+    TcpFsmState_closed TcpFsmState = "closed"
+
+    // Waiting for a connection request from any remote TCP
+    TcpFsmState_listen TcpFsmState = "listen"
+
+    // Waiting for a matching connection request
+    // after having sent a connection request
+    TcpFsmState_synsent TcpFsmState = "synsent"
+
+    // Waiting for a confirming connection request acknowledgment
+    // after having both received and sent a connection request
+    TcpFsmState_synrcvd TcpFsmState = "synrcvd"
+
+    // connection established
+    TcpFsmState_established TcpFsmState = "established"
+
+    // Waiting for a connection termination request
+    // from the remote TCP, or an acknowledgment of
+    // the connection termination request previously sent
+    TcpFsmState_finwait1 TcpFsmState = "finwait1"
+
+    // Waiting for a connection termination request from the
+    // remote TCP
+    TcpFsmState_finwait2 TcpFsmState = "finwait2"
+
+    // Waiting for a connection termination request from
+    // the local use
+    TcpFsmState_closewait TcpFsmState = "closewait"
+
+    // Waiting for an acknowledgment of the connection termination
+    // request previously sent to the remote TCP
+    TcpFsmState_lastack TcpFsmState = "lastack"
+
+    // Waiting for a connection termination request acknowledgment
+    // from the remote
+    TcpFsmState_closing TcpFsmState = "closing"
+
+    // waiting for enough time to pass to be sure the remote TCP
+    // received the acknowledgment of its connection termination request
+    TcpFsmState_timewait TcpFsmState = "timewait"
+)
+
 // AfiSafi represents This identity represents IPv4 address family
 type AfiSafi string
 
@@ -73,52 +120,5 @@ const (
 
     // VPNv6 Flowspec address family
     AfiSafi_vpnv6_flowspec AfiSafi = "vpnv6-flowspec"
-)
-
-// TcpFsmState represents TCP state machine states
-type TcpFsmState string
-
-const (
-    // no connection
-    TcpFsmState_closed TcpFsmState = "closed"
-
-    // Waiting for a connection request from any remote TCP
-    TcpFsmState_listen TcpFsmState = "listen"
-
-    // Waiting for a matching connection request
-    // after having sent a connection request
-    TcpFsmState_synsent TcpFsmState = "synsent"
-
-    // Waiting for a confirming connection request acknowledgment
-    // after having both received and sent a connection request
-    TcpFsmState_synrcvd TcpFsmState = "synrcvd"
-
-    // connection established
-    TcpFsmState_established TcpFsmState = "established"
-
-    // Waiting for a connection termination request
-    // from the remote TCP, or an acknowledgment of
-    // the connection termination request previously sent
-    TcpFsmState_finwait1 TcpFsmState = "finwait1"
-
-    // Waiting for a connection termination request from the
-    // remote TCP
-    TcpFsmState_finwait2 TcpFsmState = "finwait2"
-
-    // Waiting for a connection termination request from
-    // the local use
-    TcpFsmState_closewait TcpFsmState = "closewait"
-
-    // Waiting for an acknowledgment of the connection termination
-    // request previously sent to the remote TCP
-    TcpFsmState_lastack TcpFsmState = "lastack"
-
-    // Waiting for a connection termination request acknowledgment
-    // from the remote
-    TcpFsmState_closing TcpFsmState = "closing"
-
-    // waiting for enough time to pass to be sure the remote TCP
-    // received the acknowledgment of its connection termination request
-    TcpFsmState_timewait TcpFsmState = "timewait"
 )
 

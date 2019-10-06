@@ -14,80 +14,84 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ipv4_acl_datatypes"))
 }
 
-// Ipv4AclProtocolNumber represents Ipv4 acl protocol number
-type Ipv4AclProtocolNumber string
+// Ipv4AclLoggingEnum represents Ipv4 acl logging enum
+type Ipv4AclLoggingEnum string
 
 const (
-    // Any IP protocol
-    Ipv4AclProtocolNumber_ip Ipv4AclProtocolNumber = "ip"
+    // Log matches against this entry
+    Ipv4AclLoggingEnum_log Ipv4AclLoggingEnum = "log"
 
-    // Internet Control Message Protocol
-    Ipv4AclProtocolNumber_icmp Ipv4AclProtocolNumber = "icmp"
-
-    // Internet Gateway Message Protocol
-    Ipv4AclProtocolNumber_igmp Ipv4AclProtocolNumber = "igmp"
-
-    // IP in IP tunneling
-    Ipv4AclProtocolNumber_ip_in_ip Ipv4AclProtocolNumber = "ip-in-ip"
-
-    // Transport Control Protocol
-    Ipv4AclProtocolNumber_tcp Ipv4AclProtocolNumber = "tcp"
-
-    // Cisco's IGRP Routing Protocol
-    Ipv4AclProtocolNumber_igrp Ipv4AclProtocolNumber = "igrp"
-
-    // User Datagram Protocol
-    Ipv4AclProtocolNumber_udp Ipv4AclProtocolNumber = "udp"
-
-    // Cisco's GRE tunneling
-    Ipv4AclProtocolNumber_gre Ipv4AclProtocolNumber = "gre"
-
-    // Encapsulation Security Protocol
-    Ipv4AclProtocolNumber_esp Ipv4AclProtocolNumber = "esp"
-
-    // Authentication Header Protocol
-    Ipv4AclProtocolNumber_ahp Ipv4AclProtocolNumber = "ahp"
-
-    // Cisco's EIGRP Routing Protocol
-    Ipv4AclProtocolNumber_eigrp Ipv4AclProtocolNumber = "eigrp"
-
-    // OSPF Routing Protocol
-    Ipv4AclProtocolNumber_ospf Ipv4AclProtocolNumber = "ospf"
-
-    // KA9Q NOS Compatible IP over IP tunneling
-    Ipv4AclProtocolNumber_nos Ipv4AclProtocolNumber = "nos"
-
-    // Protocol Independent Multicast
-    Ipv4AclProtocolNumber_pim Ipv4AclProtocolNumber = "pim"
-
-    // Payload Compression Protocol
-    Ipv4AclProtocolNumber_pcp Ipv4AclProtocolNumber = "pcp"
-
-    // Stream Control Transmission Protocol
-    Ipv4AclProtocolNumber_sctp Ipv4AclProtocolNumber = "sctp"
+    // Log matches against this entry, including input
+    // interface
+    Ipv4AclLoggingEnum_log_input Ipv4AclLoggingEnum = "log-input"
 )
 
-// Ipv4AclTcpMatchOperatorEnum represents Ipv4 acl tcp match operator enum
-type Ipv4AclTcpMatchOperatorEnum string
+// Ipv4AclDscpNumber represents Ipv4 acl dscp number
+type Ipv4AclDscpNumber string
 
 const (
-    // Match only packet with all the given TCP bits
-    Ipv4AclTcpMatchOperatorEnum_match_all Ipv4AclTcpMatchOperatorEnum = "match-all"
+    // Default DSCP
+    Ipv4AclDscpNumber_default_ Ipv4AclDscpNumber = "default"
 
-    // Match only packet with any of the given TCP
-    // bits
-    Ipv4AclTcpMatchOperatorEnum_match_any Ipv4AclTcpMatchOperatorEnum = "match-any"
-)
+    // Match packets with AF11 DSCP
+    Ipv4AclDscpNumber_af11 Ipv4AclDscpNumber = "af11"
 
-// Ipv4AclGrantEnum represents Ipv4 acl grant enum
-type Ipv4AclGrantEnum string
+    // Match packets with AF12 DSCP
+    Ipv4AclDscpNumber_af12 Ipv4AclDscpNumber = "af12"
 
-const (
-    // Deny
-    Ipv4AclGrantEnum_deny Ipv4AclGrantEnum = "deny"
+    // Match packets with AF13 DSCP
+    Ipv4AclDscpNumber_af13 Ipv4AclDscpNumber = "af13"
 
-    // Permit
-    Ipv4AclGrantEnum_permit Ipv4AclGrantEnum = "permit"
+    // Match packets with AF21 DSCP
+    Ipv4AclDscpNumber_af21 Ipv4AclDscpNumber = "af21"
+
+    // Match packets with AF22 DSCP
+    Ipv4AclDscpNumber_af22 Ipv4AclDscpNumber = "af22"
+
+    // Match packets with AF23 DSCP
+    Ipv4AclDscpNumber_af23 Ipv4AclDscpNumber = "af23"
+
+    // Match packets with AF31 DSCP
+    Ipv4AclDscpNumber_af31 Ipv4AclDscpNumber = "af31"
+
+    // Match packets with AF32 DSCP
+    Ipv4AclDscpNumber_af32 Ipv4AclDscpNumber = "af32"
+
+    // Match packets with AF33 DSCP
+    Ipv4AclDscpNumber_af33 Ipv4AclDscpNumber = "af33"
+
+    // Match packets with AF41 DSCP
+    Ipv4AclDscpNumber_af41 Ipv4AclDscpNumber = "af41"
+
+    // Match packets with AF42 DSCP
+    Ipv4AclDscpNumber_af42 Ipv4AclDscpNumber = "af42"
+
+    // Match packets with AF43 DSCP
+    Ipv4AclDscpNumber_af43 Ipv4AclDscpNumber = "af43"
+
+    // Match packets with CS1 (precedence 1) DSCP
+    Ipv4AclDscpNumber_cs1 Ipv4AclDscpNumber = "cs1"
+
+    // Match packets with CS2 (precedence 2) DSCP
+    Ipv4AclDscpNumber_cs2 Ipv4AclDscpNumber = "cs2"
+
+    // Match packets with CS3 (precedence 3) DSCP
+    Ipv4AclDscpNumber_cs3 Ipv4AclDscpNumber = "cs3"
+
+    // Match packets with CS4 (precedence 4) DSCP
+    Ipv4AclDscpNumber_cs4 Ipv4AclDscpNumber = "cs4"
+
+    // Match packets with CS5 (precedence 5) DSCP
+    Ipv4AclDscpNumber_cs5 Ipv4AclDscpNumber = "cs5"
+
+    // Match packets with CS6 (precedence 6) DSCP
+    Ipv4AclDscpNumber_cs6 Ipv4AclDscpNumber = "cs6"
+
+    // Match packets with CS7 (precedence 7) DSCP
+    Ipv4AclDscpNumber_cs7 Ipv4AclDscpNumber = "cs7"
+
+    // Match packets with EF DSCP
+    Ipv4AclDscpNumber_ef Ipv4AclDscpNumber = "ef"
 )
 
 // Ipv4AclOperatorEnum represents Ipv4 acl operator enum
@@ -110,34 +114,15 @@ const (
     Ipv4AclOperatorEnum_range_ Ipv4AclOperatorEnum = "range"
 )
 
-// Ipv4AclPrecedenceNumber represents Ipv4 acl precedence number
-type Ipv4AclPrecedenceNumber string
+// Ipv4AclStatusEnum represents Ipv4 acl status enum
+type Ipv4AclStatusEnum string
 
 const (
-    // Match packets with critical precedence
-    Ipv4AclPrecedenceNumber_critical Ipv4AclPrecedenceNumber = "critical"
+    // Disabled
+    Ipv4AclStatusEnum_disabled Ipv4AclStatusEnum = "disabled"
 
-    // Match packets with flash precedence
-    Ipv4AclPrecedenceNumber_flash Ipv4AclPrecedenceNumber = "flash"
-
-    // Match packets with flash override precedence
-    Ipv4AclPrecedenceNumber_flash_override Ipv4AclPrecedenceNumber = "flash-override"
-
-    // Match packets with immediate precedence
-    Ipv4AclPrecedenceNumber_immediate Ipv4AclPrecedenceNumber = "immediate"
-
-    // Match packets with internetwork control
-    // precedence
-    Ipv4AclPrecedenceNumber_internet Ipv4AclPrecedenceNumber = "internet"
-
-    // Match packets with network control precedence
-    Ipv4AclPrecedenceNumber_network Ipv4AclPrecedenceNumber = "network"
-
-    // Match packets with priority precedence
-    Ipv4AclPrecedenceNumber_priority Ipv4AclPrecedenceNumber = "priority"
-
-    // Match packets with routine precedence
-    Ipv4AclPrecedenceNumber_routine Ipv4AclPrecedenceNumber = "routine"
+    // Enabled
+    Ipv4AclStatusEnum_enabled Ipv4AclStatusEnum = "enabled"
 )
 
 // Ipv4AclPortNumber represents Ipv4 acl port number
@@ -317,6 +302,36 @@ const (
     Ipv4AclPortNumber_ldp Ipv4AclPortNumber = "ldp"
 )
 
+// Ipv4AclPrecedenceNumber represents Ipv4 acl precedence number
+type Ipv4AclPrecedenceNumber string
+
+const (
+    // Match packets with critical precedence
+    Ipv4AclPrecedenceNumber_critical Ipv4AclPrecedenceNumber = "critical"
+
+    // Match packets with flash precedence
+    Ipv4AclPrecedenceNumber_flash Ipv4AclPrecedenceNumber = "flash"
+
+    // Match packets with flash override precedence
+    Ipv4AclPrecedenceNumber_flash_override Ipv4AclPrecedenceNumber = "flash-override"
+
+    // Match packets with immediate precedence
+    Ipv4AclPrecedenceNumber_immediate Ipv4AclPrecedenceNumber = "immediate"
+
+    // Match packets with internetwork control
+    // precedence
+    Ipv4AclPrecedenceNumber_internet Ipv4AclPrecedenceNumber = "internet"
+
+    // Match packets with network control precedence
+    Ipv4AclPrecedenceNumber_network Ipv4AclPrecedenceNumber = "network"
+
+    // Match packets with priority precedence
+    Ipv4AclPrecedenceNumber_priority Ipv4AclPrecedenceNumber = "priority"
+
+    // Match packets with routine precedence
+    Ipv4AclPrecedenceNumber_routine Ipv4AclPrecedenceNumber = "routine"
+)
+
 // Ipv4AclIgmpNumber represents Ipv4 acl igmp number
 type Ipv4AclIgmpNumber string
 
@@ -352,83 +367,106 @@ const (
     Ipv4AclIgmpNumber_v3_report Ipv4AclIgmpNumber = "v3-report"
 )
 
-// Ipv4AclDscpNumber represents Ipv4 acl dscp number
-type Ipv4AclDscpNumber string
+// Ipv4AclGrantEnum represents Ipv4 acl grant enum
+type Ipv4AclGrantEnum string
 
 const (
-    // Default DSCP
-    Ipv4AclDscpNumber_default_ Ipv4AclDscpNumber = "default"
+    // Deny
+    Ipv4AclGrantEnum_deny Ipv4AclGrantEnum = "deny"
 
-    // Match packets with AF11 DSCP
-    Ipv4AclDscpNumber_af11 Ipv4AclDscpNumber = "af11"
-
-    // Match packets with AF12 DSCP
-    Ipv4AclDscpNumber_af12 Ipv4AclDscpNumber = "af12"
-
-    // Match packets with AF13 DSCP
-    Ipv4AclDscpNumber_af13 Ipv4AclDscpNumber = "af13"
-
-    // Match packets with AF21 DSCP
-    Ipv4AclDscpNumber_af21 Ipv4AclDscpNumber = "af21"
-
-    // Match packets with AF22 DSCP
-    Ipv4AclDscpNumber_af22 Ipv4AclDscpNumber = "af22"
-
-    // Match packets with AF23 DSCP
-    Ipv4AclDscpNumber_af23 Ipv4AclDscpNumber = "af23"
-
-    // Match packets with AF31 DSCP
-    Ipv4AclDscpNumber_af31 Ipv4AclDscpNumber = "af31"
-
-    // Match packets with AF32 DSCP
-    Ipv4AclDscpNumber_af32 Ipv4AclDscpNumber = "af32"
-
-    // Match packets with AF33 DSCP
-    Ipv4AclDscpNumber_af33 Ipv4AclDscpNumber = "af33"
-
-    // Match packets with AF41 DSCP
-    Ipv4AclDscpNumber_af41 Ipv4AclDscpNumber = "af41"
-
-    // Match packets with AF42 DSCP
-    Ipv4AclDscpNumber_af42 Ipv4AclDscpNumber = "af42"
-
-    // Match packets with AF43 DSCP
-    Ipv4AclDscpNumber_af43 Ipv4AclDscpNumber = "af43"
-
-    // Match packets with CS1 (precedence 1) DSCP
-    Ipv4AclDscpNumber_cs1 Ipv4AclDscpNumber = "cs1"
-
-    // Match packets with CS2 (precedence 2) DSCP
-    Ipv4AclDscpNumber_cs2 Ipv4AclDscpNumber = "cs2"
-
-    // Match packets with CS3 (precedence 3) DSCP
-    Ipv4AclDscpNumber_cs3 Ipv4AclDscpNumber = "cs3"
-
-    // Match packets with CS4 (precedence 4) DSCP
-    Ipv4AclDscpNumber_cs4 Ipv4AclDscpNumber = "cs4"
-
-    // Match packets with CS5 (precedence 5) DSCP
-    Ipv4AclDscpNumber_cs5 Ipv4AclDscpNumber = "cs5"
-
-    // Match packets with CS6 (precedence 6) DSCP
-    Ipv4AclDscpNumber_cs6 Ipv4AclDscpNumber = "cs6"
-
-    // Match packets with CS7 (precedence 7) DSCP
-    Ipv4AclDscpNumber_cs7 Ipv4AclDscpNumber = "cs7"
-
-    // Match packets with EF DSCP
-    Ipv4AclDscpNumber_ef Ipv4AclDscpNumber = "ef"
+    // Permit
+    Ipv4AclGrantEnum_permit Ipv4AclGrantEnum = "permit"
 )
 
-// Ipv4AclStatusEnum represents Ipv4 acl status enum
-type Ipv4AclStatusEnum string
+// Ipv4AclTcpMatchOperatorEnum represents Ipv4 acl tcp match operator enum
+type Ipv4AclTcpMatchOperatorEnum string
 
 const (
-    // Disabled
-    Ipv4AclStatusEnum_disabled Ipv4AclStatusEnum = "disabled"
+    // Match only packet with all the given TCP bits
+    Ipv4AclTcpMatchOperatorEnum_match_all Ipv4AclTcpMatchOperatorEnum = "match-all"
 
-    // Enabled
-    Ipv4AclStatusEnum_enabled Ipv4AclStatusEnum = "enabled"
+    // Match only packet with any of the given TCP
+    // bits
+    Ipv4AclTcpMatchOperatorEnum_match_any Ipv4AclTcpMatchOperatorEnum = "match-any"
+)
+
+// Ipv4AclProtocolNumber represents Ipv4 acl protocol number
+type Ipv4AclProtocolNumber string
+
+const (
+    // Any IP protocol
+    Ipv4AclProtocolNumber_ip Ipv4AclProtocolNumber = "ip"
+
+    // Internet Control Message Protocol
+    Ipv4AclProtocolNumber_icmp Ipv4AclProtocolNumber = "icmp"
+
+    // Internet Gateway Message Protocol
+    Ipv4AclProtocolNumber_igmp Ipv4AclProtocolNumber = "igmp"
+
+    // IP in IP tunneling
+    Ipv4AclProtocolNumber_ip_in_ip Ipv4AclProtocolNumber = "ip-in-ip"
+
+    // Transport Control Protocol
+    Ipv4AclProtocolNumber_tcp Ipv4AclProtocolNumber = "tcp"
+
+    // Cisco's IGRP Routing Protocol
+    Ipv4AclProtocolNumber_igrp Ipv4AclProtocolNumber = "igrp"
+
+    // User Datagram Protocol
+    Ipv4AclProtocolNumber_udp Ipv4AclProtocolNumber = "udp"
+
+    // Cisco's GRE tunneling
+    Ipv4AclProtocolNumber_gre Ipv4AclProtocolNumber = "gre"
+
+    // Encapsulation Security Protocol
+    Ipv4AclProtocolNumber_esp Ipv4AclProtocolNumber = "esp"
+
+    // Authentication Header Protocol
+    Ipv4AclProtocolNumber_ahp Ipv4AclProtocolNumber = "ahp"
+
+    // Cisco's EIGRP Routing Protocol
+    Ipv4AclProtocolNumber_eigrp Ipv4AclProtocolNumber = "eigrp"
+
+    // OSPF Routing Protocol
+    Ipv4AclProtocolNumber_ospf Ipv4AclProtocolNumber = "ospf"
+
+    // KA9Q NOS Compatible IP over IP tunneling
+    Ipv4AclProtocolNumber_nos Ipv4AclProtocolNumber = "nos"
+
+    // Protocol Independent Multicast
+    Ipv4AclProtocolNumber_pim Ipv4AclProtocolNumber = "pim"
+
+    // Payload Compression Protocol
+    Ipv4AclProtocolNumber_pcp Ipv4AclProtocolNumber = "pcp"
+
+    // Stream Control Transmission Protocol
+    Ipv4AclProtocolNumber_sctp Ipv4AclProtocolNumber = "sctp"
+)
+
+// Ipv4AclFragFlags represents Ipv4 acl frag flags
+type Ipv4AclFragFlags string
+
+const (
+    // Match don't fragment flag
+    Ipv4AclFragFlags_dont_fragment Ipv4AclFragFlags = "dont-fragment"
+
+    // Match is fragment flag
+    Ipv4AclFragFlags_is_fragment Ipv4AclFragFlags = "is-fragment"
+
+    // Match first fragment flag
+    Ipv4AclFragFlags_first_fragment Ipv4AclFragFlags = "first-fragment"
+
+    // Match last fragment flag
+    Ipv4AclFragFlags_last_fragment Ipv4AclFragFlags = "last-fragment"
+
+    // Match don't fragment and is fragment flag
+    Ipv4AclFragFlags_dont_fragment_is_fragment Ipv4AclFragFlags = "dont-fragment-is-fragment"
+
+    // Match don't fragment and first fragment flag
+    Ipv4AclFragFlags_dont_fragment_first_fragment Ipv4AclFragFlags = "dont-fragment-first-fragment"
+
+    // Match don't fragment and last fragment flag
+    Ipv4AclFragFlags_dont_fragment_last_fragment Ipv4AclFragFlags = "dont-fragment-last-fragment"
 )
 
 // Ipv4AclIcmpTypeCodeEnum represents Ipv4 acl icmp type code enum
@@ -566,43 +604,5 @@ const (
 
     // Mobile host redirect
     Ipv4AclIcmpTypeCodeEnum_mobile_redirect Ipv4AclIcmpTypeCodeEnum = "mobile-redirect"
-)
-
-// Ipv4AclFragFlags represents Ipv4 acl frag flags
-type Ipv4AclFragFlags string
-
-const (
-    // Match don't fragment flag
-    Ipv4AclFragFlags_dont_fragment Ipv4AclFragFlags = "dont-fragment"
-
-    // Match is fragment flag
-    Ipv4AclFragFlags_is_fragment Ipv4AclFragFlags = "is-fragment"
-
-    // Match first fragment flag
-    Ipv4AclFragFlags_first_fragment Ipv4AclFragFlags = "first-fragment"
-
-    // Match last fragment flag
-    Ipv4AclFragFlags_last_fragment Ipv4AclFragFlags = "last-fragment"
-
-    // Match don't fragment and is fragment flag
-    Ipv4AclFragFlags_dont_fragment_is_fragment Ipv4AclFragFlags = "dont-fragment-is-fragment"
-
-    // Match don't fragment and first fragment flag
-    Ipv4AclFragFlags_dont_fragment_first_fragment Ipv4AclFragFlags = "dont-fragment-first-fragment"
-
-    // Match don't fragment and last fragment flag
-    Ipv4AclFragFlags_dont_fragment_last_fragment Ipv4AclFragFlags = "dont-fragment-last-fragment"
-)
-
-// Ipv4AclLoggingEnum represents Ipv4 acl logging enum
-type Ipv4AclLoggingEnum string
-
-const (
-    // Log matches against this entry
-    Ipv4AclLoggingEnum_log Ipv4AclLoggingEnum = "log"
-
-    // Log matches against this entry, including input
-    // interface
-    Ipv4AclLoggingEnum_log_input Ipv4AclLoggingEnum = "log-input"
 )
 

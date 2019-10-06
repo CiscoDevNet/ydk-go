@@ -27,6 +27,15 @@ const (
     MplsLabelDistributionMethod_downstreamUnsolicited MplsLabelDistributionMethod = "downstreamUnsolicited"
 )
 
+// MplsRetentionMode represents a valid next hop or not.
+type MplsRetentionMode string
+
+const (
+    MplsRetentionMode_conservative MplsRetentionMode = "conservative"
+
+    MplsRetentionMode_liberal MplsRetentionMode = "liberal"
+)
+
 // MplsLdpLabelType represents frameRelay(3).
 type MplsLdpLabelType string
 
@@ -36,6 +45,23 @@ const (
     MplsLdpLabelType_atm MplsLdpLabelType = "atm"
 
     MplsLdpLabelType_frameRelay MplsLdpLabelType = "frameRelay"
+)
+
+// TeHopAddressType represents type changes (e.g., from ipv6(2) to ipv4(1)).
+type TeHopAddressType string
+
+const (
+    TeHopAddressType_unknown TeHopAddressType = "unknown"
+
+    TeHopAddressType_ipv4 TeHopAddressType = "ipv4"
+
+    TeHopAddressType_ipv6 TeHopAddressType = "ipv6"
+
+    TeHopAddressType_asnumber TeHopAddressType = "asnumber"
+
+    TeHopAddressType_unnum TeHopAddressType = "unnum"
+
+    TeHopAddressType_lspid TeHopAddressType = "lspid"
 )
 
 // MplsLspType represents                          LSR.
@@ -68,31 +94,5 @@ const (
     MplsOwner_rsvpTe MplsOwner = "rsvpTe"
 
     MplsOwner_policyAgent MplsOwner = "policyAgent"
-)
-
-// MplsRetentionMode represents a valid next hop or not.
-type MplsRetentionMode string
-
-const (
-    MplsRetentionMode_conservative MplsRetentionMode = "conservative"
-
-    MplsRetentionMode_liberal MplsRetentionMode = "liberal"
-)
-
-// TeHopAddressType represents type changes (e.g., from ipv6(2) to ipv4(1)).
-type TeHopAddressType string
-
-const (
-    TeHopAddressType_unknown TeHopAddressType = "unknown"
-
-    TeHopAddressType_ipv4 TeHopAddressType = "ipv4"
-
-    TeHopAddressType_ipv6 TeHopAddressType = "ipv6"
-
-    TeHopAddressType_asnumber TeHopAddressType = "asnumber"
-
-    TeHopAddressType_unnum TeHopAddressType = "unnum"
-
-    TeHopAddressType_lspid TeHopAddressType = "lspid"
 )
 

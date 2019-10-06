@@ -28,21 +28,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-man-ipsla-cfg:ipsla", reflect.TypeOf(Ipsla{}))
 }
 
-// IpslaSecondaryFrequency represents Ipsla secondary frequency
-type IpslaSecondaryFrequency string
-
-const (
-    // Enable secondary frequency for connection loss
-    IpslaSecondaryFrequency_connection_loss IpslaSecondaryFrequency = "connection-loss"
-
-    // Enable secondary frequency for timeout
-    IpslaSecondaryFrequency_timeout IpslaSecondaryFrequency = "timeout"
-
-    // Enable secondary frequency for timeout and
-    // connection loss
-    IpslaSecondaryFrequency_both IpslaSecondaryFrequency = "both"
-)
-
 // IpslaMonth represents Ipsla month
 type IpslaMonth string
 
@@ -96,6 +81,17 @@ const (
     IpslaLspPingReplyMode_control_channel IpslaLspPingReplyMode = "control-channel"
 )
 
+// IpslaHistoryFilter represents Ipsla history filter
+type IpslaHistoryFilter string
+
+const (
+    // Store data for failed operations
+    IpslaHistoryFilter_failed IpslaHistoryFilter = "failed"
+
+    // Store data for all operations
+    IpslaHistoryFilter_all IpslaHistoryFilter = "all"
+)
+
 // IpslaLspTraceReplyMode represents Ipsla lsp trace reply mode
 type IpslaLspTraceReplyMode string
 
@@ -105,30 +101,27 @@ const (
     IpslaLspTraceReplyMode_ipv4_udp_router_alert IpslaLspTraceReplyMode = "ipv4-udp-router-alert"
 )
 
-// IpslaLspMonitorReplyMode represents Ipsla lsp monitor reply mode
-type IpslaLspMonitorReplyMode string
+// IpslaSecondaryFrequency represents Ipsla secondary frequency
+type IpslaSecondaryFrequency string
 
 const (
-    // Send replies via IPv4 UDP packets with Router
-    // Alert option
-    IpslaLspMonitorReplyMode_ipv4_udp_router_alert IpslaLspMonitorReplyMode = "ipv4-udp-router-alert"
+    // Enable secondary frequency for connection loss
+    IpslaSecondaryFrequency_connection_loss IpslaSecondaryFrequency = "connection-loss"
+
+    // Enable secondary frequency for timeout
+    IpslaSecondaryFrequency_timeout IpslaSecondaryFrequency = "timeout"
+
+    // Enable secondary frequency for timeout and
+    // connection loss
+    IpslaSecondaryFrequency_both IpslaSecondaryFrequency = "both"
 )
 
-// IpslaSched represents Ipsla sched
-type IpslaSched string
+// IpslaLife represents Ipsla life
+type IpslaLife string
 
 const (
-    // Schedule pending for later time
-    IpslaSched_pending IpslaSched = "pending"
-
-    // Schedule operation now
-    IpslaSched_now IpslaSched = "now"
-
-    // Schedule operation after specifed duration
-    IpslaSched_after IpslaSched = "after"
-
-    // Schedule operation at specified time
-    IpslaSched_at IpslaSched = "at"
+    // Schedule operation to run forever
+    IpslaLife_forever IpslaLife = "forever"
 )
 
 // IpslaLspReplyDscp represents Ipsla lsp reply dscp
@@ -206,12 +199,13 @@ const (
     IpslaLspReplyDscp_ef IpslaLspReplyDscp = "ef"
 )
 
-// IpslaLife represents Ipsla life
-type IpslaLife string
+// IpslaLspMonitorReplyMode represents Ipsla lsp monitor reply mode
+type IpslaLspMonitorReplyMode string
 
 const (
-    // Schedule operation to run forever
-    IpslaLife_forever IpslaLife = "forever"
+    // Send replies via IPv4 UDP packets with Router
+    // Alert option
+    IpslaLspMonitorReplyMode_ipv4_udp_router_alert IpslaLspMonitorReplyMode = "ipv4-udp-router-alert"
 )
 
 // IpslaThresholdTypes represents Ipsla threshold types
@@ -234,6 +228,23 @@ const (
     IpslaThresholdTypes_average IpslaThresholdTypes = "average"
 )
 
+// IpslaSched represents Ipsla sched
+type IpslaSched string
+
+const (
+    // Schedule pending for later time
+    IpslaSched_pending IpslaSched = "pending"
+
+    // Schedule operation now
+    IpslaSched_now IpslaSched = "now"
+
+    // Schedule operation after specifed duration
+    IpslaSched_after IpslaSched = "after"
+
+    // Schedule operation at specified time
+    IpslaSched_at IpslaSched = "at"
+)
+
 // IpslaLspMonitorThresholdTypes represents Ipsla lsp monitor threshold types
 type IpslaLspMonitorThresholdTypes string
 
@@ -245,17 +256,6 @@ const (
     // Take action after N consecutive threshold
     // violations
     IpslaLspMonitorThresholdTypes_consecutive IpslaLspMonitorThresholdTypes = "consecutive"
-)
-
-// IpslaHistoryFilter represents Ipsla history filter
-type IpslaHistoryFilter string
-
-const (
-    // Store data for failed operations
-    IpslaHistoryFilter_failed IpslaHistoryFilter = "failed"
-
-    // Store data for all operations
-    IpslaHistoryFilter_all IpslaHistoryFilter = "all"
 )
 
 // Ipsla
@@ -561,11 +561,12 @@ func (condition *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition) GetEntityDat
 // Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdTreeTrace
 // React on LPD Tree Trace violation for a
 // monitored MPLSLM
-// This type is a presence type.
 type Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdTreeTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular MPLSLM. The type is interface{}.
+    Create interface{}
 
     // Type of action to be taken on threshold violation(s).
     ActionType Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdTreeTrace_ActionType
@@ -585,6 +586,7 @@ func (lpdTreeTrace *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdTreeTra
     lpdTreeTrace.EntityData.Children = types.NewOrderedMap()
     lpdTreeTrace.EntityData.Children.Append("action-type", types.YChild{"ActionType", &lpdTreeTrace.ActionType})
     lpdTreeTrace.EntityData.Leafs = types.NewOrderedMap()
+    lpdTreeTrace.EntityData.Leafs.Append("create", types.YLeaf{"Create", lpdTreeTrace.Create})
 
     lpdTreeTrace.EntityData.YListKeys = []string {}
 
@@ -624,11 +626,12 @@ func (actionType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdTreeTrace
 
 // Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout
 // React on probe timeout
-// This type is a presence type.
 type Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular MPLSLM. The type is interface{}.
+    Create interface{}
 
     // Type of action to be taken on threshold violation(s).
     ActionType Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout_ActionType
@@ -652,6 +655,7 @@ func (timeout *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout) GetEnt
     timeout.EntityData.Children.Append("action-type", types.YChild{"ActionType", &timeout.ActionType})
     timeout.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &timeout.ThresholdType})
     timeout.EntityData.Leafs = types.NewOrderedMap()
+    timeout.EntityData.Leafs.Append("create", types.YLeaf{"Create", timeout.Create})
 
     timeout.EntityData.YListKeys = []string {}
 
@@ -732,11 +736,12 @@ func (thresholdType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Timeout_T
 // Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdGroup
 // React on LPD Group violation for a monitored
 // MPLSLM
-// This type is a presence type.
 type Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdGroup struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular MPLSLM. The type is interface{}.
+    Create interface{}
 
     // Type of action to be taken on threshold violation(s).
     ActionType Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdGroup_ActionType
@@ -756,6 +761,7 @@ func (lpdGroup *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdGroup) GetE
     lpdGroup.EntityData.Children = types.NewOrderedMap()
     lpdGroup.EntityData.Children.Append("action-type", types.YChild{"ActionType", &lpdGroup.ActionType})
     lpdGroup.EntityData.Leafs = types.NewOrderedMap()
+    lpdGroup.EntityData.Leafs.Append("create", types.YLeaf{"Create", lpdGroup.Create})
 
     lpdGroup.EntityData.YListKeys = []string {}
 
@@ -796,11 +802,12 @@ func (actionType *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_LpdGroup_Act
 // Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_ConnectionLoss
 // React on connection loss for a monitored
 // MPLSLM
-// This type is a presence type.
 type Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_ConnectionLoss struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular MPLSLM. The type is interface{}.
+    Create interface{}
 
     // Type of action to be taken on threshold violation(s).
     ActionType Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_ConnectionLoss_ActionType
@@ -824,6 +831,7 @@ func (connectionLoss *Ipsla_MplsLspMonitor_Reactions_Reaction_Condition_Connecti
     connectionLoss.EntityData.Children.Append("action-type", types.YChild{"ActionType", &connectionLoss.ActionType})
     connectionLoss.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &connectionLoss.ThresholdType})
     connectionLoss.EntityData.Leafs = types.NewOrderedMap()
+    connectionLoss.EntityData.Leafs.Append("create", types.YLeaf{"Create", connectionLoss.Create})
 
     connectionLoss.EntityData.YListKeys = []string {}
 
@@ -1147,11 +1155,9 @@ func (operationType *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType) 
 
 // Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspTrace
 // Perform MPLS LSP Trace operation
-// This type is a presence type.
 type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Time to live value. The type is interface{} with range: 1..255. The default
     // value is 30.
@@ -1166,20 +1172,23 @@ type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspTrace stru
 
     // Attributes used for path selection during LSP load balancing. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 1.0.0.127.
     LspSelector interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Apply access list to filter PE addresses. The type is string with length:
     // 1..32.
     Accesslist interface{}
 
+    // Create MPLSLM instance with specified type. The type is interface{}.
+    Create interface{}
+
     // Echo request output nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OutputNexthop interface{}
 
     // Probe/Control timeout in milliseconds. The type is interface{} with range:
@@ -1225,6 +1234,7 @@ func (mplsLspTrace *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mp
     mplsLspTrace.EntityData.Leafs.Append("lsp-selector", types.YLeaf{"LspSelector", mplsLspTrace.LspSelector})
     mplsLspTrace.EntityData.Leafs.Append("output-interface", types.YLeaf{"OutputInterface", mplsLspTrace.OutputInterface})
     mplsLspTrace.EntityData.Leafs.Append("accesslist", types.YLeaf{"Accesslist", mplsLspTrace.Accesslist})
+    mplsLspTrace.EntityData.Leafs.Append("create", types.YLeaf{"Create", mplsLspTrace.Create})
     mplsLspTrace.EntityData.Leafs.Append("output-nexthop", types.YLeaf{"OutputNexthop", mplsLspTrace.OutputNexthop})
     mplsLspTrace.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", mplsLspTrace.Timeout})
     mplsLspTrace.EntityData.Leafs.Append("force-explicit-null", types.YLeaf{"ForceExplicitNull", mplsLspTrace.ForceExplicitNull})
@@ -1340,11 +1350,9 @@ func (scan *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspTra
 
 // Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing
 // Perform MPLS LSP Ping operation
-// This type is a presence type.
 type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Time to live value. The type is interface{} with range: 1..255. The default
     // value is 255.
@@ -1359,20 +1367,23 @@ type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing struc
 
     // Attributes used for path selection during LSP load balancing. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 1.0.0.127.
     LspSelector interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Apply access list to filter PE addresses. The type is string with length:
     // 1..32.
     Accesslist interface{}
 
+    // Create MPLSLM instance with specified type. The type is interface{}.
+    Create interface{}
+
     // Echo request output nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OutputNexthop interface{}
 
     // Probe/Control timeout in milliseconds. The type is interface{} with range:
@@ -1426,6 +1437,7 @@ func (mplsLspPing *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mpl
     mplsLspPing.EntityData.Leafs.Append("lsp-selector", types.YLeaf{"LspSelector", mplsLspPing.LspSelector})
     mplsLspPing.EntityData.Leafs.Append("output-interface", types.YLeaf{"OutputInterface", mplsLspPing.OutputInterface})
     mplsLspPing.EntityData.Leafs.Append("accesslist", types.YLeaf{"Accesslist", mplsLspPing.Accesslist})
+    mplsLspPing.EntityData.Leafs.Append("create", types.YLeaf{"Create", mplsLspPing.Create})
     mplsLspPing.EntityData.Leafs.Append("output-nexthop", types.YLeaf{"OutputNexthop", mplsLspPing.OutputNexthop})
     mplsLspPing.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", mplsLspPing.Timeout})
     mplsLspPing.EntityData.Leafs.Append("force-explicit-null", types.YLeaf{"ForceExplicitNull", mplsLspPing.ForceExplicitNull})
@@ -1470,15 +1482,16 @@ func (dataSize *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLs
 
 // Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing_PathDiscover
 // Path discover configuration
-// This type is a presence type.
 type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing_PathDiscover struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Time period for finishing path discovery. The type is interface{} with
     // range: 0..7200. Units are minute. The default value is 0.
     ScanPeriod interface{}
+
+    // Create LPD instance. The type is interface{}.
+    Create interface{}
 
     // Session parameters configuration.
     Session Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing_PathDiscover_Session
@@ -1507,6 +1520,7 @@ func (pathDiscover *Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_Mp
     pathDiscover.EntityData.Children.Append("echo", types.YChild{"Echo", &pathDiscover.Echo})
     pathDiscover.EntityData.Leafs = types.NewOrderedMap()
     pathDiscover.EntityData.Leafs.Append("scan-period", types.YLeaf{"ScanPeriod", pathDiscover.ScanPeriod})
+    pathDiscover.EntityData.Leafs.Append("create", types.YLeaf{"Create", pathDiscover.Create})
 
     pathDiscover.EntityData.YListKeys = []string {}
 
@@ -1644,7 +1658,7 @@ type Ipsla_MplsLspMonitor_Definitions_Definition_OperationType_MplsLspPing_PathD
 
     // Maximum IPv4 address used as destination in echo request. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 127.255.255.255.
     MaximumLspSelector interface{}
 
@@ -2132,11 +2146,13 @@ func (condition *Ipsla_Operation_Reactions_Reaction_Condition) GetEntityData() *
 // Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageDs
 // React on destination to source jitter
 // threshold violation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageDs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Specify threshold limits for the monitored element.
     ThresholdLimits Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageDs_ThresholdLimits
@@ -2164,6 +2180,7 @@ func (jitterAverageDs *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverag
     jitterAverageDs.EntityData.Children.Append("action-type", types.YChild{"ActionType", &jitterAverageDs.ActionType})
     jitterAverageDs.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &jitterAverageDs.ThresholdType})
     jitterAverageDs.EntityData.Leafs = types.NewOrderedMap()
+    jitterAverageDs.EntityData.Leafs.Append("create", types.YLeaf{"Create", jitterAverageDs.Create})
 
     jitterAverageDs.EntityData.YListKeys = []string {}
 
@@ -2288,11 +2305,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageD
 
 // Ipsla_Operation_Reactions_Reaction_Condition_Timeout
 // React on probe timeout
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_Timeout struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Type of action to be taken on threshold violation(s).
     ActionType Ipsla_Operation_Reactions_Reaction_Condition_Timeout_ActionType
@@ -2316,6 +2335,7 @@ func (timeout *Ipsla_Operation_Reactions_Reaction_Condition_Timeout) GetEntityDa
     timeout.EntityData.Children.Append("action-type", types.YChild{"ActionType", &timeout.ActionType})
     timeout.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &timeout.ThresholdType})
     timeout.EntityData.Leafs = types.NewOrderedMap()
+    timeout.EntityData.Leafs.Append("create", types.YLeaf{"Create", timeout.Create})
 
     timeout.EntityData.YListKeys = []string {}
 
@@ -2402,11 +2422,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_Timeout_Thresh
 // Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage
 // React on average round trip jitter threshold
 // violation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Specify threshold limits for the monitored element.
     ThresholdLimits Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage_ThresholdLimits
@@ -2434,6 +2456,7 @@ func (jitterAverage *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage)
     jitterAverage.EntityData.Children.Append("action-type", types.YChild{"ActionType", &jitterAverage.ActionType})
     jitterAverage.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &jitterAverage.ThresholdType})
     jitterAverage.EntityData.Leafs = types.NewOrderedMap()
+    jitterAverage.EntityData.Leafs.Append("create", types.YLeaf{"Create", jitterAverage.Create})
 
     jitterAverage.EntityData.YListKeys = []string {}
 
@@ -2558,11 +2581,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverage_
 
 // Ipsla_Operation_Reactions_Reaction_Condition_VerifyError
 // React on error verfication violation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_VerifyError struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Type of action to be taken on threshold violation(s).
     ActionType Ipsla_Operation_Reactions_Reaction_Condition_VerifyError_ActionType
@@ -2586,6 +2611,7 @@ func (verifyError *Ipsla_Operation_Reactions_Reaction_Condition_VerifyError) Get
     verifyError.EntityData.Children.Append("action-type", types.YChild{"ActionType", &verifyError.ActionType})
     verifyError.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &verifyError.ThresholdType})
     verifyError.EntityData.Leafs = types.NewOrderedMap()
+    verifyError.EntityData.Leafs.Append("create", types.YLeaf{"Create", verifyError.Create})
 
     verifyError.EntityData.YListKeys = []string {}
 
@@ -2671,11 +2697,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_VerifyError_Th
 
 // Ipsla_Operation_Reactions_Reaction_Condition_Rtt
 // React on round trip time threshold violation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_Rtt struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Specify threshold limits for the monitored element.
     ThresholdLimits Ipsla_Operation_Reactions_Reaction_Condition_Rtt_ThresholdLimits
@@ -2703,6 +2731,7 @@ func (rtt *Ipsla_Operation_Reactions_Reaction_Condition_Rtt) GetEntityData() *ty
     rtt.EntityData.Children.Append("action-type", types.YChild{"ActionType", &rtt.ActionType})
     rtt.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &rtt.ThresholdType})
     rtt.EntityData.Leafs = types.NewOrderedMap()
+    rtt.EntityData.Leafs.Append("create", types.YLeaf{"Create", rtt.Create})
 
     rtt.EntityData.YListKeys = []string {}
 
@@ -2828,11 +2857,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_Rtt_ThresholdT
 // Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd
 // React on destination to source packet loss
 // threshold violation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Specify threshold limits for the monitored element.
     ThresholdLimits Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd_ThresholdLimits
@@ -2860,6 +2891,7 @@ func (packetLossSd *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd) G
     packetLossSd.EntityData.Children.Append("action-type", types.YChild{"ActionType", &packetLossSd.ActionType})
     packetLossSd.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &packetLossSd.ThresholdType})
     packetLossSd.EntityData.Leafs = types.NewOrderedMap()
+    packetLossSd.EntityData.Leafs.Append("create", types.YLeaf{"Create", packetLossSd.Create})
 
     packetLossSd.EntityData.YListKeys = []string {}
 
@@ -2985,11 +3017,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossSd_T
 // Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageSd
 // React on average source to destination
 // jitter threshold violation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageSd struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Specify threshold limits for the monitored element.
     ThresholdLimits Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageSd_ThresholdLimits
@@ -3017,6 +3051,7 @@ func (jitterAverageSd *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverag
     jitterAverageSd.EntityData.Children.Append("action-type", types.YChild{"ActionType", &jitterAverageSd.ActionType})
     jitterAverageSd.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &jitterAverageSd.ThresholdType})
     jitterAverageSd.EntityData.Leafs = types.NewOrderedMap()
+    jitterAverageSd.EntityData.Leafs.Append("create", types.YLeaf{"Create", jitterAverageSd.Create})
 
     jitterAverageSd.EntityData.YListKeys = []string {}
 
@@ -3142,11 +3177,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_JitterAverageS
 // Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLoss
 // React on connection loss for a monitored
 // operation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLoss struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Type of action to be taken on threshold violation(s).
     ActionType Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLoss_ActionType
@@ -3170,6 +3207,7 @@ func (connectionLoss *Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLos
     connectionLoss.EntityData.Children.Append("action-type", types.YChild{"ActionType", &connectionLoss.ActionType})
     connectionLoss.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &connectionLoss.ThresholdType})
     connectionLoss.EntityData.Leafs = types.NewOrderedMap()
+    connectionLoss.EntityData.Leafs.Append("create", types.YLeaf{"Create", connectionLoss.Create})
 
     connectionLoss.EntityData.YListKeys = []string {}
 
@@ -3256,11 +3294,13 @@ func (thresholdType *Ipsla_Operation_Reactions_Reaction_Condition_ConnectionLoss
 // Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs
 // React on source to destination packet loss
 // threshold violation
-// This type is a presence type.
 type Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
+
+    // Create reaction condition for a particular operation. The type is
+    // interface{}.
+    Create interface{}
 
     // Specify threshold limits for the monitored element.
     ThresholdLimits Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs_ThresholdLimits
@@ -3288,6 +3328,7 @@ func (packetLossDs *Ipsla_Operation_Reactions_Reaction_Condition_PacketLossDs) G
     packetLossDs.EntityData.Children.Append("action-type", types.YChild{"ActionType", &packetLossDs.ActionType})
     packetLossDs.EntityData.Children.Append("threshold-type", types.YChild{"ThresholdType", &packetLossDs.ThresholdType})
     packetLossDs.EntityData.Leafs = types.NewOrderedMap()
+    packetLossDs.EntityData.Leafs.Append("create", types.YLeaf{"Create", packetLossDs.Create})
 
     packetLossDs.EntityData.YListKeys = []string {}
 
@@ -3607,11 +3648,9 @@ func (operationType *Ipsla_Operation_Definitions_Definition_OperationType) GetEn
 
 // Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho
 // ICMPEcho Operation type
-// This type is a presence type.
 type Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Enter IPv6 address of the source device. The type is string.
     SourceAddressV6 interface{}
@@ -3625,6 +3664,9 @@ type Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho struct {
     // Type of service setting in probe packet. The type is interface{} with
     // range: 0..255. The default value is 0.
     Tos interface{}
+
+    // Create operation with specified type. The type is interface{}.
+    Create interface{}
 
     // Configure IPSLA for a VPN Routing/Forwarding instance). The type is string
     // with length: 1..32.
@@ -3678,6 +3720,7 @@ func (icmpEcho *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEcho) G
     icmpEcho.EntityData.Leafs.Append("dest-address-v6", types.YLeaf{"DestAddressV6", icmpEcho.DestAddressV6})
     icmpEcho.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", icmpEcho.SourceAddress})
     icmpEcho.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", icmpEcho.Tos})
+    icmpEcho.EntityData.Leafs.Append("create", types.YLeaf{"Create", icmpEcho.Create})
     icmpEcho.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", icmpEcho.Vrf})
     icmpEcho.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", icmpEcho.Timeout})
     icmpEcho.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", icmpEcho.Frequency})
@@ -3877,11 +3920,9 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_IcmpEch
 
 // Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing
 // MPLS LSP Ping Operation type
-// This type is a presence type.
 type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Time to live value. The type is interface{} with range: 1..255. The default
     // value is 255.
@@ -3891,12 +3932,15 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing struct {
     SourceAddress interface{}
 
     // Echo request output nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OutputNexthop interface{}
+
+    // Create operation with specified type. The type is interface{}.
+    Create interface{}
 
     // Attributes used for path selection during LSP load balancing. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 1.0.0.127.
     LspSelector interface{}
 
@@ -3912,7 +3956,7 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing struct {
     Timeout interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Probe interval in seconds. The type is interface{} with range: 1..604800.
@@ -3963,6 +4007,7 @@ func (mplsLspPing *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspP
     mplsLspPing.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", mplsLspPing.Ttl})
     mplsLspPing.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", mplsLspPing.SourceAddress})
     mplsLspPing.EntityData.Leafs.Append("output-nexthop", types.YLeaf{"OutputNexthop", mplsLspPing.OutputNexthop})
+    mplsLspPing.EntityData.Leafs.Append("create", types.YLeaf{"Create", mplsLspPing.Create})
     mplsLspPing.EntityData.Leafs.Append("lsp-selector", types.YLeaf{"LspSelector", mplsLspPing.LspSelector})
     mplsLspPing.EntityData.Leafs.Append("exp-bits", types.YLeaf{"ExpBits", mplsLspPing.ExpBits})
     mplsLspPing.EntityData.Leafs.Append("force-explicit-null", types.YLeaf{"ForceExplicitNull", mplsLspPing.ForceExplicitNull})
@@ -4152,12 +4197,12 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing_Target_Ipv
     YPresence bool
 
     // IP address for target. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
     // IP netmask for target. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Mask interface{}
 }
@@ -4222,7 +4267,7 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspPing_Target_Pse
     YPresence bool
 
     // Target address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
@@ -4408,11 +4453,9 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_MplsLsp
 
 // Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho
 // UDPEcho Operation type
-// This type is a presence type.
 type Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Enter IPv4 address of the source device. The type is string.
     SourceAddress interface{}
@@ -4426,6 +4469,9 @@ type Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho struct {
 
     // Port number on source device. The type is interface{} with range: 0..65535.
     SourcePort interface{}
+
+    // Create operation with specified type. The type is interface{}.
+    Create interface{}
 
     // Configure IPSLA for a VPN Routing/Forwarding instance). The type is string
     // with length: 1..32.
@@ -4485,6 +4531,7 @@ func (udpEcho *Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho) Get
     udpEcho.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", udpEcho.Tos})
     udpEcho.EntityData.Leafs.Append("control-disable", types.YLeaf{"ControlDisable", udpEcho.ControlDisable})
     udpEcho.EntityData.Leafs.Append("source-port", types.YLeaf{"SourcePort", udpEcho.SourcePort})
+    udpEcho.EntityData.Leafs.Append("create", types.YLeaf{"Create", udpEcho.Create})
     udpEcho.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", udpEcho.Vrf})
     udpEcho.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", udpEcho.Timeout})
     udpEcho.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", udpEcho.Frequency})
@@ -4686,11 +4733,9 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_UdpEcho
 
 // Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace
 // MPLS LSP Trace Operation type
-// This type is a presence type.
 type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Time to live value. The type is interface{} with range: 1..255. The default
     // value is 30.
@@ -4700,12 +4745,15 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace struct {
     SourceAddress interface{}
 
     // Echo request output nexthop. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     OutputNexthop interface{}
+
+    // Create operation with specified type. The type is interface{}.
+    Create interface{}
 
     // Attributes used for path selection during LSP load balancing. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // The default value is 1.0.0.127.
     LspSelector interface{}
 
@@ -4721,7 +4769,7 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace struct {
     Timeout interface{}
 
     // Echo request output interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     OutputInterface interface{}
 
     // Probe interval in seconds. The type is interface{} with range: 1..604800.
@@ -4764,6 +4812,7 @@ func (mplsLspTrace *Ipsla_Operation_Definitions_Definition_OperationType_MplsLsp
     mplsLspTrace.EntityData.Leafs.Append("ttl", types.YLeaf{"Ttl", mplsLspTrace.Ttl})
     mplsLspTrace.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", mplsLspTrace.SourceAddress})
     mplsLspTrace.EntityData.Leafs.Append("output-nexthop", types.YLeaf{"OutputNexthop", mplsLspTrace.OutputNexthop})
+    mplsLspTrace.EntityData.Leafs.Append("create", types.YLeaf{"Create", mplsLspTrace.Create})
     mplsLspTrace.EntityData.Leafs.Append("lsp-selector", types.YLeaf{"LspSelector", mplsLspTrace.LspSelector})
     mplsLspTrace.EntityData.Leafs.Append("exp-bits", types.YLeaf{"ExpBits", mplsLspTrace.ExpBits})
     mplsLspTrace.EntityData.Leafs.Append("force-explicit-null", types.YLeaf{"ForceExplicitNull", mplsLspTrace.ForceExplicitNull})
@@ -4880,12 +4929,12 @@ type Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace_Target_Ip
     YPresence bool
 
     // IP address for target. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Address interface{}
 
     // IP netmask for target. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Mask interface{}
 }
@@ -5033,11 +5082,9 @@ func (history *Ipsla_Operation_Definitions_Definition_OperationType_MplsLspTrace
 
 // Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter
 // UDPJitter Operation type
-// This type is a presence type.
 type Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Enter IPv4 address of the source device. The type is string.
     SourceAddress interface{}
@@ -5051,6 +5098,9 @@ type Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter struct {
 
     // Port number on source device. The type is interface{} with range: 0..65535.
     SourcePort interface{}
+
+    // Create operation with specified type. The type is interface{}.
+    Create interface{}
 
     // Configure IPSLA for a VPN Routing/Forwarding instance). The type is string
     // with length: 1..32.
@@ -5110,6 +5160,7 @@ func (udpJitter *Ipsla_Operation_Definitions_Definition_OperationType_UdpJitter)
     udpJitter.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", udpJitter.Tos})
     udpJitter.EntityData.Leafs.Append("control-disable", types.YLeaf{"ControlDisable", udpJitter.ControlDisable})
     udpJitter.EntityData.Leafs.Append("source-port", types.YLeaf{"SourcePort", udpJitter.SourcePort})
+    udpJitter.EntityData.Leafs.Append("create", types.YLeaf{"Create", udpJitter.Create})
     udpJitter.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", udpJitter.Vrf})
     udpJitter.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", udpJitter.Timeout})
     udpJitter.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", udpJitter.Frequency})
@@ -5306,11 +5357,9 @@ func (enhancedStat *Ipsla_Operation_Definitions_Definition_OperationType_UdpJitt
 
 // Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEcho
 // ICMPPathEcho Operation type
-// This type is a presence type.
 type Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEcho struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Enter IPv4 address of the source device. The type is string.
     SourceAddress interface{}
@@ -5318,6 +5367,9 @@ type Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEcho struct {
     // Type of service setting in probe packet. The type is interface{} with
     // range: 0..255. The default value is 0.
     Tos interface{}
+
+    // Create operation with specified type. The type is interface{}.
+    Create interface{}
 
     // Configure IPSLA for a VPN Routing/Forwarding instance). The type is string
     // with length: 1..32.
@@ -5369,6 +5421,7 @@ func (icmpPathEcho *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPat
     icmpPathEcho.EntityData.Leafs = types.NewOrderedMap()
     icmpPathEcho.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", icmpPathEcho.SourceAddress})
     icmpPathEcho.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", icmpPathEcho.Tos})
+    icmpPathEcho.EntityData.Leafs.Append("create", types.YLeaf{"Create", icmpPathEcho.Create})
     icmpPathEcho.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", icmpPathEcho.Vrf})
     icmpPathEcho.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", icmpPathEcho.Timeout})
     icmpPathEcho.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", icmpPathEcho.Frequency})
@@ -5521,36 +5574,36 @@ type Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEcho_LsrPath s
     YPresence bool
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Node1 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node2 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node3 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node4 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node5 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node6 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node7 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node8 interface{}
 }
 
@@ -5583,11 +5636,9 @@ func (lsrPath *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathEcho
 
 // Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJitter
 // ICMPPathJitter Operation type
-// This type is a presence type.
 type Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJitter struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Enter IPv4 address of the source device. The type is string.
     SourceAddress interface{}
@@ -5595,6 +5646,9 @@ type Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJitter struct 
     // Type of service setting in probe packet. The type is interface{} with
     // range: 0..255. The default value is 0.
     Tos interface{}
+
+    // Create operation with specified type. The type is interface{}.
+    Create interface{}
 
     // Configure IPSLA for a VPN Routing/Forwarding instance). The type is string
     // with length: 1..32.
@@ -5642,6 +5696,7 @@ func (icmpPathJitter *Ipsla_Operation_Definitions_Definition_OperationType_IcmpP
     icmpPathJitter.EntityData.Leafs = types.NewOrderedMap()
     icmpPathJitter.EntityData.Leafs.Append("source-address", types.YLeaf{"SourceAddress", icmpPathJitter.SourceAddress})
     icmpPathJitter.EntityData.Leafs.Append("tos", types.YLeaf{"Tos", icmpPathJitter.Tos})
+    icmpPathJitter.EntityData.Leafs.Append("create", types.YLeaf{"Create", icmpPathJitter.Create})
     icmpPathJitter.EntityData.Leafs.Append("vrf", types.YLeaf{"Vrf", icmpPathJitter.Vrf})
     icmpPathJitter.EntityData.Leafs.Append("timeout", types.YLeaf{"Timeout", icmpPathJitter.Timeout})
     icmpPathJitter.EntityData.Leafs.Append("frequency", types.YLeaf{"Frequency", icmpPathJitter.Frequency})
@@ -5732,36 +5787,36 @@ type Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJitter_LsrPath
     YPresence bool
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     Node1 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node2 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node3 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node4 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node5 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node6 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node7 interface{}
 
     // IPv4 address of the intermediate node. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Node8 interface{}
 }
 
@@ -5794,11 +5849,9 @@ func (lsrPath *Ipsla_Operation_Definitions_Definition_OperationType_IcmpPathJitt
 
 // Ipsla_Responder
 // Responder configuration
-// This type is a presence type.
 type Ipsla_Responder struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Responder TWAMP configuration.
     Twamp Ipsla_Responder_Twamp
@@ -5834,11 +5887,9 @@ func (responder *Ipsla_Responder) GetEntityData() *types.CommonEntityData {
 
 // Ipsla_Responder_Twamp
 // Responder TWAMP configuration
-// This type is a presence type.
 type Ipsla_Responder_Twamp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Configure responder timeout value in seconds. The type is interface{} with
     // range: 1..604800. Units are second. The default value is 900.
@@ -5968,7 +6019,7 @@ type Ipsla_Responder_Type_Udp_Addresses_Address struct {
 
     // This attribute is a key. IP address of the Responder. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalAddress interface{}
 
     // Configure port.
@@ -6244,7 +6295,7 @@ type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_
     YListKey string
 
     // This attribute is a key. Local IPv6 address. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Localv6Address interface{}
 
     // Configuration of local port.
@@ -6418,7 +6469,7 @@ type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_
     YListKey string
 
     // This attribute is a key. Remote IPv4 address. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Remotev4Address interface{}
 
     // Configuration of remote port.
@@ -6623,7 +6674,7 @@ type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv6Addresses_
     YListKey string
 
     // This attribute is a key. Remote IPv6 address. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Remotev6Address interface{}
 
     // Configuration of remote port.
@@ -6828,7 +6879,7 @@ type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_
     YListKey string
 
     // This attribute is a key. Local IPv4 address. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Localv4Address interface{}
 
     // Configuration of local port.
@@ -7002,7 +7053,7 @@ type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_
     YListKey string
 
     // This attribute is a key. Remote IPv4 address. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Remotev4Address interface{}
 
     // Configuration of remote port.
@@ -7207,7 +7258,7 @@ type Ipsla_Responder_TwampLight_SessionIds_SessionId_LocalIp_LocalIpv4Addresses_
     YListKey string
 
     // This attribute is a key. Remote IPv6 address. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Remotev6Address interface{}
 
     // Configuration of remote port.
@@ -7433,11 +7484,9 @@ func (vpn *Ipsla_MplsDiscovery_Vpn) GetEntityData() *types.CommonEntityData {
 
 // Ipsla_ServerTwamp
 // IPPM Server configuration
-// This type is a presence type.
 type Ipsla_ServerTwamp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
-    YPresence bool
 
     // Configure ippmserver inactivity timer value in seconds. The type is
     // interface{} with range: 1..6000. Units are second. The default value is

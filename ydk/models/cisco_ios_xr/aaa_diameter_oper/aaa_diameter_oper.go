@@ -18,6 +18,34 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package aaa_diameter_oper"))
 }
 
+// DisconnectCause represents Disconnect cause values
+type DisconnectCause string
+
+const (
+    // Disconnect caused by reboot
+    DisconnectCause_reboot DisconnectCause = "reboot"
+
+    // Disconnect due to server busy
+    DisconnectCause_busy DisconnectCause = "busy"
+
+    // Disconnect as server does not want to talk
+    DisconnectCause_do_not_wait_to_talk DisconnectCause = "do-not-wait-to-talk"
+)
+
+// SecurityTypeValue represents Security type values
+type SecurityTypeValue string
+
+const (
+    // No security type
+    SecurityTypeValue_security_type_none SecurityTypeValue = "security-type-none"
+
+    // TLS security
+    SecurityTypeValue_type_ SecurityTypeValue = "type"
+
+    // IPSEC security
+    SecurityTypeValue_ipsec SecurityTypeValue = "ipsec"
+)
+
 // PeerStateValue represents Peer State Values
 type PeerStateValue string
 
@@ -44,32 +72,15 @@ const (
     PeerStateValue_suspect PeerStateValue = "suspect"
 )
 
-// WhoInitiatedDisconnect represents Who initiated to disconnect
-type WhoInitiatedDisconnect string
+// ProtocolTypeValue represents Protocol type values
+type ProtocolTypeValue string
 
 const (
-    // None
-    WhoInitiatedDisconnect_none WhoInitiatedDisconnect = "none"
+    // No protocol used
+    ProtocolTypeValue_protocol_none ProtocolTypeValue = "protocol-none"
 
-    // Disconnected by host
-    WhoInitiatedDisconnect_host WhoInitiatedDisconnect = "host"
-
-    // Disconnected by peer
-    WhoInitiatedDisconnect_peer WhoInitiatedDisconnect = "peer"
-)
-
-// DisconnectCause represents Disconnect cause values
-type DisconnectCause string
-
-const (
-    // Disconnect caused by reboot
-    DisconnectCause_reboot DisconnectCause = "reboot"
-
-    // Disconnect due to server busy
-    DisconnectCause_busy DisconnectCause = "busy"
-
-    // Disconnect as server does not want to talk
-    DisconnectCause_do_not_wait_to_talk DisconnectCause = "do-not-wait-to-talk"
+    // TCP protocol
+    ProtocolTypeValue_tcp ProtocolTypeValue = "tcp"
 )
 
 // Peer represents  Peer type values
@@ -83,28 +94,17 @@ const (
     Peer_server Peer = "server"
 )
 
-// SecurityTypeValue represents Security type values
-type SecurityTypeValue string
+// WhoInitiatedDisconnect represents Who initiated to disconnect
+type WhoInitiatedDisconnect string
 
 const (
-    // No security type
-    SecurityTypeValue_security_type_none SecurityTypeValue = "security-type-none"
+    // None
+    WhoInitiatedDisconnect_none WhoInitiatedDisconnect = "none"
 
-    // TLS security
-    SecurityTypeValue_type_ SecurityTypeValue = "type"
+    // Disconnected by host
+    WhoInitiatedDisconnect_host WhoInitiatedDisconnect = "host"
 
-    // IPSEC security
-    SecurityTypeValue_ipsec SecurityTypeValue = "ipsec"
-)
-
-// ProtocolTypeValue represents Protocol type values
-type ProtocolTypeValue string
-
-const (
-    // No protocol used
-    ProtocolTypeValue_protocol_none ProtocolTypeValue = "protocol-none"
-
-    // TCP protocol
-    ProtocolTypeValue_tcp ProtocolTypeValue = "tcp"
+    // Disconnected by peer
+    WhoInitiatedDisconnect_peer WhoInitiatedDisconnect = "peer"
 )
 

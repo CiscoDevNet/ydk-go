@@ -300,7 +300,7 @@ type SubscriberFeaturette_FeaturetteName struct {
     YListKey string
 
     // This attribute is a key. subscriber feature. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Featurette interface{}
 
     // instance of featurette. The type is interface{} with range: 0..4294967295.
@@ -400,7 +400,7 @@ type SubManager_Location struct {
     YListKey string
 
     // This attribute is a key. Specify location. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Location1 interface{}
 
     // Disable history for subscriber manager. The type is interface{}.

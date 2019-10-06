@@ -131,7 +131,7 @@ type LptsPifib__Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Type specific.
@@ -248,7 +248,7 @@ type LptsPifib__Nodes_Node_TypeValues_TypeValue_Entry struct {
     YListKey string
 
     // This attribute is a key. Single Pre-ifib entry. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Entry interface{}
 
     // VRF Name. The type is string.
@@ -748,7 +748,7 @@ type LptsPifib__Nodes_Node_Hardware_Police_PoliceInfo struct {
     AclConfig interface{}
 
     // acl str. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     AclStr interface{}
 }
 
@@ -843,7 +843,7 @@ type LptsPifib__Nodes_Node_Hardware_StaticPolice_StaticInfo struct {
     Dropped interface{}
 
     // punt reason string. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PuntReasonString interface{}
 
     // change type. The type is interface{} with range: 0..255.
@@ -1194,7 +1194,7 @@ type LptsPifib__Nodes_Node_Hardware_IndexEntries_IndexEntry struct {
     RemoteFgid interface{}
 
     // Acl name. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     AclStr interface{}
 
     // Stats not available. The type is interface{} with range: 0..255.

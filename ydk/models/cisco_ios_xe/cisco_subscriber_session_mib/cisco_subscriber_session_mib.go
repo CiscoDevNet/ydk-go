@@ -573,7 +573,7 @@ type CISCOSUBSCRIBERSESSIONMIB_CsubSessionTable_CsubSessionEntry struct {
     // This object indicates the MAC address of the subscriber.  This column is
     // valid only if the 'macAddress' bit of the corresponding instance of
     // csubSessionAvailableIdentities is '1'. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CsubSessionMacAddress interface{}
 
     // This object indicates the VRF originating the subscriber session.  This
@@ -2147,7 +2147,7 @@ type CISCOSUBSCRIBERSESSIONMIB_CsubJobMatchParamsTable_CsubJobMatchParamsEntry s
     // subscriber sessions in the process of executing a subscriber session job. 
     // This value is valid only if the 'macAddress' bit of the corresponding
     // instance of csubJobMatchIdentities is '1'. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CsubJobMatchMacAddress interface{}
 
     // This object specifies the native VRF the system matches against subscriber

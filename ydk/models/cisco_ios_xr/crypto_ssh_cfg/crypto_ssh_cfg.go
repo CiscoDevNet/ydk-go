@@ -91,14 +91,11 @@ type Ssh_Client struct {
     RekeyTime interface{}
 
     // Source interface for ssh client sessions. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Cisco sshd DSCP value. The type is interface{} with range: 0..63.
     Dscp interface{}
-
-    // disable.
-    ClientDisable Ssh_Client_ClientDisable
 
     // Cisco ssh algorithms.
     ClientAlgo Ssh_Client_ClientAlgo
@@ -119,7 +116,6 @@ func (client *Ssh_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     client.EntityData.Children = types.NewOrderedMap()
-    client.EntityData.Children.Append("client-disable", types.YChild{"ClientDisable", &client.ClientDisable})
     client.EntityData.Children.Append("client-algo", types.YChild{"ClientAlgo", &client.ClientAlgo})
     client.EntityData.Children.Append("client-enable", types.YChild{"ClientEnable", &client.ClientEnable})
     client.EntityData.Leafs = types.NewOrderedMap()
@@ -135,67 +131,6 @@ func (client *Ssh_Client) GetEntityData() *types.CommonEntityData {
     client.EntityData.YListKeys = []string {}
 
     return &(client.EntityData)
-}
-
-// Ssh_Client_ClientDisable
-// disable
-type Ssh_Client_ClientDisable struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // hmac.
-    ClientHmac Ssh_Client_ClientDisable_ClientHmac
-}
-
-func (clientDisable *Ssh_Client_ClientDisable) GetEntityData() *types.CommonEntityData {
-    clientDisable.EntityData.YFilter = clientDisable.YFilter
-    clientDisable.EntityData.YangName = "client-disable"
-    clientDisable.EntityData.BundleName = "cisco_ios_xr"
-    clientDisable.EntityData.ParentYangName = "client"
-    clientDisable.EntityData.SegmentPath = "client-disable"
-    clientDisable.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/" + clientDisable.EntityData.SegmentPath
-    clientDisable.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    clientDisable.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    clientDisable.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    clientDisable.EntityData.Children = types.NewOrderedMap()
-    clientDisable.EntityData.Children.Append("client-hmac", types.YChild{"ClientHmac", &clientDisable.ClientHmac})
-    clientDisable.EntityData.Leafs = types.NewOrderedMap()
-
-    clientDisable.EntityData.YListKeys = []string {}
-
-    return &(clientDisable.EntityData)
-}
-
-// Ssh_Client_ClientDisable_ClientHmac
-// hmac
-type Ssh_Client_ClientDisable_ClientHmac struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Disable Hmac-sha1 negotiation. The type is bool. The default value is
-    // false.
-    ClientHmacSha1 interface{}
-}
-
-func (clientHmac *Ssh_Client_ClientDisable_ClientHmac) GetEntityData() *types.CommonEntityData {
-    clientHmac.EntityData.YFilter = clientHmac.YFilter
-    clientHmac.EntityData.YangName = "client-hmac"
-    clientHmac.EntityData.BundleName = "cisco_ios_xr"
-    clientHmac.EntityData.ParentYangName = "client-disable"
-    clientHmac.EntityData.SegmentPath = "client-hmac"
-    clientHmac.EntityData.AbsolutePath = "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/client-disable/" + clientHmac.EntityData.SegmentPath
-    clientHmac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    clientHmac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    clientHmac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    clientHmac.EntityData.Children = types.NewOrderedMap()
-    clientHmac.EntityData.Leafs = types.NewOrderedMap()
-    clientHmac.EntityData.Leafs.Append("client-hmac-sha1", types.YLeaf{"ClientHmacSha1", clientHmac.ClientHmacSha1})
-
-    clientHmac.EntityData.YListKeys = []string {}
-
-    return &(clientHmac.EntityData)
 }
 
 // Ssh_Client_ClientAlgo
@@ -458,10 +393,6 @@ type Ssh_Server_Disable_Hmac struct {
     // Disable Hmac-sha2-512 negotiation. The type is bool. The default value is
     // false.
     HmacSha512 interface{}
-
-    // Disable Hmac-sha1 negotiation. The type is bool. The default value is
-    // false.
-    HmacSha1 interface{}
 }
 
 func (hmac *Ssh_Server_Disable_Hmac) GetEntityData() *types.CommonEntityData {
@@ -478,7 +409,6 @@ func (hmac *Ssh_Server_Disable_Hmac) GetEntityData() *types.CommonEntityData {
     hmac.EntityData.Children = types.NewOrderedMap()
     hmac.EntityData.Leafs = types.NewOrderedMap()
     hmac.EntityData.Leafs.Append("hmac-sha512", types.YLeaf{"HmacSha512", hmac.HmacSha512})
-    hmac.EntityData.Leafs.Append("hmac-sha1", types.YLeaf{"HmacSha1", hmac.HmacSha1})
 
     hmac.EntityData.YListKeys = []string {}
 

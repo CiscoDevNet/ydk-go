@@ -97,7 +97,7 @@ type RedundancyGroupManager_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. Controller name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Configured interchassis redundancy group number. The type is string with
@@ -108,18 +108,17 @@ type RedundancyGroupManager_Controllers_Controller struct {
     ControllerNameXr interface{}
 
     // Handle of controller being backed up. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerHandle interface{}
 
     // Backup interface name. The type is string with length: 0..64.
     BackupInterfaceName interface{}
 
-    // Backup interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Backup interface handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterfaceHandle interface{}
 
     // Backup interface next hop IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     BackupInterfaceNextHopIpAddress interface{}
 
     // Configured interchassis redundancy group state. The type is string with

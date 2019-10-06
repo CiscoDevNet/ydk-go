@@ -78,7 +78,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
     leaf eg-total-rate {
       type uint64;
       description
-        "Egress CFL Total Rate";
+        "eg total rate";
     }
   }
 
@@ -98,7 +98,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
     leaf eg-mc-rate {
       type uint64;
       description
-        "Egress CFL Multicast Rate";
+        "eg mc rate";
     }
   }
 
@@ -118,7 +118,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
     leaf eg-uc-rate {
       type uint64;
       description
-        "Egress CFL Unicast Rate";
+        "eg uc rate";
     }
   }
 
@@ -127,17 +127,17 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
       "XBAR EDM SKB CFL EG STATS";
     container cfl-uc-stats {
       description
-        "Egress CFL Unicast Stats";
+        "cfl uc stats";
       uses XBAR-EDM-SKB-CFL-EG-UC-STATS;
     }
     container cfl-mc-stats {
       description
-        "Egress CFL Multicast Stats";
+        "cfl mc stats";
       uses XBAR-EDM-SKB-CFL-EG-MC-STATS;
     }
     container cfl-misc-stats {
       description
-        "Egress CFL Miscellaneous Stats";
+        "cfl misc stats";
       uses XBAR-EDM-SKB-CFL-EG-MISC-STATS;
     }
   }
@@ -205,15 +205,11 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
   grouping XBAR-EDM-SKB-OBU-STATS {
     description
       "XBAR EDM SKB OBU STATS";
-    list data-queque {
+    leaf-list data-queque {
+      type uint32;
       max-elements "24";
       description
-        "Output Buffer Data Queue Queue Count";
-      leaf entry {
-        type uint32;
-        description
-          "Output Buffer Data Queue Queue Count";
-      }
+        "data queque";
     }
   }
 
@@ -222,22 +218,22 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
       "XBAR EDM SKB EG STATS";
     container obu-stats {
       description
-        "Output Buffer Stats";
+        "obu stats";
       uses XBAR-EDM-SKB-OBU-STATS;
     }
     container obu-uc-stats {
       description
-        "Output Buffer UC Stats";
+        "obu uc stats";
       uses XBAR-EDM-SKB-OBU-UC-STATS;
     }
     container obu-mc-stats {
       description
-        "Output Buffer MC Stats";
+        "obu mc stats";
       uses XBAR-EDM-SKB-OBU-MC-STATS;
     }
     container cfl-stats {
       description
-        "Egress Common Fabric Link Stats";
+        "cfl stats";
       uses XBAR-EDM-SKB-CFL-EG-STATS;
     }
   }
@@ -258,7 +254,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
     leaf in-total-rate {
       type uint64;
       description
-        "Ingress CFL Total Rate";
+        "in total rate";
     }
   }
 
@@ -303,7 +299,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
     leaf in-mc-rate {
       type uint64;
       description
-        "Ingress CFL Multicast Rate";
+        "in mc rate";
     }
   }
 
@@ -348,7 +344,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
     leaf in-uc-rate {
       type uint64;
       description
-        "Ingress CFL Unicast Rate";
+        "in uc rate";
     }
   }
 
@@ -357,17 +353,17 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
       "XBAR EDM SKB CFL IN STATS";
     container cfl-uc-stats {
       description
-        "Ingress CFL Unicast Stats";
+        "cfl uc stats";
       uses XBAR-EDM-SKB-CFL-IN-UC-STATS;
     }
     container cfl-mc-stats {
       description
-        "Ingress CFL Multicast Stats";
+        "cfl mc stats";
       uses XBAR-EDM-SKB-CFL-IN-MC-STATS;
     }
     container cfl-misc-stats {
       description
-        "Ingress CFL Miscellaneous Stats";
+        "cfl misc stats";
       uses XBAR-EDM-SKB-CFL-IN-MISC-STATS;
     }
   }
@@ -663,7 +659,7 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
     leaf unused {
       type uint64;
       description
-        "Ingress Unused Counter";
+        "unused";
     }
   }
 
@@ -707,37 +703,37 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
       "XBAR EDM SKB IN STATS";
     container ibb-stats {
       description
-        "Input Buffer Block Stats";
+        "ibb stats";
       uses XBAR-EDM-SKB-IBB-STATS;
     }
     container ibf-stats {
       description
-        "Input Forwarding Block Stats";
+        "ibf stats";
       uses XBAR-EDM-SKB-IBF-STATS;
     }
     container ibb-uc-stats {
       description
-        "Input Buffer Block UC Stats";
+        "ibb uc stats";
       uses XBAR-EDM-SKB-IBB-UC-STATS;
     }
     container ibf-uc-stats {
       description
-        "Input Forwarding Block UC Stats";
+        "ibf uc stats";
       uses XBAR-EDM-SKB-IBF-UC-STATS;
     }
     container ibb-mc-stats {
       description
-        "Input Buffer Block MC Stats";
+        "ibb mc stats";
       uses XBAR-EDM-SKB-IBB-MC-STATS;
     }
     container ibf-mc-stats {
       description
-        "Input Forwarding Block MC Stats";
+        "ibf mc stats";
       uses XBAR-EDM-SKB-IBF-MC-STATS;
     }
     container cfl-stats {
       description
-        "Ingress Common Fabric Link Stats";
+        "cfl stats";
       uses XBAR-EDM-SKB-CFL-IN-STATS;
     }
   }
@@ -747,23 +743,23 @@ submodule Cisco-IOS-XR-asr9k-xbar-oper-sub3 {
       "XBAR EDM SKB PORT STATS";
     container in-stats {
       description
-        "Ingress Stats";
+        "in stats";
       uses XBAR-EDM-SKB-IN-STATS;
     }
     container eg-stats {
       description
-        "Egress Stats";
+        "eg stats";
       uses XBAR-EDM-SKB-EG-STATS;
     }
     container xps-stats {
       description
-        "Crosspoint Scheduler Stats";
+        "xps stats";
       uses XBAR-EDM-SKB-XPS-STATS;
     }
     leaf internal-err-cnt {
       type uint64;
       description
-        "Internal Error Count";
+        "internal err cnt";
     }
   }
 }

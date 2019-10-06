@@ -44,96 +44,6 @@ const (
     LptsPcbQuery_packet LptsPcbQuery = "packet"
 )
 
-// MessageTypeIgmp represents LPTS IGMP message types
-type MessageTypeIgmp string
-
-const (
-    // IGMP Packet type: Membership query
-    MessageTypeIgmp_membership_query MessageTypeIgmp = "membership-query"
-
-    // IGMP Packet type: V1 membership report
-    MessageTypeIgmp_v1_membership_report MessageTypeIgmp = "v1-membership-report"
-
-    // IGMP Packet type: DVMRP
-    MessageTypeIgmp_dvmrp MessageTypeIgmp = "dvmrp"
-
-    // IGMP Packet type: PIM version 1
-    MessageTypeIgmp_pi_mv1 MessageTypeIgmp = "pi-mv1"
-
-    // IGMP Packet type: Cisco Trace Messages
-    MessageTypeIgmp_cisco_trace_messages MessageTypeIgmp = "cisco-trace-messages"
-
-    // IGMP Packet type: V2 membership report
-    MessageTypeIgmp_v2_membership_report MessageTypeIgmp = "v2-membership-report"
-
-    // IGMP Packet type: V2 leave group
-    MessageTypeIgmp_v2_leave_group MessageTypeIgmp = "v2-leave-group"
-
-    // IGMP Packet type: Multicast traceroute response
-    MessageTypeIgmp_multicast_traceroute_response MessageTypeIgmp = "multicast-traceroute-response"
-
-    // IGMP Packet type: MulticastTraceroute
-    MessageTypeIgmp_multicast_traceroute MessageTypeIgmp = "multicast-traceroute"
-
-    // IGMP Packet type: V3 membership report
-    MessageTypeIgmp_v3_membership_report MessageTypeIgmp = "v3-membership-report"
-
-    // IGMP Packet type: Multicast router
-    // advertisement
-    MessageTypeIgmp_multicast_router_advertisement MessageTypeIgmp = "multicast-router-advertisement"
-
-    // IGMP Packet type: Multicast router solicitation
-    MessageTypeIgmp_multicast_router_solicitation MessageTypeIgmp = "multicast-router-solicitation"
-
-    // IGMP Packet type: Multicast router termination
-    MessageTypeIgmp_multicast_router_termination MessageTypeIgmp = "multicast-router-termination"
-)
-
-// MessageTypeIgmp_ represents LPTS IGMP message types
-type MessageTypeIgmp_ string
-
-const (
-    // IGMP Packet type: Membership query
-    MessageTypeIgmp__membership_query MessageTypeIgmp_ = "membership-query"
-
-    // IGMP Packet type: V1 membership report
-    MessageTypeIgmp__v1_membership_report MessageTypeIgmp_ = "v1-membership-report"
-
-    // IGMP Packet type: DVMRP
-    MessageTypeIgmp__dvmrp MessageTypeIgmp_ = "dvmrp"
-
-    // IGMP Packet type: PIM version 1
-    MessageTypeIgmp__pi_mv1 MessageTypeIgmp_ = "pi-mv1"
-
-    // IGMP Packet type: Cisco Trace Messages
-    MessageTypeIgmp__cisco_trace_messages MessageTypeIgmp_ = "cisco-trace-messages"
-
-    // IGMP Packet type: V2 membership report
-    MessageTypeIgmp__v2_membership_report MessageTypeIgmp_ = "v2-membership-report"
-
-    // IGMP Packet type: V2 leave group
-    MessageTypeIgmp__v2_leave_group MessageTypeIgmp_ = "v2-leave-group"
-
-    // IGMP Packet type: Multicast traceroute response
-    MessageTypeIgmp__multicast_traceroute_response MessageTypeIgmp_ = "multicast-traceroute-response"
-
-    // IGMP Packet type: MulticastTraceroute
-    MessageTypeIgmp__multicast_traceroute MessageTypeIgmp_ = "multicast-traceroute"
-
-    // IGMP Packet type: V3 membership report
-    MessageTypeIgmp__v3_membership_report MessageTypeIgmp_ = "v3-membership-report"
-
-    // IGMP Packet type: Multicast router
-    // advertisement
-    MessageTypeIgmp__multicast_router_advertisement MessageTypeIgmp_ = "multicast-router-advertisement"
-
-    // IGMP Packet type: Multicast router solicitation
-    MessageTypeIgmp__multicast_router_solicitation MessageTypeIgmp_ = "multicast-router-solicitation"
-
-    // IGMP Packet type: Multicast router termination
-    MessageTypeIgmp__multicast_router_termination MessageTypeIgmp_ = "multicast-router-termination"
-)
-
 // MessageTypeIcmpv6 represents LPTS ICMPv6 message types
 type MessageTypeIcmpv6 string
 
@@ -242,6 +152,409 @@ const (
 
     // ICMPv6 Packet type: FMIPv6 messages
     MessageTypeIcmpv6_fmipv6_messages MessageTypeIcmpv6 = "fmipv6-messages"
+)
+
+// MessageTypeIcmp represents LPTS ICMP message types
+type MessageTypeIcmp string
+
+const (
+    // ICMP Packet type: Echo reply
+    MessageTypeIcmp_echo_reply MessageTypeIcmp = "echo-reply"
+
+    // ICMP Packet type: Destination unreachable
+    MessageTypeIcmp_destination_unreachable MessageTypeIcmp = "destination-unreachable"
+
+    // ICMP Packet type: Source quench
+    MessageTypeIcmp_source_quench MessageTypeIcmp = "source-quench"
+
+    // ICMP Packet type: Redirect
+    MessageTypeIcmp_redirect MessageTypeIcmp = "redirect"
+
+    // ICMP Packet type: Alternate host address
+    MessageTypeIcmp_alternate_host_address MessageTypeIcmp = "alternate-host-address"
+
+    // ICMP Packet type: Echo
+    MessageTypeIcmp_echo MessageTypeIcmp = "echo"
+
+    // ICMP Packet type: Router advertisement
+    MessageTypeIcmp_router_advertisement MessageTypeIcmp = "router-advertisement"
+
+    // ICMP Packet type: Router selection
+    MessageTypeIcmp_router_selection MessageTypeIcmp = "router-selection"
+
+    // ICMP Packet type: Time exceeded
+    MessageTypeIcmp_time_exceeded MessageTypeIcmp = "time-exceeded"
+
+    // ICMP Packet type: Parameter problem
+    MessageTypeIcmp_parameter_problem MessageTypeIcmp = "parameter-problem"
+
+    // ICMP Packet type: Time stamp
+    MessageTypeIcmp_time_stamp MessageTypeIcmp = "time-stamp"
+
+    // ICMP Packet type: Time stamp reply
+    MessageTypeIcmp_time_stamp_reply MessageTypeIcmp = "time-stamp-reply"
+
+    // ICMP Packet type: Information request
+    MessageTypeIcmp_information_request MessageTypeIcmp = "information-request"
+
+    // ICMP Packet type: Information reply
+    MessageTypeIcmp_information_reply MessageTypeIcmp = "information-reply"
+
+    // ICMP Packet type: Address mask request
+    MessageTypeIcmp_address_mask_request MessageTypeIcmp = "address-mask-request"
+
+    // ICMP Packet type: Address mask reply
+    MessageTypeIcmp_address_mask_reply MessageTypeIcmp = "address-mask-reply"
+
+    // ICMP Packet type: Trace route
+    MessageTypeIcmp_trace_route MessageTypeIcmp = "trace-route"
+
+    // ICMP Packet type: Datagram Conversion error
+    MessageTypeIcmp_datagram_conversion_error MessageTypeIcmp = "datagram-conversion-error"
+
+    // ICMP Packet type: Mobile host redirect
+    MessageTypeIcmp_mobile_host_redirect MessageTypeIcmp = "mobile-host-redirect"
+
+    // ICMP Packet type: IPv6 where-are-you
+    MessageTypeIcmp_where_are_you MessageTypeIcmp = "where-are-you"
+
+    // ICMP Packet type: IPv6 i-am-here
+    MessageTypeIcmp_iam_here MessageTypeIcmp = "iam-here"
+
+    // ICMP Packet type: Mobile registration request
+    MessageTypeIcmp_mobile_registration_request MessageTypeIcmp = "mobile-registration-request"
+
+    // ICMP Packet type: Mobile registration reply
+    MessageTypeIcmp_mobile_registration_reply MessageTypeIcmp = "mobile-registration-reply"
+
+    // ICMP Packet type: Domain name request
+    MessageTypeIcmp_domain_name_request MessageTypeIcmp = "domain-name-request"
+)
+
+// MessageTypeIgmp represents LPTS IGMP message types
+type MessageTypeIgmp string
+
+const (
+    // IGMP Packet type: Membership query
+    MessageTypeIgmp_membership_query MessageTypeIgmp = "membership-query"
+
+    // IGMP Packet type: V1 membership report
+    MessageTypeIgmp_v1_membership_report MessageTypeIgmp = "v1-membership-report"
+
+    // IGMP Packet type: DVMRP
+    MessageTypeIgmp_dvmrp MessageTypeIgmp = "dvmrp"
+
+    // IGMP Packet type: PIM version 1
+    MessageTypeIgmp_pi_mv1 MessageTypeIgmp = "pi-mv1"
+
+    // IGMP Packet type: Cisco Trace Messages
+    MessageTypeIgmp_cisco_trace_messages MessageTypeIgmp = "cisco-trace-messages"
+
+    // IGMP Packet type: V2 membership report
+    MessageTypeIgmp_v2_membership_report MessageTypeIgmp = "v2-membership-report"
+
+    // IGMP Packet type: V2 leave group
+    MessageTypeIgmp_v2_leave_group MessageTypeIgmp = "v2-leave-group"
+
+    // IGMP Packet type: Multicast traceroute response
+    MessageTypeIgmp_multicast_traceroute_response MessageTypeIgmp = "multicast-traceroute-response"
+
+    // IGMP Packet type: MulticastTraceroute
+    MessageTypeIgmp_multicast_traceroute MessageTypeIgmp = "multicast-traceroute"
+
+    // IGMP Packet type: V3 membership report
+    MessageTypeIgmp_v3_membership_report MessageTypeIgmp = "v3-membership-report"
+
+    // IGMP Packet type: Multicast router
+    // advertisement
+    MessageTypeIgmp_multicast_router_advertisement MessageTypeIgmp = "multicast-router-advertisement"
+
+    // IGMP Packet type: Multicast router solicitation
+    MessageTypeIgmp_multicast_router_solicitation MessageTypeIgmp = "multicast-router-solicitation"
+
+    // IGMP Packet type: Multicast router termination
+    MessageTypeIgmp_multicast_router_termination MessageTypeIgmp = "multicast-router-termination"
+)
+
+// MessageTypeIgmp_ represents LPTS IGMP message types
+type MessageTypeIgmp_ string
+
+const (
+    // IGMP Packet type: Membership query
+    MessageTypeIgmp__membership_query MessageTypeIgmp_ = "membership-query"
+
+    // IGMP Packet type: V1 membership report
+    MessageTypeIgmp__v1_membership_report MessageTypeIgmp_ = "v1-membership-report"
+
+    // IGMP Packet type: DVMRP
+    MessageTypeIgmp__dvmrp MessageTypeIgmp_ = "dvmrp"
+
+    // IGMP Packet type: PIM version 1
+    MessageTypeIgmp__pi_mv1 MessageTypeIgmp_ = "pi-mv1"
+
+    // IGMP Packet type: Cisco Trace Messages
+    MessageTypeIgmp__cisco_trace_messages MessageTypeIgmp_ = "cisco-trace-messages"
+
+    // IGMP Packet type: V2 membership report
+    MessageTypeIgmp__v2_membership_report MessageTypeIgmp_ = "v2-membership-report"
+
+    // IGMP Packet type: V2 leave group
+    MessageTypeIgmp__v2_leave_group MessageTypeIgmp_ = "v2-leave-group"
+
+    // IGMP Packet type: Multicast traceroute response
+    MessageTypeIgmp__multicast_traceroute_response MessageTypeIgmp_ = "multicast-traceroute-response"
+
+    // IGMP Packet type: MulticastTraceroute
+    MessageTypeIgmp__multicast_traceroute MessageTypeIgmp_ = "multicast-traceroute"
+
+    // IGMP Packet type: V3 membership report
+    MessageTypeIgmp__v3_membership_report MessageTypeIgmp_ = "v3-membership-report"
+
+    // IGMP Packet type: Multicast router
+    // advertisement
+    MessageTypeIgmp__multicast_router_advertisement MessageTypeIgmp_ = "multicast-router-advertisement"
+
+    // IGMP Packet type: Multicast router solicitation
+    MessageTypeIgmp__multicast_router_solicitation MessageTypeIgmp_ = "multicast-router-solicitation"
+
+    // IGMP Packet type: Multicast router termination
+    MessageTypeIgmp__multicast_router_termination MessageTypeIgmp_ = "multicast-router-termination"
+)
+
+// Packet represents Packet type
+type Packet string
+
+const (
+    // ICMP packet type
+    Packet_icmp Packet = "icmp"
+
+    // ICMPv6 packet type
+    Packet_icm_pv6 Packet = "icm-pv6"
+
+    // IGMP packet type
+    Packet_igmp Packet = "igmp"
+
+    // Packet type unknown
+    Packet_unknown Packet = "unknown"
+)
+
+// MessageTypeIcmp_ represents LPTS ICMP message types
+type MessageTypeIcmp_ string
+
+const (
+    // ICMP Packet type: Echo reply
+    MessageTypeIcmp__echo_reply MessageTypeIcmp_ = "echo-reply"
+
+    // ICMP Packet type: Destination unreachable
+    MessageTypeIcmp__destination_unreachable MessageTypeIcmp_ = "destination-unreachable"
+
+    // ICMP Packet type: Source quench
+    MessageTypeIcmp__source_quench MessageTypeIcmp_ = "source-quench"
+
+    // ICMP Packet type: Redirect
+    MessageTypeIcmp__redirect MessageTypeIcmp_ = "redirect"
+
+    // ICMP Packet type: Alternate host address
+    MessageTypeIcmp__alternate_host_address MessageTypeIcmp_ = "alternate-host-address"
+
+    // ICMP Packet type: Echo
+    MessageTypeIcmp__echo MessageTypeIcmp_ = "echo"
+
+    // ICMP Packet type: Router advertisement
+    MessageTypeIcmp__router_advertisement MessageTypeIcmp_ = "router-advertisement"
+
+    // ICMP Packet type: Router selection
+    MessageTypeIcmp__router_selection MessageTypeIcmp_ = "router-selection"
+
+    // ICMP Packet type: Time exceeded
+    MessageTypeIcmp__time_exceeded MessageTypeIcmp_ = "time-exceeded"
+
+    // ICMP Packet type: Parameter problem
+    MessageTypeIcmp__parameter_problem MessageTypeIcmp_ = "parameter-problem"
+
+    // ICMP Packet type: Time stamp
+    MessageTypeIcmp__time_stamp MessageTypeIcmp_ = "time-stamp"
+
+    // ICMP Packet type: Time stamp reply
+    MessageTypeIcmp__time_stamp_reply MessageTypeIcmp_ = "time-stamp-reply"
+
+    // ICMP Packet type: Information request
+    MessageTypeIcmp__information_request MessageTypeIcmp_ = "information-request"
+
+    // ICMP Packet type: Information reply
+    MessageTypeIcmp__information_reply MessageTypeIcmp_ = "information-reply"
+
+    // ICMP Packet type: Address mask request
+    MessageTypeIcmp__address_mask_request MessageTypeIcmp_ = "address-mask-request"
+
+    // ICMP Packet type: Address mask reply
+    MessageTypeIcmp__address_mask_reply MessageTypeIcmp_ = "address-mask-reply"
+
+    // ICMP Packet type: Trace route
+    MessageTypeIcmp__trace_route MessageTypeIcmp_ = "trace-route"
+
+    // ICMP Packet type: Datagram Conversion error
+    MessageTypeIcmp__datagram_conversion_error MessageTypeIcmp_ = "datagram-conversion-error"
+
+    // ICMP Packet type: Mobile host redirect
+    MessageTypeIcmp__mobile_host_redirect MessageTypeIcmp_ = "mobile-host-redirect"
+
+    // ICMP Packet type: IPv6 where-are-you
+    MessageTypeIcmp__where_are_you MessageTypeIcmp_ = "where-are-you"
+
+    // ICMP Packet type: IPv6 i-am-here
+    MessageTypeIcmp__iam_here MessageTypeIcmp_ = "iam-here"
+
+    // ICMP Packet type: Mobile registration request
+    MessageTypeIcmp__mobile_registration_request MessageTypeIcmp_ = "mobile-registration-request"
+
+    // ICMP Packet type: Mobile registration reply
+    MessageTypeIcmp__mobile_registration_reply MessageTypeIcmp_ = "mobile-registration-reply"
+
+    // ICMP Packet type: Domain name request
+    MessageTypeIcmp__domain_name_request MessageTypeIcmp_ = "domain-name-request"
+)
+
+// AddrFamily represents Address Family Types
+type AddrFamily string
+
+const (
+    // Unspecified
+    AddrFamily_unspecified AddrFamily = "unspecified"
+
+    // Local to host (pipes, portals)
+    AddrFamily_local AddrFamily = "local"
+
+    // Internetwork: UDP, TCP, etc.
+    AddrFamily_inet AddrFamily = "inet"
+
+    // arpanet imp addresses
+    AddrFamily_implink AddrFamily = "implink"
+
+    // Pup protocols: e.g. BSP
+    AddrFamily_pup AddrFamily = "pup"
+
+    // mit CHAOS protocols
+    AddrFamily_chaos AddrFamily = "chaos"
+
+    // XEROX NS protocols
+    AddrFamily_ns AddrFamily = "ns"
+
+    // ISO protocols
+    AddrFamily_iso AddrFamily = "iso"
+
+    // European computer manufacturers
+    AddrFamily_ecma AddrFamily = "ecma"
+
+    // Datakit protocols
+    AddrFamily_data_kit AddrFamily = "data-kit"
+
+    // CCITT protocols, X.25 etc
+    AddrFamily_ccitt AddrFamily = "ccitt"
+
+    // IBM SNA
+    AddrFamily_sna AddrFamily = "sna"
+
+    // DECnet
+    AddrFamily_de_cnet AddrFamily = "de-cnet"
+
+    // DEC Direct data link interface
+    AddrFamily_dli AddrFamily = "dli"
+
+    // LAT
+    AddrFamily_lat AddrFamily = "lat"
+
+    // NSC Hyperchannel
+    AddrFamily_hylink AddrFamily = "hylink"
+
+    // Apple Talk
+    AddrFamily_appletalk AddrFamily = "appletalk"
+
+    // Internal Routing Protocol
+    AddrFamily_route AddrFamily = "route"
+
+    // Link layer interface
+    AddrFamily_link AddrFamily = "link"
+
+    // eXpress Transfer Protocol (no AF)
+    AddrFamily_pseudo_xtp AddrFamily = "pseudo-xtp"
+
+    // Connection-oriented IP, aka ST II
+    AddrFamily_coip AddrFamily = "coip"
+
+    // Computer Network Technology
+    AddrFamily_cnt AddrFamily = "cnt"
+
+    // Help Identify RTIP packets
+    AddrFamily_pseudo_rtip AddrFamily = "pseudo-rtip"
+
+    // Novell Internet Protocol
+    AddrFamily_ipx AddrFamily = "ipx"
+
+    // Simple Internet Protocol
+    AddrFamily_sip AddrFamily = "sip"
+
+    // Help Identify PIP packets
+    AddrFamily_pseudo_pip AddrFamily = "pseudo-pip"
+
+    // IP version 6
+    AddrFamily_inet6 AddrFamily = "inet6"
+
+    // 802.2 SNAP sockets
+    AddrFamily_snap AddrFamily = "snap"
+
+    // SAP_CLNS + nlpid encaps
+    AddrFamily_clnl AddrFamily = "clnl"
+
+    // cisco HDLC on serial
+    AddrFamily_chdlc AddrFamily = "chdlc"
+
+    // PPP sockets
+    AddrFamily_ppp AddrFamily = "ppp"
+
+    // Host-based CAS signaling
+    AddrFamily_host_cas AddrFamily = "host-cas"
+
+    // DSP messaging
+    AddrFamily_dsp AddrFamily = "dsp"
+
+    // SAP Sockets
+    AddrFamily_sap AddrFamily = "sap"
+
+    // ATM Sockets
+    AddrFamily_atm AddrFamily = "atm"
+
+    // Frame Relay sockets
+    AddrFamily_fr AddrFamily = "fr"
+
+    // Voice Media Stream Sockets
+    AddrFamily_mso AddrFamily = "mso"
+
+    // ISDN D Channel Sockets
+    AddrFamily_dchan AddrFamily = "dchan"
+
+    // Trunk Framer media IF Sockets
+    AddrFamily_cas AddrFamily = "cas"
+
+    // Network Address Translation Sockets
+    AddrFamily_nat AddrFamily = "nat"
+
+    // Generic Ethernet Sockets
+    AddrFamily_ether AddrFamily = "ether"
+
+    // Spatial Reuse Protocol Sockets
+    AddrFamily_srp AddrFamily = "srp"
+)
+
+// UdpAddressFamily represents Address Family Type
+type UdpAddressFamily string
+
+const (
+    // IPv4
+    UdpAddressFamily_ipv4 UdpAddressFamily = "ipv4"
+
+    // IPv6
+    UdpAddressFamily_ipv6 UdpAddressFamily = "ipv6"
 )
 
 // MessageTypeIcmpv6_ represents LPTS ICMPv6 message types
@@ -354,319 +667,6 @@ const (
     MessageTypeIcmpv6__fmipv6_messages MessageTypeIcmpv6_ = "fmipv6-messages"
 )
 
-// MessageTypeIcmp represents LPTS ICMP message types
-type MessageTypeIcmp string
-
-const (
-    // ICMP Packet type: Echo reply
-    MessageTypeIcmp_echo_reply MessageTypeIcmp = "echo-reply"
-
-    // ICMP Packet type: Destination unreachable
-    MessageTypeIcmp_destination_unreachable MessageTypeIcmp = "destination-unreachable"
-
-    // ICMP Packet type: Source quench
-    MessageTypeIcmp_source_quench MessageTypeIcmp = "source-quench"
-
-    // ICMP Packet type: Redirect
-    MessageTypeIcmp_redirect MessageTypeIcmp = "redirect"
-
-    // ICMP Packet type: Alternate host address
-    MessageTypeIcmp_alternate_host_address MessageTypeIcmp = "alternate-host-address"
-
-    // ICMP Packet type: Echo
-    MessageTypeIcmp_echo MessageTypeIcmp = "echo"
-
-    // ICMP Packet type: Router advertisement
-    MessageTypeIcmp_router_advertisement MessageTypeIcmp = "router-advertisement"
-
-    // ICMP Packet type: Router selection
-    MessageTypeIcmp_router_selection MessageTypeIcmp = "router-selection"
-
-    // ICMP Packet type: Time exceeded
-    MessageTypeIcmp_time_exceeded MessageTypeIcmp = "time-exceeded"
-
-    // ICMP Packet type: Parameter problem
-    MessageTypeIcmp_parameter_problem MessageTypeIcmp = "parameter-problem"
-
-    // ICMP Packet type: Time stamp
-    MessageTypeIcmp_time_stamp MessageTypeIcmp = "time-stamp"
-
-    // ICMP Packet type: Time stamp reply
-    MessageTypeIcmp_time_stamp_reply MessageTypeIcmp = "time-stamp-reply"
-
-    // ICMP Packet type: Information request
-    MessageTypeIcmp_information_request MessageTypeIcmp = "information-request"
-
-    // ICMP Packet type: Information reply
-    MessageTypeIcmp_information_reply MessageTypeIcmp = "information-reply"
-
-    // ICMP Packet type: Address mask request
-    MessageTypeIcmp_address_mask_request MessageTypeIcmp = "address-mask-request"
-
-    // ICMP Packet type: Address mask reply
-    MessageTypeIcmp_address_mask_reply MessageTypeIcmp = "address-mask-reply"
-
-    // ICMP Packet type: Trace route
-    MessageTypeIcmp_trace_route MessageTypeIcmp = "trace-route"
-
-    // ICMP Packet type: Datagram Conversion error
-    MessageTypeIcmp_datagram_conversion_error MessageTypeIcmp = "datagram-conversion-error"
-
-    // ICMP Packet type: Mobile host redirect
-    MessageTypeIcmp_mobile_host_redirect MessageTypeIcmp = "mobile-host-redirect"
-
-    // ICMP Packet type: IPv6 where-are-you
-    MessageTypeIcmp_where_are_you MessageTypeIcmp = "where-are-you"
-
-    // ICMP Packet type: IPv6 i-am-here
-    MessageTypeIcmp_iam_here MessageTypeIcmp = "iam-here"
-
-    // ICMP Packet type: Mobile registration request
-    MessageTypeIcmp_mobile_registration_request MessageTypeIcmp = "mobile-registration-request"
-
-    // ICMP Packet type: Mobile registration reply
-    MessageTypeIcmp_mobile_registration_reply MessageTypeIcmp = "mobile-registration-reply"
-
-    // ICMP Packet type: Domain name request
-    MessageTypeIcmp_domain_name_request MessageTypeIcmp = "domain-name-request"
-)
-
-// MessageTypeIcmp_ represents LPTS ICMP message types
-type MessageTypeIcmp_ string
-
-const (
-    // ICMP Packet type: Echo reply
-    MessageTypeIcmp__echo_reply MessageTypeIcmp_ = "echo-reply"
-
-    // ICMP Packet type: Destination unreachable
-    MessageTypeIcmp__destination_unreachable MessageTypeIcmp_ = "destination-unreachable"
-
-    // ICMP Packet type: Source quench
-    MessageTypeIcmp__source_quench MessageTypeIcmp_ = "source-quench"
-
-    // ICMP Packet type: Redirect
-    MessageTypeIcmp__redirect MessageTypeIcmp_ = "redirect"
-
-    // ICMP Packet type: Alternate host address
-    MessageTypeIcmp__alternate_host_address MessageTypeIcmp_ = "alternate-host-address"
-
-    // ICMP Packet type: Echo
-    MessageTypeIcmp__echo MessageTypeIcmp_ = "echo"
-
-    // ICMP Packet type: Router advertisement
-    MessageTypeIcmp__router_advertisement MessageTypeIcmp_ = "router-advertisement"
-
-    // ICMP Packet type: Router selection
-    MessageTypeIcmp__router_selection MessageTypeIcmp_ = "router-selection"
-
-    // ICMP Packet type: Time exceeded
-    MessageTypeIcmp__time_exceeded MessageTypeIcmp_ = "time-exceeded"
-
-    // ICMP Packet type: Parameter problem
-    MessageTypeIcmp__parameter_problem MessageTypeIcmp_ = "parameter-problem"
-
-    // ICMP Packet type: Time stamp
-    MessageTypeIcmp__time_stamp MessageTypeIcmp_ = "time-stamp"
-
-    // ICMP Packet type: Time stamp reply
-    MessageTypeIcmp__time_stamp_reply MessageTypeIcmp_ = "time-stamp-reply"
-
-    // ICMP Packet type: Information request
-    MessageTypeIcmp__information_request MessageTypeIcmp_ = "information-request"
-
-    // ICMP Packet type: Information reply
-    MessageTypeIcmp__information_reply MessageTypeIcmp_ = "information-reply"
-
-    // ICMP Packet type: Address mask request
-    MessageTypeIcmp__address_mask_request MessageTypeIcmp_ = "address-mask-request"
-
-    // ICMP Packet type: Address mask reply
-    MessageTypeIcmp__address_mask_reply MessageTypeIcmp_ = "address-mask-reply"
-
-    // ICMP Packet type: Trace route
-    MessageTypeIcmp__trace_route MessageTypeIcmp_ = "trace-route"
-
-    // ICMP Packet type: Datagram Conversion error
-    MessageTypeIcmp__datagram_conversion_error MessageTypeIcmp_ = "datagram-conversion-error"
-
-    // ICMP Packet type: Mobile host redirect
-    MessageTypeIcmp__mobile_host_redirect MessageTypeIcmp_ = "mobile-host-redirect"
-
-    // ICMP Packet type: IPv6 where-are-you
-    MessageTypeIcmp__where_are_you MessageTypeIcmp_ = "where-are-you"
-
-    // ICMP Packet type: IPv6 i-am-here
-    MessageTypeIcmp__iam_here MessageTypeIcmp_ = "iam-here"
-
-    // ICMP Packet type: Mobile registration request
-    MessageTypeIcmp__mobile_registration_request MessageTypeIcmp_ = "mobile-registration-request"
-
-    // ICMP Packet type: Mobile registration reply
-    MessageTypeIcmp__mobile_registration_reply MessageTypeIcmp_ = "mobile-registration-reply"
-
-    // ICMP Packet type: Domain name request
-    MessageTypeIcmp__domain_name_request MessageTypeIcmp_ = "domain-name-request"
-)
-
-// Packet represents Packet type
-type Packet string
-
-const (
-    // ICMP packet type
-    Packet_icmp Packet = "icmp"
-
-    // ICMPv6 packet type
-    Packet_icm_pv6 Packet = "icm-pv6"
-
-    // IGMP packet type
-    Packet_igmp Packet = "igmp"
-
-    // Packet type unknown
-    Packet_unknown Packet = "unknown"
-)
-
-// AddrFamily represents Address Family Types
-type AddrFamily string
-
-const (
-    // Unspecified
-    AddrFamily_unspecified AddrFamily = "unspecified"
-
-    // Local to host (pipes, portals)
-    AddrFamily_local AddrFamily = "local"
-
-    // Internetwork: UDP, TCP, etc.
-    AddrFamily_inet AddrFamily = "inet"
-
-    // arpanet imp addresses
-    AddrFamily_implink AddrFamily = "implink"
-
-    // Pup protocols: e.g. BSP
-    AddrFamily_pup AddrFamily = "pup"
-
-    // mit CHAOS protocols
-    AddrFamily_chaos AddrFamily = "chaos"
-
-    // XEROX NS protocols
-    AddrFamily_ns AddrFamily = "ns"
-
-    // ISO protocols
-    AddrFamily_iso AddrFamily = "iso"
-
-    // European computer manufacturers
-    AddrFamily_ecma AddrFamily = "ecma"
-
-    // Datakit protocols
-    AddrFamily_data_kit AddrFamily = "data-kit"
-
-    // IP version 6
-    AddrFamily_inet6 AddrFamily = "inet6"
-
-    // IBM SNA
-    AddrFamily_sna AddrFamily = "sna"
-
-    // DECnet
-    AddrFamily_de_cnet AddrFamily = "de-cnet"
-
-    // DEC Direct data link interface
-    AddrFamily_dli AddrFamily = "dli"
-
-    // LAT
-    AddrFamily_lat AddrFamily = "lat"
-
-    // NSC Hyperchannel
-    AddrFamily_hylink AddrFamily = "hylink"
-
-    // Apple Talk
-    AddrFamily_appletalk AddrFamily = "appletalk"
-
-    // Internal Routing Protocol
-    AddrFamily_route AddrFamily = "route"
-
-    // Link layer interface
-    AddrFamily_link AddrFamily = "link"
-
-    // eXpress Transfer Protocol (no AF)
-    AddrFamily_pseudo_xtp AddrFamily = "pseudo-xtp"
-
-    // Connection-oriented IP, aka ST II
-    AddrFamily_coip AddrFamily = "coip"
-
-    // Computer Network Technology
-    AddrFamily_cnt AddrFamily = "cnt"
-
-    // Help Identify RTIP packets
-    AddrFamily_pseudo_rtip AddrFamily = "pseudo-rtip"
-
-    // Novell Internet Protocol
-    AddrFamily_ipx AddrFamily = "ipx"
-
-    // Simple Internet Protocol
-    AddrFamily_sip AddrFamily = "sip"
-
-    // Help Identify PIP packets
-    AddrFamily_pseudo_pip AddrFamily = "pseudo-pip"
-
-    // CCITT protocols, X.25 etc
-    AddrFamily_ccitt AddrFamily = "ccitt"
-
-    // 802.2 SNAP sockets
-    AddrFamily_snap AddrFamily = "snap"
-
-    // SAP_CLNS + nlpid encaps
-    AddrFamily_clnl AddrFamily = "clnl"
-
-    // cisco HDLC on serial
-    AddrFamily_chdlc AddrFamily = "chdlc"
-
-    // PPP sockets
-    AddrFamily_ppp AddrFamily = "ppp"
-
-    // Host-based CAS signaling
-    AddrFamily_host_cas AddrFamily = "host-cas"
-
-    // DSP messaging
-    AddrFamily_dsp AddrFamily = "dsp"
-
-    // SAP Sockets
-    AddrFamily_sap AddrFamily = "sap"
-
-    // ATM Sockets
-    AddrFamily_atm AddrFamily = "atm"
-
-    // Frame Relay sockets
-    AddrFamily_fr AddrFamily = "fr"
-
-    // Voice Media Stream Sockets
-    AddrFamily_mso AddrFamily = "mso"
-
-    // ISDN D Channel Sockets
-    AddrFamily_dchan AddrFamily = "dchan"
-
-    // Trunk Framer media IF Sockets
-    AddrFamily_cas AddrFamily = "cas"
-
-    // Network Address Translation Sockets
-    AddrFamily_nat AddrFamily = "nat"
-
-    // Generic Ethernet Sockets
-    AddrFamily_ether AddrFamily = "ether"
-
-    // Spatial Reuse Protocol Sockets
-    AddrFamily_srp AddrFamily = "srp"
-)
-
-// UdpAddressFamily represents Address Family Type
-type UdpAddressFamily string
-
-const (
-    // IPv4
-    UdpAddressFamily_ipv4 UdpAddressFamily = "ipv4"
-
-    // IPv6
-    UdpAddressFamily_ipv6 UdpAddressFamily = "ipv6"
-)
-
 // Udp
 // IP UDP Operational Data
 type Udp struct {
@@ -739,7 +739,7 @@ type Udp_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Statistical UDP operational data for a node.
@@ -975,7 +975,7 @@ type UdpConnection_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Statistics of UDP connections.
@@ -1264,7 +1264,7 @@ type UdpConnection_Nodes_Node_Statistics_PcbStatistics_PcbStatistic struct {
     YListKey string
 
     // This attribute is a key. Protocol Control Block address. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // VRF ID. The type is interface{} with range: 0..4294967295.
@@ -1552,7 +1552,7 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb struct {
     YListKey string
 
     // This attribute is a key. PCB address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // Layer 4 protocol. The type is interface{} with range: 0..4294967295.
@@ -1610,11 +1610,11 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_LocalAddress struct {
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1650,11 +1650,11 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_ForeignAddress struct 
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1898,7 +1898,7 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter 
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Remote address length. The type is interface{} with range: 0..65535.
@@ -2018,11 +2018,11 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -2058,11 +2058,11 @@ type UdpConnection_Nodes_Node_Lpts_Queries_Query_Pcbs_Pcb_Common_LptsPcb_Filter_
     AfName interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -2131,7 +2131,7 @@ type UdpConnection_Nodes_Node_PcbDetails_PcbDetail struct {
     YListKey string
 
     // This attribute is a key. Protocol Control Block address. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // Address family. The type is UdpAddressFamily.
@@ -2160,9 +2160,6 @@ type UdpConnection_Nodes_Node_PcbDetails_PcbDetail struct {
 
     // Foreign address.
     ForeignAddress UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress
-
-    // PCB flags.
-    PcbFlags UdpConnection_Nodes_Node_PcbDetails_PcbDetail_PcbFlags
 }
 
 func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetEntityData() *types.CommonEntityData {
@@ -2179,7 +2176,6 @@ func (pcbDetail *UdpConnection_Nodes_Node_PcbDetails_PcbDetail) GetEntityData() 
     pcbDetail.EntityData.Children = types.NewOrderedMap()
     pcbDetail.EntityData.Children.Append("local-address", types.YChild{"LocalAddress", &pcbDetail.LocalAddress})
     pcbDetail.EntityData.Children.Append("foreign-address", types.YChild{"ForeignAddress", &pcbDetail.ForeignAddress})
-    pcbDetail.EntityData.Children.Append("pcb-flags", types.YChild{"PcbFlags", &pcbDetail.PcbFlags})
     pcbDetail.EntityData.Leafs = types.NewOrderedMap()
     pcbDetail.EntityData.Leafs.Append("pcb-address", types.YLeaf{"PcbAddress", pcbDetail.PcbAddress})
     pcbDetail.EntityData.Leafs.Append("af-name", types.YLeaf{"AfName", pcbDetail.AfName})
@@ -2205,11 +2201,11 @@ type UdpConnection_Nodes_Node_PcbDetails_PcbDetail_LocalAddress struct {
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -2245,11 +2241,11 @@ type UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddress struct {
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -2273,116 +2269,6 @@ func (foreignAddress *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_ForeignAddre
     foreignAddress.EntityData.YListKeys = []string {}
 
     return &(foreignAddress.EntityData)
-}
-
-// UdpConnection_Nodes_Node_PcbDetails_PcbDetail_PcbFlags
-// PCB flags
-type UdpConnection_Nodes_Node_PcbDetails_PcbDetail_PcbFlags struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Receive input options. The type is bool.
-    RecvOpts interface{}
-
-    // Receive input source-route options. The type is bool.
-    RecvRetOpts interface{}
-
-    // Receive destination address. The type is bool.
-    RecvDestAddr interface{}
-
-    // Header include option. The type is bool.
-    HeaderInclude interface{}
-
-    // Receive input interface. The type is bool.
-    RecvIntf interface{}
-
-    // Receive header. The type is bool.
-    RecvHeader interface{}
-
-    // Loopback of multicast packet. The type is bool.
-    McastLoopback interface{}
-
-    // Receive L2 header. The type is bool.
-    RecvL2Header interface{}
-
-    // Receive packet information. The type is bool.
-    RecvPacketInfo interface{}
-
-    // Receive router alert packets. The type is bool.
-    RouterAlert interface{}
-
-    // Receive hop limit. The type is bool.
-    RecvHopLimit interface{}
-
-    // Receive routing header. The type is bool.
-    RecvRoutingHeader interface{}
-
-    // Receive hop by hop option header. The type is bool.
-    RecvHopHeader interface{}
-
-    // Receive destination option header. The type is bool.
-    RecvDestHeader interface{}
-
-    // Receive traffic class. The type is bool.
-    RecvTrafficClass interface{}
-
-    // Receive IP security information. The type is bool.
-    RecvIpSec interface{}
-
-    // Receive table identifier. The type is bool.
-    RecvTabelId interface{}
-
-    // Receive packet priority. The type is bool.
-    RecvPakPriority interface{}
-
-    // Connection limit. The type is bool.
-    ConnLimit interface{}
-
-    // Option handled. The type is bool.
-    OptHandled interface{}
-
-    // Local node packet delivery. The type is bool.
-    BindLocal interface{}
-}
-
-func (pcbFlags *UdpConnection_Nodes_Node_PcbDetails_PcbDetail_PcbFlags) GetEntityData() *types.CommonEntityData {
-    pcbFlags.EntityData.YFilter = pcbFlags.YFilter
-    pcbFlags.EntityData.YangName = "pcb-flags"
-    pcbFlags.EntityData.BundleName = "cisco_ios_xr"
-    pcbFlags.EntityData.ParentYangName = "pcb-detail"
-    pcbFlags.EntityData.SegmentPath = "pcb-flags"
-    pcbFlags.EntityData.AbsolutePath = "Cisco-IOS-XR-ip-udp-oper:udp-connection/nodes/node/pcb-details/pcb-detail/" + pcbFlags.EntityData.SegmentPath
-    pcbFlags.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    pcbFlags.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    pcbFlags.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    pcbFlags.EntityData.Children = types.NewOrderedMap()
-    pcbFlags.EntityData.Leafs = types.NewOrderedMap()
-    pcbFlags.EntityData.Leafs.Append("recv-opts", types.YLeaf{"RecvOpts", pcbFlags.RecvOpts})
-    pcbFlags.EntityData.Leafs.Append("recv-ret-opts", types.YLeaf{"RecvRetOpts", pcbFlags.RecvRetOpts})
-    pcbFlags.EntityData.Leafs.Append("recv-dest-addr", types.YLeaf{"RecvDestAddr", pcbFlags.RecvDestAddr})
-    pcbFlags.EntityData.Leafs.Append("header-include", types.YLeaf{"HeaderInclude", pcbFlags.HeaderInclude})
-    pcbFlags.EntityData.Leafs.Append("recv-intf", types.YLeaf{"RecvIntf", pcbFlags.RecvIntf})
-    pcbFlags.EntityData.Leafs.Append("recv-header", types.YLeaf{"RecvHeader", pcbFlags.RecvHeader})
-    pcbFlags.EntityData.Leafs.Append("mcast-loopback", types.YLeaf{"McastLoopback", pcbFlags.McastLoopback})
-    pcbFlags.EntityData.Leafs.Append("recv-l2-header", types.YLeaf{"RecvL2Header", pcbFlags.RecvL2Header})
-    pcbFlags.EntityData.Leafs.Append("recv-packet-info", types.YLeaf{"RecvPacketInfo", pcbFlags.RecvPacketInfo})
-    pcbFlags.EntityData.Leafs.Append("router-alert", types.YLeaf{"RouterAlert", pcbFlags.RouterAlert})
-    pcbFlags.EntityData.Leafs.Append("recv-hop-limit", types.YLeaf{"RecvHopLimit", pcbFlags.RecvHopLimit})
-    pcbFlags.EntityData.Leafs.Append("recv-routing-header", types.YLeaf{"RecvRoutingHeader", pcbFlags.RecvRoutingHeader})
-    pcbFlags.EntityData.Leafs.Append("recv-hop-header", types.YLeaf{"RecvHopHeader", pcbFlags.RecvHopHeader})
-    pcbFlags.EntityData.Leafs.Append("recv-dest-header", types.YLeaf{"RecvDestHeader", pcbFlags.RecvDestHeader})
-    pcbFlags.EntityData.Leafs.Append("recv-traffic-class", types.YLeaf{"RecvTrafficClass", pcbFlags.RecvTrafficClass})
-    pcbFlags.EntityData.Leafs.Append("recv-ip-sec", types.YLeaf{"RecvIpSec", pcbFlags.RecvIpSec})
-    pcbFlags.EntityData.Leafs.Append("recv-tabel-id", types.YLeaf{"RecvTabelId", pcbFlags.RecvTabelId})
-    pcbFlags.EntityData.Leafs.Append("recv-pak-priority", types.YLeaf{"RecvPakPriority", pcbFlags.RecvPakPriority})
-    pcbFlags.EntityData.Leafs.Append("conn-limit", types.YLeaf{"ConnLimit", pcbFlags.ConnLimit})
-    pcbFlags.EntityData.Leafs.Append("opt-handled", types.YLeaf{"OptHandled", pcbFlags.OptHandled})
-    pcbFlags.EntityData.Leafs.Append("bind-local", types.YLeaf{"BindLocal", pcbFlags.BindLocal})
-
-    pcbFlags.EntityData.YListKeys = []string {}
-
-    return &(pcbFlags.EntityData)
 }
 
 // UdpConnection_Nodes_Node_PcbBriefs
@@ -2427,7 +2313,7 @@ type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief struct {
     YListKey string
 
     // This attribute is a key. Protocol Control Block address. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PcbAddress interface{}
 
     // Address family. The type is UdpAddressFamily.
@@ -2493,11 +2379,11 @@ type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_LocalAddress struct {
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -2533,11 +2419,11 @@ type UdpConnection_Nodes_Node_PcbBriefs_PcbBrief_ForeignAddress struct {
     AfName interface{}
 
     // IPv4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 

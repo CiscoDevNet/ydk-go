@@ -11,11 +11,11 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package yang_push"))
 }
 
-type ErrorDataNotAuthorized struct {
+type CustomStream struct {
 }
 
-func (id ErrorDataNotAuthorized) String() string {
-	return "ietf-yang-push:error-data-not-authorized"
+func (id CustomStream) String() string {
+	return "ietf-yang-push:custom-stream"
 }
 
 type YangPush struct {
@@ -25,11 +25,11 @@ func (id YangPush) String() string {
 	return "ietf-yang-push:yang-push"
 }
 
-type CustomStream struct {
+type ErrorDataNotAuthorized struct {
 }
 
-func (id CustomStream) String() string {
-	return "ietf-yang-push:custom-stream"
+func (id ErrorDataNotAuthorized) String() string {
+	return "ietf-yang-push:error-data-not-authorized"
 }
 
 type Http2 struct {

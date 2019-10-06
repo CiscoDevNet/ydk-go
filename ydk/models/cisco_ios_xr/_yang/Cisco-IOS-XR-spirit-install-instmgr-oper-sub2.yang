@@ -303,11 +303,6 @@ submodule Cisco-IOS-XR-spirit-install-instmgr-oper-sub2 {
       description
         "SupersededPackages";
     }
-    leaf number-of-packages {
-      type uint32;
-      description
-        "NumberOfPackages";
-    }
   }
 
   grouping INSTMGR-SHOW-INST-SUP {

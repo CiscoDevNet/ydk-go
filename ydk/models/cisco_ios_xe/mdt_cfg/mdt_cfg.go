@@ -19,19 +19,30 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-mdt-cfg:mdt-config-data", reflect.TypeOf(MdtConfigData{}))
 }
 
-// MdtXfrmAttrType represents Types of subscription transform attribute type
-type MdtXfrmAttrType string
+// MdtXfrmOperator represents Supported operator types
+type MdtXfrmOperator string
 
 const (
-    // Indicates that no filter has been 
-    // specified.
-    MdtXfrmAttrType_mdt_xfrm_attr_none MdtXfrmAttrType = "mdt-xfrm-attr-none"
+    // Default operator
+    MdtXfrmOperator_operator_none MdtXfrmOperator = "operator-none"
 
-    // Indicates that mandatory filter is set.
-    MdtXfrmAttrType_mandatory MdtXfrmAttrType = "mandatory"
+    // Equal operator
+    MdtXfrmOperator_eq MdtXfrmOperator = "eq"
 
-    // Indicates that primary filter is set.
-    MdtXfrmAttrType_primary MdtXfrmAttrType = "primary"
+    // Not equal operator
+    MdtXfrmOperator_ne MdtXfrmOperator = "ne"
+
+    // Greater than operator
+    MdtXfrmOperator_gt MdtXfrmOperator = "gt"
+
+    // Greater than or equal operator
+    MdtXfrmOperator_ge MdtXfrmOperator = "ge"
+
+    // Less than operator
+    MdtXfrmOperator_lt MdtXfrmOperator = "lt"
+
+    // Less than or equal operator
+    MdtXfrmOperator_le MdtXfrmOperator = "le"
 )
 
 // MdtXfrmOpType represents Types of subscription transform operations.
@@ -62,30 +73,19 @@ const (
     MdtXfrmLogicOp_or MdtXfrmLogicOp = "or"
 )
 
-// MdtXfrmOperator represents Supported operator types
-type MdtXfrmOperator string
+// MdtXfrmAttrType represents Types of subscription transform attribute type
+type MdtXfrmAttrType string
 
 const (
-    // Default operator
-    MdtXfrmOperator_operator_none MdtXfrmOperator = "operator-none"
+    // Indicates that no filter has been 
+    // specified.
+    MdtXfrmAttrType_mdt_xfrm_attr_none MdtXfrmAttrType = "mdt-xfrm-attr-none"
 
-    // Equal operator
-    MdtXfrmOperator_eq MdtXfrmOperator = "eq"
+    // Indicates that mandatory filter is set.
+    MdtXfrmAttrType_mandatory MdtXfrmAttrType = "mandatory"
 
-    // Not equal operator
-    MdtXfrmOperator_ne MdtXfrmOperator = "ne"
-
-    // Greater than operator
-    MdtXfrmOperator_gt MdtXfrmOperator = "gt"
-
-    // Greater than or equal operator
-    MdtXfrmOperator_ge MdtXfrmOperator = "ge"
-
-    // Less than operator
-    MdtXfrmOperator_lt MdtXfrmOperator = "lt"
-
-    // Less than or equal operator
-    MdtXfrmOperator_le MdtXfrmOperator = "le"
+    // Indicates that primary filter is set.
+    MdtXfrmAttrType_primary MdtXfrmAttrType = "primary"
 )
 
 // MdtConfigData
@@ -192,9 +192,9 @@ type MdtConfigData_MdtSubscription_Base struct {
 
     // The source address for the notifications. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Placeholder for unset value. The type is interface{} with range:
@@ -268,9 +268,9 @@ type MdtConfigData_MdtSubscription_MdtReceivers struct {
 
     // This attribute is a key. IP address of the receiver. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?
     // This attribute is mandatory., or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?
     // This attribute is mandatory..
     Address interface{}
 

@@ -24,6 +24,34 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-tunnel-vpdn-oper:vpdn", reflect.TypeOf(Vpdn{}))
 }
 
+// SessionState represents Session states
+type SessionState string
+
+const (
+    // Idle state
+    SessionState_idle SessionState = "idle"
+
+    // Connected state
+    SessionState_connected SessionState = "connected"
+
+    // Established state
+    SessionState_established SessionState = "established"
+)
+
+// VpdnState represents Vpdn states
+type VpdnState string
+
+const (
+    // Initial state
+    VpdnState_initial_state VpdnState = "initial-state"
+
+    // Initial Sync in progress
+    VpdnState_init_sync_in_progress VpdnState = "init-sync-in-progress"
+
+    // Initial Sync Done
+    VpdnState_steady_state VpdnState = "steady-state"
+)
+
 // VpdnFailcode represents VPDN failure types
 type VpdnFailcode string
 
@@ -86,20 +114,6 @@ const (
     VpdnFailcode_call_prarmeters VpdnFailcode = "call-prarmeters"
 )
 
-// VpdnState represents Vpdn states
-type VpdnState string
-
-const (
-    // Initial state
-    VpdnState_initial_state VpdnState = "initial-state"
-
-    // Initial Sync in progress
-    VpdnState_init_sync_in_progress VpdnState = "init-sync-in-progress"
-
-    // Initial Sync Done
-    VpdnState_steady_state VpdnState = "steady-state"
-)
-
 // LsgStatus represents LSG Status
 type LsgStatus string
 
@@ -134,28 +148,26 @@ const (
     TosMode_reflect TosMode = "reflect"
 )
 
-// SessionState represents Session states
-type SessionState string
-
-const (
-    // Idle state
-    SessionState_idle SessionState = "idle"
-
-    // Connected state
-    SessionState_connected SessionState = "connected"
-
-    // Established state
-    SessionState_established SessionState = "established"
-)
-
 // Vpdn
 // VPDN operational data
 type Vpdn struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // List of nodes for which subscriber data is collected.
-    Nodes Vpdn_Nodes
+    // VPDN session list.
+    Sessions Vpdn_Sessions
+
+    // VPDN tunnel Destinations.
+    TunnelDestinations Vpdn_TunnelDestinations
+
+    // VPDN Mirroring Statistics.
+    VpdnMirroring Vpdn_VpdnMirroring
+
+    // Show VPDN Redundancy information.
+    VpdnRedundancy Vpdn_VpdnRedundancy
+
+    // VPDN history failure list.
+    HistoryFailures Vpdn_HistoryFailures
 }
 
 func (vpdn *Vpdn) GetEntityData() *types.CommonEntityData {
@@ -170,7 +182,11 @@ func (vpdn *Vpdn) GetEntityData() *types.CommonEntityData {
     vpdn.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     vpdn.EntityData.Children = types.NewOrderedMap()
-    vpdn.EntityData.Children.Append("nodes", types.YChild{"Nodes", &vpdn.Nodes})
+    vpdn.EntityData.Children.Append("sessions", types.YChild{"Sessions", &vpdn.Sessions})
+    vpdn.EntityData.Children.Append("tunnel-destinations", types.YChild{"TunnelDestinations", &vpdn.TunnelDestinations})
+    vpdn.EntityData.Children.Append("vpdn-mirroring", types.YChild{"VpdnMirroring", &vpdn.VpdnMirroring})
+    vpdn.EntityData.Children.Append("vpdn-redundancy", types.YChild{"VpdnRedundancy", &vpdn.VpdnRedundancy})
+    vpdn.EntityData.Children.Append("history-failures", types.YChild{"HistoryFailures", &vpdn.HistoryFailures})
     vpdn.EntityData.Leafs = types.NewOrderedMap()
 
     vpdn.EntityData.YListKeys = []string {}
@@ -178,111 +194,23 @@ func (vpdn *Vpdn) GetEntityData() *types.CommonEntityData {
     return &(vpdn.EntityData)
 }
 
-// Vpdn_Nodes
-// List of nodes for which subscriber data is
-// collected
-type Vpdn_Nodes struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Subscriber data for a particular node. The type is slice of
-    // Vpdn_Nodes_Node.
-    Node []*Vpdn_Nodes_Node
-}
-
-func (nodes *Vpdn_Nodes) GetEntityData() *types.CommonEntityData {
-    nodes.EntityData.YFilter = nodes.YFilter
-    nodes.EntityData.YangName = "nodes"
-    nodes.EntityData.BundleName = "cisco_ios_xr"
-    nodes.EntityData.ParentYangName = "vpdn"
-    nodes.EntityData.SegmentPath = "nodes"
-    nodes.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/" + nodes.EntityData.SegmentPath
-    nodes.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nodes.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nodes.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nodes.EntityData.Children = types.NewOrderedMap()
-    nodes.EntityData.Children.Append("node", types.YChild{"Node", nil})
-    for i := range nodes.Node {
-        nodes.EntityData.Children.Append(types.GetSegmentPath(nodes.Node[i]), types.YChild{"Node", nodes.Node[i]})
-    }
-    nodes.EntityData.Leafs = types.NewOrderedMap()
-
-    nodes.EntityData.YListKeys = []string {}
-
-    return &(nodes.EntityData)
-}
-
-// Vpdn_Nodes_Node
-// Subscriber data for a particular node
-type Vpdn_Nodes_Node struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-    YListKey string
-
-    // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
-    NodeName interface{}
-
-    // VPDN session list.
-    Sessions Vpdn_Nodes_Node_Sessions
-
-    // VPDN tunnel Destinations.
-    TunnelDestinations Vpdn_Nodes_Node_TunnelDestinations
-
-    // VPDN Mirroring Statistics.
-    VpdnMirroring Vpdn_Nodes_Node_VpdnMirroring
-
-    // Show VPDN Redundancy information.
-    VpdnRedundancy Vpdn_Nodes_Node_VpdnRedundancy
-
-    // VPDN history failure list.
-    HistoryFailures Vpdn_Nodes_Node_HistoryFailures
-}
-
-func (node *Vpdn_Nodes_Node) GetEntityData() *types.CommonEntityData {
-    node.EntityData.YFilter = node.YFilter
-    node.EntityData.YangName = "node"
-    node.EntityData.BundleName = "cisco_ios_xr"
-    node.EntityData.ParentYangName = "nodes"
-    node.EntityData.SegmentPath = "node" + types.AddKeyToken(node.NodeName, "node-name")
-    node.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/" + node.EntityData.SegmentPath
-    node.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    node.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    node.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    node.EntityData.Children = types.NewOrderedMap()
-    node.EntityData.Children.Append("sessions", types.YChild{"Sessions", &node.Sessions})
-    node.EntityData.Children.Append("tunnel-destinations", types.YChild{"TunnelDestinations", &node.TunnelDestinations})
-    node.EntityData.Children.Append("vpdn-mirroring", types.YChild{"VpdnMirroring", &node.VpdnMirroring})
-    node.EntityData.Children.Append("vpdn-redundancy", types.YChild{"VpdnRedundancy", &node.VpdnRedundancy})
-    node.EntityData.Children.Append("history-failures", types.YChild{"HistoryFailures", &node.HistoryFailures})
-    node.EntityData.Leafs = types.NewOrderedMap()
-    node.EntityData.Leafs.Append("node-name", types.YLeaf{"NodeName", node.NodeName})
-
-    node.EntityData.YListKeys = []string {"NodeName"}
-
-    return &(node.EntityData)
-}
-
-// Vpdn_Nodes_Node_Sessions
+// Vpdn_Sessions
 // VPDN session list
-type Vpdn_Nodes_Node_Sessions struct {
+type Vpdn_Sessions struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // VPDN session information. The type is slice of
-    // Vpdn_Nodes_Node_Sessions_Session.
-    Session []*Vpdn_Nodes_Node_Sessions_Session
+    // VPDN session information. The type is slice of Vpdn_Sessions_Session.
+    Session []*Vpdn_Sessions_Session
 }
 
-func (sessions *Vpdn_Nodes_Node_Sessions) GetEntityData() *types.CommonEntityData {
+func (sessions *Vpdn_Sessions) GetEntityData() *types.CommonEntityData {
     sessions.EntityData.YFilter = sessions.YFilter
     sessions.EntityData.YangName = "sessions"
     sessions.EntityData.BundleName = "cisco_ios_xr"
-    sessions.EntityData.ParentYangName = "node"
+    sessions.EntityData.ParentYangName = "vpdn"
     sessions.EntityData.SegmentPath = "sessions"
-    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/" + sessions.EntityData.SegmentPath
+    sessions.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/" + sessions.EntityData.SegmentPath
     sessions.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     sessions.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     sessions.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -299,45 +227,44 @@ func (sessions *Vpdn_Nodes_Node_Sessions) GetEntityData() *types.CommonEntityDat
     return &(sessions.EntityData)
 }
 
-// Vpdn_Nodes_Node_Sessions_Session
+// Vpdn_Sessions_Session
 //  VPDN session information
-type Vpdn_Nodes_Node_Sessions_Session struct {
+type Vpdn_Sessions_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
     // This attribute is a key. Session label. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     SessionLabel interface{}
 
     // Time to setup session in sec:msec. The type is interface{} with range:
     // 0..4294967295.
     SetupTime interface{}
 
-    // Parent interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Parent interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceName interface{}
 
     // Session data.
-    Session Vpdn_Nodes_Node_Sessions_Session_Session
+    Session Vpdn_Sessions_Session_Session
 
     // L2TP data.
-    L2tp Vpdn_Nodes_Node_Sessions_Session_L2tp
+    L2tp Vpdn_Sessions_Session_L2tp
 
     // Subscriber data.
-    Subscriber Vpdn_Nodes_Node_Sessions_Session_Subscriber
+    Subscriber Vpdn_Sessions_Session_Subscriber
 
     // Configuration data.
-    Configuration Vpdn_Nodes_Node_Sessions_Session_Configuration
+    Configuration Vpdn_Sessions_Session_Configuration
 }
 
-func (session *Vpdn_Nodes_Node_Sessions_Session) GetEntityData() *types.CommonEntityData {
+func (session *Vpdn_Sessions_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "sessions"
     session.EntityData.SegmentPath = "session" + types.AddKeyToken(session.SessionLabel, "session-label")
-    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/sessions/" + session.EntityData.SegmentPath
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/sessions/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -357,17 +284,16 @@ func (session *Vpdn_Nodes_Node_Sessions_Session) GetEntityData() *types.CommonEn
     return &(session.EntityData)
 }
 
-// Vpdn_Nodes_Node_Sessions_Session_Session
+// Vpdn_Sessions_Session_Session
 // Session data
-type Vpdn_Nodes_Node_Sessions_Session_Session struct {
+type Vpdn_Sessions_Session_Session struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Elapsed time since last change in hh:mm:ss format. The type is string.
     LastChange interface{}
 
-    // Session interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Session interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Authentication username. The type is string.
@@ -389,13 +315,13 @@ type Vpdn_Nodes_Node_Sessions_Session_Session struct {
     SrgSlave interface{}
 }
 
-func (session *Vpdn_Nodes_Node_Sessions_Session_Session) GetEntityData() *types.CommonEntityData {
+func (session *Vpdn_Sessions_Session_Session) GetEntityData() *types.CommonEntityData {
     session.EntityData.YFilter = session.YFilter
     session.EntityData.YangName = "session"
     session.EntityData.BundleName = "cisco_ios_xr"
     session.EntityData.ParentYangName = "session"
     session.EntityData.SegmentPath = "session"
-    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/sessions/session/" + session.EntityData.SegmentPath
+    session.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/sessions/session/" + session.EntityData.SegmentPath
     session.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     session.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     session.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -416,18 +342,18 @@ func (session *Vpdn_Nodes_Node_Sessions_Session_Session) GetEntityData() *types.
     return &(session.EntityData)
 }
 
-// Vpdn_Nodes_Node_Sessions_Session_L2tp
+// Vpdn_Sessions_Session_L2tp
 // L2TP data
-type Vpdn_Nodes_Node_Sessions_Session_L2tp struct {
+type Vpdn_Sessions_Session_L2tp struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // Local endpoint IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalEndpoint interface{}
 
     // Remote endpoint IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RemoteEndpoint interface{}
 
     // Call serial number. The type is interface{} with range: 0..4294967295.
@@ -464,13 +390,13 @@ type Vpdn_Nodes_Node_Sessions_Session_L2tp struct {
     IsTunnelAuthenticationEnabled interface{}
 }
 
-func (l2tp *Vpdn_Nodes_Node_Sessions_Session_L2tp) GetEntityData() *types.CommonEntityData {
+func (l2tp *Vpdn_Sessions_Session_L2tp) GetEntityData() *types.CommonEntityData {
     l2tp.EntityData.YFilter = l2tp.YFilter
     l2tp.EntityData.YangName = "l2tp"
     l2tp.EntityData.BundleName = "cisco_ios_xr"
     l2tp.EntityData.ParentYangName = "session"
     l2tp.EntityData.SegmentPath = "l2tp"
-    l2tp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/sessions/session/" + l2tp.EntityData.SegmentPath
+    l2tp.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/sessions/session/" + l2tp.EntityData.SegmentPath
     l2tp.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     l2tp.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     l2tp.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -496,9 +422,9 @@ func (l2tp *Vpdn_Nodes_Node_Sessions_Session_L2tp) GetEntityData() *types.Common
     return &(l2tp.EntityData)
 }
 
-// Vpdn_Nodes_Node_Sessions_Session_Subscriber
+// Vpdn_Sessions_Session_Subscriber
 // Subscriber data
-type Vpdn_Nodes_Node_Sessions_Session_Subscriber struct {
+type Vpdn_Sessions_Session_Subscriber struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -520,13 +446,13 @@ type Vpdn_Nodes_Node_Sessions_Session_Subscriber struct {
     TransmitConnectSpeed interface{}
 }
 
-func (subscriber *Vpdn_Nodes_Node_Sessions_Session_Subscriber) GetEntityData() *types.CommonEntityData {
+func (subscriber *Vpdn_Sessions_Session_Subscriber) GetEntityData() *types.CommonEntityData {
     subscriber.EntityData.YFilter = subscriber.YFilter
     subscriber.EntityData.YangName = "subscriber"
     subscriber.EntityData.BundleName = "cisco_ios_xr"
     subscriber.EntityData.ParentYangName = "session"
     subscriber.EntityData.SegmentPath = "subscriber"
-    subscriber.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/sessions/session/" + subscriber.EntityData.SegmentPath
+    subscriber.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/sessions/session/" + subscriber.EntityData.SegmentPath
     subscriber.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     subscriber.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     subscriber.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -544,9 +470,9 @@ func (subscriber *Vpdn_Nodes_Node_Sessions_Session_Subscriber) GetEntityData() *
     return &(subscriber.EntityData)
 }
 
-// Vpdn_Nodes_Node_Sessions_Session_Configuration
+// Vpdn_Sessions_Session_Configuration
 // Configuration data
-type Vpdn_Nodes_Node_Sessions_Session_Configuration struct {
+type Vpdn_Sessions_Session_Configuration struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -570,16 +496,16 @@ type Vpdn_Nodes_Node_Sessions_Session_Configuration struct {
     DslLineForwarding interface{}
 
     // VPN ID.
-    VpnId Vpdn_Nodes_Node_Sessions_Session_Configuration_VpnId
+    VpnId Vpdn_Sessions_Session_Configuration_VpnId
 }
 
-func (configuration *Vpdn_Nodes_Node_Sessions_Session_Configuration) GetEntityData() *types.CommonEntityData {
+func (configuration *Vpdn_Sessions_Session_Configuration) GetEntityData() *types.CommonEntityData {
     configuration.EntityData.YFilter = configuration.YFilter
     configuration.EntityData.YangName = "configuration"
     configuration.EntityData.BundleName = "cisco_ios_xr"
     configuration.EntityData.ParentYangName = "session"
     configuration.EntityData.SegmentPath = "configuration"
-    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/sessions/session/" + configuration.EntityData.SegmentPath
+    configuration.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/sessions/session/" + configuration.EntityData.SegmentPath
     configuration.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     configuration.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     configuration.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -599,9 +525,9 @@ func (configuration *Vpdn_Nodes_Node_Sessions_Session_Configuration) GetEntityDa
     return &(configuration.EntityData)
 }
 
-// Vpdn_Nodes_Node_Sessions_Session_Configuration_VpnId
+// Vpdn_Sessions_Session_Configuration_VpnId
 // VPN ID
-type Vpdn_Nodes_Node_Sessions_Session_Configuration_VpnId struct {
+type Vpdn_Sessions_Session_Configuration_VpnId struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -612,13 +538,13 @@ type Vpdn_Nodes_Node_Sessions_Session_Configuration_VpnId struct {
     Index interface{}
 }
 
-func (vpnId *Vpdn_Nodes_Node_Sessions_Session_Configuration_VpnId) GetEntityData() *types.CommonEntityData {
+func (vpnId *Vpdn_Sessions_Session_Configuration_VpnId) GetEntityData() *types.CommonEntityData {
     vpnId.EntityData.YFilter = vpnId.YFilter
     vpnId.EntityData.YangName = "vpn-id"
     vpnId.EntityData.BundleName = "cisco_ios_xr"
     vpnId.EntityData.ParentYangName = "configuration"
     vpnId.EntityData.SegmentPath = "vpn-id"
-    vpnId.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/sessions/session/configuration/" + vpnId.EntityData.SegmentPath
+    vpnId.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/sessions/session/configuration/" + vpnId.EntityData.SegmentPath
     vpnId.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpnId.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpnId.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -633,24 +559,24 @@ func (vpnId *Vpdn_Nodes_Node_Sessions_Session_Configuration_VpnId) GetEntityData
     return &(vpnId.EntityData)
 }
 
-// Vpdn_Nodes_Node_TunnelDestinations
+// Vpdn_TunnelDestinations
 // VPDN tunnel Destinations
-type Vpdn_Nodes_Node_TunnelDestinations struct {
+type Vpdn_TunnelDestinations struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VPDN tunnel destination information. The type is slice of
-    // Vpdn_Nodes_Node_TunnelDestinations_TunnelDestination.
-    TunnelDestination []*Vpdn_Nodes_Node_TunnelDestinations_TunnelDestination
+    // Vpdn_TunnelDestinations_TunnelDestination.
+    TunnelDestination []*Vpdn_TunnelDestinations_TunnelDestination
 }
 
-func (tunnelDestinations *Vpdn_Nodes_Node_TunnelDestinations) GetEntityData() *types.CommonEntityData {
+func (tunnelDestinations *Vpdn_TunnelDestinations) GetEntityData() *types.CommonEntityData {
     tunnelDestinations.EntityData.YFilter = tunnelDestinations.YFilter
     tunnelDestinations.EntityData.YangName = "tunnel-destinations"
     tunnelDestinations.EntityData.BundleName = "cisco_ios_xr"
-    tunnelDestinations.EntityData.ParentYangName = "node"
+    tunnelDestinations.EntityData.ParentYangName = "vpdn"
     tunnelDestinations.EntityData.SegmentPath = "tunnel-destinations"
-    tunnelDestinations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/" + tunnelDestinations.EntityData.SegmentPath
+    tunnelDestinations.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/" + tunnelDestinations.EntityData.SegmentPath
     tunnelDestinations.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelDestinations.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelDestinations.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -668,18 +594,18 @@ func (tunnelDestinations *Vpdn_Nodes_Node_TunnelDestinations) GetEntityData() *t
     return &(tunnelDestinations.EntityData)
 }
 
-// Vpdn_Nodes_Node_TunnelDestinations_TunnelDestination
+// Vpdn_TunnelDestinations_TunnelDestination
 // VPDN tunnel destination information
-type Vpdn_Nodes_Node_TunnelDestinations_TunnelDestination struct {
+type Vpdn_TunnelDestinations_TunnelDestination struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // VRF name. The type is string.
@@ -707,13 +633,13 @@ type Vpdn_Nodes_Node_TunnelDestinations_TunnelDestination struct {
     StatusChangeTime interface{}
 }
 
-func (tunnelDestination *Vpdn_Nodes_Node_TunnelDestinations_TunnelDestination) GetEntityData() *types.CommonEntityData {
+func (tunnelDestination *Vpdn_TunnelDestinations_TunnelDestination) GetEntityData() *types.CommonEntityData {
     tunnelDestination.EntityData.YFilter = tunnelDestination.YFilter
     tunnelDestination.EntityData.YangName = "tunnel-destination"
     tunnelDestination.EntityData.BundleName = "cisco_ios_xr"
     tunnelDestination.EntityData.ParentYangName = "tunnel-destinations"
     tunnelDestination.EntityData.SegmentPath = "tunnel-destination" + types.AddNoKeyToken(tunnelDestination)
-    tunnelDestination.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/tunnel-destinations/" + tunnelDestination.EntityData.SegmentPath
+    tunnelDestination.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/tunnel-destinations/" + tunnelDestination.EntityData.SegmentPath
     tunnelDestination.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     tunnelDestination.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     tunnelDestination.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -735,9 +661,9 @@ func (tunnelDestination *Vpdn_Nodes_Node_TunnelDestinations_TunnelDestination) G
     return &(tunnelDestination.EntityData)
 }
 
-// Vpdn_Nodes_Node_VpdnMirroring
+// Vpdn_VpdnMirroring
 // VPDN Mirroring Statistics
-type Vpdn_Nodes_Node_VpdnMirroring struct {
+type Vpdn_VpdnMirroring struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -757,25 +683,25 @@ type Vpdn_Nodes_Node_VpdnMirroring struct {
     AllocCnt interface{}
 
     // qad send stats.
-    QadSendStats Vpdn_Nodes_Node_VpdnMirroring_QadSendStats
+    QadSendStats Vpdn_VpdnMirroring_QadSendStats
 
     // qad recv stats.
-    QadRecvStats Vpdn_Nodes_Node_VpdnMirroring_QadRecvStats
+    QadRecvStats Vpdn_VpdnMirroring_QadRecvStats
 
     // qad send stats last clear.
-    QadSendStatsLastClear Vpdn_Nodes_Node_VpdnMirroring_QadSendStatsLastClear
+    QadSendStatsLastClear Vpdn_VpdnMirroring_QadSendStatsLastClear
 
     // qad recv stats last clear.
-    QadRecvStatsLastClear Vpdn_Nodes_Node_VpdnMirroring_QadRecvStatsLastClear
+    QadRecvStatsLastClear Vpdn_VpdnMirroring_QadRecvStatsLastClear
 }
 
-func (vpdnMirroring *Vpdn_Nodes_Node_VpdnMirroring) GetEntityData() *types.CommonEntityData {
+func (vpdnMirroring *Vpdn_VpdnMirroring) GetEntityData() *types.CommonEntityData {
     vpdnMirroring.EntityData.YFilter = vpdnMirroring.YFilter
     vpdnMirroring.EntityData.YangName = "vpdn-mirroring"
     vpdnMirroring.EntityData.BundleName = "cisco_ios_xr"
-    vpdnMirroring.EntityData.ParentYangName = "node"
+    vpdnMirroring.EntityData.ParentYangName = "vpdn"
     vpdnMirroring.EntityData.SegmentPath = "vpdn-mirroring"
-    vpdnMirroring.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/" + vpdnMirroring.EntityData.SegmentPath
+    vpdnMirroring.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/" + vpdnMirroring.EntityData.SegmentPath
     vpdnMirroring.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdnMirroring.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdnMirroring.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -797,9 +723,9 @@ func (vpdnMirroring *Vpdn_Nodes_Node_VpdnMirroring) GetEntityData() *types.Commo
     return &(vpdnMirroring.EntityData)
 }
 
-// Vpdn_Nodes_Node_VpdnMirroring_QadSendStats
+// Vpdn_VpdnMirroring_QadSendStats
 // qad send stats
-type Vpdn_Nodes_Node_VpdnMirroring_QadSendStats struct {
+type Vpdn_VpdnMirroring_QadSendStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -861,13 +787,13 @@ type Vpdn_Nodes_Node_VpdnMirroring_QadSendStats struct {
     QadRxFirstSeqNumber interface{}
 }
 
-func (qadSendStats *Vpdn_Nodes_Node_VpdnMirroring_QadSendStats) GetEntityData() *types.CommonEntityData {
+func (qadSendStats *Vpdn_VpdnMirroring_QadSendStats) GetEntityData() *types.CommonEntityData {
     qadSendStats.EntityData.YFilter = qadSendStats.YFilter
     qadSendStats.EntityData.YangName = "qad-send-stats"
     qadSendStats.EntityData.BundleName = "cisco_ios_xr"
     qadSendStats.EntityData.ParentYangName = "vpdn-mirroring"
     qadSendStats.EntityData.SegmentPath = "qad-send-stats"
-    qadSendStats.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/vpdn-mirroring/" + qadSendStats.EntityData.SegmentPath
+    qadSendStats.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/" + qadSendStats.EntityData.SegmentPath
     qadSendStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qadSendStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qadSendStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -899,9 +825,9 @@ func (qadSendStats *Vpdn_Nodes_Node_VpdnMirroring_QadSendStats) GetEntityData() 
     return &(qadSendStats.EntityData)
 }
 
-// Vpdn_Nodes_Node_VpdnMirroring_QadRecvStats
+// Vpdn_VpdnMirroring_QadRecvStats
 // qad recv stats
-type Vpdn_Nodes_Node_VpdnMirroring_QadRecvStats struct {
+type Vpdn_VpdnMirroring_QadRecvStats struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -927,13 +853,13 @@ type Vpdn_Nodes_Node_VpdnMirroring_QadRecvStats struct {
     StaleMsgs interface{}
 }
 
-func (qadRecvStats *Vpdn_Nodes_Node_VpdnMirroring_QadRecvStats) GetEntityData() *types.CommonEntityData {
+func (qadRecvStats *Vpdn_VpdnMirroring_QadRecvStats) GetEntityData() *types.CommonEntityData {
     qadRecvStats.EntityData.YFilter = qadRecvStats.YFilter
     qadRecvStats.EntityData.YangName = "qad-recv-stats"
     qadRecvStats.EntityData.BundleName = "cisco_ios_xr"
     qadRecvStats.EntityData.ParentYangName = "vpdn-mirroring"
     qadRecvStats.EntityData.SegmentPath = "qad-recv-stats"
-    qadRecvStats.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/vpdn-mirroring/" + qadRecvStats.EntityData.SegmentPath
+    qadRecvStats.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/" + qadRecvStats.EntityData.SegmentPath
     qadRecvStats.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qadRecvStats.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qadRecvStats.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -953,9 +879,9 @@ func (qadRecvStats *Vpdn_Nodes_Node_VpdnMirroring_QadRecvStats) GetEntityData() 
     return &(qadRecvStats.EntityData)
 }
 
-// Vpdn_Nodes_Node_VpdnMirroring_QadSendStatsLastClear
+// Vpdn_VpdnMirroring_QadSendStatsLastClear
 // qad send stats last clear
-type Vpdn_Nodes_Node_VpdnMirroring_QadSendStatsLastClear struct {
+type Vpdn_VpdnMirroring_QadSendStatsLastClear struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1017,13 +943,13 @@ type Vpdn_Nodes_Node_VpdnMirroring_QadSendStatsLastClear struct {
     QadRxFirstSeqNumber interface{}
 }
 
-func (qadSendStatsLastClear *Vpdn_Nodes_Node_VpdnMirroring_QadSendStatsLastClear) GetEntityData() *types.CommonEntityData {
+func (qadSendStatsLastClear *Vpdn_VpdnMirroring_QadSendStatsLastClear) GetEntityData() *types.CommonEntityData {
     qadSendStatsLastClear.EntityData.YFilter = qadSendStatsLastClear.YFilter
     qadSendStatsLastClear.EntityData.YangName = "qad-send-stats-last-clear"
     qadSendStatsLastClear.EntityData.BundleName = "cisco_ios_xr"
     qadSendStatsLastClear.EntityData.ParentYangName = "vpdn-mirroring"
     qadSendStatsLastClear.EntityData.SegmentPath = "qad-send-stats-last-clear"
-    qadSendStatsLastClear.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/vpdn-mirroring/" + qadSendStatsLastClear.EntityData.SegmentPath
+    qadSendStatsLastClear.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/" + qadSendStatsLastClear.EntityData.SegmentPath
     qadSendStatsLastClear.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qadSendStatsLastClear.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qadSendStatsLastClear.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1055,9 +981,9 @@ func (qadSendStatsLastClear *Vpdn_Nodes_Node_VpdnMirroring_QadSendStatsLastClear
     return &(qadSendStatsLastClear.EntityData)
 }
 
-// Vpdn_Nodes_Node_VpdnMirroring_QadRecvStatsLastClear
+// Vpdn_VpdnMirroring_QadRecvStatsLastClear
 // qad recv stats last clear
-type Vpdn_Nodes_Node_VpdnMirroring_QadRecvStatsLastClear struct {
+type Vpdn_VpdnMirroring_QadRecvStatsLastClear struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1083,13 +1009,13 @@ type Vpdn_Nodes_Node_VpdnMirroring_QadRecvStatsLastClear struct {
     StaleMsgs interface{}
 }
 
-func (qadRecvStatsLastClear *Vpdn_Nodes_Node_VpdnMirroring_QadRecvStatsLastClear) GetEntityData() *types.CommonEntityData {
+func (qadRecvStatsLastClear *Vpdn_VpdnMirroring_QadRecvStatsLastClear) GetEntityData() *types.CommonEntityData {
     qadRecvStatsLastClear.EntityData.YFilter = qadRecvStatsLastClear.YFilter
     qadRecvStatsLastClear.EntityData.YangName = "qad-recv-stats-last-clear"
     qadRecvStatsLastClear.EntityData.BundleName = "cisco_ios_xr"
     qadRecvStatsLastClear.EntityData.ParentYangName = "vpdn-mirroring"
     qadRecvStatsLastClear.EntityData.SegmentPath = "qad-recv-stats-last-clear"
-    qadRecvStatsLastClear.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/vpdn-mirroring/" + qadRecvStatsLastClear.EntityData.SegmentPath
+    qadRecvStatsLastClear.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/vpdn-mirroring/" + qadRecvStatsLastClear.EntityData.SegmentPath
     qadRecvStatsLastClear.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     qadRecvStatsLastClear.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     qadRecvStatsLastClear.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1109,9 +1035,9 @@ func (qadRecvStatsLastClear *Vpdn_Nodes_Node_VpdnMirroring_QadRecvStatsLastClear
     return &(qadRecvStatsLastClear.EntityData)
 }
 
-// Vpdn_Nodes_Node_VpdnRedundancy
+// Vpdn_VpdnRedundancy
 // Show VPDN Redundancy information
-type Vpdn_Nodes_Node_VpdnRedundancy struct {
+type Vpdn_VpdnRedundancy struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
@@ -1134,13 +1060,13 @@ type Vpdn_Nodes_Node_VpdnRedundancy struct {
     AbortTime interface{}
 }
 
-func (vpdnRedundancy *Vpdn_Nodes_Node_VpdnRedundancy) GetEntityData() *types.CommonEntityData {
+func (vpdnRedundancy *Vpdn_VpdnRedundancy) GetEntityData() *types.CommonEntityData {
     vpdnRedundancy.EntityData.YFilter = vpdnRedundancy.YFilter
     vpdnRedundancy.EntityData.YangName = "vpdn-redundancy"
     vpdnRedundancy.EntityData.BundleName = "cisco_ios_xr"
-    vpdnRedundancy.EntityData.ParentYangName = "node"
+    vpdnRedundancy.EntityData.ParentYangName = "vpdn"
     vpdnRedundancy.EntityData.SegmentPath = "vpdn-redundancy"
-    vpdnRedundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/" + vpdnRedundancy.EntityData.SegmentPath
+    vpdnRedundancy.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/" + vpdnRedundancy.EntityData.SegmentPath
     vpdnRedundancy.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     vpdnRedundancy.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     vpdnRedundancy.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1159,24 +1085,24 @@ func (vpdnRedundancy *Vpdn_Nodes_Node_VpdnRedundancy) GetEntityData() *types.Com
     return &(vpdnRedundancy.EntityData)
 }
 
-// Vpdn_Nodes_Node_HistoryFailures
+// Vpdn_HistoryFailures
 // VPDN history failure list
-type Vpdn_Nodes_Node_HistoryFailures struct {
+type Vpdn_HistoryFailures struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
     // VPDN history failure information. The type is slice of
-    // Vpdn_Nodes_Node_HistoryFailures_HistoryFailure.
-    HistoryFailure []*Vpdn_Nodes_Node_HistoryFailures_HistoryFailure
+    // Vpdn_HistoryFailures_HistoryFailure.
+    HistoryFailure []*Vpdn_HistoryFailures_HistoryFailure
 }
 
-func (historyFailures *Vpdn_Nodes_Node_HistoryFailures) GetEntityData() *types.CommonEntityData {
+func (historyFailures *Vpdn_HistoryFailures) GetEntityData() *types.CommonEntityData {
     historyFailures.EntityData.YFilter = historyFailures.YFilter
     historyFailures.EntityData.YangName = "history-failures"
     historyFailures.EntityData.BundleName = "cisco_ios_xr"
-    historyFailures.EntityData.ParentYangName = "node"
+    historyFailures.EntityData.ParentYangName = "vpdn"
     historyFailures.EntityData.SegmentPath = "history-failures"
-    historyFailures.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/" + historyFailures.EntityData.SegmentPath
+    historyFailures.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/" + historyFailures.EntityData.SegmentPath
     historyFailures.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     historyFailures.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historyFailures.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -1194,9 +1120,9 @@ func (historyFailures *Vpdn_Nodes_Node_HistoryFailures) GetEntityData() *types.C
     return &(historyFailures.EntityData)
 }
 
-// Vpdn_Nodes_Node_HistoryFailures_HistoryFailure
+// Vpdn_HistoryFailures_HistoryFailure
 // VPDN history failure information
-type Vpdn_Nodes_Node_HistoryFailures_HistoryFailure struct {
+type Vpdn_HistoryFailures_HistoryFailure struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -1204,8 +1130,7 @@ type Vpdn_Nodes_Node_HistoryFailures_HistoryFailure struct {
     // Username. The type is string.
     Username interface{}
 
-    // Remote name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Remote name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     RemoteName interface{}
 
     // Authentication username. The type is string.
@@ -1221,7 +1146,7 @@ type Vpdn_Nodes_Node_HistoryFailures_HistoryFailure struct {
     Nas interface{}
 
     // NAS IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Remote client ID. The type is interface{} with range: 0..65535.
@@ -1231,7 +1156,7 @@ type Vpdn_Nodes_Node_HistoryFailures_HistoryFailure struct {
     HomeGateway interface{}
 
     // Source IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Local client ID. The type is interface{} with range: 0..65535.
@@ -1247,13 +1172,13 @@ type Vpdn_Nodes_Node_HistoryFailures_HistoryFailure struct {
     FailureType interface{}
 }
 
-func (historyFailure *Vpdn_Nodes_Node_HistoryFailures_HistoryFailure) GetEntityData() *types.CommonEntityData {
+func (historyFailure *Vpdn_HistoryFailures_HistoryFailure) GetEntityData() *types.CommonEntityData {
     historyFailure.EntityData.YFilter = historyFailure.YFilter
     historyFailure.EntityData.YangName = "history-failure"
     historyFailure.EntityData.BundleName = "cisco_ios_xr"
     historyFailure.EntityData.ParentYangName = "history-failures"
     historyFailure.EntityData.SegmentPath = "history-failure" + types.AddNoKeyToken(historyFailure)
-    historyFailure.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/nodes/node/history-failures/" + historyFailure.EntityData.SegmentPath
+    historyFailure.EntityData.AbsolutePath = "Cisco-IOS-XR-tunnel-vpdn-oper:vpdn/history-failures/" + historyFailure.EntityData.SegmentPath
     historyFailure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     historyFailure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     historyFailure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()

@@ -114,11 +114,20 @@ type VM_AllLocations_AllUiids struct {
     // CE IP address. The type is string.
     Ipaddr interface{}
 
+    // Heartbeat interval sec. The type is string.
+    HbIntervalS interface{}
+
+    // Heartbeat interval nsec. The type is string.
+    HbIntervalNs interface{}
+
     // Last heartbeat sent. The type is string.
     LastHbSent interface{}
 
     // Last heartbeat received. The type is string.
     LastHbRec interface{}
+
+    // ISSU role. The type is string.
+    Role interface{}
 }
 
 func (allUiids *VM_AllLocations_AllUiids) GetEntityData() *types.CommonEntityData {
@@ -138,8 +147,11 @@ func (allUiids *VM_AllLocations_AllUiids) GetEntityData() *types.CommonEntityDat
     allUiids.EntityData.Leafs.Append("id", types.YLeaf{"Id", allUiids.Id})
     allUiids.EntityData.Leafs.Append("status", types.YLeaf{"Status", allUiids.Status})
     allUiids.EntityData.Leafs.Append("ipaddr", types.YLeaf{"Ipaddr", allUiids.Ipaddr})
+    allUiids.EntityData.Leafs.Append("hb_interval_s", types.YLeaf{"HbIntervalS", allUiids.HbIntervalS})
+    allUiids.EntityData.Leafs.Append("hb_interval_ns", types.YLeaf{"HbIntervalNs", allUiids.HbIntervalNs})
     allUiids.EntityData.Leafs.Append("last_hb_sent", types.YLeaf{"LastHbSent", allUiids.LastHbSent})
     allUiids.EntityData.Leafs.Append("last_hb_rec", types.YLeaf{"LastHbRec", allUiids.LastHbRec})
+    allUiids.EntityData.Leafs.Append("role", types.YLeaf{"Role", allUiids.Role})
 
     allUiids.EntityData.YListKeys = []string {"Uiid"}
 

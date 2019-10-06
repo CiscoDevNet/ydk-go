@@ -185,8 +185,7 @@ type CfmStatistics_CfmMeps_CfmMep_LastCleared struct {
     Never interface{}
 
     // Date and time of the last time stats were cleared. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     Time interface{}
 }
 

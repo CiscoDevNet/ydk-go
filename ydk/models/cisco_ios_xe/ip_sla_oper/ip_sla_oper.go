@@ -19,6 +19,26 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-ip-sla-oper:ip-sla-stats", reflect.TypeOf(IpSlaStats{}))
 }
 
+// TtlType represents IP SLA time-to-live type
+type TtlType string
+
+const (
+    TtlType_ttl_finite TtlType = "ttl-finite"
+
+    TtlType_ttl_forever TtlType = "ttl-forever"
+)
+
+// RttType represents IP SLA RTT type
+type RttType string
+
+const (
+    RttType_rtt_known RttType = "rtt-known"
+
+    RttType_rtt_unknown RttType = "rtt-unknown"
+
+    RttType_rtt_could_not_find RttType = "rtt-could-not-find"
+)
+
 // SlaOperType represents IP SLA operational type
 type SlaOperType string
 
@@ -82,26 +102,6 @@ const (
     AccuracyType_accuracy_microseconds AccuracyType = "accuracy-microseconds"
 )
 
-// RttType represents IP SLA RTT type
-type RttType string
-
-const (
-    RttType_rtt_known RttType = "rtt-known"
-
-    RttType_rtt_unknown RttType = "rtt-unknown"
-
-    RttType_rtt_could_not_find RttType = "rtt-could-not-find"
-)
-
-// TtlType represents IP SLA time-to-live type
-type TtlType string
-
-const (
-    TtlType_ttl_finite TtlType = "ttl-finite"
-
-    TtlType_ttl_forever TtlType = "ttl-forever"
-)
-
 // IpSlaStats
 // Data nodes for All IP SLA Statistics
 type IpSlaStats struct {
@@ -160,7 +160,7 @@ type IpSlaStats_SlaOperEntry struct {
     FailureCount interface{}
 
     // Latest start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LatestOperStartTime interface{}
 
     // RTT information.
@@ -316,7 +316,7 @@ type IpSlaStats_SlaOperEntry_MeasureStats struct {
     YFilter yfilter.YFilter
 
     // Interval start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     IntvStartTime interface{}
 
     // Initial count. The type is interface{} with range: 0..4294967295.

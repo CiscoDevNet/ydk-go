@@ -14,17 +14,17 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package sysadmin_entity_state_tc_mib"))
 }
 
-// EntityAdminState
-type EntityAdminState string
+// EntityStandbyStatus
+type EntityStandbyStatus string
 
 const (
-    EntityAdminState_unknown EntityAdminState = "unknown"
+    EntityStandbyStatus_unknown EntityStandbyStatus = "unknown"
 
-    EntityAdminState_locked EntityAdminState = "locked"
+    EntityStandbyStatus_hotStandby EntityStandbyStatus = "hotStandby"
 
-    EntityAdminState_shuttingDown EntityAdminState = "shuttingDown"
+    EntityStandbyStatus_coldStandby EntityStandbyStatus = "coldStandby"
 
-    EntityAdminState_unlocked EntityAdminState = "unlocked"
+    EntityStandbyStatus_providingService EntityStandbyStatus = "providingService"
 )
 
 // EntityOperState
@@ -40,6 +40,19 @@ const (
     EntityOperState_testing EntityOperState = "testing"
 )
 
+// EntityAdminState
+type EntityAdminState string
+
+const (
+    EntityAdminState_unknown EntityAdminState = "unknown"
+
+    EntityAdminState_locked EntityAdminState = "locked"
+
+    EntityAdminState_shuttingDown EntityAdminState = "shuttingDown"
+
+    EntityAdminState_unlocked EntityAdminState = "unlocked"
+)
+
 // EntityUsageState
 type EntityUsageState string
 
@@ -51,18 +64,5 @@ const (
     EntityUsageState_active EntityUsageState = "active"
 
     EntityUsageState_busy EntityUsageState = "busy"
-)
-
-// EntityStandbyStatus
-type EntityStandbyStatus string
-
-const (
-    EntityStandbyStatus_unknown EntityStandbyStatus = "unknown"
-
-    EntityStandbyStatus_hotStandby EntityStandbyStatus = "hotStandby"
-
-    EntityStandbyStatus_coldStandby EntityStandbyStatus = "coldStandby"
-
-    EntityStandbyStatus_providingService EntityStandbyStatus = "providingService"
 )
 

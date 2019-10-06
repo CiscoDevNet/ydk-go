@@ -214,7 +214,7 @@ type Eem_EnvVariables_EnvVariable struct {
     YListKey string
 
     // This attribute is a key. Environmental variable name. The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // variable name. The type is string.
@@ -319,7 +319,7 @@ type Eem_RegPolicies_RegPolicy struct {
     YListKey string
 
     // This attribute is a key. policy name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // policy type. The type is string.
@@ -421,7 +421,7 @@ type Eem_AvlPolicies_AvlPolicy struct {
     YListKey string
 
     // This attribute is a key. System policy name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // policy type. The type is string.

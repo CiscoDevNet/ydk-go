@@ -167,7 +167,7 @@ type InterfaceDampening_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Dampening info for the interface.
@@ -448,7 +448,7 @@ type InterfaceDampening_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The location of the interface(s). The type is
-    // string with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Show details for the interfaces.
@@ -584,7 +584,7 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_IfHandles_IfHandle struct {
     YListKey string
 
     // This attribute is a key. The interface handle. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InterfaceHandleName interface{}
 
     // The number of times the state has changed. The type is interface{} with
@@ -836,7 +836,7 @@ type InterfaceDampening_Nodes_Node_Show_Dampening_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The number of times the state has changed. The type is interface{} with
@@ -1118,7 +1118,7 @@ type InterfaceProperties_DataNodes_DataNode struct {
     YListKey string
 
     // This attribute is a key. The location of the (D)RP. The type is string with
-    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     DataNodeName interface{}
 
     // Location-specific view of interface operational data.
@@ -1199,7 +1199,7 @@ type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview struct {
     YListKey string
 
     // This attribute is a key. The location to filter on. The type is string with
-    // pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     LocationviewName interface{}
 
     // Operational data for all interfaces and controllers.
@@ -1271,13 +1271,13 @@ type InterfaceProperties_DataNodes_DataNode_Locationviews_Locationview_Interface
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.
@@ -1398,7 +1398,7 @@ type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation struc
 
     // This attribute is a key. The partially qualified location to filter on. The
     // type is string with pattern:
-    // b'((([a-zA-Z0-9_]*\\d+)|(\\*))/){2}(([a-zA-Z0-9_]*\\d+)|(\\*))'.
+    // ((([a-zA-Z0-9_]*\d+)|(\*))/){2}(([a-zA-Z0-9_]*\d+)|(\*)).
     PqNodeName interface{}
 
     // Operational data for all interfaces and controllers.
@@ -1470,13 +1470,13 @@ type InterfaceProperties_DataNodes_DataNode_PqNodeLocations_PqNodeLocation_Inter
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.
@@ -1625,13 +1625,13 @@ type InterfaceProperties_DataNodes_DataNode_SystemView_Interfaces_Interface stru
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.

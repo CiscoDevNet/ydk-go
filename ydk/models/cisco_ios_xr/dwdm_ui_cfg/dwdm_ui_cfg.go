@@ -18,46 +18,35 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package dwdm_ui_cfg"))
 }
 
-// PrbsPattern represents Prbs pattern
-type PrbsPattern string
+// WaveChannelNum represents Wave channel num
+type WaveChannelNum string
 
 const (
-    // None Pattern
-    PrbsPattern_none PrbsPattern = "none"
+    // Default Wave Channel Number
+    WaveChannelNum_default_ WaveChannelNum = "default"
 
-    // Null Pattern
-    PrbsPattern_null PrbsPattern = "null"
+    // Wavelength Wave Channel Number
+    WaveChannelNum_channel_wavelength WaveChannelNum = "channel-wavelength"
 
-    // PN11 Pattern
-    PrbsPattern_pn11 PrbsPattern = "pn11"
+    // Frequency Wave Channel Number
+    WaveChannelNum_channel_frequency WaveChannelNum = "channel-frequency"
 
-    // PN23 Pattern
-    PrbsPattern_pn23 PrbsPattern = "pn23"
-
-    // PN31 Pattern
-    PrbsPattern_pn31 PrbsPattern = "pn31"
+    // Frequency in Steps of 100MHz
+    WaveChannelNum_Y_100mhz_frequency WaveChannelNum = "100mhz-frequency"
 )
 
-// Proactive represents Proactive
-type Proactive string
+// DwdmLoopback represents Dwdm loopback
+type DwdmLoopback string
 
 const (
-    // Proactive Protection Default Mode
-    Proactive_default_ Proactive = "default"
+    // No Loopback
+    DwdmLoopback_none DwdmLoopback = "none"
 
-    // Proactive Protection Graceful Mode
-    Proactive_graceful Proactive = "graceful"
-)
+    // Line Loopback
+    DwdmLoopback_line DwdmLoopback = "line"
 
-// ExpectedTti represents Expected tti
-type ExpectedTti string
-
-const (
-    // Expected TTI ascii string
-    ExpectedTti_expected_tti_ascii ExpectedTti = "expected-tti-ascii"
-
-    // Expected TTI hex string
-    ExpectedTti_expected_tti_hex ExpectedTti = "expected-tti-hex"
+    // Internal Loopback
+    DwdmLoopback_internal DwdmLoopback = "internal"
 )
 
 // Fec represents Fec
@@ -92,68 +81,11 @@ const (
     // Decision
     Fec_high_gain_multivendor_hd Fec = "high-gain-multivendor-hd"
 
-    // 15SDFecDe
-    Fec_Y_15sd_fec_de Fec = "15sd-fec-de"
+    // SD Everest
+    Fec_sd_everest Fec = "sd-everest"
 
-    // 15SDFec
-    Fec_Y_15sd_fec Fec = "15sd-fec"
-)
-
-// Framing represents Framing
-type Framing string
-
-const (
-    // opu1e Framing
-    Framing_opu1e Framing = "opu1e"
-
-    // opu2e Framing
-    Framing_opu2e Framing = "opu2e"
-)
-
-// OtuThreshold represents Otu threshold
-type OtuThreshold string
-
-const (
-    // PREFEC SD BER THRESHOLD
-    OtuThreshold_prefec_sd OtuThreshold = "prefec-sd"
-
-    // PREFEC SF BER THRESHOLD
-    OtuThreshold_prefec_sf OtuThreshold = "prefec-sf"
-
-    // OTU SD BER threshold
-    OtuThreshold_otu_sd OtuThreshold = "otu-sd"
-
-    // OTU SF BER threshold
-    OtuThreshold_otu_sf OtuThreshold = "otu-sf"
-)
-
-// DwdmLoopback represents Dwdm loopback
-type DwdmLoopback string
-
-const (
-    // No Loopback
-    DwdmLoopback_none DwdmLoopback = "none"
-
-    // Line Loopback
-    DwdmLoopback_line DwdmLoopback = "line"
-
-    // Internal Loopback
-    DwdmLoopback_internal DwdmLoopback = "internal"
-)
-
-// Efec represents Efec
-type Efec string
-
-const (
-    // default submode to handle backward
-    // compatibility
-    Efec_none Efec = "none"
-
-    // efec i.4
-    Efec_i__DOT__4 Efec = "i.4"
-
-    // efec i.7
-    Efec_i__DOT__7 Efec = "i.7"
+    // SD Denali
+    Fec_sd_denali Fec = "sd-denali"
 )
 
 // OduAlarm represents Odu alarm
@@ -202,15 +134,69 @@ const (
     PrbsMode_invalid PrbsMode = "invalid"
 )
 
-// TxTti represents Tx tti
-type TxTti string
+// ExpectedTti represents Expected tti
+type ExpectedTti string
 
 const (
-    // TX TTI ascii string
-    TxTti_tx_tti_ascii TxTti = "tx-tti-ascii"
+    // Expected TTI ascii string
+    ExpectedTti_expected_tti_ascii ExpectedTti = "expected-tti-ascii"
 
-    // TX TTI hex string
-    TxTti_tx_tti_hex TxTti = "tx-tti-hex"
+    // Expected TTI hex string
+    ExpectedTti_expected_tti_hex ExpectedTti = "expected-tti-hex"
+)
+
+// DwdmAdminState represents Dwdm admin state
+type DwdmAdminState string
+
+const (
+    // Out of service
+    DwdmAdminState_out_of_service DwdmAdminState = "out-of-service"
+
+    // In service
+    DwdmAdminState_in_service DwdmAdminState = "in-service"
+
+    // Out of service maintenance
+    DwdmAdminState_maintenance DwdmAdminState = "maintenance"
+
+    // In service Config allowed
+    DwdmAdminState_in_service_config_allowed DwdmAdminState = "in-service-config-allowed"
+)
+
+// PrbsPattern represents Prbs pattern
+type PrbsPattern string
+
+const (
+    // None Pattern
+    PrbsPattern_none PrbsPattern = "none"
+
+    // Null Pattern
+    PrbsPattern_null PrbsPattern = "null"
+
+    // PN11 Pattern
+    PrbsPattern_pn11 PrbsPattern = "pn11"
+
+    // PN23 Pattern
+    PrbsPattern_pn23 PrbsPattern = "pn23"
+
+    // PN31 Pattern
+    PrbsPattern_pn31 PrbsPattern = "pn31"
+)
+
+// OtuThreshold represents Otu threshold
+type OtuThreshold string
+
+const (
+    // PREFEC SD BER THRESHOLD
+    OtuThreshold_prefec_sd OtuThreshold = "prefec-sd"
+
+    // PREFEC SF BER THRESHOLD
+    OtuThreshold_prefec_sf OtuThreshold = "prefec-sf"
+
+    // OTU SD BER threshold
+    OtuThreshold_otu_sd OtuThreshold = "otu-sd"
+
+    // OTU SF BER threshold
+    OtuThreshold_otu_sf OtuThreshold = "otu-sf"
 )
 
 // OtuAlarm represents Otu alarm
@@ -251,23 +237,6 @@ const (
     OtuAlarm_prefec_sf_ber OtuAlarm = "prefec-sf-ber"
 )
 
-// DwdmAdminState represents Dwdm admin state
-type DwdmAdminState string
-
-const (
-    // Out of service
-    DwdmAdminState_out_of_service DwdmAdminState = "out-of-service"
-
-    // In service
-    DwdmAdminState_in_service DwdmAdminState = "in-service"
-
-    // Out of service maintenance
-    DwdmAdminState_maintenance DwdmAdminState = "maintenance"
-
-    // In service Config allowed
-    DwdmAdminState_in_service_config_allowed DwdmAdminState = "in-service-config-allowed"
-)
-
 // OduThreshold represents Odu threshold
 type OduThreshold string
 
@@ -279,20 +248,51 @@ const (
     OduThreshold_odu_sf OduThreshold = "odu-sf"
 )
 
-// WaveChannelNum represents Wave channel num
-type WaveChannelNum string
+// TxTti represents Tx tti
+type TxTti string
 
 const (
-    // Default Wave Channel Number
-    WaveChannelNum_default_ WaveChannelNum = "default"
+    // TX TTI ascii string
+    TxTti_tx_tti_ascii TxTti = "tx-tti-ascii"
 
-    // Wavelength Wave Channel Number
-    WaveChannelNum_channel_wavelength WaveChannelNum = "channel-wavelength"
+    // TX TTI hex string
+    TxTti_tx_tti_hex TxTti = "tx-tti-hex"
+)
 
-    // Frequency Wave Channel Number
-    WaveChannelNum_channel_frequency WaveChannelNum = "channel-frequency"
+// Efec represents Efec
+type Efec string
 
-    // Frequency in Steps of 100MHz
-    WaveChannelNum_Y_100mhz_frequency WaveChannelNum = "100mhz-frequency"
+const (
+    // default submode to handle backward
+    // compatibility
+    Efec_none Efec = "none"
+
+    // efec i.4
+    Efec_i__DOT__4 Efec = "i.4"
+
+    // efec i.7
+    Efec_i__DOT__7 Efec = "i.7"
+)
+
+// Proactive represents Proactive
+type Proactive string
+
+const (
+    // Proactive Protection Default Mode
+    Proactive_default_ Proactive = "default"
+
+    // Proactive Protection Graceful Mode
+    Proactive_graceful Proactive = "graceful"
+)
+
+// Framing represents Framing
+type Framing string
+
+const (
+    // opu1e Framing
+    Framing_opu1e Framing = "opu1e"
+
+    // opu2e Framing
+    Framing_opu2e Framing = "opu2e"
 )
 

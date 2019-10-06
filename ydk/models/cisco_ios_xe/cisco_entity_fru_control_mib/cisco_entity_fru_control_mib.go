@@ -23,23 +23,26 @@ func init() {
     ydk.RegisterEntity("CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB", reflect.TypeOf(CISCOENTITYFRUCONTROLMIB{}))
 }
 
-// PowerRedundancyType represents     support power redundancy with single input.
-type PowerRedundancyType string
+// ModuleAdminType represents                        service, set by CLI.
+type ModuleAdminType string
 
 const (
-    PowerRedundancyType_notsupported PowerRedundancyType = "notsupported"
+    ModuleAdminType_enabled ModuleAdminType = "enabled"
 
-    PowerRedundancyType_redundant PowerRedundancyType = "redundant"
+    ModuleAdminType_disabled ModuleAdminType = "disabled"
 
-    PowerRedundancyType_combined PowerRedundancyType = "combined"
+    ModuleAdminType_reset ModuleAdminType = "reset"
 
-    PowerRedundancyType_nonRedundant PowerRedundancyType = "nonRedundant"
+    ModuleAdminType_outOfServiceAdmin ModuleAdminType = "outOfServiceAdmin"
+)
 
-    PowerRedundancyType_psRedundant PowerRedundancyType = "psRedundant"
+// FRUCoolingUnit represents watts(2)  Watts
+type FRUCoolingUnit string
 
-    PowerRedundancyType_inPwrSrcRedundant PowerRedundancyType = "inPwrSrcRedundant"
+const (
+    FRUCoolingUnit_cfm FRUCoolingUnit = "cfm"
 
-    PowerRedundancyType_psRedundantSingleInput PowerRedundancyType = "psRedundantSingleInput"
+    FRUCoolingUnit_watts FRUCoolingUnit = "watts"
 )
 
 // PowerAdminType represents in response to a management protocol retrieval operation.
@@ -55,48 +58,6 @@ const (
     PowerAdminType_inlineOn PowerAdminType = "inlineOn"
 
     PowerAdminType_powerCycle PowerAdminType = "powerCycle"
-)
-
-// PowerOperType represents                           FRU has failed.
-type PowerOperType string
-
-const (
-    PowerOperType_offEnvOther PowerOperType = "offEnvOther"
-
-    PowerOperType_on PowerOperType = "on"
-
-    PowerOperType_offAdmin PowerOperType = "offAdmin"
-
-    PowerOperType_offDenied PowerOperType = "offDenied"
-
-    PowerOperType_offEnvPower PowerOperType = "offEnvPower"
-
-    PowerOperType_offEnvTemp PowerOperType = "offEnvTemp"
-
-    PowerOperType_offEnvFan PowerOperType = "offEnvFan"
-
-    PowerOperType_failed PowerOperType = "failed"
-
-    PowerOperType_onButFanFail PowerOperType = "onButFanFail"
-
-    PowerOperType_offCooling PowerOperType = "offCooling"
-
-    PowerOperType_offConnectorRating PowerOperType = "offConnectorRating"
-
-    PowerOperType_onButInlinePowerFail PowerOperType = "onButInlinePowerFail"
-)
-
-// ModuleAdminType represents                        service, set by CLI.
-type ModuleAdminType string
-
-const (
-    ModuleAdminType_enabled ModuleAdminType = "enabled"
-
-    ModuleAdminType_disabled ModuleAdminType = "disabled"
-
-    ModuleAdminType_reset ModuleAdminType = "reset"
-
-    ModuleAdminType_outOfServiceAdmin ModuleAdminType = "outOfServiceAdmin"
 )
 
 // ModuleOperType represents fwDownloadFailure(27) Module firmware download failed.
@@ -209,13 +170,52 @@ const (
     ModuleResetReasonType_memoryProtectionErrorReset ModuleResetReasonType = "memoryProtectionErrorReset"
 )
 
-// FRUCoolingUnit represents watts(2)  Watts
-type FRUCoolingUnit string
+// PowerRedundancyType represents     support power redundancy with single input.
+type PowerRedundancyType string
 
 const (
-    FRUCoolingUnit_cfm FRUCoolingUnit = "cfm"
+    PowerRedundancyType_notsupported PowerRedundancyType = "notsupported"
 
-    FRUCoolingUnit_watts FRUCoolingUnit = "watts"
+    PowerRedundancyType_redundant PowerRedundancyType = "redundant"
+
+    PowerRedundancyType_combined PowerRedundancyType = "combined"
+
+    PowerRedundancyType_nonRedundant PowerRedundancyType = "nonRedundant"
+
+    PowerRedundancyType_psRedundant PowerRedundancyType = "psRedundant"
+
+    PowerRedundancyType_inPwrSrcRedundant PowerRedundancyType = "inPwrSrcRedundant"
+
+    PowerRedundancyType_psRedundantSingleInput PowerRedundancyType = "psRedundantSingleInput"
+)
+
+// PowerOperType represents                           FRU has failed.
+type PowerOperType string
+
+const (
+    PowerOperType_offEnvOther PowerOperType = "offEnvOther"
+
+    PowerOperType_on PowerOperType = "on"
+
+    PowerOperType_offAdmin PowerOperType = "offAdmin"
+
+    PowerOperType_offDenied PowerOperType = "offDenied"
+
+    PowerOperType_offEnvPower PowerOperType = "offEnvPower"
+
+    PowerOperType_offEnvTemp PowerOperType = "offEnvTemp"
+
+    PowerOperType_offEnvFan PowerOperType = "offEnvFan"
+
+    PowerOperType_failed PowerOperType = "failed"
+
+    PowerOperType_onButFanFail PowerOperType = "onButFanFail"
+
+    PowerOperType_offCooling PowerOperType = "offCooling"
+
+    PowerOperType_offConnectorRating PowerOperType = "offConnectorRating"
+
+    PowerOperType_onButInlinePowerFail PowerOperType = "onButInlinePowerFail"
 )
 
 // CISCOENTITYFRUCONTROLMIB

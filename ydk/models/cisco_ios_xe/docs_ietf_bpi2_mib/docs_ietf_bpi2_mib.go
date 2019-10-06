@@ -22,19 +22,6 @@ func init() {
     ydk.RegisterEntity("DOCS-IETF-BPI2-MIB:DOCS-IETF-BPI2-MIB", reflect.TypeOf(DOCSIETFBPI2MIB{}))
 }
 
-// DocsBpkmSAType represents to be determined.
-type DocsBpkmSAType string
-
-const (
-    DocsBpkmSAType_none DocsBpkmSAType = "none"
-
-    DocsBpkmSAType_primary DocsBpkmSAType = "primary"
-
-    DocsBpkmSAType_static DocsBpkmSAType = "static"
-
-    DocsBpkmSAType_dynamic DocsBpkmSAType = "dynamic"
-)
-
 // DocsBpkmDataEncryptAlg represents being referenced has no data encryption.
 type DocsBpkmDataEncryptAlg string
 
@@ -59,6 +46,19 @@ const (
     DocsBpkmDataAuthentAlg_none DocsBpkmDataAuthentAlg = "none"
 
     DocsBpkmDataAuthentAlg_hmacSha196 DocsBpkmDataAuthentAlg = "hmacSha196"
+)
+
+// DocsBpkmSAType represents to be determined.
+type DocsBpkmSAType string
+
+const (
+    DocsBpkmSAType_none DocsBpkmSAType = "none"
+
+    DocsBpkmSAType_primary DocsBpkmSAType = "primary"
+
+    DocsBpkmSAType_static DocsBpkmSAType = "static"
+
+    DocsBpkmSAType_dynamic DocsBpkmSAType = "dynamic"
 )
 
 // DOCSIETFBPI2MIB
@@ -1355,7 +1355,7 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsAuthTable_DocsIetfBpi2CmtsAuthEntry struct 
 
     // This attribute is a key. The value of this object is the physical address
     // of the CM to which the authorization association applies. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIetfBpi2CmtsAuthCmMacAddress interface{}
 
     // The value of this object is the version of Baseline Privacy for which this
@@ -2097,7 +2097,7 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsMulticastAuthTable_DocsIetfBpi2CmtsMulticas
 
     // This attribute is a key. This object represents the MAC address of the CM
     // to which the multicast SAID authorization applies. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIetfBpi2CmtsMulticastAuthCmMacAddress interface{}
 
     // The status of this conceptual row for the authorization of  multicast SAIDs
@@ -2177,7 +2177,7 @@ type DOCSIETFBPI2MIB_DocsIetfBpi2CmtsProvisionedCmCertTable_DocsIetfBpi2CmtsProv
     YListKey string
 
     // This attribute is a key. The index of this row. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DocsIetfBpi2CmtsProvisionedCmCertMacAddress interface{}
 
     // Trust state for the provisioned CM certificate entry. Note: Setting this

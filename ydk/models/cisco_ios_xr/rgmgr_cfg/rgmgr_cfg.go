@@ -112,11 +112,10 @@ type RedundancyGroupManager_Aps_DefaultRedundancyGroup struct {
     YFilter yfilter.YFilter
 
     // IPv4 address of remote peer. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
-    // Backup interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Backup interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterfaceName interface{}
 }
 
@@ -253,15 +252,14 @@ type RedundancyGroupManager_Aps_Groups_Group_Controllers_Controller struct {
     YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // IPv4 address of remote peer. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopAddress interface{}
 
-    // Backup interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Backup interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterfaceName interface{}
 }
 
@@ -375,11 +373,11 @@ type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup struct {
     // ICCP member configuration.
     Members RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members
 
-    // Multi-chassis Link Aggregation Control Protocol commands.
-    Mlacp RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp
-
     // nV Satellite configuration.
     NvSatellite RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite
+
+    // Multi-chassis Link Aggregation Control Protocol commands.
+    Mlacp RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp
 }
 
 func (iccpGroup *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup) GetEntityData() *types.CommonEntityData {
@@ -396,8 +394,8 @@ func (iccpGroup *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup) GetEntityData
     iccpGroup.EntityData.Children = types.NewOrderedMap()
     iccpGroup.EntityData.Children.Append("backbones", types.YChild{"Backbones", &iccpGroup.Backbones})
     iccpGroup.EntityData.Children.Append("members", types.YChild{"Members", &iccpGroup.Members})
-    iccpGroup.EntityData.Children.Append("Cisco-IOS-XR-bundlemgr-cfg:mlacp", types.YChild{"Mlacp", &iccpGroup.Mlacp})
     iccpGroup.EntityData.Children.Append("Cisco-IOS-XR-icpe-infra-cfg:nv-satellite", types.YChild{"NvSatellite", &iccpGroup.NvSatellite})
+    iccpGroup.EntityData.Children.Append("Cisco-IOS-XR-bundlemgr-cfg:mlacp", types.YChild{"Mlacp", &iccpGroup.Mlacp})
     iccpGroup.EntityData.Leafs = types.NewOrderedMap()
     iccpGroup.EntityData.Leafs.Append("group-number", types.YLeaf{"GroupNumber", iccpGroup.GroupNumber})
     iccpGroup.EntityData.Leafs.Append("isolation-recovery-delay", types.YLeaf{"IsolationRecoveryDelay", iccpGroup.IsolationRecoveryDelay})
@@ -450,7 +448,7 @@ type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Backbones_Backbone struct 
     YListKey string
 
     // This attribute is a key. none. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BackboneName interface{}
 }
 
@@ -517,7 +515,7 @@ type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members_Member struct {
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 }
 
@@ -541,6 +539,37 @@ func (member *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Members_Member) G
     return &(member.EntityData)
 }
 
+// RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite
+// nV Satellite configuration
+type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Optional identifier for this system. The type is string with pattern:
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
+    SystemMac interface{}
+}
+
+func (nvSatellite *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite) GetEntityData() *types.CommonEntityData {
+    nvSatellite.EntityData.YFilter = nvSatellite.YFilter
+    nvSatellite.EntityData.YangName = "nv-satellite"
+    nvSatellite.EntityData.BundleName = "cisco_ios_xr"
+    nvSatellite.EntityData.ParentYangName = "iccp-group"
+    nvSatellite.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
+    nvSatellite.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/" + nvSatellite.EntityData.SegmentPath
+    nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    nvSatellite.EntityData.Children = types.NewOrderedMap()
+    nvSatellite.EntityData.Leafs = types.NewOrderedMap()
+    nvSatellite.EntityData.Leafs.Append("system-mac", types.YLeaf{"SystemMac", nvSatellite.SystemMac})
+
+    nvSatellite.EntityData.YListKeys = []string {}
+
+    return &(nvSatellite.EntityData)
+}
+
 // RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp
 // Multi-chassis Link Aggregation Control Protocol
 // commands
@@ -553,7 +582,7 @@ type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp struct {
     ConnectTimeout interface{}
 
     // Unique LACP identifier for this system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemMac interface{}
 
     // Unique identifier for this system in the ICCP Group. The type is
@@ -586,36 +615,5 @@ func (mlacp *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_Mlacp) GetEntityDa
     mlacp.EntityData.YListKeys = []string {}
 
     return &(mlacp.EntityData)
-}
-
-// RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite
-// nV Satellite configuration
-type RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Optional identifier for this system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
-    SystemMac interface{}
-}
-
-func (nvSatellite *RedundancyGroupManager_Iccp_IccpGroups_IccpGroup_NvSatellite) GetEntityData() *types.CommonEntityData {
-    nvSatellite.EntityData.YFilter = nvSatellite.YFilter
-    nvSatellite.EntityData.YangName = "nv-satellite"
-    nvSatellite.EntityData.BundleName = "cisco_ios_xr"
-    nvSatellite.EntityData.ParentYangName = "iccp-group"
-    nvSatellite.EntityData.SegmentPath = "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite"
-    nvSatellite.EntityData.AbsolutePath = "Cisco-IOS-XR-rgmgr-cfg:redundancy-group-manager/iccp/iccp-groups/iccp-group/" + nvSatellite.EntityData.SegmentPath
-    nvSatellite.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nvSatellite.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nvSatellite.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    nvSatellite.EntityData.Children = types.NewOrderedMap()
-    nvSatellite.EntityData.Leafs = types.NewOrderedMap()
-    nvSatellite.EntityData.Leafs.Append("system-mac", types.YLeaf{"SystemMac", nvSatellite.SystemMac})
-
-    nvSatellite.EntityData.YListKeys = []string {}
-
-    return &(nvSatellite.EntityData)
 }
 

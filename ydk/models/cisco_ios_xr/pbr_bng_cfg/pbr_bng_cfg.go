@@ -48,7 +48,7 @@ type BngPbr struct {
     YFilter yfilter.YFilter
 
     // Interface for source address. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BngInterface interface{}
 
     // HTTP Enrichment.

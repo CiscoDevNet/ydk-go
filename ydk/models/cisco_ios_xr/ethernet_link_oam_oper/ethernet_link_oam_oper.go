@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam", reflect.TypeOf(EtherLinkOam{}))
 }
 
-// LogLocation represents The location of the event that caused a log entry
-type LogLocation string
-
-const (
-    // A local event
-    LogLocation_log_location_local LogLocation = "log-location-local"
-
-    // A remote event
-    LogLocation_log_location_remote LogLocation = "log-location-remote"
-)
-
 // Log represents The type of a log entry
 type Log string
 
@@ -62,61 +51,15 @@ const (
     Log_log_type_critical_event Log = "log-type-critical-event"
 )
 
-// Action represents Actions supported by an OAM interface
-type Action string
+// LogLocation represents The location of the event that caused a log entry
+type LogLocation string
 
 const (
-    // Disabled (do nothing)
-    Action_no_action Action = "no-action"
+    // A local event
+    LogLocation_log_location_local LogLocation = "log-location-local"
 
-    // Disable the interface
-    Action_disable_interface Action = "disable-interface"
-
-    // Log the event and do nothing else
-    Action_log Action = "log"
-
-    // EFD the interface
-    Action_efd Action = "efd"
-)
-
-// ProtocolState represents The state the protocol is in
-type ProtocolState string
-
-const (
-    // The protocol is in the INACTIVE state
-    ProtocolState_protocol_state_inactive ProtocolState = "protocol-state-inactive"
-
-    // The protocol is in the FAULT state
-    ProtocolState_protocol_state_fault ProtocolState = "protocol-state-fault"
-
-    // The protocol is in the ACTIVE_SEND_LOCAL state
-    ProtocolState_protocol_state_active_send_local ProtocolState = "protocol-state-active-send-local"
-
-    // The protocol is in the SEND_LOCAL_REMOTE state
-    ProtocolState_protocol_state_passive_wait ProtocolState = "protocol-state-passive-wait"
-
-    // The protocol is in the LOCAL_REMOTE state
-    ProtocolState_protocol_state_send_local_remote ProtocolState = "protocol-state-send-local-remote"
-
-    // The protocol is in the LOCAL_REMOTE_OK state
-    ProtocolState_protocol_state_send_local_remote_ok ProtocolState = "protocol-state-send-local-remote-ok"
-
-    // The protocol is in the SEND_ANY state
-    ProtocolState_protocol_state_send_any ProtocolState = "protocol-state-send-any"
-)
-
-// Mode represents Mode of an OAM interface
-type Mode string
-
-const (
-    // Passive mode
-    Mode_passive Mode = "passive"
-
-    // Active mode
-    Mode_active Mode = "active"
-
-    // Don't care what the mode is
-    Mode_dont_care Mode = "dont-care"
+    // A remote event
+    LogLocation_log_location_remote LogLocation = "log-location-remote"
 )
 
 // LoopbackStatus represents The loopback mode of an OAM interface
@@ -178,6 +121,63 @@ const (
 
     // 802.3 OAM is operating in half-duplex mode
     OperationalState_operational_half_duplex OperationalState = "operational-half-duplex"
+)
+
+// Mode represents Mode of an OAM interface
+type Mode string
+
+const (
+    // Passive mode
+    Mode_passive Mode = "passive"
+
+    // Active mode
+    Mode_active Mode = "active"
+
+    // Don't care what the mode is
+    Mode_dont_care Mode = "dont-care"
+)
+
+// Action represents Actions supported by an OAM interface
+type Action string
+
+const (
+    // Disabled (do nothing)
+    Action_no_action Action = "no-action"
+
+    // Disable the interface
+    Action_disable_interface Action = "disable-interface"
+
+    // Log the event and do nothing else
+    Action_log Action = "log"
+
+    // EFD the interface
+    Action_efd Action = "efd"
+)
+
+// ProtocolState represents The state the protocol is in
+type ProtocolState string
+
+const (
+    // The protocol is in the INACTIVE state
+    ProtocolState_protocol_state_inactive ProtocolState = "protocol-state-inactive"
+
+    // The protocol is in the FAULT state
+    ProtocolState_protocol_state_fault ProtocolState = "protocol-state-fault"
+
+    // The protocol is in the ACTIVE_SEND_LOCAL state
+    ProtocolState_protocol_state_active_send_local ProtocolState = "protocol-state-active-send-local"
+
+    // The protocol is in the SEND_LOCAL_REMOTE state
+    ProtocolState_protocol_state_passive_wait ProtocolState = "protocol-state-passive-wait"
+
+    // The protocol is in the LOCAL_REMOTE state
+    ProtocolState_protocol_state_send_local_remote ProtocolState = "protocol-state-send-local-remote"
+
+    // The protocol is in the LOCAL_REMOTE_OK state
+    ProtocolState_protocol_state_send_local_remote_ok ProtocolState = "protocol-state-send-local-remote-ok"
+
+    // The protocol is in the SEND_ANY state
+    ProtocolState_protocol_state_send_any ProtocolState = "protocol-state-send-any"
 )
 
 // EtherLinkOam
@@ -278,7 +278,7 @@ type EtherLinkOam_DiscoveryInfoInterfaces_DiscoveryInfoInterface struct {
     YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Interface Name. The type is string.
@@ -343,11 +343,11 @@ type EtherLinkOam_DiscoveryInfoInterfaces_DiscoveryInfoInterface struct {
     RemoteMtu interface{}
 
     // Remote MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     RemoteMacAddress interface{}
 
     // Remote vendor OUI. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RemoteVendorOui interface{}
 
     // Remote revision. The type is interface{} with range: 0..65535.
@@ -549,7 +549,7 @@ type EtherLinkOam_InterfaceStateInterfaces_InterfaceStateInterface struct {
     YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // The state the protocol is in. The type is ProtocolState.
@@ -763,7 +763,7 @@ type EtherLinkOam_RunningConfigInterfaces_RunningConfigInterface struct {
     YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Is 100ms hello interval time enabled?. The type is bool.
@@ -1165,7 +1165,7 @@ type EtherLinkOam_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Ethernet Link OAM Summary information for the entire node.
@@ -1374,7 +1374,7 @@ type EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInterface struct {
     YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Table of Ethernet Link OAM Event Log entries on the interface.
@@ -1447,7 +1447,7 @@ type EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInterface_EventLogEntryIn
     YListKey string
 
     // This attribute is a key. Event Log Entry index. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     EventLogEntryIndex interface{}
 
     // Index in the log entries table. The type is interface{} with range:
@@ -1455,11 +1455,11 @@ type EtherLinkOam_EventLogEntryInterfaces_EventLogEntryInterface_EventLogEntryIn
     Index interface{}
 
     // Interface handle for this log entry. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Handle interface{}
 
     // OUI for the log entry. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Oui interface{}
 
     // Timestamp in hundredths of a second since unix epoch for when the event
@@ -1609,7 +1609,7 @@ type EtherLinkOam_StatsInterfaces_StatsInterface struct {
     YListKey string
 
     // This attribute is a key. Member Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Number of information OAMPDUs transmitted. The type is interface{} with

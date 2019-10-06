@@ -127,7 +127,7 @@ type ServiceFunctionChaining_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node to collect statistics from. The type is
-    // string with pattern: b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // string with pattern: ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Client Process.

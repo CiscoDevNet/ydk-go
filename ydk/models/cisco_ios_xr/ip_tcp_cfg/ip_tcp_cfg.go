@@ -336,8 +336,7 @@ type IpTcp_Ao_Keychains_Keychain_Keys_Key struct {
     YListKey string
 
     // This attribute is a key. 48-bit Key identifier in range [0 -
-    // 281474976710655]. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // 281474976710655]. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     KeyId interface{}
 
     // Send ID. The type is interface{} with range: 0..255. This attribute is
@@ -718,7 +717,7 @@ type Ip_Cinetd_Services_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // IPV6 related services.

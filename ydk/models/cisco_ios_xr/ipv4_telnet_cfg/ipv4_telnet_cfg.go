@@ -64,7 +64,7 @@ type Ipv6Telnet_Client struct {
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 }
 
@@ -125,7 +125,7 @@ type Ipv4Telnet_Client struct {
     YFilter yfilter.YFilter
 
     // Source interface for telnet sessions. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 }
 

@@ -36,9 +36,9 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
      Copyright (c) 2012-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-04-09 {
+  revision 2018-02-06 {
     description
-      "Required changes for ConfD 6.4.5";
+      "Adding CLI input validation for LC priority shutdown feature";
   }
 
   grouping temp-data {
@@ -49,19 +49,15 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
+        leaf loc_header {
+          type uint32;
+        }
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
         list sensor_attributes {
           key "sensor";
-          leaf loc_header {
-            type boolean;
-            default "false";
-          }
-          leaf print_header {
-            type boolean;
-            default "false";
-          }
-          leaf location {
-            type string;
-          }
           leaf sensor {
             type string;
           }
@@ -158,19 +154,15 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
+        leaf loc_header {
+          type uint32;
+        }
         list sensor_attributes {
           key "sensor";
-          leaf loc_header {
-            type boolean;
-            default "false";
-          }
-          leaf print_header {
-            type boolean;
-            default "false";
-          }
-          leaf location {
-            type string;
-          }
           leaf sensor {
             type string;
           }
@@ -267,19 +259,15 @@ module Cisco-IOS-XR-sysadmin-envmon-ui {
         leaf location {
           type string;
         }
+        leaf print_header {
+          type boolean;
+          default "false";
+        }
+        leaf loc_header {
+          type uint32;
+        }
         list sensor_attributes {
           key "sensor";
-          leaf loc_header {
-            type boolean;
-            default "false";
-          }
-          leaf print_header {
-            type boolean;
-            default "false";
-          }
-          leaf location {
-            type string;
-          }
           leaf sensor {
             type string;
           }

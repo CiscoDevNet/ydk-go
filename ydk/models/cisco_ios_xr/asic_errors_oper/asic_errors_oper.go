@@ -96,7 +96,7 @@ type AsicErrors_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Asic on the node. The type is slice of
@@ -136,7 +136,7 @@ type AsicErrors_Nodes_Node_AsicInformation struct {
     YListKey string
 
     // This attribute is a key. Asic string. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Asic interface{}
 
     // All asic instance on the node.

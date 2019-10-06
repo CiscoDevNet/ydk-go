@@ -12,18 +12,11 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package types"))
 }
 
-type ADDRESSFAMILY struct {
+type L2ETHERNET struct {
 }
 
-func (id ADDRESSFAMILY) String() string {
-	return "openconfig-types:ADDRESS_FAMILY"
-}
-
-type IPV4 struct {
-}
-
-func (id IPV4) String() string {
-	return "openconfig-types:IPV4"
+func (id L2ETHERNET) String() string {
+	return "openconfig-types:L2_ETHERNET"
 }
 
 type IPV6 struct {
@@ -40,10 +33,17 @@ func (id MPLS) String() string {
 	return "openconfig-types:MPLS"
 }
 
-type L2ETHERNET struct {
+type ADDRESSFAMILY struct {
 }
 
-func (id L2ETHERNET) String() string {
-	return "openconfig-types:L2_ETHERNET"
+func (id ADDRESSFAMILY) String() string {
+	return "openconfig-types:ADDRESS_FAMILY"
+}
+
+type IPV4 struct {
+}
+
+func (id IPV4) String() string {
+	return "openconfig-types:IPV4"
 }
 

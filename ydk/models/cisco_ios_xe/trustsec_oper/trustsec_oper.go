@@ -65,6 +65,23 @@ const (
     CtsOdmBindingSource_from_cli_hi CtsOdmBindingSource = "from-cli-hi"
 )
 
+// SxpConMode represents SXP Connection mode
+type SxpConMode string
+
+const (
+    // SXP Connection mode is Invalid
+    SxpConMode_con_mode_invalid SxpConMode = "con-mode-invalid"
+
+    // SXP Connection mode is Speaker
+    SxpConMode_con_mode_speaker SxpConMode = "con-mode-speaker"
+
+    // SXP Connection mode is Listener
+    SxpConMode_con_mode_listener SxpConMode = "con-mode-listener"
+
+    // SXP Connection mode is Both (Speaker and Listener)
+    SxpConMode_con_mode_both SxpConMode = "con-mode-both"
+)
+
 // SxpConState represents SXP Connection state
 type SxpConState string
 
@@ -83,23 +100,6 @@ const (
 
     // SXP Connection state is Not-Applicable
     SxpConState_state_not_applicable SxpConState = "state-not-applicable"
-)
-
-// SxpConMode represents SXP Connection mode
-type SxpConMode string
-
-const (
-    // SXP Connection mode is Invalid
-    SxpConMode_con_mode_invalid SxpConMode = "con-mode-invalid"
-
-    // SXP Connection mode is Speaker
-    SxpConMode_con_mode_speaker SxpConMode = "con-mode-speaker"
-
-    // SXP Connection mode is Listener
-    SxpConMode_con_mode_listener SxpConMode = "con-mode-listener"
-
-    // SXP Connection mode is Both (Speaker and Listener)
-    SxpConMode_con_mode_both SxpConMode = "con-mode-both"
 )
 
 // TrustsecState
@@ -203,9 +203,9 @@ type TrustsecState_CtsRolebasedSgtmaps_CtsRolebasedSgtmap struct {
     // Secure Group Tag. Only IPv4 prefix information is supported currently to
     // get the Security Group Tag binding in this device. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2])),
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8]))).
     Ip interface{}
 
     // This attribute is a key. VRF-Name to find the Security Group Tag for the
@@ -331,7 +331,7 @@ type TrustsecState_CtsRolebasedPolicies_CtsRolebasedPolicy struct {
     // last. The value will be represented as date and time  corresponding to the
     // local time zone of the Identify Services Engine when the Role based 
     // permissions was modified or updated last. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastUpdatedTime interface{}
 
     // Total number of packets that have been denied by the Role based permissions
@@ -472,9 +472,9 @@ type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
     // This attribute is a key. IP-Address information of the peer of an SXP
     // connection in this device. Only IPv4 address is currently supported. The
     // type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PeerIp interface{}
 
     // This attribute is a key. vrf-name string of the VRF instance in this
@@ -485,9 +485,9 @@ type TrustsecState_CtsSxpConnections_CtsSxpConnection struct {
 
     // Source IP-Address of the SXP connection in this device for the given peer
     // IP-Address. The type is one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceIp interface{}
 
     // SXP speaker state information of the SXP connection in this device. This

@@ -27,100 +27,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-rsvp-oper:rsvp", reflect.TypeOf(Rsvp{}))
 }
 
-// RsvpMode represents Rsvp mode
-type RsvpMode string
-
-const (
-    // Send
-    RsvpMode_send RsvpMode = "send"
-
-    // Receive
-    RsvpMode_receive RsvpMode = "receive"
-)
-
-// RsvpSession represents Rsvp session
-type RsvpSession string
-
-const (
-    // Show IPv4 sessions only
-    RsvpSession_ipv4 RsvpSession = "ipv4"
-
-    // Show IPv4 P2P LSP sessions only
-    RsvpSession_p2p_lsp_ipv4 RsvpSession = "p2p-lsp-ipv4"
-
-    // Show IPv4 OUNI sessions only
-    RsvpSession_ouni_ipv4 RsvpSession = "ouni-ipv4"
-
-    // Show IPv4 P2MP LSP sessions only
-    RsvpSession_p2mp_lsp_ipv4 RsvpSession = "p2mp-lsp-ipv4"
-)
-
-// IgpteLibBwModel represents Bandwidth model
-type IgpteLibBwModel string
-
-const (
-    // Russian Dolls Model
-    IgpteLibBwModel_rdm IgpteLibBwModel = "rdm"
-
-    // Maximum Allocation Model
-    IgpteLibBwModel_mam IgpteLibBwModel = "mam"
-
-    // No model set
-    IgpteLibBwModel_not_set IgpteLibBwModel = "not-set"
-)
-
-// RsvpMgmtRestartState represents RSVP GR (Graceful Restart) Restart states
-type RsvpMgmtRestartState string
-
-const (
-    // Restart is done
-    RsvpMgmtRestartState_done RsvpMgmtRestartState = "done"
-
-    // Neighbor is in recovery
-    RsvpMgmtRestartState_recovery RsvpMgmtRestartState = "recovery"
-
-    // Neighbor recovery aborted
-    RsvpMgmtRestartState_abort RsvpMgmtRestartState = "abort"
-)
-
-// RsvpMgmtHelloDownReason represents Reasons why RSVP Hellos went down
-type RsvpMgmtHelloDownReason string
-
-const (
-    // Not applicable. This means RSVP Hellos are up
-    RsvpMgmtHelloDownReason_not_applicable RsvpMgmtHelloDownReason = "not-applicable"
-
-    // Incorrect destination instance in received
-    // Hellos
-    RsvpMgmtHelloDownReason_wrong_destination_instance RsvpMgmtHelloDownReason = "wrong-destination-instance"
-
-    // Incorrect source instance in received Hellos
-    RsvpMgmtHelloDownReason_wrong_source_instance RsvpMgmtHelloDownReason = "wrong-source-instance"
-
-    // Hellos not being received
-    RsvpMgmtHelloDownReason_hello_missed RsvpMgmtHelloDownReason = "hello-missed"
-
-    // Interface went down
-    RsvpMgmtHelloDownReason_interface_down RsvpMgmtHelloDownReason = "interface-down"
-
-    // Neighbor disabled Hellos
-    RsvpMgmtHelloDownReason_neighbor_disabled_hello RsvpMgmtHelloDownReason = "neighbor-disabled-hello"
-
-    // Control channel went down
-    RsvpMgmtHelloDownReason_control_channel_down RsvpMgmtHelloDownReason = "control-channel-down"
-)
-
-// RsvpMgmtHelloInstanceOwner represents RSVP Hello instance owner
-type RsvpMgmtHelloInstanceOwner string
-
-const (
-    // MPLS Graceful Restart
-    RsvpMgmtHelloInstanceOwner_mpls_graceful_restart RsvpMgmtHelloInstanceOwner = "mpls-graceful-restart"
-
-    // MPLS OUNI
-    RsvpMgmtHelloInstanceOwner_mpls_ouni RsvpMgmtHelloInstanceOwner = "mpls-ouni"
-)
-
 // RsvpMgmtAssociation represents RSVP ASSOCIATION Types
 type RsvpMgmtAssociation string
 
@@ -141,21 +47,57 @@ const (
     RsvpMgmtAssociation_extended_ipv6 RsvpMgmtAssociation = "extended-ipv6"
 )
 
-// RsvpMgmtRroSubobj represents RSVP RRO Types
-type RsvpMgmtRroSubobj string
+// RsvpMgmtEroSubobj represents RSVP ERO Types
+type RsvpMgmtEroSubobj string
 
 const (
-    // IPv4 RRO Type
-    RsvpMgmtRroSubobj_ipv4rro_type RsvpMgmtRroSubobj = "ipv4rro-type"
+    // IPv4 ERO Type
+    RsvpMgmtEroSubobj_rsvp_mgmt_ero_type_ipv4 RsvpMgmtEroSubobj = "rsvp-mgmt-ero-type-ipv4"
 
-    // Label RRO Type
-    RsvpMgmtRroSubobj_label_rro_type RsvpMgmtRroSubobj = "label-rro-type"
+    // Unnumbered ERO Type
+    RsvpMgmtEroSubobj_rsvp_mgmt_ero_type_un_num RsvpMgmtEroSubobj = "rsvp-mgmt-ero-type-un-num"
+)
 
-    // Unnumbered RRO Type
-    RsvpMgmtRroSubobj_unnumbered_rro_type RsvpMgmtRroSubobj = "unnumbered-rro-type"
+// RsvpMgmtQosServiceEnum represents QOS Types
+type RsvpMgmtQosServiceEnum string
 
-    // SRLG RRO Type
-    RsvpMgmtRroSubobj_srlg_rro_type RsvpMgmtRroSubobj = "srlg-rro-type"
+const (
+    // QOS Unknown
+    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_unknown RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-unknown"
+
+    // QOS Guaranteed
+    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_guaranteed RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-guaranteed"
+
+    // QOS Controlled Load
+    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_controlled_load RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-controlled-load"
+
+    // QOS Qualitative
+    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_qualitative RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-qualitative"
+)
+
+// RsvpMgmtHelloInstance represents RSVP Hello instance types
+type RsvpMgmtHelloInstance string
+
+const (
+    // Hello requests and ACKs are sent
+    RsvpMgmtHelloInstance_active RsvpMgmtHelloInstance = "active"
+
+    // Hello ACKs only are sent
+    RsvpMgmtHelloInstance_passive RsvpMgmtHelloInstance = "passive"
+)
+
+// IgpteLibBwModel represents Bandwidth model
+type IgpteLibBwModel string
+
+const (
+    // Russian Dolls Model
+    IgpteLibBwModel_rdm IgpteLibBwModel = "rdm"
+
+    // Maximum Allocation Model
+    IgpteLibBwModel_mam IgpteLibBwModel = "mam"
+
+    // No model set
+    IgpteLibBwModel_not_set IgpteLibBwModel = "not-set"
 )
 
 // RsvpMgmtFrrStateEnum represents RSVP FRR States
@@ -189,26 +131,76 @@ const (
     RsvpProcNsrNotReadyReason_nsr_peer_not_in_sync RsvpProcNsrNotReadyReason = "nsr-peer-not-in-sync"
 )
 
-// RsvpSyncStatus represents Rsvp sync status
-type RsvpSyncStatus string
+// RsvpMgmtDsteModes represents RSVP DSTE modes
+type RsvpMgmtDsteModes string
 
 const (
-    // Not Ready
-    RsvpSyncStatus_not_ready RsvpSyncStatus = "not-ready"
+    // pre standard
+    RsvpMgmtDsteModes_pre_standard RsvpMgmtDsteModes = "pre-standard"
 
-    // Ready
-    RsvpSyncStatus_ready RsvpSyncStatus = "ready"
+    // standard
+    RsvpMgmtDsteModes_standard RsvpMgmtDsteModes = "standard"
 )
 
-// RsvpMgmtGrApp represents RSVP Graceful Restart application type
-type RsvpMgmtGrApp string
+// RsvpMgmtRestartState represents RSVP GR (Graceful Restart) Restart states
+type RsvpMgmtRestartState string
 
 const (
-    // Application is OUNI
-    RsvpMgmtGrApp_ouni RsvpMgmtGrApp = "ouni"
+    // Restart is done
+    RsvpMgmtRestartState_done RsvpMgmtRestartState = "done"
 
-    // Application is GMPLS
-    RsvpMgmtGrApp_gmpls RsvpMgmtGrApp = "gmpls"
+    // Neighbor is in recovery
+    RsvpMgmtRestartState_recovery RsvpMgmtRestartState = "recovery"
+
+    // Neighbor recovery aborted
+    RsvpMgmtRestartState_abort RsvpMgmtRestartState = "abort"
+)
+
+// RsvpMgmtReservationTypeEnum represents RSVP Reservation Types
+type RsvpMgmtReservationTypeEnum string
+
+const (
+    // Single Reservation
+    RsvpMgmtReservationTypeEnum_rsvp_mgmt_ff_option RsvpMgmtReservationTypeEnum = "rsvp-mgmt-ff-option"
+
+    // Shared Reservation, Unlimited Scope
+    RsvpMgmtReservationTypeEnum_rsvp_mgmt_wf_option RsvpMgmtReservationTypeEnum = "rsvp-mgmt-wf-option"
+
+    // Shared Reservation, Limited Scope
+    RsvpMgmtReservationTypeEnum_rsvp_mgmt_se_option RsvpMgmtReservationTypeEnum = "rsvp-mgmt-se-option"
+)
+
+// RsvpMgmtTspec represents RSVP Generic Sender Tspec Types
+type RsvpMgmtTspec string
+
+const (
+    // G709 OTN Sender Tspec Type
+    RsvpMgmtTspec_g709otn RsvpMgmtTspec = "g709otn"
+
+    // Int-Serv Sender Tspec Type
+    RsvpMgmtTspec_intsrv RsvpMgmtTspec = "intsrv"
+)
+
+// RsvpMgmtAuthDirection represents RSVP Authentication Direction Types
+type RsvpMgmtAuthDirection string
+
+const (
+    // Send
+    RsvpMgmtAuthDirection_rsvp_mgmt_auth_direction_send RsvpMgmtAuthDirection = "rsvp-mgmt-auth-direction-send"
+
+    // Receive
+    RsvpMgmtAuthDirection_rsvp_mgmt_auth_direction_recv RsvpMgmtAuthDirection = "rsvp-mgmt-auth-direction-recv"
+)
+
+// RsvpMgmtFilter represents RSVP Filter Types
+type RsvpMgmtFilter string
+
+const (
+    // IPv4 FilterSpec Type
+    RsvpMgmtFilter_rsvp_mgmt_filter_type_ipv4 RsvpMgmtFilter = "rsvp-mgmt-filter-type-ipv4"
+
+    // P2MP LSP IPv4 FilterSpec Type
+    RsvpMgmtFilter_rsvp_mgmt_filter_type_p2mp_lsp_ipv4 RsvpMgmtFilter = "rsvp-mgmt-filter-type-p2mp-lsp-ipv4"
 )
 
 // RsvpProcRole represents RSVP Process Role
@@ -240,6 +232,137 @@ const (
     RsvpProcRole_count RsvpProcRole = "count"
 )
 
+// RsvpSession represents Rsvp session
+type RsvpSession string
+
+const (
+    // Show IPv4 sessions only
+    RsvpSession_ipv4 RsvpSession = "ipv4"
+
+    // Show IPv4 P2P LSP sessions only
+    RsvpSession_p2p_lsp_ipv4 RsvpSession = "p2p-lsp-ipv4"
+
+    // Show IPv4 OUNI sessions only
+    RsvpSession_ouni_ipv4 RsvpSession = "ouni-ipv4"
+
+    // Show IPv4 P2MP LSP sessions only
+    RsvpSession_p2mp_lsp_ipv4 RsvpSession = "p2mp-lsp-ipv4"
+)
+
+// RsvpMgmtHelloState represents RSVP Hello instance states
+type RsvpMgmtHelloState string
+
+const (
+    // No Hello messages ever received from neighbor
+    RsvpMgmtHelloState_hello_state_init RsvpMgmtHelloState = "hello-state-init"
+
+    // Receiving expected Hello messages from neighbor
+    RsvpMgmtHelloState_hello_state_up RsvpMgmtHelloState = "hello-state-up"
+
+    // Stopped receiving expected Hello messages from
+    // neighbor
+    RsvpMgmtHelloState_hello_state_down RsvpMgmtHelloState = "hello-state-down"
+)
+
+// RsvpMgmtFlowSpec represents RSVP Generic FlowSpec Types
+type RsvpMgmtFlowSpec string
+
+const (
+    // G709 OTN FlowSpec Type
+    RsvpMgmtFlowSpec_g709otn RsvpMgmtFlowSpec = "g709otn"
+)
+
+// RsvpMgmtHelloInstanceOwner represents RSVP Hello instance owner
+type RsvpMgmtHelloInstanceOwner string
+
+const (
+    // MPLS Graceful Restart
+    RsvpMgmtHelloInstanceOwner_mpls_graceful_restart RsvpMgmtHelloInstanceOwner = "mpls-graceful-restart"
+
+    // MPLS OUNI
+    RsvpMgmtHelloInstanceOwner_mpls_ouni RsvpMgmtHelloInstanceOwner = "mpls-ouni"
+)
+
+// RsvpMgmtRroSubobj represents RSVP RRO Types
+type RsvpMgmtRroSubobj string
+
+const (
+    // IPv4 RRO Type
+    RsvpMgmtRroSubobj_ipv4rro_type RsvpMgmtRroSubobj = "ipv4rro-type"
+
+    // Label RRO Type
+    RsvpMgmtRroSubobj_label_rro_type RsvpMgmtRroSubobj = "label-rro-type"
+
+    // Unnumbered RRO Type
+    RsvpMgmtRroSubobj_unnumbered_rro_type RsvpMgmtRroSubobj = "unnumbered-rro-type"
+
+    // SRLG RRO Type
+    RsvpMgmtRroSubobj_srlg_rro_type RsvpMgmtRroSubobj = "srlg-rro-type"
+)
+
+// RsvpMgmtSession represents RSVP Session Types
+type RsvpMgmtSession string
+
+const (
+    // UDP IPv4 Session Type
+    RsvpMgmtSession_rsvp_mgmt_session_type_udp_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-udp-ipv4"
+
+    // LSP IPv4 Session Type
+    RsvpMgmtSession_rsvp_mgmt_session_type_lsp_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-lsp-ipv4"
+
+    // UNI IPv4 Session Type
+    RsvpMgmtSession_rsvp_mgmt_session_type_uni_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-uni-ipv4"
+
+    // P2MP LSP IPv4 Session Type
+    RsvpMgmtSession_rsvp_mgmt_session_type_p2mp_lsp_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-p2mp-lsp-ipv4"
+)
+
+// RsvpMgmtHelloDownReason represents Reasons why RSVP Hellos went down
+type RsvpMgmtHelloDownReason string
+
+const (
+    // Not applicable. This means RSVP Hellos are up
+    RsvpMgmtHelloDownReason_not_applicable RsvpMgmtHelloDownReason = "not-applicable"
+
+    // Incorrect destination instance in received
+    // Hellos
+    RsvpMgmtHelloDownReason_wrong_destination_instance RsvpMgmtHelloDownReason = "wrong-destination-instance"
+
+    // Incorrect source instance in received Hellos
+    RsvpMgmtHelloDownReason_wrong_source_instance RsvpMgmtHelloDownReason = "wrong-source-instance"
+
+    // Hellos not being received
+    RsvpMgmtHelloDownReason_hello_missed RsvpMgmtHelloDownReason = "hello-missed"
+
+    // Interface went down
+    RsvpMgmtHelloDownReason_interface_down RsvpMgmtHelloDownReason = "interface-down"
+
+    // Neighbor disabled Hellos
+    RsvpMgmtHelloDownReason_neighbor_disabled_hello RsvpMgmtHelloDownReason = "neighbor-disabled-hello"
+
+    // Control channel went down
+    RsvpMgmtHelloDownReason_control_channel_down RsvpMgmtHelloDownReason = "control-channel-down"
+)
+
+// RsvpMgmtGenericLabel represents RSVP Generic Label Types
+type RsvpMgmtGenericLabel string
+
+const (
+    // Generalized Label Type
+    RsvpMgmtGenericLabel_rsvp_mgmt_label_type_gmpls RsvpMgmtGenericLabel = "rsvp-mgmt-label-type-gmpls"
+)
+
+// RsvpMgmtGrApp represents RSVP Graceful Restart application type
+type RsvpMgmtGrApp string
+
+const (
+    // Application is OUNI
+    RsvpMgmtGrApp_ouni RsvpMgmtGrApp = "ouni"
+
+    // Application is GMPLS
+    RsvpMgmtGrApp_gmpls RsvpMgmtGrApp = "gmpls"
+)
+
 // RsvpMgmtAuthChallengeStatus represents RSVP Authentication Challenge Status
 type RsvpMgmtAuthChallengeStatus string
 
@@ -260,157 +383,6 @@ const (
     RsvpMgmtAuthChallengeStatus_rsvp_mgmt_auth_cs_not_supported RsvpMgmtAuthChallengeStatus = "rsvp-mgmt-auth-cs-not-supported"
 )
 
-// RsvpMgmtHelloInstance represents RSVP Hello instance types
-type RsvpMgmtHelloInstance string
-
-const (
-    // Hello requests and ACKs are sent
-    RsvpMgmtHelloInstance_active RsvpMgmtHelloInstance = "active"
-
-    // Hello ACKs only are sent
-    RsvpMgmtHelloInstance_passive RsvpMgmtHelloInstance = "passive"
-)
-
-// RsvpMgmtHelloState represents RSVP Hello instance states
-type RsvpMgmtHelloState string
-
-const (
-    // No Hello messages ever received from neighbor
-    RsvpMgmtHelloState_hello_state_init RsvpMgmtHelloState = "hello-state-init"
-
-    // Receiving expected Hello messages from neighbor
-    RsvpMgmtHelloState_hello_state_up RsvpMgmtHelloState = "hello-state-up"
-
-    // Stopped receiving expected Hello messages from
-    // neighbor
-    RsvpMgmtHelloState_hello_state_down RsvpMgmtHelloState = "hello-state-down"
-)
-
-// RsvpMgmtReservationTypeEnum represents RSVP Reservation Types
-type RsvpMgmtReservationTypeEnum string
-
-const (
-    // Single Reservation
-    RsvpMgmtReservationTypeEnum_rsvp_mgmt_ff_option RsvpMgmtReservationTypeEnum = "rsvp-mgmt-ff-option"
-
-    // Shared Reservation, Unlimited Scope
-    RsvpMgmtReservationTypeEnum_rsvp_mgmt_wf_option RsvpMgmtReservationTypeEnum = "rsvp-mgmt-wf-option"
-
-    // Shared Reservation, Limited Scope
-    RsvpMgmtReservationTypeEnum_rsvp_mgmt_se_option RsvpMgmtReservationTypeEnum = "rsvp-mgmt-se-option"
-)
-
-// RsvpMgmtFlowSpec represents RSVP Generic FlowSpec Types
-type RsvpMgmtFlowSpec string
-
-const (
-    // G709 OTN FlowSpec Type
-    RsvpMgmtFlowSpec_g709otn RsvpMgmtFlowSpec = "g709otn"
-)
-
-// RsvpMgmtQosServiceEnum represents QOS Types
-type RsvpMgmtQosServiceEnum string
-
-const (
-    // QOS Unknown
-    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_unknown RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-unknown"
-
-    // QOS Guaranteed
-    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_guaranteed RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-guaranteed"
-
-    // QOS Controlled Load
-    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_controlled_load RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-controlled-load"
-
-    // QOS Qualitative
-    RsvpMgmtQosServiceEnum_rsvp_mgmt_qos_qualitative RsvpMgmtQosServiceEnum = "rsvp-mgmt-qos-qualitative"
-)
-
-// RsvpTimerState represents RSVP Timer States
-type RsvpTimerState string
-
-const (
-    // RSVP timer running and sleeping
-    RsvpTimerState_rsvp_timer_running_and_sleeping RsvpTimerState = "rsvp-timer-running-and-sleeping"
-
-    // RSVP timer running
-    RsvpTimerState_rsvp_timer_running RsvpTimerState = "rsvp-timer-running"
-
-    // RSVP timer not running
-    RsvpTimerState_rsvp_timer_not_running RsvpTimerState = "rsvp-timer-not-running"
-)
-
-// RsvpMgmtEroSubobjStatus represents RSVP ERO Status
-type RsvpMgmtEroSubobjStatus string
-
-const (
-    // ERO is not available in topology
-    RsvpMgmtEroSubobjStatus_rsvp_mgmt_ero_status_not_available RsvpMgmtEroSubobjStatus = "rsvp-mgmt-ero-status-not-available"
-
-    // ERO is available in topology
-    RsvpMgmtEroSubobjStatus_rsvp_mgmt_ero_status_available RsvpMgmtEroSubobjStatus = "rsvp-mgmt-ero-status-available"
-
-    // ERO doesn't have bw available in topology
-    RsvpMgmtEroSubobjStatus_rsvp_mgmt_ero_status_bw_not_available RsvpMgmtEroSubobjStatus = "rsvp-mgmt-ero-status-bw-not-available"
-)
-
-// RsvpMgmtEroSubobj represents RSVP ERO Types
-type RsvpMgmtEroSubobj string
-
-const (
-    // IPv4 ERO Type
-    RsvpMgmtEroSubobj_rsvp_mgmt_ero_type_ipv4 RsvpMgmtEroSubobj = "rsvp-mgmt-ero-type-ipv4"
-
-    // Unnumbered ERO Type
-    RsvpMgmtEroSubobj_rsvp_mgmt_ero_type_un_num RsvpMgmtEroSubobj = "rsvp-mgmt-ero-type-un-num"
-)
-
-// RsvpMgmtGenericLabel represents RSVP Generic Label Types
-type RsvpMgmtGenericLabel string
-
-const (
-    // Generalized Label Type
-    RsvpMgmtGenericLabel_rsvp_mgmt_label_type_gmpls RsvpMgmtGenericLabel = "rsvp-mgmt-label-type-gmpls"
-)
-
-// RsvpMgmtTspec represents RSVP Generic Sender Tspec Types
-type RsvpMgmtTspec string
-
-const (
-    // G709 OTN Sender Tspec Type
-    RsvpMgmtTspec_g709otn RsvpMgmtTspec = "g709otn"
-
-    // Int-Serv Sender Tspec Type
-    RsvpMgmtTspec_intsrv RsvpMgmtTspec = "intsrv"
-)
-
-// RsvpMgmtFilter represents RSVP Filter Types
-type RsvpMgmtFilter string
-
-const (
-    // IPv4 FilterSpec Type
-    RsvpMgmtFilter_rsvp_mgmt_filter_type_ipv4 RsvpMgmtFilter = "rsvp-mgmt-filter-type-ipv4"
-
-    // P2MP LSP IPv4 FilterSpec Type
-    RsvpMgmtFilter_rsvp_mgmt_filter_type_p2mp_lsp_ipv4 RsvpMgmtFilter = "rsvp-mgmt-filter-type-p2mp-lsp-ipv4"
-)
-
-// RsvpMgmtSession represents RSVP Session Types
-type RsvpMgmtSession string
-
-const (
-    // UDP IPv4 Session Type
-    RsvpMgmtSession_rsvp_mgmt_session_type_udp_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-udp-ipv4"
-
-    // LSP IPv4 Session Type
-    RsvpMgmtSession_rsvp_mgmt_session_type_lsp_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-lsp-ipv4"
-
-    // UNI IPv4 Session Type
-    RsvpMgmtSession_rsvp_mgmt_session_type_uni_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-uni-ipv4"
-
-    // P2MP LSP IPv4 Session Type
-    RsvpMgmtSession_rsvp_mgmt_session_type_p2mp_lsp_ipv4 RsvpMgmtSession = "rsvp-mgmt-session-type-p2mp-lsp-ipv4"
-)
-
 // RsvpMgmtAuthKi represents RSVP Authentication KeyInfo Type
 type RsvpMgmtAuthKi string
 
@@ -428,26 +400,54 @@ const (
     RsvpMgmtAuthKi_rsvp_mgmt_auth_ki_type_neighbor RsvpMgmtAuthKi = "rsvp-mgmt-auth-ki-type-neighbor"
 )
 
-// RsvpMgmtAuthDirection represents RSVP Authentication Direction Types
-type RsvpMgmtAuthDirection string
+// RsvpTimerState represents RSVP Timer States
+type RsvpTimerState string
+
+const (
+    // RSVP timer running and sleeping
+    RsvpTimerState_rsvp_timer_running_and_sleeping RsvpTimerState = "rsvp-timer-running-and-sleeping"
+
+    // RSVP timer running
+    RsvpTimerState_rsvp_timer_running RsvpTimerState = "rsvp-timer-running"
+
+    // RSVP timer not running
+    RsvpTimerState_rsvp_timer_not_running RsvpTimerState = "rsvp-timer-not-running"
+)
+
+// RsvpSyncStatus represents Rsvp sync status
+type RsvpSyncStatus string
+
+const (
+    // Not Ready
+    RsvpSyncStatus_not_ready RsvpSyncStatus = "not-ready"
+
+    // Ready
+    RsvpSyncStatus_ready RsvpSyncStatus = "ready"
+)
+
+// RsvpMode represents Rsvp mode
+type RsvpMode string
 
 const (
     // Send
-    RsvpMgmtAuthDirection_rsvp_mgmt_auth_direction_send RsvpMgmtAuthDirection = "rsvp-mgmt-auth-direction-send"
+    RsvpMode_send RsvpMode = "send"
 
     // Receive
-    RsvpMgmtAuthDirection_rsvp_mgmt_auth_direction_recv RsvpMgmtAuthDirection = "rsvp-mgmt-auth-direction-recv"
+    RsvpMode_receive RsvpMode = "receive"
 )
 
-// RsvpMgmtDsteModes represents RSVP DSTE modes
-type RsvpMgmtDsteModes string
+// RsvpMgmtEroSubobjStatus represents RSVP ERO Status
+type RsvpMgmtEroSubobjStatus string
 
 const (
-    // pre standard
-    RsvpMgmtDsteModes_pre_standard RsvpMgmtDsteModes = "pre-standard"
+    // ERO is not available in topology
+    RsvpMgmtEroSubobjStatus_rsvp_mgmt_ero_status_not_available RsvpMgmtEroSubobjStatus = "rsvp-mgmt-ero-status-not-available"
 
-    // standard
-    RsvpMgmtDsteModes_standard RsvpMgmtDsteModes = "standard"
+    // ERO is available in topology
+    RsvpMgmtEroSubobjStatus_rsvp_mgmt_ero_status_available RsvpMgmtEroSubobjStatus = "rsvp-mgmt-ero-status-available"
+
+    // ERO doesn't have bw available in topology
+    RsvpMgmtEroSubobjStatus_rsvp_mgmt_ero_status_bw_not_available RsvpMgmtEroSubobjStatus = "rsvp-mgmt-ero-status-bw-not-available"
 )
 
 // RsvpStandby
@@ -639,11 +639,11 @@ type RsvpStandby_InterfaceNeighborBriefs_InterfaceNeighborBrief struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Compact list of I/F Neighbors. The type is slice of
@@ -685,11 +685,11 @@ type RsvpStandby_InterfaceNeighborBriefs_InterfaceNeighborBrief_InterfaceNeighbo
     YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 }
 
@@ -757,7 +757,7 @@ type RsvpStandby_ControllerSummaries_ControllerSummary struct {
     YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -1011,31 +1011,31 @@ type RsvpStandby_AuthenticationBriefs_AuthenticationBrief struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // This attribute is a key. Mode (Tx or Rx). The type is RsvpMode.
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Direction. The type is RsvpMgmtAuthDirection.
@@ -1128,7 +1128,7 @@ type RsvpStandby_SessionBriefs_SessionBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -1138,7 +1138,7 @@ type RsvpStandby_SessionBriefs_SessionBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -1147,7 +1147,7 @@ type RsvpStandby_SessionBriefs_SessionBrief struct {
     // P2MP ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Number of path state block states. The type is interface{} with range:
@@ -1284,7 +1284,7 @@ type RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -1324,14 +1324,14 @@ type RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4LspSession s
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -1364,14 +1364,14 @@ type RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4UniSession s
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -1411,7 +1411,7 @@ type RsvpStandby_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4P2mpLspSessi
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -1480,7 +1480,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -1490,7 +1490,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -1500,20 +1500,20 @@ type RsvpStandby_PsbDetaileds_PsbDetailed struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Path Input Interface. The type is string.
@@ -1733,7 +1733,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -1773,14 +1773,14 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4LspSession str
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -1813,14 +1813,14 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4UniSession str
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -1860,7 +1860,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4P2mpLspSession
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -1893,7 +1893,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -1992,7 +1992,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Template_RsvpFilter_UdpIpv4Session str
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -2027,14 +2027,14 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Template_RsvpFilter_P2mpIpv4Session st
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -2386,12 +2386,12 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *RsvpStandby_PsbDetaileds_PsbDetailed_Hop) GetEntityData() *types.CommonEntityData {
@@ -2408,7 +2408,7 @@ func (hop *RsvpStandby_PsbDetaileds_PsbDetailed_Hop) GetEntityData() *types.Comm
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -2487,7 +2487,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_Header struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -2792,7 +2792,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDownstreamLabel_
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -2892,7 +2892,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingDownstreamLab
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -2992,7 +2992,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePointLabel_Gener
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -3092,7 +3092,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -3192,7 +3192,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpstreamLabel_Ge
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -3292,7 +3292,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryLabel_General
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -3518,7 +3518,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_InEro_Ipv4eroSubObject struct {
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -3560,7 +3560,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_InEro_UnnumberedEroSubObject struct {
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -3639,7 +3639,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_OutEro_Ipv4eroSubObject struct {
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -3681,7 +3681,7 @@ type RsvpStandby_PsbDetaileds_PsbDetailed_OutEro_UnnumberedEroSubObject struct {
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -3754,7 +3754,7 @@ type RsvpStandby_ControllerDetaileds_ControllerDetailed struct {
     YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -4146,7 +4146,7 @@ type RsvpStandby_ControllerDetaileds_ControllerDetailed_NeighborArray struct {
     IsNeighborRefreshReductionCapable interface{}
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Number of MessageIDs. The type is interface{} with range: 0..4294967295.
@@ -4433,7 +4433,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -4443,7 +4443,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -4453,20 +4453,20 @@ type RsvpStandby_RsbDetaileds_RsbDetailed struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Input Adjusted Interface. The type is string.
@@ -4787,7 +4787,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -4827,14 +4827,14 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4LspSession str
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -4867,14 +4867,14 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4UniSession str
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -4914,7 +4914,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4P2mpLspSession
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -4947,7 +4947,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -5077,7 +5077,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_UdpIpv4Session struc
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -5112,14 +5112,14 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_P2mpIpv4Session stru
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -5203,12 +5203,12 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *RsvpStandby_RsbDetaileds_RsbDetailed_Hop) GetEntityData() *types.CommonEntityData {
@@ -5225,7 +5225,7 @@ func (hop *RsvpStandby_RsbDetaileds_RsbDetailed_Hop) GetEntityData() *types.Comm
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -5304,7 +5304,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_Header struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -5609,7 +5609,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDownstreamLabel_
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -5709,7 +5709,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingDownstreamLab
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -5809,7 +5809,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePointLabel_Gener
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -5909,7 +5909,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -6009,7 +6009,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpstreamLabel_Ge
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -6109,7 +6109,7 @@ type RsvpStandby_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryLabel_General
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -6176,7 +6176,7 @@ type RsvpStandby_InterfaceSummaries_InterfaceSummary struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -6430,20 +6430,20 @@ type RsvpStandby_HelloInstanceBriefs_HelloInstanceBrief struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Neighbor Hello state. The type is RsvpMgmtHelloState.
@@ -6452,7 +6452,7 @@ type RsvpStandby_HelloInstanceBriefs_HelloInstanceBrief struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Total number of times communication got lost. The type is interface{} with
@@ -6530,19 +6530,19 @@ type RsvpStandby_AuthenticationDetails_AuthenticationDetail struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // This attribute is a key. Mode (Tx or Rx). The type is RsvpMode.
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Key status. The type is interface{} with range: 0..4294967295.
@@ -6606,15 +6606,15 @@ type RsvpStandby_AuthenticationDetails_AuthenticationDetail_AuthCompact struct {
     YFilter yfilter.YFilter
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Direction. The type is RsvpMgmtAuthDirection.
@@ -6937,8 +6937,7 @@ type RsvpStandby_AuthenticationDetails_AuthenticationDetail_DirectionInfo_Receiv
     YFilter yfilter.YFilter
     YListKey string
 
-    // Sequence window. The type is interface{} with range:
-    // 0..18446744073709551615.
+    // The type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
 }
 
@@ -7006,7 +7005,7 @@ type RsvpStandby_RsbBriefs_RsbBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -7016,7 +7015,7 @@ type RsvpStandby_RsbBriefs_RsbBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -7026,20 +7025,20 @@ type RsvpStandby_RsbBriefs_RsbBrief struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Reservation Input Interface. The type is string.
@@ -7184,7 +7183,7 @@ type RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -7224,14 +7223,14 @@ type RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -7264,14 +7263,14 @@ type RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -7311,7 +7310,7 @@ type RsvpStandby_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4P2mpLspSession struc
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -7344,7 +7343,7 @@ type RsvpStandby_RsbBriefs_RsbBrief_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -7614,7 +7613,7 @@ type RsvpStandby_RsbBriefs_RsbBrief_Filter_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -7649,14 +7648,14 @@ type RsvpStandby_RsbBriefs_RsbBrief_Filter_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -7792,7 +7791,7 @@ type RsvpStandby_Counters_InterfaceMessages_InterfaceMessage struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Count of messages retransmitted. The type is interface{} with range:
@@ -9298,7 +9297,7 @@ type RsvpStandby_Counters_PrefixFiltering_Interfaces_Interfaces_Interface struct
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InterfaceName interface{}
 
     // Count of messages which got forwarded.
@@ -9753,7 +9752,7 @@ type RsvpStandby_Counters_OutOfResource_Interfaces_Interfaces_Interface struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InterfaceName interface{}
 
     // Count of Path messages dropped due to an out of resource condition. The
@@ -9825,7 +9824,7 @@ type RsvpStandby_Counters_InterfaceEvents_InterfaceEvent struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -10079,7 +10078,7 @@ type RsvpStandby_Counters_EventSyncs_EventSync struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -10161,7 +10160,7 @@ type RsvpStandby_InterfaceDetaileds_InterfaceDetailed struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -10553,7 +10552,7 @@ type RsvpStandby_InterfaceDetaileds_InterfaceDetailed_NeighborArray struct {
     IsNeighborRefreshReductionCapable interface{}
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Number of MessageIDs. The type is interface{} with range: 0..4294967295.
@@ -10710,7 +10709,7 @@ type RsvpStandby_ControllerBriefs_ControllerBrief struct {
     YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -11062,7 +11061,7 @@ type RsvpStandby_GracefulRestart_LocalNodeAddress struct {
     YListKey string
 
     // Local node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalNodeIpAddress interface{}
 
     // GR local node-id app type. The type is RsvpMgmtGrApp.
@@ -11134,26 +11133,26 @@ type RsvpStandby_HelloInterfaceInstanceBriefs_HelloInterfaceInstanceBrief struct
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 }
 
@@ -11227,30 +11226,30 @@ type RsvpStandby_HelloInterfaceInstanceDetails_HelloInterfaceInstanceDetail stru
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Global Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HelloGlobalNeighborId interface{}
 
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Source Instance. The type is interface{} with range: 0..4294967295.
@@ -11381,11 +11380,11 @@ type RsvpStandby_InterfaceNeighborDetails_InterfaceNeighborDetail struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Detail list of I/F Neighbors. The type is slice of
@@ -11427,11 +11426,11 @@ type RsvpStandby_InterfaceNeighborDetails_InterfaceNeighborDetail_InterfaceNeigh
     YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Is Neighbor's RR enable. The type is bool.
@@ -12086,7 +12085,7 @@ type RsvpStandby_Frrs_Frr struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -12096,7 +12095,7 @@ type RsvpStandby_Frrs_Frr struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -12106,20 +12105,20 @@ type RsvpStandby_Frrs_Frr struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // RSVP FRR Path States. The type is RsvpMgmtFrrStateEnum.
@@ -12252,7 +12251,7 @@ type RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -12292,14 +12291,14 @@ type RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -12332,14 +12331,14 @@ type RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -12379,7 +12378,7 @@ type RsvpStandby_Frrs_Frr_Session_RsvpSession_Ipv4P2mpLspSession struct {
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -12412,7 +12411,7 @@ type RsvpStandby_Frrs_Frr_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -12479,7 +12478,7 @@ type RsvpStandby_RequestBriefs_RequestBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -12489,7 +12488,7 @@ type RsvpStandby_RequestBriefs_RequestBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -12499,20 +12498,20 @@ type RsvpStandby_RequestBriefs_RequestBrief struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Output Interface. The type is string.
@@ -12657,7 +12656,7 @@ type RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -12697,14 +12696,14 @@ type RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4LspSession s
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -12737,14 +12736,14 @@ type RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4UniSession s
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -12784,7 +12783,7 @@ type RsvpStandby_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4P2mpLspSessi
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -12817,7 +12816,7 @@ type RsvpStandby_RequestBriefs_RequestBrief_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -13056,7 +13055,7 @@ type RsvpStandby_RequestBriefs_RequestBrief_Filter_RsvpFilter_UdpIpv4Session str
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -13091,14 +13090,14 @@ type RsvpStandby_RequestBriefs_RequestBrief_Filter_RsvpFilter_P2mpIpv4Session st
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -13203,7 +13202,7 @@ type RsvpStandby_RequestDetails_RequestDetail struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -13213,7 +13212,7 @@ type RsvpStandby_RequestDetails_RequestDetail struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -13223,20 +13222,20 @@ type RsvpStandby_RequestDetails_RequestDetail struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // output Interface. The type is string.
@@ -13423,7 +13422,7 @@ type RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -13463,14 +13462,14 @@ type RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4LspSession
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -13503,14 +13502,14 @@ type RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4UniSession
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -13550,7 +13549,7 @@ type RsvpStandby_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4P2mpLspSes
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -13583,7 +13582,7 @@ type RsvpStandby_RequestDetails_RequestDetail_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -13822,7 +13821,7 @@ type RsvpStandby_RequestDetails_RequestDetail_Filter_RsvpFilter_UdpIpv4Session s
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -13857,14 +13856,14 @@ type RsvpStandby_RequestDetails_RequestDetail_Filter_RsvpFilter_P2mpIpv4Session 
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -14007,12 +14006,12 @@ type RsvpStandby_RequestDetails_RequestDetail_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *RsvpStandby_RequestDetails_RequestDetail_Hop) GetEntityData() *types.CommonEntityData {
@@ -14029,7 +14028,7 @@ func (hop *RsvpStandby_RequestDetails_RequestDetail_Hop) GetEntityData() *types.
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -14062,7 +14061,7 @@ type RsvpStandby_RequestDetails_RequestDetail_Header struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -14229,7 +14228,7 @@ type RsvpStandby_RequestDetails_RequestDetail_PsbKey struct {
     P2mpId interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port or Tunnel ID. For the LSP and OUNI session types this
@@ -14243,14 +14242,14 @@ type RsvpStandby_RequestDetails_RequestDetail_PsbKey struct {
 
     // Protocol or Extended Tunnel ID. For the LSP and OUNI sesion types this
     // represents the Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type (e.g. LSP, OUNI or UDP). The type is RsvpMgmtSession.
     SessionType interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port or LSP_ID. For the LSP and OUNI session types this represents
@@ -14259,7 +14258,7 @@ type RsvpStandby_RequestDetails_RequestDetail_PsbKey struct {
     SourcePortOrLspId interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -14311,7 +14310,7 @@ type RsvpStandby_RequestDetails_RequestDetail_RsbKey struct {
     P2mpId interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port or Tunnel ID. For the LSP and OUNI session types this
@@ -14325,14 +14324,14 @@ type RsvpStandby_RequestDetails_RequestDetail_RsbKey struct {
 
     // Protocol or Extended Tunnel ID. For the LSP and OUNI sesion types this
     // represents the Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type (e.g. LSP, OUNI or UDP). The type is RsvpMgmtSession.
     SessionType interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port or LSP_ID. For the LSP and OUNI session types this represents
@@ -14341,7 +14340,7 @@ type RsvpStandby_RequestDetails_RequestDetail_RsbKey struct {
     SourcePortOrLspId interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -14425,7 +14424,7 @@ type RsvpStandby_InterfaceBriefs_InterfaceBrief struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -14660,7 +14659,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -14670,7 +14669,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -14679,7 +14678,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed struct {
     // P2MP ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Compact session data.
@@ -14859,7 +14858,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ip
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -14899,14 +14898,14 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ip
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -14939,14 +14938,14 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ip
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -14986,7 +14985,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ip
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -15019,7 +15018,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -15099,14 +15098,14 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     IsValid interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
     LspId interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -15114,7 +15113,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     SubGroupId interface{}
 
     // Interface on which inbound message was received. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InInterface interface{}
 
     // Label for inbound traffic. The type is interface{} with range:
@@ -15128,7 +15127,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     IsBadAddress interface{}
 
     // IP address of Path's incoming interface. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IncomingInterfaceAddress interface{}
 
     // ERO validity. The type is bool.
@@ -15295,7 +15294,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_GenericInLa
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -15558,7 +15557,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     Id interface{}
 
     // Association IPV4 Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 }
 
@@ -15597,7 +15596,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     Id interface{}
 
     // Association IPV6 Source Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source interface{}
 }
 
@@ -15636,7 +15635,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     Id interface{}
 
     // Association IPV4 Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Global Association Source. The type is interface{} with range:
@@ -15683,7 +15682,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     YFilter yfilter.YFilter
     YListKey string
 
-    // Extended Association ID. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -15720,7 +15719,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     Id interface{}
 
     // Association IPV6 Source Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Global Association Source. The type is interface{} with range:
@@ -15767,7 +15766,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association
     YFilter yfilter.YFilter
     YListKey string
 
-    // Extended Association ID. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -16174,7 +16173,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -16216,7 +16215,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -16289,8 +16288,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_
     YFilter yfilter.YFilter
     YListKey string
 
-    // rsvp mgmt rev lsp unsupported subobj. The type is interface{} with range:
-    // 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -16363,7 +16361,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero_Ipv4ero
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -16405,7 +16403,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero_Unnumbe
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -16489,7 +16487,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_Ipv4rro
     YFilter yfilter.YFilter
 
     // The RRO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RroAddress interface{}
 
     // The RRO IPV4 Subobject Flags.
@@ -16648,8 +16646,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_LabelRr
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject Variable Length Label. The type is interface{} with
-    // range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -16680,7 +16677,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_Unnumbe
     YFilter yfilter.YFilter
 
     // The RRO Interface Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // The RRO Interface ID. The type is interface{} with range: 0..4294967295.
@@ -16800,7 +16797,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_SrlgRro
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject SRLGs. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -16835,19 +16832,18 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo struct {
     IsValid interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Interface on which outbound message was sent. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Label for outbound traffic. The type is interface{} with range:
     // 0..4294967295.
     OutLabel interface{}
 
-    // Backup tunnel interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Backup tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup label. The type is interface{} with range: 0..4294967295.
@@ -16984,7 +16980,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_GenericOutL
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -17202,7 +17198,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_Ipv4rro
     YFilter yfilter.YFilter
 
     // The RRO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RroAddress interface{}
 
     // The RRO IPV4 Subobject Flags.
@@ -17361,8 +17357,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_LabelRr
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject Variable Length Label. The type is interface{} with
-    // range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -17393,7 +17388,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_Unnumbe
     YFilter yfilter.YFilter
 
     // The RRO Interface Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // The RRO Interface ID. The type is interface{} with range: 0..4294967295.
@@ -17513,7 +17508,7 @@ type RsvpStandby_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_SrlgRro
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject SRLGs. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -17579,20 +17574,20 @@ type RsvpStandby_HelloInstanceDetails_HelloInstanceDetail struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Hello instance owner. The type is RsvpMgmtHelloInstanceOwner.
@@ -17604,7 +17599,7 @@ type RsvpStandby_HelloInstanceDetails_HelloInstanceDetail struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Hello Interval. The type is interface{} with range: 0..4294967295.
@@ -17824,14 +17819,14 @@ type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Is GR enabled. The type is bool.
     IsGrEnabled interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Current restart state. The type is RsvpMgmtRestartState.
@@ -18161,8 +18156,8 @@ type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_LocalNodeAddress str
     YFilter yfilter.YFilter
     YListKey string
 
-    // Local node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -18193,8 +18188,8 @@ type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_InterfaceNeighbor st
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Neighbor List. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -18225,7 +18220,7 @@ type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_NeighborHelloState s
     YFilter yfilter.YFilter
     YListKey string
 
-    // Neighbor's hello state. The type is RsvpMgmtHelloState.
+    // The type is RsvpMgmtHelloState.
     Entry interface{}
 }
 
@@ -18256,7 +18251,7 @@ type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationRea
     YFilter yfilter.YFilter
     YListKey string
 
-    // Reason why communication was lost. The type is RsvpMgmtHelloDownReason.
+    // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
 }
 
@@ -18287,8 +18282,7 @@ type RsvpStandby_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationTot
     YFilter yfilter.YFilter
     YListKey string
 
-    // Total number of times communication got lost. The type is interface{} with
-    // range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -18429,7 +18423,7 @@ type RsvpStandby_PsbBriefs_PsbBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -18439,7 +18433,7 @@ type RsvpStandby_PsbBriefs_PsbBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -18449,20 +18443,20 @@ type RsvpStandby_PsbBriefs_PsbBrief struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Path Input Interface. The type is string.
@@ -18607,7 +18601,7 @@ type RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -18647,14 +18641,14 @@ type RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -18687,14 +18681,14 @@ type RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -18734,7 +18728,7 @@ type RsvpStandby_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4P2mpLspSession struc
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -18767,7 +18761,7 @@ type RsvpStandby_PsbBriefs_PsbBrief_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -18866,7 +18860,7 @@ type RsvpStandby_PsbBriefs_PsbBrief_Template_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -18901,14 +18895,14 @@ type RsvpStandby_PsbBriefs_PsbBrief_Template_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -19246,14 +19240,14 @@ type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Is GR enabled. The type is bool.
     IsGrEnabled interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Restart state. The type is RsvpMgmtRestartState.
@@ -19382,8 +19376,8 @@ type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_LocalNodeAddress struc
     YFilter yfilter.YFilter
     YListKey string
 
-    // Local node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -19414,7 +19408,7 @@ type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_NeighborHelloState str
     YFilter yfilter.YFilter
     YListKey string
 
-    // Neighbor Hello state. The type is RsvpMgmtHelloState.
+    // The type is RsvpMgmtHelloState.
     Entry interface{}
 }
 
@@ -19445,7 +19439,7 @@ type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationReaso
     YFilter yfilter.YFilter
     YListKey string
 
-    // Reason why communication was lost. The type is RsvpMgmtHelloDownReason.
+    // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
 }
 
@@ -19476,8 +19470,7 @@ type RsvpStandby_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationTotal
     YFilter yfilter.YFilter
     YListKey string
 
-    // Total number of times communication got lost. The type is interface{} with
-    // range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -20013,7 +20006,7 @@ type Rsvp_PxsbDetails_PxsbDetail struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -20023,7 +20016,7 @@ type Rsvp_PxsbDetails_PxsbDetail struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -20033,20 +20026,20 @@ type Rsvp_PxsbDetails_PxsbDetail struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Path Input Interface. The type is string.
@@ -20199,7 +20192,7 @@ type Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -20239,14 +20232,14 @@ type Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -20279,14 +20272,14 @@ type Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -20326,7 +20319,7 @@ type Rsvp_PxsbDetails_PxsbDetail_Session_RsvpSession_Ipv4P2mpLspSession struct {
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -20359,7 +20352,7 @@ type Rsvp_PxsbDetails_PxsbDetail_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -20458,7 +20451,7 @@ type Rsvp_PxsbDetails_PxsbDetail_Template_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -20493,14 +20486,14 @@ type Rsvp_PxsbDetails_PxsbDetail_Template_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -20718,12 +20711,12 @@ type Rsvp_PxsbDetails_PxsbDetail_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *Rsvp_PxsbDetails_PxsbDetail_Hop) GetEntityData() *types.CommonEntityData {
@@ -20740,7 +20733,7 @@ func (hop *Rsvp_PxsbDetails_PxsbDetail_Hop) GetEntityData() *types.CommonEntityD
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -20773,7 +20766,7 @@ type Rsvp_PxsbDetails_PxsbDetail_RsvpHeader struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -20845,7 +20838,7 @@ type Rsvp_RxsbDetails_RxsbDetail struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -20855,7 +20848,7 @@ type Rsvp_RxsbDetails_RxsbDetail struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -20865,20 +20858,20 @@ type Rsvp_RxsbDetails_RxsbDetail struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Path Input Interface. The type is string.
@@ -21035,7 +21028,7 @@ type Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -21075,14 +21068,14 @@ type Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -21115,14 +21108,14 @@ type Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -21162,7 +21155,7 @@ type Rsvp_RxsbDetails_RxsbDetail_Session_RsvpSession_Ipv4P2mpLspSession struct {
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -21195,7 +21188,7 @@ type Rsvp_RxsbDetails_RxsbDetail_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -21325,7 +21318,7 @@ type Rsvp_RxsbDetails_RxsbDetail_Filter_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -21360,14 +21353,14 @@ type Rsvp_RxsbDetails_RxsbDetail_Filter_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -21545,12 +21538,12 @@ type Rsvp_RxsbDetails_RxsbDetail_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *Rsvp_RxsbDetails_RxsbDetail_Hop) GetEntityData() *types.CommonEntityData {
@@ -21567,7 +21560,7 @@ func (hop *Rsvp_RxsbDetails_RxsbDetail_Hop) GetEntityData() *types.CommonEntityD
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -21600,7 +21593,7 @@ type Rsvp_RxsbDetails_RxsbDetail_RsvpHeader struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -21673,11 +21666,11 @@ type Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrief struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Compact list of I/F Neighbors. The type is slice of
@@ -21719,11 +21712,11 @@ type Rsvp_InterfaceNeighborBriefs_InterfaceNeighborBrief_InterfaceNeighborListCo
     YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 }
 
@@ -21791,7 +21784,7 @@ type Rsvp_ControllerSummaries_ControllerSummary struct {
     YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -22045,31 +22038,31 @@ type Rsvp_AuthenticationBriefs_AuthenticationBrief struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // This attribute is a key. Mode (Tx or Rx). The type is RsvpMode.
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Direction. The type is RsvpMgmtAuthDirection.
@@ -22162,7 +22155,7 @@ type Rsvp_SessionBriefs_SessionBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -22172,7 +22165,7 @@ type Rsvp_SessionBriefs_SessionBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -22181,7 +22174,7 @@ type Rsvp_SessionBriefs_SessionBrief struct {
     // P2MP ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Number of path state block states. The type is interface{} with range:
@@ -22318,7 +22311,7 @@ type Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -22358,14 +22351,14 @@ type Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -22398,14 +22391,14 @@ type Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -22445,7 +22438,7 @@ type Rsvp_SessionBriefs_SessionBrief_Session_RsvpSession_Ipv4P2mpLspSession stru
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -22514,7 +22507,7 @@ type Rsvp_PsbDetaileds_PsbDetailed struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -22524,7 +22517,7 @@ type Rsvp_PsbDetaileds_PsbDetailed struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -22534,20 +22527,20 @@ type Rsvp_PsbDetaileds_PsbDetailed struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Path Input Interface. The type is string.
@@ -22767,7 +22760,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -22807,14 +22800,14 @@ type Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -22847,14 +22840,14 @@ type Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -22894,7 +22887,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_Session_RsvpSession_Ipv4P2mpLspSession struct
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -22927,7 +22920,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -23026,7 +23019,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_Template_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -23061,14 +23054,14 @@ type Rsvp_PsbDetaileds_PsbDetailed_Template_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -23420,12 +23413,12 @@ type Rsvp_PsbDetaileds_PsbDetailed_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *Rsvp_PsbDetaileds_PsbDetailed_Hop) GetEntityData() *types.CommonEntityData {
@@ -23442,7 +23435,7 @@ func (hop *Rsvp_PsbDetaileds_PsbDetailed_Hop) GetEntityData() *types.CommonEntit
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -23521,7 +23514,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_Header struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -23826,7 +23819,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalDownstreamLabel_General
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -23926,7 +23919,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingDownstreamLabel_Gene
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -24026,7 +24019,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericMergePointLabel_GeneralizedL
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -24126,7 +24119,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel_Genera
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -24226,7 +24219,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericLocalUpstreamLabel_Generaliz
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -24326,7 +24319,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_LabelInfo_GenericRecoveryLabel_GeneralizedLab
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -24552,7 +24545,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_InEro_Ipv4eroSubObject struct {
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -24594,7 +24587,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_InEro_UnnumberedEroSubObject struct {
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -24673,7 +24666,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_OutEro_Ipv4eroSubObject struct {
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -24715,7 +24708,7 @@ type Rsvp_PsbDetaileds_PsbDetailed_OutEro_UnnumberedEroSubObject struct {
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -24788,7 +24781,7 @@ type Rsvp_ControllerDetaileds_ControllerDetailed struct {
     YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -25180,7 +25173,7 @@ type Rsvp_ControllerDetaileds_ControllerDetailed_NeighborArray struct {
     IsNeighborRefreshReductionCapable interface{}
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Number of MessageIDs. The type is interface{} with range: 0..4294967295.
@@ -25467,7 +25460,7 @@ type Rsvp_RsbDetaileds_RsbDetailed struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -25477,7 +25470,7 @@ type Rsvp_RsbDetaileds_RsbDetailed struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -25487,20 +25480,20 @@ type Rsvp_RsbDetaileds_RsbDetailed struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Input Adjusted Interface. The type is string.
@@ -25821,7 +25814,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -25861,14 +25854,14 @@ type Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -25901,14 +25894,14 @@ type Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -25948,7 +25941,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_Session_RsvpSession_Ipv4P2mpLspSession struct
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -25981,7 +25974,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -26111,7 +26104,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -26146,14 +26139,14 @@ type Rsvp_RsbDetaileds_RsbDetailed_Filter_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -26237,12 +26230,12 @@ type Rsvp_RsbDetaileds_RsbDetailed_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *Rsvp_RsbDetaileds_RsbDetailed_Hop) GetEntityData() *types.CommonEntityData {
@@ -26259,7 +26252,7 @@ func (hop *Rsvp_RsbDetaileds_RsbDetailed_Hop) GetEntityData() *types.CommonEntit
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -26338,7 +26331,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_Header struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -26643,7 +26636,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalDownstreamLabel_General
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -26743,7 +26736,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingDownstreamLabel_Gene
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -26843,7 +26836,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericMergePointLabel_GeneralizedL
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -26943,7 +26936,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericOutgoingUpstreamLabel_Genera
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -27043,7 +27036,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericLocalUpstreamLabel_Generaliz
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -27143,7 +27136,7 @@ type Rsvp_RsbDetaileds_RsbDetailed_LabelInfo_GenericRecoveryLabel_GeneralizedLab
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -27210,7 +27203,7 @@ type Rsvp_InterfaceSummaries_InterfaceSummary struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -27464,20 +27457,20 @@ type Rsvp_HelloInstanceBriefs_HelloInstanceBrief struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Neighbor Hello state. The type is RsvpMgmtHelloState.
@@ -27486,7 +27479,7 @@ type Rsvp_HelloInstanceBriefs_HelloInstanceBrief struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Total number of times communication got lost. The type is interface{} with
@@ -27564,19 +27557,19 @@ type Rsvp_AuthenticationDetails_AuthenticationDetail struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // This attribute is a key. Mode (Tx or Rx). The type is RsvpMode.
     ModeId interface{}
 
     // This attribute is a key. InterfaceName. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Key status. The type is interface{} with range: 0..4294967295.
@@ -27640,15 +27633,15 @@ type Rsvp_AuthenticationDetails_AuthenticationDetail_AuthCompact struct {
     YFilter yfilter.YFilter
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Direction. The type is RsvpMgmtAuthDirection.
@@ -27971,8 +27964,7 @@ type Rsvp_AuthenticationDetails_AuthenticationDetail_DirectionInfo_ReceiveInfo_S
     YFilter yfilter.YFilter
     YListKey string
 
-    // Sequence window. The type is interface{} with range:
-    // 0..18446744073709551615.
+    // The type is interface{} with range: 0..18446744073709551615.
     Entry interface{}
 }
 
@@ -28040,7 +28032,7 @@ type Rsvp_RsbBriefs_RsbBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -28050,7 +28042,7 @@ type Rsvp_RsbBriefs_RsbBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -28060,20 +28052,20 @@ type Rsvp_RsbBriefs_RsbBrief struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Reservation Input Interface. The type is string.
@@ -28218,7 +28210,7 @@ type Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -28258,14 +28250,14 @@ type Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -28298,14 +28290,14 @@ type Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -28345,7 +28337,7 @@ type Rsvp_RsbBriefs_RsbBrief_Session_RsvpSession_Ipv4P2mpLspSession struct {
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -28378,7 +28370,7 @@ type Rsvp_RsbBriefs_RsbBrief_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -28648,7 +28640,7 @@ type Rsvp_RsbBriefs_RsbBrief_Filter_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -28683,14 +28675,14 @@ type Rsvp_RsbBriefs_RsbBrief_Filter_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -28826,7 +28818,7 @@ type Rsvp_Counters_InterfaceMessages_InterfaceMessage struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Count of messages retransmitted. The type is interface{} with range:
@@ -30332,7 +30324,7 @@ type Rsvp_Counters_PrefixFiltering_Interfaces_Interfaces_Interface struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InterfaceName interface{}
 
     // Count of messages which got forwarded.
@@ -30787,7 +30779,7 @@ type Rsvp_Counters_OutOfResource_Interfaces_Interfaces_Interface struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InterfaceName interface{}
 
     // Count of Path messages dropped due to an out of resource condition. The
@@ -30859,7 +30851,7 @@ type Rsvp_Counters_InterfaceEvents_InterfaceEvent struct {
 
     // This attribute is a key. Interface Name. 'None' is used internally where
     // the true interface is unknown (e.g. for routed packets). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -31113,7 +31105,7 @@ type Rsvp_Counters_EventSyncs_EventSync struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Counter for Expired Path states. The type is interface{} with range:
@@ -31195,7 +31187,7 @@ type Rsvp_InterfaceDetaileds_InterfaceDetailed struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -31587,7 +31579,7 @@ type Rsvp_InterfaceDetaileds_InterfaceDetailed_NeighborArray struct {
     IsNeighborRefreshReductionCapable interface{}
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Number of MessageIDs. The type is interface{} with range: 0..4294967295.
@@ -31744,7 +31736,7 @@ type Rsvp_ControllerBriefs_ControllerBrief struct {
     YListKey string
 
     // This attribute is a key. Controller Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     ControllerName interface{}
 
     // Interface Name. The type is string.
@@ -32096,7 +32088,7 @@ type Rsvp_GracefulRestart_LocalNodeAddress struct {
     YListKey string
 
     // Local node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LocalNodeIpAddress interface{}
 
     // GR local node-id app type. The type is RsvpMgmtGrApp.
@@ -32168,26 +32160,26 @@ type Rsvp_HelloInterfaceInstanceBriefs_HelloInterfaceInstanceBrief struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 }
 
@@ -32260,30 +32252,30 @@ type Rsvp_HelloInterfaceInstanceDetails_HelloInterfaceInstanceDetail struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Global Neighbor ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     HelloGlobalNeighborId interface{}
 
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Source Instance. The type is interface{} with range: 0..4294967295.
@@ -32414,11 +32406,11 @@ type Rsvp_InterfaceNeighborDetails_InterfaceNeighborDetail struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Detail list of I/F Neighbors. The type is slice of
@@ -32460,11 +32452,11 @@ type Rsvp_InterfaceNeighborDetails_InterfaceNeighborDetail_InterfaceNeighborList
     YListKey string
 
     // Interface Neighbor address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceNeighborAddress interface{}
 
     // Neighbor's Interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     NeighborInterfaceName interface{}
 
     // Is Neighbor's RR enable. The type is bool.
@@ -33119,7 +33111,7 @@ type Rsvp_Frrs_Frr struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -33129,7 +33121,7 @@ type Rsvp_Frrs_Frr struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -33139,20 +33131,20 @@ type Rsvp_Frrs_Frr struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // RSVP FRR Path States. The type is RsvpMgmtFrrStateEnum.
@@ -33285,7 +33277,7 @@ type Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -33325,14 +33317,14 @@ type Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -33365,14 +33357,14 @@ type Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -33412,7 +33404,7 @@ type Rsvp_Frrs_Frr_Session_RsvpSession_Ipv4P2mpLspSession struct {
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -33445,7 +33437,7 @@ type Rsvp_Frrs_Frr_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -33512,7 +33504,7 @@ type Rsvp_RequestBriefs_RequestBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -33522,7 +33514,7 @@ type Rsvp_RequestBriefs_RequestBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -33532,20 +33524,20 @@ type Rsvp_RequestBriefs_RequestBrief struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Output Interface. The type is string.
@@ -33690,7 +33682,7 @@ type Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -33730,14 +33722,14 @@ type Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -33770,14 +33762,14 @@ type Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -33817,7 +33809,7 @@ type Rsvp_RequestBriefs_RequestBrief_Session_RsvpSession_Ipv4P2mpLspSession stru
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -33850,7 +33842,7 @@ type Rsvp_RequestBriefs_RequestBrief_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -34089,7 +34081,7 @@ type Rsvp_RequestBriefs_RequestBrief_Filter_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -34124,14 +34116,14 @@ type Rsvp_RequestBriefs_RequestBrief_Filter_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -34236,7 +34228,7 @@ type Rsvp_RequestDetails_RequestDetail struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -34246,7 +34238,7 @@ type Rsvp_RequestDetails_RequestDetail struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -34256,20 +34248,20 @@ type Rsvp_RequestDetails_RequestDetail struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // output Interface. The type is string.
@@ -34456,7 +34448,7 @@ type Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -34496,14 +34488,14 @@ type Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4LspSession struct
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -34536,14 +34528,14 @@ type Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4UniSession struct
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -34583,7 +34575,7 @@ type Rsvp_RequestDetails_RequestDetail_Session_RsvpSession_Ipv4P2mpLspSession st
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -34616,7 +34608,7 @@ type Rsvp_RequestDetails_RequestDetail_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -34855,7 +34847,7 @@ type Rsvp_RequestDetails_RequestDetail_Filter_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -34890,14 +34882,14 @@ type Rsvp_RequestDetails_RequestDetail_Filter_RsvpFilter_P2mpIpv4Session struct 
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -35040,12 +35032,12 @@ type Rsvp_RequestDetails_RequestDetail_Hop struct {
     YFilter yfilter.YFilter
 
     // IP address of the neighbor. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
-    // Neighbor Logical Interface Handle. The type is interface{} with range:
-    // 0..4294967295.
-    NeighborLogicalInterfaceHandle interface{}
+    // Neighbor Logical Interface Name. The type is string with pattern:
+    // [a-zA-Z0-9._/-]+.
+    NeighborLogicalInterfaceName interface{}
 }
 
 func (hop *Rsvp_RequestDetails_RequestDetail_Hop) GetEntityData() *types.CommonEntityData {
@@ -35062,7 +35054,7 @@ func (hop *Rsvp_RequestDetails_RequestDetail_Hop) GetEntityData() *types.CommonE
     hop.EntityData.Children = types.NewOrderedMap()
     hop.EntityData.Leafs = types.NewOrderedMap()
     hop.EntityData.Leafs.Append("neighbor-address", types.YLeaf{"NeighborAddress", hop.NeighborAddress})
-    hop.EntityData.Leafs.Append("neighbor-logical-interface-handle", types.YLeaf{"NeighborLogicalInterfaceHandle", hop.NeighborLogicalInterfaceHandle})
+    hop.EntityData.Leafs.Append("neighbor-logical-interface-name", types.YLeaf{"NeighborLogicalInterfaceName", hop.NeighborLogicalInterfaceName})
 
     hop.EntityData.YListKeys = []string {}
 
@@ -35095,7 +35087,7 @@ type Rsvp_RequestDetails_RequestDetail_Header struct {
     IpTtl interface{}
 
     // IP Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpSourceAddress interface{}
 }
 
@@ -35262,7 +35254,7 @@ type Rsvp_RequestDetails_RequestDetail_PsbKey struct {
     P2mpId interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port or Tunnel ID. For the LSP and OUNI session types this
@@ -35276,14 +35268,14 @@ type Rsvp_RequestDetails_RequestDetail_PsbKey struct {
 
     // Protocol or Extended Tunnel ID. For the LSP and OUNI sesion types this
     // represents the Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type (e.g. LSP, OUNI or UDP). The type is RsvpMgmtSession.
     SessionType interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port or LSP_ID. For the LSP and OUNI session types this represents
@@ -35292,7 +35284,7 @@ type Rsvp_RequestDetails_RequestDetail_PsbKey struct {
     SourcePortOrLspId interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -35344,7 +35336,7 @@ type Rsvp_RequestDetails_RequestDetail_RsbKey struct {
     P2mpId interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port or Tunnel ID. For the LSP and OUNI session types this
@@ -35358,14 +35350,14 @@ type Rsvp_RequestDetails_RequestDetail_RsbKey struct {
 
     // Protocol or Extended Tunnel ID. For the LSP and OUNI sesion types this
     // represents the Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type (e.g. LSP, OUNI or UDP). The type is RsvpMgmtSession.
     SessionType interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port or LSP_ID. For the LSP and OUNI session types this represents
@@ -35374,7 +35366,7 @@ type Rsvp_RequestDetails_RequestDetail_RsbKey struct {
     SourcePortOrLspId interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -35458,7 +35450,7 @@ type Rsvp_InterfaceBriefs_InterfaceBrief struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Name. The type is string.
@@ -35693,7 +35685,7 @@ type Rsvp_SessionDetaileds_SessionDetailed struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -35703,7 +35695,7 @@ type Rsvp_SessionDetaileds_SessionDetailed struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -35712,7 +35704,7 @@ type Rsvp_SessionDetaileds_SessionDetailed struct {
     // P2MP ID. The type is interface{} with range: 0..4294967295.
     P2mpId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Compact session data.
@@ -35892,7 +35884,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ipv4 stru
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -35932,14 +35924,14 @@ type Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ipv4LspSe
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -35972,14 +35964,14 @@ type Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ipv4UniSe
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -36019,7 +36011,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_Compact_Session_RsvpSession_Ipv4P2mpL
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -36052,7 +36044,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -36132,14 +36124,14 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     IsValid interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // LSP ID. The type is interface{} with range: 0..4294967295.
     LspId interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -36147,7 +36139,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     SubGroupId interface{}
 
     // Interface on which inbound message was received. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InInterface interface{}
 
     // Label for inbound traffic. The type is interface{} with range:
@@ -36161,7 +36153,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo struct {
     IsBadAddress interface{}
 
     // IP address of Path's incoming interface. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IncomingInterfaceAddress interface{}
 
     // ERO validity. The type is bool.
@@ -36328,7 +36320,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_GenericInLabel_Gen
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -36591,7 +36583,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_Ipv4 s
     Id interface{}
 
     // Association IPV4 Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 }
 
@@ -36630,7 +36622,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_Ipv6 s
     Id interface{}
 
     // Association IPV6 Source Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source interface{}
 }
 
@@ -36669,7 +36661,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_Extend
     Id interface{}
 
     // Association IPV4 Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Global Association Source. The type is interface{} with range:
@@ -36716,7 +36708,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_Extend
     YFilter yfilter.YFilter
     YListKey string
 
-    // Extended Association ID. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -36753,7 +36745,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_Extend
     Id interface{}
 
     // Association IPV6 Source Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Source interface{}
 
     // Global Association Source. The type is interface{} with range:
@@ -36800,7 +36792,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Association_Extend
     YFilter yfilter.YFilter
     YListKey string
 
-    // Extended Association ID. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -37207,7 +37199,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_Ero_Ipv
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -37249,7 +37241,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_Ero_Unn
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -37322,8 +37314,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_ReverseLsp_UnsupSu
     YFilter yfilter.YFilter
     YListKey string
 
-    // rsvp mgmt rev lsp unsupported subobj. The type is interface{} with range:
-    // 0..255.
+    // The type is interface{} with range: 0..255.
     Entry interface{}
 }
 
@@ -37396,7 +37387,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero_Ipv4eroSubObje
     IsStrictRoute interface{}
 
     // The ERO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroAddress interface{}
 
     // ERO Prefix Length. The type is interface{} with range: 0..255.
@@ -37438,7 +37429,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Ero_UnnumberedEroS
     EroInterfaceId interface{}
 
     // The Router ID in ERO. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     EroRouterId interface{}
 
     // Status of ERO. The type is RsvpMgmtEroSubobjStatus.
@@ -37522,7 +37513,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_Ipv4rroSubObje
     YFilter yfilter.YFilter
 
     // The RRO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RroAddress interface{}
 
     // The RRO IPV4 Subobject Flags.
@@ -37681,8 +37672,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_LabelRroSubObj
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject Variable Length Label. The type is interface{} with
-    // range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -37713,7 +37703,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_UnnumberedRroS
     YFilter yfilter.YFilter
 
     // The RRO Interface Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // The RRO Interface ID. The type is interface{} with range: 0..4294967295.
@@ -37833,7 +37823,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_PsbInfo_Rro_SrlgRroSubObje
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject SRLGs. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -37868,19 +37858,18 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo struct {
     IsValid interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Interface on which outbound message was sent. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     OutInterface interface{}
 
     // Label for outbound traffic. The type is interface{} with range:
     // 0..4294967295.
     OutLabel interface{}
 
-    // Backup tunnel interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Backup tunnel interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BackupInterface interface{}
 
     // Backup label. The type is interface{} with range: 0..4294967295.
@@ -38017,7 +38006,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_GenericOutLabel_Ge
     YFilter yfilter.YFilter
     YListKey string
 
-    // Generalized Label Value. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -38235,7 +38224,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_Ipv4rroSubObje
     YFilter yfilter.YFilter
 
     // The RRO IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     RroAddress interface{}
 
     // The RRO IPV4 Subobject Flags.
@@ -38394,8 +38383,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_LabelRroSubObj
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject Variable Length Label. The type is interface{} with
-    // range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -38426,7 +38414,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_UnnumberedRroS
     YFilter yfilter.YFilter
 
     // The RRO Interface Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     InterfaceAddress interface{}
 
     // The RRO Interface ID. The type is interface{} with range: 0..4294967295.
@@ -38546,7 +38534,7 @@ type Rsvp_SessionDetaileds_SessionDetailed_PsbRsbInfo_RsbInfo_Rro_SrlgRroSubObje
     YFilter yfilter.YFilter
     YListKey string
 
-    // The RRO Subobject SRLGs. The type is interface{} with range: 0..4294967295.
+    // The type is interface{} with range: 0..4294967295.
     Entry interface{}
 }
 
@@ -38612,20 +38600,20 @@ type Rsvp_HelloInstanceDetails_HelloInstanceDetail struct {
     YListKey string
 
     // This attribute is a key. Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // This attribute is a key. Destination Address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Source address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddressXr interface{}
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddressXr interface{}
 
     // Hello instance owner. The type is RsvpMgmtHelloInstanceOwner.
@@ -38637,7 +38625,7 @@ type Rsvp_HelloInstanceDetails_HelloInstanceDetail struct {
     // Hello instance type. The type is RsvpMgmtHelloInstance.
     InstanceType interface{}
 
-    // Interface to use. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface to use. The type is string with pattern: [a-zA-Z0-9._/-]+.
     HelloInterface interface{}
 
     // Hello Interval. The type is interface{} with range: 0..4294967295.
@@ -38857,14 +38845,14 @@ type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Is GR enabled. The type is bool.
     IsGrEnabled interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Current restart state. The type is RsvpMgmtRestartState.
@@ -39194,8 +39182,8 @@ type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LocalNodeAddress struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Local node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -39226,8 +39214,8 @@ type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_InterfaceNeighbor struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Interface Neighbor List. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -39258,7 +39246,7 @@ type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_NeighborHelloState struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Neighbor's hello state. The type is RsvpMgmtHelloState.
+    // The type is RsvpMgmtHelloState.
     Entry interface{}
 }
 
@@ -39289,7 +39277,7 @@ type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationReason str
     YFilter yfilter.YFilter
     YListKey string
 
-    // Reason why communication was lost. The type is RsvpMgmtHelloDownReason.
+    // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
 }
 
@@ -39320,8 +39308,7 @@ type Rsvp_GlobalNeighborDetails_GlobalNeighborDetail_LostCommunicationTotal stru
     YFilter yfilter.YFilter
     YListKey string
 
-    // Total number of times communication got lost. The type is interface{} with
-    // range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 
@@ -39462,7 +39449,7 @@ type Rsvp_PsbBriefs_PsbBrief struct {
     YListKey string
 
     // Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Destination Port. The type is interface{} with range: 0..4294967295.
@@ -39472,7 +39459,7 @@ type Rsvp_PsbBriefs_PsbBrief struct {
     Protocol interface{}
 
     // Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 
     // Session Type. The type is RsvpSession.
@@ -39482,20 +39469,20 @@ type Rsvp_PsbBriefs_PsbBrief struct {
     P2mpId interface{}
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port . The type is interface{} with range: 0..4294967295.
     SourcePort interface{}
 
     // Subgroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SubGroupOrigin interface{}
 
     // Subgroup ID. The type is interface{} with range: 0..4294967295.
     SubGroupId interface{}
 
-    // VRF Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Path Input Interface. The type is string.
@@ -39640,7 +39627,7 @@ type Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4 struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // Protocol type (originally defined in RFC 790, further values in subsequent
@@ -39680,14 +39667,14 @@ type Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4LspSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -39720,14 +39707,14 @@ type Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4UniSession struct {
     YFilter yfilter.YFilter
 
     // Destination address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
     // The Session Tunnel ID. The type is interface{} with range: 0..65535.
     TunnelId interface{}
 
     // The Session Extended Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedAddress interface{}
 }
 
@@ -39767,7 +39754,7 @@ type Rsvp_PsbBriefs_PsbBrief_Session_RsvpSession_Ipv4P2mpLspSession struct {
     TunnelId interface{}
 
     // The Session Extended Tunnel ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ExtendedTunnelId interface{}
 }
 
@@ -39800,7 +39787,7 @@ type Rsvp_PsbBriefs_PsbBrief_S2lSubLsp struct {
     YFilter yfilter.YFilter
 
     // S2L Sub-LSP Destination Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     S2lDestinationAddress interface{}
 }
 
@@ -39899,7 +39886,7 @@ type Rsvp_PsbBriefs_PsbBrief_Template_RsvpFilter_UdpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
@@ -39934,14 +39921,14 @@ type Rsvp_PsbBriefs_PsbBrief_Template_RsvpFilter_P2mpIpv4Session struct {
     YFilter yfilter.YFilter
 
     // Source Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Source Port. The type is interface{} with range: 0..65535.
     SourcePort interface{}
 
     // Point to Multipoint SubGroup Origin. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     P2mpSubGroupOrigin interface{}
 
     // Point to Multipoint Subgroup ID. The type is interface{} with range:
@@ -40279,14 +40266,14 @@ type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief struct {
 
     // This attribute is a key. Address of global neighbor. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NeighborAddress interface{}
 
     // Is GR enabled. The type is bool.
     IsGrEnabled interface{}
 
     // Neighbor node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NodeAddress interface{}
 
     // Restart state. The type is RsvpMgmtRestartState.
@@ -40415,8 +40402,8 @@ type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LocalNodeAddress struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Local node address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // The type is string with pattern:
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Entry interface{}
 }
 
@@ -40447,7 +40434,7 @@ type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_NeighborHelloState struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Neighbor Hello state. The type is RsvpMgmtHelloState.
+    // The type is RsvpMgmtHelloState.
     Entry interface{}
 }
 
@@ -40478,7 +40465,7 @@ type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationReason struc
     YFilter yfilter.YFilter
     YListKey string
 
-    // Reason why communication was lost. The type is RsvpMgmtHelloDownReason.
+    // The type is RsvpMgmtHelloDownReason.
     Entry interface{}
 }
 
@@ -40509,8 +40496,7 @@ type Rsvp_GlobalNeighborBriefs_GlobalNeighborBrief_LostCommunicationTotal struct
     YFilter yfilter.YFilter
     YListKey string
 
-    // Total number of times communication got lost. The type is interface{} with
-    // range: 0..65535.
+    // The type is interface{} with range: 0..65535.
     Entry interface{}
 }
 

@@ -19,13 +19,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-vrrp-oper:vrrp-oper-data", reflect.TypeOf(VrrpOperData{}))
 }
 
-// ProtoVersion represents VRRP protocol version
-type ProtoVersion string
-
-const (
-    ProtoVersion_vrrp_v3 ProtoVersion = "vrrp-v3"
-)
-
 // MasterReason represents Indicates why this router became master of the VRRP group
 type MasterReason string
 
@@ -60,15 +53,11 @@ const (
     VrrpProtoState_proto_state_recover VrrpProtoState = "proto-state-recover"
 )
 
-// OmpStateUpdown represents Indicates the state of the Overlay Management Protocol tracking
-type OmpStateUpdown string
+// ProtoVersion represents VRRP protocol version
+type ProtoVersion string
 
 const (
-    // Indicates OMP track is up
-    OmpStateUpdown_omp_up OmpStateUpdown = "omp-up"
-
-    // Indicates OMP track is down
-    OmpStateUpdown_omp_down OmpStateUpdown = "omp-down"
+    ProtoVersion_vrrp_v3 ProtoVersion = "vrrp-v3"
 )
 
 // TrackState represents Indicates whether the track is resolved
@@ -80,6 +69,17 @@ const (
 
     // Track is unresolved
     TrackState_vrrp_track_state_unresolved TrackState = "vrrp-track-state-unresolved"
+)
+
+// OmpStateUpdown represents Indicates the state of the Overlay Management Protocol tracking
+type OmpStateUpdown string
+
+const (
+    // Indicates OMP track is up
+    OmpStateUpdown_omp_up OmpStateUpdown = "omp-up"
+
+    // Indicates OMP track is down
+    OmpStateUpdown_omp_down OmpStateUpdown = "omp-down"
 )
 
 // VrrpOperData
@@ -139,9 +139,9 @@ type VrrpOperData_VrrpOperState struct {
 
     // Primary Virtual IP address for the VRRP group. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     VirtualIp interface{}
 
     // Name for the interface on which VRRP group is hosted. The type is string.
@@ -151,14 +151,14 @@ type VrrpOperData_VrrpOperState struct {
     VrrpState interface{}
 
     // Virtual MAC address for the VRRP group. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     VirtualMac interface{}
 
     // IP address of the Master router for the VRRP group. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     MasterIp interface{}
 
     // Whether the router owns the VRRP Primary virtual IP address. When Interface
@@ -197,8 +197,7 @@ type VrrpOperData_VrrpOperState struct {
     NewMasterReason interface{}
 
     // Time when state of the VRRP group last changed. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastStateChangeTime interface{}
 
     // Total number of VRRP packets that arrived with advertisement interval
@@ -234,7 +233,7 @@ type VrrpOperData_VrrpOperState struct {
 
     // Indicates the last time when a discontinuity happened in gathering
     // statistics. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     DiscontinuityTime interface{}
 
     // Total number of VRRP packets sent. The type is interface{} with range:
@@ -251,9 +250,9 @@ type VrrpOperData_VrrpOperState struct {
 
     // Contains the list of secondary address configured on the group. The type is
     // one of the following types: slice of string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or slice of string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SecondaryVipAddresses []interface{}
 
     // Status of list of tracking objects in the group. The type is slice of

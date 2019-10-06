@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-snmp-agent-oper:snmp", reflect.TypeOf(Snmp{}))
 }
 
-// DupReqDropStatus represents Dup req drop status
-type DupReqDropStatus string
-
-const (
-    // Disabled
-    DupReqDropStatus_disabled DupReqDropStatus = "disabled"
-
-    // Enabled
-    DupReqDropStatus_enabled DupReqDropStatus = "enabled"
-)
-
 // SnmpCorrVbindMatch represents Snmp corr vbind match
 type SnmpCorrVbindMatch string
 
@@ -58,6 +47,17 @@ const (
 
     // Rule is Applied to all of router
     SnmpCorrRuleState_rule_applied_all SnmpCorrRuleState = "rule-applied-all"
+)
+
+// DupReqDropStatus represents Dup req drop status
+type DupReqDropStatus string
+
+const (
+    // Disabled
+    DupReqDropStatus_disabled DupReqDropStatus = "disabled"
+
+    // Enabled
+    DupReqDropStatus_enabled DupReqDropStatus = "enabled"
 )
 
 // Snmp
@@ -380,7 +380,7 @@ type Snmp_Information_Hosts_Host struct {
     YListKey string
 
     // This attribute is a key. Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Host name ,udp-port , user, security model and level. The type is slice of
@@ -421,7 +421,7 @@ type Snmp_Information_Hosts_Host_HostInformation struct {
     YListKey string
 
     // This attribute is a key. SNMP host user. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     User interface{}
 
     // Transport type of address. The type is string.
@@ -540,7 +540,7 @@ type Snmp_Information_NmsAddresses_NmsAddress struct {
     YListKey string
 
     // This attribute is a key. NMS address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     NmsAddr interface{}
 
     // NMS address of server. The type is string.
@@ -868,7 +868,7 @@ type Snmp_Information_RequestTypeDetail_NmsAddresses_NmsAddress struct {
     YListKey string
 
     // This attribute is a key. NMS address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     NmsAddr interface{}
 
     // Total request count for each managment station or client. The type is
@@ -1044,7 +1044,7 @@ type Snmp_Information_BulkStatsTransfers_BulkStatsTransfer struct {
     YListKey string
 
     // This attribute is a key. Transfer name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TransferName interface{}
 
     // Name of the bulkstats transfer session. The type is string.
@@ -1280,7 +1280,7 @@ type Snmp_Information_PollOids_PollOid struct {
     YListKey string
 
     // This attribute is a key. Object ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ObjectId interface{}
 
     // Managment station count. The type is interface{} with range: 0..4294967295.
@@ -1820,7 +1820,7 @@ type Snmp_Information_TrapOids_TrapOid struct {
     YListKey string
 
     // This attribute is a key. Trap object ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     TrapOid interface{}
 
     // Total number of OID's sent. The type is interface{} with range:
@@ -1895,7 +1895,7 @@ type Snmp_Information_NmSpackets_NmSpacket struct {
     YListKey string
 
     // This attribute is a key. NMS packet drop count. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Packetcount interface{}
 
     // Number of packets which are currently enqueued within the NMS queues. The
@@ -1978,7 +1978,7 @@ type Snmp_Information_Mibs_Mib struct {
     YListKey string
 
     // This attribute is a key. MIB Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // List of OIDs per MIB.
@@ -2180,8 +2180,7 @@ type Snmp_Information_SerialNumbers_SerialNumber struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Serial number. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Serial number. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Number interface{}
 
     // Request ID. The type is interface{} with range: 0..4294967295.
@@ -2299,7 +2298,7 @@ type Snmp_Information_DropNmsAddresses_DropNmsAddress struct {
     YListKey string
 
     // This attribute is a key. NMS address. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     NmsAddr interface{}
 
     // NMS address of server. The type is string.
@@ -2412,7 +2411,7 @@ type Snmp_Information_Views_View struct {
     YListKey string
 
     // This attribute is a key. View name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // View name ,familytype, storagetype and status. The type is slice of
@@ -2452,7 +2451,7 @@ type Snmp_Information_Views_View_ViewInformation struct {
     YListKey string
 
     // This attribute is a key. SNMP view OID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     ObjectId interface{}
 
     // Include or exclude. The type is string.
@@ -2593,7 +2592,7 @@ type Snmp_Information_Tables_Groups_Group struct {
     YListKey string
 
     // This attribute is a key. Group Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // Group Model.
@@ -2663,11 +2662,10 @@ type Snmp_Information_Tables_Groups_Group_GroupInformations_GroupInformation str
     YFilter yfilter.YFilter
     YListKey string
 
-    // Model number. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Model number. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Modelnumber interface{}
 
-    // Level. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Level. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Level interface{}
 
     // Read view name. The type is string.
@@ -2751,7 +2749,7 @@ type Snmp_Information_Tables_UserEngineIds_UserEngineId struct {
     YListKey string
 
     // This attribute is a key. SNMP Engine ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     EngineId interface{}
 
     // User name ,storage type ,status . The type is slice of
@@ -2791,7 +2789,7 @@ type Snmp_Information_Tables_UserEngineIds_UserEngineId_UserName struct {
     YListKey string
 
     // This attribute is a key. User name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     UserName interface{}
 
     // Storage type. The type is interface{} with range: 0..4294967295.
@@ -2979,7 +2977,7 @@ type Snmp_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Interface Index as used by MIB tables. The type is interface{} with range:
@@ -3108,8 +3106,8 @@ type Snmp_Correlator_RuleDetails_RuleDetail struct {
     RootCause Snmp_Correlator_RuleDetails_RuleDetail_RootCause
 
     // OIDs/VarBinds defining the nonrootcause match conditions. The type is slice
-    // of Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause.
-    NonRootCause []*Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause
+    // of Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus.
+    NonRootcaus []*Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus
 
     // Hosts (IP/port) to which the rule is applied. The type is slice of
     // Snmp_Correlator_RuleDetails_RuleDetail_ApplyHost.
@@ -3130,10 +3128,10 @@ func (ruleDetail *Snmp_Correlator_RuleDetails_RuleDetail) GetEntityData() *types
     ruleDetail.EntityData.Children = types.NewOrderedMap()
     ruleDetail.EntityData.Children.Append("rule-summary", types.YChild{"RuleSummary", &ruleDetail.RuleSummary})
     ruleDetail.EntityData.Children.Append("root-cause", types.YChild{"RootCause", &ruleDetail.RootCause})
-    ruleDetail.EntityData.Children.Append("non-root-cause", types.YChild{"NonRootCause", nil})
-    for i := range ruleDetail.NonRootCause {
-        types.SetYListKey(ruleDetail.NonRootCause[i], i)
-        ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.NonRootCause[i]), types.YChild{"NonRootCause", ruleDetail.NonRootCause[i]})
+    ruleDetail.EntityData.Children.Append("non-rootcaus", types.YChild{"NonRootcaus", nil})
+    for i := range ruleDetail.NonRootcaus {
+        types.SetYListKey(ruleDetail.NonRootcaus[i], i)
+        ruleDetail.EntityData.Children.Append(types.GetSegmentPath(ruleDetail.NonRootcaus[i]), types.YChild{"NonRootcaus", ruleDetail.NonRootcaus[i]})
     }
     ruleDetail.EntityData.Children.Append("apply-host", types.YChild{"ApplyHost", nil})
     for i := range ruleDetail.ApplyHost {
@@ -3268,10 +3266,10 @@ func (varBind *Snmp_Correlator_RuleDetails_RuleDetail_RootCause_VarBind) GetEnti
     return &(varBind.EntityData)
 }
 
-// Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause
+// Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus
 // OIDs/VarBinds defining the nonrootcause match
 // conditions.
-type Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause struct {
+type Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -3280,38 +3278,38 @@ type Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause struct {
     Oid interface{}
 
     // VarBinds of the trap. The type is slice of
-    // Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause_VarBind.
-    VarBind []*Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause_VarBind
+    // Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind.
+    VarBind []*Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind
 }
 
-func (nonRootCause *Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause) GetEntityData() *types.CommonEntityData {
-    nonRootCause.EntityData.YFilter = nonRootCause.YFilter
-    nonRootCause.EntityData.YangName = "non-root-cause"
-    nonRootCause.EntityData.BundleName = "cisco_ios_xr"
-    nonRootCause.EntityData.ParentYangName = "rule-detail"
-    nonRootCause.EntityData.SegmentPath = "non-root-cause" + types.AddNoKeyToken(nonRootCause)
-    nonRootCause.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/rule-detail/" + nonRootCause.EntityData.SegmentPath
-    nonRootCause.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    nonRootCause.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    nonRootCause.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+func (nonRootcaus *Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus) GetEntityData() *types.CommonEntityData {
+    nonRootcaus.EntityData.YFilter = nonRootcaus.YFilter
+    nonRootcaus.EntityData.YangName = "non-rootcaus"
+    nonRootcaus.EntityData.BundleName = "cisco_ios_xr"
+    nonRootcaus.EntityData.ParentYangName = "rule-detail"
+    nonRootcaus.EntityData.SegmentPath = "non-rootcaus" + types.AddNoKeyToken(nonRootcaus)
+    nonRootcaus.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/rule-detail/" + nonRootcaus.EntityData.SegmentPath
+    nonRootcaus.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    nonRootcaus.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    nonRootcaus.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
-    nonRootCause.EntityData.Children = types.NewOrderedMap()
-    nonRootCause.EntityData.Children.Append("var-bind", types.YChild{"VarBind", nil})
-    for i := range nonRootCause.VarBind {
-        types.SetYListKey(nonRootCause.VarBind[i], i)
-        nonRootCause.EntityData.Children.Append(types.GetSegmentPath(nonRootCause.VarBind[i]), types.YChild{"VarBind", nonRootCause.VarBind[i]})
+    nonRootcaus.EntityData.Children = types.NewOrderedMap()
+    nonRootcaus.EntityData.Children.Append("var-bind", types.YChild{"VarBind", nil})
+    for i := range nonRootcaus.VarBind {
+        types.SetYListKey(nonRootcaus.VarBind[i], i)
+        nonRootcaus.EntityData.Children.Append(types.GetSegmentPath(nonRootcaus.VarBind[i]), types.YChild{"VarBind", nonRootcaus.VarBind[i]})
     }
-    nonRootCause.EntityData.Leafs = types.NewOrderedMap()
-    nonRootCause.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", nonRootCause.Oid})
+    nonRootcaus.EntityData.Leafs = types.NewOrderedMap()
+    nonRootcaus.EntityData.Leafs.Append("oid", types.YLeaf{"Oid", nonRootcaus.Oid})
 
-    nonRootCause.EntityData.YListKeys = []string {}
+    nonRootcaus.EntityData.YListKeys = []string {}
 
-    return &(nonRootCause.EntityData)
+    return &(nonRootcaus.EntityData)
 }
 
-// Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause_VarBind
+// Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind
 // VarBinds of the trap
-type Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause_VarBind struct {
+type Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
     YListKey string
@@ -3326,13 +3324,13 @@ type Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause_VarBind struct {
     RegExp interface{}
 }
 
-func (varBind *Snmp_Correlator_RuleDetails_RuleDetail_NonRootCause_VarBind) GetEntityData() *types.CommonEntityData {
+func (varBind *Snmp_Correlator_RuleDetails_RuleDetail_NonRootcaus_VarBind) GetEntityData() *types.CommonEntityData {
     varBind.EntityData.YFilter = varBind.YFilter
     varBind.EntityData.YangName = "var-bind"
     varBind.EntityData.BundleName = "cisco_ios_xr"
-    varBind.EntityData.ParentYangName = "non-root-cause"
+    varBind.EntityData.ParentYangName = "non-rootcaus"
     varBind.EntityData.SegmentPath = "var-bind" + types.AddNoKeyToken(varBind)
-    varBind.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/rule-detail/non-root-cause/" + varBind.EntityData.SegmentPath
+    varBind.EntityData.AbsolutePath = "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/rule-detail/non-rootcaus/" + varBind.EntityData.SegmentPath
     varBind.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     varBind.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
     varBind.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
@@ -3915,7 +3913,7 @@ type Snmp_EntityMib_EntityPhysicalIndexes_EntityPhysicalIndex struct {
     YListKey string
 
     // This attribute is a key. Entity physical index. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     EntityPhynum interface{}
 
     // entPhysicalIndex. The type is interface{} with range: 0..4294967295.
@@ -4067,7 +4065,7 @@ type Snmp_InterfaceMib_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface Index. The type is interface{} with range: 0..4294967295.
@@ -4138,7 +4136,7 @@ type Snmp_InterfaceMib_InterfaceConnectors_InterfaceConnector struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface ifConnector. The type is string.
@@ -4208,7 +4206,7 @@ type Snmp_InterfaceMib_InterfaceAliases_InterfaceAlias struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface ifAlias. The type is string.
@@ -4278,7 +4276,7 @@ type Snmp_InterfaceMib_NotificationInterfaces_NotificationInterface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // LinkUpDown notification status. The type is LinkUpDownStatus.
@@ -4348,7 +4346,7 @@ type Snmp_InterfaceMib_InterfaceStackStatuses_InterfaceStackStatus struct {
     YListKey string
 
     // This attribute is a key. StackHigherLayer.StackLowerLayer. The type is
-    // string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     InterfaceStackStatus interface{}
 
     // Higher Layer Index. The type is string.
@@ -4461,7 +4459,7 @@ type Snmp_SensorMib_PhysicalIndexes_PhysicalIndex struct {
     YListKey string
 
     // This attribute is a key. Physical index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Index interface{}
 
     // List of threshold index.
@@ -4531,12 +4529,10 @@ type Snmp_SensorMib_PhysicalIndexes_PhysicalIndex_ThresholdIndexes_ThresholdInde
     YFilter yfilter.YFilter
     YListKey string
 
-    // Physical Index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Physical Index. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     PhyIndex interface{}
 
-    // Threshold index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Threshold index. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ThreIndex interface{}
 
     // Indicates minor, major, critical severities. The type is interface{} with
@@ -4628,7 +4624,7 @@ type Snmp_SensorMib_EntPhyIndexes_EntPhyIndex struct {
     YListKey string
 
     // This attribute is a key. Physical index. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Index interface{}
 
     // Sensor valid bitmap. The type is interface{} with range: 0..4294967295.

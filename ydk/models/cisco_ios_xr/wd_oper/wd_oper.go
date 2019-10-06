@@ -24,17 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-wd-oper:watchdog", reflect.TypeOf(Watchdog{}))
 }
 
-// OverloadCtrlNotif represents Overload control notification
-type OverloadCtrlNotif string
-
-const (
-    // Diabled
-    OverloadCtrlNotif_disabled OverloadCtrlNotif = "disabled"
-
-    // Enabled
-    OverloadCtrlNotif_enabled OverloadCtrlNotif = "enabled"
-)
-
 // MemoryState represents Memory state options
 type MemoryState string
 
@@ -53,6 +42,17 @@ const (
 
     // Memory state critical
     MemoryState_critical MemoryState = "critical"
+)
+
+// OverloadCtrlNotif represents Overload control notification
+type OverloadCtrlNotif string
+
+const (
+    // Diabled
+    OverloadCtrlNotif_disabled OverloadCtrlNotif = "disabled"
+
+    // Enabled
+    OverloadCtrlNotif_enabled OverloadCtrlNotif = "enabled"
 )
 
 // Watchdog
@@ -126,7 +126,7 @@ type Watchdog_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Threshold memory.
@@ -454,7 +454,7 @@ type Watchdog_Nodes_Node_OverloadState_CurrentThrottle struct {
     // 0..4294967295. Units are second.
     ThrottleDuration interface{}
 
-    // Current throttle start time in format  :day-of-week month date-of-month
+    // Current throttle start time in format :day-of-week month date-of-month
     // HH:MM:SS year eg: Thu Feb 1 18:32:14 2011. The type is string with length:
     // 0..25.
     StartTime interface{}

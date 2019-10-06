@@ -138,7 +138,7 @@ type Vrrp_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface name to configure. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRRP Slave MAC-refresh rate in seconds. The type is interface{} with range:
@@ -294,9 +294,9 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter struct
 
     // Enable use of Bidirectional Forwarding Detection for this IP. The type is
     // one of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Bfd interface{}
 
     // Priority value. The type is interface{} with range: 1..254. The default
@@ -403,9 +403,9 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_Global
 
     // This attribute is a key. VRRP virtual global IPv6 address. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 }
 
@@ -472,7 +472,7 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_Tracks
     YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This
@@ -585,8 +585,7 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_Tracke
     YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // interfaces. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This
@@ -623,9 +622,9 @@ type Vrrp_Interfaces_Interface_Ipv6_Version3_VirtualRouters_VirtualRouter_LinkLo
 
     // VRRP IPv6 virtual linklocal address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // TRUE if the virtual linklocal address is to be autoconfigured FALSE if an
@@ -745,9 +744,9 @@ type Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_SlaveVirtualRouter_LinkL
 
     // VRRP IPv6 virtual linklocal address. The type is one of the following
     // types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // TRUE if the virtual linklocal address is to be autoconfigured FALSE if an
@@ -821,9 +820,9 @@ type Vrrp_Interfaces_Interface_Ipv6_SlaveVirtualRouters_SlaveVirtualRouter_Globa
 
     // This attribute is a key. VRRP virtual global IPv6 address. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 }
 
@@ -1003,11 +1002,11 @@ type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter struct
 
     // Enable use of Bidirectional Forwarding Detection for this IP. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Bfd interface{}
 
     // The Primary VRRP IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryIpv4Address interface{}
 
     // Preempt Master router if higher priority. The type is interface{} with
@@ -1148,7 +1147,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_Second
 
     // This attribute is a key. VRRP Secondary IPv4 address. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 }
 
@@ -1215,8 +1214,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_Tracke
     YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // interfaces. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This
@@ -1288,7 +1286,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version3_VirtualRouters_VirtualRouter_Tracks
     YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This
@@ -1369,7 +1367,7 @@ type Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters_SlaveVirtualRouter struc
     AcceptModeDisable interface{}
 
     // The Primary VRRP IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryIpv4Address interface{}
 
     // The table of VRRP secondary IPv4 addresses.
@@ -1443,7 +1441,7 @@ type Vrrp_Interfaces_Interface_Ipv4_SlaveVirtualRouters_SlaveVirtualRouter_Secon
 
     // This attribute is a key. VRRP Secondary IPv4 address. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 }
 
@@ -1547,7 +1545,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter struct
     Priority interface{}
 
     // The Primary VRRP IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PrimaryIpv4Address interface{}
 
     // Preempt Master router if higher priority. The type is interface{} with
@@ -1559,7 +1557,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter struct
 
     // Enable use of Bidirectional Forwarding Detection for this IP. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Bfd interface{}
 
     // VRRP Session Name. The type is string with length: 1..16.
@@ -1696,7 +1694,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_Second
 
     // This attribute is a key. VRRP Secondary IPv4 address. The type is string
     // with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 }
 
@@ -1763,7 +1761,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_Tracks
     YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // interfaces. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This
@@ -1835,8 +1833,7 @@ type Vrrp_Interfaces_Interface_Ipv4_Version2_VirtualRouters_VirtualRouter_Tracke
     YListKey string
 
     // This attribute is a key. Object to be tracked, interface name for
-    // interfaces. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // interfaces. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ObjectName interface{}
 
     // Priority decrement. The type is interface{} with range: 1..254. This

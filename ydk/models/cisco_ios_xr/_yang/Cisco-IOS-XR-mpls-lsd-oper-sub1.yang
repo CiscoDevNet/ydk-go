@@ -661,8 +661,6 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "Label context count";
       leaf entry {
         type uint32;
-        description
-          "Label context count";
       }
     }
     list label-context-pending-count {
@@ -671,8 +669,6 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "Label context pending count";
       leaf entry {
         type uint32;
-        description
-          "Label context pending count";
       }
     }
   }
@@ -926,8 +922,6 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "label data";
       leaf entry {
         type uint32;
-        description
-          "label data";
       }
     }
   }
@@ -1114,8 +1108,6 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "Remote nexthop addresses";
       leaf entry {
         type Lsd-ipv6-address;
-        description
-          "Remote nexthop addresses";
       }
     }
     list label {
@@ -1175,8 +1167,6 @@ submodule Cisco-IOS-XR-mpls-lsd-oper-sub1 {
         "Remote nexthop addresses";
       leaf entry {
         type inet:ipv4-address;
-        description
-          "Remote nexthop addresses";
       }
     }
     list label {

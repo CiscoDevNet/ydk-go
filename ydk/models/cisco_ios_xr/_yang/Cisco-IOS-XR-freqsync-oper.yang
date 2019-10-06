@@ -100,11 +100,6 @@ module Cisco-IOS-XR-freqsync-oper {
         description
           "An NTP clock";
       }
-      enum "gnss" {
-        value 8;
-        description
-          "A GNSS receiver";
-      }
     }
     description
       "Fsync source";

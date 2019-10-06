@@ -321,7 +321,7 @@ type CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry struct {
     // is configured (i.e a non zero ip address), this value is used. Otherwise,
     // the agent will attempt to discover the virtual address through a discovery
     // process (which scans the hello messages). The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CHsrpGrpVirtualIpAddr interface{}
 
     // If this object is TRUE, cHsrpGrpVirtualIpAddr was a configured one.
@@ -331,12 +331,12 @@ type CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry struct {
 
     // Ip Address of the currently active router for this group. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CHsrpGrpActiveRouter interface{}
 
     // Ip Address of the currently standby router for this group. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CHsrpGrpStandbyRouter interface{}
 
     // The current HSRP state of this group on this interface. The type is
@@ -353,7 +353,7 @@ type CISCOHSRPMIB_CHsrpGrpTable_CHsrpGrpEntry struct {
     // following three MAC  addresses are permitted (functional addresses):       
     // C0:00:00:01:00:00              C0:00:00:02:00:00             
     // C0:00:00:04:00:00. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CHsrpGrpVirtualMacAddr interface{}
 
     // The control that allows modification, creation, and deletion of entries. 

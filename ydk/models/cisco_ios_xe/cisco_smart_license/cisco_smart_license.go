@@ -27,93 +27,6 @@ func init() {
     ydk.RegisterEntity("cisco-smart-license:licensing", reflect.TypeOf(Licensing{}))
 }
 
-// NotifRegisterFailureEnum represents detailed failure message.
-type NotifRegisterFailureEnum string
-
-const (
-    // General failure.
-    NotifRegisterFailureEnum_general_failure NotifRegisterFailureEnum = "general-failure"
-
-    // This smart licensing instance is already registered.
-    NotifRegisterFailureEnum_already_registered_failure NotifRegisterFailureEnum = "already-registered-failure"
-
-    // The de-register failed because this instance is not registered.
-    NotifRegisterFailureEnum_de_register_failure NotifRegisterFailureEnum = "de-register-failure"
-)
-
-// RegistrationStateEnum represents The smart licensing registration state.
-type RegistrationStateEnum string
-
-const (
-    // This smart licensing instance is not registered.
-    RegistrationStateEnum_reg_state_not_registered RegistrationStateEnum = "reg-state-not-registered"
-
-    // Registration was successful and this smart licensing 
-    // instance is registered.
-    RegistrationStateEnum_reg_state_complete RegistrationStateEnum = "reg-state-complete"
-
-    // Registration is in progress.
-    RegistrationStateEnum_reg_state_in_progress RegistrationStateEnum = "reg-state-in-progress"
-
-    // The initial registration attempt failed but
-    // a retry is in progress.
-    RegistrationStateEnum_reg_state_retry RegistrationStateEnum = "reg-state-retry"
-
-    // Registration failed.
-    RegistrationStateEnum_reg_state_failed RegistrationStateEnum = "reg-state-failed"
-)
-
-// AuthorizationStateEnum represents The smart licensing authorization state.
-type AuthorizationStateEnum string
-
-const (
-    // No licenses are in use so there is no authorization 
-    // state to report.
-    AuthorizationStateEnum_auth_state_none AuthorizationStateEnum = "auth-state-none"
-
-    // Evaluation period is in use and is counting down.
-    AuthorizationStateEnum_auth_state_eval AuthorizationStateEnum = "auth-state-eval"
-
-    // Evaluation period in use but it has expired.
-    AuthorizationStateEnum_auth_state_eval_expired AuthorizationStateEnum = "auth-state-eval-expired"
-
-    // All license usage is authorized and within terms 
-    // of the customer's contract.
-    AuthorizationStateEnum_auth_state_authorized AuthorizationStateEnum = "auth-state-authorized"
-
-    // All license usage is authorized because a  
-    // reservation authorization code is installed.
-    AuthorizationStateEnum_auth_state_authorized_reservation AuthorizationStateEnum = "auth-state-authorized-reservation"
-
-    // License usage is out of compliance with the 
-    // terms of the contract. Either too many licenses are in
-    // use or licenses that were not purchased are in use.
-    AuthorizationStateEnum_auth_state_out_of_compliance AuthorizationStateEnum = "auth-state-out-of-compliance"
-
-    // The authorization period has expired because this
-    // product instance has not communicated with the
-    // SSM or satellite in over 90 days.
-    AuthorizationStateEnum_auth_state_authorization_expired AuthorizationStateEnum = "auth-state-authorization-expired"
-)
-
-// UtilityReportingTypeEnum represents What has triggered the system to start reporting utility usage.
-type UtilityReportingTypeEnum string
-
-const (
-    // The system is not reporting utility usage data.
-    UtilityReportingTypeEnum_utility_reporting_type_none UtilityReportingTypeEnum = "utility-reporting-type-none"
-
-    // The system is reporting utility usage data because it has 
-    // received subscription information from either the SSM or 
-    // satellite.
-    UtilityReportingTypeEnum_utility_reporting_type_subscription UtilityReportingTypeEnum = "utility-reporting-type-subscription"
-
-    // The system is reporting utility usage data because it has 
-    // received a utility certificate from a Third Party 
-    // Billing Platform.
-    UtilityReportingTypeEnum_utility_reporting_type_certificate UtilityReportingTypeEnum = "utility-reporting-type-certificate"
-)
-
 // TransportTypeEnum represents The type of transport in use by smart licensing.
 type TransportTypeEnum string
 
@@ -124,62 +37,6 @@ const (
     // Smart licensing is using the smart transport for 
     // communications.
     TransportTypeEnum_transport_type_smart TransportTypeEnum = "transport-type-smart"
-)
-
-// EnforcementModeEnum represents  tells us how the license is being enforced.
-type EnforcementModeEnum string
-
-const (
-    // The initial state after an entitlement request while we are waiting 
-    // the Authorization request response. In this mode the device will 
-    // have established communications with Cisco and successfully 
-    // registered with the Cisco Licensing cloud.
-    EnforcementModeEnum_enforcement_waiting EnforcementModeEnum = "enforcement-waiting"
-
-    // Cisco Smart Software Manager (CSSM) has responded that
-    // the entitlement requested is in compliance.
-    EnforcementModeEnum_enforcement_in_compliance EnforcementModeEnum = "enforcement-in-compliance"
-
-    // Cisco Smart Software Manager (CSSM) has responded that
-    // the entitlement requested is out of compliance. 
-    // either too many licenses /entitlements are in use or the license 
-    // has not been purchased
-    EnforcementModeEnum_enforcement_out_of_compliance EnforcementModeEnum = "enforcement-out-of-compliance"
-
-    // more licenses are in use than were purchased but the customer
-    //  is still within the terms of their contract
-    EnforcementModeEnum_enforcement_overage EnforcementModeEnum = "enforcement-overage"
-
-    // The evaluation period is in use.
-    // It will remain in use until the following
-    // two messages have been received by the product from the 
-    // Cisco Smart Software Manager (CSSM):
-    //  Successful response to a registration request,
-    //  successful response to an entitlement authorization request
-    EnforcementModeEnum_enforcement_evaluation EnforcementModeEnum = "enforcement-evaluation"
-
-    // The evaluation period has expired
-    EnforcementModeEnum_enforcement_evaluation_expired EnforcementModeEnum = "enforcement-evaluation-expired"
-
-    // Authorization period has expired. This will occur if the product
-    // has not been able to communicate with Cisco or a satellite 
-    // for an extended period of time, usually 90 days.
-    EnforcementModeEnum_enforcement_authorization_expired EnforcementModeEnum = "enforcement-authorization-expired"
-
-    // The entitlement requested is in compliance because 
-    // a reservation authorization code is installed and the product
-    // is in Permanent License Reservation mode.
-    EnforcementModeEnum_enforcement_reservation_in_compliance EnforcementModeEnum = "enforcement-reservation-in-compliance"
-
-    // The entitlement tag is invalid.
-    // The CSSM does not recognize the entitlement tag
-    // because it is not in the database. This usually only occurs
-    // during testing.
-    EnforcementModeEnum_enforcement_invalid_tag EnforcementModeEnum = "enforcement-invalid-tag"
-
-    // Smart licensing has been disabled. The feature using this license
-    // should be disabled.
-    EnforcementModeEnum_enforcement_disabled EnforcementModeEnum = "enforcement-disabled"
 )
 
 // ErrorEnum represents Smart Licensing RPC calls
@@ -652,6 +509,149 @@ const (
 
     // max error code
     ErrorEnum_max ErrorEnum = "max"
+)
+
+// UtilityReportingTypeEnum represents What has triggered the system to start reporting utility usage.
+type UtilityReportingTypeEnum string
+
+const (
+    // The system is not reporting utility usage data.
+    UtilityReportingTypeEnum_utility_reporting_type_none UtilityReportingTypeEnum = "utility-reporting-type-none"
+
+    // The system is reporting utility usage data because it has 
+    // received subscription information from either the SSM or 
+    // satellite.
+    UtilityReportingTypeEnum_utility_reporting_type_subscription UtilityReportingTypeEnum = "utility-reporting-type-subscription"
+
+    // The system is reporting utility usage data because it has 
+    // received a utility certificate from a Third Party 
+    // Billing Platform.
+    UtilityReportingTypeEnum_utility_reporting_type_certificate UtilityReportingTypeEnum = "utility-reporting-type-certificate"
+)
+
+// EnforcementModeEnum represents  tells us how the license is being enforced.
+type EnforcementModeEnum string
+
+const (
+    // The initial state after an entitlement request while we are waiting 
+    // the Authorization request response. In this mode the device will 
+    // have established communications with Cisco and successfully 
+    // registered with the Cisco Licensing cloud.
+    EnforcementModeEnum_enforcement_waiting EnforcementModeEnum = "enforcement-waiting"
+
+    // Cisco Smart Software Manager (CSSM) has responded that
+    // the entitlement requested is in compliance.
+    EnforcementModeEnum_enforcement_in_compliance EnforcementModeEnum = "enforcement-in-compliance"
+
+    // Cisco Smart Software Manager (CSSM) has responded that
+    // the entitlement requested is out of compliance. 
+    // either too many licenses /entitlements are in use or the license 
+    // has not been purchased
+    EnforcementModeEnum_enforcement_out_of_compliance EnforcementModeEnum = "enforcement-out-of-compliance"
+
+    // more licenses are in use than were purchased but the customer
+    //  is still within the terms of their contract
+    EnforcementModeEnum_enforcement_overage EnforcementModeEnum = "enforcement-overage"
+
+    // The evaluation period is in use.
+    // It will remain in use until the following
+    // two messages have been received by the product from the 
+    // Cisco Smart Software Manager (CSSM):
+    //  Successful response to a registration request,
+    //  successful response to an entitlement authorization request
+    EnforcementModeEnum_enforcement_evaluation EnforcementModeEnum = "enforcement-evaluation"
+
+    // The evaluation period has expired
+    EnforcementModeEnum_enforcement_evaluation_expired EnforcementModeEnum = "enforcement-evaluation-expired"
+
+    // Authorization period has expired. This will occur if the product
+    // has not been able to communicate with Cisco or a satellite 
+    // for an extended period of time, usually 90 days.
+    EnforcementModeEnum_enforcement_authorization_expired EnforcementModeEnum = "enforcement-authorization-expired"
+
+    // The entitlement requested is in compliance because 
+    // a reservation authorization code is installed and the product
+    // is in Permanent License Reservation mode.
+    EnforcementModeEnum_enforcement_reservation_in_compliance EnforcementModeEnum = "enforcement-reservation-in-compliance"
+
+    // The entitlement tag is invalid.
+    // The CSSM does not recognize the entitlement tag
+    // because it is not in the database. This usually only occurs
+    // during testing.
+    EnforcementModeEnum_enforcement_invalid_tag EnforcementModeEnum = "enforcement-invalid-tag"
+
+    // Smart licensing has been disabled. The feature using this license
+    // should be disabled.
+    EnforcementModeEnum_enforcement_disabled EnforcementModeEnum = "enforcement-disabled"
+)
+
+// AuthorizationStateEnum represents The smart licensing authorization state.
+type AuthorizationStateEnum string
+
+const (
+    // No licenses are in use so there is no authorization 
+    // state to report.
+    AuthorizationStateEnum_auth_state_none AuthorizationStateEnum = "auth-state-none"
+
+    // Evaluation period is in use and is counting down.
+    AuthorizationStateEnum_auth_state_eval AuthorizationStateEnum = "auth-state-eval"
+
+    // Evaluation period in use but it has expired.
+    AuthorizationStateEnum_auth_state_eval_expired AuthorizationStateEnum = "auth-state-eval-expired"
+
+    // All license usage is authorized and within terms 
+    // of the customer's contract.
+    AuthorizationStateEnum_auth_state_authorized AuthorizationStateEnum = "auth-state-authorized"
+
+    // All license usage is authorized because a  
+    // reservation authorization code is installed.
+    AuthorizationStateEnum_auth_state_authorized_reservation AuthorizationStateEnum = "auth-state-authorized-reservation"
+
+    // License usage is out of compliance with the 
+    // terms of the contract. Either too many licenses are in
+    // use or licenses that were not purchased are in use.
+    AuthorizationStateEnum_auth_state_out_of_compliance AuthorizationStateEnum = "auth-state-out-of-compliance"
+
+    // The authorization period has expired because this
+    // product instance has not communicated with the
+    // SSM or satellite in over 90 days.
+    AuthorizationStateEnum_auth_state_authorization_expired AuthorizationStateEnum = "auth-state-authorization-expired"
+)
+
+// RegistrationStateEnum represents The smart licensing registration state.
+type RegistrationStateEnum string
+
+const (
+    // This smart licensing instance is not registered.
+    RegistrationStateEnum_reg_state_not_registered RegistrationStateEnum = "reg-state-not-registered"
+
+    // Registration was successful and this smart licensing 
+    // instance is registered.
+    RegistrationStateEnum_reg_state_complete RegistrationStateEnum = "reg-state-complete"
+
+    // Registration is in progress.
+    RegistrationStateEnum_reg_state_in_progress RegistrationStateEnum = "reg-state-in-progress"
+
+    // The initial registration attempt failed but
+    // a retry is in progress.
+    RegistrationStateEnum_reg_state_retry RegistrationStateEnum = "reg-state-retry"
+
+    // Registration failed.
+    RegistrationStateEnum_reg_state_failed RegistrationStateEnum = "reg-state-failed"
+)
+
+// NotifRegisterFailureEnum represents detailed failure message.
+type NotifRegisterFailureEnum string
+
+const (
+    // General failure.
+    NotifRegisterFailureEnum_general_failure NotifRegisterFailureEnum = "general-failure"
+
+    // This smart licensing instance is already registered.
+    NotifRegisterFailureEnum_already_registered_failure NotifRegisterFailureEnum = "already-registered-failure"
+
+    // The de-register failed because this instance is not registered.
+    NotifRegisterFailureEnum_de_register_failure NotifRegisterFailureEnum = "de-register-failure"
 )
 
 // RegisterIdToken
@@ -1450,7 +1450,7 @@ type Licensing_State_StateInfo_Registration_RegistrationInProgress struct {
     YFilter yfilter.YFilter
 
     // Time the registration started. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartTime interface{}
 }
 
@@ -1481,7 +1481,7 @@ type Licensing_State_StateInfo_Registration_RegistrationFailed struct {
     YFilter yfilter.YFilter
 
     // Time the registration failed. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FailTime interface{}
 
     // Failure message that can be displayed for the user.  This is not a parsable
@@ -1517,11 +1517,11 @@ type Licensing_State_StateInfo_Registration_RegistrationRetry struct {
     YFilter yfilter.YFilter
 
     // Time the registration will be retried. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     RetryNextTime interface{}
 
     // Time the registration failed. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     FailTime interface{}
 
     // Failure message that can be displayed for the user.  This is not a parsable
@@ -1558,22 +1558,22 @@ type Licensing_State_StateInfo_Registration_RegistrationComplete struct {
     YFilter yfilter.YFilter
 
     // Time the registration was successful. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CompleteTime interface{}
 
     // Time the last registration renewal occurred.  If empty then no renewal has
     // occurred. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastRenewTime interface{}
 
     // Time the registration will be automatically renewed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextRenewTime interface{}
 
     // Time the registration will expire if it is not renewed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ExpireTime interface{}
 
     // Was the last renewal attempt successful. The type is bool.
@@ -1752,7 +1752,7 @@ type Licensing_State_StateInfo_Authorization_AuthorizationEvalExpired struct {
     YFilter yfilter.YFilter
 
     // Time the evaluation period expired. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ExpireTime interface{}
 }
 
@@ -1791,20 +1791,19 @@ type Licensing_State_StateInfo_Authorization_AuthorizationAuthorized struct {
     FailMessage interface{}
 
     // Time the last communication attempt happened. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCommTime interface{}
 
     // The next time communications will be attempted to the back end. This will
     // be zero if the initial communication has not completed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextCommTime interface{}
 
     // If there are no communications between now and this time smart licensing
     // will enter the authorization expired state.  This may be zero indicating
     // there is no deadline. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CommDeadlineTime interface{}
 }
 
@@ -1840,7 +1839,7 @@ type Licensing_State_StateInfo_Authorization_AuthorizationAuthorizedReservation 
     YFilter yfilter.YFilter
 
     // Time the reservation occurred. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ReservationTime interface{}
 }
 
@@ -1880,25 +1879,24 @@ type Licensing_State_StateInfo_Authorization_AuthorizationOutOfCompliance struct
     FailMessage interface{}
 
     // Time the last communication attempt happened. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCommTime interface{}
 
     // The next time communications will be attempted to the back end. This will
     // be zero if the initial communication has not completed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextCommTime interface{}
 
     // If there are no communications between now and this time smart licensing
     // will enter the authorization expired state.  This may be zero indicating
     // there is no deadline. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CommDeadlineTime interface{}
 
     // Time the product instance entered the out of compliance state. The type is
     // string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     OocTime interface{}
 }
 
@@ -1944,20 +1942,19 @@ type Licensing_State_StateInfo_Authorization_AuthorizationAuthorizationExpired s
     FailMessage interface{}
 
     // Time the last communication attempt happened. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastCommTime interface{}
 
     // The next time communications will be attempted to the back end. This will
     // be zero if the initial communication has not completed. The type is string
     // with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextCommTime interface{}
 
     // If there are no communications between now and this time smart licensing
     // will enter the authorization expired state.  This may be zero indicating
     // there is no deadline. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CommDeadlineTime interface{}
 }
 
@@ -2041,7 +2038,7 @@ type Licensing_State_StateInfo_Utility_ReportingTimes struct {
     YFilter yfilter.YFilter
 
     // Time the last report was sent. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     LastReportTime interface{}
 
     // Was the last report successfully sent?. The type is bool.
@@ -2052,8 +2049,7 @@ type Licensing_State_StateInfo_Utility_ReportingTimes struct {
     FailMessage interface{}
 
     // Time the next report is scheduled to be sent. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     NextReportTime interface{}
 }
 
@@ -2335,8 +2331,7 @@ type Licensing_State_StateInfo_Evaluation_EvalExpireTime struct {
     YFilter yfilter.YFilter
 
     // Date and time the evaluation period expired. The type is string with
-    // pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // pattern: \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     ExpireTime interface{}
 }
 
@@ -2381,7 +2376,7 @@ type Licensing_State_StateInfo_Udi struct {
     // A 32 byte hex value generated by the system.  This will be in proper UUID
     // format 8-4-4-4-12. Often used by VMs or other systems that do not have a
     // hardware identifier. The type is string with pattern:
-    // b'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'.
+    // [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}.
     Uuid interface{}
 
     // Free form virtual identifier often used by software  only devices like
@@ -2394,7 +2389,7 @@ type Licensing_State_StateInfo_Udi struct {
 
     // The MAC address of the system. This is usually only used if there  is
     // nothing else available to be used as an identifier. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 

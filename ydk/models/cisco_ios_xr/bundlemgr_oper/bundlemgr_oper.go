@@ -39,30 +39,121 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-bundlemgr-oper:bundles-adjacency", reflect.TypeOf(BundlesAdjacency{}))
 }
 
-// BmdMlacpMbrStateEnum represents State of an mLACP device
-type BmdMlacpMbrStateEnum string
+// BmdMlacpSwitchover represents Bmd mlacp switchover
+type BmdMlacpSwitchover string
 
 const (
-    // Member info NAK'd
-    BmdMlacpMbrStateEnum_mbr_state_nak BmdMlacpMbrStateEnum = "mbr-state-nak"
+    // Non-revertive switchover type
+    BmdMlacpSwitchover_bmd_mlacp_switchover_nonrevertive BmdMlacpSwitchover = "bmd-mlacp-switchover-nonrevertive"
 
-    // No member state TLV received
-    BmdMlacpMbrStateEnum_mbr_state_unknown BmdMlacpMbrStateEnum = "mbr-state-unknown"
+    // Brute force switchover type
+    BmdMlacpSwitchover_bmd_mlacp_switchover_brute_force BmdMlacpSwitchover = "bmd-mlacp-switchover-brute-force"
 
-    // Member is up
-    BmdMlacpMbrStateEnum_mbr_state_up BmdMlacpMbrStateEnum = "mbr-state-up"
+    // Revertive switchover type
+    BmdMlacpSwitchover_bmd_mlacp_switchover_revertive BmdMlacpSwitchover = "bmd-mlacp-switchover-revertive"
 
-    // Member is down
-    BmdMlacpMbrStateEnum_mbr_state_down BmdMlacpMbrStateEnum = "mbr-state-down"
+    // Number of switchover types
+    BmdMlacpSwitchover_bmd_mlacp_switchover_count BmdMlacpSwitchover = "bmd-mlacp-switchover-count"
+)
 
-    // Member is admin down
-    BmdMlacpMbrStateEnum_mbr_state_admin_down BmdMlacpMbrStateEnum = "mbr-state-admin-down"
+// LoadBalance represents Load balance
+type LoadBalance string
 
-    // Member state TLV reported test
-    BmdMlacpMbrStateEnum_mbr_state_test BmdMlacpMbrStateEnum = "mbr-state-test"
+const (
+    // Default
+    LoadBalance_default_ LoadBalance = "default"
 
-    // Member state TLV reported error
-    BmdMlacpMbrStateEnum_mbr_state_error BmdMlacpMbrStateEnum = "mbr-state-error"
+    // Auto
+    LoadBalance_auto LoadBalance = "auto"
+
+    // Value
+    LoadBalance_value LoadBalance = "value"
+
+    // Source IP
+    LoadBalance_source_ip LoadBalance = "source-ip"
+
+    // Destination IP
+    LoadBalance_destination_ip LoadBalance = "destination-ip"
+
+    // Unknown
+    LoadBalance_unknown LoadBalance = "unknown"
+)
+
+// BmBdlState represents Bm bdl state
+type BmBdlState string
+
+const (
+    // The bundle has been configured Down
+    BmBdlState_bm_bdl_state_admin_down BmBdlState = "bm-bdl-state-admin-down"
+
+    // The bundle is Down
+    BmBdlState_bm_bdl_state_down BmBdlState = "bm-bdl-state-down"
+
+    // The bundle is controlled by CLIENT Down
+    BmBdlState_bm_bdl_state_client_down BmBdlState = "bm-bdl-state-client-down"
+
+    // The bundle is Down on the partner device
+    BmBdlState_bm_bdl_state_ptnr_down BmBdlState = "bm-bdl-state-ptnr-down"
+
+    // Bundle shutdown has been configured
+    BmBdlState_bm_bdl_state_bundle_shutdown BmBdlState = "bm-bdl-state-bundle-shutdown"
+
+    // The bundle cannot contact the core
+    BmBdlState_bm_bdl_state_pe_isolated BmBdlState = "bm-bdl-state-pe-isolated"
+
+    // The state is disputed by a peer device
+    BmBdlState_bm_bdl_state_nak BmBdlState = "bm-bdl-state-nak"
+
+    // The bundle is Up
+    BmBdlState_bm_bdl_state_up_active BmBdlState = "bm-bdl-state-up-active"
+
+    // The bundle is Up, but is mLACP standby
+    BmBdlState_bm_bdl_state_mlacp_hot_standby BmBdlState = "bm-bdl-state-mlacp-hot-standby"
+
+    // The bundle is mLACP standby, but will not
+    // eliminate traffic loss
+    BmBdlState_bm_bdl_state_mlacp_cold_standby BmBdlState = "bm-bdl-state-mlacp-cold-standby"
+
+    // The bundle state has not been determined
+    BmBdlState_bm_bdl_state_unknown BmBdlState = "bm-bdl-state-unknown"
+
+    // The bundle is standby, but will not eliminate
+    // traffic loss
+    BmBdlState_bm_bdl_state_cold_standby BmBdlState = "bm-bdl-state-cold-standby"
+
+    // The bundle has been error-disabled
+    BmBdlState_bm_bdl_state_error_disabled BmBdlState = "bm-bdl-state-error-disabled"
+
+    // The bundle has been disabled by EFD
+    BmBdlState_bm_bdl_state_efd_disabled BmBdlState = "bm-bdl-state-efd-disabled"
+)
+
+// LacpPeriodState represents Lacp period state
+type LacpPeriodState string
+
+const (
+    // Packets are being sent using a long period
+    LacpPeriodState_period_s_low LacpPeriodState = "period-s-low"
+
+    // Packets are being sent using a short period
+    LacpPeriodState_period_fast LacpPeriodState = "period-fast"
+
+    // Packets are not being sent
+    LacpPeriodState_period_none LacpPeriodState = "period-none"
+)
+
+// BundleMedia represents Bundle media
+type BundleMedia string
+
+const (
+    // bundle media ethernet
+    BundleMedia_bundle_media_ethernet BundleMedia = "bundle-media-ethernet"
+
+    // bundle media pos
+    BundleMedia_bundle_media_pos BundleMedia = "bundle-media-pos"
+
+    // bundle media count
+    BundleMedia_bundle_media_count BundleMedia = "bundle-media-count"
 )
 
 // BmdMlacpBdlStateEnum represents State of an mLACP device
@@ -97,87 +188,15 @@ const (
     BmdMlacpBdlStateEnum_bdl_state_error BmdMlacpBdlStateEnum = "bdl-state-error"
 )
 
-// BmdMlacpNodeSyncEnum represents Synchronization states of an mLACP device
-type BmdMlacpNodeSyncEnum string
+// BundleMedia1 represents Bundle media1
+type BundleMedia1 string
 
 const (
-    // Sync requested of device
-    BmdMlacpNodeSyncEnum_node_sync_req BmdMlacpNodeSyncEnum = "node-sync-req"
+    // Ethernet
+    BundleMedia1_ethernet BundleMedia1 = "ethernet"
 
-    // Sync performed by device
-    BmdMlacpNodeSyncEnum_node_sync_done BmdMlacpNodeSyncEnum = "node-sync-done"
-
-    // Sync in progress from device
-    BmdMlacpNodeSyncEnum_node_sync_start BmdMlacpNodeSyncEnum = "node-sync-start"
-
-    // Initial sync pending from device
-    BmdMlacpNodeSyncEnum_node_sync_init BmdMlacpNodeSyncEnum = "node-sync-init"
-
-    // Sync not required for singleton groups
-    BmdMlacpNodeSyncEnum_node_sync_singleton BmdMlacpNodeSyncEnum = "node-sync-singleton"
-)
-
-// BmdMlacpNodeStateEnum represents State of an mLACP device
-type BmdMlacpNodeStateEnum string
-
-const (
-    // Missing some mLACP IG config
-    BmdMlacpNodeStateEnum_node_state_incomplete BmdMlacpNodeStateEnum = "node-state-incomplete"
-
-    // Connection rejected by peer
-    BmdMlacpNodeStateEnum_node_state_conn_rejected BmdMlacpNodeStateEnum = "node-state-conn-rejected"
-
-    // Connect timer running
-    BmdMlacpNodeStateEnum_node_state_connect_sent BmdMlacpNodeStateEnum = "node-state-connect-sent"
-
-    // Missing some ICCP IG config
-    BmdMlacpNodeStateEnum_node_state_unconfigured BmdMlacpNodeStateEnum = "node-state-unconfigured"
-
-    // ICCP declared peer node unreachable
-    BmdMlacpNodeStateEnum_node_state_unreachable BmdMlacpNodeStateEnum = "node-state-unreachable"
-
-    // ICCP declared peer node down
-    BmdMlacpNodeStateEnum_node_state_iccp_down BmdMlacpNodeStateEnum = "node-state-iccp-down"
-
-    // System info NAK'd
-    BmdMlacpNodeStateEnum_node_state_nak BmdMlacpNodeStateEnum = "node-state-nak"
-
-    // No system state TLV received
-    BmdMlacpNodeStateEnum_node_state_unknown BmdMlacpNodeStateEnum = "node-state-unknown"
-
-    // System state TLV reported down
-    BmdMlacpNodeStateEnum_node_state_mlacp_down BmdMlacpNodeStateEnum = "node-state-mlacp-down"
-
-    // System state TLV reported admin down
-    BmdMlacpNodeStateEnum_node_state_admin_down BmdMlacpNodeStateEnum = "node-state-admin-down"
-
-    // System is isolated from core network
-    BmdMlacpNodeStateEnum_node_state_pe_isolated BmdMlacpNodeStateEnum = "node-state-pe-isolated"
-
-    // System state TLV reported error
-    BmdMlacpNodeStateEnum_node_state_error BmdMlacpNodeStateEnum = "node-state-error"
-
-    // System state TLV reported test
-    BmdMlacpNodeStateEnum_node_state_test BmdMlacpNodeStateEnum = "node-state-test"
-
-    // System is up
-    BmdMlacpNodeStateEnum_node_state_up BmdMlacpNodeStateEnum = "node-state-up"
-)
-
-// LacpChurnstates represents Lacp churnstates
-type LacpChurnstates string
-
-const (
-    // The port is synchronized correctly
-    LacpChurnstates_no_churn LacpChurnstates = "no-churn"
-
-    // The port is OutOfSync and the churn timer has
-    // expired
-    LacpChurnstates_churn LacpChurnstates = "churn"
-
-    // The port is OutOfSync but the churn timer has
-    // not expired
-    LacpChurnstates_churn_monitor LacpChurnstates = "churn-monitor"
+    // POS
+    BundleMedia1_pos BundleMedia1 = "pos"
 )
 
 // Rxstates represents Rxstates
@@ -203,131 +222,20 @@ const (
     Rxstates_port_disabled Rxstates = "port-disabled"
 )
 
-// LacpPeriodState represents Lacp period state
-type LacpPeriodState string
+// LacpChurnstates represents Lacp churnstates
+type LacpChurnstates string
 
 const (
-    // Packets are being sent using a long period
-    LacpPeriodState_period_s_low LacpPeriodState = "period-s-low"
+    // The port is synchronized correctly
+    LacpChurnstates_no_churn LacpChurnstates = "no-churn"
 
-    // Packets are being sent using a short period
-    LacpPeriodState_period_fast LacpPeriodState = "period-fast"
+    // The port is OutOfSync and the churn timer has
+    // expired
+    LacpChurnstates_churn LacpChurnstates = "churn"
 
-    // Packets are not being sent
-    LacpPeriodState_period_none LacpPeriodState = "period-none"
-)
-
-// LacpSelState represents Lacp sel state
-type LacpSelState string
-
-const (
-    // The link is Unselected
-    LacpSelState_unselected LacpSelState = "unselected"
-
-    // The link is Standby
-    LacpSelState_standby LacpSelState = "standby"
-
-    // The link is Selected
-    LacpSelState_selected LacpSelState = "selected"
-)
-
-// BmdBagEventRgItem represents Description of an event for a RG
-type BmdBagEventRgItem string
-
-const (
-    // RG structure created
-    BmdBagEventRgItem_bmd_event_rg_idb_create BmdBagEventRgItem = "bmd-event-rg-idb-create"
-
-    // RG configured by user
-    BmdBagEventRgItem_bmd_event_rg_configured BmdBagEventRgItem = "bmd-event-rg-configured"
-
-    // User changed the configuration
-    BmdBagEventRgItem_bmd_event_rg_user_config BmdBagEventRgItem = "bmd-event-rg-user-config"
-
-    // Connection to peer
-    BmdBagEventRgItem_bmd_event_rg_connect_ion BmdBagEventRgItem = "bmd-event-rg-connect-ion"
-
-    // Data received
-    BmdBagEventRgItem_bmd_event_rg_data BmdBagEventRgItem = "bmd-event-rg-data"
-
-    // Sync performed
-    BmdBagEventRgItem_bmd_event_rg_sync BmdBagEventRgItem = "bmd-event-rg-sync"
-
-    // First retry
-    BmdBagEventRgItem_bmd_event_rg_first_retry BmdBagEventRgItem = "bmd-event-rg-first-retry"
-
-    // Last error
-    BmdBagEventRgItem_bmd_event_rg_error BmdBagEventRgItem = "bmd-event-rg-error"
-
-    // mLACP TLV received
-    BmdBagEventRgItem_bmd_event_rg_mlacp_tlv BmdBagEventRgItem = "bmd-event-rg-mlacp-tlv"
-
-    // ICCP event received
-    BmdBagEventRgItem_bmd_event_rg_iccp_event BmdBagEventRgItem = "bmd-event-rg-iccp-event"
-
-    // Number of RG events
-    BmdBagEventRgItem_bmd_event_rg_count BmdBagEventRgItem = "bmd-event-rg-count"
-)
-
-// BmdBagEventBdlItem represents Description of an event for a bundle
-type BmdBagEventBdlItem string
-
-const (
-    // Bundle structure created
-    BmdBagEventBdlItem_bmd_event_bdl_idb_create BmdBagEventBdlItem = "bmd-event-bdl-idb-create"
-
-    // Bundle configured by user
-    BmdBagEventBdlItem_bmd_event_bdl_configured BmdBagEventBdlItem = "bmd-event-bdl-configured"
-
-    // Bundle's IM state changed
-    BmdBagEventBdlItem_bmd_event_bdl_im_state BmdBagEventBdlItem = "bmd-event-bdl-im-state"
-
-    // Member added to the bundle
-    BmdBagEventBdlItem_bmd_event_bdl_mbr_added BmdBagEventBdlItem = "bmd-event-bdl-mbr-added"
-
-    // Member removed from the bundle
-    BmdBagEventBdlItem_bmd_event_bdl_mbr_deleted BmdBagEventBdlItem = "bmd-event-bdl-mbr-deleted"
-
-    // Bundle's MAC address changed
-    BmdBagEventBdlItem_bmd_event_bdl_mac_addr BmdBagEventBdlItem = "bmd-event-bdl-mac-addr"
-
-    // First retry
-    BmdBagEventBdlItem_bmd_event_bdl_first_retry BmdBagEventBdlItem = "bmd-event-bdl-first-retry"
-
-    // User changed the configuration
-    BmdBagEventBdlItem_bmd_event_bdl_user_config BmdBagEventBdlItem = "bmd-event-bdl-user-config"
-
-    // Last error
-    BmdBagEventBdlItem_bmd_event_bdl_error BmdBagEventBdlItem = "bmd-event-bdl-error"
-
-    // mLACP TLV received
-    BmdBagEventBdlItem_bmd_event_bdl_mlacp_tlv BmdBagEventBdlItem = "bmd-event-bdl-mlacp-tlv"
-
-    // redundancy role change
-    BmdBagEventBdlItem_bmd_event_bdl_redundancy_role BmdBagEventBdlItem = "bmd-event-bdl-redundancy-role"
-
-    // BFD state change
-    BmdBagEventBdlItem_bdl_bfd_state_change BmdBagEventBdlItem = "bdl-bfd-state-change"
-
-    // Inter-chassis link mode changed
-    BmdBagEventBdlItem_bmd_event_bdl_icl BmdBagEventBdlItem = "bmd-event-bdl-icl"
-
-    // Number of bundle events
-    BmdBagEventBdlItem_bmd_event_bdl_count BmdBagEventBdlItem = "bmd-event-bdl-count"
-)
-
-// BmdBagEventData represents Type of additional info for an event
-type BmdBagEventData string
-
-const (
-    // No additional data
-    BmdBagEventData_bmd_bag_evt_data_none BmdBagEventData = "bmd-bag-evt-data-none"
-
-    // Additional data is an error code
-    BmdBagEventData_bmd_bag_evt_data_error BmdBagEventData = "bmd-bag-evt-data-error"
-
-    // Additional data is a string
-    BmdBagEventData_bmd_bag_evt_data_string BmdBagEventData = "bmd-bag-evt-data-string"
+    // The port is OutOfSync but the churn timer has
+    // not expired
+    LacpChurnstates_churn_monitor LacpChurnstates = "churn-monitor"
 )
 
 // BmdBagEventMbrItem represents Description of an event for a member
@@ -377,21 +285,18 @@ const (
     BmdBagEventMbrItem_bmd_event_mbr_count BmdBagEventMbrItem = "bmd-event-mbr-count"
 )
 
-// BmdBagTarget represents Scope of information
-type BmdBagTarget string
+// BmdBagEventData represents Type of additional info for an event
+type BmdBagEventData string
 
 const (
-    // Information for a member
-    BmdBagTarget_bm_bag_target_mbr BmdBagTarget = "bm-bag-target-mbr"
+    // No additional data
+    BmdBagEventData_bmd_bag_evt_data_none BmdBagEventData = "bmd-bag-evt-data-none"
 
-    // Information for a bundle
-    BmdBagTarget_bm_bag_target_bdl BmdBagTarget = "bm-bag-target-bdl"
+    // Additional data is an error code
+    BmdBagEventData_bmd_bag_evt_data_error BmdBagEventData = "bmd-bag-evt-data-error"
 
-    // Information for a node
-    BmdBagTarget_bm_bag_target_node BmdBagTarget = "bm-bag-target-node"
-
-    // Information for an RG
-    BmdBagTarget_bm_bag_target_rg BmdBagTarget = "bm-bag-target-rg"
+    // Additional data is a string
+    BmdBagEventData_bmd_bag_evt_data_string BmdBagEventData = "bmd-bag-evt-data-string"
 )
 
 // BmdSwitchReason represents Bmd switch reason
@@ -428,17 +333,6 @@ const (
     BmdSwitchReason_bm_switch_reason_singleton BmdSwitchReason = "bm-switch-reason-singleton"
 )
 
-// BmdBagMlacpSchActionItem represents Description of scheduled actions for a bundle
-type BmdBagMlacpSchActionItem string
-
-const (
-    // mLACP Switchover scheduled
-    BmdBagMlacpSchActionItem_switchover BmdBagMlacpSchActionItem = "switchover"
-
-    // mLACP Switchback scheduled
-    BmdBagMlacpSchActionItem_switchback BmdBagMlacpSchActionItem = "switchback"
-)
-
 // BmdMemberTypeEnum represents Bmd member type enum
 type BmdMemberTypeEnum string
 
@@ -454,126 +348,15 @@ const (
     BmdMemberTypeEnum_bmd_mbr_unknown BmdMemberTypeEnum = "bmd-mbr-unknown"
 )
 
-// BmMuxreason represents Bm muxreason
-type BmMuxreason string
+// BmAfId represents Bm af id
+type BmAfId string
 
 const (
-    // Selection logic has not yet been run for the
-    // bundle this link is a member of
-    BmMuxreason_bm_mux_reason_no_reason BmMuxreason = "bm-mux-reason-no-reason"
+    // IPv4 AFI
+    BmAfId_bm_af_id_ipv4 BmAfId = "bm-af-id-ipv4"
 
-    // Link is down
-    BmMuxreason_bm_mux_reason_link_down BmMuxreason = "bm-mux-reason-link-down"
-
-    // Link is being removed from the bundle
-    BmMuxreason_bm_mux_reason_link_deleted BmMuxreason = "bm-mux-reason-link-deleted"
-
-    // Link has wrong duplexity
-    BmMuxreason_bm_mux_reason_duplex BmMuxreason = "bm-mux-reason-duplex"
-
-    // Link has wrong bandwidth
-    BmMuxreason_bm_mux_reason_bandwidth BmMuxreason = "bm-mux-reason-bandwidth"
-
-    // Link is a loopback interface
-    BmMuxreason_bm_mux_reason_loop_back BmMuxreason = "bm-mux-reason-loop-back"
-
-    // Link has wrong activity type
-    BmMuxreason_bm_mux_reason_activity_type BmMuxreason = "bm-mux-reason-activity-type"
-
-    // Link's bundle already has maximum number of
-    // members allowed
-    BmMuxreason_bm_mux_reason_link_limit BmMuxreason = "bm-mux-reason-link-limit"
-
-    // Link is attached to a shared medium
-    BmMuxreason_bm_mux_reason_shared BmMuxreason = "bm-mux-reason-shared"
-
-    // Link has wrong LAG ID
-    BmMuxreason_bm_mux_reason_lagid BmMuxreason = "bm-mux-reason-lagid"
-
-    // Link's bundle does not exist
-    BmMuxreason_bm_mux_reason_no_bundle BmMuxreason = "bm-mux-reason-no-bundle"
-
-    // Link's bundle has no primary link
-    BmMuxreason_bm_mux_reason_no_primary BmMuxreason = "bm-mux-reason-no-primary"
-
-    // Link's bundle is shut down
-    BmMuxreason_bm_mux_reason_bundle_down BmMuxreason = "bm-mux-reason-bundle-down"
-
-    // Link is marked individual by partner
-    BmMuxreason_bm_mux_reason_individual BmMuxreason = "bm-mux-reason-individual"
-
-    // Link is Defaulted, suggesting it is not
-    // receiving LACPDUs from the peer
-    BmMuxreason_bm_mux_reason_defaulted BmMuxreason = "bm-mux-reason-defaulted"
-
-    // Link is in InSync state
-    BmMuxreason_bm_mux_reason_in_sync BmMuxreason = "bm-mux-reason-in-sync"
-
-    // Link is in Collecting state
-    BmMuxreason_bm_mux_reason_collecting BmMuxreason = "bm-mux-reason-collecting"
-
-    // Link exceeds maximum active limit
-    BmMuxreason_bm_mux_reason_active_link_limit BmMuxreason = "bm-mux-reason-active-link-limit"
-
-    // Link is in Distributing state
-    BmMuxreason_bm_mux_reason_distributing BmMuxreason = "bm-mux-reason-distributing"
-
-    // Enumeration maximum value
-    BmMuxreason_bm_mux_reason_count BmMuxreason = "bm-mux-reason-count"
-)
-
-// BmdMemberState represents Bmd member state
-type BmdMemberState string
-
-const (
-    // Member is configured
-    BmdMemberState_bmd_mbr_state_configured BmdMemberState = "bmd-mbr-state-configured"
-
-    // Member is standby
-    BmdMemberState_bmd_mbr_state_standby BmdMemberState = "bmd-mbr-state-standby"
-
-    // Member is hot standby
-    BmdMemberState_bmd_mbr_state_hot_standby BmdMemberState = "bmd-mbr-state-hot-standby"
-
-    // Member is negotiating
-    BmdMemberState_bmd_mbr_state_negotiating BmdMemberState = "bmd-mbr-state-negotiating"
-
-    // Member has a BFD session running
-    BmdMemberState_bmd_mbr_state_bfd_running BmdMemberState = "bmd-mbr-state-bfd-running"
-
-    // Member is active
-    BmdMemberState_bmd_mbr_state_active BmdMemberState = "bmd-mbr-state-active"
-)
-
-// BmSeverity represents Severity of the member state reason
-type BmSeverity string
-
-const (
-    // OK
-    BmSeverity_ok BmSeverity = "ok"
-
-    // Information
-    BmSeverity_information BmSeverity = "information"
-
-    // Misconfiguration
-    BmSeverity_misconfiguration BmSeverity = "misconfiguration"
-
-    // Warning
-    BmSeverity_warning BmSeverity = "warning"
-
-    // Error
-    BmSeverity_error_ BmSeverity = "error"
-)
-
-// BmStateReasonTarget represents Scope of the state reason
-type BmStateReasonTarget string
-
-const (
-    // Member applicable reason
-    BmStateReasonTarget_member_reason BmStateReasonTarget = "member-reason"
-
-    // Bundle applicable reason
-    BmStateReasonTarget_bundle_reason BmStateReasonTarget = "bundle-reason"
+    // IPv6 AFI
+    BmAfId_bm_af_id_ipv6 BmAfId = "bm-af-id-ipv6"
 )
 
 // BmMbrStateReason represents Bm mbr state reason
@@ -836,16 +619,212 @@ const (
     // Client has configured the bundle state Down
     BmMbrStateReason_bm_mbr_state_reason_client_bundle_ctrl BmMbrStateReason = "bm-mbr-state-reason-client-bundle-ctrl"
 
-    // Link is in standby due to bundle out of service
-    // state
-    BmMbrStateReason_bm_mbr_state_reason_lacp_oos BmMbrStateReason = "bm-mbr-state-reason-lacp-oos"
-
-    // Link is error-disabled due to bundle out of
-    // service state
-    BmMbrStateReason_bm_mbr_state_reason_errdis_bundle_oos BmMbrStateReason = "bm-mbr-state-reason-errdis-bundle-oos"
-
     // Enumeration maximum value
     BmMbrStateReason_bm_mbr_state_reason_count BmMbrStateReason = "bm-mbr-state-reason-count"
+)
+
+// BmdBagEventBdlItem represents Description of an event for a bundle
+type BmdBagEventBdlItem string
+
+const (
+    // Bundle structure created
+    BmdBagEventBdlItem_bmd_event_bdl_idb_create BmdBagEventBdlItem = "bmd-event-bdl-idb-create"
+
+    // Bundle configured by user
+    BmdBagEventBdlItem_bmd_event_bdl_configured BmdBagEventBdlItem = "bmd-event-bdl-configured"
+
+    // Bundle's IM state changed
+    BmdBagEventBdlItem_bmd_event_bdl_im_state BmdBagEventBdlItem = "bmd-event-bdl-im-state"
+
+    // Member added to the bundle
+    BmdBagEventBdlItem_bmd_event_bdl_mbr_added BmdBagEventBdlItem = "bmd-event-bdl-mbr-added"
+
+    // Member removed from the bundle
+    BmdBagEventBdlItem_bmd_event_bdl_mbr_deleted BmdBagEventBdlItem = "bmd-event-bdl-mbr-deleted"
+
+    // Bundle's MAC address changed
+    BmdBagEventBdlItem_bmd_event_bdl_mac_addr BmdBagEventBdlItem = "bmd-event-bdl-mac-addr"
+
+    // First retry
+    BmdBagEventBdlItem_bmd_event_bdl_first_retry BmdBagEventBdlItem = "bmd-event-bdl-first-retry"
+
+    // User changed the configuration
+    BmdBagEventBdlItem_bmd_event_bdl_user_config BmdBagEventBdlItem = "bmd-event-bdl-user-config"
+
+    // Last error
+    BmdBagEventBdlItem_bmd_event_bdl_error BmdBagEventBdlItem = "bmd-event-bdl-error"
+
+    // mLACP TLV received
+    BmdBagEventBdlItem_bmd_event_bdl_mlacp_tlv BmdBagEventBdlItem = "bmd-event-bdl-mlacp-tlv"
+
+    // redundancy role change
+    BmdBagEventBdlItem_bmd_event_bdl_redundancy_role BmdBagEventBdlItem = "bmd-event-bdl-redundancy-role"
+
+    // BFD state change
+    BmdBagEventBdlItem_bdl_bfd_state_change BmdBagEventBdlItem = "bdl-bfd-state-change"
+
+    // Inter-chassis link mode changed
+    BmdBagEventBdlItem_bmd_event_bdl_icl BmdBagEventBdlItem = "bmd-event-bdl-icl"
+
+    // Number of bundle events
+    BmdBagEventBdlItem_bmd_event_bdl_count BmdBagEventBdlItem = "bmd-event-bdl-count"
+)
+
+// BmdMlacpNodeStateEnum represents State of an mLACP device
+type BmdMlacpNodeStateEnum string
+
+const (
+    // Missing some mLACP IG config
+    BmdMlacpNodeStateEnum_node_state_incomplete BmdMlacpNodeStateEnum = "node-state-incomplete"
+
+    // Connection rejected by peer
+    BmdMlacpNodeStateEnum_node_state_conn_rejected BmdMlacpNodeStateEnum = "node-state-conn-rejected"
+
+    // Connect timer running
+    BmdMlacpNodeStateEnum_node_state_connect_sent BmdMlacpNodeStateEnum = "node-state-connect-sent"
+
+    // Missing some ICCP IG config
+    BmdMlacpNodeStateEnum_node_state_unconfigured BmdMlacpNodeStateEnum = "node-state-unconfigured"
+
+    // ICCP declared peer node unreachable
+    BmdMlacpNodeStateEnum_node_state_unreachable BmdMlacpNodeStateEnum = "node-state-unreachable"
+
+    // ICCP declared peer node down
+    BmdMlacpNodeStateEnum_node_state_iccp_down BmdMlacpNodeStateEnum = "node-state-iccp-down"
+
+    // System info NAK'd
+    BmdMlacpNodeStateEnum_node_state_nak BmdMlacpNodeStateEnum = "node-state-nak"
+
+    // No system state TLV received
+    BmdMlacpNodeStateEnum_node_state_unknown BmdMlacpNodeStateEnum = "node-state-unknown"
+
+    // System state TLV reported down
+    BmdMlacpNodeStateEnum_node_state_mlacp_down BmdMlacpNodeStateEnum = "node-state-mlacp-down"
+
+    // System state TLV reported admin down
+    BmdMlacpNodeStateEnum_node_state_admin_down BmdMlacpNodeStateEnum = "node-state-admin-down"
+
+    // System is isolated from core network
+    BmdMlacpNodeStateEnum_node_state_pe_isolated BmdMlacpNodeStateEnum = "node-state-pe-isolated"
+
+    // System state TLV reported error
+    BmdMlacpNodeStateEnum_node_state_error BmdMlacpNodeStateEnum = "node-state-error"
+
+    // System state TLV reported test
+    BmdMlacpNodeStateEnum_node_state_test BmdMlacpNodeStateEnum = "node-state-test"
+
+    // System is up
+    BmdMlacpNodeStateEnum_node_state_up BmdMlacpNodeStateEnum = "node-state-up"
+)
+
+// BmdBagEventRgItem represents Description of an event for a RG
+type BmdBagEventRgItem string
+
+const (
+    // RG structure created
+    BmdBagEventRgItem_bmd_event_rg_idb_create BmdBagEventRgItem = "bmd-event-rg-idb-create"
+
+    // RG configured by user
+    BmdBagEventRgItem_bmd_event_rg_configured BmdBagEventRgItem = "bmd-event-rg-configured"
+
+    // User changed the configuration
+    BmdBagEventRgItem_bmd_event_rg_user_config BmdBagEventRgItem = "bmd-event-rg-user-config"
+
+    // Connection to peer
+    BmdBagEventRgItem_bmd_event_rg_connect_ion BmdBagEventRgItem = "bmd-event-rg-connect-ion"
+
+    // Data received
+    BmdBagEventRgItem_bmd_event_rg_data BmdBagEventRgItem = "bmd-event-rg-data"
+
+    // Sync performed
+    BmdBagEventRgItem_bmd_event_rg_sync BmdBagEventRgItem = "bmd-event-rg-sync"
+
+    // First retry
+    BmdBagEventRgItem_bmd_event_rg_first_retry BmdBagEventRgItem = "bmd-event-rg-first-retry"
+
+    // Last error
+    BmdBagEventRgItem_bmd_event_rg_error BmdBagEventRgItem = "bmd-event-rg-error"
+
+    // mLACP TLV received
+    BmdBagEventRgItem_bmd_event_rg_mlacp_tlv BmdBagEventRgItem = "bmd-event-rg-mlacp-tlv"
+
+    // ICCP event received
+    BmdBagEventRgItem_bmd_event_rg_iccp_event BmdBagEventRgItem = "bmd-event-rg-iccp-event"
+
+    // Number of RG events
+    BmdBagEventRgItem_bmd_event_rg_count BmdBagEventRgItem = "bmd-event-rg-count"
+)
+
+// BmWhichSystem represents Bm which system
+type BmWhichSystem string
+
+const (
+    // Actor
+    BmWhichSystem_bm_which_system_actr BmWhichSystem = "bm-which-system-actr"
+
+    // Partner
+    BmWhichSystem_bm_which_system_ptnr BmWhichSystem = "bm-which-system-ptnr"
+)
+
+// BmdBfdBdlState represents Bmd bfd bdl state
+type BmdBfdBdlState string
+
+const (
+    // BFD is down on the bundle
+    BmdBfdBdlState_bmd_bfd_bdl_down BmdBfdBdlState = "bmd-bfd-bdl-down"
+
+    // BFD has just started on a bundle, and the state
+    // has not been determined
+    BmdBfdBdlState_bmd_bfd_bdl_unknown BmdBfdBdlState = "bmd-bfd-bdl-unknown"
+
+    // BFD is up on the bundle
+    BmdBfdBdlState_bmd_bfd_bdl_up BmdBfdBdlState = "bmd-bfd-bdl-up"
+
+    // Number of BFD states on a bundle
+    BmdBfdBdlState_bmd_bfd_bdl_count BmdBfdBdlState = "bmd-bfd-bdl-count"
+)
+
+// BmdMlacpMbrStateEnum represents State of an mLACP device
+type BmdMlacpMbrStateEnum string
+
+const (
+    // Member info NAK'd
+    BmdMlacpMbrStateEnum_mbr_state_nak BmdMlacpMbrStateEnum = "mbr-state-nak"
+
+    // No member state TLV received
+    BmdMlacpMbrStateEnum_mbr_state_unknown BmdMlacpMbrStateEnum = "mbr-state-unknown"
+
+    // Member is up
+    BmdMlacpMbrStateEnum_mbr_state_up BmdMlacpMbrStateEnum = "mbr-state-up"
+
+    // Member is down
+    BmdMlacpMbrStateEnum_mbr_state_down BmdMlacpMbrStateEnum = "mbr-state-down"
+
+    // Member is admin down
+    BmdMlacpMbrStateEnum_mbr_state_admin_down BmdMlacpMbrStateEnum = "mbr-state-admin-down"
+
+    // Member state TLV reported test
+    BmdMlacpMbrStateEnum_mbr_state_test BmdMlacpMbrStateEnum = "mbr-state-test"
+
+    // Member state TLV reported error
+    BmdMlacpMbrStateEnum_mbr_state_error BmdMlacpMbrStateEnum = "mbr-state-error"
+)
+
+// BmdBagTarget represents Scope of information
+type BmdBagTarget string
+
+const (
+    // Information for a member
+    BmdBagTarget_bm_bag_target_mbr BmdBagTarget = "bm-bag-target-mbr"
+
+    // Information for a bundle
+    BmdBagTarget_bm_bag_target_bdl BmdBagTarget = "bm-bag-target-bdl"
+
+    // Information for a node
+    BmdBagTarget_bm_bag_target_node BmdBagTarget = "bm-bag-target-node"
+
+    // Information for an RG
+    BmdBagTarget_bm_bag_target_rg BmdBagTarget = "bm-bag-target-rg"
 )
 
 // BmMuxstate represents Bm muxstate
@@ -871,38 +850,109 @@ const (
     BmMuxstate_collecting_distributing BmMuxstate = "collecting-distributing"
 )
 
-// BmdLacpMode represents Bmd lacp mode
-type BmdLacpMode string
+// LacpSelState represents Lacp sel state
+type LacpSelState string
 
 const (
-    // bmd mode on
-    BmdLacpMode_bmd_mode_on BmdLacpMode = "bmd-mode-on"
+    // The link is Unselected
+    LacpSelState_unselected LacpSelState = "unselected"
 
-    // bmd mode active
-    BmdLacpMode_bmd_mode_active BmdLacpMode = "bmd-mode-active"
+    // The link is Standby
+    LacpSelState_standby LacpSelState = "standby"
 
-    // bmd mode passive
-    BmdLacpMode_bmd_mode_passive BmdLacpMode = "bmd-mode-passive"
-
-    // bmd mode count
-    BmdLacpMode_bmd_mode_count BmdLacpMode = "bmd-mode-count"
+    // The link is Selected
+    LacpSelState_selected LacpSelState = "selected"
 )
 
-// BmdMlacpSwitchover represents Bmd mlacp switchover
-type BmdMlacpSwitchover string
+// BmdMemberState represents Bmd member state
+type BmdMemberState string
 
 const (
-    // Non-revertive switchover type
-    BmdMlacpSwitchover_bmd_mlacp_switchover_nonrevertive BmdMlacpSwitchover = "bmd-mlacp-switchover-nonrevertive"
+    // Member is configured
+    BmdMemberState_bmd_mbr_state_configured BmdMemberState = "bmd-mbr-state-configured"
 
-    // Brute force switchover type
-    BmdMlacpSwitchover_bmd_mlacp_switchover_brute_force BmdMlacpSwitchover = "bmd-mlacp-switchover-brute-force"
+    // Member is standby
+    BmdMemberState_bmd_mbr_state_standby BmdMemberState = "bmd-mbr-state-standby"
 
-    // Revertive switchover type
-    BmdMlacpSwitchover_bmd_mlacp_switchover_revertive BmdMlacpSwitchover = "bmd-mlacp-switchover-revertive"
+    // Member is hot standby
+    BmdMemberState_bmd_mbr_state_hot_standby BmdMemberState = "bmd-mbr-state-hot-standby"
 
-    // Number of switchover types
-    BmdMlacpSwitchover_bmd_mlacp_switchover_count BmdMlacpSwitchover = "bmd-mlacp-switchover-count"
+    // Member is negotiating
+    BmdMemberState_bmd_mbr_state_negotiating BmdMemberState = "bmd-mbr-state-negotiating"
+
+    // Member has a BFD session running
+    BmdMemberState_bmd_mbr_state_bfd_running BmdMemberState = "bmd-mbr-state-bfd-running"
+
+    // Member is active
+    BmdMemberState_bmd_mbr_state_active BmdMemberState = "bmd-mbr-state-active"
+)
+
+// BmMuxreason represents Bm muxreason
+type BmMuxreason string
+
+const (
+    // Selection logic has not yet been run for the
+    // bundle this link is a member of
+    BmMuxreason_bm_mux_reason_no_reason BmMuxreason = "bm-mux-reason-no-reason"
+
+    // Link is down
+    BmMuxreason_bm_mux_reason_link_down BmMuxreason = "bm-mux-reason-link-down"
+
+    // Link is being removed from the bundle
+    BmMuxreason_bm_mux_reason_link_deleted BmMuxreason = "bm-mux-reason-link-deleted"
+
+    // Link has wrong duplexity
+    BmMuxreason_bm_mux_reason_duplex BmMuxreason = "bm-mux-reason-duplex"
+
+    // Link has wrong bandwidth
+    BmMuxreason_bm_mux_reason_bandwidth BmMuxreason = "bm-mux-reason-bandwidth"
+
+    // Link is a loopback interface
+    BmMuxreason_bm_mux_reason_loop_back BmMuxreason = "bm-mux-reason-loop-back"
+
+    // Link has wrong activity type
+    BmMuxreason_bm_mux_reason_activity_type BmMuxreason = "bm-mux-reason-activity-type"
+
+    // Link's bundle already has maximum number of
+    // members allowed
+    BmMuxreason_bm_mux_reason_link_limit BmMuxreason = "bm-mux-reason-link-limit"
+
+    // Link is attached to a shared medium
+    BmMuxreason_bm_mux_reason_shared BmMuxreason = "bm-mux-reason-shared"
+
+    // Link has wrong LAG ID
+    BmMuxreason_bm_mux_reason_lagid BmMuxreason = "bm-mux-reason-lagid"
+
+    // Link's bundle does not exist
+    BmMuxreason_bm_mux_reason_no_bundle BmMuxreason = "bm-mux-reason-no-bundle"
+
+    // Link's bundle has no primary link
+    BmMuxreason_bm_mux_reason_no_primary BmMuxreason = "bm-mux-reason-no-primary"
+
+    // Link's bundle is shut down
+    BmMuxreason_bm_mux_reason_bundle_down BmMuxreason = "bm-mux-reason-bundle-down"
+
+    // Link is marked individual by partner
+    BmMuxreason_bm_mux_reason_individual BmMuxreason = "bm-mux-reason-individual"
+
+    // Link is Defaulted, suggesting it is not
+    // receiving LACPDUs from the peer
+    BmMuxreason_bm_mux_reason_defaulted BmMuxreason = "bm-mux-reason-defaulted"
+
+    // Link is in InSync state
+    BmMuxreason_bm_mux_reason_in_sync BmMuxreason = "bm-mux-reason-in-sync"
+
+    // Link is in Collecting state
+    BmMuxreason_bm_mux_reason_collecting BmMuxreason = "bm-mux-reason-collecting"
+
+    // Link exceeds maximum active limit
+    BmMuxreason_bm_mux_reason_active_link_limit BmMuxreason = "bm-mux-reason-active-link-limit"
+
+    // Link is in Distributing state
+    BmMuxreason_bm_mux_reason_distributing BmMuxreason = "bm-mux-reason-distributing"
+
+    // Enumeration maximum value
+    BmMuxreason_bm_mux_reason_count BmMuxreason = "bm-mux-reason-count"
 )
 
 // BmFeatureStatus represents Bm feature status
@@ -917,6 +967,82 @@ const (
 
     // The feature is currently operational
     BmFeatureStatus_bm_feature_operational BmFeatureStatus = "bm-feature-operational"
+)
+
+// BmSeverity represents Severity of the member state reason
+type BmSeverity string
+
+const (
+    // OK
+    BmSeverity_ok BmSeverity = "ok"
+
+    // Information
+    BmSeverity_information BmSeverity = "information"
+
+    // Misconfiguration
+    BmSeverity_misconfiguration BmSeverity = "misconfiguration"
+
+    // Warning
+    BmSeverity_warning BmSeverity = "warning"
+
+    // Error
+    BmSeverity_error_ BmSeverity = "error"
+)
+
+// BundleMlacpMode represents Bundle mlacp mode
+type BundleMlacpMode string
+
+const (
+    // bundle mlacp mode standby
+    BundleMlacpMode_bundle_mlacp_mode_standby BundleMlacpMode = "bundle-mlacp-mode-standby"
+
+    // bundle mlacp mode active
+    BundleMlacpMode_bundle_mlacp_mode_active BundleMlacpMode = "bundle-mlacp-mode-active"
+
+    // bundle mlacp mode count
+    BundleMlacpMode_bundle_mlacp_mode_count BundleMlacpMode = "bundle-mlacp-mode-count"
+)
+
+// BmdBagMlacpSchActionItem represents Description of scheduled actions for a bundle
+type BmdBagMlacpSchActionItem string
+
+const (
+    // mLACP Switchover scheduled
+    BmdBagMlacpSchActionItem_switchover BmdBagMlacpSchActionItem = "switchover"
+
+    // mLACP Switchback scheduled
+    BmdBagMlacpSchActionItem_switchback BmdBagMlacpSchActionItem = "switchback"
+)
+
+// BmStateReasonTarget represents Scope of the state reason
+type BmStateReasonTarget string
+
+const (
+    // Member applicable reason
+    BmStateReasonTarget_member_reason BmStateReasonTarget = "member-reason"
+
+    // Bundle applicable reason
+    BmStateReasonTarget_bundle_reason BmStateReasonTarget = "bundle-reason"
+)
+
+// BmdMlacpNodeSyncEnum represents Synchronization states of an mLACP device
+type BmdMlacpNodeSyncEnum string
+
+const (
+    // Sync requested of device
+    BmdMlacpNodeSyncEnum_node_sync_req BmdMlacpNodeSyncEnum = "node-sync-req"
+
+    // Sync performed by device
+    BmdMlacpNodeSyncEnum_node_sync_done BmdMlacpNodeSyncEnum = "node-sync-done"
+
+    // Sync in progress from device
+    BmdMlacpNodeSyncEnum_node_sync_start BmdMlacpNodeSyncEnum = "node-sync-start"
+
+    // Initial sync pending from device
+    BmdMlacpNodeSyncEnum_node_sync_init BmdMlacpNodeSyncEnum = "node-sync-init"
+
+    // Sync not required for singleton groups
+    BmdMlacpNodeSyncEnum_node_sync_singleton BmdMlacpNodeSyncEnum = "node-sync-singleton"
 )
 
 // BmBdlMacSource represents Bm bdl mac source
@@ -937,160 +1063,6 @@ const (
 
     // The MAC has come from the peer device
     BmBdlMacSource_bm_bdl_mac_source_peer BmBdlMacSource = "bm-bdl-mac-source-peer"
-)
-
-// BmBdlState represents Bm bdl state
-type BmBdlState string
-
-const (
-    // The bundle has been configured Down
-    BmBdlState_bm_bdl_state_admin_down BmBdlState = "bm-bdl-state-admin-down"
-
-    // The bundle is Down
-    BmBdlState_bm_bdl_state_down BmBdlState = "bm-bdl-state-down"
-
-    // The bundle is controlled by CLIENT Down
-    BmBdlState_bm_bdl_state_client_down BmBdlState = "bm-bdl-state-client-down"
-
-    // The bundle is Down on the partner device
-    BmBdlState_bm_bdl_state_ptnr_down BmBdlState = "bm-bdl-state-ptnr-down"
-
-    // Bundle shutdown has been configured
-    BmBdlState_bm_bdl_state_bundle_shutdown BmBdlState = "bm-bdl-state-bundle-shutdown"
-
-    // The bundle cannot contact the core
-    BmBdlState_bm_bdl_state_pe_isolated BmBdlState = "bm-bdl-state-pe-isolated"
-
-    // The state is disputed by a peer device
-    BmBdlState_bm_bdl_state_nak BmBdlState = "bm-bdl-state-nak"
-
-    // The bundle is Up
-    BmBdlState_bm_bdl_state_up_active BmBdlState = "bm-bdl-state-up-active"
-
-    // The bundle is Up, but is mLACP standby
-    BmBdlState_bm_bdl_state_mlacp_hot_standby BmBdlState = "bm-bdl-state-mlacp-hot-standby"
-
-    // The bundle is mLACP standby, but will not
-    // eliminate traffic loss
-    BmBdlState_bm_bdl_state_mlacp_cold_standby BmBdlState = "bm-bdl-state-mlacp-cold-standby"
-
-    // The bundle state has not been determined
-    BmBdlState_bm_bdl_state_unknown BmBdlState = "bm-bdl-state-unknown"
-
-    // The bundle is standby, but will not eliminate
-    // traffic loss
-    BmBdlState_bm_bdl_state_cold_standby BmBdlState = "bm-bdl-state-cold-standby"
-
-    // The bundle has been error-disabled
-    BmBdlState_bm_bdl_state_error_disabled BmBdlState = "bm-bdl-state-error-disabled"
-
-    // The bundle has been disabled by EFD
-    BmBdlState_bm_bdl_state_efd_disabled BmBdlState = "bm-bdl-state-efd-disabled"
-
-    // The bundle has been OOS (Out of Service)
-    BmBdlState_bm_bdl_state_lacp_oos BmBdlState = "bm-bdl-state-lacp-oos"
-)
-
-// BmAfId represents Bm af id
-type BmAfId string
-
-const (
-    // IPv4 AFI
-    BmAfId_bm_af_id_ipv4 BmAfId = "bm-af-id-ipv4"
-
-    // IPv6 AFI
-    BmAfId_bm_af_id_ipv6 BmAfId = "bm-af-id-ipv6"
-)
-
-// BmdBfdBdlState represents Bmd bfd bdl state
-type BmdBfdBdlState string
-
-const (
-    // BFD is down on the bundle
-    BmdBfdBdlState_bmd_bfd_bdl_down BmdBfdBdlState = "bmd-bfd-bdl-down"
-
-    // BFD has just started on a bundle, and the state
-    // has not been determined
-    BmdBfdBdlState_bmd_bfd_bdl_unknown BmdBfdBdlState = "bmd-bfd-bdl-unknown"
-
-    // BFD is up on the bundle
-    BmdBfdBdlState_bmd_bfd_bdl_up BmdBfdBdlState = "bmd-bfd-bdl-up"
-
-    // Number of BFD states on a bundle
-    BmdBfdBdlState_bmd_bfd_bdl_count BmdBfdBdlState = "bmd-bfd-bdl-count"
-)
-
-// BmWhichSystem represents Bm which system
-type BmWhichSystem string
-
-const (
-    // Actor
-    BmWhichSystem_bm_which_system_actr BmWhichSystem = "bm-which-system-actr"
-
-    // Partner
-    BmWhichSystem_bm_which_system_ptnr BmWhichSystem = "bm-which-system-ptnr"
-)
-
-// BundleMedia1 represents Bundle media1
-type BundleMedia1 string
-
-const (
-    // Ethernet
-    BundleMedia1_ethernet BundleMedia1 = "ethernet"
-
-    // POS
-    BundleMedia1_pos BundleMedia1 = "pos"
-)
-
-// LoadBalance represents Load balance
-type LoadBalance string
-
-const (
-    // Default
-    LoadBalance_default_ LoadBalance = "default"
-
-    // Auto
-    LoadBalance_auto LoadBalance = "auto"
-
-    // Value
-    LoadBalance_value LoadBalance = "value"
-
-    // Source IP
-    LoadBalance_source_ip LoadBalance = "source-ip"
-
-    // Destination IP
-    LoadBalance_destination_ip LoadBalance = "destination-ip"
-
-    // Unknown
-    LoadBalance_unknown LoadBalance = "unknown"
-)
-
-// BundleMedia represents Bundle media
-type BundleMedia string
-
-const (
-    // bundle media ethernet
-    BundleMedia_bundle_media_ethernet BundleMedia = "bundle-media-ethernet"
-
-    // bundle media pos
-    BundleMedia_bundle_media_pos BundleMedia = "bundle-media-pos"
-
-    // bundle media count
-    BundleMedia_bundle_media_count BundleMedia = "bundle-media-count"
-)
-
-// BundleMlacpMode represents Bundle mlacp mode
-type BundleMlacpMode string
-
-const (
-    // bundle mlacp mode standby
-    BundleMlacpMode_bundle_mlacp_mode_standby BundleMlacpMode = "bundle-mlacp-mode-standby"
-
-    // bundle mlacp mode active
-    BundleMlacpMode_bundle_mlacp_mode_active BundleMlacpMode = "bundle-mlacp-mode-active"
-
-    // bundle mlacp mode count
-    BundleMlacpMode_bundle_mlacp_mode_count BundleMlacpMode = "bundle-mlacp-mode-count"
 )
 
 // LacpBundles
@@ -1164,7 +1136,7 @@ type LacpBundles_Bundles_Bundle struct {
     YListKey string
 
     // This attribute is a key. LACP Bundle interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for each Bundle.
@@ -1211,15 +1183,12 @@ type LacpBundles_Bundles_Bundle_Data struct {
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key of the partner. The type is interface{} with range:
     // 0..65535.
     PartnerOperationalKey interface{}
-
-    // Applied LACP Mode. The type is BmdLacpMode.
-    AppliedLacpMode interface{}
 
     // Basic bundle information.
     ActorBundleData LacpBundles_Bundles_Bundle_Data_ActorBundleData
@@ -1247,7 +1216,6 @@ func (data *LacpBundles_Bundles_Bundle_Data) GetEntityData() *types.CommonEntity
     data.EntityData.Leafs.Append("partner-system-priority", types.YLeaf{"PartnerSystemPriority", data.PartnerSystemPriority})
     data.EntityData.Leafs.Append("partner-system-mac-address", types.YLeaf{"PartnerSystemMacAddress", data.PartnerSystemMacAddress})
     data.EntityData.Leafs.Append("partner-operational-key", types.YLeaf{"PartnerOperationalKey", data.PartnerOperationalKey})
-    data.EntityData.Leafs.Append("applied-lacp-mode", types.YLeaf{"AppliedLacpMode", data.AppliedLacpMode})
 
     data.EntityData.YListKeys = []string {}
 
@@ -1260,8 +1228,7 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -1292,7 +1259,7 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData struct {
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -1314,7 +1281,7 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData struct {
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -1483,7 +1450,7 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData_MacAddress struct {
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -1587,11 +1554,11 @@ type LacpBundles_Bundles_Bundle_Data_ActorBundleData_BfdConfig_DestinationAddres
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -1658,7 +1625,7 @@ type LacpBundles_Bundles_Bundle_Data_BundleSystemId_SystemMacAddr struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -1724,11 +1691,10 @@ type LacpBundles_Bundles_Bundle_Members_Member struct {
     YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
-    // Member's interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -1758,10 +1724,6 @@ type LacpBundles_Bundles_Bundle_Members_Member struct {
 
     // Member's (short form) name. The type is string.
     MemberName interface{}
-
-    // Error from final replication attempt. The type is interface{} with range:
-    // 0..4294967295.
-    ReplicationError interface{}
 
     // Counters data about member link.
     Counters LacpBundles_Bundles_Bundle_Members_Member_Counters
@@ -1804,7 +1766,6 @@ func (member *LacpBundles_Bundles_Bundle_Members_Member) GetEntityData() *types.
     member.EntityData.Leafs.Append("lacp-enabled", types.YLeaf{"LacpEnabled", member.LacpEnabled})
     member.EntityData.Leafs.Append("member-type", types.YLeaf{"MemberType", member.MemberType})
     member.EntityData.Leafs.Append("member-name", types.YLeaf{"MemberName", member.MemberName})
-    member.EntityData.Leafs.Append("replication-error", types.YLeaf{"ReplicationError", member.ReplicationError})
 
     member.EntityData.YListKeys = []string {"MemberInterface"}
 
@@ -1896,7 +1857,7 @@ type LacpBundles_Bundles_Bundle_Members_Member_LinkData struct {
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -1904,7 +1865,7 @@ type LacpBundles_Bundles_Bundle_Members_Member_LinkData struct {
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -1916,7 +1877,7 @@ type LacpBundles_Bundles_Bundle_Members_Member_LinkData struct {
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -2080,7 +2041,7 @@ type LacpBundles_Bundles_Bundle_Members_Member_MacAddress struct {
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -2274,7 +2235,7 @@ type BundleInformation_BfdCounters_BfdCountersBundles_BfdCountersBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and all its members.
@@ -2802,7 +2763,7 @@ type BundleInformation_ScheduledActions_ScheduledActionsBundles_ScheduledActions
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -2987,7 +2948,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and all its members.
@@ -3068,8 +3029,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -3100,7 +3060,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -3122,7 +3082,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -3291,7 +3251,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -3395,11 +3355,11 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -3432,8 +3392,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     YFilter yfilter.YFilter
     YListKey string
 
-    // Member's interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -3463,10 +3422,6 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
 
     // Member's (short form) name. The type is string.
     MemberName interface{}
-
-    // Error from final replication attempt. The type is interface{} with range:
-    // 0..4294967295.
-    ReplicationError interface{}
 
     // Counters data about member link.
     Counters BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_MemberData_Counters
@@ -3508,7 +3463,6 @@ func (memberData *BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBund
     memberData.EntityData.Leafs.Append("lacp-enabled", types.YLeaf{"LacpEnabled", memberData.LacpEnabled})
     memberData.EntityData.Leafs.Append("member-type", types.YLeaf{"MemberType", memberData.MemberType})
     memberData.EntityData.Leafs.Append("member-name", types.YLeaf{"MemberName", memberData.MemberName})
-    memberData.EntityData.Leafs.Append("replication-error", types.YLeaf{"ReplicationError", memberData.ReplicationError})
 
     memberData.EntityData.YListKeys = []string {}
 
@@ -3600,7 +3554,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -3608,7 +3562,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -3620,7 +3574,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -3784,7 +3738,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleDescendant_
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -3854,8 +3808,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
     // This attribute is a key. Member interface. The type is string.
     MemberInterface interface{}
 
-    // Member's interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -3885,10 +3838,6 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
 
     // Member's (short form) name. The type is string.
     MemberName interface{}
-
-    // Error from final replication attempt. The type is interface{} with range:
-    // 0..4294967295.
-    ReplicationError interface{}
 
     // Counters data about member link.
     Counters BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMembers_BundleBundleChildrenMember_Counters
@@ -3931,7 +3880,6 @@ func (bundleBundleChildrenMember *BundleInformation_Bundle_BundleBundles_BundleB
     bundleBundleChildrenMember.EntityData.Leafs.Append("lacp-enabled", types.YLeaf{"LacpEnabled", bundleBundleChildrenMember.LacpEnabled})
     bundleBundleChildrenMember.EntityData.Leafs.Append("member-type", types.YLeaf{"MemberType", bundleBundleChildrenMember.MemberType})
     bundleBundleChildrenMember.EntityData.Leafs.Append("member-name", types.YLeaf{"MemberName", bundleBundleChildrenMember.MemberName})
-    bundleBundleChildrenMember.EntityData.Leafs.Append("replication-error", types.YLeaf{"ReplicationError", bundleBundleChildrenMember.ReplicationError})
 
     bundleBundleChildrenMember.EntityData.YListKeys = []string {"MemberInterface"}
 
@@ -4023,7 +3971,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -4031,7 +3979,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -4043,7 +3991,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -4207,7 +4155,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleChildrenMem
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -4237,8 +4185,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -4269,7 +4216,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem struct
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -4291,7 +4238,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem struct
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -4460,7 +4407,7 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem_MacAdd
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -4564,11 +4511,11 @@ type BundleInformation_Bundle_BundleBundles_BundleBundle_BundleBundleItem_BfdCon
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -4713,8 +4660,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -4745,7 +4691,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -4767,7 +4713,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -4936,7 +4882,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -5040,11 +4986,11 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Bu
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -5077,8 +5023,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
     YFilter yfilter.YFilter
     YListKey string
 
-    // Member's interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -5108,10 +5053,6 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
 
     // Member's (short form) name. The type is string.
     MemberName interface{}
-
-    // Error from final replication attempt. The type is interface{} with range:
-    // 0..4294967295.
-    ReplicationError interface{}
 
     // Counters data about member link.
     Counters BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_MemberData_Counters
@@ -5153,7 +5094,6 @@ func (memberData *BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemb
     memberData.EntityData.Leafs.Append("lacp-enabled", types.YLeaf{"LacpEnabled", memberData.LacpEnabled})
     memberData.EntityData.Leafs.Append("member-type", types.YLeaf{"MemberType", memberData.MemberType})
     memberData.EntityData.Leafs.Append("member-name", types.YLeaf{"MemberName", memberData.MemberName})
-    memberData.EntityData.Leafs.Append("replication-error", types.YLeaf{"ReplicationError", memberData.ReplicationError})
 
     memberData.EntityData.YListKeys = []string {}
 
@@ -5245,7 +5185,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -5253,7 +5193,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -5265,7 +5205,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -5429,7 +5369,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberAncestor_Me
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -5459,8 +5399,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem struct
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Member's interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -5490,10 +5429,6 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem struct
 
     // Member's (short form) name. The type is string.
     MemberName interface{}
-
-    // Error from final replication attempt. The type is interface{} with range:
-    // 0..4294967295.
-    ReplicationError interface{}
 
     // Counters data about member link.
     Counters BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem_Counters
@@ -5535,7 +5470,6 @@ func (bundleMemberItem *BundleInformation_Bundle_BundleMembers_BundleMember_Bund
     bundleMemberItem.EntityData.Leafs.Append("lacp-enabled", types.YLeaf{"LacpEnabled", bundleMemberItem.LacpEnabled})
     bundleMemberItem.EntityData.Leafs.Append("member-type", types.YLeaf{"MemberType", bundleMemberItem.MemberType})
     bundleMemberItem.EntityData.Leafs.Append("member-name", types.YLeaf{"MemberName", bundleMemberItem.MemberName})
-    bundleMemberItem.EntityData.Leafs.Append("replication-error", types.YLeaf{"ReplicationError", bundleMemberItem.ReplicationError})
 
     bundleMemberItem.EntityData.YListKeys = []string {}
 
@@ -5627,7 +5561,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem_LinkDa
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -5635,7 +5569,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem_LinkDa
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -5647,7 +5581,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem_LinkDa
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -5811,7 +5745,7 @@ type BundleInformation_Bundle_BundleMembers_BundleMember_BundleMemberItem_MacAdd
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -6706,7 +6640,7 @@ type BundleInformation_EventsRg_EventsRgBundles_EventsRgBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and its parent bundle.
@@ -7135,7 +7069,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -7186,15 +7120,12 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem struct {
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key of the partner. The type is interface{} with range:
     // 0..65535.
     PartnerOperationalKey interface{}
-
-    // Applied LACP Mode. The type is BmdLacpMode.
-    AppliedLacpMode interface{}
 
     // Basic bundle information.
     ActorBundleData BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleData
@@ -7222,7 +7153,6 @@ func (lacpBundleItem *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleIt
     lacpBundleItem.EntityData.Leafs.Append("partner-system-priority", types.YLeaf{"PartnerSystemPriority", lacpBundleItem.PartnerSystemPriority})
     lacpBundleItem.EntityData.Leafs.Append("partner-system-mac-address", types.YLeaf{"PartnerSystemMacAddress", lacpBundleItem.PartnerSystemMacAddress})
     lacpBundleItem.EntityData.Leafs.Append("partner-operational-key", types.YLeaf{"PartnerOperationalKey", lacpBundleItem.PartnerOperationalKey})
-    lacpBundleItem.EntityData.Leafs.Append("applied-lacp-mode", types.YLeaf{"AppliedLacpMode", lacpBundleItem.AppliedLacpMode})
 
     lacpBundleItem.EntityData.YListKeys = []string {}
 
@@ -7235,8 +7165,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -7267,7 +7196,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -7289,7 +7218,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -7458,7 +7387,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -7562,11 +7491,11 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_ActorBundleDat
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -7633,7 +7562,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleItem_BundleSystemId
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -7711,15 +7640,12 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key of the partner. The type is interface{} with range:
     // 0..65535.
     PartnerOperationalKey interface{}
-
-    // Applied LACP Mode. The type is BmdLacpMode.
-    AppliedLacpMode interface{}
 
     // Basic bundle information.
     ActorBundleData BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleData_ActorBundleData
@@ -7747,7 +7673,6 @@ func (bundleData *BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescen
     bundleData.EntityData.Leafs.Append("partner-system-priority", types.YLeaf{"PartnerSystemPriority", bundleData.PartnerSystemPriority})
     bundleData.EntityData.Leafs.Append("partner-system-mac-address", types.YLeaf{"PartnerSystemMacAddress", bundleData.PartnerSystemMacAddress})
     bundleData.EntityData.Leafs.Append("partner-operational-key", types.YLeaf{"PartnerOperationalKey", bundleData.PartnerOperationalKey})
-    bundleData.EntityData.Leafs.Append("applied-lacp-mode", types.YLeaf{"AppliedLacpMode", bundleData.AppliedLacpMode})
 
     bundleData.EntityData.YListKeys = []string {}
 
@@ -7760,8 +7685,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -7792,7 +7716,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -7814,7 +7738,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -7983,7 +7907,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -8087,11 +8011,11 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -8158,7 +8082,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_BundleDa
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -8380,7 +8304,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_MemberDa
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -8556,7 +8480,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_MemberDa
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -8659,7 +8583,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_MemberDa
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -8691,7 +8615,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleDescendant_MemberDa
 
     // The LDP address of the device that the link is configured on. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Member's (short form) name. The type is string.
@@ -8955,7 +8879,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMembers_Lac
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -9131,7 +9055,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMembers_Lac
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -9234,7 +9158,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMembers_Lac
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -9266,7 +9190,7 @@ type BundleInformation_Lacp_LacpBundles_LacpBundle_LacpBundleChildrenMembers_Lac
 
     // The LDP address of the device that the link is configured on. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Member's (short form) name. The type is string.
@@ -9421,15 +9345,12 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key of the partner. The type is interface{} with range:
     // 0..65535.
     PartnerOperationalKey interface{}
-
-    // Applied LACP Mode. The type is BmdLacpMode.
-    AppliedLacpMode interface{}
 
     // Basic bundle information.
     ActorBundleData BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData_ActorBundleData
@@ -9457,7 +9378,6 @@ func (bundleData *BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncest
     bundleData.EntityData.Leafs.Append("partner-system-priority", types.YLeaf{"PartnerSystemPriority", bundleData.PartnerSystemPriority})
     bundleData.EntityData.Leafs.Append("partner-system-mac-address", types.YLeaf{"PartnerSystemMacAddress", bundleData.PartnerSystemMacAddress})
     bundleData.EntityData.Leafs.Append("partner-operational-key", types.YLeaf{"PartnerOperationalKey", bundleData.PartnerOperationalKey})
-    bundleData.EntityData.Leafs.Append("applied-lacp-mode", types.YLeaf{"AppliedLacpMode", bundleData.AppliedLacpMode})
 
     bundleData.EntityData.YListKeys = []string {}
 
@@ -9470,8 +9390,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -9502,7 +9421,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -9524,7 +9443,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -9693,7 +9612,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -9797,11 +9716,11 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -9868,7 +9787,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_BundleData
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -10090,7 +10009,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_MemberData
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -10266,7 +10185,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_MemberData
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -10369,7 +10288,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_MemberData
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -10401,7 +10320,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberAncestor_MemberData
 
     // The LDP address of the device that the link is configured on. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Member's (short form) name. The type is string.
@@ -10626,7 +10545,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_ActorInfo_Port
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -10802,7 +10721,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_PartnerInfo_Po
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -10905,7 +10824,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_AdditionalInfo
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 }
 
@@ -10937,7 +10856,7 @@ type BundleInformation_Lacp_LacpMembers_LacpMember_LacpMemberItem_AdditionalInfo
 
     // The LDP address of the device that the link is configured on. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     PeerAddress interface{}
 
     // Member's (short form) name. The type is string.
@@ -11902,7 +11821,7 @@ type BundleInformation_MlacpBundleCounters_Bundles_Bundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -13684,7 +13603,7 @@ type BundleInformation_Protect_ProtectBundles_ProtectBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -13719,7 +13638,7 @@ type BundleInformation_Protect_ProtectBundles_ProtectBundle_ProtectBundleItem st
     YFilter yfilter.YFilter
 
     // Bundle's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterfaceHandle interface{}
 
     // Whether the bundle interface is up. The type is bool.
@@ -13797,7 +13716,7 @@ type BundleInformation_Protect_ProtectBundles_ProtectBundle_ProtectBundleItem_Me
     YListKey string
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // Member's underlying link ID. The type is interface{} with range: 0..65535.
@@ -13810,7 +13729,7 @@ type BundleInformation_Protect_ProtectBundles_ProtectBundle_ProtectBundleItem_Me
     Bandwidth interface{}
 
     // Member's node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // Member is active within its bundle. The type is bool.
@@ -13932,7 +13851,7 @@ type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -14098,7 +14017,7 @@ type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundle
     MlacpNodeId interface{}
 
     // LDP ID of the device. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LdpId interface{}
 
     // Version of the protocol being used. The type is interface{} with range:
@@ -14181,7 +14100,7 @@ type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundle
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -14321,7 +14240,7 @@ type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundle
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -14356,7 +14275,7 @@ type BundleInformation_MlacpBrief_MlacpBundleBriefs_MlacpBundleBrief_MlacpBundle
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -14575,7 +14494,7 @@ type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_Mlacp
     MlacpNodeId interface{}
 
     // LDP ID of the device. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LdpId interface{}
 
     // Version of the protocol being used. The type is interface{} with range:
@@ -14658,7 +14577,7 @@ type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_Mlacp
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -14798,7 +14717,7 @@ type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_Mlacp
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -14833,7 +14752,7 @@ type BundleInformation_MlacpBrief_MlacpBriefIccpGroups_MlacpBriefIccpGroup_Mlacp
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -14957,7 +14876,7 @@ type BundleInformation_Mlacp_MlacpBundles_MlacpBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -15123,7 +15042,7 @@ type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_
     MlacpNodeId interface{}
 
     // LDP ID of the device. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LdpId interface{}
 
     // Version of the protocol being used. The type is interface{} with range:
@@ -15206,7 +15125,7 @@ type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -15346,7 +15265,7 @@ type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -15381,7 +15300,7 @@ type BundleInformation_Mlacp_MlacpBundles_MlacpBundle_MlacpBundleItem_MlacpData_
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -15600,7 +15519,7 @@ type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_I
     MlacpNodeId interface{}
 
     // LDP ID of the device. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LdpId interface{}
 
     // Version of the protocol being used. The type is interface{} with range:
@@ -15683,7 +15602,7 @@ type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_I
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -15823,7 +15742,7 @@ type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_B
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -15858,7 +15777,7 @@ type BundleInformation_Mlacp_MlacpIccpGroups_MlacpIccpGroup_MlacpIccpGroupItem_B
     PortName interface{}
 
     // Member's interface handle (local device's members only). The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // mLACP Device ID. The type is interface{} with range: 0..255.
@@ -16010,7 +15929,7 @@ type BundleInformation_MacAllocation_MacAllocationGlobal_MacAllocationGlobalItem
     YListKey string
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -16833,7 +16752,7 @@ type BundleInformation_Events_EventsBundles_EventsBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item and its parent bundle.
@@ -18725,7 +18644,7 @@ type BundleInformation_EventsBdl_EventsBdlBundles_EventsBdlBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -19551,7 +19470,7 @@ type BundleInformation_BundleBriefs_BundleBrief struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -19585,8 +19504,7 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -19617,7 +19535,7 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem struct {
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -19639,7 +19557,7 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem struct {
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -19808,7 +19726,7 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem_MacAddress struc
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -19912,11 +19830,11 @@ type BundleInformation_BundleBriefs_BundleBrief_BundleBriefItem_BfdConfig_Destin
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -20024,7 +19942,7 @@ type BundleInformation_EventsMbr_EventsMbrBundles_EventsMbrBundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Children of bundle with member events information.
@@ -23987,7 +23905,7 @@ type BundleInformation_SystemId_SystemIdGlobal_SystemIdGlobalItem struct {
     SystemPriority interface{}
 
     // MAC Address used to identify the system (deprecated). The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemMacAddress interface{}
 
     // System ID.
@@ -24058,7 +23976,7 @@ type BundleInformation_SystemId_SystemIdGlobal_SystemIdGlobalItem_SystemId_Syste
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -24167,7 +24085,7 @@ type BundleInformation_SystemId_SystemIdIccpGroups_SystemIdIccpGroup_SystemIdIcc
     SystemPriority interface{}
 
     // MAC Address used to identify the system (deprecated). The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemMacAddress interface{}
 
     // System ID.
@@ -24238,7 +24156,7 @@ type BundleInformation_SystemId_SystemIdIccpGroups_SystemIdIccpGroup_SystemIdIcc
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -25803,7 +25721,7 @@ type BundleInformation_MlacpMemberCounters_Bundles_Bundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
 
     // Data for this item.
@@ -27258,7 +27176,7 @@ type LacpData_Global_SystemId struct {
     SystemPriority interface{}
 
     // MAC Address used to identify the system (deprecated). The type is string
-    // with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemMacAddress interface{}
 
     // System ID.
@@ -27329,7 +27247,7 @@ type LacpData_Global_SystemId_SystemId_SystemMacAddr struct {
     YFilter yfilter.YFilter
 
     // macaddr. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Macaddr interface{}
 }
 
@@ -27424,11 +27342,8 @@ type Bundles_Bundles_Bundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleInterface interface{}
-
-    // Applied LACP Mode for each Bundle.
-    AppliedLacpMode Bundles_Bundles_Bundle_AppliedLacpMode
 
     // Data for each Bundle.
     Data Bundles_Bundles_Bundle_Data
@@ -27449,7 +27364,6 @@ func (bundle *Bundles_Bundles_Bundle) GetEntityData() *types.CommonEntityData {
     bundle.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
 
     bundle.EntityData.Children = types.NewOrderedMap()
-    bundle.EntityData.Children.Append("applied-lacp-mode", types.YChild{"AppliedLacpMode", &bundle.AppliedLacpMode})
     bundle.EntityData.Children.Append("data", types.YChild{"Data", &bundle.Data})
     bundle.EntityData.Children.Append("members", types.YChild{"Members", &bundle.Members})
     bundle.EntityData.Leafs = types.NewOrderedMap()
@@ -27460,44 +27374,13 @@ func (bundle *Bundles_Bundles_Bundle) GetEntityData() *types.CommonEntityData {
     return &(bundle.EntityData)
 }
 
-// Bundles_Bundles_Bundle_AppliedLacpMode
-// Applied LACP Mode for each Bundle
-type Bundles_Bundles_Bundle_AppliedLacpMode struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Applied LACP Mode. The type is BmdLacpMode.
-    AppliedLacpMode interface{}
-}
-
-func (appliedLacpMode *Bundles_Bundles_Bundle_AppliedLacpMode) GetEntityData() *types.CommonEntityData {
-    appliedLacpMode.EntityData.YFilter = appliedLacpMode.YFilter
-    appliedLacpMode.EntityData.YangName = "applied-lacp-mode"
-    appliedLacpMode.EntityData.BundleName = "cisco_ios_xr"
-    appliedLacpMode.EntityData.ParentYangName = "bundle"
-    appliedLacpMode.EntityData.SegmentPath = "applied-lacp-mode"
-    appliedLacpMode.EntityData.AbsolutePath = "Cisco-IOS-XR-bundlemgr-oper:bundles/bundles/bundle/" + appliedLacpMode.EntityData.SegmentPath
-    appliedLacpMode.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    appliedLacpMode.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    appliedLacpMode.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    appliedLacpMode.EntityData.Children = types.NewOrderedMap()
-    appliedLacpMode.EntityData.Leafs = types.NewOrderedMap()
-    appliedLacpMode.EntityData.Leafs.Append("applied-lacp-mode", types.YLeaf{"AppliedLacpMode", appliedLacpMode.AppliedLacpMode})
-
-    appliedLacpMode.EntityData.YListKeys = []string {}
-
-    return &(appliedLacpMode.EntityData)
-}
-
 // Bundles_Bundles_Bundle_Data
 // Data for each Bundle
 type Bundles_Bundles_Bundle_Data struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     BundleInterfaceName interface{}
 
     // Bandwidth available to the bundle interface (kbps). The type is interface{}
@@ -27528,7 +27411,7 @@ type Bundles_Bundles_Bundle_Data struct {
     MinimumBandwidth interface{}
 
     // Primary bundle member (no longer applicable). The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     PrimaryMember interface{}
 
     // The state of the bundle. The type is BmBdlState.
@@ -27550,7 +27433,7 @@ type Bundles_Bundles_Bundle_Data struct {
     MacSource interface{}
 
     // The name of the member that supplied the MAC address. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     MacSourceMember interface{}
 
     // Indicates if this bundle is operating as an inter-chassis link (1 = I-C
@@ -27719,7 +27602,7 @@ type Bundles_Bundles_Bundle_Data_MacAddress struct {
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -27823,11 +27706,11 @@ type Bundles_Bundles_Bundle_Data_BfdConfig_DestinationAddress struct {
     Af interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -27895,11 +27778,10 @@ type Bundles_Bundles_Bundle_Members_Member struct {
     YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
-    // Member's interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -27929,10 +27811,6 @@ type Bundles_Bundles_Bundle_Members_Member struct {
 
     // Member's (short form) name. The type is string.
     MemberName interface{}
-
-    // Error from final replication attempt. The type is interface{} with range:
-    // 0..4294967295.
-    ReplicationError interface{}
 
     // Counters data about member link.
     Counters Bundles_Bundles_Bundle_Members_Member_Counters
@@ -27975,7 +27853,6 @@ func (member *Bundles_Bundles_Bundle_Members_Member) GetEntityData() *types.Comm
     member.EntityData.Leafs.Append("lacp-enabled", types.YLeaf{"LacpEnabled", member.LacpEnabled})
     member.EntityData.Leafs.Append("member-type", types.YLeaf{"MemberType", member.MemberType})
     member.EntityData.Leafs.Append("member-name", types.YLeaf{"MemberName", member.MemberName})
-    member.EntityData.Leafs.Append("replication-error", types.YLeaf{"ReplicationError", member.ReplicationError})
 
     member.EntityData.YListKeys = []string {"MemberInterface"}
 
@@ -28067,7 +27944,7 @@ type Bundles_Bundles_Bundle_Members_Member_LinkData struct {
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -28075,7 +27952,7 @@ type Bundles_Bundles_Bundle_Members_Member_LinkData struct {
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -28087,7 +27964,7 @@ type Bundles_Bundles_Bundle_Members_Member_LinkData struct {
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -28251,7 +28128,7 @@ type Bundles_Bundles_Bundle_Members_Member_MacAddress struct {
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -28483,7 +28360,7 @@ type LacpBundleMembers_Members_Member struct {
     YListKey string
 
     // This attribute is a key. Member interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     MemberInterface interface{}
 
     // Link data for LACP bundle members.
@@ -28522,7 +28399,7 @@ type LacpBundleMembers_Members_Member_Data struct {
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of the actor system. The type is interface{} with range:
@@ -28530,7 +28407,7 @@ type LacpBundleMembers_Members_Member_Data struct {
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -28542,7 +28419,7 @@ type LacpBundleMembers_Members_Member_Data struct {
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -28777,7 +28654,7 @@ type BundlesAdjacency_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Brief load-balance information for the node.
@@ -28851,7 +28728,7 @@ type BundlesAdjacency_Nodes_Node_Brief_BundleData struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Bundle interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of sub-interfaces on the bundle. The type is interface{} with range:
@@ -28906,7 +28783,7 @@ type BundlesAdjacency_Nodes_Node_Brief_BundleData_SubInterface struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Sub interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Load balance data.
@@ -29015,7 +28892,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle struct {
     YListKey string
 
     // This attribute is a key. Bundle interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     BundleName interface{}
 
     // Data for each Bundle.
@@ -29114,7 +28991,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Bundle interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Bundle interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Number of sub-interfaces on the bundle. The type is interface{} with range:
@@ -29169,7 +29046,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Brief_SubInterface st
     YFilter yfilter.YFilter
     YListKey string
 
-    // Sub interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Load balance data.
@@ -29282,7 +29159,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_Member struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Member interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Member interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Member's link ID in database. The type is interface{} with range: 0..255.
@@ -29326,7 +29203,7 @@ type BundlesAdjacency_Nodes_Node_Bundles_Bundle_BundleInfo_SubInterface struct {
     YFilter yfilter.YFilter
     YListKey string
 
-    // Sub interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Sub interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Load balance data.

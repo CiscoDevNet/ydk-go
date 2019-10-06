@@ -28,15 +28,35 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ethernet-cfm-oper:cfm", reflect.TypeOf(Cfm{}))
 }
 
-// CfmAisDir represents Cfm ais dir
-type CfmAisDir string
+// CfmPmElrIngressAction represents ELR Ingress action
+type CfmPmElrIngressAction string
 
 const (
-    // Packets sent inward
-    CfmAisDir_up CfmAisDir = "up"
+    // OK
+    CfmPmElrIngressAction_elr_ingress_ok CfmPmElrIngressAction = "elr-ingress-ok"
 
-    // Packets sent outward
-    CfmAisDir_down CfmAisDir = "down"
+    // Down
+    CfmPmElrIngressAction_elr_ingress_down CfmPmElrIngressAction = "elr-ingress-down"
+
+    // STP Blocked
+    CfmPmElrIngressAction_elr_ingress_blocked CfmPmElrIngressAction = "elr-ingress-blocked"
+
+    // VID Blocked
+    CfmPmElrIngressAction_elr_ingress_vid CfmPmElrIngressAction = "elr-ingress-vid"
+)
+
+// CfmPmRelayAction represents LTR relay action
+type CfmPmRelayAction string
+
+const (
+    // Target Hit
+    CfmPmRelayAction_relay_hit CfmPmRelayAction = "relay-hit"
+
+    // Filtering database
+    CfmPmRelayAction_relay_fdb CfmPmRelayAction = "relay-fdb"
+
+    // CCM Learning database
+    CfmPmRelayAction_relay_mpdb CfmPmRelayAction = "relay-mpdb"
 )
 
 // CfmBagSmanFmt represents Short MA Name format
@@ -62,38 +82,68 @@ const (
     CfmBagSmanFmt_sman_unknown CfmBagSmanFmt = "sman-unknown"
 )
 
-// CfmBagMdidFmt represents CFM MDID format
-type CfmBagMdidFmt string
+// CfmPmMepDefect represents Defects that can be reported by a MEP
+type CfmPmMepDefect string
 
 const (
-    // MDID is explicity NULL
-    CfmBagMdidFmt_mdid_null CfmBagMdidFmt = "mdid-null"
+    // No defect reported
+    CfmPmMepDefect_defect_none CfmPmMepDefect = "defect-none"
 
-    // MDID is based on a DNS name
-    CfmBagMdidFmt_mdid_dns_like CfmBagMdidFmt = "mdid-dns-like"
+    // Some Peer MEP's CCM has the RDI bit set
+    CfmPmMepDefect_defect_rdi_ccm CfmPmMepDefect = "defect-rdi-ccm"
 
-    // MDID is a (MAC address, integer) pair
-    CfmBagMdidFmt_mdid_mac_address CfmBagMdidFmt = "mdid-mac-address"
+    // A Peer MEP port or interface status error has
+    // been reported
+    CfmPmMepDefect_defect_ma_cstatus CfmPmMepDefect = "defect-ma-cstatus"
 
-    // MDID is a character string
-    CfmBagMdidFmt_mdid_string CfmBagMdidFmt = "mdid-string"
+    // Not receiving valid CCMs from at least one Peer
+    // MEP
+    CfmPmMepDefect_defect_remote_ccm CfmPmMepDefect = "defect-remote-ccm"
 
-    // Unknown MDID format
-    CfmBagMdidFmt_mdid_unknown CfmBagMdidFmt = "mdid-unknown"
+    // Currently receiving invalid CCMs from at least
+    // one Peer MEP
+    CfmPmMepDefect_defect_error_ccm CfmPmMepDefect = "defect-error-ccm"
+
+    // Currently receiving CCMs from an incorrect
+    // service (MA)
+    CfmPmMepDefect_defect_cross_connect_ccm CfmPmMepDefect = "defect-cross-connect-ccm"
 )
 
-// CfmBagCcmOffload represents Offload status of CCM processing
-type CfmBagCcmOffload string
+// CfmPmElrEgressAction represents ELR Egress action
+type CfmPmElrEgressAction string
 
 const (
-    // CCM processing has not been offloaded
-    CfmBagCcmOffload_offload_none CfmBagCcmOffload = "offload-none"
+    // OK
+    CfmPmElrEgressAction_elr_egress_ok CfmPmElrEgressAction = "elr-egress-ok"
 
-    // CCM processing has been offloaded to software
-    CfmBagCcmOffload_offload_software CfmBagCcmOffload = "offload-software"
+    // Down
+    CfmPmElrEgressAction_elr_egress_down CfmPmElrEgressAction = "elr-egress-down"
 
-    // CCM processing has been offloaded to hardware
-    CfmBagCcmOffload_offload_hardware CfmBagCcmOffload = "offload-hardware"
+    // STP Blocked
+    CfmPmElrEgressAction_elr_egress_blocked CfmPmElrEgressAction = "elr-egress-blocked"
+
+    // VID Blocked
+    CfmPmElrEgressAction_elr_egress_vid CfmPmElrEgressAction = "elr-egress-vid"
+
+    // MAC Pruned
+    CfmPmElrEgressAction_elr_egress_mac CfmPmElrEgressAction = "elr-egress-mac"
+)
+
+// CfmPmIngressAction represents Ingress action
+type CfmPmIngressAction string
+
+const (
+    // OK
+    CfmPmIngressAction_ingress_ok CfmPmIngressAction = "ingress-ok"
+
+    // Down
+    CfmPmIngressAction_ingress_down CfmPmIngressAction = "ingress-down"
+
+    // STP Blocked
+    CfmPmIngressAction_ingress_blocked CfmPmIngressAction = "ingress-blocked"
+
+    // VID Blocked
+    CfmPmIngressAction_ingress_vid CfmPmIngressAction = "ingress-vid"
 )
 
 // CfmBagCcmInterval represents CFM CCM intervals
@@ -125,491 +175,6 @@ const (
     CfmBagCcmInterval_interval10m CfmBagCcmInterval = "interval10m"
 )
 
-// CfmBagBdidFmt represents Bridge domain identifier format
-type CfmBagBdidFmt string
-
-const (
-    // Invalid BDID identifier format
-    CfmBagBdidFmt_invalid CfmBagBdidFmt = "invalid"
-
-    // Identifier is a bridge domain ID
-    CfmBagBdidFmt_bd_id CfmBagBdidFmt = "bd-id"
-
-    // Identifier is a P2P cross-connect ID
-    CfmBagBdidFmt_xc_p2p_id CfmBagBdidFmt = "xc-p2p-id"
-
-    // Identifier is a MP2MP cross-connect ID
-    CfmBagBdidFmt_xc_mp2mp_id CfmBagBdidFmt = "xc-mp2mp-id"
-
-    // Identifier is a VLAN-aware flexible
-    // cross-connect ID
-    CfmBagBdidFmt_fxc_vlan_aware_id CfmBagBdidFmt = "fxc-vlan-aware-id"
-
-    // Identifier is a VLAN-unaware flexible
-    // cross-connect ID
-    CfmBagBdidFmt_fxc_vlan_unaware_id CfmBagBdidFmt = "fxc-vlan-unaware-id"
-
-    // Identifier is a maintenance association name
-    CfmBagBdidFmt_down_only CfmBagBdidFmt = "down-only"
-)
-
-// CfmMaMpVariety represents CFM MA Maintenance Point varieties
-type CfmMaMpVariety string
-
-const (
-    // MIP
-    CfmMaMpVariety_mip CfmMaMpVariety = "mip"
-
-    // Up MEP
-    CfmMaMpVariety_up_mep CfmMaMpVariety = "up-mep"
-
-    // Down MEP
-    CfmMaMpVariety_downmep CfmMaMpVariety = "downmep"
-
-    // Unknown MEP
-    CfmMaMpVariety_unknown_mep CfmMaMpVariety = "unknown-mep"
-)
-
-// CfmBagIssuRole represents CFM ISSU role
-type CfmBagIssuRole string
-
-const (
-    // Unknown
-    CfmBagIssuRole_unknown CfmBagIssuRole = "unknown"
-
-    // Primary
-    CfmBagIssuRole_primary CfmBagIssuRole = "primary"
-
-    // Secondary
-    CfmBagIssuRole_secondary CfmBagIssuRole = "secondary"
-)
-
-// CfmBagOpcode represents CFM Opcode
-type CfmBagOpcode string
-
-const (
-    // Reserved
-    CfmBagOpcode_reserved CfmBagOpcode = "reserved"
-
-    // Continuity Check
-    CfmBagOpcode_ccm CfmBagOpcode = "ccm"
-
-    // Loopback Reply
-    CfmBagOpcode_lbr CfmBagOpcode = "lbr"
-
-    // Loopback Message
-    CfmBagOpcode_lbm CfmBagOpcode = "lbm"
-
-    // Linktrace Reply
-    CfmBagOpcode_ltr CfmBagOpcode = "ltr"
-
-    // Linktrace Message
-    CfmBagOpcode_ltm CfmBagOpcode = "ltm"
-)
-
-// CfmBagAisInterval represents CFM AIS intervals
-type CfmBagAisInterval string
-
-const (
-    // Invalid AIS interval
-    CfmBagAisInterval_ais_interval_none CfmBagAisInterval = "ais-interval-none"
-
-    // Interval of 1s
-    CfmBagAisInterval_ais_interval1s CfmBagAisInterval = "ais-interval1s"
-
-    // Interval of 1 min
-    CfmBagAisInterval_ais_interval1m CfmBagAisInterval = "ais-interval1m"
-)
-
-// CfmBagMdLevel represents CFM level
-type CfmBagMdLevel string
-
-const (
-    // CFM level 0
-    CfmBagMdLevel_level0 CfmBagMdLevel = "level0"
-
-    // CFM level 1
-    CfmBagMdLevel_level1 CfmBagMdLevel = "level1"
-
-    // CFM level 2
-    CfmBagMdLevel_level2 CfmBagMdLevel = "level2"
-
-    // CFM level 3
-    CfmBagMdLevel_level3 CfmBagMdLevel = "level3"
-
-    // CFM level 4
-    CfmBagMdLevel_level4 CfmBagMdLevel = "level4"
-
-    // CFM level 5
-    CfmBagMdLevel_level5 CfmBagMdLevel = "level5"
-
-    // CFM level 6
-    CfmBagMdLevel_level6 CfmBagMdLevel = "level6"
-
-    // CFM level 7
-    CfmBagMdLevel_level7 CfmBagMdLevel = "level7"
-
-    // Invalid CFM level
-    CfmBagMdLevel_level_invalid CfmBagMdLevel = "level-invalid"
-)
-
-// CfmBagDirection represents MEP direction
-type CfmBagDirection string
-
-const (
-    // Up
-    CfmBagDirection_direction_up CfmBagDirection = "direction-up"
-
-    // Down
-    CfmBagDirection_direction_down CfmBagDirection = "direction-down"
-
-    // Invalid direction
-    CfmBagDirection_direction_invalid CfmBagDirection = "direction-invalid"
-)
-
-// CfmBagStpState represents CFM STP state
-type CfmBagStpState string
-
-const (
-    // Interface is UP
-    CfmBagStpState_stp_up CfmBagStpState = "stp-up"
-
-    // Interface is STP-blocked
-    CfmBagStpState_stp_blocked CfmBagStpState = "stp-blocked"
-
-    // Unknown Interface STP state
-    CfmBagStpState_stp_unknown CfmBagStpState = "stp-unknown"
-)
-
-// CfmBagIwState represents CFM Interworking state
-type CfmBagIwState string
-
-const (
-    // Interface is UP
-    CfmBagIwState_interworking_up CfmBagIwState = "interworking-up"
-
-    // Interface is in TEST mode
-    CfmBagIwState_interworking_test CfmBagIwState = "interworking-test"
-)
-
-// CfmPmAddlIntfStatus represents Additional interface status
-type CfmPmAddlIntfStatus string
-
-const (
-    // Additional interface status unknown
-    CfmPmAddlIntfStatus_unknown CfmPmAddlIntfStatus = "unknown"
-
-    // Interface is explicitly shutdown in
-    // configuration
-    CfmPmAddlIntfStatus_administratively_down CfmPmAddlIntfStatus = "administratively-down"
-
-    // Remote interface has exceeded its 802.3 Link
-    // OAM error threshold
-    CfmPmAddlIntfStatus_remote_excessive_errors CfmPmAddlIntfStatus = "remote-excessive-errors"
-
-    // Local interface has exceeded its 802.3 Link OAM
-    // error threshold
-    CfmPmAddlIntfStatus_local_excessive_errors CfmPmAddlIntfStatus = "local-excessive-errors"
-)
-
-// CfmPmIntfStatus represents Interface status
-type CfmPmIntfStatus string
-
-const (
-    // Interface is up
-    CfmPmIntfStatus_interface_status_up CfmPmIntfStatus = "interface-status-up"
-
-    // Interface is down
-    CfmPmIntfStatus_interface_status_down CfmPmIntfStatus = "interface-status-down"
-
-    // Interface is in testing mode
-    CfmPmIntfStatus_interface_status_testing CfmPmIntfStatus = "interface-status-testing"
-
-    // Unknown interface status
-    CfmPmIntfStatus_interface_status_unknown CfmPmIntfStatus = "interface-status-unknown"
-
-    // Interface is dormant
-    CfmPmIntfStatus_interface_status_dormant CfmPmIntfStatus = "interface-status-dormant"
-
-    // Interface status not found
-    CfmPmIntfStatus_interface_status_not_present CfmPmIntfStatus = "interface-status-not-present"
-
-    // Lower layer is down
-    CfmPmIntfStatus_interface_status_lower_layer_down CfmPmIntfStatus = "interface-status-lower-layer-down"
-)
-
-// CfmPmPortStatus represents Port status
-type CfmPmPortStatus string
-
-const (
-    // Port is STP blocked
-    CfmPmPortStatus_port_status_blocked CfmPmPortStatus = "port-status-blocked"
-
-    // Port is up
-    CfmPmPortStatus_port_status_up CfmPmPortStatus = "port-status-up"
-
-    // Unknown port status
-    CfmPmPortStatus_port_status_unknown CfmPmPortStatus = "port-status-unknown"
-)
-
-// CfmPmRmepState represents State of the Peer MEP state machine
-type CfmPmRmepState string
-
-const (
-    // Momentary state during reset
-    CfmPmRmepState_peer_mep_idle CfmPmRmepState = "peer-mep-idle"
-
-    // Loss timer not expired since reset, but no
-    // valid CCM received
-    CfmPmRmepState_peer_mep_start CfmPmRmepState = "peer-mep-start"
-
-    // Loss timer has expired
-    CfmPmRmepState_peer_mep_failed CfmPmRmepState = "peer-mep-failed"
-
-    // Loss timer has not expired since last valid CCM
-    CfmPmRmepState_peer_mep_ok CfmPmRmepState = "peer-mep-ok"
-)
-
-// CfmPmRmepXcState represents Cross-check state of a peer MEP
-type CfmPmRmepXcState string
-
-const (
-    // Cross-check OK
-    CfmPmRmepXcState_cross_check_ok CfmPmRmepXcState = "cross-check-ok"
-
-    // No CCMs received within loss time from peer MEP
-    CfmPmRmepXcState_cross_check_missing CfmPmRmepXcState = "cross-check-missing"
-
-    // CCMs received from peer MEP not marked for
-    // cross-check
-    CfmPmRmepXcState_cross_check_extra CfmPmRmepXcState = "cross-check-extra"
-)
-
-// CfmPmAisReceive represents signal, directly or via AIS or LCK messages.
-type CfmPmAisReceive string
-
-const (
-    // No signal received
-    CfmPmAisReceive_receive_none CfmPmAisReceive = "receive-none"
-
-    // Receiving AIS messages
-    CfmPmAisReceive_receive_ais CfmPmAisReceive = "receive-ais"
-
-    // Receiving LCK messages
-    CfmPmAisReceive_receive_lck CfmPmAisReceive = "receive-lck"
-
-    // Receiving AIS directly from another MEP on the
-    // same interface
-    CfmPmAisReceive_receive_direct CfmPmAisReceive = "receive-direct"
-)
-
-// CfmPmAisTransmit represents via a MIP or directly to a higher MEP
-type CfmPmAisTransmit string
-
-const (
-    // AIS not transmitted
-    CfmPmAisTransmit_transmit_none CfmPmAisTransmit = "transmit-none"
-
-    // AIS transmitted via MIP
-    CfmPmAisTransmit_transmit_ais CfmPmAisTransmit = "transmit-ais"
-
-    // AIS signal passed directly to a higher MEP
-    CfmPmAisTransmit_transmit_ais_direct CfmPmAisTransmit = "transmit-ais-direct"
-)
-
-// CfmPmMepDefect represents Defects that can be reported by a MEP
-type CfmPmMepDefect string
-
-const (
-    // No defect reported
-    CfmPmMepDefect_defect_none CfmPmMepDefect = "defect-none"
-
-    // Some Peer MEP's CCM has the RDI bit set
-    CfmPmMepDefect_defect_rdi_ccm CfmPmMepDefect = "defect-rdi-ccm"
-
-    // A Peer MEP port or interface status error has
-    // been reported
-    CfmPmMepDefect_defect_ma_cstatus CfmPmMepDefect = "defect-ma-cstatus"
-
-    // Not receiving valid CCMs from at least one Peer
-    // MEP
-    CfmPmMepDefect_defect_remote_ccm CfmPmMepDefect = "defect-remote-ccm"
-
-    // Currently receiving invalid CCMs from at least
-    // one Peer MEP
-    CfmPmMepDefect_defect_error_ccm CfmPmMepDefect = "defect-error-ccm"
-
-    // Currently receiving CCMs from an incorrect
-    // service (MA)
-    CfmPmMepDefect_defect_cross_connect_ccm CfmPmMepDefect = "defect-cross-connect-ccm"
-)
-
-// CfmPmMepFngState represents states
-type CfmPmMepFngState string
-
-const (
-    // FNG in reset state
-    CfmPmMepFngState_fng_reset CfmPmMepFngState = "fng-reset"
-
-    // FNG has detected but not yet reported a defect
-    CfmPmMepFngState_fng_defect CfmPmMepFngState = "fng-defect"
-
-    // FNG is in the process of reporting a defect
-    CfmPmMepFngState_fng_report_defect CfmPmMepFngState = "fng-report-defect"
-
-    // FNG has reported a defect
-    CfmPmMepFngState_fng_defect_reported CfmPmMepFngState = "fng-defect-reported"
-
-    // No defect present, but the reset timer has not
-    // yet expired
-    CfmPmMepFngState_fng_defect_clearing CfmPmMepFngState = "fng-defect-clearing"
-)
-
-// CfmPmElrEgressAction represents ELR Egress action
-type CfmPmElrEgressAction string
-
-const (
-    // OK
-    CfmPmElrEgressAction_elr_egress_ok CfmPmElrEgressAction = "elr-egress-ok"
-
-    // Down
-    CfmPmElrEgressAction_elr_egress_down CfmPmElrEgressAction = "elr-egress-down"
-
-    // STP Blocked
-    CfmPmElrEgressAction_elr_egress_blocked CfmPmElrEgressAction = "elr-egress-blocked"
-
-    // VID Blocked
-    CfmPmElrEgressAction_elr_egress_vid CfmPmElrEgressAction = "elr-egress-vid"
-
-    // MAC Pruned
-    CfmPmElrEgressAction_elr_egress_mac CfmPmElrEgressAction = "elr-egress-mac"
-)
-
-// CfmPmElrIngressAction represents ELR Ingress action
-type CfmPmElrIngressAction string
-
-const (
-    // OK
-    CfmPmElrIngressAction_elr_ingress_ok CfmPmElrIngressAction = "elr-ingress-ok"
-
-    // Down
-    CfmPmElrIngressAction_elr_ingress_down CfmPmElrIngressAction = "elr-ingress-down"
-
-    // STP Blocked
-    CfmPmElrIngressAction_elr_ingress_blocked CfmPmElrIngressAction = "elr-ingress-blocked"
-
-    // VID Blocked
-    CfmPmElrIngressAction_elr_ingress_vid CfmPmElrIngressAction = "elr-ingress-vid"
-)
-
-// CfmPmElrRelayAction represents ELR relay action
-type CfmPmElrRelayAction string
-
-const (
-    // Target Hit
-    CfmPmElrRelayAction_elr_relay_hit CfmPmElrRelayAction = "elr-relay-hit"
-
-    // Filtering database
-    CfmPmElrRelayAction_elr_relay_fdb CfmPmElrRelayAction = "elr-relay-fdb"
-
-    // Flood forwarded
-    CfmPmElrRelayAction_elr_relay_flood CfmPmElrRelayAction = "elr-relay-flood"
-
-    // Dropped
-    CfmPmElrRelayAction_elr_relay_drop CfmPmElrRelayAction = "elr-relay-drop"
-)
-
-// CfmPmLastHopFmt represents Last hop identifier format
-type CfmPmLastHopFmt string
-
-const (
-    // No last hop identifier
-    CfmPmLastHopFmt_last_hop_none CfmPmLastHopFmt = "last-hop-none"
-
-    // Last hop identifier is a hostname
-    CfmPmLastHopFmt_last_hop_host_name CfmPmLastHopFmt = "last-hop-host-name"
-
-    // Last hop identifier is an egress ID
-    CfmPmLastHopFmt_last_hop_egress_id CfmPmLastHopFmt = "last-hop-egress-id"
-)
-
-// CfmPmEgressAction represents Egress action
-type CfmPmEgressAction string
-
-const (
-    // OK
-    CfmPmEgressAction_egress_ok CfmPmEgressAction = "egress-ok"
-
-    // Down
-    CfmPmEgressAction_egress_down CfmPmEgressAction = "egress-down"
-
-    // STP Blocked
-    CfmPmEgressAction_egress_blocked CfmPmEgressAction = "egress-blocked"
-
-    // VID Blocked
-    CfmPmEgressAction_egress_vid CfmPmEgressAction = "egress-vid"
-)
-
-// CfmPmPortIdFmt represents Port ID format
-type CfmPmPortIdFmt string
-
-const (
-    // Port ID is an interface alias
-    CfmPmPortIdFmt_port_id_interface_alias CfmPmPortIdFmt = "port-id-interface-alias"
-
-    // Port ID is a component name
-    CfmPmPortIdFmt_port_id_port_component CfmPmPortIdFmt = "port-id-port-component"
-
-    // Port ID is a MAC address
-    CfmPmPortIdFmt_port_id_mac_address CfmPmPortIdFmt = "port-id-mac-address"
-
-    // Port ID is a network address
-    CfmPmPortIdFmt_port_id_network_address CfmPmPortIdFmt = "port-id-network-address"
-
-    // Port ID is an interface name
-    CfmPmPortIdFmt_port_id_interface_name CfmPmPortIdFmt = "port-id-interface-name"
-
-    // Port ID is an agent name
-    CfmPmPortIdFmt_port_id_agent_circuit_id CfmPmPortIdFmt = "port-id-agent-circuit-id"
-
-    // Port ID is a local name
-    CfmPmPortIdFmt_port_id_local CfmPmPortIdFmt = "port-id-local"
-
-    // Port ID format unknown
-    CfmPmPortIdFmt_port_id_unknown CfmPmPortIdFmt = "port-id-unknown"
-)
-
-// CfmPmIngressAction represents Ingress action
-type CfmPmIngressAction string
-
-const (
-    // OK
-    CfmPmIngressAction_ingress_ok CfmPmIngressAction = "ingress-ok"
-
-    // Down
-    CfmPmIngressAction_ingress_down CfmPmIngressAction = "ingress-down"
-
-    // STP Blocked
-    CfmPmIngressAction_ingress_blocked CfmPmIngressAction = "ingress-blocked"
-
-    // VID Blocked
-    CfmPmIngressAction_ingress_vid CfmPmIngressAction = "ingress-vid"
-)
-
-// CfmPmIdFmt represents ID format
-type CfmPmIdFmt string
-
-const (
-    // ID format is a string
-    CfmPmIdFmt_id_format_is_string CfmPmIdFmt = "id-format-is-string"
-
-    // ID format is a MAC address
-    CfmPmIdFmt_id_format_is_mac_address CfmPmIdFmt = "id-format-is-mac-address"
-
-    // ID format is raw hex
-    CfmPmIdFmt_id_format_is_raw_hex CfmPmIdFmt = "id-format-is-raw-hex"
-)
-
 // CfmPmChassisIdFmt represents Chassis ID type
 type CfmPmChassisIdFmt string
 
@@ -639,65 +204,110 @@ const (
     CfmPmChassisIdFmt_chassis_id_unknown_type CfmPmChassisIdFmt = "chassis-id-unknown-type"
 )
 
-// CfmPmRelayAction represents LTR relay action
-type CfmPmRelayAction string
+// SlaOperOperation represents Type of SLA operation
+type SlaOperOperation string
 
 const (
-    // Target Hit
-    CfmPmRelayAction_relay_hit CfmPmRelayAction = "relay-hit"
+    // Configured SLA operation
+    SlaOperOperation_operation_type_configured SlaOperOperation = "operation-type-configured"
 
-    // Filtering database
-    CfmPmRelayAction_relay_fdb CfmPmRelayAction = "relay-fdb"
-
-    // CCM Learning database
-    CfmPmRelayAction_relay_mpdb CfmPmRelayAction = "relay-mpdb"
+    // On-demand SLA operation
+    SlaOperOperation_operation_type_ondemand SlaOperOperation = "operation-type-ondemand"
 )
 
-// CfmPmElmReplyFilter represents operations
-type CfmPmElmReplyFilter string
+// CfmPmLastHopFmt represents Last hop identifier format
+type CfmPmLastHopFmt string
 
 const (
-    // Reply Filter not present
-    CfmPmElmReplyFilter_reply_filter_not_present CfmPmElmReplyFilter = "reply-filter-not-present"
+    // No last hop identifier
+    CfmPmLastHopFmt_last_hop_none CfmPmLastHopFmt = "last-hop-none"
 
-    // Reply from ports which are not MAC-pruned,
-    // VID-pruned, or STP-blocked
-    CfmPmElmReplyFilter_reply_filter_default CfmPmElmReplyFilter = "reply-filter-default"
+    // Last hop identifier is a hostname
+    CfmPmLastHopFmt_last_hop_host_name CfmPmLastHopFmt = "last-hop-host-name"
 
-    // Reply from ports which are not VID-pruned or
-    // STP-blocked
-    CfmPmElmReplyFilter_reply_filter_vlan_topology CfmPmElmReplyFilter = "reply-filter-vlan-topology"
-
-    // Reply from ports which are not STP-blocked
-    CfmPmElmReplyFilter_reply_filter_spanning_tree CfmPmElmReplyFilter = "reply-filter-spanning-tree"
-
-    // Reply from all ports
-    CfmPmElmReplyFilter_reply_filter_all_ports CfmPmElmReplyFilter = "reply-filter-all-ports"
+    // Last hop identifier is an egress ID
+    CfmPmLastHopFmt_last_hop_egress_id CfmPmLastHopFmt = "last-hop-egress-id"
 )
 
-// CfmPmEltDelayModel represents operations
-type CfmPmEltDelayModel string
+// CfmPmIdFmt represents ID format
+type CfmPmIdFmt string
 
 const (
-    // Not a valid delay model
-    CfmPmEltDelayModel_delay_model_invalid CfmPmEltDelayModel = "delay-model-invalid"
+    // ID format is a string
+    CfmPmIdFmt_id_format_is_string CfmPmIdFmt = "id-format-is-string"
 
-    // Reply using logarithmic delay model
-    CfmPmEltDelayModel_delay_model_logarithmic CfmPmEltDelayModel = "delay-model-logarithmic"
+    // ID format is a MAC address
+    CfmPmIdFmt_id_format_is_mac_address CfmPmIdFmt = "id-format-is-mac-address"
 
-    // Reply using constant delay model
-    CfmPmEltDelayModel_delay_model_constant CfmPmEltDelayModel = "delay-model-constant"
+    // ID format is raw hex
+    CfmPmIdFmt_id_format_is_raw_hex CfmPmIdFmt = "id-format-is-raw-hex"
 )
 
-// CfmPmLtMode represents Type of Linktrace operation
-type CfmPmLtMode string
+// CfmPmRmepState represents State of the Peer MEP state machine
+type CfmPmRmepState string
 
 const (
-    // Basic IEEE 802.1ag Linktrace
-    CfmPmLtMode_cfm_pm_lt_mode_basic CfmPmLtMode = "cfm-pm-lt-mode-basic"
+    // Momentary state during reset
+    CfmPmRmepState_peer_mep_idle CfmPmRmepState = "peer-mep-idle"
 
-    // Cisco Exploratory Linktrace
-    CfmPmLtMode_cfm_pm_lt_mode_exploratory CfmPmLtMode = "cfm-pm-lt-mode-exploratory"
+    // Loss timer not expired since reset, but no
+    // valid CCM received
+    CfmPmRmepState_peer_mep_start CfmPmRmepState = "peer-mep-start"
+
+    // Loss timer has expired
+    CfmPmRmepState_peer_mep_failed CfmPmRmepState = "peer-mep-failed"
+
+    // Loss timer has not expired since last valid CCM
+    CfmPmRmepState_peer_mep_ok CfmPmRmepState = "peer-mep-ok"
+)
+
+// CfmBagCcmOffload represents Offload status of CCM processing
+type CfmBagCcmOffload string
+
+const (
+    // CCM processing has not been offloaded
+    CfmBagCcmOffload_offload_none CfmBagCcmOffload = "offload-none"
+
+    // CCM processing has been offloaded to software
+    CfmBagCcmOffload_offload_software CfmBagCcmOffload = "offload-software"
+
+    // CCM processing has been offloaded to hardware
+    CfmBagCcmOffload_offload_hardware CfmBagCcmOffload = "offload-hardware"
+)
+
+// CfmPmAisReceive represents signal, directly or via AIS or LCK messages.
+type CfmPmAisReceive string
+
+const (
+    // No signal received
+    CfmPmAisReceive_receive_none CfmPmAisReceive = "receive-none"
+
+    // Receiving AIS messages
+    CfmPmAisReceive_receive_ais CfmPmAisReceive = "receive-ais"
+
+    // Receiving LCK messages
+    CfmPmAisReceive_receive_lck CfmPmAisReceive = "receive-lck"
+
+    // Receiving AIS directly from another MEP on the
+    // same interface
+    CfmPmAisReceive_receive_direct CfmPmAisReceive = "receive-direct"
+)
+
+// CfmMaMpVariety represents CFM MA Maintenance Point varieties
+type CfmMaMpVariety string
+
+const (
+    // MIP
+    CfmMaMpVariety_mip CfmMaMpVariety = "mip"
+
+    // Up MEP
+    CfmMaMpVariety_up_mep CfmMaMpVariety = "up-mep"
+
+    // Down MEP
+    CfmMaMpVariety_downmep CfmMaMpVariety = "downmep"
+
+    // Unknown MEP
+    CfmMaMpVariety_unknown_mep CfmMaMpVariety = "unknown-mep"
 )
 
 // CfmPmPktAction represents Action taken for received packet
@@ -1008,6 +618,195 @@ const (
     CfmPmPktAction_filter_response_issu_secondary CfmPmPktAction = "filter-response-issu-secondary"
 )
 
+// SlaBucketSize represents Type of configuration of a bucket size
+type SlaBucketSize string
+
+const (
+    // Bucket size is configured as buckets per probe
+    SlaBucketSize_buckets_per_probe SlaBucketSize = "buckets-per-probe"
+
+    // Bucket size is configured as probes per bucket
+    SlaBucketSize_probes_per_bucket SlaBucketSize = "probes-per-bucket"
+)
+
+// CfmPmEltDelayModel represents operations
+type CfmPmEltDelayModel string
+
+const (
+    // Not a valid delay model
+    CfmPmEltDelayModel_delay_model_invalid CfmPmEltDelayModel = "delay-model-invalid"
+
+    // Reply using logarithmic delay model
+    CfmPmEltDelayModel_delay_model_logarithmic CfmPmEltDelayModel = "delay-model-logarithmic"
+
+    // Reply using constant delay model
+    CfmPmEltDelayModel_delay_model_constant CfmPmEltDelayModel = "delay-model-constant"
+)
+
+// CfmPmAisTransmit represents via a MIP or directly to a higher MEP
+type CfmPmAisTransmit string
+
+const (
+    // AIS not transmitted
+    CfmPmAisTransmit_transmit_none CfmPmAisTransmit = "transmit-none"
+
+    // AIS transmitted via MIP
+    CfmPmAisTransmit_transmit_ais CfmPmAisTransmit = "transmit-ais"
+
+    // AIS signal passed directly to a higher MEP
+    CfmPmAisTransmit_transmit_ais_direct CfmPmAisTransmit = "transmit-ais-direct"
+)
+
+// CfmPmElrRelayAction represents ELR relay action
+type CfmPmElrRelayAction string
+
+const (
+    // Target Hit
+    CfmPmElrRelayAction_elr_relay_hit CfmPmElrRelayAction = "elr-relay-hit"
+
+    // Filtering database
+    CfmPmElrRelayAction_elr_relay_fdb CfmPmElrRelayAction = "elr-relay-fdb"
+
+    // Flood forwarded
+    CfmPmElrRelayAction_elr_relay_flood CfmPmElrRelayAction = "elr-relay-flood"
+
+    // Dropped
+    CfmPmElrRelayAction_elr_relay_drop CfmPmElrRelayAction = "elr-relay-drop"
+)
+
+// CfmPmPortStatus represents Port status
+type CfmPmPortStatus string
+
+const (
+    // Port is STP blocked
+    CfmPmPortStatus_port_status_blocked CfmPmPortStatus = "port-status-blocked"
+
+    // Port is up
+    CfmPmPortStatus_port_status_up CfmPmPortStatus = "port-status-up"
+
+    // Unknown port status
+    CfmPmPortStatus_port_status_unknown CfmPmPortStatus = "port-status-unknown"
+)
+
+// CfmBagIwState represents CFM Interworking state
+type CfmBagIwState string
+
+const (
+    // Interface is UP
+    CfmBagIwState_interworking_up CfmBagIwState = "interworking-up"
+
+    // Interface is in TEST mode
+    CfmBagIwState_interworking_test CfmBagIwState = "interworking-test"
+)
+
+// CfmBagMdidFmt represents CFM MDID format
+type CfmBagMdidFmt string
+
+const (
+    // MDID is explicity NULL
+    CfmBagMdidFmt_mdid_null CfmBagMdidFmt = "mdid-null"
+
+    // MDID is based on a DNS name
+    CfmBagMdidFmt_mdid_dns_like CfmBagMdidFmt = "mdid-dns-like"
+
+    // MDID is a (MAC address, integer) pair
+    CfmBagMdidFmt_mdid_mac_address CfmBagMdidFmt = "mdid-mac-address"
+
+    // MDID is a character string
+    CfmBagMdidFmt_mdid_string CfmBagMdidFmt = "mdid-string"
+
+    // Unknown MDID format
+    CfmBagMdidFmt_mdid_unknown CfmBagMdidFmt = "mdid-unknown"
+)
+
+// CfmBagBdidFmt represents Bridge domain identifier format
+type CfmBagBdidFmt string
+
+const (
+    // Invalid BDID identifier format
+    CfmBagBdidFmt_invalid CfmBagBdidFmt = "invalid"
+
+    // Identifier is a bridge domain ID
+    CfmBagBdidFmt_bd_id CfmBagBdidFmt = "bd-id"
+
+    // Identifier is a P2P cross-connect ID
+    CfmBagBdidFmt_xc_p2p_id CfmBagBdidFmt = "xc-p2p-id"
+
+    // Identifier is a MP2MP cross-connect ID
+    CfmBagBdidFmt_xc_mp2mp_id CfmBagBdidFmt = "xc-mp2mp-id"
+
+    // Identifier is a VLAN-aware flexible
+    // cross-connect ID
+    CfmBagBdidFmt_fxc_vlan_aware_id CfmBagBdidFmt = "fxc-vlan-aware-id"
+
+    // Identifier is a VLAN-unaware flexible
+    // cross-connect ID
+    CfmBagBdidFmt_fxc_vlan_unaware_id CfmBagBdidFmt = "fxc-vlan-unaware-id"
+
+    // Identifier is a maintenance association name
+    CfmBagBdidFmt_down_only CfmBagBdidFmt = "down-only"
+)
+
+// CfmBagIssuRole represents CFM ISSU role
+type CfmBagIssuRole string
+
+const (
+    // Unknown
+    CfmBagIssuRole_unknown CfmBagIssuRole = "unknown"
+
+    // Primary
+    CfmBagIssuRole_primary CfmBagIssuRole = "primary"
+
+    // Secondary
+    CfmBagIssuRole_secondary CfmBagIssuRole = "secondary"
+)
+
+// CfmBagStpState represents CFM STP state
+type CfmBagStpState string
+
+const (
+    // Interface is UP
+    CfmBagStpState_stp_up CfmBagStpState = "stp-up"
+
+    // Interface is STP-blocked
+    CfmBagStpState_stp_blocked CfmBagStpState = "stp-blocked"
+
+    // Unknown Interface STP state
+    CfmBagStpState_stp_unknown CfmBagStpState = "stp-unknown"
+)
+
+// CfmBagMdLevel represents CFM level
+type CfmBagMdLevel string
+
+const (
+    // CFM level 0
+    CfmBagMdLevel_level0 CfmBagMdLevel = "level0"
+
+    // CFM level 1
+    CfmBagMdLevel_level1 CfmBagMdLevel = "level1"
+
+    // CFM level 2
+    CfmBagMdLevel_level2 CfmBagMdLevel = "level2"
+
+    // CFM level 3
+    CfmBagMdLevel_level3 CfmBagMdLevel = "level3"
+
+    // CFM level 4
+    CfmBagMdLevel_level4 CfmBagMdLevel = "level4"
+
+    // CFM level 5
+    CfmBagMdLevel_level5 CfmBagMdLevel = "level5"
+
+    // CFM level 6
+    CfmBagMdLevel_level6 CfmBagMdLevel = "level6"
+
+    // CFM level 7
+    CfmBagMdLevel_level7 CfmBagMdLevel = "level7"
+
+    // Invalid CFM level
+    CfmBagMdLevel_level_invalid CfmBagMdLevel = "level-invalid"
+)
+
 // SlaOperPacketPriority represents Priority scheme for packet priority
 type SlaOperPacketPriority string
 
@@ -1018,6 +817,179 @@ const (
     // Packet uses a specified 3-bit COS priority
     // value.
     SlaOperPacketPriority_priority_cos SlaOperPacketPriority = "priority-cos"
+)
+
+// CfmBagAisInterval represents CFM AIS intervals
+type CfmBagAisInterval string
+
+const (
+    // Invalid AIS interval
+    CfmBagAisInterval_ais_interval_none CfmBagAisInterval = "ais-interval-none"
+
+    // Interval of 1s
+    CfmBagAisInterval_ais_interval1s CfmBagAisInterval = "ais-interval1s"
+
+    // Interval of 1 min
+    CfmBagAisInterval_ais_interval1m CfmBagAisInterval = "ais-interval1m"
+)
+
+// CfmPmRmepXcState represents Cross-check state of a peer MEP
+type CfmPmRmepXcState string
+
+const (
+    // Cross-check OK
+    CfmPmRmepXcState_cross_check_ok CfmPmRmepXcState = "cross-check-ok"
+
+    // No CCMs received within loss time from peer MEP
+    CfmPmRmepXcState_cross_check_missing CfmPmRmepXcState = "cross-check-missing"
+
+    // CCMs received from peer MEP not marked for
+    // cross-check
+    CfmPmRmepXcState_cross_check_extra CfmPmRmepXcState = "cross-check-extra"
+)
+
+// CfmPmLtMode represents Type of Linktrace operation
+type CfmPmLtMode string
+
+const (
+    // Basic IEEE 802.1ag Linktrace
+    CfmPmLtMode_cfm_pm_lt_mode_basic CfmPmLtMode = "cfm-pm-lt-mode-basic"
+
+    // Cisco Exploratory Linktrace
+    CfmPmLtMode_cfm_pm_lt_mode_exploratory CfmPmLtMode = "cfm-pm-lt-mode-exploratory"
+)
+
+// CfmPmIntfStatus represents Interface status
+type CfmPmIntfStatus string
+
+const (
+    // Interface is up
+    CfmPmIntfStatus_interface_status_up CfmPmIntfStatus = "interface-status-up"
+
+    // Interface is down
+    CfmPmIntfStatus_interface_status_down CfmPmIntfStatus = "interface-status-down"
+
+    // Interface is in testing mode
+    CfmPmIntfStatus_interface_status_testing CfmPmIntfStatus = "interface-status-testing"
+
+    // Unknown interface status
+    CfmPmIntfStatus_interface_status_unknown CfmPmIntfStatus = "interface-status-unknown"
+
+    // Interface is dormant
+    CfmPmIntfStatus_interface_status_dormant CfmPmIntfStatus = "interface-status-dormant"
+
+    // Interface status not found
+    CfmPmIntfStatus_interface_status_not_present CfmPmIntfStatus = "interface-status-not-present"
+
+    // Lower layer is down
+    CfmPmIntfStatus_interface_status_lower_layer_down CfmPmIntfStatus = "interface-status-lower-layer-down"
+)
+
+// CfmBagDirection represents MEP direction
+type CfmBagDirection string
+
+const (
+    // Up
+    CfmBagDirection_direction_up CfmBagDirection = "direction-up"
+
+    // Down
+    CfmBagDirection_direction_down CfmBagDirection = "direction-down"
+
+    // Invalid direction
+    CfmBagDirection_direction_invalid CfmBagDirection = "direction-invalid"
+)
+
+// CfmPmEgressAction represents Egress action
+type CfmPmEgressAction string
+
+const (
+    // OK
+    CfmPmEgressAction_egress_ok CfmPmEgressAction = "egress-ok"
+
+    // Down
+    CfmPmEgressAction_egress_down CfmPmEgressAction = "egress-down"
+
+    // STP Blocked
+    CfmPmEgressAction_egress_blocked CfmPmEgressAction = "egress-blocked"
+
+    // VID Blocked
+    CfmPmEgressAction_egress_vid CfmPmEgressAction = "egress-vid"
+)
+
+// CfmPmElmReplyFilter represents operations
+type CfmPmElmReplyFilter string
+
+const (
+    // Reply Filter not present
+    CfmPmElmReplyFilter_reply_filter_not_present CfmPmElmReplyFilter = "reply-filter-not-present"
+
+    // Reply from ports which are not MAC-pruned,
+    // VID-pruned, or STP-blocked
+    CfmPmElmReplyFilter_reply_filter_default CfmPmElmReplyFilter = "reply-filter-default"
+
+    // Reply from ports which are not VID-pruned or
+    // STP-blocked
+    CfmPmElmReplyFilter_reply_filter_vlan_topology CfmPmElmReplyFilter = "reply-filter-vlan-topology"
+
+    // Reply from ports which are not STP-blocked
+    CfmPmElmReplyFilter_reply_filter_spanning_tree CfmPmElmReplyFilter = "reply-filter-spanning-tree"
+
+    // Reply from all ports
+    CfmPmElmReplyFilter_reply_filter_all_ports CfmPmElmReplyFilter = "reply-filter-all-ports"
+)
+
+// CfmAisDir represents Cfm ais dir
+type CfmAisDir string
+
+const (
+    // Packets sent inward
+    CfmAisDir_up CfmAisDir = "up"
+
+    // Packets sent outward
+    CfmAisDir_down CfmAisDir = "down"
+)
+
+// CfmPmAddlIntfStatus represents Additional interface status
+type CfmPmAddlIntfStatus string
+
+const (
+    // Additional interface status unknown
+    CfmPmAddlIntfStatus_unknown CfmPmAddlIntfStatus = "unknown"
+
+    // Interface is explicitly shutdown in
+    // configuration
+    CfmPmAddlIntfStatus_administratively_down CfmPmAddlIntfStatus = "administratively-down"
+
+    // Remote interface has exceeded its 802.3 Link
+    // OAM error threshold
+    CfmPmAddlIntfStatus_remote_excessive_errors CfmPmAddlIntfStatus = "remote-excessive-errors"
+
+    // Local interface has exceeded its 802.3 Link OAM
+    // error threshold
+    CfmPmAddlIntfStatus_local_excessive_errors CfmPmAddlIntfStatus = "local-excessive-errors"
+)
+
+// CfmBagOpcode represents CFM Opcode
+type CfmBagOpcode string
+
+const (
+    // Reserved
+    CfmBagOpcode_reserved CfmBagOpcode = "reserved"
+
+    // Continuity Check
+    CfmBagOpcode_ccm CfmBagOpcode = "ccm"
+
+    // Loopback Reply
+    CfmBagOpcode_lbr CfmBagOpcode = "lbr"
+
+    // Loopback Message
+    CfmBagOpcode_lbm CfmBagOpcode = "lbm"
+
+    // Linktrace Reply
+    CfmBagOpcode_ltr CfmBagOpcode = "ltr"
+
+    // Linktrace Message
+    CfmBagOpcode_ltm CfmBagOpcode = "ltm"
 )
 
 // SlaOperTestPatternScheme represents Test pattern scheme for packet padding
@@ -1032,6 +1004,56 @@ const (
     SlaOperTestPatternScheme_pseudo_random SlaOperTestPatternScheme = "pseudo-random"
 )
 
+// CfmPmMepFngState represents states
+type CfmPmMepFngState string
+
+const (
+    // FNG in reset state
+    CfmPmMepFngState_fng_reset CfmPmMepFngState = "fng-reset"
+
+    // FNG has detected but not yet reported a defect
+    CfmPmMepFngState_fng_defect CfmPmMepFngState = "fng-defect"
+
+    // FNG is in the process of reporting a defect
+    CfmPmMepFngState_fng_report_defect CfmPmMepFngState = "fng-report-defect"
+
+    // FNG has reported a defect
+    CfmPmMepFngState_fng_defect_reported CfmPmMepFngState = "fng-defect-reported"
+
+    // No defect present, but the reset timer has not
+    // yet expired
+    CfmPmMepFngState_fng_defect_clearing CfmPmMepFngState = "fng-defect-clearing"
+)
+
+// CfmPmPortIdFmt represents Port ID format
+type CfmPmPortIdFmt string
+
+const (
+    // Port ID is an interface alias
+    CfmPmPortIdFmt_port_id_interface_alias CfmPmPortIdFmt = "port-id-interface-alias"
+
+    // Port ID is a component name
+    CfmPmPortIdFmt_port_id_port_component CfmPmPortIdFmt = "port-id-port-component"
+
+    // Port ID is a MAC address
+    CfmPmPortIdFmt_port_id_mac_address CfmPmPortIdFmt = "port-id-mac-address"
+
+    // Port ID is a network address
+    CfmPmPortIdFmt_port_id_network_address CfmPmPortIdFmt = "port-id-network-address"
+
+    // Port ID is an interface name
+    CfmPmPortIdFmt_port_id_interface_name CfmPmPortIdFmt = "port-id-interface-name"
+
+    // Port ID is an agent name
+    CfmPmPortIdFmt_port_id_agent_circuit_id CfmPmPortIdFmt = "port-id-agent-circuit-id"
+
+    // Port ID is a local name
+    CfmPmPortIdFmt_port_id_local CfmPmPortIdFmt = "port-id-local"
+
+    // Port ID format unknown
+    CfmPmPortIdFmt_port_id_unknown CfmPmPortIdFmt = "port-id-unknown"
+)
+
 // SlaOperBucket represents Type of SLA metric bucket
 type SlaOperBucket string
 
@@ -1041,17 +1063,6 @@ const (
 
     // SLA metric sample
     SlaOperBucket_bucket_type_samples SlaOperBucket = "bucket-type-samples"
-)
-
-// SlaBucketSize represents Type of configuration of a bucket size
-type SlaBucketSize string
-
-const (
-    // Bucket size is configured as buckets per probe
-    SlaBucketSize_buckets_per_probe SlaBucketSize = "buckets-per-probe"
-
-    // Bucket size is configured as probes per bucket
-    SlaBucketSize_probes_per_bucket SlaBucketSize = "probes-per-bucket"
 )
 
 // SlaRecordableMetric represents Types of metrics that can be recorded by probes
@@ -1084,17 +1095,6 @@ const (
 
     // One-way Frame Loss Ratio (Destination->Source)
     SlaRecordableMetric_metric_one_way_flr_ds SlaRecordableMetric = "metric-one-way-flr-ds"
-)
-
-// SlaOperOperation represents Type of SLA operation
-type SlaOperOperation string
-
-const (
-    // Configured SLA operation
-    SlaOperOperation_operation_type_configured SlaOperOperation = "operation-type-configured"
-
-    // On-demand SLA operation
-    SlaOperOperation_operation_type_ondemand SlaOperOperation = "operation-type-ondemand"
 )
 
 // Cfm
@@ -1173,7 +1173,7 @@ type Cfm_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node interface{}
 
     // Interface AIS table.
@@ -1255,14 +1255,14 @@ type Cfm_Nodes_Node_InterfaceAises_InterfaceAis struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
-    Interface interface{}
+    // [a-zA-Z0-9._/-]+.
+    InterfaceName interface{}
 
     // This attribute is a key. AIS Direction. The type is CfmAisDir.
     Direction interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
-    InterfaceXr interface{}
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
+    Interface interface{}
 
     // IM Interface state. The type is string.
     InterfaceState interface{}
@@ -1282,7 +1282,7 @@ func (interfaceAis *Cfm_Nodes_Node_InterfaceAises_InterfaceAis) GetEntityData() 
     interfaceAis.EntityData.YangName = "interface-ais"
     interfaceAis.EntityData.BundleName = "cisco_ios_xr"
     interfaceAis.EntityData.ParentYangName = "interface-aises"
-    interfaceAis.EntityData.SegmentPath = "interface-ais" + types.AddKeyToken(interfaceAis.Interface, "interface") + types.AddKeyToken(interfaceAis.Direction, "direction")
+    interfaceAis.EntityData.SegmentPath = "interface-ais" + types.AddKeyToken(interfaceAis.InterfaceName, "interface-name") + types.AddKeyToken(interfaceAis.Direction, "direction")
     interfaceAis.EntityData.AbsolutePath = "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/node/interface-aises/" + interfaceAis.EntityData.SegmentPath
     interfaceAis.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
     interfaceAis.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
@@ -1291,14 +1291,14 @@ func (interfaceAis *Cfm_Nodes_Node_InterfaceAises_InterfaceAis) GetEntityData() 
     interfaceAis.EntityData.Children = types.NewOrderedMap()
     interfaceAis.EntityData.Children.Append("statistics", types.YChild{"Statistics", &interfaceAis.Statistics})
     interfaceAis.EntityData.Leafs = types.NewOrderedMap()
-    interfaceAis.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", interfaceAis.Interface})
+    interfaceAis.EntityData.Leafs.Append("interface-name", types.YLeaf{"InterfaceName", interfaceAis.InterfaceName})
     interfaceAis.EntityData.Leafs.Append("direction", types.YLeaf{"Direction", interfaceAis.Direction})
-    interfaceAis.EntityData.Leafs.Append("interface-xr", types.YLeaf{"InterfaceXr", interfaceAis.InterfaceXr})
+    interfaceAis.EntityData.Leafs.Append("interface", types.YLeaf{"Interface", interfaceAis.Interface})
     interfaceAis.EntityData.Leafs.Append("interface-state", types.YLeaf{"InterfaceState", interfaceAis.InterfaceState})
     interfaceAis.EntityData.Leafs.Append("interworking-state", types.YLeaf{"InterworkingState", interfaceAis.InterworkingState})
     interfaceAis.EntityData.Leafs.Append("stp-state", types.YLeaf{"StpState", interfaceAis.StpState})
 
-    interfaceAis.EntityData.YListKeys = []string {"Interface", "Direction"}
+    interfaceAis.EntityData.YListKeys = []string {"InterfaceName", "Direction"}
 
     return &(interfaceAis.EntityData)
 }
@@ -1557,10 +1557,10 @@ type Cfm_Nodes_Node_InterfaceStatistics_InterfaceStatistic struct {
     YListKey string
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
     // EFP statistics.
@@ -1826,15 +1826,15 @@ type Cfm_Nodes_Node_CcmLearningDatabases_CcmLearningDatabase struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // This attribute is a key. MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Maintenance domain name. The type is string.
@@ -1847,7 +1847,7 @@ type Cfm_Nodes_Node_CcmLearningDatabases_CcmLearningDatabase struct {
     ServiceXr interface{}
 
     // Source MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacAddress interface{}
 
     // The XID of the ingress interface for the CCM. The type is interface{} with
@@ -1989,11 +1989,11 @@ type Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // This attribute is a key. MEP ID. The type is interface{} with range:
@@ -2001,7 +2001,7 @@ type Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute struct {
     MepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // This attribute is a key. Transaction ID. The type is interface{} with
@@ -2060,19 +2060,19 @@ type Cfm_Global_IncompleteTraceroutes_IncompleteTraceroute_TracerouteInformation
     // Source MEP ID. The type is interface{} with range: 0..65535.
     SourceMepId interface{}
 
-    // Source interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Source MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacAddress interface{}
 
     // Target MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     TargetMacAddress interface{}
 
     // Directed MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DirectedMacAddress interface{}
 
     // Target MEP ID. The type is interface{} with range: 0..65535.
@@ -2278,22 +2278,22 @@ type Cfm_Global_MaintenancePoints_MaintenancePoint struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // MEP error flag. The type is bool.
     MepHasError interface{}
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Maintenance Point.
@@ -2340,7 +2340,7 @@ type Cfm_Global_MaintenancePoints_MaintenancePoint_MaintenancePoint struct {
     // Service name. The type is string.
     ServiceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Type of Maintenance Point. The type is CfmMaMpVariety.
@@ -2418,11 +2418,11 @@ type Cfm_Global_GlobalConfigurationErrors_GlobalConfigurationError struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // Domain name. The type is string.
@@ -2568,15 +2568,15 @@ type Cfm_Global_MepConfigurationErrors_MepConfigurationError struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Interval between CCMs sent on this MEP. The type is CfmBagCcmInterval.
@@ -2765,7 +2765,7 @@ type Cfm_Global_MepConfigurationErrors_MepConfigurationError_Mep struct {
     // Service name. The type is string.
     ServiceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Type of Maintenance Point. The type is CfmMaMpVariety.
@@ -3090,11 +3090,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // This attribute is a key. MEP ID. The type is interface{} with range:
@@ -3102,7 +3102,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache struct {
     MepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // This attribute is a key. Transaction ID. The type is interface{} with
@@ -3179,19 +3179,19 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_TracerouteInformation struct {
     // Source MEP ID. The type is interface{} with range: 0..65535.
     SourceMepId interface{}
 
-    // Source interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Source interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Source MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacAddress interface{}
 
     // Target MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     TargetMacAddress interface{}
 
     // Directed MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DirectedMacAddress interface{}
 
     // Target MEP ID. The type is interface{} with range: 0..65535.
@@ -3362,7 +3362,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply struct {
     YListKey string
 
     // Undecoded frame. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // Frame header.
@@ -3493,11 +3493,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_SenderId struct 
     YFilter yfilter.YFilter
 
     // Management address domain. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ManagementAddressDomain interface{}
 
     // Management address. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ManagementAddress interface{}
 
     // Chassis ID.
@@ -3539,7 +3539,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_SenderId_Chassis
     ChassisIdTypeValue interface{}
 
     // Chassis ID (Deprecated). The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ChassisId interface{}
 
     // Chassis ID (Current).
@@ -3582,11 +3582,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_SenderId_Chassis
     ChassisIdString interface{}
 
     // Chassis ID MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ChassisIdMac interface{}
 
     // Raw Chassis ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ChassisIdRaw interface{}
 }
 
@@ -3657,7 +3657,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_EgressId_LastEgr
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -3692,7 +3692,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_EgressId_NextEgr
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -3727,7 +3727,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyIngress str
     Action interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Port ID.
@@ -3769,7 +3769,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyIngress_Por
     PortIdTypeValue interface{}
 
     // Port ID (Deprecated). The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortId interface{}
 
     // Port ID (Current).
@@ -3812,11 +3812,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyIngress_Por
     PortIdString interface{}
 
     // Port ID MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PortIdMac interface{}
 
     // Raw Port ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortIdRaw interface{}
 }
 
@@ -3853,7 +3853,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyEgress stru
     Action interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Port ID.
@@ -3895,7 +3895,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyEgress_Port
     PortIdTypeValue interface{}
 
     // Port ID (Deprecated). The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortId interface{}
 
     // Port ID (Current).
@@ -3938,11 +3938,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_ReplyEgress_Port
     PortIdString interface{}
 
     // Port ID MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PortIdMac interface{}
 
     // Raw Port ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortIdRaw interface{}
 }
 
@@ -4017,7 +4017,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_LastHop_EgressId
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -4050,14 +4050,14 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_OrganizationSpec
     YListKey string
 
     // Organizationally-unique ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Oui interface{}
 
     // Subtype of TLV. The type is interface{} with range: 0..255.
     Subtype interface{}
 
     // Binary data in TLV. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4094,7 +4094,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_LinktraceReply_UnknownTlv struc
     Typecode interface{}
 
     // Binary data in TLV. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4127,7 +4127,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply struc
     YListKey string
 
     // Undecoded frame. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // Frame header.
@@ -4263,11 +4263,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Sende
     YFilter yfilter.YFilter
 
     // Management address domain. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ManagementAddressDomain interface{}
 
     // Management address. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ManagementAddress interface{}
 
     // Chassis ID.
@@ -4309,7 +4309,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Sende
     ChassisIdTypeValue interface{}
 
     // Chassis ID (Deprecated). The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ChassisId interface{}
 
     // Chassis ID (Current).
@@ -4352,11 +4352,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Sende
     ChassisIdString interface{}
 
     // Chassis ID MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ChassisIdMac interface{}
 
     // Raw Chassis ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ChassisIdRaw interface{}
 }
 
@@ -4393,7 +4393,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     Action interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Last egress ID.
@@ -4440,7 +4440,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -4475,7 +4475,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -4513,7 +4513,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     PortIdTypeValue interface{}
 
     // Port ID (Deprecated). The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortId interface{}
 
     // Port ID (Current).
@@ -4556,11 +4556,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     PortIdString interface{}
 
     // Port ID MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PortIdMac interface{}
 
     // Raw Port ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortIdRaw interface{}
 }
 
@@ -4597,7 +4597,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     Action interface{}
 
     // MAC address of egress interface. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Last Egress ID.
@@ -4644,7 +4644,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -4679,7 +4679,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -4717,7 +4717,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     PortIdTypeValue interface{}
 
     // Port ID (Deprecated). The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortId interface{}
 
     // Port ID (Current).
@@ -4760,11 +4760,11 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Reply
     PortIdString interface{}
 
     // Port ID MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PortIdMac interface{}
 
     // Raw Port ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     PortIdRaw interface{}
 }
 
@@ -4839,7 +4839,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_LastH
     UniqueId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 }
 
@@ -4872,14 +4872,14 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Organ
     YListKey string
 
     // Organizationally-unique ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Oui interface{}
 
     // Subtype of TLV. The type is interface{} with range: 0..255.
     Subtype interface{}
 
     // Binary data in TLV. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4916,7 +4916,7 @@ type Cfm_Global_TracerouteCaches_TracerouteCache_ExploratoryLinktraceReply_Unkno
     Typecode interface{}
 
     // Binary data in TLV. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -4983,11 +4983,11 @@ type Cfm_Global_LocalMeps_LocalMep struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // This attribute is a key. MEP ID. The type is interface{} with range:
@@ -4995,7 +4995,7 @@ type Cfm_Global_LocalMeps_LocalMep struct {
     MepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Maintenance domain name. The type is string.
@@ -5010,7 +5010,7 @@ type Cfm_Global_LocalMeps_LocalMep struct {
     // MEP ID. The type is interface{} with range: 0..65535.
     MepIdXr interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
     // IM Interface state. The type is string.
@@ -5026,7 +5026,7 @@ type Cfm_Global_LocalMeps_LocalMep struct {
     MepDirection interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Number of peer MEPs detected. The type is interface{} with range:
@@ -5353,7 +5353,7 @@ type Cfm_Global_LocalMeps_LocalMep_AisStatistics struct {
     LastInterval interface{}
 
     // Source MAC address of the last received AIS packet. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     LastMacAddress interface{}
 
     // Time elapsed since AIS sending started.
@@ -5621,11 +5621,11 @@ type Cfm_Global_PeerMePv2s_PeerMePv2 struct {
     YListKey string
 
     // This attribute is a key. Maintenance Domain. The type is string with
-    // length: 1..127.
+    // length: 1..79.
     Domain interface{}
 
     // This attribute is a key. Service (Maintenance Association). The type is
-    // string with length: 1..127.
+    // string with length: 1..79.
     Service interface{}
 
     // This attribute is a key. MEP ID of Local MEP. The type is interface{} with
@@ -5633,7 +5633,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2 struct {
     LocalMepId interface{}
 
     // This attribute is a key. Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // This attribute is a key. MEP ID of Peer MEP. The type is interface{} with
@@ -5641,7 +5641,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2 struct {
     PeerMepId interface{}
 
     // This attribute is a key. Peer MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PeerMacAddress interface{}
 
     // Maintenance domain name. The type is string.
@@ -5656,7 +5656,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2 struct {
     // MEP ID. The type is interface{} with range: 0..65535.
     MepId interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceXr interface{}
 
     // MEP facing direction. The type is CfmBagDirection.
@@ -5712,7 +5712,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep struct {
     MepId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Cross-check state. The type is CfmPmRmepXcState.
@@ -5872,7 +5872,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived struct {
     AdditionalInterfaceStatus interface{}
 
     // Undecoded frame. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     RawData interface{}
 
     // Frame header.
@@ -6011,7 +6011,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Header_Mdid struct 
     StringName interface{}
 
     // Hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     MdidData interface{}
 
     // MAC address name.
@@ -6049,7 +6049,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Header_Mdid_MacName
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Integer. The type is interface{} with range: 0..65535.
@@ -6099,7 +6099,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_Header_ShortMaName 
     IccBased interface{}
 
     // Hex data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ShortMaNameData interface{}
 
     // VPN ID name.
@@ -6174,11 +6174,11 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_SenderId struct {
     YFilter yfilter.YFilter
 
     // Management address domain. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ManagementAddressDomain interface{}
 
     // Management address. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ManagementAddress interface{}
 
     // Chassis ID.
@@ -6220,7 +6220,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_SenderId_ChassisId 
     ChassisIdTypeValue interface{}
 
     // Chassis ID (Deprecated). The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ChassisId interface{}
 
     // Chassis ID (Current).
@@ -6263,11 +6263,11 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_SenderId_ChassisId_
     ChassisIdString interface{}
 
     // Chassis ID MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ChassisIdMac interface{}
 
     // Raw Chassis ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     ChassisIdRaw interface{}
 }
 
@@ -6332,14 +6332,14 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_OrganizationSpecifi
     YListKey string
 
     // Organizationally-unique ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Oui interface{}
 
     // Subtype of TLV. The type is interface{} with range: 0..255.
     Subtype interface{}
 
     // Binary data in TLV. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 
@@ -6376,7 +6376,7 @@ type Cfm_Global_PeerMePv2s_PeerMePv2_PeerMep_LastCcmReceived_UnknownTlv struct {
     Typecode interface{}
 
     // Binary data in TLV. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Value interface{}
 }
 

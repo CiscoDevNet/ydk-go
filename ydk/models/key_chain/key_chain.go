@@ -148,7 +148,7 @@ type KeyChains_Key_KeyString struct {
     Keystring interface{}
 
     // Key in hexadecimal string format. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     HexadecimalString interface{}
 }
 
@@ -222,7 +222,7 @@ type KeyChains_Key_Lifetime_SendAcceptLifetime struct {
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -233,7 +233,7 @@ type KeyChains_Key_Lifetime_SendAcceptLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndDateTime interface{}
 }
 
@@ -272,7 +272,7 @@ type KeyChains_Key_Lifetime_SendLifetime struct {
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -283,7 +283,7 @@ type KeyChains_Key_Lifetime_SendLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndDateTime interface{}
 }
 
@@ -322,7 +322,7 @@ type KeyChains_Key_Lifetime_AcceptLifetime struct {
     Always interface{}
 
     // Start time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     StartDateTime interface{}
 
     // Indicates key lifetime end-time in infinite. The type is interface{}.
@@ -333,7 +333,7 @@ type KeyChains_Key_Lifetime_AcceptLifetime struct {
     Duration interface{}
 
     // End time. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     EndDateTime interface{}
 }
 

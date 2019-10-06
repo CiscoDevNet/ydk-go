@@ -28,36 +28,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr", reflect.TypeOf(AlarmMgr{}))
 }
 
-// SeverityTd represents The severity enumeration type of an alarm 
-type SeverityTd string
-
-const (
-    SeverityTd_unknown SeverityTd = "unknown"
-
-    SeverityTd_not_reported SeverityTd = "not_reported"
-
-    SeverityTd_not_alarmed SeverityTd = "not_alarmed"
-
-    SeverityTd_minor SeverityTd = "minor"
-
-    SeverityTd_major SeverityTd = "major"
-
-    SeverityTd_critical SeverityTd = "critical"
-)
-
-// StatusTd represents The status enumeration type of an alarm 
-type StatusTd string
-
-const (
-    StatusTd_unknown StatusTd = "unknown"
-
-    StatusTd_set StatusTd = "set"
-
-    StatusTd_clear StatusTd = "clear"
-
-    StatusTd_suppress StatusTd = "suppress"
-)
-
 // GroupTd represents The group enumeration type of an alarm 
 type GroupTd string
 
@@ -101,6 +71,19 @@ const (
     GroupTd_last GroupTd = "last"
 )
 
+// StatusTd represents The status enumeration type of an alarm 
+type StatusTd string
+
+const (
+    StatusTd_unknown StatusTd = "unknown"
+
+    StatusTd_set StatusTd = "set"
+
+    StatusTd_clear StatusTd = "clear"
+
+    StatusTd_suppress StatusTd = "suppress"
+)
+
 // AgentStateTd
 type AgentStateTd string
 
@@ -129,6 +112,23 @@ const (
     AgentTypeTd_consumer AgentTypeTd = "consumer"
 
     AgentTypeTd_subscriber AgentTypeTd = "subscriber"
+)
+
+// SeverityTd represents The severity enumeration type of an alarm 
+type SeverityTd string
+
+const (
+    SeverityTd_unknown SeverityTd = "unknown"
+
+    SeverityTd_not_reported SeverityTd = "not_reported"
+
+    SeverityTd_not_alarmed SeverityTd = "not_alarmed"
+
+    SeverityTd_minor SeverityTd = "minor"
+
+    SeverityTd_major SeverityTd = "major"
+
+    SeverityTd_critical SeverityTd = "critical"
 )
 
 // AlarmMgr
@@ -321,10 +321,10 @@ type AlarmMgr_Brief struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Alarms reported at the local card as  specified by the location parameter.
+    // Alarms reported at the local card as specified by the location parameter.
     Card AlarmMgr_Brief_Card
 
-    // Alarms reported at the rack scope    specified by the rack-id.
+    // Alarms reported at the rack scope specified by the rack-id.
     Rack AlarmMgr_Brief_Rack
 
     // Alarms reported at the system scope.
@@ -354,7 +354,7 @@ func (brief *AlarmMgr_Brief) GetEntityData() *types.CommonEntityData {
 }
 
 // AlarmMgr_Brief_Card
-// Alarms reported at the local card as 
+// Alarms reported at the local card as
 // specified by the location parameter
 type AlarmMgr_Brief_Card struct {
     EntityData types.CommonEntityData
@@ -394,7 +394,7 @@ type AlarmMgr_Brief_Card_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Locations interface{}
 
     // The type is slice of AlarmMgr_Brief_Card_Location_Active.
@@ -637,7 +637,7 @@ func (suppressed *AlarmMgr_Brief_Card_Location_Suppressed) GetEntityData() *type
 }
 
 // AlarmMgr_Brief_Rack
-// Alarms reported at the rack scope   
+// Alarms reported at the rack scope
 // specified by the rack-id
 type AlarmMgr_Brief_Rack struct {
     EntityData types.CommonEntityData
@@ -1168,13 +1168,13 @@ type AlarmMgr_Detail struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Alarms reported at the local card as  specified by the location parameter.
+    // Alarms reported at the local card as specified by the location parameter.
     Card AlarmMgr_Detail_Card
 
-    // Alarms reported at the rack as  specified by the location parameter.
+    // Alarms reported at the rack as specified by the location parameter.
     Rack AlarmMgr_Detail_Rack
 
-    // Alarms reported at the system as  specified by the location parameter.
+    // Alarms reported at the system as specified by the location parameter.
     System AlarmMgr_Detail_System
 }
 
@@ -1201,7 +1201,7 @@ func (detail *AlarmMgr_Detail) GetEntityData() *types.CommonEntityData {
 }
 
 // AlarmMgr_Detail_Card
-// Alarms reported at the local card as 
+// Alarms reported at the local card as
 // specified by the location parameter
 type AlarmMgr_Detail_Card struct {
     EntityData types.CommonEntityData
@@ -1241,7 +1241,7 @@ type AlarmMgr_Detail_Card_Location struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     Locations interface{}
 
     // The type is slice of AlarmMgr_Detail_Card_Location_Active.
@@ -1746,7 +1746,7 @@ func (suppressed *AlarmMgr_Detail_Card_Location_Suppressed) GetEntityData() *typ
 }
 
 // AlarmMgr_Detail_Rack
-// Alarms reported at the rack as 
+// Alarms reported at the rack as
 // specified by the location parameter
 type AlarmMgr_Detail_Rack struct {
     EntityData types.CommonEntityData
@@ -2290,7 +2290,7 @@ func (suppressed *AlarmMgr_Detail_Rack_RackLocations_Suppressed) GetEntityData()
 }
 
 // AlarmMgr_Detail_System
-// Alarms reported at the system as 
+// Alarms reported at the system as
 // specified by the location parameter
 type AlarmMgr_Detail_System struct {
     EntityData types.CommonEntityData

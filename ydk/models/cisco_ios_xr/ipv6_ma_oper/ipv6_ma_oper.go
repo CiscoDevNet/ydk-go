@@ -35,6 +35,23 @@ const (
     Ipv6MaOperState_oper_down Ipv6MaOperState = "oper-down"
 )
 
+// Ipv6MaIfLineState represents Interface line states
+type Ipv6MaIfLineState string
+
+const (
+    // Interface state is down
+    Ipv6MaIfLineState_down Ipv6MaIfLineState = "down"
+
+    // Interface state is up
+    Ipv6MaIfLineState_up Ipv6MaIfLineState = "up"
+
+    // Interface state is unknown
+    Ipv6MaIfLineState_unknown Ipv6MaIfLineState = "unknown"
+
+    // Interface state is incorrect
+    Ipv6MaIfLineState_error_ Ipv6MaIfLineState = "error"
+)
+
 // Ipv6MaIfAddrState represents Interface address states
 type Ipv6MaIfAddrState string
 
@@ -59,23 +76,6 @@ const (
 
     // Status can not be determined for some reason
     Ipv6MaIfAddrState_tentative Ipv6MaIfAddrState = "tentative"
-)
-
-// Ipv6MaIfLineState represents Interface line states
-type Ipv6MaIfLineState string
-
-const (
-    // Interface state is down
-    Ipv6MaIfLineState_down Ipv6MaIfLineState = "down"
-
-    // Interface state is up
-    Ipv6MaIfLineState_up Ipv6MaIfLineState = "up"
-
-    // Interface state is unknown
-    Ipv6MaIfLineState_unknown Ipv6MaIfLineState = "unknown"
-
-    // Interface state is incorrect
-    Ipv6MaIfLineState_error_ Ipv6MaIfLineState = "error"
 )
 
 // Ipv6Network
@@ -151,7 +151,7 @@ type Ipv6Network_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. The node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // IPv6 network operational interface data.
@@ -256,7 +256,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. The VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Brief interface IPv6 network operational data for a node.
@@ -340,7 +340,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State of Interface Line. The type is Ipv6MaIfLineState.
@@ -392,7 +392,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief_LinkLocalAddress
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -446,7 +446,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Briefs_Brief_Address struct {
     YListKey string
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -537,7 +537,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail st
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State of Interface Line. The type is Ipv6MaIfLineState.
@@ -548,14 +548,6 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail st
 
     // IPv6 Operation State. The type is Ipv6MaOperState.
     OperationState interface{}
-
-    // Interface Configured Flags. The type is interface{} with range:
-    // 0..4294967295.
-    Ipv6ConfigFlag interface{}
-
-    // Interface Operational Flags. The type is interface{} with range:
-    // 0..4294967295.
-    Ipv6OperFlag interface{}
 
     // VRF Name. The type is string with length: 0..32.
     VrfName interface{}
@@ -575,6 +567,14 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail st
     // Is BGP Flow Tag Destination is enable. The type is bool.
     FlowTagDst interface{}
 
+    // Interface Configured Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6ConfigFlag interface{}
+
+    // Interface Operational Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6OperFlag interface{}
+
     // idb pointer value. The type is interface{} with range:
     // 0..18446744073709551615.
     IdbPointer interface{}
@@ -593,6 +593,21 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail st
 
     // BGP PA config on the interface.
     BgpPa Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_BgpPa
+
+    // Address Publish Time.
+    Utime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Utime
+
+    // IDB Create Time.
+    IdbUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_IdbUtime
+
+    // CAPS Add Time.
+    CapsUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_CapsUtime
+
+    // FWD ENABLE Time.
+    FwdEnUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdEnUtime
+
+    // FWD DISABLE Time.
+    FwdDisUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdDisUtime
 
     // IPv6 Multicast Group. The type is slice of
     // Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_MulticastGroup.
@@ -624,6 +639,11 @@ func (globalDetail *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_
     globalDetail.EntityData.Children.Append("multi-access-control-list", types.YChild{"MultiAccessControlList", &globalDetail.MultiAccessControlList})
     globalDetail.EntityData.Children.Append("rpf", types.YChild{"Rpf", &globalDetail.Rpf})
     globalDetail.EntityData.Children.Append("bgp-pa", types.YChild{"BgpPa", &globalDetail.BgpPa})
+    globalDetail.EntityData.Children.Append("utime", types.YChild{"Utime", &globalDetail.Utime})
+    globalDetail.EntityData.Children.Append("idb-utime", types.YChild{"IdbUtime", &globalDetail.IdbUtime})
+    globalDetail.EntityData.Children.Append("caps-utime", types.YChild{"CapsUtime", &globalDetail.CapsUtime})
+    globalDetail.EntityData.Children.Append("fwd-en-utime", types.YChild{"FwdEnUtime", &globalDetail.FwdEnUtime})
+    globalDetail.EntityData.Children.Append("fwd-dis-utime", types.YChild{"FwdDisUtime", &globalDetail.FwdDisUtime})
     globalDetail.EntityData.Children.Append("multicast-group", types.YChild{"MulticastGroup", nil})
     for i := range globalDetail.MulticastGroup {
         types.SetYListKey(globalDetail.MulticastGroup[i], i)
@@ -644,14 +664,14 @@ func (globalDetail *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_
     globalDetail.EntityData.Leafs.Append("line-state", types.YLeaf{"LineState", globalDetail.LineState})
     globalDetail.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", globalDetail.Mtu})
     globalDetail.EntityData.Leafs.Append("operation-state", types.YLeaf{"OperationState", globalDetail.OperationState})
-    globalDetail.EntityData.Leafs.Append("ipv6-config-flag", types.YLeaf{"Ipv6ConfigFlag", globalDetail.Ipv6ConfigFlag})
-    globalDetail.EntityData.Leafs.Append("ipv6-oper-flag", types.YLeaf{"Ipv6OperFlag", globalDetail.Ipv6OperFlag})
     globalDetail.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", globalDetail.VrfName})
     globalDetail.EntityData.Leafs.Append("is-icmp-unreach-enabled", types.YLeaf{"IsIcmpUnreachEnabled", globalDetail.IsIcmpUnreachEnabled})
     globalDetail.EntityData.Leafs.Append("rg-id-exists", types.YLeaf{"RgIdExists", globalDetail.RgIdExists})
     globalDetail.EntityData.Leafs.Append("mlacp-active", types.YLeaf{"MlacpActive", globalDetail.MlacpActive})
     globalDetail.EntityData.Leafs.Append("flow-tag-src", types.YLeaf{"FlowTagSrc", globalDetail.FlowTagSrc})
     globalDetail.EntityData.Leafs.Append("flow-tag-dst", types.YLeaf{"FlowTagDst", globalDetail.FlowTagDst})
+    globalDetail.EntityData.Leafs.Append("ipv6-config-flag", types.YLeaf{"Ipv6ConfigFlag", globalDetail.Ipv6ConfigFlag})
+    globalDetail.EntityData.Leafs.Append("ipv6-oper-flag", types.YLeaf{"Ipv6OperFlag", globalDetail.Ipv6OperFlag})
     globalDetail.EntityData.Leafs.Append("idb-pointer", types.YLeaf{"IdbPointer", globalDetail.IdbPointer})
 
     globalDetail.EntityData.YListKeys = []string {"InterfaceName"}
@@ -666,7 +686,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Li
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -814,7 +834,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Mu
     YFilter yfilter.YFilter
     YListKey string
 
-    // Inbound ACLs. The type is string.
+    // The type is string.
     Entry interface{}
 }
 
@@ -845,7 +865,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Mu
     YFilter yfilter.YFilter
     YListKey string
 
-    // Outbound ACLs. The type is string.
+    // The type is string.
     Entry interface{}
 }
 
@@ -876,7 +896,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Mu
     YFilter yfilter.YFilter
     YListKey string
 
-    // Common ACLs. The type is string.
+    // The type is string.
     Entry interface{}
 }
 
@@ -1054,6 +1074,136 @@ func (output *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_Global
     return &(output.EntityData)
 }
 
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Utime
+// Address Publish Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Utime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (utime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Utime) GetEntityData() *types.CommonEntityData {
+    utime.EntityData.YFilter = utime.YFilter
+    utime.EntityData.YangName = "utime"
+    utime.EntityData.BundleName = "cisco_ios_xr"
+    utime.EntityData.ParentYangName = "global-detail"
+    utime.EntityData.SegmentPath = "utime"
+    utime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/global-details/global-detail/" + utime.EntityData.SegmentPath
+    utime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    utime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    utime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    utime.EntityData.Children = types.NewOrderedMap()
+    utime.EntityData.Leafs = types.NewOrderedMap()
+
+    utime.EntityData.YListKeys = []string {}
+
+    return &(utime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_IdbUtime
+// IDB Create Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_IdbUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (idbUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_IdbUtime) GetEntityData() *types.CommonEntityData {
+    idbUtime.EntityData.YFilter = idbUtime.YFilter
+    idbUtime.EntityData.YangName = "idb-utime"
+    idbUtime.EntityData.BundleName = "cisco_ios_xr"
+    idbUtime.EntityData.ParentYangName = "global-detail"
+    idbUtime.EntityData.SegmentPath = "idb-utime"
+    idbUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/global-details/global-detail/" + idbUtime.EntityData.SegmentPath
+    idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    idbUtime.EntityData.Children = types.NewOrderedMap()
+    idbUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    idbUtime.EntityData.YListKeys = []string {}
+
+    return &(idbUtime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_CapsUtime
+// CAPS Add Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_CapsUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (capsUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_CapsUtime) GetEntityData() *types.CommonEntityData {
+    capsUtime.EntityData.YFilter = capsUtime.YFilter
+    capsUtime.EntityData.YangName = "caps-utime"
+    capsUtime.EntityData.BundleName = "cisco_ios_xr"
+    capsUtime.EntityData.ParentYangName = "global-detail"
+    capsUtime.EntityData.SegmentPath = "caps-utime"
+    capsUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/global-details/global-detail/" + capsUtime.EntityData.SegmentPath
+    capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    capsUtime.EntityData.Children = types.NewOrderedMap()
+    capsUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    capsUtime.EntityData.YListKeys = []string {}
+
+    return &(capsUtime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdEnUtime
+// FWD ENABLE Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdEnUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (fwdEnUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdEnUtime) GetEntityData() *types.CommonEntityData {
+    fwdEnUtime.EntityData.YFilter = fwdEnUtime.YFilter
+    fwdEnUtime.EntityData.YangName = "fwd-en-utime"
+    fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdEnUtime.EntityData.ParentYangName = "global-detail"
+    fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
+    fwdEnUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/global-details/global-detail/" + fwdEnUtime.EntityData.SegmentPath
+    fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fwdEnUtime.EntityData.Children = types.NewOrderedMap()
+    fwdEnUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    fwdEnUtime.EntityData.YListKeys = []string {}
+
+    return &(fwdEnUtime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdDisUtime
+// FWD DISABLE Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdDisUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (fwdDisUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_FwdDisUtime) GetEntityData() *types.CommonEntityData {
+    fwdDisUtime.EntityData.YFilter = fwdDisUtime.YFilter
+    fwdDisUtime.EntityData.YangName = "fwd-dis-utime"
+    fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdDisUtime.EntityData.ParentYangName = "global-detail"
+    fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
+    fwdDisUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/global-details/global-detail/" + fwdDisUtime.EntityData.SegmentPath
+    fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fwdDisUtime.EntityData.Children = types.NewOrderedMap()
+    fwdDisUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    fwdDisUtime.EntityData.YListKeys = []string {}
+
+    return &(fwdDisUtime.EntityData)
+}
+
 // Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_MulticastGroup
 // IPv6 Multicast Group
 type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_MulticastGroup struct {
@@ -1062,7 +1212,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Mu
     YListKey string
 
     // IPv6 Address of Multicast Group. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1094,7 +1244,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Ad
     YListKey string
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -1148,7 +1298,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalDetails_GlobalDetail_Cl
     YListKey string
 
     // IPv6 Address of Multicast Group. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1217,7 +1367,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_GlobalBrief stru
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State of Interface Line. The type is Ipv6MaIfLineState.
@@ -1269,7 +1419,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_GlobalBrief_Link
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -1323,7 +1473,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_GlobalBriefs_GlobalBrief_Addr
     YListKey string
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -1413,7 +1563,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State of Interface Line. The type is Ipv6MaIfLineState.
@@ -1424,14 +1574,6 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
 
     // IPv6 Operation State. The type is Ipv6MaOperState.
     OperationState interface{}
-
-    // Interface Configured Flags. The type is interface{} with range:
-    // 0..4294967295.
-    Ipv6ConfigFlag interface{}
-
-    // Interface Operational Flags. The type is interface{} with range:
-    // 0..4294967295.
-    Ipv6OperFlag interface{}
 
     // VRF Name. The type is string with length: 0..32.
     VrfName interface{}
@@ -1451,6 +1593,14 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
     // Is BGP Flow Tag Destination is enable. The type is bool.
     FlowTagDst interface{}
 
+    // Interface Configured Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6ConfigFlag interface{}
+
+    // Interface Operational Flags. The type is interface{} with range:
+    // 0..4294967295.
+    Ipv6OperFlag interface{}
+
     // idb pointer value. The type is interface{} with range:
     // 0..18446744073709551615.
     IdbPointer interface{}
@@ -1469,6 +1619,21 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail struct {
 
     // BGP PA config on the interface.
     BgpPa Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa
+
+    // Address Publish Time.
+    Utime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Utime
+
+    // IDB Create Time.
+    IdbUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime
+
+    // CAPS Add Time.
+    CapsUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime
+
+    // FWD ENABLE Time.
+    FwdEnUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime
+
+    // FWD DISABLE Time.
+    FwdDisUtime Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime
 
     // IPv6 Multicast Group. The type is slice of
     // Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup.
@@ -1500,6 +1665,11 @@ func (detail *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetE
     detail.EntityData.Children.Append("multi-access-control-list", types.YChild{"MultiAccessControlList", &detail.MultiAccessControlList})
     detail.EntityData.Children.Append("rpf", types.YChild{"Rpf", &detail.Rpf})
     detail.EntityData.Children.Append("bgp-pa", types.YChild{"BgpPa", &detail.BgpPa})
+    detail.EntityData.Children.Append("utime", types.YChild{"Utime", &detail.Utime})
+    detail.EntityData.Children.Append("idb-utime", types.YChild{"IdbUtime", &detail.IdbUtime})
+    detail.EntityData.Children.Append("caps-utime", types.YChild{"CapsUtime", &detail.CapsUtime})
+    detail.EntityData.Children.Append("fwd-en-utime", types.YChild{"FwdEnUtime", &detail.FwdEnUtime})
+    detail.EntityData.Children.Append("fwd-dis-utime", types.YChild{"FwdDisUtime", &detail.FwdDisUtime})
     detail.EntityData.Children.Append("multicast-group", types.YChild{"MulticastGroup", nil})
     for i := range detail.MulticastGroup {
         types.SetYListKey(detail.MulticastGroup[i], i)
@@ -1520,14 +1690,14 @@ func (detail *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail) GetE
     detail.EntityData.Leafs.Append("line-state", types.YLeaf{"LineState", detail.LineState})
     detail.EntityData.Leafs.Append("mtu", types.YLeaf{"Mtu", detail.Mtu})
     detail.EntityData.Leafs.Append("operation-state", types.YLeaf{"OperationState", detail.OperationState})
-    detail.EntityData.Leafs.Append("ipv6-config-flag", types.YLeaf{"Ipv6ConfigFlag", detail.Ipv6ConfigFlag})
-    detail.EntityData.Leafs.Append("ipv6-oper-flag", types.YLeaf{"Ipv6OperFlag", detail.Ipv6OperFlag})
     detail.EntityData.Leafs.Append("vrf-name", types.YLeaf{"VrfName", detail.VrfName})
     detail.EntityData.Leafs.Append("is-icmp-unreach-enabled", types.YLeaf{"IsIcmpUnreachEnabled", detail.IsIcmpUnreachEnabled})
     detail.EntityData.Leafs.Append("rg-id-exists", types.YLeaf{"RgIdExists", detail.RgIdExists})
     detail.EntityData.Leafs.Append("mlacp-active", types.YLeaf{"MlacpActive", detail.MlacpActive})
     detail.EntityData.Leafs.Append("flow-tag-src", types.YLeaf{"FlowTagSrc", detail.FlowTagSrc})
     detail.EntityData.Leafs.Append("flow-tag-dst", types.YLeaf{"FlowTagDst", detail.FlowTagDst})
+    detail.EntityData.Leafs.Append("ipv6-config-flag", types.YLeaf{"Ipv6ConfigFlag", detail.Ipv6ConfigFlag})
+    detail.EntityData.Leafs.Append("ipv6-oper-flag", types.YLeaf{"Ipv6OperFlag", detail.Ipv6OperFlag})
     detail.EntityData.Leafs.Append("idb-pointer", types.YLeaf{"IdbPointer", detail.IdbPointer})
 
     detail.EntityData.YListKeys = []string {"InterfaceName"}
@@ -1542,7 +1712,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_LinkLocalAddre
     YFilter yfilter.YFilter
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -1690,7 +1860,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAccessCon
     YFilter yfilter.YFilter
     YListKey string
 
-    // Inbound ACLs. The type is string.
+    // The type is string.
     Entry interface{}
 }
 
@@ -1721,7 +1891,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAccessCon
     YFilter yfilter.YFilter
     YListKey string
 
-    // Outbound ACLs. The type is string.
+    // The type is string.
     Entry interface{}
 }
 
@@ -1752,7 +1922,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MultiAccessCon
     YFilter yfilter.YFilter
     YListKey string
 
-    // Common ACLs. The type is string.
+    // The type is string.
     Entry interface{}
 }
 
@@ -1930,6 +2100,136 @@ func (output *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_BgpPa
     return &(output.EntityData)
 }
 
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Utime
+// Address Publish Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Utime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (utime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Utime) GetEntityData() *types.CommonEntityData {
+    utime.EntityData.YFilter = utime.YFilter
+    utime.EntityData.YangName = "utime"
+    utime.EntityData.BundleName = "cisco_ios_xr"
+    utime.EntityData.ParentYangName = "detail"
+    utime.EntityData.SegmentPath = "utime"
+    utime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + utime.EntityData.SegmentPath
+    utime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    utime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    utime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    utime.EntityData.Children = types.NewOrderedMap()
+    utime.EntityData.Leafs = types.NewOrderedMap()
+
+    utime.EntityData.YListKeys = []string {}
+
+    return &(utime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime
+// IDB Create Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (idbUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_IdbUtime) GetEntityData() *types.CommonEntityData {
+    idbUtime.EntityData.YFilter = idbUtime.YFilter
+    idbUtime.EntityData.YangName = "idb-utime"
+    idbUtime.EntityData.BundleName = "cisco_ios_xr"
+    idbUtime.EntityData.ParentYangName = "detail"
+    idbUtime.EntityData.SegmentPath = "idb-utime"
+    idbUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + idbUtime.EntityData.SegmentPath
+    idbUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    idbUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    idbUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    idbUtime.EntityData.Children = types.NewOrderedMap()
+    idbUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    idbUtime.EntityData.YListKeys = []string {}
+
+    return &(idbUtime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime
+// CAPS Add Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (capsUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_CapsUtime) GetEntityData() *types.CommonEntityData {
+    capsUtime.EntityData.YFilter = capsUtime.YFilter
+    capsUtime.EntityData.YangName = "caps-utime"
+    capsUtime.EntityData.BundleName = "cisco_ios_xr"
+    capsUtime.EntityData.ParentYangName = "detail"
+    capsUtime.EntityData.SegmentPath = "caps-utime"
+    capsUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + capsUtime.EntityData.SegmentPath
+    capsUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    capsUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    capsUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    capsUtime.EntityData.Children = types.NewOrderedMap()
+    capsUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    capsUtime.EntityData.YListKeys = []string {}
+
+    return &(capsUtime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime
+// FWD ENABLE Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (fwdEnUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdEnUtime) GetEntityData() *types.CommonEntityData {
+    fwdEnUtime.EntityData.YFilter = fwdEnUtime.YFilter
+    fwdEnUtime.EntityData.YangName = "fwd-en-utime"
+    fwdEnUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdEnUtime.EntityData.ParentYangName = "detail"
+    fwdEnUtime.EntityData.SegmentPath = "fwd-en-utime"
+    fwdEnUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + fwdEnUtime.EntityData.SegmentPath
+    fwdEnUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdEnUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdEnUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fwdEnUtime.EntityData.Children = types.NewOrderedMap()
+    fwdEnUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    fwdEnUtime.EntityData.YListKeys = []string {}
+
+    return &(fwdEnUtime.EntityData)
+}
+
+// Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime
+// FWD DISABLE Time
+type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+}
+
+func (fwdDisUtime *Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_FwdDisUtime) GetEntityData() *types.CommonEntityData {
+    fwdDisUtime.EntityData.YFilter = fwdDisUtime.YFilter
+    fwdDisUtime.EntityData.YangName = "fwd-dis-utime"
+    fwdDisUtime.EntityData.BundleName = "cisco_ios_xr"
+    fwdDisUtime.EntityData.ParentYangName = "detail"
+    fwdDisUtime.EntityData.SegmentPath = "fwd-dis-utime"
+    fwdDisUtime.EntityData.AbsolutePath = "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/node/interface-data/vrfs/vrf/details/detail/" + fwdDisUtime.EntityData.SegmentPath
+    fwdDisUtime.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    fwdDisUtime.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    fwdDisUtime.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    fwdDisUtime.EntityData.Children = types.NewOrderedMap()
+    fwdDisUtime.EntityData.Leafs = types.NewOrderedMap()
+
+    fwdDisUtime.EntityData.YListKeys = []string {}
+
+    return &(fwdDisUtime.EntityData)
+}
+
 // Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup
 // IPv6 Multicast Group
 type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup struct {
@@ -1938,7 +2238,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_MulticastGroup
     YListKey string
 
     // IPv6 Address of Multicast Group. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1970,7 +2270,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_Address struct
     YListKey string
 
     // IPv6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Prefix Length of IPv6 Address. The type is interface{} with range:
@@ -2024,7 +2324,7 @@ type Ipv6Network_Nodes_Node_InterfaceData_Vrfs_Vrf_Details_Detail_ClientMulticas
     YListKey string
 
     // IPv6 Address of Multicast Group. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 

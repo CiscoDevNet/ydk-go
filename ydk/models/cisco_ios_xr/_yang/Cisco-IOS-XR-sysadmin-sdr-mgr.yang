@@ -180,6 +180,11 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
               "VM Number of CPUs";
           }
         }
+        leaf disk-space-size {
+          type uint32;
+          description
+            "Edit disk space size for a Secure Domain Router, unit in [MB]";
+        }
       }
       list location {
         key "node-location";
@@ -191,14 +196,6 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
           type Location;
           description
             "Enter location or all";
-        }
-        leaf-list slice {
-          type uint8 {
-            range "0 .. 4";
-          }
-          max-elements "4";
-          description
-            "Enter list of slices to add to this SDR";
         }
       }
       container Action {
@@ -224,6 +221,7 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
           tailf:action "reload" {
             input {
               choice what_act {
+                mandatory true;
                 case act_force {
                   leaf force {
                     type empty;
@@ -313,14 +311,6 @@ module Cisco-IOS-XR-sysadmin-sdr-mgr {
           }
           leaf rack-type {
             type string;
-          }
-          leaf-list slice {
-            type union {
-              type uint8;
-              type string;
-            }
-            description
-              "Slice numbers if configured";
           }
           leaf chassis_serial {
             type string;

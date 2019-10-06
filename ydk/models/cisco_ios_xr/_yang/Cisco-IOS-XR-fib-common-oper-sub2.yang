@@ -340,8 +340,6 @@ submodule Cisco-IOS-XR-fib-common-oper-sub2 {
         "Label stack";
       leaf entry {
         type uint32;
-        description
-          "Label stack";
       }
     }
   }

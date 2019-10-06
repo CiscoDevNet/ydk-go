@@ -130,7 +130,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1 struct {
     YListKey string
 
     // This attribute is a key. hw fault 1. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType1 interface{}
 
     // Table of Hardware Failure Device.
@@ -204,7 +204,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2 
     YListKey string
 
     // This attribute is a key. hw fault 2. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType2 interface{}
 
     // Table of Hardware Failure Device.
@@ -278,7 +278,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_
     YListKey string
 
     // This attribute is a key. hw fault 3. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType3 interface{}
 
     // Table of racks.
@@ -418,7 +418,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
@@ -538,7 +538,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_
     YListKey string
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
@@ -578,7 +578,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_
     YListKey string
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.
@@ -748,7 +748,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
@@ -868,7 +868,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_
     YListKey string
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
@@ -908,7 +908,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_FaultType2s_FaultType2_
     YListKey string
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.
@@ -1078,7 +1078,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot s
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
@@ -1198,7 +1198,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_H
     YListKey string
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
@@ -1238,7 +1238,7 @@ type PlatformFaultManager_Exclude_FaultType1s_FaultType1_Racks_Rack_Slots_Slot_H
     YListKey string
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.
@@ -1406,7 +1406,7 @@ type PlatformFaultManager_Racks_Rack_Slots_Slot struct {
     YListKey string
 
     // This attribute is a key. Slot name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Slot interface{}
 
     // Table of Hardware Summary.
@@ -1526,7 +1526,7 @@ type PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFau
     YListKey string
 
     // This attribute is a key. hw fault device list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultDevice interface{}
 
     // Table of Hardware Failure Type. The type is slice of
@@ -1566,7 +1566,7 @@ type PlatformFaultManager_Racks_Rack_Slots_Slot_HardwareFaultDevices_HardwareFau
     YListKey string
 
     // This attribute is a key. hw fault type list. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     HwFaultType interface{}
 
     // Faulty Hardware Condition Description. The type is string.

@@ -4,7 +4,7 @@ submodule tailf-cli-extensions {
   }
 
   include tailf-meta-extensions {
-    revision-date 2017-03-08;
+    revision-date 2010-08-19;
   }
 
   organization
@@ -16,82 +16,6 @@ submodule tailf-cli-extensions {
      See also the 'display-' statements and the 'alt-name' statement
      in tailf-common.yang.";
 
-  revision 2017-08-23 {
-    description
-      "Released as part of Confd-6.4.3 / NCS-4.4.3.
-       
-       Added tailf:cli-only-in-autowizard for leafs with sensitive data.";
-  }
-  revision 2017-03-08 {
-    description
-      "Released as part of Confd-6.4 / NCS-4.4.
-       
-       Included latest revision of the tailf-meta-extensions submodule.";
-  }
-  revision 2017-01-26 {
-    description
-      "Released as part of Confd-6.3.1 / NCS-4.3.1.
-       
-       Added tailf:cli-reset-full for user ordered lists.";
-  }
-  revision 2016-11-24 {
-    description
-      "Released as part of Confd-6.3 / NCS-4.3.
-       
-       Added cli-diff-before.
-       Added cli-diff-set-before.
-       Added cli-diff-create-before.
-       Added cli-diff-modify-before.
-       Added cli-diff-delete-before.
-       Added cli-diff-after.
-       Added cli-diff-set-after.
-       Added cli-diff-create-after.
-       Added cli-diff-modify-after.
-       Added cli-diff-delete-after.";
-  }
-  revision 2016-05-04 {
-    description
-      "Released as part of Confd-6.2 / NCS-4.2.
-       Added cli-suppress-warning.";
-  }
-  revision 2016-04-08 {
-    description
-      "Released as part of ConfD-5.4 / NCS-3.4.
-       
-       Added cli-suppress-quotes.";
-  }
-  revision 2015-03-19 {
-    description
-      "Released as part of ConfD-5.4 / NCS-3.4.
-       
-       Added cli-show-obu-comments.
-       Added cli-batch-confirm-default.";
-  }
-  revision 2014-11-13 {
-    description
-      "Released as part of ConfD-5.3 / NCS-3.3.
-       
-       Added cli-strict-leafref.
-       Added cli-trigger-on-*.
-       Allow cli-boolean-no in typedef.";
-  }
-  revision 2013-11-07 {
-    description
-      "Released as part of ConfD-5.0.
-       
-       Added cli-disabled-info.
-       Added cli-suppress-shortenabled.
-       Added cli-no-keyword.
-       Added cli-case-sensitive and cli-case-insensitive.";
-  }
-  revision 2012-11-08 {
-    description
-      "Released as part of ConfD-4.1.
-       
-       Added cli-delete-when-empty.
-       Added cli-diff-dependency.
-       Added cli-ignore-modified.";
-  }
   revision 2012-08-23 {
     description
       "Released as part of ConfD-4.0.1.
@@ -246,18 +170,6 @@ submodule tailf-cli-extensions {
       "Released as part of ConfD-3.2.";
   }
 
-  extension cli-suppress-quotes {
-    description
-      "Specifies that configuration data for a leaf should never be wrapped
-       with quotes. All internal data will be escaped to make sure it
-       can be presented correctly.
-       
-       Can't be used for keys.
-       
-       Used in J-, I- and C-style CLIs.";
-    tailf:use-in "leaf";
-  }
-
   extension cli-show-no {
     description
       "Specifies that an optional leaf node or presence container
@@ -268,19 +180,15 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "list";
-    tailf:use-in "leaf-list";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-disallow-value {
     argument value {
       tailf:arg-type {
-        type string;
+        type tailf-disallow-pattern;
       }
     }
     description
@@ -290,7 +198,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
   }
 
   extension cli-boolean-no {
@@ -299,18 +207,11 @@ submodule tailf-cli-extensions {
        '<leafname>' if set to true, and 'no <leafname>' if set to
        false.
        
-       Cannot be used in conjunction with tailf:cli-hide-in-submode
-       or tailf:cli-compact-syntax.
-       
        Used in I- and C-style CLIs.";
-    tailf:use-in "typedef";
     tailf:use-in "leaf";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:substatement "tailf:cli-reversed";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-reversed {
@@ -333,7 +234,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -344,11 +245,10 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
   }
 
   extension cli-display-empty-config {
@@ -359,7 +259,7 @@ submodule tailf-cli-extensions {
        
        Used in J-style CLI.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -385,11 +285,8 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "container";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-show-order-taglist {
@@ -409,7 +306,7 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "container";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -432,11 +329,8 @@ submodule tailf-cli-extensions {
     tailf:use-in "list";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-mode-name-actionpoint {
@@ -463,10 +357,8 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "container";
     tailf:use-in "list";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-add-mode {
@@ -477,11 +369,8 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-flatten-container {
@@ -495,7 +384,7 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "container";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -507,17 +396,15 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-delete-when-empty {
     description
       "Instructs the CLI engine to delete the list when the last list
-       instance is deleted'. Requires that cli-suppress-mode is set.
+       instance is deleted'. Requires that cli-suppress-mode and
+       cli-compact-syntax are set.
        
        The behavior is recursive. If all optional leafs in a list
        instance are deleted the list instance itself is deleted. If
@@ -525,18 +412,16 @@ submodule tailf-cli-extensions {
        list it is also deleted. And so on. Used in I- and C-style
        CLIs.";
     tailf:use-in "list";
-    tailf:use-in "container";
   }
 
   extension cli-remove-before-change {
     description
-      "Instructs the CLI engine to generate a no-commnd before
+      "Instructs the CLI engine to generate a no-command before
        modifying an existing instance. It only applies when
        generating diffs, eg 'show configuration' in C-style.";
-    tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -547,14 +432,13 @@ submodule tailf-cli-extensions {
        
        Applies to C-style";
     tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
   extension cli-no-name-on-delete {
     description
-      "When displaying the deleted version of this element do not
+      "When displaying the deleted version of this leaf do not
        include the name.
        
        Applies to C-style";
@@ -562,432 +446,8 @@ submodule tailf-cli-extensions {
     tailf:use-in "container";
     tailf:use-in "list";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-  }
-
-  extension cli-embed-no-on-delete {
-    description
-      "Embed no in front of the element name insead of at the
-       beginning of the line.
-       
-       Applies to C-style";
-    tailf:use-in "leaf";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-  }
-
-  extension cli-recursive-delete {
-    description
-      "When generating configuration diffs delete all contents
-       of a container or list before deleting the node.
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-  }
-
-  extension cli-diff-before {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any changes made to this node
-       before any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when any changes
-       (created, modified or deleted) has been made to this node
-       while any changes (created, modified or deleted) has been made
-       to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-delete-before {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any delete operations made on this node
-       before any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been deleted
-       while any changes (created, modified or deleted) has been made
-       to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-set-before {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any set operations (created or modified) made on this node
-       before any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been set
-       (created or modified) while any changes (created, modified or deleted)
-       has been made to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-create-before {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any create operations made on this node
-       before any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been created
-       while any changes (created, modified or deleted) has been made
-       to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-modify-before {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any modify operations made on this node
-       before any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been modified
-       (not created or deleted) while any changes (created, modified or deleted)
-       has been made to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-after {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any changes made to this node
-       after any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when any changes
-       (created, modified or deleted) has been made to this node
-       while any changes (created, modified or deleted) has been made
-       to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-delete-after {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any delete operations made on this node
-       after any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been deleted
-       while any changes (created, modified or deleted) has been made
-       to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-set-after {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any set operations (created or modified) made on this node
-       after any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been set
-       (created or modified) while any changes (created, modified or deleted)
-       has been made to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-create-after {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any create operations made on this node
-       after any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been created
-       while any changes (created, modified or deleted) has been made
-       to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-diff-modify-after {
-    argument path {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "When displaying C-style configuration diffs,
-       display any modify operations made on this node
-       after any changes made to the target node(s).
-       
-       Thus, the dependency will trigger when this node has been modified
-       (not created or deleted) while any changes (created, modified or deleted)
-       has been made to the target node(s).
-       
-       Applies to C-style";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-when-target-set";
-    tailf:substatement "tailf:cli-when-target-create";
-    tailf:substatement "tailf:cli-when-target-modify";
-    tailf:substatement "tailf:cli-when-target-delete";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-when-target-set {
-    description
-      "Specify that the dependency should trigger when the target node(s)
-       has been set (created or modified).
-       Note; using this sub-statement is equivalent with using
-       both tailf:cli-when-target-create and tailf:cli-when-target-modify";
-    tailf:use-in "tailf:cli-diff-before";
-    tailf:use-in "tailf:cli-diff-delete-before";
-    tailf:use-in "tailf:cli-diff-set-before";
-    tailf:use-in "tailf:cli-diff-create-before";
-    tailf:use-in "tailf:cli-diff-modify-before";
-    tailf:use-in "tailf:cli-diff-after";
-    tailf:use-in "tailf:cli-diff-delete-after";
-    tailf:use-in "tailf:cli-diff-set-after";
-    tailf:use-in "tailf:cli-diff-create-after";
-    tailf:use-in "tailf:cli-diff-modify-after";
-  }
-
-  extension cli-when-target-create {
-    description
-      "Specify that the dependency should trigger when the target node(s)
-       has been created";
-    tailf:use-in "tailf:cli-diff-before";
-    tailf:use-in "tailf:cli-diff-delete-before";
-    tailf:use-in "tailf:cli-diff-set-before";
-    tailf:use-in "tailf:cli-diff-create-before";
-    tailf:use-in "tailf:cli-diff-modify-before";
-    tailf:use-in "tailf:cli-diff-after";
-    tailf:use-in "tailf:cli-diff-delete-after";
-    tailf:use-in "tailf:cli-diff-set-after";
-    tailf:use-in "tailf:cli-diff-create-after";
-    tailf:use-in "tailf:cli-diff-modify-after";
-  }
-
-  extension cli-when-target-modify {
-    description
-      "Specify that the dependency should trigger when the target node(s)
-       has been modified (not created or deleted)";
-    tailf:use-in "tailf:cli-diff-before";
-    tailf:use-in "tailf:cli-diff-delete-before";
-    tailf:use-in "tailf:cli-diff-set-before";
-    tailf:use-in "tailf:cli-diff-create-before";
-    tailf:use-in "tailf:cli-diff-modify-before";
-    tailf:use-in "tailf:cli-diff-after";
-    tailf:use-in "tailf:cli-diff-delete-after";
-    tailf:use-in "tailf:cli-diff-set-after";
-    tailf:use-in "tailf:cli-diff-create-after";
-    tailf:use-in "tailf:cli-diff-modify-after";
-  }
-
-  extension cli-when-target-delete {
-    description
-      "Specify that the dependency should trigger when the target node(s)
-       has been deleted";
-    tailf:use-in "tailf:cli-diff-before";
-    tailf:use-in "tailf:cli-diff-delete-before";
-    tailf:use-in "tailf:cli-diff-set-before";
-    tailf:use-in "tailf:cli-diff-create-before";
-    tailf:use-in "tailf:cli-diff-modify-before";
-    tailf:use-in "tailf:cli-diff-after";
-    tailf:use-in "tailf:cli-diff-delete-after";
-    tailf:use-in "tailf:cli-diff-set-after";
-    tailf:use-in "tailf:cli-diff-create-after";
-    tailf:use-in "tailf:cli-diff-modify-after";
   }
 
   extension cli-diff-dependency {
@@ -1008,192 +468,8 @@ submodule tailf-cli-extensions {
     tailf:use-in "list";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:xpath-root";
-    tailf:substatement "tailf:cli-trigger-on-set";
-    tailf:substatement "tailf:cli-trigger-on-delete";
-    tailf:substatement "tailf:cli-trigger-on-all";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:occurence "*";
-  }
-
-  extension cli-trigger-on-set {
-    description
-      "Specify that the dependency should trigger on set/modify of
-              the target path, but deletion of the target will trigger the
-              current node to be placed in front of the target.
-       
-              The annotation can be used to get the diff behavior where
-              one leaf is first deleted before the other leaf is set.
-              For example, having the data model below:
-       
-               container X {
-                 leaf A {
-                   tailf:cli-diff-dependency \"../B\" {
-                     tailf:cli-trigger-on-set;
-                   }
-                   type empty;
-                 }
-                 leaf B {
-                   tailf:cli-diff-dependency \"../A\"  {
-                     tailf:cli-trigger-on-set;
-                   }
-                   type empty;
-                 }
-               }
-       
-              produces the following diffs when setting one leaf
-              and deleting the other
-       
-                no X A
-                X B
-       
-              and
-       
-                no X B
-                X A
-       
-              this can also be done with list instances, for example
-       
-                list a {
-                  key id;
-       
-                  leaf id {
-                    tailf:cli-diff-dependency \"/c[id=current()/../id]\" {
-                      tailf:cli-trigger-on-set;
-                    }
-                    type string;
-                  }
-                }
-       
-                list c {
-                  key id;
-                  leaf id {
-                    tailf:cli-diff-dependency \"/a[id=current()/../id]\" {
-                      tailf:cli-trigger-on-set;
-                    }
-                    type string;
-                  }
-                }
-       
-              we get
-       
-                no a foo
-                c foo
-                !
-       
-              and
-       
-                no c foo
-                a foo
-                !
-       
-              In the above case if we have the same id in list \"a\" and \"c\"
-              and we delete the instance in one list, and add it in the other,
-              then the deletion will always preceed the create.
-             ";
-    tailf:use-in "tailf:cli-diff-dependency";
-  }
-
-  extension cli-trigger-on-delete {
-    description
-      "This annotation can be used togeter with tailf:cli-trigger-on-set
-       to also get the behavior that when deleting the target display
-       changes to this node first. For exmaple:
-       
-        container settings {
-          tailf:cli-add-mode;
-       
-          leaf opmode {
-            tailf:cli-no-value-on-delete;
-       
-            type enumeration {
-              enum nat;
-              enum transparent;
-            }
-          }
-       
-          leaf manageip {
-            when \"../opmode = 'transparent'\";
-            mandatory true;
-            tailf:cli-no-value-on-delete;
-            tailf:cli-diff-dependency '../opmode' {
-              tailf:cli-trigger-on-set;
-              tailf:cli-trigger-on-delete;
-            }
-       
-            type string;
-          }
-        }
-       
-       What we are trying to achieve here is that if manageip is
-       deleted, it should be displayed before opmode, but if we
-       configure both opmode and manageip, we should display opmode
-       first, ie get the diffs:
-       
-       settings
-        opmode   transparent
-        manageip 1.1.1.1
-       !
-       
-       and
-       
-       settings
-        no manageip
-        opmode nat
-       !
-       
-       and
-       
-       settings
-        no manageip
-        no opmode
-       !
-       
-       The cli-trigger-on-set annotation will cause the 'no manageip'
-       command to be displayed before setting opmode. The
-       tailf:cli-trigger-on-delete will cause 'no manageip' to be
-       placed before 'no opmode' when both are deleted.
-       
-       In the first diff where both are created, opmode will come first
-       due to the diff-dependency setting, regardless of the
-       cli-trigger-on-delete and cli-trigger-on-set.
-      ";
-    tailf:use-in "tailf:cli-diff-dependency";
-  }
-
-  extension cli-trigger-on-all {
-    description
-      "Specify that the dependency should always trigger. It is the
-       same as placing one element before another in the data model.
-       For example, given the data model:
-       
-       container X {
-         leaf A {
-           tailf:cli-diff-dependency '../B' {
-             tailf:cli-trigger-on-all;
-           }
-           type empty;
-         }
-         leaf B {
-           type empty;
-         }
-       }
-       
-       We get the diffs
-       
-         X B
-         X A
-       
-       and
-       
-         no X B
-         no X A
-      ";
-    tailf:use-in "tailf:cli-diff-dependency";
   }
 
   extension cli-ignore-modified {
@@ -1207,7 +483,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "list";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1216,41 +492,15 @@ submodule tailf-cli-extensions {
       "Instructs the CLI engine to not generate 'insert' comments
        when displaying configuration changes of ordered-by user
        lists, but instead explicitly remove old instances with 'no'
-       and then add the instances following a newly inserted instance.
-       Should not be used together with tailf:cli-show-obu-comments";
+       and then add the instances following a newly inserted instance.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-    tailf:substatement "tailf:cli-reset-full" {
-      tailf:occurence "?";
-    }
-  }
-
-  extension cli-reset-full {
-    description
-      "Indicates that the list should be fully printed out on change.";
-    tailf:use-in "tailf:cli-show-long-obu-diffs";
-  }
-
-  extension cli-show-obu-comments {
-    description
-      "Enforces the CLI engine to generate 'insert' comments
-       when displaying configuration changes of ordered-by user
-       lists. Should not be used together with tailf:cli-show-long-obu-diffs";
-    tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-allow-join-with-key {
     description
-      "Indicates that the list name may be written together
+      "Indicates that the leaf name may be written together
        with the first key, without requiring a whitespace
        in between, ie allowing both
             interface ethernet1/1
@@ -1259,23 +509,7 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:cli-display-joined";
-  }
-
-  extension cli-allow-join-with-value {
-    description
-      "Indicates that the leaf name may be written together
-       with the value, without requiring a whitespace
-       in between, ie allowing both
-            interface ethernet1/1
-       and
-            interface ethernet 1/1
-       
-       Used in I- and C-style CLIs.";
-    tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-display-joined";
   }
@@ -1284,8 +518,7 @@ submodule tailf-cli-extensions {
     description
       "Specifies that the joined version should be used when displaying
        the configuration in C- and I- mode.";
-    tailf:use-in "tailf:cli-allow-join-with-key";
-    tailf:use-in "tailf:cli-allow-join-with-value";
+    tailf:use-in "tailf:cli-allow-with-key";
   }
 
   extension cli-exit-command {
@@ -1304,29 +537,15 @@ submodule tailf-cli-extensions {
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:substatement "tailf:info";
-  }
-
-  extension cli-explicit-exit {
-    description
-      "Tells the CLI to add an explicit exit command when displaying
-       the configuration. It will not be added if cli-exit-command
-       is defined as well. The annotation is inherited by all
-       sub-modes.
-       
-       Used in I- and C-style CLIs.";
-    tailf:use-in "list";
-    tailf:use-in "container";
-    tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
   }
 
   extension cli-key-format {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type string;
+        type cli-key-format-string;
       }
     }
     description
@@ -1341,7 +560,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1352,7 +571,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1365,7 +584,7 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1379,7 +598,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "container";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1397,7 +616,7 @@ submodule tailf-cli-extensions {
        
        See also /confdConfig/cli/allowAbbrevKeys in confd.conf(5).";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1414,7 +633,7 @@ submodule tailf-cli-extensions {
        
        See also /confdConfig/cli/allowAbbrevKeys in confd.conf(5).";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1431,7 +650,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1448,7 +667,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1467,9 +686,8 @@ submodule tailf-cli-extensions {
        callback function will be invoked.  See confd_lib_dp(3) for details.
        
        Used in J-, I- and C-style CLIs.";
-    tailf:use-in "leaf-list";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-completion-id";
   }
@@ -1496,17 +714,6 @@ submodule tailf-cli-extensions {
     tailf:use-in "tailf:cli-custom-range-enumerator";
   }
 
-  extension cli-multi-line-prompt {
-    description
-      "Tells the CLI to automatically enter multi-line mode when prompting
-       the user for a value to this leaf.
-       
-       Used in J-, I- and C-style CLIs.";
-    tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-  }
-
   extension cli-multi-word-key {
     description
       "Specifies that the key should allow multiple tokens for the
@@ -1515,11 +722,9 @@ submodule tailf-cli-extensions {
        
        Can be used in key leafs only.
        
-       Note: This extension isn't applicable in actions
-       
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-max-words";
   }
@@ -1545,7 +750,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1567,7 +772,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1579,11 +784,8 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-custom-range {
@@ -1595,14 +797,9 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-range-type" {
-      tailf:occurence "1";
-    }
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
+    tailf:substatement "tailf:cli-range-type";
   }
 
   extension cli-custom-range-actionpoint {
@@ -1630,13 +827,10 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-completion-id";
     tailf:substatement "tailf:cli-allow-caching";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-custom-range-enumerator {
@@ -1659,13 +853,10 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-completion-id";
     tailf:substatement "tailf:cli-allow-caching";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-range-type {
@@ -1694,7 +885,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1707,103 +898,30 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-  }
-
-  extension cli-suppress-warning {
-    argument value {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "Avoid involving specific CLI-extension related YANG statements in
-       warnings related to certain yanger error codes. For a list of
-       yanger error codes do 'yanger -e'.
-       
-       Used in I- and C-style CLIs.";
-    tailf:use-in "tailf:cli-run-template-enter";
-    tailf:use-in "tailf:cli-sequence-commands";
-    tailf:use-in "tailf:cli-hide-in-submode";
-    tailf:use-in "tailf:cli-boolean-no";
-    tailf:use-in "tailf:cli-compact-syntax";
-    tailf:use-in "tailf:cli-break-sequence-commands";
-    tailf:use-in "tailf:cli-show-long-obu-diffs";
-    tailf:use-in "tailf:cli-show-obu-comments";
-    tailf:use-in "tailf:cli-suppress-range";
-    tailf:use-in "tailf:cli-suppress-mode";
-    tailf:use-in "tailf:cli-custom-range";
-    tailf:use-in "tailf:cli-custom-range-actionpoint";
-    tailf:use-in "tailf:cli-custom-range-enumerator";
-    tailf:use-in "tailf:cli-drop-node-name";
-    tailf:use-in "tailf:cli-add-mode";
-    tailf:use-in "tailf:cli-mode-name";
-    tailf:use-in "tailf:cli-incomplete-command";
-    tailf:use-in "tailf:cli-full-command";
-    tailf:use-in "tailf:cli-mode-name-actionpoint";
-    tailf:use-in "tailf:cli-optional-in-sequence";
-    tailf:use-in "tailf:cli-prefix-key";
-    tailf:use-in "tailf:cli-show-no";
-    tailf:use-in "tailf:cli-show-order-tag";
-    tailf:use-in "tailf:cli-diff-dependency";
-    tailf:use-in "container";
   }
 
   extension cli-configure-mode {
     description
       "An action or rpc with this attribute will be available in
-       configure mode, but not in operational mode.
-       
-       The default is that the action or rpc is available in both
-       configure and operational mode.
+       configure mode.
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "tailf:action";
     tailf:use-in "rpc";
+    tailf:use-in "refine";
   }
 
   extension cli-operational-mode {
     description
       "An action or rpc with this attribute will be available in
-       operational mode, but not in configure mode.
-       
-       The default is that the action or rpc is available in both
-       configure and operational mode.
+       operational mode.
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "tailf:action";
     tailf:use-in "rpc";
-  }
-
-  extension cli-mount-point {
-    argument value {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "By default actions are mounted under the 'request'
-       command in the J-style CLI and at the top-level in
-       the I- and C-style CLIs. This annotation allowes
-       the action to be mounted under other top level commands";
-    tailf:use-in "tailf:action";
-    tailf:use-in "rpc";
-  }
-
-  extension cli-batch-confirm-default {
-    argument name {
-      tailf:arg-type {
-        type boolean;
-      }
-    }
-    description
-      "Specifies if the default is to proceed or abort the action during batch
-       processing in the CLI (e.g. non-interactive mode) when a confirm-text is
-       set. If this value is not specified, the default value may instead be
-       provdied by tailf:confirm-default or by the ConfD global default if
-       specified in a clispec(5).";
-    tailf:use-in "tailf:confirm-text";
+    tailf:use-in "refine";
   }
 
   extension cli-delayed-auto-commit {
@@ -1820,7 +938,7 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "container";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1831,56 +949,29 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-  }
-
-  extension cli-disabled-info {
-    argument value {
-      tailf:arg-type {
-        type string;
-      }
-    }
-    description
-      "Specifies an info string that will be used as a descriptive text for the
-       value 'disable' (false) of boolean-typed leafs when the confd.conf(5)
-       setting /confdConfig/cli/useShortEnabled is set to 'true'.
-       
-       Used in J-, I- and C-style CLIs.";
-    tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-  }
-
-  extension cli-suppress-shortenabled {
-    description
-      "Suppresses the confd.conf(5) setting /confdConfig/cli/useShortEnabled.
-       
-       Used in J-, I- and C-style CLIs.";
-    tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
   extension cli-trim-default {
-    status deprecated;
     description
       "Do not display value if it is same as default.
        
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
   extension cli-expose-key-name {
     description
       "Force the user to enter the name of the key and display the
-       key name when displaying the running-configuration.
+       key name when displaying the running-configuration
+       in C- and I-mode.
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1892,7 +983,7 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -1933,73 +1024,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "container";
     tailf:use-in "list";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-  }
-
-  extension cli-no-keyword {
-    description
-      "Specifies that the name of a node is not present in the CLI.
-       
-       
-       Note that is must be used with some care, just
-       like tailf:cli-drop-node-name. The resulting data model must still
-       be possible to parse deterministically.
-       For example, consider the data model
-       
-       container interfaces {
-          list traffic {
-              tailf:cli-no-keyword;
-              key id;
-              leaf id { type string; }
-              leaf mtu { type uint16; }
-          }
-          list management {
-              tailf:cli-no-keyword;
-              key id;
-              leaf id { type string; }
-              leaf mtu { type uint16; }
-          }
-       }
-       
-       In this case it is impossible to determine if the config
-       
-       interfaces {
-          eth0 {
-             mtu 1400;
-           }
-       }
-       
-       Means that there should be an traffic interface instance named
-       'eth0' or a management interface instance maned 'eth0'. If, on
-       the other hand, a restriction on the type was used, for example
-       
-       container interfaces {
-          list traffic {
-              tailf:cli-no-keyword;
-              key id;
-              leaf id { type string; pattern 'eth.*'; }
-              leaf mtu { type uint16; }
-          }
-          list management {
-              tailf:cli-no-keyword;
-              key id;
-              leaf id { type string; pattern 'lo.*';}
-              leaf mtu { type uint16; }
-          }
-       }
-       
-       then the problem would disappear.
-       
-       Used in the J-style CLIs.";
-    tailf:use-in "leaf";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2010,16 +1035,11 @@ submodule tailf-cli-extensions {
        representation means that all leaf elements are shown on a
        single line.
        
-       Cannot be used in conjunction with tailf:cli-boolean-no.
-       
        Used in I- and C-style CLIs.";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-compact-stats {
@@ -2031,7 +1051,7 @@ submodule tailf-cli-extensions {
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-wrap";
     tailf:substatement "tailf:cli-width";
@@ -2099,7 +1119,7 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
   }
 
   extension cli-column-width {
@@ -2114,7 +1134,7 @@ submodule tailf-cli-extensions {
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2130,7 +1150,7 @@ submodule tailf-cli-extensions {
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2151,7 +1171,7 @@ submodule tailf-cli-extensions {
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2162,7 +1182,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-multi-word";
   }
@@ -2186,23 +1206,11 @@ submodule tailf-cli-extensions {
     tailf:use-in "refine";
   }
 
-  extension cli-only-in-autowizard {
-    description
-      "Force leaf values to be entered in the autowizard. This
-       is intended to prevent users from entering passwords and
-       other sensitive information in plain text.
-       
-       Used in J-, I- and C-style CLIs.";
-    tailf:use-in "leaf";
-  }
-
   extension cli-replace-all {
     description
-      "Specifies that the new leaf-list value(s) should replace the old,
-       as opposed to be added to the old leaf-list.";
-    tailf:use-in "leaf-list";
+      "Specifies that the new value should replace the old, as opposed
+       to be added to the old list";
     tailf:use-in "tailf:cli-flat-list-syntax";
-    tailf:use-in "refine";
   }
 
   extension cli-range-list-syntax {
@@ -2239,9 +1247,6 @@ submodule tailf-cli-extensions {
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-full-command {
@@ -2254,12 +1259,9 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-sequence-commands {
@@ -2270,21 +1272,13 @@ submodule tailf-cli-extensions {
        to create CLI commands for setting multiple leafs in a container
        without having to specify the leaf names.
        
-       In almost all cases this annotation should be accompanied by the
-       tailf:cli-compact-syntax annotation. Otherwise the output from
-       'show running-config' will not be correct, and the sequence
-       'save xx' 'load override xx' will not work.
-       
        Used in I- and C-style CLIs.";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-reset-siblings";
     tailf:substatement "tailf:cli-reset-all-siblings";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-reset-siblings {
@@ -2310,19 +1304,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-  }
-
-  extension cli-display-separated {
-    description
-      "Tells CLI engine to display this container as a separate
-       line item even when it has children. Only applies to
-       presence containers.
-       
-       Applicable for optional containers in the C- and I- style CLIs.";
-    tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2331,7 +1313,7 @@ submodule tailf-cli-extensions {
       "Specifies that the parent container should be deleted when
        .      this leaf is deleted.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2343,27 +1325,10 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-  }
-
-  extension cli-strict-leafref {
-    description
-      "Specifies that the leaf should only be allowed to be assigned
-       references to existing instances when the command is executed.
-       Without this annotation the requirement is that the instance
-       exists on commit time.
-       
-       Used in I- and C-style CLIs.";
-    tailf:use-in "leaf";
-    tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
     tailf:use-in "refine";
   }
 
@@ -2374,14 +1339,11 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-incomplete-show-path {
@@ -2392,7 +1354,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
@@ -2414,27 +1376,11 @@ submodule tailf-cli-extensions {
   extension cli-hide-in-submode {
     description
       "Hide leaf when submode has been entered. Mostly useful when
-       leaf has to be entered in order to enter a submode. Also works
-       for flattened containers.
-       
-       Cannot be used in conjunction with tailf:cli-boolean-no.
+       leaf has to be entered in order to enter a submode.
        
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
-    tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
-  }
-
-  extension cli-expose-ns-prefix {
-    description
-      "When used force the CLI to display namespace prefix of all children.";
-    tailf:use-in "container";
-    tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2449,13 +1395,10 @@ submodule tailf-cli-extensions {
        
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:use-in "leaf-list";
     tailf:substatement "tailf:cli-before-key";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-before-key {
@@ -2481,7 +1424,7 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "refine";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
   }
 
   extension cli-oper-info {
@@ -2515,8 +1458,6 @@ submodule tailf-cli-extensions {
        If applied to a container or a list, any nodes below will
        also be case-sensitive.
        
-       This negates the cli-case-insensitive extension (see below).
-       
        Note that this will override any case-sensitivity settings
        configured in confd.conf";
     tailf:use-in "container";
@@ -2526,14 +1467,9 @@ submodule tailf-cli-extensions {
 
   extension cli-case-insensitive {
     description
-      "Specifies that node is case-insensitive.  If applied to a container or
-       a list, any nodes below will also be case-insensitive.
-       
-       Node names are discovered without care of the case. Also affect
-       matching of key values in lists. However it doesn't affect the
-       storing of a leaf value. E.g. a modification of a leaf value from
-       upper case to lower case is still considered a modification of
-       data.
+      "Specifies that node is case-insensitive.
+       If applied to a container or a list, any nodes below will
+       also be case-insensitive.
        
        Note that this will override any case-insensitivity settings
        configured in confd.conf";
@@ -2568,7 +1504,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-max-keys";
   }
@@ -2594,7 +1530,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
     tailf:use-in "refine";
   }
@@ -2609,7 +1545,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
     tailf:use-in "refine";
   }
@@ -2624,7 +1560,7 @@ submodule tailf-cli-extensions {
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2638,7 +1574,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
     tailf:use-in "refine";
   }
@@ -2659,22 +1595,22 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
     tailf:use-in "refine";
   }
 
   extension cli-full-no {
     description
-      "Specifies that an auto-rendered 'no'-command should be considered
-       complete, ie, no additional leaves or containers can be entered on
-       the same command line.
+      "Specifies that an auto-rendered 'no'-command should be considered complete,
+       ie, no additional leaves or containers can be entered on the same
+       command line.
        
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
     tailf:use-in "refine";
   }
@@ -2690,7 +1626,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2701,7 +1637,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2716,7 +1652,7 @@ submodule tailf-cli-extensions {
     tailf:use-in "leaf-list";
     tailf:use-in "list";
     tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2728,7 +1664,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2762,7 +1698,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2777,11 +1713,9 @@ submodule tailf-cli-extensions {
        If the tailf:cli-max-words substatements is used then
        additional leaves may be entered.
        
-       Note: This extension isn't applicable in actions
-       
        Used in I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-max-words";
   }
@@ -2790,7 +1724,7 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
@@ -2804,7 +1738,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2812,7 +1746,7 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
@@ -2823,15 +1757,11 @@ submodule tailf-cli-extensions {
        
        See the defintion of cli-template-string for more info.
        
-       Some restrictions includes not applying templates on a leaf that
-       is the key in a list. It is recommended to use the template
-       directly on the list to format the whole list instead.
-       
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "container";
     tailf:use-in "refine";
     tailf:substatement "tailf:cli-auto-legend";
@@ -2847,7 +1777,7 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
@@ -2865,7 +1795,7 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
@@ -2876,7 +1806,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2884,7 +1814,7 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
@@ -2895,7 +1825,7 @@ submodule tailf-cli-extensions {
        
        Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2903,21 +1833,21 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
       "Specifies a template string to be used by the 'show running-config'
        command in operational mode.  It is primarily intended for displaying
-       config data but non-config data may be included in the template
+       non-config data but config data may be included in the template
        as well.
        
        See the defintion of cli-template-string for more info.
        
-       Used in I- and C-style CLIs.";
+       Used in J-, I- and C-style CLIs.";
     tailf:use-in "leaf";
     tailf:use-in "leaf-list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2925,7 +1855,7 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
@@ -2934,9 +1864,9 @@ submodule tailf-cli-extensions {
        
        See the defintion of cli-template-string for more info.
        
-       Used in I- and C-style CLIs.";
+       Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
   }
 
@@ -2944,46 +1874,26 @@ submodule tailf-cli-extensions {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
       "Specifies a template string to be printed before each list entry is
        printed.
        
-       When used on a container it only has effect when the container
-       also has a tailf:cli-add-mode, and when tailf:cli-show-no isn't
-       used on the container.
-       
        See the defintion of cli-template-string for more info.
        
-       The variable .reenter is set to 'true' when the 'show configuration'
-       command is executed and the list or container isn't created. This
-       allow, for example, to display
-       
-          create foo
-       
-       when an instance is created
-       
-          edit foo
-       
-       when something inside the instance is modified.
-       
-       Used in I- and C-style CLIs.";
+       Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "container";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
-    tailf:substatement "tailf:cli-suppress-warning" {
-      tailf:occurence "*";
-    }
   }
 
   extension cli-run-template-footer {
     argument value {
       yin-element true;
       tailf:arg-type {
-        type tailf:cli-template-string;
+        type cli-template-string;
       }
     }
     description
@@ -2992,10 +1902,20 @@ submodule tailf-cli-extensions {
        
        See the defintion of cli-template-string for more info.
        
-       Used in I- and C-style CLIs.";
+       Used in J-, I- and C-style CLIs.";
     tailf:use-in "list";
-    tailf:use-in "tailf:symlink";
+    tailf:use-in "symlink";
     tailf:use-in "refine";
+  }
+
+  typedef tailf-disallow-pattern {
+    type string;
+  }
+
+  typedef cli-key-format-string {
+    type string;
+    description
+      "";
   }
 
   typedef cli-template-string {
@@ -3008,19 +1928,13 @@ submodule tailf-cli-extensions {
        Expandable entries all start with $( and end with a matching ).
        Parentheses and dollar signs need to be quoted in plain text.
        
-       (Disclaimer: tailf:cli-template-string will not respect
-       all CLI YANG extensions existing from expandable entries.
-       For instance, tailf:cli-no-name-on-delete will have no
-       effect when the value of a node with this extension is
-       fetched as a result of expanding CLI templates.)
-       
        The template is expanded as follows:
        
        A parameter is either a relative or absolute path to a leaf
        element (eg /foo/bar, foo/bar), or one of the builtin variables:
        .selected, .entered, .legend_shown, .user, .groups, .ip,
        .display_groups, .path, .ipath or .licounter. In addition the
-       variables .spath and  .ispath are available when a command
+       variables \"spath\" and  \"ispath\" are available when a command
        is executed from a show path.
        
        .selected
@@ -3103,11 +2017,11 @@ submodule tailf-cli-extensions {
        
        .licounter
        
-           The .licounter variable contains a counter that is
-           incremented for each instance in a list. This means that
-           it will be 0 in the legend, contain the total number of
-           list instances in the footer and something in between in
-           the basic show template.
+          The .licounter variable contains a counter that is
+          incremented for each instance in a list. This means that
+          it will be 0 in the legend, contain the total number of
+          list instances in the footer and something in between in
+          the basic show template.
        
        $(parameter)
        
@@ -3141,20 +2055,6 @@ submodule tailf-cli-extensions {
             (i.e., the node that the parameter refers to is a
             leaf-list), this expression evaluates to true if <value>
             is a member of the list.
-       
-        Note that it is also possible to omit ':word2' in
-        order to print the entire statement, or nothing.
-        As an example $(conf?word1) will print 'word1' if conf
-        exists, otherwise it will print nothing.
-       
-       $(cond??word1)
-       
-        Double question marks can be used to achieve the same effect
-        as above, but with the distinction that the 'cond' variable
-        needs to be explicitly configured, in order to be evaluated
-        as existing. This is needed in the case of evaluating leafs
-        with default values, where the single question mark operator
-        would evaluate to existing even if not explicitly configured.
        
        $(parameter|filter)
        
@@ -3213,9 +2113,7 @@ submodule tailf-cli-extensions {
             be padded with zeros at the front. If the width is
             a negative number then at most that number of digits
             will be used, but short numbers will not be padded
-            with zeroes. Another argument can be given to indicate
-            if the hex numbers should be written with lower
-            or upper case.
+            with zeroes.
        
             For example:
        
@@ -3224,8 +2122,6 @@ submodule tailf-cli-extensions {
               12345           {{ value|hex:2 }}               39
               12345           {{ value|hex:8 }}               00003039
               12345           {{ value|hex:-8 }}              3039
-              14911           {{ value|hex:-8:upper }}        3A3F
-              14911           {{ value|hex:-8:lower }}        3a3f
        
           hexlist
        
@@ -3236,9 +2132,7 @@ submodule tailf-cli-extensions {
             be padded with zeros at the front. If the width is
             a negative number then at most that number of digits
             will be used, but short numbers will not be padded
-            with zeroes. Another argument can be given to indicate
-            if the hex numbers should be written with lower
-            or upper case.
+            with zeroes.
        
             For example:
        
@@ -3247,8 +2141,6 @@ submodule tailf-cli-extensions {
               12345           {{ value|hexlist:2 }}           39
               12345           {{ value|hexlist:8 }}           00:00:30:39
               12345           {{ value|hexlist:-8 }}          30:39
-              14911           {{ value|hexlist:-8:upper }}    3A:3F
-              14911           {{ value|hexlist:-8:lower }}    3a:3f
        
           floatformat
        

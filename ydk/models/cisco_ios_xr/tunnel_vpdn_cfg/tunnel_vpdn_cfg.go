@@ -311,9 +311,6 @@ type Vpdn_Templates_Template struct {
     // To support NAS-Port format e in Cisco AVP 100. The type is interface{}.
     CiscoAvp100FormatEEnable interface{}
 
-    // DSL Line bps Info attributes. The type is interface{}. Units are bit/s.
-    RateConvertSpeedAvps interface{}
-
     // Up to 100 characters describing this VPDN template. The type is string with
     // length: 1..100.
     Description interface{}
@@ -360,7 +357,6 @@ func (template *Vpdn_Templates_Template) GetEntityData() *types.CommonEntityData
     template.EntityData.Leafs = types.NewOrderedMap()
     template.EntityData.Leafs.Append("template-name", types.YLeaf{"TemplateName", template.TemplateName})
     template.EntityData.Leafs.Append("cisco-avp100-format-e-enable", types.YLeaf{"CiscoAvp100FormatEEnable", template.CiscoAvp100FormatEEnable})
-    template.EntityData.Leafs.Append("rate-convert-speed-avps", types.YLeaf{"RateConvertSpeedAvps", template.RateConvertSpeedAvps})
     template.EntityData.Leafs.Append("description", types.YLeaf{"Description", template.Description})
     template.EntityData.Leafs.Append("l2tp-class", types.YLeaf{"L2tpClass", template.L2tpClass})
     template.EntityData.Leafs.Append("dsl-line-forwarding", types.YLeaf{"DslLineForwarding", template.DslLineForwarding})
@@ -441,11 +437,11 @@ type Vpdn_Templates_Template_Vpn_Id struct {
     YFilter yfilter.YFilter
 
     // VPN ID, (OUI:VPN-Index) format(hex), 3 bytes OUI Part. The type is string
-    // with pattern: b'[0-9a-fA-F]{1,8}'.
+    // with pattern: [0-9a-fA-F]{1,8}.
     Oui interface{}
 
     // VPN ID, (OUI:VPN-Index) format(hex), 4 bytes VPN_Index Part. The type is
-    // string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // string with pattern: [0-9a-fA-F]{1,8}.
     Index interface{}
 }
 
@@ -541,7 +537,7 @@ type Vpdn_Templates_Template_Ipv4 struct {
     DfBit interface{}
 
     // Enter an IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Source interface{}
 }
 
@@ -709,11 +705,11 @@ type Vpdn_VpdNgroups_VpdNgroup_VpnId struct {
     YFilter yfilter.YFilter
 
     // VPN ID, (OUI:VPN-Index) format(hex), 3 bytes OUI Part. The type is string
-    // with pattern: b'[0-9a-fA-F]{1,8}'.
+    // with pattern: [0-9a-fA-F]{1,8}.
     VpnIdOui interface{}
 
     // VPN ID, (OUI:VPN-Index) format(hex), 4 bytes VPN_Index Part. The type is
-    // string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // string with pattern: [0-9a-fA-F]{1,8}.
     VpnIdIndex interface{}
 }
 

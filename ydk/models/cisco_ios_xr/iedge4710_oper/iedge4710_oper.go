@@ -38,6 +38,173 @@ const (
     SubscriberAuthorStateFilterFlag_authorized SubscriberAuthorStateFilterFlag = "authorized"
 )
 
+// IedgeOperSessionState represents Subscriber session states
+type IedgeOperSessionState string
+
+const (
+    // Initialize
+    IedgeOperSessionState_initialize IedgeOperSessionState = "initialize"
+
+    // Connecting
+    IedgeOperSessionState_connecting IedgeOperSessionState = "connecting"
+
+    // Connected
+    IedgeOperSessionState_connected IedgeOperSessionState = "connected"
+
+    // Activated
+    IedgeOperSessionState_activated IedgeOperSessionState = "activated"
+
+    // Idle
+    IedgeOperSessionState_idle IedgeOperSessionState = "idle"
+
+    // Disconnecting
+    IedgeOperSessionState_disconnecting IedgeOperSessionState = "disconnecting"
+
+    // End
+    IedgeOperSessionState_end IedgeOperSessionState = "end"
+)
+
+// SubscriberStateFilterFlag represents Subscriber state filter flag
+type SubscriberStateFilterFlag string
+
+const (
+    // Initializing
+    SubscriberStateFilterFlag_initializing SubscriberStateFilterFlag = "initializing"
+
+    // Connecting
+    SubscriberStateFilterFlag_connecting SubscriberStateFilterFlag = "connecting"
+
+    // Connected
+    SubscriberStateFilterFlag_connected SubscriberStateFilterFlag = "connected"
+
+    // Activated
+    SubscriberStateFilterFlag_activated SubscriberStateFilterFlag = "activated"
+
+    // Idle
+    SubscriberStateFilterFlag_idle SubscriberStateFilterFlag = "idle"
+
+    // Disconnecting
+    SubscriberStateFilterFlag_disconnecting SubscriberStateFilterFlag = "disconnecting"
+
+    // End
+    SubscriberStateFilterFlag_end SubscriberStateFilterFlag = "end"
+)
+
+// IedgePppSub represents PPPoE sub types
+type IedgePppSub string
+
+const (
+    // PPP termination and aggregation
+    IedgePppSub_pta IedgePppSub = "pta"
+
+    // L2TP access controller
+    IedgePppSub_lac IedgePppSub = "lac"
+)
+
+// IedgeOperServiceStatus represents Subscriber service status
+type IedgeOperServiceStatus string
+
+const (
+    // Unknown
+    IedgeOperServiceStatus_unknown IedgeOperServiceStatus = "unknown"
+
+    // Error
+    IedgeOperServiceStatus_error_ IedgeOperServiceStatus = "error"
+
+    // New
+    IedgeOperServiceStatus_new_ IedgeOperServiceStatus = "new"
+
+    // Loading
+    IedgeOperServiceStatus_loading IedgeOperServiceStatus = "loading"
+
+    // Request Association
+    IedgeOperServiceStatus_req_association IedgeOperServiceStatus = "req-association"
+
+    // Associated
+    IedgeOperServiceStatus_associated IedgeOperServiceStatus = "associated"
+
+    // Request PD Association
+    IedgeOperServiceStatus_req_pd_association IedgeOperServiceStatus = "req-pd-association"
+
+    // Applied
+    IedgeOperServiceStatus_applied IedgeOperServiceStatus = "applied"
+
+    // Request Unassociation
+    IedgeOperServiceStatus_req_unassociation IedgeOperServiceStatus = "req-unassociation"
+
+    // Request PD Unassociation
+    IedgeOperServiceStatus_req_pd_unassociation IedgeOperServiceStatus = "req-pd-unassociation"
+
+    // Unapplied
+    IedgeOperServiceStatus_unapplied IedgeOperServiceStatus = "unapplied"
+
+    // Max
+    IedgeOperServiceStatus_max IedgeOperServiceStatus = "max"
+)
+
+// SubscriberAuthenStateFilterFlag represents Subscriber authen state filter flag
+type SubscriberAuthenStateFilterFlag string
+
+const (
+    // UnAuthenticated
+    SubscriberAuthenStateFilterFlag_un_authenticated SubscriberAuthenStateFilterFlag = "un-authenticated"
+
+    // Authenticated
+    SubscriberAuthenStateFilterFlag_authenticated SubscriberAuthenStateFilterFlag = "authenticated"
+)
+
+// IedgeOperService represents Service types
+type IedgeOperService string
+
+const (
+    // Unknown Service
+    IedgeOperService_unknown IedgeOperService = "unknown"
+
+    // Profile
+    IedgeOperService_profile IedgeOperService = "profile"
+
+    // Template
+    IedgeOperService_template IedgeOperService = "template"
+
+    // GRP Template
+    IedgeOperService_grp_template IedgeOperService = "grp-template"
+
+    // PPP Template
+    IedgeOperService_ppp_template IedgeOperService = "ppp-template"
+
+    // ETH Template
+    IedgeOperService_eth_template IedgeOperService = "eth-template"
+
+    // IPSub Template
+    IedgeOperService_ip_sub_template IedgeOperService = "ip-sub-template"
+
+    // Multi Template
+    IedgeOperService_multi_template IedgeOperService = "multi-template"
+
+    // MAX Template
+    IedgeOperService_max_templae IedgeOperService = "max-templae"
+)
+
+// IedgeOperSession represents Subscriber session types
+type IedgeOperSession string
+
+const (
+    // Unknown
+    IedgeOperSession_unknown IedgeOperSession = "unknown"
+
+    // PPPoE/PPP client
+    IedgeOperSession_pppoe IedgeOperSession = "pppoe"
+
+    // PPP serial client
+    IedgeOperSession_ppp IedgeOperSession = "ppp"
+
+    // IP subscriber - packet trigger
+    IedgeOperSession_ip_packet_trigger IedgeOperSession = "ip-packet-trigger"
+
+    // IP subscriber - DHCP trigger
+    IedgeOperSession_ip_packet_dhcp_trigger IedgeOperSession = "ip-packet-dhcp-trigger"
+)
+
 // SubscriberSrgOperFilterFlag represents Subscriber srg oper filter flag
 type SubscriberSrgOperFilterFlag string
 
@@ -82,173 +249,6 @@ const (
 
     // LAC
     SubscriberAddressFamilyFilterFlag_lac SubscriberAddressFamilyFilterFlag = "lac"
-)
-
-// SubscriberStateFilterFlag represents Subscriber state filter flag
-type SubscriberStateFilterFlag string
-
-const (
-    // Initializing
-    SubscriberStateFilterFlag_initializing SubscriberStateFilterFlag = "initializing"
-
-    // Connecting
-    SubscriberStateFilterFlag_connecting SubscriberStateFilterFlag = "connecting"
-
-    // Connected
-    SubscriberStateFilterFlag_connected SubscriberStateFilterFlag = "connected"
-
-    // Activated
-    SubscriberStateFilterFlag_activated SubscriberStateFilterFlag = "activated"
-
-    // Idle
-    SubscriberStateFilterFlag_idle SubscriberStateFilterFlag = "idle"
-
-    // Disconnecting
-    SubscriberStateFilterFlag_disconnecting SubscriberStateFilterFlag = "disconnecting"
-
-    // End
-    SubscriberStateFilterFlag_end SubscriberStateFilterFlag = "end"
-)
-
-// SubscriberAuthenStateFilterFlag represents Subscriber authen state filter flag
-type SubscriberAuthenStateFilterFlag string
-
-const (
-    // UnAuthenticated
-    SubscriberAuthenStateFilterFlag_un_authenticated SubscriberAuthenStateFilterFlag = "un-authenticated"
-
-    // Authenticated
-    SubscriberAuthenStateFilterFlag_authenticated SubscriberAuthenStateFilterFlag = "authenticated"
-)
-
-// IedgeOperServiceStatus represents Subscriber service status
-type IedgeOperServiceStatus string
-
-const (
-    // Unknown
-    IedgeOperServiceStatus_unknown IedgeOperServiceStatus = "unknown"
-
-    // Error
-    IedgeOperServiceStatus_error_ IedgeOperServiceStatus = "error"
-
-    // New
-    IedgeOperServiceStatus_new_ IedgeOperServiceStatus = "new"
-
-    // Loading
-    IedgeOperServiceStatus_loading IedgeOperServiceStatus = "loading"
-
-    // Request Association
-    IedgeOperServiceStatus_req_association IedgeOperServiceStatus = "req-association"
-
-    // Associated
-    IedgeOperServiceStatus_associated IedgeOperServiceStatus = "associated"
-
-    // Request PD Association
-    IedgeOperServiceStatus_req_pd_association IedgeOperServiceStatus = "req-pd-association"
-
-    // Applied
-    IedgeOperServiceStatus_applied IedgeOperServiceStatus = "applied"
-
-    // Request Unassociation
-    IedgeOperServiceStatus_req_unassociation IedgeOperServiceStatus = "req-unassociation"
-
-    // Request PD Unassociation
-    IedgeOperServiceStatus_req_pd_unassociation IedgeOperServiceStatus = "req-pd-unassociation"
-
-    // Unapplied
-    IedgeOperServiceStatus_unapplied IedgeOperServiceStatus = "unapplied"
-
-    // Max
-    IedgeOperServiceStatus_max IedgeOperServiceStatus = "max"
-)
-
-// IedgeOperService represents Service types
-type IedgeOperService string
-
-const (
-    // Unknown Service
-    IedgeOperService_unknown IedgeOperService = "unknown"
-
-    // Profile
-    IedgeOperService_profile IedgeOperService = "profile"
-
-    // Template
-    IedgeOperService_template IedgeOperService = "template"
-
-    // GRP Template
-    IedgeOperService_grp_template IedgeOperService = "grp-template"
-
-    // PPP Template
-    IedgeOperService_ppp_template IedgeOperService = "ppp-template"
-
-    // ETH Template
-    IedgeOperService_eth_template IedgeOperService = "eth-template"
-
-    // IPSub Template
-    IedgeOperService_ip_sub_template IedgeOperService = "ip-sub-template"
-
-    // Multi Template
-    IedgeOperService_multi_template IedgeOperService = "multi-template"
-
-    // MAX Template
-    IedgeOperService_max_templae IedgeOperService = "max-templae"
-)
-
-// IedgeOperSessionState represents Subscriber session states
-type IedgeOperSessionState string
-
-const (
-    // Initialize
-    IedgeOperSessionState_initialize IedgeOperSessionState = "initialize"
-
-    // Connecting
-    IedgeOperSessionState_connecting IedgeOperSessionState = "connecting"
-
-    // Connected
-    IedgeOperSessionState_connected IedgeOperSessionState = "connected"
-
-    // Activated
-    IedgeOperSessionState_activated IedgeOperSessionState = "activated"
-
-    // Idle
-    IedgeOperSessionState_idle IedgeOperSessionState = "idle"
-
-    // Disconnecting
-    IedgeOperSessionState_disconnecting IedgeOperSessionState = "disconnecting"
-
-    // End
-    IedgeOperSessionState_end IedgeOperSessionState = "end"
-)
-
-// IedgePppSub represents PPPoE sub types
-type IedgePppSub string
-
-const (
-    // PPP termination and aggregation
-    IedgePppSub_pta IedgePppSub = "pta"
-
-    // L2TP access controller
-    IedgePppSub_lac IedgePppSub = "lac"
-)
-
-// IedgeOperSession represents Subscriber session types
-type IedgeOperSession string
-
-const (
-    // Unknown
-    IedgeOperSession_unknown IedgeOperSession = "unknown"
-
-    // PPPoE/PPP client
-    IedgeOperSession_pppoe IedgeOperSession = "pppoe"
-
-    // PPP serial client
-    IedgeOperSession_ppp IedgeOperSession = "ppp"
-
-    // IP subscriber - packet trigger
-    IedgeOperSession_ip_packet_trigger IedgeOperSession = "ip-packet-trigger"
-
-    // IP subscriber - DHCP trigger
-    IedgeOperSession_ip_packet_dhcp_trigger IedgeOperSession = "ip-packet-dhcp-trigger"
 )
 
 // Subscriber
@@ -358,7 +358,7 @@ type Subscriber_Manager_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Subscriber manager statistics.
@@ -5187,7 +5187,7 @@ type Subscriber_Session_Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // List of subscriber session supported srg roles.
@@ -5913,7 +5913,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_UsernameSummaries_UsernameSu
     YListKey string
 
     // This attribute is a key. Subscriber username. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Username interface{}
 
     // State summary.
@@ -6396,7 +6396,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_MacSummaries_MacSummary stru
     YListKey string
 
     // This attribute is a key. Subscriber MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // State summary.
@@ -6879,7 +6879,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_InterfaceSummaries_Interface
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -8330,7 +8330,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_Subscribe
     YListKey string
 
     // This attribute is a key. Session ID. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     SessionId interface{}
 
     // Subscriber session type. The type is IedgeOperSession.
@@ -8339,7 +8339,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_Subscribe
     // PPPoE sub type. The type is IedgePppSub.
     PppoeSubType interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRF name. The type is string.
@@ -8352,11 +8352,11 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_Subscribe
     RemoteId interface{}
 
     // PPPoE LNS address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LnsAddress interface{}
 
     // PPPoE LAC address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LacAddress interface{}
 
     // PPPoE LAC tunnel client authentication ID. The type is string.
@@ -8366,7 +8366,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_Subscribe
     TunnelServerAuthenticationId interface{}
 
     // Session ip address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SessionIpAddress interface{}
 
     // Session IPv6 address. The type is string.
@@ -8379,11 +8379,11 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_Subscribe
     DelegatedIpv6Prefix interface{}
 
     // IPv6 Interface ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Ipv6InterfaceId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Accounting session ID. The type is string.
@@ -8423,7 +8423,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_SubscriberSessions_Subscribe
     TotalSessionIdleTime interface{}
 
     // Access interface name associated with the session. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     AccessInterfaceName interface{}
 
     // Accounting information.
@@ -8807,11 +8807,11 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressVrfSummaries_Ipv4
     YFilter yfilter.YFilter
     YListKey string
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Subscriber IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // State summary.
@@ -9739,7 +9739,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_AccessInterfaceSummaries_Acc
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -10708,7 +10708,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_Ipv4AddressSummaries_Ipv4Add
 
     // This attribute is a key. Subscriber IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // State summary.
@@ -11191,7 +11191,7 @@ type Subscriber_Session_Nodes_Node_SrgRoles_SrgRole_VrfSummaries_VrfSummary stru
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // State summary.
@@ -12601,7 +12601,7 @@ type Subscriber_Session_Nodes_Node_MacSummaries_MacSummary struct {
     YListKey string
 
     // This attribute is a key. Subscriber MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // State summary.
@@ -13084,7 +13084,7 @@ type Subscriber_Session_Nodes_Node_InterfaceSummaries_InterfaceSummary struct {
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -14535,11 +14535,11 @@ type Subscriber_Session_Nodes_Node_Ipv4AddressVrfSummaries_Ipv4AddressVrfSummary
     YFilter yfilter.YFilter
     YListKey string
 
-    // VRF name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // VRF name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Subscriber IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // State summary.
@@ -15507,7 +15507,7 @@ type Subscriber_Session_Nodes_Node_UsernameSummaries_UsernameSummary struct {
     YListKey string
 
     // This attribute is a key. Subscriber username. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Username interface{}
 
     // State summary.
@@ -15991,7 +15991,7 @@ type Subscriber_Session_Nodes_Node_AccessInterfaceSummaries_AccessInterfaceSumma
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // State summary.
@@ -16476,7 +16476,7 @@ type Subscriber_Session_Nodes_Node_Ipv4AddressSummaries_Ipv4AddressSummary struc
 
     // This attribute is a key. Subscriber IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // State summary.
@@ -16959,7 +16959,7 @@ type Subscriber_Session_Nodes_Node_VrfSummaries_VrfSummary struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // State summary.
@@ -17442,7 +17442,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     YListKey string
 
     // This attribute is a key. Session ID. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // [0-9a-fA-F]{1,8}.
     SessionId interface{}
 
     // Subscriber session type. The type is IedgeOperSession.
@@ -17451,7 +17451,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     // PPPoE sub type. The type is IedgePppSub.
     PppoeSubType interface{}
 
-    // Interface name. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // VRF name. The type is string.
@@ -17464,11 +17464,11 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     RemoteId interface{}
 
     // PPPoE LNS address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LnsAddress interface{}
 
     // PPPoE LAC address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     LacAddress interface{}
 
     // PPPoE LAC tunnel client authentication ID. The type is string.
@@ -17478,7 +17478,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     TunnelServerAuthenticationId interface{}
 
     // Session ip address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SessionIpAddress interface{}
 
     // Session IPv6 address. The type is string.
@@ -17491,11 +17491,11 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     DelegatedIpv6Prefix interface{}
 
     // IPv6 Interface ID. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Ipv6InterfaceId interface{}
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Accounting session ID. The type is string.
@@ -17535,7 +17535,7 @@ type Subscriber_Session_Nodes_Node_Sessions_Session struct {
     TotalSessionIdleTime interface{}
 
     // Access interface name associated with the session. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     AccessInterfaceName interface{}
 
     // Accounting information.
@@ -17949,7 +17949,7 @@ type IedgeLicenseManager_Nodes_Node struct {
 
     // This attribute is a key. The node id to filter on. For example, 0/1/CPU0.
     // The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Nodeid interface{}
 
     // Display Session License Manager summary data.

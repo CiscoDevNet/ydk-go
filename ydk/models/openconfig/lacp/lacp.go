@@ -19,19 +19,6 @@ func init() {
     ydk.RegisterEntity("openconfig-lacp:lacp", reflect.TypeOf(Lacp{}))
 }
 
-// LacpActivityType represents interface in the aggregate
-type LacpActivityType string
-
-const (
-    // Interface is an active member, i.e., will detect and
-    // maintain aggregates
-    LacpActivityType_ACTIVE LacpActivityType = "ACTIVE"
-
-    // Interface is a passive member, i.e., it participates
-    // with an active partner
-    LacpActivityType_PASSIVE LacpActivityType = "PASSIVE"
-)
-
 // LacpTimeoutType represents Type of timeout used, short or long, by LACP participants
 type LacpTimeoutType string
 
@@ -47,6 +34,30 @@ const (
     LacpTimeoutType_SHORT LacpTimeoutType = "SHORT"
 )
 
+// LacpPeriodType represents LACP messages
+type LacpPeriodType string
+
+const (
+    // Send LACP packets every second
+    LacpPeriodType_FAST LacpPeriodType = "FAST"
+
+    // Send LACP packets every 30 seconds
+    LacpPeriodType_SLOW LacpPeriodType = "SLOW"
+)
+
+// LacpActivityType represents interface in the aggregate
+type LacpActivityType string
+
+const (
+    // Interface is an active member, i.e., will detect and
+    // maintain aggregates
+    LacpActivityType_ACTIVE LacpActivityType = "ACTIVE"
+
+    // Interface is a passive member, i.e., it participates
+    // with an active partner
+    LacpActivityType_PASSIVE LacpActivityType = "PASSIVE"
+)
+
 // LacpSynchronizationType represents Indicates LACP synchronization state of participant
 type LacpSynchronizationType string
 
@@ -58,17 +69,6 @@ const (
     // Participant is not in sync with the system id and key
     // transmitted
     LacpSynchronizationType_OUT_SYNC LacpSynchronizationType = "OUT_SYNC"
-)
-
-// LacpPeriodType represents LACP messages
-type LacpPeriodType string
-
-const (
-    // Send LACP packets every second
-    LacpPeriodType_FAST LacpPeriodType = "FAST"
-
-    // Send LACP packets every 30 seconds
-    LacpPeriodType_SLOW LacpPeriodType = "SLOW"
 )
 
 // Lacp
@@ -277,7 +277,7 @@ type Lacp_Interfaces_Interface_Config struct {
 
     // The MAC address portion of the node's System ID. This is combined with the
     // system priority to construct the 8-octet system-id. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemIdMac interface{}
 
     // Sytem priority used by the node on this LAG interface. Lower value is
@@ -333,7 +333,7 @@ type Lacp_Interfaces_Interface_State struct {
 
     // The MAC address portion of the node's System ID. This is combined with the
     // system priority to construct the 8-octet system-id. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemIdMac interface{}
 
     // Sytem priority used by the node on this LAG interface. Lower value is
@@ -479,7 +479,7 @@ type Lacp_Interfaces_Interface_Members_Member_State struct {
     Distributing interface{}
 
     // MAC address that defines the local system ID for the aggregate interface.
-    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SystemId interface{}
 
     // Current operational value of the key for the aggregate interface. The type
@@ -487,7 +487,7 @@ type Lacp_Interfaces_Interface_Members_Member_State struct {
     OperKey interface{}
 
     // MAC address representing the protocol partner's interface system ID. The
-    // type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerId interface{}
 
     // Operational value of the protocol partner's key. The type is interface{}

@@ -287,7 +287,7 @@ type NetconfYang_CiscoIa_SnmpTrapControl_TrapList struct {
 
     // This attribute is a key. This leaf contains the OID for the  SNMP trap to
     // be forwarded. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     TrapOid interface{}
 
     // This leaf contains the name of the SNMP trap to be  forwarded. The type is

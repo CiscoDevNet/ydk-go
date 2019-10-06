@@ -35,15 +35,51 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-l2vpn-cfg:evpn", reflect.TypeOf(Evpn{}))
 }
 
-// EvpnEncapsulation represents Evpn encapsulation
-type EvpnEncapsulation string
+// FlowLabelTlvCode represents Flow label tlv code
+type FlowLabelTlvCode string
 
 const (
-    // VXLAN Encapsulation
-    EvpnEncapsulation_evpn_encapsulationvxlan EvpnEncapsulation = "evpn-encapsulationvxlan"
+    // Set Flow Label Legacy TLV code (DEPRECATED)
+    FlowLabelTlvCode_Y_17 FlowLabelTlvCode = "17"
 
-    // MPLS Encapsulation
-    EvpnEncapsulation_evpn_encapsulation_mpls EvpnEncapsulation = "evpn-encapsulation-mpls"
+    // Disable Sending Flow Label Legacy TLV
+    FlowLabelTlvCode_disable FlowLabelTlvCode = "disable"
+)
+
+// MacAging represents Mac aging
+type MacAging string
+
+const (
+    // Absolute aging type
+    MacAging_absolute MacAging = "absolute"
+
+    // Inactivity aging type
+    MacAging_inactivity MacAging = "inactivity"
+)
+
+// MacLimitAction represents Mac limit action
+type MacLimitAction string
+
+const (
+    // No action
+    MacLimitAction_none MacLimitAction = "none"
+
+    // Flood Mac Limit Action
+    MacLimitAction_flood MacLimitAction = "flood"
+
+    // NoFlood Mac Limit Action
+    MacLimitAction_no_flood MacLimitAction = "no-flood"
+
+    // Shutdown Mac Limit Action
+    MacLimitAction_shutdown MacLimitAction = "shutdown"
+)
+
+// BdmacLearn represents Bdmac learn
+type BdmacLearn string
+
+const (
+    // Disable Learning
+    BdmacLearn_disable_learning BdmacLearn = "disable-learning"
 )
 
 // Interworking represents Interworking
@@ -57,124 +93,116 @@ const (
     Interworking_ipv4 Interworking = "ipv4"
 )
 
-// L2vpnCapabilityMode represents L2vpn capability mode
-type L2vpnCapabilityMode string
+// PwSwitchingPointTlv represents Pw switching point tlv
+type PwSwitchingPointTlv string
 
 const (
-    // Compute global capability as the highest node
-    // capability
-    L2vpnCapabilityMode_high_mode L2vpnCapabilityMode = "high-mode"
-
-    // Disable global capability re-computation
-    L2vpnCapabilityMode_single_mode L2vpnCapabilityMode = "single-mode"
+    // Hide TLV
+    PwSwitchingPointTlv_hide PwSwitchingPointTlv = "hide"
 )
 
-// EvpnSide represents Evpn side
-type EvpnSide string
+// L2tpv3Sequencing represents L2tpv3 sequencing
+type L2tpv3Sequencing string
 
 const (
-    // EVPN Instance side defined as regular
-    EvpnSide_evpn_side_regular EvpnSide = "evpn-side-regular"
+    // Sequencing is off
+    L2tpv3Sequencing_off L2tpv3Sequencing = "off"
 
-    // EVPN Instance side defined as stitching
-    EvpnSide_evpn_side_stitching EvpnSide = "evpn-side-stitching"
+    // Sequencing on both transmit and receive side
+    L2tpv3Sequencing_both L2tpv3Sequencing = "both"
 )
 
-// BridgeDomainTransportMode represents Bridge domain transport mode
-type BridgeDomainTransportMode string
+// InterfaceProfile represents Interface profile
+type InterfaceProfile string
 
 const (
-    // Vlan tagged passthrough mode
-    BridgeDomainTransportMode_vlan_passthrough BridgeDomainTransportMode = "vlan-passthrough"
+    // Set the snooping
+    InterfaceProfile_snoop InterfaceProfile = "snoop"
+
+    // disable DHCP protocol
+    InterfaceProfile_dhcp_protocol InterfaceProfile = "dhcp-protocol"
 )
 
-// PreferredPath represents Preferred path
-type PreferredPath string
+// BgpRouteTargetRole represents Bgp route target role
+type BgpRouteTargetRole string
 
 const (
-    // TE Tunnel
-    PreferredPath_te_tunnel PreferredPath = "te-tunnel"
+    // Both Import and export roles
+    BgpRouteTargetRole_both BgpRouteTargetRole = "both"
 
-    // IP Tunnel
-    PreferredPath_ip_tunnel PreferredPath = "ip-tunnel"
+    // Import role
+    BgpRouteTargetRole_import_ BgpRouteTargetRole = "import"
 
-    // TP Tunnel
-    PreferredPath_tp_tunnel PreferredPath = "tp-tunnel"
-
-    // SR TE Policy
-    PreferredPath_sr_te_policy PreferredPath = "sr-te-policy"
-
-    // Named TE Tunnel
-    PreferredPath_named_te_tunnel PreferredPath = "named-te-tunnel"
+    // Export role
+    BgpRouteTargetRole_export BgpRouteTargetRole = "export"
 )
 
-// VccvVerification represents Vccv verification
-type VccvVerification string
+// ErpPort represents Erp port
+type ErpPort string
 
 const (
-    // No connectivity verification over VCCV
-    VccvVerification_none VccvVerification = "none"
+    // ERP port type none
+    ErpPort_none ErpPort = "none"
 
-    // LSP Ping over VCCV
-    VccvVerification_lsp_ping VccvVerification = "lsp-ping"
+    // ERP port type virtual
+    ErpPort_virtual ErpPort = "virtual"
+
+    // ERP port type interface
+    ErpPort_interface_ ErpPort = "interface"
 )
 
-// MacWithdrawBehavior represents Mac withdraw behavior
-type MacWithdrawBehavior string
+// BgpRouteTarget represents Bgp route target
+type BgpRouteTarget string
 
 const (
-    // MAC Withdrawal sent on state-down (legacy)
-    MacWithdrawBehavior_legacy MacWithdrawBehavior = "legacy"
+    // RT is default type
+    BgpRouteTarget_no_stitching BgpRouteTarget = "no-stitching"
 
-    // Optimized MAC Withdrawal
-    MacWithdrawBehavior_optimized MacWithdrawBehavior = "optimized"
+    // RT is for stitching (Golf-L2) (DEPRECATED)
+    BgpRouteTarget_stitching BgpRouteTarget = "stitching"
 )
 
-// PortDownFlush represents Port down flush
-type PortDownFlush string
+// FlowLabelLoadBalance represents Flow label load balance
+type FlowLabelLoadBalance string
 
 const (
-    // MAC Port Down Flush
-    PortDownFlush_port_down_flush PortDownFlush = "port-down-flush"
+    // Flow Label load balance is off
+    FlowLabelLoadBalance_off FlowLabelLoadBalance = "off"
 
-    // Enable Port Down Flush
-    PortDownFlush_enable_port_down_flush PortDownFlush = "enable-port-down-flush"
+    // Delete Flow Label on receive side
+    FlowLabelLoadBalance_receive FlowLabelLoadBalance = "receive"
 
-    // Disable Port Down Flush
-    PortDownFlush_disable_port_down_flush PortDownFlush = "disable-port-down-flush"
+    // Insert Flow Label on transmit side
+    FlowLabelLoadBalance_transmit FlowLabelLoadBalance = "transmit"
+
+    // Insert/Delete Flow Label on transmit/receive
+    // side
+    FlowLabelLoadBalance_both FlowLabelLoadBalance = "both"
 )
 
-// TypeOfServiceMode represents Type of service mode
-type TypeOfServiceMode string
+// L2vpnVerification represents L2vpn verification
+type L2vpnVerification string
 
 const (
-    // Do not reflect the type of service
-    TypeOfServiceMode_none TypeOfServiceMode = "none"
+    // enable verification
+    L2vpnVerification_enable L2vpnVerification = "enable"
 
-    // Reflect the type of service
-    TypeOfServiceMode_reflect TypeOfServiceMode = "reflect"
+    // disable verification
+    L2vpnVerification_disable L2vpnVerification = "disable"
 )
 
-// EthernetSegmentLoadBalance represents Ethernet segment load balance
-type EthernetSegmentLoadBalance string
+// MacLearn represents Mac learn
+type MacLearn string
 
 const (
-    // Single Active
-    EthernetSegmentLoadBalance_single_active EthernetSegmentLoadBalance = "single-active"
+    // Mac Learning
+    MacLearn_default_learning MacLearn = "default-learning"
 
-    // Port Active
-    EthernetSegmentLoadBalance_port_active EthernetSegmentLoadBalance = "port-active"
-)
+    // Enable Learning
+    MacLearn_enable_learning MacLearn = "enable-learning"
 
-// MplsSignalingProtocol represents Mpls signaling protocol
-type MplsSignalingProtocol string
-
-const (
-    // No signaling
-    MplsSignalingProtocol_none MplsSignalingProtocol = "none"
-
-    // LDP
-    MplsSignalingProtocol_ldp MplsSignalingProtocol = "ldp"
+    // Disable Learning
+    MacLearn_disable_learning MacLearn = "disable-learning"
 )
 
 // Erpaps represents Erpaps
@@ -194,57 +222,15 @@ const (
     Erpaps_none Erpaps = "none"
 )
 
-// MacSecureAction represents Mac secure action
-type MacSecureAction string
+// VccvVerification represents Vccv verification
+type VccvVerification string
 
 const (
-    // MAC Secure Action Restrict
-    MacSecureAction_restrict MacSecureAction = "restrict"
+    // No connectivity verification over VCCV
+    VccvVerification_none VccvVerification = "none"
 
-    // No Action
-    MacSecureAction_none MacSecureAction = "none"
-
-    // MAC Secure Action Shutdown
-    MacSecureAction_shutdown MacSecureAction = "shutdown"
-)
-
-// ErpPort represents Erp port
-type ErpPort string
-
-const (
-    // ERP port type none
-    ErpPort_none ErpPort = "none"
-
-    // ERP port type virtual
-    ErpPort_virtual ErpPort = "virtual"
-
-    // ERP port type interface
-    ErpPort_interface_ ErpPort = "interface"
-)
-
-// BgpRouteTargetRole represents Bgp route target role
-type BgpRouteTargetRole string
-
-const (
-    // Both Import and export roles
-    BgpRouteTargetRole_both BgpRouteTargetRole = "both"
-
-    // Import role
-    BgpRouteTargetRole_import_ BgpRouteTargetRole = "import"
-
-    // Export role
-    BgpRouteTargetRole_export BgpRouteTargetRole = "export"
-)
-
-// BackupDisable represents Backup disable
-type BackupDisable string
-
-const (
-    // Never
-    BackupDisable_never BackupDisable = "never"
-
-    // Delay seconds
-    BackupDisable_delay BackupDisable = "delay"
+    // LSP Ping over VCCV
+    VccvVerification_lsp_ping VccvVerification = "lsp-ping"
 )
 
 // TransportMode represents Transport mode
@@ -261,126 +247,15 @@ const (
     TransportMode_vlan_passthrough TransportMode = "vlan-passthrough"
 )
 
-// FlowLabelTlvCode represents Flow label tlv code
-type FlowLabelTlvCode string
+// BackupDisable represents Backup disable
+type BackupDisable string
 
 const (
-    // Set Flow Label Legacy TLV code (DEPRECATED)
-    FlowLabelTlvCode_Y_17 FlowLabelTlvCode = "17"
+    // Never
+    BackupDisable_never BackupDisable = "never"
 
-    // Disable Sending Flow Label Legacy TLV
-    FlowLabelTlvCode_disable FlowLabelTlvCode = "disable"
-)
-
-// BgpRouteTarget represents Bgp route target
-type BgpRouteTarget string
-
-const (
-    // RT is default type
-    BgpRouteTarget_no_stitching BgpRouteTarget = "no-stitching"
-
-    // RT is for stitching (Golf-L2) (DEPRECATED)
-    BgpRouteTarget_stitching BgpRouteTarget = "stitching"
-)
-
-// InterfaceProfile represents Interface profile
-type InterfaceProfile string
-
-const (
-    // Set the snooping
-    InterfaceProfile_snoop InterfaceProfile = "snoop"
-
-    // disable DHCP protocol
-    InterfaceProfile_dhcp_protocol InterfaceProfile = "dhcp-protocol"
-)
-
-// EthernetSegmentIdentifier represents Ethernet segment identifier
-type EthernetSegmentIdentifier string
-
-const (
-    // ESI type 0
-    EthernetSegmentIdentifier_type0 EthernetSegmentIdentifier = "type0"
-
-    // Legacy ESI type
-    EthernetSegmentIdentifier_legacy EthernetSegmentIdentifier = "legacy"
-
-    // Override ESI type
-    EthernetSegmentIdentifier_override EthernetSegmentIdentifier = "override"
-)
-
-// RplRole represents Rpl role
-type RplRole string
-
-const (
-    // ERP RPL owner
-    RplRole_owner RplRole = "owner"
-
-    // ERP RPL neighbor
-    RplRole_neighbor RplRole = "neighbor"
-
-    // ERP RPL next neighbor
-    RplRole_next_neighbor RplRole = "next-neighbor"
-)
-
-// PwSwitchingPointTlv represents Pw switching point tlv
-type PwSwitchingPointTlv string
-
-const (
-    // Hide TLV
-    PwSwitchingPointTlv_hide PwSwitchingPointTlv = "hide"
-)
-
-// StormControl represents Storm control
-type StormControl string
-
-const (
-    // Unknown-unicast Storm Control
-    StormControl_unicast StormControl = "unicast"
-
-    // Multicast Storm Control
-    StormControl_multicast StormControl = "multicast"
-
-    // Broadcast Storm Control
-    StormControl_broadcast StormControl = "broadcast"
-)
-
-// EthernetSegmentServiceCarving represents Ethernet segment service carving
-type EthernetSegmentServiceCarving string
-
-const (
-    // MOD N
-    EthernetSegmentServiceCarving_mod_n EthernetSegmentServiceCarving = "mod-n"
-
-    // Manual
-    EthernetSegmentServiceCarving_manual EthernetSegmentServiceCarving = "manual"
-
-    // HRW
-    EthernetSegmentServiceCarving_hrw EthernetSegmentServiceCarving = "hrw"
-)
-
-// MacLearn represents Mac learn
-type MacLearn string
-
-const (
-    // Mac Learning
-    MacLearn_default_learning MacLearn = "default-learning"
-
-    // Enable Learning
-    MacLearn_enable_learning MacLearn = "enable-learning"
-
-    // Disable Learning
-    MacLearn_disable_learning MacLearn = "disable-learning"
-)
-
-// L2tpv3Sequencing represents L2tpv3 sequencing
-type L2tpv3Sequencing string
-
-const (
-    // Sequencing is off
-    L2tpv3Sequencing_off L2tpv3Sequencing = "off"
-
-    // Sequencing on both transmit and receive side
-    L2tpv3Sequencing_both L2tpv3Sequencing = "both"
+    // Delay seconds
+    BackupDisable_delay BackupDisable = "delay"
 )
 
 // LoadBalance represents Load balance
@@ -397,51 +272,15 @@ const (
     LoadBalance_pseudowire_label LoadBalance = "pseudowire-label"
 )
 
-// L2tpSignalingProtocol represents L2tp signaling protocol
-type L2tpSignalingProtocol string
+// ErpPort1 represents Erp port1
+type ErpPort1 string
 
 const (
-    // No signaling
-    L2tpSignalingProtocol_none L2tpSignalingProtocol = "none"
+    // ERP main port 0
+    ErpPort1_port0 ErpPort1 = "port0"
 
-    // L2TPv3
-    L2tpSignalingProtocol_l2tpv3 L2tpSignalingProtocol = "l2tpv3"
-)
-
-// BdmacLearn represents Bdmac learn
-type BdmacLearn string
-
-const (
-    // Disable Learning
-    BdmacLearn_disable_learning BdmacLearn = "disable-learning"
-)
-
-// L2mcSrcTrafficEnabled represents L2mc src traffic enabled
-type L2mcSrcTrafficEnabled string
-
-const (
-    // NONE
-    L2mcSrcTrafficEnabled_l2mc_none L2mcSrcTrafficEnabled = "l2mc-none"
-
-    // Multicast Source - IPv4
-    L2mcSrcTrafficEnabled_l2mc_ipv4 L2mcSrcTrafficEnabled = "l2mc-ipv4"
-
-    // Multicast Source - IPv6
-    L2mcSrcTrafficEnabled_l2mc_ipv6 L2mcSrcTrafficEnabled = "l2mc-ipv6"
-
-    // Multicast Source - IPv4 IPv6
-    L2mcSrcTrafficEnabled_l2mc_ipv4_ipv6 L2mcSrcTrafficEnabled = "l2mc-ipv4-ipv6"
-)
-
-// L2vpnVerification represents L2vpn verification
-type L2vpnVerification string
-
-const (
-    // enable verification
-    L2vpnVerification_enable L2vpnVerification = "enable"
-
-    // disable verification
-    L2vpnVerification_disable L2vpnVerification = "disable"
+    // ERP main port 1
+    ErpPort1_port1 ErpPort1 = "port1"
 )
 
 // InterfaceTrafficFlood represents Interface traffic flood
@@ -456,28 +295,6 @@ const (
 
     // Disable flooding
     InterfaceTrafficFlood_disable_flooding InterfaceTrafficFlood = "disable-flooding"
-)
-
-// L2Encapsulation represents L2 encapsulation
-type L2Encapsulation string
-
-const (
-    // Vlan tagged mode
-    L2Encapsulation_vlan L2Encapsulation = "vlan"
-
-    // Ethernet port mode
-    L2Encapsulation_ethernet L2Encapsulation = "ethernet"
-)
-
-// L2vpnLogging represents L2vpn logging
-type L2vpnLogging string
-
-const (
-    // enable logging
-    L2vpnLogging_enable L2vpnLogging = "enable"
-
-    // disable logging
-    L2vpnLogging_disable L2vpnLogging = "disable"
 )
 
 // MacFlushMode represents Mac flush mode
@@ -502,91 +319,18 @@ const (
     L2tpCookieSize_eight L2tpCookieSize = "eight"
 )
 
-// MplsSequencing represents Mpls sequencing
-type MplsSequencing string
+// StormControl represents Storm control
+type StormControl string
 
 const (
-    // Sequencing is off
-    MplsSequencing_off MplsSequencing = "off"
+    // Unknown-unicast Storm Control
+    StormControl_unicast StormControl = "unicast"
 
-    // Sequencing on transmit side
-    MplsSequencing_transmit MplsSequencing = "transmit"
+    // Multicast Storm Control
+    StormControl_multicast StormControl = "multicast"
 
-    // Sequencing on receive side
-    MplsSequencing_receive MplsSequencing = "receive"
-
-    // Sequencing on both transmit and receive side
-    MplsSequencing_both MplsSequencing = "both"
-)
-
-// EthernetSegmentServiceCarvingMcast represents Ethernet segment service carving mcast
-type EthernetSegmentServiceCarvingMcast string
-
-const (
-    // Disabled
-    EthernetSegmentServiceCarvingMcast_disabled EthernetSegmentServiceCarvingMcast = "disabled"
-
-    // HRW S G
-    EthernetSegmentServiceCarvingMcast_hrw_s_g EthernetSegmentServiceCarvingMcast = "hrw-s-g"
-
-    // HRW G
-    EthernetSegmentServiceCarvingMcast_hrw_g EthernetSegmentServiceCarvingMcast = "hrw-g"
-)
-
-// MacLimitAction represents Mac limit action
-type MacLimitAction string
-
-const (
-    // No action
-    MacLimitAction_none MacLimitAction = "none"
-
-    // Flood Mac Limit Action
-    MacLimitAction_flood MacLimitAction = "flood"
-
-    // NoFlood Mac Limit Action
-    MacLimitAction_no_flood MacLimitAction = "no-flood"
-
-    // Shutdown Mac Limit Action
-    MacLimitAction_shutdown MacLimitAction = "shutdown"
-)
-
-// ErpPort1 represents Erp port1
-type ErpPort1 string
-
-const (
-    // ERP main port 0
-    ErpPort1_port0 ErpPort1 = "port0"
-
-    // ERP main port 1
-    ErpPort1_port1 ErpPort1 = "port1"
-)
-
-// MacNotification represents Mac notification
-type MacNotification string
-
-const (
-    // No_Notification Trap
-    MacNotification_no_notif MacNotification = "no-notif"
-
-    // syslog message
-    MacNotification_syslog MacNotification = "syslog"
-
-    // Snmp Trap
-    MacNotification_trap MacNotification = "trap"
-
-    // Syslog_snmp Trap
-    MacNotification_syslog_snmp MacNotification = "syslog-snmp"
-)
-
-// ControlWord represents Control word
-type ControlWord string
-
-const (
-    // Enable control word
-    ControlWord_enable ControlWord = "enable"
-
-    // Disable control word
-    ControlWord_disable ControlWord = "disable"
+    // Broadcast Storm Control
+    StormControl_broadcast StormControl = "broadcast"
 )
 
 // BgpRouteDistinguisher represents Bgp route distinguisher
@@ -604,6 +348,23 @@ const (
 
     // RD in IpV4address
     BgpRouteDistinguisher_ipv4_address BgpRouteDistinguisher = "ipv4-address"
+)
+
+// MacNotification represents Mac notification
+type MacNotification string
+
+const (
+    // No_Notification Trap
+    MacNotification_no_notif MacNotification = "no-notif"
+
+    // syslog message
+    MacNotification_syslog MacNotification = "syslog"
+
+    // Snmp Trap
+    MacNotification_trap MacNotification = "trap"
+
+    // Syslog_snmp Trap
+    MacNotification_syslog_snmp MacNotification = "syslog-snmp"
 )
 
 // BgpRouteTargetFormat represents Bgp route target format
@@ -626,6 +387,125 @@ const (
     BgpRouteTargetFormat_es_import BgpRouteTargetFormat = "es-import"
 )
 
+// MplsSignalingProtocol represents Mpls signaling protocol
+type MplsSignalingProtocol string
+
+const (
+    // No signaling
+    MplsSignalingProtocol_none MplsSignalingProtocol = "none"
+
+    // LDP
+    MplsSignalingProtocol_ldp MplsSignalingProtocol = "ldp"
+)
+
+// EvpnSide represents Evpn side
+type EvpnSide string
+
+const (
+    // EVPN Instance side defined as regular
+    EvpnSide_evpn_side_regular EvpnSide = "evpn-side-regular"
+
+    // EVPN Instance side defined as stitching
+    EvpnSide_evpn_side_stitching EvpnSide = "evpn-side-stitching"
+)
+
+// ControlWord represents Control word
+type ControlWord string
+
+const (
+    // Enable control word
+    ControlWord_enable ControlWord = "enable"
+
+    // Disable control word
+    ControlWord_disable ControlWord = "disable"
+)
+
+// PreferredPath represents Preferred path
+type PreferredPath string
+
+const (
+    // TE Tunnel
+    PreferredPath_te_tunnel PreferredPath = "te-tunnel"
+
+    // IP Tunnel
+    PreferredPath_ip_tunnel PreferredPath = "ip-tunnel"
+
+    // TP Tunnel
+    PreferredPath_tp_tunnel PreferredPath = "tp-tunnel"
+
+    // SR TE Policy
+    PreferredPath_sr_te_policy PreferredPath = "sr-te-policy"
+)
+
+// EvpnEncapsulation represents Evpn encapsulation
+type EvpnEncapsulation string
+
+const (
+    // VXLAN Encapsulation
+    EvpnEncapsulation_evpn_encapsulationvxlan EvpnEncapsulation = "evpn-encapsulationvxlan"
+
+    // MPLS Encapsulation
+    EvpnEncapsulation_evpn_encapsulation_mpls EvpnEncapsulation = "evpn-encapsulation-mpls"
+)
+
+// MplsSequencing represents Mpls sequencing
+type MplsSequencing string
+
+const (
+    // Sequencing is off
+    MplsSequencing_off MplsSequencing = "off"
+
+    // Sequencing on transmit side
+    MplsSequencing_transmit MplsSequencing = "transmit"
+
+    // Sequencing on receive side
+    MplsSequencing_receive MplsSequencing = "receive"
+
+    // Sequencing on both transmit and receive side
+    MplsSequencing_both MplsSequencing = "both"
+)
+
+// EthernetSegmentLoadBalance represents Ethernet segment load balance
+type EthernetSegmentLoadBalance string
+
+const (
+    // Single Active
+    EthernetSegmentLoadBalance_single_active EthernetSegmentLoadBalance = "single-active"
+)
+
+// L2tpSignalingProtocol represents L2tp signaling protocol
+type L2tpSignalingProtocol string
+
+const (
+    // No signaling
+    L2tpSignalingProtocol_none L2tpSignalingProtocol = "none"
+
+    // L2TPv3
+    L2tpSignalingProtocol_l2tpv3 L2tpSignalingProtocol = "l2tpv3"
+)
+
+// EthernetSegmentIdentifier represents Ethernet segment identifier
+type EthernetSegmentIdentifier string
+
+const (
+    // ESI type 0
+    EthernetSegmentIdentifier_type0 EthernetSegmentIdentifier = "type0"
+
+    // Legacy ESI type
+    EthernetSegmentIdentifier_legacy EthernetSegmentIdentifier = "legacy"
+
+    // Override ESI type
+    EthernetSegmentIdentifier_override EthernetSegmentIdentifier = "override"
+)
+
+// BridgeDomainTransportMode represents Bridge domain transport mode
+type BridgeDomainTransportMode string
+
+const (
+    // Vlan tagged passthrough mode
+    BridgeDomainTransportMode_vlan_passthrough BridgeDomainTransportMode = "vlan-passthrough"
+)
+
 // LdpVplsId represents Ldp vpls id
 type LdpVplsId string
 
@@ -637,33 +517,110 @@ const (
     LdpVplsId_ipv4_address LdpVplsId = "ipv4-address"
 )
 
-// MacAging represents Mac aging
-type MacAging string
+// L2Encapsulation represents L2 encapsulation
+type L2Encapsulation string
 
 const (
-    // Absolute aging type
-    MacAging_absolute MacAging = "absolute"
+    // Vlan tagged mode
+    L2Encapsulation_vlan L2Encapsulation = "vlan"
 
-    // Inactivity aging type
-    MacAging_inactivity MacAging = "inactivity"
+    // Ethernet port mode
+    L2Encapsulation_ethernet L2Encapsulation = "ethernet"
 )
 
-// FlowLabelLoadBalance represents Flow label load balance
-type FlowLabelLoadBalance string
+// EthernetSegmentServiceCarving represents Ethernet segment service carving
+type EthernetSegmentServiceCarving string
 
 const (
-    // Flow Label load balance is off
-    FlowLabelLoadBalance_off FlowLabelLoadBalance = "off"
+    // HRW
+    EthernetSegmentServiceCarving_hrw EthernetSegmentServiceCarving = "hrw"
+)
 
-    // Delete Flow Label on receive side
-    FlowLabelLoadBalance_receive FlowLabelLoadBalance = "receive"
+// L2vpnLogging represents L2vpn logging
+type L2vpnLogging string
 
-    // Insert Flow Label on transmit side
-    FlowLabelLoadBalance_transmit FlowLabelLoadBalance = "transmit"
+const (
+    // enable logging
+    L2vpnLogging_enable L2vpnLogging = "enable"
 
-    // Insert/Delete Flow Label on transmit/receive
-    // side
-    FlowLabelLoadBalance_both FlowLabelLoadBalance = "both"
+    // disable logging
+    L2vpnLogging_disable L2vpnLogging = "disable"
+)
+
+// MacWithdrawBehavior represents Mac withdraw behavior
+type MacWithdrawBehavior string
+
+const (
+    // MAC Withdrawal sent on state-down (legacy)
+    MacWithdrawBehavior_legacy MacWithdrawBehavior = "legacy"
+
+    // Optimized MAC Withdrawal
+    MacWithdrawBehavior_optimized MacWithdrawBehavior = "optimized"
+)
+
+// RplRole represents Rpl role
+type RplRole string
+
+const (
+    // ERP RPL owner
+    RplRole_owner RplRole = "owner"
+
+    // ERP RPL neighbor
+    RplRole_neighbor RplRole = "neighbor"
+
+    // ERP RPL next neighbor
+    RplRole_next_neighbor RplRole = "next-neighbor"
+)
+
+// TypeOfServiceMode represents Type of service mode
+type TypeOfServiceMode string
+
+const (
+    // Do not reflect the type of service
+    TypeOfServiceMode_none TypeOfServiceMode = "none"
+
+    // Reflect the type of service
+    TypeOfServiceMode_reflect TypeOfServiceMode = "reflect"
+)
+
+// PortDownFlush represents Port down flush
+type PortDownFlush string
+
+const (
+    // MAC Port Down Flush
+    PortDownFlush_port_down_flush PortDownFlush = "port-down-flush"
+
+    // Enable Port Down Flush
+    PortDownFlush_enable_port_down_flush PortDownFlush = "enable-port-down-flush"
+
+    // Disable Port Down Flush
+    PortDownFlush_disable_port_down_flush PortDownFlush = "disable-port-down-flush"
+)
+
+// L2vpnCapabilityMode represents L2vpn capability mode
+type L2vpnCapabilityMode string
+
+const (
+    // Compute global capability as the highest node
+    // capability
+    L2vpnCapabilityMode_high_mode L2vpnCapabilityMode = "high-mode"
+
+    // Disable global capability re-computation
+    L2vpnCapabilityMode_single_mode L2vpnCapabilityMode = "single-mode"
+)
+
+// MacSecureAction represents Mac secure action
+type MacSecureAction string
+
+const (
+    // MAC Secure Action Restrict
+    MacSecureAction_restrict MacSecureAction = "restrict"
+
+    // No Action
+    MacSecureAction_none MacSecureAction = "none"
+
+    // MAC Secure Action Shutdown
+    MacSecureAction_shutdown MacSecureAction = "shutdown"
 )
 
 // L2vpn
@@ -708,7 +665,7 @@ type L2vpn struct {
     Capability interface{}
 
     // Global L2VPN Router ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     L2vpnRouterId interface{}
 
     // Pseudowire-routing attributes.
@@ -858,7 +815,7 @@ type L2vpn_PwRouting_PwRoutingBgp_EvpnRouteDistinguisher struct {
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Addr index. The type is interface{} with range: 0..65535.
@@ -1104,11 +1061,11 @@ type L2vpn_Database_G8032Rings_G8032Ring_ErpPort0s_ErpPort0 struct {
     YListKey string
 
     // This attribute is a key. Port0 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Ethernet ring protection port0 monitor. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Monitor interface{}
 }
 
@@ -1419,7 +1376,7 @@ type L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_NoneOrVirtual struct
     YPresence bool
 
     // Ethernet ring protection port1 monitor. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Monitor interface{}
 }
 
@@ -1451,11 +1408,11 @@ type L2vpn_Database_G8032Rings_G8032Ring_ErpPort1s_ErpPort1_Interface struct {
     YListKey string
 
     // This attribute is a key. Port1 interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Ethernet ring protection port1 monitor. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Monitor interface{}
 }
 
@@ -1694,7 +1651,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Backup
     YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -1889,7 +1846,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudo
 
     // This attribute is a key. Pseudowire IPv4 address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // Tag Impose vlan tagged mode. The type is interface{} with range: 1..4094.
@@ -1900,9 +1857,9 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudo
 
     // Value of the Pseudowire source address. Must be IPv6 only. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Pseudowire Bandwidth. The type is interface{} with range: 0..4294967295.
@@ -2028,7 +1985,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudo
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -2307,7 +2264,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudo
 
     // This attribute is a key. Pseudowire IPv6 address. A pseudowire can have
     // only one address: IPv4 or IPv6. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     PseudowireAddress interface{}
 
     // Tag Impose vlan tagged mode. The type is interface{} with range: 1..4094.
@@ -2318,9 +2275,9 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudo
 
     // Value of the Pseudowire source address. Must be IPv6 only. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Pseudowire Bandwidth. The type is interface{} with range: 0..4294967295.
@@ -2446,7 +2403,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudo
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -2832,7 +2789,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Pseudo
     GlobalId interface{}
 
     // This attribute is a key. Target Prefix. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // This attribute is a key. Target AC ID. The type is interface{} with range:
@@ -2917,7 +2874,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_P2pXconnects_P2pXconnect_Attach
     YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Enable attachment circuit interface. The type is interface{}.
@@ -3104,7 +3061,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Addr index. The type is interface{} with range: 0..65535.
@@ -3297,7 +3254,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp
     YListKey string
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Addr index. The type is interface{} with range:
@@ -3516,7 +3473,7 @@ type L2vpn_Database_XconnectGroups_XconnectGroup_Mp2mpXconnects_Mp2mpXconnect_Mp
     YListKey string
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // This attribute is a key. Remote Customer Edge Identifier. The type is
@@ -3669,13 +3626,6 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     // Disable Unknown Unicast flooding. The type is interface{}.
     FloodingUnknownUnicast interface{}
 
-    // Enable multicast for multiple VLANs in the bridge of a BVI. The type is
-    // interface{}.
-    EfpVisibility interface{}
-
-    // L2MC Source Traffic Enabled. The type is L2mcSrcTrafficEnabled.
-    L2MulticastSource interface{}
-
     // Disable IGMP Snooping. The type is interface{}.
     IgmpSnoopingDisable interface{}
 
@@ -3779,8 +3729,6 @@ func (bridgeDomain *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDo
     bridgeDomain.EntityData.Leafs.Append("coupled-mode", types.YLeaf{"CoupledMode", bridgeDomain.CoupledMode})
     bridgeDomain.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", bridgeDomain.Shutdown})
     bridgeDomain.EntityData.Leafs.Append("flooding-unknown-unicast", types.YLeaf{"FloodingUnknownUnicast", bridgeDomain.FloodingUnknownUnicast})
-    bridgeDomain.EntityData.Leafs.Append("efp-visibility", types.YLeaf{"EfpVisibility", bridgeDomain.EfpVisibility})
-    bridgeDomain.EntityData.Leafs.Append("l2-multicast-source", types.YLeaf{"L2MulticastSource", bridgeDomain.L2MulticastSource})
     bridgeDomain.EntityData.Leafs.Append("igmp-snooping-disable", types.YLeaf{"IgmpSnoopingDisable", bridgeDomain.IgmpSnoopingDisable})
     bridgeDomain.EntityData.Leafs.Append("transport-mode", types.YLeaf{"TransportMode", bridgeDomain.TransportMode})
     bridgeDomain.EntityData.Leafs.Append("mld-snooping", types.YLeaf{"MldSnooping", bridgeDomain.MldSnooping})
@@ -4014,11 +3962,11 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Enable Static Mac Address Configuration. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopIp interface{}
 }
 
@@ -4190,7 +4138,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 
     // MAC address for filtering. The type is interface{}.
@@ -4227,18 +4175,14 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     // MAC Secure Logging. The type is interface{}.
     Logging interface{}
 
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
     // Enable MAC Secure. The type is interface{}.
     Enable interface{}
 
     // MAC Secure Threshold. The type is interface{}.
     Threshold interface{}
-
-    // MAC secure enforcement action. The type is MacSecureAction.
-    Action interface{}
-
-    // MAC Secure Shutdown Recovery Timer. The type is interface{} with range:
-    // 10..3600.
-    ShutdownRecoveryTimer interface{}
 }
 
 func (macSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainMac_MacSecure) GetEntityData() *types.CommonEntityData {
@@ -4255,10 +4199,9 @@ func (macSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomai
     macSecure.EntityData.Children = types.NewOrderedMap()
     macSecure.EntityData.Leafs = types.NewOrderedMap()
     macSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", macSecure.Logging})
+    macSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", macSecure.Action})
     macSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", macSecure.Enable})
     macSecure.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", macSecure.Threshold})
-    macSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", macSecure.Action})
-    macSecure.EntityData.Leafs.Append("shutdown-recovery-timer", types.YLeaf{"ShutdownRecoveryTimer", macSecure.ShutdownRecoveryTimer})
 
     macSecure.EntityData.YListKeys = []string {}
 
@@ -4422,7 +4365,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     PbbEdgeIgmpProfile interface{}
 
     // Configure Unknown Unicast BMAC address for PBB Edge Port. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     UnknownUnicastBmac interface{}
 
     // Split Horizon Group.
@@ -4538,11 +4481,11 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 
     // Static backbone MAC address to map with. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PbbStaticMacMappingBmac interface{}
 }
 
@@ -4722,21 +4665,21 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // MAC Secure Logging. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable Virtual instance port MAC Secure. The type is interface{}.
+    Disable interface{}
+
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
     // Enable MAC Secure. The type is interface{}.
     Enable interface{}
 
     // Accept Virtual instance port to be shutdown on mac violation. The type is
     // interface{}.
     AcceptShutdown interface{}
-
-    // MAC Secure Logging. The type is L2vpnLogging.
-    Logging interface{}
-
-    // Disable MAC Secure. The type is interface{}.
-    Disable interface{}
-
-    // MAC secure enforcement action. The type is MacSecureAction.
-    Action interface{}
 }
 
 func (pbbEdgeMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacSecure) GetEntityData() *types.CommonEntityData {
@@ -4752,11 +4695,11 @@ func (pbbEdgeMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Brid
 
     pbbEdgeMacSecure.EntityData.Children = types.NewOrderedMap()
     pbbEdgeMacSecure.EntityData.Leafs = types.NewOrderedMap()
-    pbbEdgeMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pbbEdgeMacSecure.Enable})
-    pbbEdgeMacSecure.EntityData.Leafs.Append("accept-shutdown", types.YLeaf{"AcceptShutdown", pbbEdgeMacSecure.AcceptShutdown})
     pbbEdgeMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pbbEdgeMacSecure.Logging})
     pbbEdgeMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pbbEdgeMacSecure.Disable})
     pbbEdgeMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", pbbEdgeMacSecure.Action})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pbbEdgeMacSecure.Enable})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("accept-shutdown", types.YLeaf{"AcceptShutdown", pbbEdgeMacSecure.AcceptShutdown})
 
     pbbEdgeMacSecure.EntityData.YListKeys = []string {}
 
@@ -5213,7 +5156,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -5293,7 +5236,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -5360,7 +5303,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -5710,7 +5653,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -5829,21 +5772,17 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable MAC Secure. The type is interface{}.
-    Enable interface{}
-
     // MAC Secure Logging. The type is L2vpnLogging.
     Logging interface{}
 
-    // Disable MAC Secure. The type is interface{}.
+    // Disable L2 Pseudowire MAC Secure. The type is interface{}.
     Disable interface{}
 
     // MAC secure enforcement action. The type is MacSecureAction.
     Action interface{}
 
-    // MAC Secure Shutdown Recovery Timer. The type is interface{} with range:
-    // 10..3600.
-    ShutdownRecoveryTimer interface{}
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
 }
 
 func (pseudowireMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacSecure) GetEntityData() *types.CommonEntityData {
@@ -5859,11 +5798,10 @@ func (pseudowireMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_B
 
     pseudowireMacSecure.EntityData.Children = types.NewOrderedMap()
     pseudowireMacSecure.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireMacSecure.Enable})
     pseudowireMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pseudowireMacSecure.Logging})
     pseudowireMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pseudowireMacSecure.Disable})
     pseudowireMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", pseudowireMacSecure.Action})
-    pseudowireMacSecure.EntityData.Leafs.Append("shutdown-recovery-timer", types.YLeaf{"ShutdownRecoveryTimer", pseudowireMacSecure.ShutdownRecoveryTimer})
+    pseudowireMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireMacSecure.Enable})
 
     pseudowireMacSecure.EntityData.YListKeys = []string {}
 
@@ -6084,7 +6022,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -6284,7 +6222,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Transport Type. The type is string with pattern:
-    // b'(RSVP_TE)'.
+    // (RSVP_TE).
     TransportName interface{}
 
     // Multicast P2MP TE Attribute Set Name. The type is string with length:
@@ -6355,7 +6293,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Signaling Type. The type is string with pattern:
-    // b'(BGP)'.
+    // (BGP).
     SignalingName interface{}
 }
 
@@ -6422,7 +6360,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -6588,7 +6526,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -6728,7 +6666,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Address index. The type is interface{} with range: 0..32767.
@@ -6841,7 +6779,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Addr index. The type is interface{} with range: 0..65535.
@@ -7082,7 +7020,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Addr index. The type is interface{} with range:
@@ -7220,7 +7158,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Enable or Disable Flooding. The type is InterfaceTrafficFlood.
@@ -7654,7 +7592,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -7764,21 +7702,17 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable MAC Secure. The type is interface{}.
-    Enable interface{}
-
     // MAC Secure Logging. The type is L2vpnLogging.
     Logging interface{}
 
-    // Disable MAC Secure. The type is interface{}.
+    // Disable L2 Interface MAC Secure. The type is interface{}.
     Disable interface{}
 
     // MAC secure enforcement action. The type is MacSecureAction.
     Action interface{}
 
-    // MAC Secure Shutdown Recovery Timer. The type is interface{} with range:
-    // 10..3600.
-    ShutdownRecoveryTimer interface{}
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
 }
 
 func (interfaceMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacSecure) GetEntityData() *types.CommonEntityData {
@@ -7794,11 +7728,10 @@ func (interfaceMacSecure *L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_Br
 
     interfaceMacSecure.EntityData.Children = types.NewOrderedMap()
     interfaceMacSecure.EntityData.Leafs = types.NewOrderedMap()
-    interfaceMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceMacSecure.Enable})
     interfaceMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", interfaceMacSecure.Logging})
     interfaceMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", interfaceMacSecure.Disable})
     interfaceMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", interfaceMacSecure.Action})
-    interfaceMacSecure.EntityData.Leafs.Append("shutdown-recovery-timer", types.YLeaf{"ShutdownRecoveryTimer", interfaceMacSecure.ShutdownRecoveryTimer})
+    interfaceMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceMacSecure.Enable})
 
     interfaceMacSecure.EntityData.YListKeys = []string {}
 
@@ -8072,7 +8005,7 @@ type L2vpn_Database_BridgeDomainGroups_BridgeDomainGroup_BridgeDomains_BridgeDom
     YListKey string
 
     // This attribute is a key. The name of the Routed Interface. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Routed interface split horizon group.
@@ -8229,7 +8162,7 @@ type L2vpn_Database_PseudowireClasses_PseudowireClass_L2tpv3Encapsulation struct
     CookieSize interface{}
 
     // Source IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Transport mode. The type is TransportMode.
@@ -8477,7 +8410,7 @@ type L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEncapsulation struct {
     VccvType interface{}
 
     // Source IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Transport mode. The type is TransportMode.
@@ -8620,8 +8553,8 @@ type L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEncapsulation_Preferre
     // Fallback disable. The type is interface{}.
     FallbackDisable interface{}
 
-    // Name of the SR TE Policy or IFName. The type is string with length: 1..60.
-    PathName interface{}
+    // Name of the SR TE Policy. The type is string with length: 1..60.
+    SrtePolicy interface{}
 }
 
 func (preferredPath *L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEncapsulation_PreferredPath) GetEntityData() *types.CommonEntityData {
@@ -8640,7 +8573,7 @@ func (preferredPath *L2vpn_Database_PseudowireClasses_PseudowireClass_MplsEncaps
     preferredPath.EntityData.Leafs.Append("type", types.YLeaf{"Type", preferredPath.Type})
     preferredPath.EntityData.Leafs.Append("interface-tunnel-number", types.YLeaf{"InterfaceTunnelNumber", preferredPath.InterfaceTunnelNumber})
     preferredPath.EntityData.Leafs.Append("fallback-disable", types.YLeaf{"FallbackDisable", preferredPath.FallbackDisable})
-    preferredPath.EntityData.Leafs.Append("path-name", types.YLeaf{"PathName", preferredPath.PathName})
+    preferredPath.EntityData.Leafs.Append("srte-policy", types.YLeaf{"SrtePolicy", preferredPath.SrtePolicy})
 
     preferredPath.EntityData.YListKeys = []string {}
 
@@ -8846,7 +8779,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_VlanSwitchPorts_VlanSwitchPort struc
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -9274,13 +9207,6 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain struct {
     // Disable Unknown Unicast flooding. The type is interface{}.
     FloodingUnknownUnicast interface{}
 
-    // Enable multicast for multiple VLANs in the bridge of a BVI. The type is
-    // interface{}.
-    EfpVisibility interface{}
-
-    // L2MC Source Traffic Enabled. The type is L2mcSrcTrafficEnabled.
-    L2MulticastSource interface{}
-
     // Disable IGMP Snooping. The type is interface{}.
     IgmpSnoopingDisable interface{}
 
@@ -9384,8 +9310,6 @@ func (bridgeDomain *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeD
     bridgeDomain.EntityData.Leafs.Append("coupled-mode", types.YLeaf{"CoupledMode", bridgeDomain.CoupledMode})
     bridgeDomain.EntityData.Leafs.Append("shutdown", types.YLeaf{"Shutdown", bridgeDomain.Shutdown})
     bridgeDomain.EntityData.Leafs.Append("flooding-unknown-unicast", types.YLeaf{"FloodingUnknownUnicast", bridgeDomain.FloodingUnknownUnicast})
-    bridgeDomain.EntityData.Leafs.Append("efp-visibility", types.YLeaf{"EfpVisibility", bridgeDomain.EfpVisibility})
-    bridgeDomain.EntityData.Leafs.Append("l2-multicast-source", types.YLeaf{"L2MulticastSource", bridgeDomain.L2MulticastSource})
     bridgeDomain.EntityData.Leafs.Append("igmp-snooping-disable", types.YLeaf{"IgmpSnoopingDisable", bridgeDomain.IgmpSnoopingDisable})
     bridgeDomain.EntityData.Leafs.Append("transport-mode", types.YLeaf{"TransportMode", bridgeDomain.TransportMode})
     bridgeDomain.EntityData.Leafs.Append("mld-snooping", types.YLeaf{"MldSnooping", bridgeDomain.MldSnooping})
@@ -9619,11 +9543,11 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_MemberVni
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Enable Static Mac Address Configuration. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     NextHopIp interface{}
 }
 
@@ -9795,7 +9719,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 
     // MAC address for filtering. The type is interface{}.
@@ -9832,18 +9756,14 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDom
     // MAC Secure Logging. The type is interface{}.
     Logging interface{}
 
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
     // Enable MAC Secure. The type is interface{}.
     Enable interface{}
 
     // MAC Secure Threshold. The type is interface{}.
     Threshold interface{}
-
-    // MAC secure enforcement action. The type is MacSecureAction.
-    Action interface{}
-
-    // MAC Secure Shutdown Recovery Timer. The type is interface{} with range:
-    // 10..3600.
-    ShutdownRecoveryTimer interface{}
 }
 
 func (macSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainMac_MacSecure) GetEntityData() *types.CommonEntityData {
@@ -9860,10 +9780,9 @@ func (macSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDoma
     macSecure.EntityData.Children = types.NewOrderedMap()
     macSecure.EntityData.Leafs = types.NewOrderedMap()
     macSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", macSecure.Logging})
+    macSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", macSecure.Action})
     macSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", macSecure.Enable})
     macSecure.EntityData.Leafs.Append("threshold", types.YLeaf{"Threshold", macSecure.Threshold})
-    macSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", macSecure.Action})
-    macSecure.EntityData.Leafs.Append("shutdown-recovery-timer", types.YLeaf{"ShutdownRecoveryTimer", macSecure.ShutdownRecoveryTimer})
 
     macSecure.EntityData.YListKeys = []string {}
 
@@ -10027,7 +9946,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDom
     PbbEdgeIgmpProfile interface{}
 
     // Configure Unknown Unicast BMAC address for PBB Edge Port. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     UnknownUnicastBmac interface{}
 
     // Split Horizon Group.
@@ -10143,11 +10062,11 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDom
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 
     // Static backbone MAC address to map with. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PbbStaticMacMappingBmac interface{}
 }
 
@@ -10327,21 +10246,21 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDom
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
+    // MAC Secure Logging. The type is L2vpnLogging.
+    Logging interface{}
+
+    // Disable Virtual instance port MAC Secure. The type is interface{}.
+    Disable interface{}
+
+    // MAC secure enforcement action. The type is MacSecureAction.
+    Action interface{}
+
     // Enable MAC Secure. The type is interface{}.
     Enable interface{}
 
     // Accept Virtual instance port to be shutdown on mac violation. The type is
     // interface{}.
     AcceptShutdown interface{}
-
-    // MAC Secure Logging. The type is L2vpnLogging.
-    Logging interface{}
-
-    // Disable MAC Secure. The type is interface{}.
-    Disable interface{}
-
-    // MAC secure enforcement action. The type is MacSecureAction.
-    Action interface{}
 }
 
 func (pbbEdgeMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BridgeDomainPbb_PbbEdges_PbbEdge_PbbEdgeMac_PbbEdgeMacSecure) GetEntityData() *types.CommonEntityData {
@@ -10357,11 +10276,11 @@ func (pbbEdgeMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_Bri
 
     pbbEdgeMacSecure.EntityData.Children = types.NewOrderedMap()
     pbbEdgeMacSecure.EntityData.Leafs = types.NewOrderedMap()
-    pbbEdgeMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pbbEdgeMacSecure.Enable})
-    pbbEdgeMacSecure.EntityData.Leafs.Append("accept-shutdown", types.YLeaf{"AcceptShutdown", pbbEdgeMacSecure.AcceptShutdown})
     pbbEdgeMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pbbEdgeMacSecure.Logging})
     pbbEdgeMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pbbEdgeMacSecure.Disable})
     pbbEdgeMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", pbbEdgeMacSecure.Action})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pbbEdgeMacSecure.Enable})
+    pbbEdgeMacSecure.EntityData.Leafs.Append("accept-shutdown", types.YLeaf{"AcceptShutdown", pbbEdgeMacSecure.AcceptShutdown})
 
     pbbEdgeMacSecure.EntityData.YListKeys = []string {}
 
@@ -10818,7 +10737,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfi
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -10898,7 +10817,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_AccessVfi
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -10965,7 +10884,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudow
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -11315,7 +11234,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudow
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -11434,21 +11353,17 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudow
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable MAC Secure. The type is interface{}.
-    Enable interface{}
-
     // MAC Secure Logging. The type is L2vpnLogging.
     Logging interface{}
 
-    // Disable MAC Secure. The type is interface{}.
+    // Disable L2 Pseudowire MAC Secure. The type is interface{}.
     Disable interface{}
 
     // MAC secure enforcement action. The type is MacSecureAction.
     Action interface{}
 
-    // MAC Secure Shutdown Recovery Timer. The type is interface{} with range:
-    // 10..3600.
-    ShutdownRecoveryTimer interface{}
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
 }
 
 func (pseudowireMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudowires_BdPseudowire_PseudowireMac_PseudowireMacSecure) GetEntityData() *types.CommonEntityData {
@@ -11464,11 +11379,10 @@ func (pseudowireMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_
 
     pseudowireMacSecure.EntityData.Children = types.NewOrderedMap()
     pseudowireMacSecure.EntityData.Leafs = types.NewOrderedMap()
-    pseudowireMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireMacSecure.Enable})
     pseudowireMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", pseudowireMacSecure.Logging})
     pseudowireMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", pseudowireMacSecure.Disable})
     pseudowireMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", pseudowireMacSecure.Action})
-    pseudowireMacSecure.EntityData.Leafs.Append("shutdown-recovery-timer", types.YLeaf{"ShutdownRecoveryTimer", pseudowireMacSecure.ShutdownRecoveryTimer})
+    pseudowireMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", pseudowireMacSecure.Enable})
 
     pseudowireMacSecure.EntityData.YListKeys = []string {}
 
@@ -11689,7 +11603,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdPseudow
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -11889,7 +11803,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_
     YListKey string
 
     // This attribute is a key. Transport Type. The type is string with pattern:
-    // b'(RSVP_TE)'.
+    // (RSVP_TE).
     TransportName interface{}
 
     // Multicast P2MP TE Attribute Set Name. The type is string with length:
@@ -11960,7 +11874,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_
     YListKey string
 
     // This attribute is a key. Signaling Type. The type is string with pattern:
-    // b'(BGP)'.
+    // (BGP).
     SignalingName interface{}
 }
 
@@ -12027,7 +11941,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -12193,7 +12107,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -12333,7 +12247,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Address index. The type is interface{} with range: 0..32767.
@@ -12446,7 +12360,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Addr index. The type is interface{} with range: 0..65535.
@@ -12687,7 +12601,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_Vfis_Vfi_
     YListKey string
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Addr index. The type is interface{} with range:
@@ -12825,7 +12739,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachm
     YListKey string
 
     // This attribute is a key. The name of the Attachment Circuit. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Enable or Disable Flooding. The type is InterfaceTrafficFlood.
@@ -13259,7 +13173,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachm
     YListKey string
 
     // This attribute is a key. Static MAC address. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -13369,21 +13283,17 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachm
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enable MAC Secure. The type is interface{}.
-    Enable interface{}
-
     // MAC Secure Logging. The type is L2vpnLogging.
     Logging interface{}
 
-    // Disable MAC Secure. The type is interface{}.
+    // Disable L2 Interface MAC Secure. The type is interface{}.
     Disable interface{}
 
     // MAC secure enforcement action. The type is MacSecureAction.
     Action interface{}
 
-    // MAC Secure Shutdown Recovery Timer. The type is interface{} with range:
-    // 10..3600.
-    ShutdownRecoveryTimer interface{}
+    // Enable MAC Secure. The type is interface{}.
+    Enable interface{}
 }
 
 func (interfaceMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_BdAttachmentCircuits_BdAttachmentCircuit_InterfaceMac_InterfaceMacSecure) GetEntityData() *types.CommonEntityData {
@@ -13399,11 +13309,10 @@ func (interfaceMacSecure *L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_B
 
     interfaceMacSecure.EntityData.Children = types.NewOrderedMap()
     interfaceMacSecure.EntityData.Leafs = types.NewOrderedMap()
-    interfaceMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceMacSecure.Enable})
     interfaceMacSecure.EntityData.Leafs.Append("logging", types.YLeaf{"Logging", interfaceMacSecure.Logging})
     interfaceMacSecure.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", interfaceMacSecure.Disable})
     interfaceMacSecure.EntityData.Leafs.Append("action", types.YLeaf{"Action", interfaceMacSecure.Action})
-    interfaceMacSecure.EntityData.Leafs.Append("shutdown-recovery-timer", types.YLeaf{"ShutdownRecoveryTimer", interfaceMacSecure.ShutdownRecoveryTimer})
+    interfaceMacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", interfaceMacSecure.Enable})
 
     interfaceMacSecure.EntityData.YListKeys = []string {}
 
@@ -13677,7 +13586,7 @@ type L2vpn_Database_VlanSwitches_VlanSwitch_BridgeDomains_BridgeDomain_RoutedInt
     YListKey string
 
     // This attribute is a key. The name of the Routed Interface. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Routed interface split horizon group.
@@ -13886,7 +13795,7 @@ type L2vpn_Database_FlexibleXconnectServiceTable_VlanUnawareFlexibleXconnectServ
     YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 }
 
@@ -14093,7 +14002,7 @@ type L2vpn_Database_FlexibleXconnectServiceTable_VlanAwareFlexibleXconnectServic
     YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     Name interface{}
 }
 
@@ -14269,7 +14178,7 @@ type L2vpn_Database_Redundancy_IccpRedundancyGroups_IccpRedundancyGroup_IccpInte
     YListKey string
 
     // This attribute is a key. Interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Secondary VLAN range, in the form of 1-3,5 ,8-11. The type is string.
@@ -14317,7 +14226,7 @@ type L2vpn_Pbb struct {
     YFilter yfilter.YFilter
 
     // Backbone Source MAC. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BackboneSourceMac interface{}
 }
 
@@ -14748,7 +14657,7 @@ type GenericInterfaceLists_GenericInterfaceList_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enable interface. The type is interface{}.
@@ -14820,7 +14729,7 @@ type Evpn_EvpnTables struct {
     EviCostOut interface{}
 
     // Configure EVPN router-id implicitly through Loopback Interface. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     EvpnSourceInterface interface{}
 
     // Cost-in node after given time (seconds) on startup timer. The type is
@@ -14829,6 +14738,9 @@ type Evpn_EvpnTables struct {
 
     // Enter EVPN timers configuration submode.
     EvpnTimers Evpn_EvpnTables_EvpnTimers
+
+    // EVPN MAC Configuration.
+    Evpnmac Evpn_EvpnTables_Evpnmac
 
     // Enter EVPN Instance configuration submode.
     EvpnEvis Evpn_EvpnTables_EvpnEvis
@@ -14859,9 +14771,6 @@ type Evpn_EvpnTables struct {
 
     // EVPN Global Ethernet Segment submode.
     EvpnEthernetSegment Evpn_EvpnTables_EvpnEthernetSegment
-
-    // EVPN HOST Configuration.
-    Host Evpn_EvpnTables_Host
 }
 
 func (evpnTables *Evpn_EvpnTables) GetEntityData() *types.CommonEntityData {
@@ -14877,6 +14786,7 @@ func (evpnTables *Evpn_EvpnTables) GetEntityData() *types.CommonEntityData {
 
     evpnTables.EntityData.Children = types.NewOrderedMap()
     evpnTables.EntityData.Children.Append("evpn-timers", types.YChild{"EvpnTimers", &evpnTables.EvpnTimers})
+    evpnTables.EntityData.Children.Append("evpnmac", types.YChild{"Evpnmac", &evpnTables.Evpnmac})
     evpnTables.EntityData.Children.Append("evpn-evis", types.YChild{"EvpnEvis", &evpnTables.EvpnEvis})
     evpnTables.EntityData.Children.Append("evpn-virtual-access-vfis", types.YChild{"EvpnVirtualAccessVfis", &evpnTables.EvpnVirtualAccessVfis})
     evpnTables.EntityData.Children.Append("evpn-load-balancing", types.YChild{"EvpnLoadBalancing", &evpnTables.EvpnLoadBalancing})
@@ -14887,7 +14797,6 @@ func (evpnTables *Evpn_EvpnTables) GetEntityData() *types.CommonEntityData {
     evpnTables.EntityData.Children.Append("evpn-interfaces", types.YChild{"EvpnInterfaces", &evpnTables.EvpnInterfaces})
     evpnTables.EntityData.Children.Append("evpn-virtual-access-pws", types.YChild{"EvpnVirtualAccessPws", &evpnTables.EvpnVirtualAccessPws})
     evpnTables.EntityData.Children.Append("evpn-ethernet-segment", types.YChild{"EvpnEthernetSegment", &evpnTables.EvpnEthernetSegment})
-    evpnTables.EntityData.Children.Append("Cisco-IOS-XR-l2rib-cfg:host", types.YChild{"Host", &evpnTables.Host})
     evpnTables.EntityData.Leafs = types.NewOrderedMap()
     evpnTables.EntityData.Leafs.Append("evi-cost-out", types.YLeaf{"EviCostOut", evpnTables.EviCostOut})
     evpnTables.EntityData.Leafs.Append("evpn-source-interface", types.YLeaf{"EvpnSourceInterface", evpnTables.EvpnSourceInterface})
@@ -14941,6 +14850,90 @@ func (evpnTimers *Evpn_EvpnTables_EvpnTimers) GetEntityData() *types.CommonEntit
     evpnTimers.EntityData.YListKeys = []string {}
 
     return &(evpnTimers.EntityData)
+}
+
+// Evpn_EvpnTables_Evpnmac
+// EVPN MAC Configuration
+type Evpn_EvpnTables_Evpnmac struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Enable EVPN MAC Configuration. The type is interface{}.
+    Enable interface{}
+
+    // EVPN MAC Secure Configuration.
+    EvpnmacSecure Evpn_EvpnTables_Evpnmac_EvpnmacSecure
+}
+
+func (evpnmac *Evpn_EvpnTables_Evpnmac) GetEntityData() *types.CommonEntityData {
+    evpnmac.EntityData.YFilter = evpnmac.YFilter
+    evpnmac.EntityData.YangName = "evpnmac"
+    evpnmac.EntityData.BundleName = "cisco_ios_xr"
+    evpnmac.EntityData.ParentYangName = "evpn-tables"
+    evpnmac.EntityData.SegmentPath = "evpnmac"
+    evpnmac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + evpnmac.EntityData.SegmentPath
+    evpnmac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    evpnmac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    evpnmac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    evpnmac.EntityData.Children = types.NewOrderedMap()
+    evpnmac.EntityData.Children.Append("evpnmac-secure", types.YChild{"EvpnmacSecure", &evpnmac.EvpnmacSecure})
+    evpnmac.EntityData.Leafs = types.NewOrderedMap()
+    evpnmac.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnmac.Enable})
+
+    evpnmac.EntityData.YListKeys = []string {}
+
+    return &(evpnmac.EntityData)
+}
+
+// Evpn_EvpnTables_Evpnmac_EvpnmacSecure
+// EVPN MAC Secure Configuration
+type Evpn_EvpnTables_Evpnmac_EvpnmacSecure struct {
+    EntityData types.CommonEntityData
+    YFilter yfilter.YFilter
+
+    // Length of time to lock the MAC after a MAC security violation. The type is
+    // interface{} with range: 5..3600.
+    EvpnmacSecureFreezeTime interface{}
+
+    // Enable EVPN MAC Secure Configuration. The type is interface{}.
+    Enable interface{}
+
+    // Number of times to unfreeze a MAC before permanently freezing it. The type
+    // is interface{} with range: 0..1000.
+    EvpnmacSecureRetryCount interface{}
+
+    // Number of moves to occur within the move interval before locking the MAC.
+    // The type is interface{} with range: 1..1000.
+    EvpnmacSecureMoveCount interface{}
+
+    // Interval to watch for subsequent MAC moves before locking the MAC. The type
+    // is interface{} with range: 5..3600.
+    EvpnmacSecureMoveInterval interface{}
+}
+
+func (evpnmacSecure *Evpn_EvpnTables_Evpnmac_EvpnmacSecure) GetEntityData() *types.CommonEntityData {
+    evpnmacSecure.EntityData.YFilter = evpnmacSecure.YFilter
+    evpnmacSecure.EntityData.YangName = "evpnmac-secure"
+    evpnmacSecure.EntityData.BundleName = "cisco_ios_xr"
+    evpnmacSecure.EntityData.ParentYangName = "evpnmac"
+    evpnmacSecure.EntityData.SegmentPath = "evpnmac-secure"
+    evpnmacSecure.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpnmac/" + evpnmacSecure.EntityData.SegmentPath
+    evpnmacSecure.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
+    evpnmacSecure.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
+    evpnmacSecure.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
+
+    evpnmacSecure.EntityData.Children = types.NewOrderedMap()
+    evpnmacSecure.EntityData.Leafs = types.NewOrderedMap()
+    evpnmacSecure.EntityData.Leafs.Append("evpnmac-secure-freeze-time", types.YLeaf{"EvpnmacSecureFreezeTime", evpnmacSecure.EvpnmacSecureFreezeTime})
+    evpnmacSecure.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnmacSecure.Enable})
+    evpnmacSecure.EntityData.Leafs.Append("evpnmac-secure-retry-count", types.YLeaf{"EvpnmacSecureRetryCount", evpnmacSecure.EvpnmacSecureRetryCount})
+    evpnmacSecure.EntityData.Leafs.Append("evpnmac-secure-move-count", types.YLeaf{"EvpnmacSecureMoveCount", evpnmacSecure.EvpnmacSecureMoveCount})
+    evpnmacSecure.EntityData.Leafs.Append("evpnmac-secure-move-interval", types.YLeaf{"EvpnmacSecureMoveInterval", evpnmacSecure.EvpnmacSecureMoveInterval})
+
+    evpnmacSecure.EntityData.YListKeys = []string {}
+
+    return &(evpnmacSecure.EntityData)
 }
 
 // Evpn_EvpnTables_EvpnEvis
@@ -15149,7 +15142,7 @@ type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery_EvpnRouteDistingui
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Addr index. The type is interface{} with range: 0..65535.
@@ -15340,7 +15333,7 @@ type Evpn_EvpnTables_EvpnEvis_EvpnEvi_EvpnEviBgpAutoDiscovery_EvpnRouteTargets_E
     Role interface{}
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Addr index. The type is interface{} with range:
@@ -15574,12 +15567,8 @@ type Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAccessVfi_EvpnVirtualEther
     // Enable Ethernet Segment. The type is interface{}.
     Enable interface{}
 
-    // Ethernet-Segment Service Carving multicast mode. The type is
-    // EthernetSegmentServiceCarvingMcast.
-    ServiceCarvingMcastType interface{}
-
     // ES-Import Route Target. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     EsImportRouteTarget interface{}
 
     // Ethernet-Segment Service Carving mode. The type is
@@ -15609,7 +15598,6 @@ func (evpnVirtualEthernetSegment *Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirt
     evpnVirtualEthernetSegment.EntityData.Children.Append("manual-service-carving", types.YChild{"ManualServiceCarving", &evpnVirtualEthernetSegment.ManualServiceCarving})
     evpnVirtualEthernetSegment.EntityData.Leafs = types.NewOrderedMap()
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnVirtualEthernetSegment.Enable})
-    evpnVirtualEthernetSegment.EntityData.Leafs.Append("service-carving-mcast-type", types.YLeaf{"ServiceCarvingMcastType", evpnVirtualEthernetSegment.ServiceCarvingMcastType})
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("es-import-route-target", types.YLeaf{"EsImportRouteTarget", evpnVirtualEthernetSegment.EsImportRouteTarget})
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("service-carving-type", types.YLeaf{"ServiceCarvingType", evpnVirtualEthernetSegment.ServiceCarvingType})
 
@@ -15627,23 +15615,23 @@ type Evpn_EvpnTables_EvpnVirtualAccessVfis_EvpnVirtualAccessVfi_EvpnVirtualEther
     YPresence bool
 
     // Type 0's 1st Byte or Type Byte and 1st Byte. The type is string with
-    // pattern: b'[0-9a-fA-F]{1,8}'. This attribute is mandatory.
+    // pattern: [0-9a-fA-F]{1,8}. This attribute is mandatory.
     Bytes01 interface{}
 
-    // 2nd and 3rd Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 2nd and 3rd Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes23 interface{}
 
-    // 4th and 5th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 4th and 5th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes45 interface{}
 
-    // 6th and 7th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 6th and 7th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes67 interface{}
 
-    // 8th and 9th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 8th and 9th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes89 interface{}
 
     // Ethernet segment identifier type. The type is EthernetSegmentIdentifier.
@@ -15831,7 +15819,7 @@ type Evpn_EvpnTables_EvpnBgpAutoDiscovery_EvpnRouteDistinguisher struct {
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Addr index. The type is interface{} with range: 0..65535.
@@ -15974,7 +15962,7 @@ type Evpn_EvpnTables_EvpnGroups_EvpnGroup_EvpnGroupCoreInterfaces_EvpnGroupCoreI
     YListKey string
 
     // This attribute is a key. Name of the EVPN Group core interface. The type is
-    // string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -16072,9 +16060,6 @@ type Evpn_EvpnTables_EvpnInstances_EvpnInstance struct {
     // Enable Autodiscovery BGP in EVPN Instance.
     EvpnInstanceBgpAutoDiscovery Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery
 
-    // Enter EVPN E-Tree configuration submode.
-    EvpnInstanceEtree Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceEtree
-
     // Enter Advertise local MAC-only routes configuration submode.
     EvpnInstanceAdvertiseMac Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceAdvertiseMac
 
@@ -16098,7 +16083,6 @@ func (evpnInstance *Evpn_EvpnTables_EvpnInstances_EvpnInstance) GetEntityData() 
 
     evpnInstance.EntityData.Children = types.NewOrderedMap()
     evpnInstance.EntityData.Children.Append("evpn-instance-bgp-auto-discovery", types.YChild{"EvpnInstanceBgpAutoDiscovery", &evpnInstance.EvpnInstanceBgpAutoDiscovery})
-    evpnInstance.EntityData.Children.Append("evpn-instance-etree", types.YChild{"EvpnInstanceEtree", &evpnInstance.EvpnInstanceEtree})
     evpnInstance.EntityData.Children.Append("evpn-instance-advertise-mac", types.YChild{"EvpnInstanceAdvertiseMac", &evpnInstance.EvpnInstanceAdvertiseMac})
     evpnInstance.EntityData.Children.Append("evpn-instance-multicast", types.YChild{"EvpnInstanceMulticast", &evpnInstance.EvpnInstanceMulticast})
     evpnInstance.EntityData.Children.Append("evpn-instance-load-balancing", types.YChild{"EvpnInstanceLoadBalancing", &evpnInstance.EvpnInstanceLoadBalancing})
@@ -16183,7 +16167,7 @@ type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery_Evp
     AsIndex interface{}
 
     // IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Addr index. The type is interface{} with range: 0..65535.
@@ -16374,7 +16358,7 @@ type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceBgpAutoDiscovery_Evp
     Role interface{}
 
     // This attribute is a key. IPV4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // This attribute is a key. Addr index. The type is interface{} with range:
@@ -16408,40 +16392,6 @@ func (evpnRouteTargetIpv4Address *Evpn_EvpnTables_EvpnInstances_EvpnInstance_Evp
     evpnRouteTargetIpv4Address.EntityData.YListKeys = []string {"Format", "Role", "Address", "AddrIndex", "Stitching"}
 
     return &(evpnRouteTargetIpv4Address.EntityData)
-}
-
-// Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceEtree
-// Enter EVPN E-Tree configuration submode
-type Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceEtree struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Configure E-Tree as leaf. The type is interface{}.
-    EvpnInstanceEtreeLeaf interface{}
-
-    // Enable EVPN E-Tree. The type is interface{}.
-    Enable interface{}
-}
-
-func (evpnInstanceEtree *Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceEtree) GetEntityData() *types.CommonEntityData {
-    evpnInstanceEtree.EntityData.YFilter = evpnInstanceEtree.YFilter
-    evpnInstanceEtree.EntityData.YangName = "evpn-instance-etree"
-    evpnInstanceEtree.EntityData.BundleName = "cisco_ios_xr"
-    evpnInstanceEtree.EntityData.ParentYangName = "evpn-instance"
-    evpnInstanceEtree.EntityData.SegmentPath = "evpn-instance-etree"
-    evpnInstanceEtree.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/evpn-instance/" + evpnInstanceEtree.EntityData.SegmentPath
-    evpnInstanceEtree.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    evpnInstanceEtree.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    evpnInstanceEtree.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    evpnInstanceEtree.EntityData.Children = types.NewOrderedMap()
-    evpnInstanceEtree.EntityData.Leafs = types.NewOrderedMap()
-    evpnInstanceEtree.EntityData.Leafs.Append("evpn-instance-etree-leaf", types.YLeaf{"EvpnInstanceEtreeLeaf", evpnInstanceEtree.EvpnInstanceEtreeLeaf})
-    evpnInstanceEtree.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnInstanceEtree.Enable})
-
-    evpnInstanceEtree.EntityData.YListKeys = []string {}
-
-    return &(evpnInstanceEtree.EntityData)
 }
 
 // Evpn_EvpnTables_EvpnInstances_EvpnInstance_EvpnInstanceAdvertiseMac
@@ -16623,7 +16573,7 @@ type Evpn_EvpnTables_EvpnInterfaces_EvpnInterface struct {
     YListKey string
 
     // This attribute is a key. Name of the attachment circuit interface. The type
-    // is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Enter EVPN Core Isolation Group ID. The type is interface{} with range:
@@ -16727,15 +16677,11 @@ type Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegment struct {
     Enable interface{}
 
     // Backbone Source MAC. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     BackboneSourceMac interface{}
 
-    // Ethernet-Segment Service Carving multicast mode. The type is
-    // EthernetSegmentServiceCarvingMcast.
-    ServiceCarvingMcastType interface{}
-
     // ES-Import Route Target. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     EsImportRouteTarget interface{}
 
     // Ethernet-Segment Service Carving mode. The type is
@@ -16768,7 +16714,6 @@ func (ethernetSegment *Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegm
     ethernetSegment.EntityData.Leafs.Append("load-balancing-mode", types.YLeaf{"LoadBalancingMode", ethernetSegment.LoadBalancingMode})
     ethernetSegment.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", ethernetSegment.Enable})
     ethernetSegment.EntityData.Leafs.Append("backbone-source-mac", types.YLeaf{"BackboneSourceMac", ethernetSegment.BackboneSourceMac})
-    ethernetSegment.EntityData.Leafs.Append("service-carving-mcast-type", types.YLeaf{"ServiceCarvingMcastType", ethernetSegment.ServiceCarvingMcastType})
     ethernetSegment.EntityData.Leafs.Append("es-import-route-target", types.YLeaf{"EsImportRouteTarget", ethernetSegment.EsImportRouteTarget})
     ethernetSegment.EntityData.Leafs.Append("service-carving-type", types.YLeaf{"ServiceCarvingType", ethernetSegment.ServiceCarvingType})
 
@@ -16786,23 +16731,23 @@ type Evpn_EvpnTables_EvpnInterfaces_EvpnInterface_EthernetSegment_Identifier str
     YPresence bool
 
     // Type 0's 1st Byte or Type Byte and 1st Byte. The type is string with
-    // pattern: b'[0-9a-fA-F]{1,8}'. This attribute is mandatory.
+    // pattern: [0-9a-fA-F]{1,8}. This attribute is mandatory.
     Bytes01 interface{}
 
-    // 2nd and 3rd Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 2nd and 3rd Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes23 interface{}
 
-    // 4th and 5th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 4th and 5th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes45 interface{}
 
-    // 6th and 7th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 6th and 7th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes67 interface{}
 
-    // 8th and 9th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 8th and 9th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes89 interface{}
 
     // Ethernet segment identifier type. The type is EthernetSegmentIdentifier.
@@ -16947,7 +16892,7 @@ type Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw struct {
 
     // This attribute is a key. Neighbor IP address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Neighbor interface{}
 
     // This attribute is a key. Pseudowire ID. The type is interface{} with range:
@@ -17039,12 +16984,8 @@ type Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw_EvpnVirtualEtherne
     // Enable Ethernet Segment. The type is interface{}.
     Enable interface{}
 
-    // Ethernet-Segment Service Carving multicast mode. The type is
-    // EthernetSegmentServiceCarvingMcast.
-    ServiceCarvingMcastType interface{}
-
     // ES-Import Route Target. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     EsImportRouteTarget interface{}
 
     // Ethernet-Segment Service Carving mode. The type is
@@ -17074,7 +17015,6 @@ func (evpnVirtualEthernetSegment *Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtu
     evpnVirtualEthernetSegment.EntityData.Children.Append("manual-service-carving", types.YChild{"ManualServiceCarving", &evpnVirtualEthernetSegment.ManualServiceCarving})
     evpnVirtualEthernetSegment.EntityData.Leafs = types.NewOrderedMap()
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("enable", types.YLeaf{"Enable", evpnVirtualEthernetSegment.Enable})
-    evpnVirtualEthernetSegment.EntityData.Leafs.Append("service-carving-mcast-type", types.YLeaf{"ServiceCarvingMcastType", evpnVirtualEthernetSegment.ServiceCarvingMcastType})
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("es-import-route-target", types.YLeaf{"EsImportRouteTarget", evpnVirtualEthernetSegment.EsImportRouteTarget})
     evpnVirtualEthernetSegment.EntityData.Leafs.Append("service-carving-type", types.YLeaf{"ServiceCarvingType", evpnVirtualEthernetSegment.ServiceCarvingType})
 
@@ -17092,23 +17032,23 @@ type Evpn_EvpnTables_EvpnVirtualAccessPws_EvpnVirtualAccessPw_EvpnVirtualEtherne
     YPresence bool
 
     // Type 0's 1st Byte or Type Byte and 1st Byte. The type is string with
-    // pattern: b'[0-9a-fA-F]{1,8}'. This attribute is mandatory.
+    // pattern: [0-9a-fA-F]{1,8}. This attribute is mandatory.
     Bytes01 interface{}
 
-    // 2nd and 3rd Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 2nd and 3rd Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes23 interface{}
 
-    // 4th and 5th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 4th and 5th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes45 interface{}
 
-    // 6th and 7th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 6th and 7th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes67 interface{}
 
-    // 8th and 9th Bytes. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
-    // This attribute is mandatory. Units are byte.
+    // 8th and 9th Bytes. The type is string with pattern: [0-9a-fA-F]{1,8}. This
+    // attribute is mandatory. Units are byte.
     Bytes89 interface{}
 
     // Ethernet segment identifier type. The type is EthernetSegmentIdentifier.
@@ -17286,7 +17226,7 @@ type Evpn_EvpnTables_EvpnEthernetSegment_EvpnEsiTypes_EvpnEsiType struct {
     YListKey string
 
     // This attribute is a key. ESI type. The type is interface{} with range:
-    // 1..1.
+    // 0..4294967295.
     EsiType interface{}
 
     // Disable ESI Autogeneration. The type is interface{}.
@@ -17312,298 +17252,5 @@ func (evpnEsiType *Evpn_EvpnTables_EvpnEthernetSegment_EvpnEsiTypes_EvpnEsiType)
     evpnEsiType.EntityData.YListKeys = []string {"EsiType"}
 
     return &(evpnEsiType.EntityData)
-}
-
-// Evpn_EvpnTables_Host
-// EVPN HOST Configuration
-type Evpn_EvpnTables_Host struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // EVPN HOST IPV6-ADDR Configuration.
-    Ipv6 Evpn_EvpnTables_Host_Ipv6
-
-    // EVPN HOST IPV4-ADDR Configuration.
-    Ipv4 Evpn_EvpnTables_Host_Ipv4
-
-    // EVPN HOST MAC-ADDR Configuration.
-    Mac Evpn_EvpnTables_Host_Mac
-}
-
-func (host *Evpn_EvpnTables_Host) GetEntityData() *types.CommonEntityData {
-    host.EntityData.YFilter = host.YFilter
-    host.EntityData.YangName = "host"
-    host.EntityData.BundleName = "cisco_ios_xr"
-    host.EntityData.ParentYangName = "evpn-tables"
-    host.EntityData.SegmentPath = "Cisco-IOS-XR-l2rib-cfg:host"
-    host.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/" + host.EntityData.SegmentPath
-    host.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    host.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    host.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    host.EntityData.Children = types.NewOrderedMap()
-    host.EntityData.Children.Append("ipv6", types.YChild{"Ipv6", &host.Ipv6})
-    host.EntityData.Children.Append("ipv4", types.YChild{"Ipv4", &host.Ipv4})
-    host.EntityData.Children.Append("mac", types.YChild{"Mac", &host.Mac})
-    host.EntityData.Leafs = types.NewOrderedMap()
-
-    host.EntityData.YListKeys = []string {}
-
-    return &(host.EntityData)
-}
-
-// Evpn_EvpnTables_Host_Ipv6
-// EVPN HOST IPV6-ADDR Configuration
-type Evpn_EvpnTables_Host_Ipv6 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // EVPN HOST [MAC/IPv4/IPv6] DUP-DETECT Configuration.
-    DuplicateDetection Evpn_EvpnTables_Host_Ipv6_DuplicateDetection
-}
-
-func (ipv6 *Evpn_EvpnTables_Host_Ipv6) GetEntityData() *types.CommonEntityData {
-    ipv6.EntityData.YFilter = ipv6.YFilter
-    ipv6.EntityData.YangName = "ipv6"
-    ipv6.EntityData.BundleName = "cisco_ios_xr"
-    ipv6.EntityData.ParentYangName = "host"
-    ipv6.EntityData.SegmentPath = "ipv6"
-    ipv6.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/" + ipv6.EntityData.SegmentPath
-    ipv6.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv6.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv6.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv6.EntityData.Children = types.NewOrderedMap()
-    ipv6.EntityData.Children.Append("duplicate-detection", types.YChild{"DuplicateDetection", &ipv6.DuplicateDetection})
-    ipv6.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv6.EntityData.YListKeys = []string {}
-
-    return &(ipv6.EntityData)
-}
-
-// Evpn_EvpnTables_Host_Ipv6_DuplicateDetection
-// EVPN HOST [MAC/IPv4/IPv6] DUP-DETECT
-// Configuration
-type Evpn_EvpnTables_Host_Ipv6_DuplicateDetection struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of moves to occur within the MoveInterval before a MAC/IPv4/IPv6
-    // address is marked as duplicate. The type is interface{} with range:
-    // 1..1000. The default value is 5.
-    MoveCount interface{}
-
-    // Number of times to automatically clear the duplicate flag on a
-    // MAC/IPV4/IPV6 route before permanently freezing it. The type is interface{}
-    // with range: 0..1000. The default value is 3.
-    RetryCount interface{}
-
-    // Length of time to lock the MAC/IPv4/IPv6 after a MAC/IPv4/IPv6 has been
-    // marked as duplicate. The type is interface{} with range: 5..3600. The
-    // default value is 30.
-    FreezeTime interface{}
-
-    // Interval within which MoveCount number of moves need to happen before a
-    // MAC/IPv4/IPv6 route is marked as duplicate. The type is interface{} with
-    // range: 5..3600. The default value is 180.
-    MoveInterval interface{}
-
-    // Set to disable duplicate detection. The type is interface{}.
-    Disable interface{}
-}
-
-func (duplicateDetection *Evpn_EvpnTables_Host_Ipv6_DuplicateDetection) GetEntityData() *types.CommonEntityData {
-    duplicateDetection.EntityData.YFilter = duplicateDetection.YFilter
-    duplicateDetection.EntityData.YangName = "duplicate-detection"
-    duplicateDetection.EntityData.BundleName = "cisco_ios_xr"
-    duplicateDetection.EntityData.ParentYangName = "ipv6"
-    duplicateDetection.EntityData.SegmentPath = "duplicate-detection"
-    duplicateDetection.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/ipv6/" + duplicateDetection.EntityData.SegmentPath
-    duplicateDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    duplicateDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    duplicateDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    duplicateDetection.EntityData.Children = types.NewOrderedMap()
-    duplicateDetection.EntityData.Leafs = types.NewOrderedMap()
-    duplicateDetection.EntityData.Leafs.Append("move-count", types.YLeaf{"MoveCount", duplicateDetection.MoveCount})
-    duplicateDetection.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", duplicateDetection.RetryCount})
-    duplicateDetection.EntityData.Leafs.Append("freeze-time", types.YLeaf{"FreezeTime", duplicateDetection.FreezeTime})
-    duplicateDetection.EntityData.Leafs.Append("move-interval", types.YLeaf{"MoveInterval", duplicateDetection.MoveInterval})
-    duplicateDetection.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", duplicateDetection.Disable})
-
-    duplicateDetection.EntityData.YListKeys = []string {}
-
-    return &(duplicateDetection.EntityData)
-}
-
-// Evpn_EvpnTables_Host_Ipv4
-// EVPN HOST IPV4-ADDR Configuration
-type Evpn_EvpnTables_Host_Ipv4 struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // EVPN HOST [MAC/IPv4/IPv6] DUP-DETECT Configuration.
-    DuplicateDetection Evpn_EvpnTables_Host_Ipv4_DuplicateDetection
-}
-
-func (ipv4 *Evpn_EvpnTables_Host_Ipv4) GetEntityData() *types.CommonEntityData {
-    ipv4.EntityData.YFilter = ipv4.YFilter
-    ipv4.EntityData.YangName = "ipv4"
-    ipv4.EntityData.BundleName = "cisco_ios_xr"
-    ipv4.EntityData.ParentYangName = "host"
-    ipv4.EntityData.SegmentPath = "ipv4"
-    ipv4.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/" + ipv4.EntityData.SegmentPath
-    ipv4.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    ipv4.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    ipv4.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    ipv4.EntityData.Children = types.NewOrderedMap()
-    ipv4.EntityData.Children.Append("duplicate-detection", types.YChild{"DuplicateDetection", &ipv4.DuplicateDetection})
-    ipv4.EntityData.Leafs = types.NewOrderedMap()
-
-    ipv4.EntityData.YListKeys = []string {}
-
-    return &(ipv4.EntityData)
-}
-
-// Evpn_EvpnTables_Host_Ipv4_DuplicateDetection
-// EVPN HOST [MAC/IPv4/IPv6] DUP-DETECT
-// Configuration
-type Evpn_EvpnTables_Host_Ipv4_DuplicateDetection struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of moves to occur within the MoveInterval before a MAC/IPv4/IPv6
-    // address is marked as duplicate. The type is interface{} with range:
-    // 1..1000. The default value is 5.
-    MoveCount interface{}
-
-    // Number of times to automatically clear the duplicate flag on a
-    // MAC/IPV4/IPV6 route before permanently freezing it. The type is interface{}
-    // with range: 0..1000. The default value is 3.
-    RetryCount interface{}
-
-    // Length of time to lock the MAC/IPv4/IPv6 after a MAC/IPv4/IPv6 has been
-    // marked as duplicate. The type is interface{} with range: 5..3600. The
-    // default value is 30.
-    FreezeTime interface{}
-
-    // Interval within which MoveCount number of moves need to happen before a
-    // MAC/IPv4/IPv6 route is marked as duplicate. The type is interface{} with
-    // range: 5..3600. The default value is 180.
-    MoveInterval interface{}
-
-    // Set to disable duplicate detection. The type is interface{}.
-    Disable interface{}
-}
-
-func (duplicateDetection *Evpn_EvpnTables_Host_Ipv4_DuplicateDetection) GetEntityData() *types.CommonEntityData {
-    duplicateDetection.EntityData.YFilter = duplicateDetection.YFilter
-    duplicateDetection.EntityData.YangName = "duplicate-detection"
-    duplicateDetection.EntityData.BundleName = "cisco_ios_xr"
-    duplicateDetection.EntityData.ParentYangName = "ipv4"
-    duplicateDetection.EntityData.SegmentPath = "duplicate-detection"
-    duplicateDetection.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/ipv4/" + duplicateDetection.EntityData.SegmentPath
-    duplicateDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    duplicateDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    duplicateDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    duplicateDetection.EntityData.Children = types.NewOrderedMap()
-    duplicateDetection.EntityData.Leafs = types.NewOrderedMap()
-    duplicateDetection.EntityData.Leafs.Append("move-count", types.YLeaf{"MoveCount", duplicateDetection.MoveCount})
-    duplicateDetection.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", duplicateDetection.RetryCount})
-    duplicateDetection.EntityData.Leafs.Append("freeze-time", types.YLeaf{"FreezeTime", duplicateDetection.FreezeTime})
-    duplicateDetection.EntityData.Leafs.Append("move-interval", types.YLeaf{"MoveInterval", duplicateDetection.MoveInterval})
-    duplicateDetection.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", duplicateDetection.Disable})
-
-    duplicateDetection.EntityData.YListKeys = []string {}
-
-    return &(duplicateDetection.EntityData)
-}
-
-// Evpn_EvpnTables_Host_Mac
-// EVPN HOST MAC-ADDR Configuration
-type Evpn_EvpnTables_Host_Mac struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // EVPN HOST [MAC/IPv4/IPv6] DUP-DETECT Configuration.
-    DuplicateDetection Evpn_EvpnTables_Host_Mac_DuplicateDetection
-}
-
-func (mac *Evpn_EvpnTables_Host_Mac) GetEntityData() *types.CommonEntityData {
-    mac.EntityData.YFilter = mac.YFilter
-    mac.EntityData.YangName = "mac"
-    mac.EntityData.BundleName = "cisco_ios_xr"
-    mac.EntityData.ParentYangName = "host"
-    mac.EntityData.SegmentPath = "mac"
-    mac.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/" + mac.EntityData.SegmentPath
-    mac.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    mac.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    mac.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    mac.EntityData.Children = types.NewOrderedMap()
-    mac.EntityData.Children.Append("duplicate-detection", types.YChild{"DuplicateDetection", &mac.DuplicateDetection})
-    mac.EntityData.Leafs = types.NewOrderedMap()
-
-    mac.EntityData.YListKeys = []string {}
-
-    return &(mac.EntityData)
-}
-
-// Evpn_EvpnTables_Host_Mac_DuplicateDetection
-// EVPN HOST [MAC/IPv4/IPv6] DUP-DETECT
-// Configuration
-type Evpn_EvpnTables_Host_Mac_DuplicateDetection struct {
-    EntityData types.CommonEntityData
-    YFilter yfilter.YFilter
-
-    // Number of moves to occur within the MoveInterval before a MAC/IPv4/IPv6
-    // address is marked as duplicate. The type is interface{} with range:
-    // 1..1000. The default value is 5.
-    MoveCount interface{}
-
-    // Number of times to automatically clear the duplicate flag on a
-    // MAC/IPV4/IPV6 route before permanently freezing it. The type is interface{}
-    // with range: 0..1000. The default value is 3.
-    RetryCount interface{}
-
-    // Length of time to lock the MAC/IPv4/IPv6 after a MAC/IPv4/IPv6 has been
-    // marked as duplicate. The type is interface{} with range: 5..3600. The
-    // default value is 30.
-    FreezeTime interface{}
-
-    // Interval within which MoveCount number of moves need to happen before a
-    // MAC/IPv4/IPv6 route is marked as duplicate. The type is interface{} with
-    // range: 5..3600. The default value is 180.
-    MoveInterval interface{}
-
-    // Set to disable duplicate detection. The type is interface{}.
-    Disable interface{}
-}
-
-func (duplicateDetection *Evpn_EvpnTables_Host_Mac_DuplicateDetection) GetEntityData() *types.CommonEntityData {
-    duplicateDetection.EntityData.YFilter = duplicateDetection.YFilter
-    duplicateDetection.EntityData.YangName = "duplicate-detection"
-    duplicateDetection.EntityData.BundleName = "cisco_ios_xr"
-    duplicateDetection.EntityData.ParentYangName = "mac"
-    duplicateDetection.EntityData.SegmentPath = "duplicate-detection"
-    duplicateDetection.EntityData.AbsolutePath = "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/Cisco-IOS-XR-l2rib-cfg:host/mac/" + duplicateDetection.EntityData.SegmentPath
-    duplicateDetection.EntityData.CapabilitiesTable = cisco_ios_xr.GetCapabilities()
-    duplicateDetection.EntityData.NamespaceTable = cisco_ios_xr.GetNamespaces()
-    duplicateDetection.EntityData.BundleYangModelsLocation = cisco_ios_xr.GetModelsPath()
-
-    duplicateDetection.EntityData.Children = types.NewOrderedMap()
-    duplicateDetection.EntityData.Leafs = types.NewOrderedMap()
-    duplicateDetection.EntityData.Leafs.Append("move-count", types.YLeaf{"MoveCount", duplicateDetection.MoveCount})
-    duplicateDetection.EntityData.Leafs.Append("retry-count", types.YLeaf{"RetryCount", duplicateDetection.RetryCount})
-    duplicateDetection.EntityData.Leafs.Append("freeze-time", types.YLeaf{"FreezeTime", duplicateDetection.FreezeTime})
-    duplicateDetection.EntityData.Leafs.Append("move-interval", types.YLeaf{"MoveInterval", duplicateDetection.MoveInterval})
-    duplicateDetection.EntityData.Leafs.Append("disable", types.YLeaf{"Disable", duplicateDetection.Disable})
-
-    duplicateDetection.EntityData.YListKeys = []string {}
-
-    return &(duplicateDetection.EntityData)
 }
 

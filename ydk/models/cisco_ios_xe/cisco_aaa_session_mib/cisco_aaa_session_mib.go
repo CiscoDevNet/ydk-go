@@ -210,7 +210,7 @@ type CISCOAAASESSIONMIB_CasnActiveTable_CasnActiveEntry struct {
     // The IP address of the session or 0.0.0.0 if not applicable or unavailable. 
     // RADIUS:  attribute 8, Framed-IP-Address TACACS+: attribute 'addr'. The type
     // is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CasnIpAddr interface{}
 
     // The elapsed time that this session has been idle.  This is the time since
@@ -249,7 +249,7 @@ type CISCOAAASESSIONMIB_CasnActiveTable_CasnActiveEntry struct {
     // ------------------------------+  where atmVclAdminStatus is the first
     // accessible object of the atmVclTable of the ATM-MIB. The type is string
     // with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CasnNasPort interface{}
 
     // The ifIndex of the Virtual Access Interface (VAI) that is associated with

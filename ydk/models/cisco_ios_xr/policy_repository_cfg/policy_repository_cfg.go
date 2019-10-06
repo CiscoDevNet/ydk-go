@@ -112,7 +112,7 @@ type RoutingPolicy_RoutePolicies_RoutePolicy struct {
     YListKey string
 
     // This attribute is a key. Route policy name. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     RoutePolicyName interface{}
 
     // policy statements. The type is string. This attribute is mandatory.
@@ -276,7 +276,7 @@ type RoutingPolicy_Sets_PrefixSets_PrefixSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // prefix statements. The type is string. This attribute is mandatory.
@@ -346,7 +346,7 @@ type RoutingPolicy_Sets_LargeCommunitySets_LargeCommunitySet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Large Community Set. The type is string. This attribute is mandatory.
@@ -416,7 +416,7 @@ type RoutingPolicy_Sets_MacSets_MacSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Mac Set. The type is string. This attribute is mandatory.
@@ -486,7 +486,7 @@ type RoutingPolicy_Sets_ExtendedCommunityOpaqueSets_ExtendedCommunityOpaqueSet s
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community Opaque Set. The type is string. This attribute is
@@ -523,14 +523,13 @@ type RoutingPolicy_Sets_OspfAreaSets struct {
 
     // Information about an individual OSPF area set. Usage: OSPF area set allows
     // to define named set of area numbers        which can be referenced in the
-    // route-policy. Area sets      may be used during redistribution of the ospf
-    // protocol.  Example: ospf-area-set EXAMPLE      1,                          
-    // 192.168.1.255                                  end-set                     
-    // Syntax: OSPF area number can be entered as 32 bit number or in          the
-    // ip address format. See example.                     Semantic: Area numbers
-    // listed in the set will be searched for             a match. In the example
-    // these are areas 1 and                  192.168.1.255.                      
-    // . The type is slice of RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet.
+    // route-policy. Area sets may be used during redistribution of the ospf
+    // protocol.  Example: ospf-area-set EXAMPLE 1, 192.168.1.255 end-set Syntax:
+    // OSPF area number can be entered as 32 bit number or in          the ip
+    // address format. See example. Semantic: Area numbers listed in the set will
+    // be searched for             a match. In the example these are areas 1 and
+    // 192.168.1.255.                                . The type is slice of
+    // RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet.
     OspfAreaSet []*RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet
 }
 
@@ -561,18 +560,18 @@ func (ospfAreaSets *RoutingPolicy_Sets_OspfAreaSets) GetEntityData() *types.Comm
 // Information about an individual OSPF area set.
 // Usage: OSPF area set allows to define named
 // set of area numbers        which can be
-// referenced in the route-policy. Area sets     
+// referenced in the route-policy. Area sets
 // may be used during redistribution of the ospf
-// protocol.  Example: ospf-area-set EXAMPLE     
-// 1,                                            
-// 192.168.1.255                                 
-// end-set                                       
+// protocol.  Example: ospf-area-set EXAMPLE
+// 1,
+// 192.168.1.255
+// end-set
 // Syntax: OSPF area number can be entered as 32
 // bit number or in          the ip address
-// format. See example.                    
+// format. See example.
 // Semantic: Area numbers listed in the set will
 // be searched for             a match. In the
-// example these are areas 1 and                 
+// example these are areas 1 and
 // 192.168.1.255.                                
 type RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet struct {
     EntityData types.CommonEntityData
@@ -580,7 +579,7 @@ type RoutingPolicy_Sets_OspfAreaSets_OspfAreaSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // OSPF Area Set. The type is string. This attribute is mandatory.
@@ -650,7 +649,7 @@ type RoutingPolicy_Sets_ExtendedCommunityCostSets_ExtendedCommunityCostSet struc
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community Cost Set. The type is string. This attribute is
@@ -721,7 +720,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySooSets_ExtendedCommunitySooSet struct 
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community SOO Set. The type is string. This attribute is
@@ -792,7 +791,7 @@ type RoutingPolicy_Sets_EsiSets_EsiSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Esi Set. The type is string. This attribute is mandatory.
@@ -862,7 +861,7 @@ type RoutingPolicy_Sets_ExtendedCommunitySegNhSets_ExtendedCommunitySegNhSet str
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community SegNH Set. The type is string. This attribute is
@@ -933,7 +932,7 @@ type RoutingPolicy_Sets_RdSets_RdSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // RD Set. The type is string. This attribute is mandatory.
@@ -1033,7 +1032,7 @@ type RoutingPolicy_Sets_ExtendedCommunityBandwidthSets_ExtendedCommunityBandwidt
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community Bandwidth Set. The type is string. This attribute is
@@ -1104,7 +1103,7 @@ type RoutingPolicy_Sets_CommunitySets_CommunitySet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Community Set. The type is string. This attribute is mandatory.
@@ -1174,7 +1173,7 @@ type RoutingPolicy_Sets_AsPathSets_AsPathSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // ASPath Set. The type is string. This attribute is mandatory.
@@ -1244,7 +1243,7 @@ type RoutingPolicy_Sets_TagSets_TagSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Tag Set. The type is string. This attribute is mandatory.
@@ -1314,7 +1313,7 @@ type RoutingPolicy_Sets_EtagSets_EtagSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Etag Set. The type is string. This attribute is mandatory.
@@ -1384,7 +1383,7 @@ type RoutingPolicy_Sets_ExtendedCommunityRtSets_ExtendedCommunityRtSet struct {
     YListKey string
 
     // This attribute is a key. Set name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     SetName interface{}
 
     // Extended Community RT Set. The type is string. This attribute is mandatory.

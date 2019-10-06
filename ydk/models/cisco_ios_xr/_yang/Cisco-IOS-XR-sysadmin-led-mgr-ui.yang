@@ -61,17 +61,6 @@ module Cisco-IOS-XR-sysadmin-led-mgr-ui {
       }
       list led_attributes {
         key "led_name";
-        leaf location {
-          type string;
-        }
-        leaf print_header {
-          type boolean;
-          default "false";
-        }
-        leaf loc_header {
-          type boolean;
-          default "false";
-        }
         leaf led_name {
           type string;
         }

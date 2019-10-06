@@ -19,6 +19,20 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-device-hardware-oper:device-hardware-data", reflect.TypeOf(DeviceHardwareData{}))
 }
 
+// AlarmSeverity represents Alarm severity
+type AlarmSeverity string
+
+const (
+    // Critical Alarms
+    AlarmSeverity_alarm_severity_critical AlarmSeverity = "alarm-severity-critical"
+
+    // Major Alarms
+    AlarmSeverity_alarm_severity_major AlarmSeverity = "alarm-severity-major"
+
+    // Minor Alarms
+    AlarmSeverity_alarm_severity_minor AlarmSeverity = "alarm-severity-minor"
+)
+
 // HwType represents The broad type of hardware device
 type HwType string
 
@@ -58,20 +72,6 @@ const (
 
     // Power Entry Module
     HwType_hw_type_pem HwType = "hw-type-pem"
-)
-
-// AlarmSeverity represents Alarm severity
-type AlarmSeverity string
-
-const (
-    // Critical Alarms
-    AlarmSeverity_alarm_severity_critical AlarmSeverity = "alarm-severity-critical"
-
-    // Major Alarms
-    AlarmSeverity_alarm_severity_major AlarmSeverity = "alarm-severity-major"
-
-    // Minor Alarms
-    AlarmSeverity_alarm_severity_minor AlarmSeverity = "alarm-severity-minor"
 )
 
 // DeviceHardwareData
@@ -230,7 +230,7 @@ type DeviceHardwareData_DeviceHardware_DeviceAlarm struct {
     AlarmCategory interface{}
 
     // Time the alarm was raised. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     AlarmTime interface{}
 
     // Description of the alarm. The type is string.
@@ -271,13 +271,13 @@ type DeviceHardwareData_DeviceHardware_DeviceSystemData struct {
     YPresence bool
 
     // Current time on device in UTC. The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     CurrentTime interface{}
 
     // This timestamp indicates the time that the system was last restarted.  The
     // value is the timestamp in seconds relative to the Unix Epoch (Jan 1, 1970
     // 00:00:00 UTC). The type is string with pattern:
-    // b'\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})'.
+    // \d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[\+\-]\d{2}:\d{2}).
     BootTime interface{}
 
     // Software version. The type is string.

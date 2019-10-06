@@ -602,7 +602,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       leaf count2 {
         when "../thresh-type != 'immediate' and ../thresh-type != 'consecutive'" {
           description
-            "../ThreshType != Immediate and ../ThreshType 
+            "../ThreshType != Immediate and ../ThreshType
              != Consecutive";
         }
         type uint32 {
@@ -645,7 +645,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       leaf count2 {
         when "../thresh-type != 'immediate' and ../thresh-type != 'consecutive' and ../thresh-type != 'average'" {
           description
-            "../ThreshType != Immediate and ../ThreshType 
+            "../ThreshType != Immediate and ../ThreshType
              != Consecutive and ../ThreshType != Average";
         }
         type uint32 {
@@ -934,6 +934,18 @@ module Cisco-IOS-XR-man-ipsla-cfg {
     }
   }
 
+  grouping CREATE {
+    description
+      "Common node of icmp-echo, icmp-path-echo,
+       icmp-path-jitter, udp-echo, udp-jitter,
+       mpls-lsp-ping, mpls-lsp-trace";
+    leaf create {
+      type empty;
+      description
+        "Create operation with specified type";
+    }
+  }
+
   grouping IPSLA-MPLSLM-DEF-CFG-CREATE {
     description
       "Common node of icmp-echo, icmp-path-echo,
@@ -944,6 +956,24 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       type empty;
       description
         "Create MPLSLM instance with specified type";
+    }
+  }
+
+  grouping IPSLA-OP-REACT-CFG-CREATE {
+    description
+      "Common node of icmp-echo, icmp-path-echo,
+       icmp-path-jitter, udp-echo, udp-jitter,
+       mpls-lsp-ping, mpls-lsp-traceCommon node of
+       mpls-lsp-ping, mpls-lsp-traceCommon node of
+       timeout, verify-error, connection-loss,
+       jitter-average, jitter-average-sd,
+       jitter-average-ds, packet-loss-sd, packet-loss-ds
+       , rtt";
+    leaf create {
+      type empty;
+      description
+        "Create reaction condition for a particular
+         operation";
     }
   }
 
@@ -1288,33 +1318,33 @@ module Cisco-IOS-XR-man-ipsla-cfg {
             description
               "Reaction condition specification";
             container lpd-tree-trace {
-              presence "CLI submode compatibility.";
               description
                 "React on LPD Tree Trace violation for a
                  monitored MPLSLM";
               uses IPSLA-MPLSLM-REACT-CFG-ACTION-TYPE;
+              uses IPSLA-MPLSLM-REACT-CFG-CREATE;
             }
             container timeout {
-              presence "CLI submode compatibility.";
               description
                 "React on probe timeout";
               uses IPSLA-MPLSLM-REACT-CFG-ACTION-TYPE;
               uses THRESHOLD-TYPE;
+              uses IPSLA-MPLSLM-REACT-CFG-CREATE;
             }
             container lpd-group {
-              presence "CLI submode compatibility.";
               description
                 "React on LPD Group violation for a monitored
                  MPLSLM";
               uses IPSLA-MPLSLM-REACT-CFG-ACTION-TYPE;
+              uses IPSLA-MPLSLM-REACT-CFG-CREATE;
             }
             container connection-loss {
-              presence "CLI submode compatibility.";
               description
                 "React on connection loss for a monitored
                  MPLSLM";
               uses IPSLA-MPLSLM-REACT-CFG-ACTION-TYPE;
               uses THRESHOLD-TYPE;
+              uses IPSLA-MPLSLM-REACT-CFG-CREATE;
             }
           }
           leaf monitor-id {
@@ -1449,7 +1479,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
             description
               "Operation type specification";
             container mpls-lsp-trace {
-              presence "CLI submode compatibility.";
               description
                 "Perform MPLS LSP Trace operation";
               leaf ttl {
@@ -1466,6 +1495,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-MPLSLM-DEF-CFG-LSP-SELECTOR;
               uses OUTPUT-INTERFACE;
               uses ACCESSLIST;
+              uses IPSLA-MPLSLM-DEF-CFG-CREATE;
               uses IPSLA-MPLSLM-DEF-CFG-OUTPUT-NEXTHOP;
               uses IPSLA-MPLSLM-DEF-CFG-STATISTICS;
               uses TIMEOUT;
@@ -1474,7 +1504,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-MPLSLM-DEF-CFG-VRF;
             }
             container mpls-lsp-ping {
-              presence "CLI submode compatibility.";
               description
                 "Perform MPLS LSP Ping operation";
               container data-size {
@@ -1492,7 +1521,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
                 }
               }
               container path-discover {
-                presence "CLI submode compatibility.";
                 description
                   "Path discover configuration";
                 container session {
@@ -1612,6 +1640,11 @@ module Cisco-IOS-XR-man-ipsla-cfg {
                   description
                     "Time period for finishing path discovery";
                 }
+                leaf create {
+                  type empty;
+                  description
+                    "Create LPD instance";
+                }
               }
               leaf ttl {
                 type uint32 {
@@ -1627,6 +1660,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-MPLSLM-DEF-CFG-LSP-SELECTOR;
               uses OUTPUT-INTERFACE;
               uses ACCESSLIST;
+              uses IPSLA-MPLSLM-DEF-CFG-CREATE;
               uses IPSLA-MPLSLM-DEF-CFG-OUTPUT-NEXTHOP;
               uses IPSLA-MPLSLM-DEF-CFG-STATISTICS;
               uses TIMEOUT;
@@ -1776,78 +1810,78 @@ module Cisco-IOS-XR-man-ipsla-cfg {
             description
               "Reaction condition specification";
             container jitter-average-ds {
-              presence "CLI submode compatibility.";
               description
                 "React on destination to source jitter
                  threshold violation";
               uses THRESHOLD-LIMITS;
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container timeout {
-              presence "CLI submode compatibility.";
               description
                 "React on probe timeout";
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container jitter-average {
-              presence "CLI submode compatibility.";
               description
                 "React on average round trip jitter threshold
                  violation";
               uses THRESHOLD-LIMITS;
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container verify-error {
-              presence "CLI submode compatibility.";
               description
                 "React on error verfication violation";
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container rtt {
-              presence "CLI submode compatibility.";
               description
                 "React on round trip time threshold violation";
               uses THRESHOLD-LIMITS;
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container packet-loss-sd {
-              presence "CLI submode compatibility.";
               description
                 "React on destination to source packet loss
                  threshold violation";
               uses THRESHOLD-LIMITS;
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container jitter-average-sd {
-              presence "CLI submode compatibility.";
               description
                 "React on average source to destination
                  jitter threshold violation";
               uses THRESHOLD-LIMITS;
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container connection-loss {
-              presence "CLI submode compatibility.";
               description
                 "React on connection loss for a monitored
                  operation";
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
             container packet-loss-ds {
-              presence "CLI submode compatibility.";
               description
                 "React on source to destination packet loss
                  threshold violation";
               uses THRESHOLD-LIMITS;
               uses ACTION-TYPE;
+              uses IPSLA-OP-REACT-CFG-CREATE;
               uses IPSLA-OP-REACT-CFG-THRESHOLD-TYPE;
             }
           }
@@ -1896,7 +1930,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
             description
               "Operation type specification";
             container icmp-echo {
-              presence "CLI submode compatibility.";
               description
                 "ICMPEcho Operation type";
               container data-size {
@@ -1926,6 +1959,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               }
               uses SOURCE-ADDRESS;
               uses TOS;
+              uses CREATE;
               uses STATISTICS;
               uses VRF;
               uses HISTORY;
@@ -1936,7 +1970,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-OP-DEF-COMMON-CFG-TAG;
             }
             container mpls-lsp-ping {
-              presence "CLI submode compatibility.";
               description
                 "MPLS LSP Ping Operation type";
               container data-size {
@@ -2033,6 +2066,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               }
               uses SOURCE-ADDRESS;
               uses OUTPUT-NEXTHOP;
+              uses CREATE;
               uses LSP-SELECTOR;
               uses STATISTICS;
               uses IPSLA-OP-DEF-MPLS-LSP-CFG-EXP-BITS;
@@ -2045,7 +2079,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-OP-DEF-COMMON-CFG-TAG;
             }
             container udp-echo {
-              presence "CLI submode compatibility.";
               description
                 "UDPEcho Operation type";
               container data-size {
@@ -2066,6 +2099,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses TOS;
               uses CONTROL-DISABLE;
               uses SOURCE-PORT;
+              uses CREATE;
               uses STATISTICS;
               uses VRF;
               uses HISTORY;
@@ -2078,7 +2112,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-OP-DEF-COMMON-CFG-TAG;
             }
             container mpls-lsp-trace {
-              presence "CLI submode compatibility.";
               description
                 "MPLS LSP Trace Operation type";
               container target {
@@ -2139,6 +2172,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               }
               uses SOURCE-ADDRESS;
               uses OUTPUT-NEXTHOP;
+              uses CREATE;
               uses LSP-SELECTOR;
               uses STATISTICS;
               uses IPSLA-OP-DEF-MPLS-LSP-CFG-EXP-BITS;
@@ -2150,7 +2184,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-OP-DEF-COMMON-CFG-TAG;
             }
             container udp-jitter {
-              presence "CLI submode compatibility.";
               description
                 "UDPJitter Operation type";
               container data-size {
@@ -2194,6 +2227,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses TOS;
               uses CONTROL-DISABLE;
               uses SOURCE-PORT;
+              uses CREATE;
               uses STATISTICS;
               uses VRF;
               uses IPSLA-OP-DEF-COMMON-CFG-TIMEOUT;
@@ -2205,7 +2239,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-OP-DEF-COMMON-CFG-TAG;
             }
             container icmp-path-echo {
-              presence "CLI submode compatibility.";
               description
                 "ICMPPathEcho Operation type";
               container history {
@@ -2311,6 +2344,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses SOURCE-ADDRESS;
               uses TOS;
               uses LSR-PATH;
+              uses CREATE;
               uses VRF;
               uses IPSLA-OP-DEF-COMMON-CFG-TIMEOUT;
               uses FREQUENCY;
@@ -2318,7 +2352,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses IPSLA-OP-DEF-COMMON-CFG-TAG;
             }
             container icmp-path-jitter {
-              presence "CLI submode compatibility.";
               description
                 "ICMPPathJitter Operation type";
               container data-size {
@@ -2361,6 +2394,7 @@ module Cisco-IOS-XR-man-ipsla-cfg {
               uses SOURCE-ADDRESS;
               uses TOS;
               uses LSR-PATH;
+              uses CREATE;
               uses VRF;
               uses IPSLA-OP-DEF-COMMON-CFG-TIMEOUT;
               uses FREQUENCY;
@@ -2379,11 +2413,9 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       }
     }
     container responder {
-      presence "CLI submode compatibility.";
       description
         "Responder configuration";
       container twamp {
-        presence "CLI submode compatibility.";
         description
           "Responder TWAMP configuration";
         leaf timeout {
@@ -2514,7 +2546,6 @@ module Cisco-IOS-XR-man-ipsla-cfg {
       }
     }
     container server-twamp {
-      presence "CLI submode compatibility.";
       description
         "IPPM Server configuration";
       leaf inactivity-timer {

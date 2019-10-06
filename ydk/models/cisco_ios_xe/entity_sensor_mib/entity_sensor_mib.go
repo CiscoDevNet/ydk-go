@@ -50,6 +50,17 @@ const (
     EntitySensorDataType_truthvalue EntitySensorDataType = "truthvalue"
 )
 
+// EntitySensorStatus represents of-range, jittery, or wildly fluctuating readings.
+type EntitySensorStatus string
+
+const (
+    EntitySensorStatus_ok EntitySensorStatus = "ok"
+
+    EntitySensorStatus_unavailable EntitySensorStatus = "unavailable"
+
+    EntitySensorStatus_nonoperational EntitySensorStatus = "nonoperational"
+)
+
 // EntitySensorDataScale represents object of type EntitySensorValue.
 type EntitySensorDataScale string
 
@@ -87,17 +98,6 @@ const (
     EntitySensorDataScale_zetta EntitySensorDataScale = "zetta"
 
     EntitySensorDataScale_yotta EntitySensorDataScale = "yotta"
-)
-
-// EntitySensorStatus represents of-range, jittery, or wildly fluctuating readings.
-type EntitySensorStatus string
-
-const (
-    EntitySensorStatus_ok EntitySensorStatus = "ok"
-
-    EntitySensorStatus_unavailable EntitySensorStatus = "unavailable"
-
-    EntitySensorStatus_nonoperational EntitySensorStatus = "nonoperational"
 )
 
 // ENTITYSENSORMIB

@@ -1416,7 +1416,7 @@ type CISCODOCSEXTMIB_CdxCmCpeTable_CdxCmCpeEntry struct {
 
     // This attribute is a key. The Mac address to identify a cable modem or a
     // Customer  Premises Equipment. . The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxCmCpeMacAddress interface{}
 
     // Indicate this entry is for cable modem or Customer Premises  Equipment. 
@@ -1426,7 +1426,7 @@ type CISCODOCSEXTMIB_CdxCmCpeTable_CdxCmCpeEntry struct {
 
     // Ip address of the cable modem or Customer Premises Equipment. . The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CdxCmCpeIpAddress interface{}
 
     // The CMTS cable MAC interface index (ifType of  docsCableMaclayer(127)) that
@@ -2164,7 +2164,7 @@ type CISCODOCSEXTMIB_CdxCmtsCmChOverTable_CdxCmtsCmChOverEntry struct {
     // downstream and/or upstream channel.    This column must be set to a valid
     // Mac address currently in the CMTS in order for this entry's row status to
     // be set to active successfully. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxCmtsCmChOverMacAddress interface{}
 
     // The new downstream frequency which the cable modem is  instructed to move
@@ -2580,7 +2580,7 @@ type CISCODOCSEXTMIB_CdxCmToCpeTable_CdxCmToCpeEntry struct {
 
     // This attribute is a key. The MAC address that uniquely identifies a cable
     // modem that CPEs connects to. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxCmToCpeCmMacAddress interface{}
 
     // This attribute is a key. The type of Internet address of the
@@ -2672,11 +2672,11 @@ type CISCODOCSEXTMIB_CdxCpeToCmTable_CdxCpeToCmEntry struct {
     YListKey string
 
     // This attribute is a key. This object identifies the MAC address of the CPE.
-    // The type is string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxCpeToCmCpeMacAddress interface{}
 
     // This object identifies the MAC address of the cable modem. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxCpeToCmMacAddress interface{}
 
     // The type of Internet address of the cdxCpeToCmInetAddress object. The type
@@ -2765,8 +2765,7 @@ type CISCODOCSEXTMIB_CdxCpeIpPrefixTable_CdxCpeIpPrefixEntry struct {
     YListKey string
 
     // This attribute is a key. This object indicates the MAC address of the cable
-    // modem. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // modem. The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxCpeIpPrefixCmMacAddress interface{}
 
     // This attribute is a key. This object indicates the IP prefix type of the
@@ -2785,7 +2784,7 @@ type CISCODOCSEXTMIB_CdxCpeIpPrefixTable_CdxCpeIpPrefixEntry struct {
     CdxCpeIpPrefixLen interface{}
 
     // This object indicates the MAC address of CPE. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxCpeIpPrefixCpeMacAddress interface{}
 
     // This object indicates the type of CPE. Device Type: B - CM Bridge, R - CM
@@ -3100,7 +3099,7 @@ type CISCODOCSEXTMIB_CdxWBResilCmTable_CdxWBResilCmEntry struct {
     // This attribute represents the MAC address of the CM. If the CM has multiple
     // MAC addresses, this is the MAC address associated with the MAC Domain
     // interface. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxWBResilCmMacAddr interface{}
 
     // Total downstream channel number of the CM. The type is interface{} with
@@ -3620,8 +3619,7 @@ type CISCODOCSEXTMIB_CdxRPDGS7KTable_CdxRPDGS7KEntry struct {
     YListKey string
 
     // This attribute is a key. This is MacAddress of RPDGS7K which is used for
-    // index. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // index. The type is string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CdxRPDGS7KMacAddress interface{}
 
     // This is the Object of RPDGS7KPS1p24v. The type is interface{} with range:

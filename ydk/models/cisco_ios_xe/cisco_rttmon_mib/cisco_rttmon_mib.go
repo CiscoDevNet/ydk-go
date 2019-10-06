@@ -2158,13 +2158,13 @@ type CISCORTTMONMIB_RttMonEchoAdminTable_RttMonEchoAdminEntry struct {
     // This object indicates the MAC address of the target device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminTargetMacAddress and
     // rttMonEchoAdminTargetMPID may not be used in conjunction. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     RttMonEchoAdminTargetMacAddress interface{}
 
     // This object indicates the MAC address of the source device. This object is
     // only applicable for Y.1731 operations.  rttMonEchoAdminSourceMacAddress and
     // rttMonEchoAdminSourceMPID may not be used in conjunction. The type is
-    // string with pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // string with pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     RttMonEchoAdminSourceMacAddress interface{}
 
     // This object indicates the source maintenance point ID.  It is only

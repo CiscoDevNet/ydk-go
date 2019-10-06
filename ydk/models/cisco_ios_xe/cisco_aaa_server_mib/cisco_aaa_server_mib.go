@@ -247,7 +247,7 @@ type CISCOAAASERVERMIB_CasConfigTable_CasConfigEntry struct {
     CasIndex interface{}
 
     // The IP address of the server. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CasAddress interface{}
 
     // UDP/TCP port used for authentication in the configuration  For TACACS+,

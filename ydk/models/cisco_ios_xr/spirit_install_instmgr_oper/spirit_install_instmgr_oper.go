@@ -24,80 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-spirit-install-instmgr-oper:software-install", reflect.TypeOf(SoftwareInstall{}))
 }
 
-// NodeRoleEt represents node role
-type NodeRoleEt string
-
-const (
-    // Unknown
-    NodeRoleEt_node_unknown NodeRoleEt = "node-unknown"
-
-    // Active
-    NodeRoleEt_node_active NodeRoleEt = "node-active"
-
-    // Standby
-    NodeRoleEt_node_standby NodeRoleEt = "node-standby"
-
-    // Unusable
-    NodeRoleEt_node_unusable NodeRoleEt = "node-unusable"
-)
-
-// IssudirNodeStatusEt represents ISSU node status
-type IssudirNodeStatusEt string
-
-const (
-    // Not ISSU Ready
-    IssudirNodeStatusEt_not_issu_ready IssudirNodeStatusEt = "not-issu-ready"
-
-    // ISSU Ready
-    IssudirNodeStatusEt_issu_ready IssudirNodeStatusEt = "issu-ready"
-
-    // ISSU Go
-    IssudirNodeStatusEt_isus_go IssudirNodeStatusEt = "isus-go"
-
-    // Node Fail
-    IssudirNodeStatusEt_node_fail IssudirNodeStatusEt = "node-fail"
-)
-
-// IssuNodeRoleEt represents ISSU role
-type IssuNodeRoleEt string
-
-const (
-    // Unknown
-    IssuNodeRoleEt_unknown_role IssuNodeRoleEt = "unknown-role"
-
-    // Primary
-    IssuNodeRoleEt_primary_role IssuNodeRoleEt = "primary-role"
-
-    // Secondary
-    IssuNodeRoleEt_secondary_role IssuNodeRoleEt = "secondary-role"
-
-    // Tertiary
-    IssuNodeRoleEt_tertiary_role IssuNodeRoleEt = "tertiary-role"
-)
-
-// CardTypeEt represents card type
-type CardTypeEt string
-
-const (
-    // Card RP
-    CardTypeEt_card_rp CardTypeEt = "card-rp"
-
-    // Card DRP
-    CardTypeEt_card_drp CardTypeEt = "card-drp"
-
-    // Card LC
-    CardTypeEt_card_lc CardTypeEt = "card-lc"
-
-    // Card SC
-    CardTypeEt_card_sc CardTypeEt = "card-sc"
-
-    // Card SP
-    CardTypeEt_card_sp CardTypeEt = "card-sp"
-
-    // Card Other
-    CardTypeEt_card_other CardTypeEt = "card-other"
-)
-
 // IsdErrorEt represents isd error
 type IsdErrorEt string
 
@@ -169,36 +95,21 @@ const (
     IsdErrorEt_err_issu_dir_restart IsdErrorEt = "err-issu-dir-restart"
 )
 
-// IsdIssuStatusEt represents isd status
-type IsdIssuStatusEt string
+// NodeRoleEt represents node role
+type NodeRoleEt string
 
 const (
-    // ISSU STATUS OK
-    IsdIssuStatusEt_ok IsdIssuStatusEt = "ok"
+    // Unknown
+    NodeRoleEt_node_unknown NodeRoleEt = "node-unknown"
 
-    // ISSU STATUS PREP DONE
-    IsdIssuStatusEt_prep_done IsdIssuStatusEt = "prep-done"
+    // Active
+    NodeRoleEt_node_active NodeRoleEt = "node-active"
 
-    // ISSU STATUS BIG BANG
-    IsdIssuStatusEt_big_bang IsdIssuStatusEt = "big-bang"
+    // Standby
+    NodeRoleEt_node_standby NodeRoleEt = "node-standby"
 
-    // ISSU STATUS DONE
-    IsdIssuStatusEt_done IsdIssuStatusEt = "done"
-
-    // ISSU STATUS ABORT
-    IsdIssuStatusEt_abort IsdIssuStatusEt = "abort"
-
-    // ISSU STATUS CMD REJECT
-    IsdIssuStatusEt_cmd_reject IsdIssuStatusEt = "cmd-reject"
-
-    // ISSU STATUS UNKNOWN
-    IsdIssuStatusEt_unknown IsdIssuStatusEt = "unknown"
-
-    // ISSU STATUS ABORT CLEANUP
-    IsdIssuStatusEt_abort_cleanup IsdIssuStatusEt = "abort-cleanup"
-
-    // ISSU STATUS CMD ABORT REJECT
-    IsdIssuStatusEt_abort_cmd_reject IsdIssuStatusEt = "abort-cmd-reject"
+    // Unusable
+    NodeRoleEt_node_unusable NodeRoleEt = "node-unusable"
 )
 
 // IsdStateEt represents isd state
@@ -258,6 +169,95 @@ const (
 
     // ISSU UNKNOWN STATE
     IsdStateEt_unknown_state IsdStateEt = "unknown-state"
+)
+
+// IsdIssuStatusEt represents isd status
+type IsdIssuStatusEt string
+
+const (
+    // ISSU STATUS OK
+    IsdIssuStatusEt_ok IsdIssuStatusEt = "ok"
+
+    // ISSU STATUS PREP DONE
+    IsdIssuStatusEt_prep_done IsdIssuStatusEt = "prep-done"
+
+    // ISSU STATUS BIG BANG
+    IsdIssuStatusEt_big_bang IsdIssuStatusEt = "big-bang"
+
+    // ISSU STATUS DONE
+    IsdIssuStatusEt_done IsdIssuStatusEt = "done"
+
+    // ISSU STATUS ABORT
+    IsdIssuStatusEt_abort IsdIssuStatusEt = "abort"
+
+    // ISSU STATUS CMD REJECT
+    IsdIssuStatusEt_cmd_reject IsdIssuStatusEt = "cmd-reject"
+
+    // ISSU STATUS UNKNOWN
+    IsdIssuStatusEt_unknown IsdIssuStatusEt = "unknown"
+
+    // ISSU STATUS ABORT CLEANUP
+    IsdIssuStatusEt_abort_cleanup IsdIssuStatusEt = "abort-cleanup"
+
+    // ISSU STATUS CMD ABORT REJECT
+    IsdIssuStatusEt_abort_cmd_reject IsdIssuStatusEt = "abort-cmd-reject"
+)
+
+// IssudirNodeStatusEt represents ISSU node status
+type IssudirNodeStatusEt string
+
+const (
+    // Not ISSU Ready
+    IssudirNodeStatusEt_not_issu_ready IssudirNodeStatusEt = "not-issu-ready"
+
+    // ISSU Ready
+    IssudirNodeStatusEt_issu_ready IssudirNodeStatusEt = "issu-ready"
+
+    // ISSU Go
+    IssudirNodeStatusEt_isus_go IssudirNodeStatusEt = "isus-go"
+
+    // Node Fail
+    IssudirNodeStatusEt_node_fail IssudirNodeStatusEt = "node-fail"
+)
+
+// IssuNodeRoleEt represents ISSU role
+type IssuNodeRoleEt string
+
+const (
+    // Unknown
+    IssuNodeRoleEt_unknown_role IssuNodeRoleEt = "unknown-role"
+
+    // Primary
+    IssuNodeRoleEt_primary_role IssuNodeRoleEt = "primary-role"
+
+    // Secondary
+    IssuNodeRoleEt_secondary_role IssuNodeRoleEt = "secondary-role"
+
+    // Tertiary
+    IssuNodeRoleEt_tertiary_role IssuNodeRoleEt = "tertiary-role"
+)
+
+// CardTypeEt represents card type
+type CardTypeEt string
+
+const (
+    // Card RP
+    CardTypeEt_card_rp CardTypeEt = "card-rp"
+
+    // Card DRP
+    CardTypeEt_card_drp CardTypeEt = "card-drp"
+
+    // Card LC
+    CardTypeEt_card_lc CardTypeEt = "card-lc"
+
+    // Card SC
+    CardTypeEt_card_sc CardTypeEt = "card-sc"
+
+    // Card SP
+    CardTypeEt_card_sp CardTypeEt = "card-sp"
+
+    // Card Other
+    CardTypeEt_card_other CardTypeEt = "card-other"
 )
 
 // SoftwareInstall
@@ -406,9 +406,6 @@ type SoftwareInstall_Superseded_SupersededPackageInfo struct {
 
     // SupersededPackages. The type is string.
     SupersededPackages interface{}
-
-    // NumberOfPackages. The type is interface{} with range: 0..4294967295.
-    NumberOfPackages interface{}
 }
 
 func (supersededPackageInfo *SoftwareInstall_Superseded_SupersededPackageInfo) GetEntityData() *types.CommonEntityData {
@@ -429,7 +426,6 @@ func (supersededPackageInfo *SoftwareInstall_Superseded_SupersededPackageInfo) G
     supersededPackageInfo.EntityData.Leafs.Append("node-type", types.YLeaf{"NodeType", supersededPackageInfo.NodeType})
     supersededPackageInfo.EntityData.Leafs.Append("boot-partition-name", types.YLeaf{"BootPartitionName", supersededPackageInfo.BootPartitionName})
     supersededPackageInfo.EntityData.Leafs.Append("superseded-packages", types.YLeaf{"SupersededPackages", supersededPackageInfo.SupersededPackages})
-    supersededPackageInfo.EntityData.Leafs.Append("number-of-packages", types.YLeaf{"NumberOfPackages", supersededPackageInfo.NumberOfPackages})
 
     supersededPackageInfo.EntityData.YListKeys = []string {}
 

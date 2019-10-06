@@ -14,6 +14,87 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package ipv4_bgp_datatypes"))
 }
 
+// BgpAfAdditionalPathsCfg represents Bgp af additional paths cfg
+type BgpAfAdditionalPathsCfg string
+
+const (
+    // Enable
+    BgpAfAdditionalPathsCfg_enable BgpAfAdditionalPathsCfg = "enable"
+
+    // Disable
+    BgpAfAdditionalPathsCfg_disable BgpAfAdditionalPathsCfg = "disable"
+)
+
+// BgpSubsequentAddressFamily represents Bgp subsequent address family
+type BgpSubsequentAddressFamily string
+
+const (
+    // Unicast
+    BgpSubsequentAddressFamily_unicast BgpSubsequentAddressFamily = "unicast"
+
+    // Multicast
+    BgpSubsequentAddressFamily_multicast BgpSubsequentAddressFamily = "multicast"
+
+    // Labeled unicast
+    BgpSubsequentAddressFamily_labeled_unicast BgpSubsequentAddressFamily = "labeled-unicast"
+
+    // MVPN
+    BgpSubsequentAddressFamily_mvpn BgpSubsequentAddressFamily = "mvpn"
+
+    // MSPW
+    BgpSubsequentAddressFamily_mspw BgpSubsequentAddressFamily = "mspw"
+
+    // Tunnel
+    BgpSubsequentAddressFamily_tunnel BgpSubsequentAddressFamily = "tunnel"
+
+    // VPLS
+    BgpSubsequentAddressFamily_vpls BgpSubsequentAddressFamily = "vpls"
+
+    // MDT
+    BgpSubsequentAddressFamily_mdt BgpSubsequentAddressFamily = "mdt"
+
+    // VPWS
+    BgpSubsequentAddressFamily_vpws BgpSubsequentAddressFamily = "vpws"
+
+    // EVPN
+    BgpSubsequentAddressFamily_evpn BgpSubsequentAddressFamily = "evpn"
+
+    // LS
+    BgpSubsequentAddressFamily_ls BgpSubsequentAddressFamily = "ls"
+
+    // SRPolicy
+    BgpSubsequentAddressFamily_sr_policy BgpSubsequentAddressFamily = "sr-policy"
+
+    // VPN
+    BgpSubsequentAddressFamily_vpn BgpSubsequentAddressFamily = "vpn"
+
+    // VPN MCAST
+    BgpSubsequentAddressFamily_vpn_mcast BgpSubsequentAddressFamily = "vpn-mcast"
+
+    // Rt filter
+    BgpSubsequentAddressFamily_rt_filter BgpSubsequentAddressFamily = "rt-filter"
+
+    // Flowspec
+    BgpSubsequentAddressFamily_flowspec BgpSubsequentAddressFamily = "flowspec"
+
+    // VPN Flowspec
+    BgpSubsequentAddressFamily_vpn_flowspec BgpSubsequentAddressFamily = "vpn-flowspec"
+
+    // All
+    BgpSubsequentAddressFamily_all BgpSubsequentAddressFamily = "all"
+)
+
+// BgpNbrCapAdditionalPathsCfg represents Bgp nbr cap additional paths cfg
+type BgpNbrCapAdditionalPathsCfg string
+
+const (
+    // Enable
+    BgpNbrCapAdditionalPathsCfg_enable BgpNbrCapAdditionalPathsCfg = "enable"
+
+    // Disable
+    BgpNbrCapAdditionalPathsCfg_disable BgpNbrCapAdditionalPathsCfg = "disable"
+)
+
 // BgpOfficialAddressFamily represents Bgp official address family
 type BgpOfficialAddressFamily string
 
@@ -32,28 +113,6 @@ const (
 
     // All
     BgpOfficialAddressFamily_all BgpOfficialAddressFamily = "all"
-)
-
-// BgpNbrCapAdditionalPathsCfg represents Bgp nbr cap additional paths cfg
-type BgpNbrCapAdditionalPathsCfg string
-
-const (
-    // Enable
-    BgpNbrCapAdditionalPathsCfg_enable BgpNbrCapAdditionalPathsCfg = "enable"
-
-    // Disable
-    BgpNbrCapAdditionalPathsCfg_disable BgpNbrCapAdditionalPathsCfg = "disable"
-)
-
-// BgpAdvertiseLocalLabeledRouteCfg represents Bgp advertise local labeled route cfg
-type BgpAdvertiseLocalLabeledRouteCfg string
-
-const (
-    // Enable
-    BgpAdvertiseLocalLabeledRouteCfg_enable BgpAdvertiseLocalLabeledRouteCfg = "enable"
-
-    // Disable
-    BgpAdvertiseLocalLabeledRouteCfg_disable BgpAdvertiseLocalLabeledRouteCfg = "disable"
 )
 
 // BgpTos represents Bgp tos
@@ -150,17 +209,6 @@ const (
     BgpAddressFamily_all_address_family BgpAddressFamily = "all-address-family"
 )
 
-// BgpUpdateFilterAction represents Bgp update filter action
-type BgpUpdateFilterAction string
-
-const (
-    // Treat as withdraw
-    BgpUpdateFilterAction_treat_as_withdraw BgpUpdateFilterAction = "treat-as-withdraw"
-
-    // Discard attribute
-    BgpUpdateFilterAction_discard_attibute BgpUpdateFilterAction = "discard-attibute"
-)
-
 // BgpPrecedenceDscp represents Bgp precedence dscp
 type BgpPrecedenceDscp string
 
@@ -250,73 +298,25 @@ const (
     BgpPrecedenceDscp_default_or_routine BgpPrecedenceDscp = "default-or-routine"
 )
 
-// BgpAfAdditionalPathsCfg represents Bgp af additional paths cfg
-type BgpAfAdditionalPathsCfg string
+// BgpAdvertiseLocalLabeledRouteCfg represents Bgp advertise local labeled route cfg
+type BgpAdvertiseLocalLabeledRouteCfg string
 
 const (
     // Enable
-    BgpAfAdditionalPathsCfg_enable BgpAfAdditionalPathsCfg = "enable"
+    BgpAdvertiseLocalLabeledRouteCfg_enable BgpAdvertiseLocalLabeledRouteCfg = "enable"
 
     // Disable
-    BgpAfAdditionalPathsCfg_disable BgpAfAdditionalPathsCfg = "disable"
+    BgpAdvertiseLocalLabeledRouteCfg_disable BgpAdvertiseLocalLabeledRouteCfg = "disable"
 )
 
-// BgpSubsequentAddressFamily represents Bgp subsequent address family
-type BgpSubsequentAddressFamily string
+// BgpUpdateFilterAction represents Bgp update filter action
+type BgpUpdateFilterAction string
 
 const (
-    // Unicast
-    BgpSubsequentAddressFamily_unicast BgpSubsequentAddressFamily = "unicast"
+    // Treat as withdraw
+    BgpUpdateFilterAction_treat_as_withdraw BgpUpdateFilterAction = "treat-as-withdraw"
 
-    // Multicast
-    BgpSubsequentAddressFamily_multicast BgpSubsequentAddressFamily = "multicast"
-
-    // Labeled unicast
-    BgpSubsequentAddressFamily_labeled_unicast BgpSubsequentAddressFamily = "labeled-unicast"
-
-    // MVPN
-    BgpSubsequentAddressFamily_mvpn BgpSubsequentAddressFamily = "mvpn"
-
-    // MSPW
-    BgpSubsequentAddressFamily_mspw BgpSubsequentAddressFamily = "mspw"
-
-    // Tunnel
-    BgpSubsequentAddressFamily_tunnel BgpSubsequentAddressFamily = "tunnel"
-
-    // VPLS
-    BgpSubsequentAddressFamily_vpls BgpSubsequentAddressFamily = "vpls"
-
-    // MDT
-    BgpSubsequentAddressFamily_mdt BgpSubsequentAddressFamily = "mdt"
-
-    // VPWS
-    BgpSubsequentAddressFamily_vpws BgpSubsequentAddressFamily = "vpws"
-
-    // EVPN
-    BgpSubsequentAddressFamily_evpn BgpSubsequentAddressFamily = "evpn"
-
-    // LS
-    BgpSubsequentAddressFamily_ls BgpSubsequentAddressFamily = "ls"
-
-    // SRPolicy
-    BgpSubsequentAddressFamily_sr_policy BgpSubsequentAddressFamily = "sr-policy"
-
-    // VPN
-    BgpSubsequentAddressFamily_vpn BgpSubsequentAddressFamily = "vpn"
-
-    // VPN MCAST
-    BgpSubsequentAddressFamily_vpn_mcast BgpSubsequentAddressFamily = "vpn-mcast"
-
-    // Rt filter
-    BgpSubsequentAddressFamily_rt_filter BgpSubsequentAddressFamily = "rt-filter"
-
-    // Flowspec
-    BgpSubsequentAddressFamily_flowspec BgpSubsequentAddressFamily = "flowspec"
-
-    // VPN Flowspec
-    BgpSubsequentAddressFamily_vpn_flowspec BgpSubsequentAddressFamily = "vpn-flowspec"
-
-    // All
-    BgpSubsequentAddressFamily_all BgpSubsequentAddressFamily = "all"
+    // Discard attribute
+    BgpUpdateFilterAction_discard_attibute BgpUpdateFilterAction = "discard-attibute"
 )
 

@@ -357,7 +357,7 @@ type CISCOCABLEWIDEBANDMIB_CcwbRFChannelTable_CcwbRFChannelEntry struct {
 
     // The MAC address of the edge QAM device or next hop router which might be
     // present between the WCMTS and the edge QAM. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CcwbRFChanQamMacAddress interface{}
 
     // The port number on the edge QAM associated with this RF channel. The type

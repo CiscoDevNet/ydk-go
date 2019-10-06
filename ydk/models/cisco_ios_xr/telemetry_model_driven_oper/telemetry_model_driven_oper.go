@@ -24,6 +24,89 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven", reflect.TypeOf(TelemetryModelDriven{}))
 }
 
+// MdtTransportEnum represents MDT Transport
+type MdtTransportEnum string
+
+const (
+    // PROTOCOL NOT SET
+    MdtTransportEnum_not_set MdtTransportEnum = "not-set"
+
+    // GRPC
+    MdtTransportEnum_grpc MdtTransportEnum = "grpc"
+
+    // TCP
+    MdtTransportEnum_tcp MdtTransportEnum = "tcp"
+
+    // UDP
+    MdtTransportEnum_udp MdtTransportEnum = "udp"
+
+    // DIALIN
+    MdtTransportEnum_dialin MdtTransportEnum = "dialin"
+)
+
+// MdtInternalPathStatus represents Internal Subscription Path Status
+type MdtInternalPathStatus string
+
+const (
+    // Active
+    MdtInternalPathStatus_active MdtInternalPathStatus = "active"
+
+    // Internal Error
+    MdtInternalPathStatus_internal_err MdtInternalPathStatus = "internal-err"
+
+    // Plugin Active
+    MdtInternalPathStatus_plugin_active MdtInternalPathStatus = "plugin-active"
+
+    // Plugin Not Initialized
+    MdtInternalPathStatus_plugin_not_initialized MdtInternalPathStatus = "plugin-not-initialized"
+
+    // Plugin Unsupported Cadence
+    MdtInternalPathStatus_plugin_invalid_cadence MdtInternalPathStatus = "plugin-invalid-cadence"
+
+    // Plugin Subscription Error
+    MdtInternalPathStatus_plugin_err MdtInternalPathStatus = "plugin-err"
+
+    // Filter Error
+    MdtInternalPathStatus_filter_err MdtInternalPathStatus = "filter-err"
+
+    // Paused
+    MdtInternalPathStatus_paused MdtInternalPathStatus = "paused"
+
+    // Eventing Active
+    MdtInternalPathStatus_event_ing_active MdtInternalPathStatus = "event-ing-active"
+
+    // Eventing Not Active
+    MdtInternalPathStatus_event_ing_not_active MdtInternalPathStatus = "event-ing-not-active"
+
+    // Eventing Error
+    MdtInternalPathStatus_event_ing_err MdtInternalPathStatus = "event-ing-err"
+)
+
+// MdtIp represents IP Type
+type MdtIp string
+
+const (
+    // IPv4
+    MdtIp_ipv4 MdtIp = "ipv4"
+
+    // IPv6
+    MdtIp_ipv6 MdtIp = "ipv6"
+)
+
+// MdtSubsStateEnum represents Subscription State
+type MdtSubsStateEnum string
+
+const (
+    // NA
+    MdtSubsStateEnum_not_active MdtSubsStateEnum = "not-active"
+
+    // Active
+    MdtSubsStateEnum_active MdtSubsStateEnum = "active"
+
+    // Paused
+    MdtSubsStateEnum_paused MdtSubsStateEnum = "paused"
+)
+
 // MdtSourceQosMarking represents DSCP source qos value for subscription
 type MdtSourceQosMarking string
 
@@ -92,58 +175,6 @@ const (
     MdtSourceQosMarking_dscp_cs7 MdtSourceQosMarking = "dscp-cs7"
 )
 
-// MdtSubsStateEnum represents Subscription State
-type MdtSubsStateEnum string
-
-const (
-    // NA
-    MdtSubsStateEnum_not_active MdtSubsStateEnum = "not-active"
-
-    // Active
-    MdtSubsStateEnum_active MdtSubsStateEnum = "active"
-
-    // Paused
-    MdtSubsStateEnum_paused MdtSubsStateEnum = "paused"
-)
-
-// MdtInternalPathStatus represents Internal Subscription Path Status
-type MdtInternalPathStatus string
-
-const (
-    // Active
-    MdtInternalPathStatus_active MdtInternalPathStatus = "active"
-
-    // Internal Error
-    MdtInternalPathStatus_internal_err MdtInternalPathStatus = "internal-err"
-
-    // Plugin Active
-    MdtInternalPathStatus_plugin_active MdtInternalPathStatus = "plugin-active"
-
-    // Plugin Not Initialized
-    MdtInternalPathStatus_plugin_not_initialized MdtInternalPathStatus = "plugin-not-initialized"
-
-    // Plugin Unsupported Cadence
-    MdtInternalPathStatus_plugin_invalid_cadence MdtInternalPathStatus = "plugin-invalid-cadence"
-
-    // Plugin Subscription Error
-    MdtInternalPathStatus_plugin_err MdtInternalPathStatus = "plugin-err"
-
-    // Filter Error
-    MdtInternalPathStatus_filter_err MdtInternalPathStatus = "filter-err"
-
-    // Paused
-    MdtInternalPathStatus_paused MdtInternalPathStatus = "paused"
-
-    // Eventing Active
-    MdtInternalPathStatus_event_ing_active MdtInternalPathStatus = "event-ing-active"
-
-    // Eventing Not Active
-    MdtInternalPathStatus_event_ing_not_active MdtInternalPathStatus = "event-ing-not-active"
-
-    // Eventing Error
-    MdtInternalPathStatus_event_ing_err MdtInternalPathStatus = "event-ing-err"
-)
-
 // MdtDestStateEnum represents Destination state
 type MdtDestStateEnum string
 
@@ -167,26 +198,6 @@ const (
     MdtDestStateEnum_dest_channel_not_found MdtDestStateEnum = "dest-channel-not-found"
 )
 
-// MdtTransportEnum represents MDT Transport
-type MdtTransportEnum string
-
-const (
-    // PROTOCOL NOT SET
-    MdtTransportEnum_not_set MdtTransportEnum = "not-set"
-
-    // GRPC
-    MdtTransportEnum_grpc MdtTransportEnum = "grpc"
-
-    // TCP
-    MdtTransportEnum_tcp MdtTransportEnum = "tcp"
-
-    // UDP
-    MdtTransportEnum_udp MdtTransportEnum = "udp"
-
-    // DIALIN
-    MdtTransportEnum_dialin MdtTransportEnum = "dialin"
-)
-
 // MdtEncodingEnum represents MDT Encoding
 type MdtEncodingEnum string
 
@@ -202,17 +213,6 @@ const (
 
     // JSON
     MdtEncodingEnum_json MdtEncodingEnum = "json"
-)
-
-// MdtIp represents IP Type
-type MdtIp string
-
-const (
-    // IPv4
-    MdtIp_ipv4 MdtIp = "ipv4"
-
-    // IPv6
-    MdtIp_ipv6 MdtIp = "ipv6"
 )
 
 // TelemetryModelDriven
@@ -299,7 +299,7 @@ type TelemetryModelDriven_Destinations_Destination struct {
     YListKey string
 
     // This attribute is a key. Id of the destination. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     DestinationId interface{}
 
     // Destination Group name. The type is string.
@@ -493,11 +493,11 @@ type TelemetryModelDriven_Destinations_Destination_Destination_Destination_DestI
     IpType interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -897,7 +897,7 @@ type TelemetryModelDriven_Subscriptions_Subscription struct {
     YListKey string
 
     // This attribute is a key. Id of the subscription. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SubscriptionId interface{}
 
     // Subscription.
@@ -1007,11 +1007,11 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_SourceInterfac
     State interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // Src Vrf Id. The type is interface{} with range: 0..4294967295.
@@ -1331,11 +1331,11 @@ type TelemetryModelDriven_Subscriptions_Subscription_Subscription_DestinationGrp
     IpType interface{}
 
     // IPV4 Address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // IPV6 Address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -1735,7 +1735,7 @@ type TelemetryModelDriven_SensorGroups_SensorGroup struct {
     YListKey string
 
     // This attribute is a key. Id of the sensor group. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     SensorGroupId interface{}
 
     // Sensor Group name. The type is string.

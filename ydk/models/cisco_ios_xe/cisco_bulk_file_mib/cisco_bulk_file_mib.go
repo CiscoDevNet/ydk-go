@@ -445,7 +445,7 @@ type CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry struct {
     // instance information.  If cbfDefineObjectClass is 'lexicalTable' or
     // 'leastCpuTable' this must be the OID of the table-defining SEQUENCE OF
     // registration point. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CbfDefineObjectID interface{}
 
     // The control that allows creation, modification, and deletion of entries. 
@@ -475,8 +475,7 @@ type CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry struct {
     // table(represented  by cbfDefineObjectID) which lexicographically follow 
     // cbfDefineObjectTableInstance are retrieved.  This object is irrelevent if
     // cbfDefineObjectClass is not 'lexicalTable'. The type is string with
-    // pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // pattern: (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CbfDefineObjectTableInstance interface{}
 
     // If cbfDefineObjectClass is 'lexicalTable', then this object represents the
@@ -495,7 +494,7 @@ type CISCOBULKFILEMIB_CbfDefineObjectTable_CbfDefineObjectEntry struct {
     // of last polled  object.  An NMS can use the value of this object and
     // populate the cbfDefineObjectTableInstance to retrieve a contiguous set of
     // rows in a table. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CbfDefineObjectLastPolledInst interface{}
 }
 

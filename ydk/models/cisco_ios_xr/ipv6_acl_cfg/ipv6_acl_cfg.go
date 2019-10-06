@@ -203,7 +203,7 @@ type Ipv6AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry stru
     Zone interface{}
 
     // IPv6 address prefix to match. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Prefix interface{}
 
     // MaskLength of IPv6 address prefix. The type is interface{} with range:
@@ -430,7 +430,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
     Grant interface{}
 
     // Protocol operator. User can specify equal or leave it unspecified for
-    // singleton protocol match, or  specify range for protocol range match. The
+    // singleton protocol match, or specify range for protocol range match. The
     // type is Ipv6AclOperatorEnum.
     ProtocolOperator interface{}
 
@@ -449,7 +449,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry stru
 
     // DSCP value to match without any operators. Any value not in the permissible
     // range will be rejected. Leave unspecified if DSCP comparison is not to be
-    // performed. For Setting dscp values, use the dscp  container as this leaf
+    // performed. For Setting dscp values, use the dscp container as this leaf
     // will be deprecated soon. The type is one of the following types:
     // enumeration Ipv6AclDscpNumber, or int with range: 0..63.
     Dscp interface{}
@@ -598,7 +598,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
 
     // Source IPv6 address, leave unspecified if inputting as IPv6 address with
     // wildcarding. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceAddress interface{}
 
     // Wildcard bits to apply to source-address (if specified), leave unspecified
@@ -608,7 +608,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
     // Source address mask. Either source-wild-card-bits or source-mask is.
     // supported, not both. Leave unspecified. for any. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     SourceMask interface{}
 }
 
@@ -641,11 +641,11 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dest
     YFilter yfilter.YFilter
 
     // Destination IPv6 address, leave unspecified if inputting as IPv6 address
-    // with  wildcarding. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // with wildcarding. The type is string with pattern:
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationAddress interface{}
 
-    // Wildcard bits to apply to destination  destination-address (if specified), 
+    // Wildcard bits to apply to destination destination-address (if specified),
     // leave unspecified for no wildcarding. The type is interface{} with range:
     // 0..128.
     DestinationWildCardBits interface{}
@@ -653,7 +653,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dest
     // Destination address mask. Either destination-wild-card-bits or
     // destination-mask. is supported, not both. Leave unspecified for any. The
     // type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     DestinationMask interface{}
 }
 
@@ -685,8 +685,8 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Sour
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Source port comparison operator. This is a required  field if any source
-    // port value is given, otherwise,  config will be rejected. Leave unspecified
+    // Source port comparison operator. This is a required field if any source
+    // port value is given, otherwise, config will be rejected. Leave unspecified
     // if no source port comparison is to be done. The type is
     // Ipv6AclOperatorEnum.
     SourceOperator interface{}
@@ -733,7 +733,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Dest
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Destination port comparison operator. This is a  required field if any
+    // Destination port comparison operator. This is a required field if any
     // destination port value is given, otherwise, config will be rejected. Leave
     // unspecified if no destination port comparison is to be done. The type is
     // Ipv6AclOperatorEnum.
@@ -781,8 +781,8 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Icmp
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Well known ICMP message code types to match,  leave unspecified if ICMP
-    // message code type  comparion is not to be performed. The type is
+    // Well known ICMP message code types to match, leave unspecified if ICMP
+    // message code type comparion is not to be performed. The type is
     // Ipv6AclIcmpTypeCodeEnum.
     IcmpTypeCode interface{}
 }
@@ -813,11 +813,11 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Tcp 
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // TCP Bits match operator. Leave unspecified if  flexible comparison of TCP
-    // bits is not  required. The type is Ipv6AclTcpMatchOperatorEnum.
+    // TCP Bits match operator. Leave unspecified if flexible comparison of TCP
+    // bits is not required. The type is Ipv6AclTcpMatchOperatorEnum.
     TcpBitsMatchOperator interface{}
 
-    // TCP bits to match. Leave unspecified if  comparison of TCP bits is not
+    // TCP bits to match. Leave unspecified if comparison of TCP bits is not
     // required. The type is map[string]bool.
     TcpBits interface{}
 
@@ -855,7 +855,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Pack
     YFilter yfilter.YFilter
 
     // Packet length operator applicable if packet length is to be compared. This
-    // is a required field if any packet-length value is given, otherwise, config 
+    // is a required field if any packet-length value is given, otherwise, config
     // will be rejected. The type is Ipv6AclOperatorEnum.
     PacketLengthOperator interface{}
 
@@ -900,7 +900,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Time
     YFilter yfilter.YFilter
 
     // TTL operator is applicable if TTL is to be compared. This is a required
-    // field if any TTL value is given, otherwise, config will be rejected. Leave 
+    // field if any TTL value is given, otherwise, config will be rejected. Leave
     // unspecified if TTL classification is not required. The type is
     // Ipv6AclOperatorEnum.
     TimeToLiveOperator interface{}
@@ -945,22 +945,22 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_DSCP
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // Enumerated DSCP operator values. Used when  operator needs to be
-    // configured. Leave unspecified  if DSCP operator is not required. Note: if
-    // the  dscp operator is not set, it logically behaves  same as equal
-    // operator. The type is Ipv6AclOperatorEnum.
+    // Enumerated DSCP operator values. Used when operator needs to be configured.
+    // Leave unspecified if DSCP operator is not required. Note: if the dscp
+    // operator is not set, it logically behaves same as equal operator. The type
+    // is Ipv6AclOperatorEnum.
     DscpOperator interface{}
 
     // DSCP value to match (if a value was specified). It can be used for the
     // lower bound (range operator) or single value (equal, less, greater..etc) or
-    // without any operator. Any value not in the permissible range   will be
-    // rejected. Leave unspecified if DSCP  comparison is not to be performed. The
+    // without any operator. Any value not in the permissible range will be
+    // rejected. Leave unspecified if DSCP comparison is not to be performed. The
     // type is one of the following types: enumeration Ipv6AclDscpNumber, or int
     // with range: 0..63.
     DscpLower interface{}
 
     // DSCP value to match (if a value was specified). It can be used in the upper
-    // bound (range operator)  Any value not in the permissible range will be
+    // bound (range operator) Any value not in the permissible range will be
     // rejected. Leave unspecified if DSCP range comparison is not to be
     // performed. The type is one of the following types: enumeration
     // Ipv6AclDscpNumber, or int with range: 0..63.
@@ -1038,7 +1038,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     YFilter yfilter.YFilter
 
     // The IPv6 address of the next-hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string with length: 1..32.
@@ -1078,7 +1078,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     YFilter yfilter.YFilter
 
     // The IPv6 address of the next-hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string with length: 1..32.
@@ -1118,7 +1118,7 @@ type Ipv6AclAndPrefixList_Accesses_Access_AccessListEntries_AccessListEntry_Next
     YFilter yfilter.YFilter
 
     // The IPv6 address of the next-hop. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     NextHop interface{}
 
     // The VRF name of the next-hop. The type is string with length: 1..32.

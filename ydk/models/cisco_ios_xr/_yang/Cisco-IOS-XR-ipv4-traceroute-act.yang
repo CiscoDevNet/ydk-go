@@ -19,7 +19,7 @@ submodule Cisco-IOS-XR-ipv4-traceroute-act {
     "This module contains a collection of YANG definitions
      for Cisco IOS-XR IPv4 traceroute action package configuration.
      
-     Copyright (c) 2016-2019 by Cisco Systems, Inc.
+     Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
   revision 2016-09-17 {
@@ -93,11 +93,6 @@ submodule Cisco-IOS-XR-ipv4-traceroute-act {
       description
         "verbose output";
     }
-    leaf srv6-header {
-      type empty;
-      description
-        "srv6 header";
-    }
   }
 
   grouping TRACEROUTE-OUTPUT {
@@ -151,25 +146,6 @@ submodule Cisco-IOS-XR-ipv4-traceroute-act {
               type string;
               description
                 "Hostname of the hop";
-            }
-            container srv6-header {
-              leaf destination-address {
-                type uint32;
-                description
-                  "Destination address for srv6 header";
-              }
-              leaf segments-left {
-                type uint32;
-                description
-                  "Number of segments left";
-              }
-              container segments {
-                leaf-list segment {
-                  type string;
-                  description
-                    "sid in sidlist";
-                }
-              }
             }
           }
         }

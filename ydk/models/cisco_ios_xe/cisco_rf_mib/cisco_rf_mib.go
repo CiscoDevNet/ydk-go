@@ -67,6 +67,36 @@ const (
     RFState_activeHandback RFState = "activeHandback"
 )
 
+// RFIssuState represents       commitVersion state.
+type RFIssuState string
+
+const (
+    RFIssuState_unset RFIssuState = "unset"
+
+    RFIssuState_init RFIssuState = "init"
+
+    RFIssuState_loadVersion RFIssuState = "loadVersion"
+
+    RFIssuState_runVersion RFIssuState = "runVersion"
+
+    RFIssuState_commitVersion RFIssuState = "commitVersion"
+)
+
+// RFAction represents When read, the value 'noAction' is always returned.
+type RFAction string
+
+const (
+    RFAction_noAction RFAction = "noAction"
+
+    RFAction_reloadPeer RFAction = "reloadPeer"
+
+    RFAction_reloadShelf RFAction = "reloadShelf"
+
+    RFAction_switchActivity RFAction = "switchActivity"
+
+    RFAction_forceSwitchActivity RFAction = "forceSwitchActivity"
+)
+
 // RFMode represents       immediately able to handle new calls.
 type RFMode string
 
@@ -88,19 +118,17 @@ const (
     RFMode_hotStandbyRedundant RFMode = "hotStandbyRedundant"
 )
 
-// RFAction represents When read, the value 'noAction' is always returned.
-type RFAction string
+// RFClientStatus represents       loss if there is a switchover.
+type RFClientStatus string
 
 const (
-    RFAction_noAction RFAction = "noAction"
+    RFClientStatus_noStatus RFClientStatus = "noStatus"
 
-    RFAction_reloadPeer RFAction = "reloadPeer"
+    RFClientStatus_clientNotRedundant RFClientStatus = "clientNotRedundant"
 
-    RFAction_reloadShelf RFAction = "reloadShelf"
+    RFClientStatus_clientRedundancyInProgress RFClientStatus = "clientRedundancyInProgress"
 
-    RFAction_switchActivity RFAction = "switchActivity"
-
-    RFAction_forceSwitchActivity RFAction = "forceSwitchActivity"
+    RFClientStatus_clientRedundant RFClientStatus = "clientRedundant"
 )
 
 // RFSwactReasonType represents     - active unit removal caused an auto SWACT
@@ -122,21 +150,6 @@ const (
     RFSwactReasonType_activeUnitRemoved RFSwactReasonType = "activeUnitRemoved"
 )
 
-// RFIssuState represents       commitVersion state.
-type RFIssuState string
-
-const (
-    RFIssuState_unset RFIssuState = "unset"
-
-    RFIssuState_init RFIssuState = "init"
-
-    RFIssuState_loadVersion RFIssuState = "loadVersion"
-
-    RFIssuState_runVersion RFIssuState = "runVersion"
-
-    RFIssuState_commitVersion RFIssuState = "commitVersion"
-)
-
 // RFIssuStateRev1 represents       commitVersion.
 type RFIssuStateRev1 string
 
@@ -154,19 +167,6 @@ const (
     RFIssuStateRev1_runVersionSwitchover RFIssuStateRev1 = "runVersionSwitchover"
 
     RFIssuStateRev1_commitVersion RFIssuStateRev1 = "commitVersion"
-)
-
-// RFClientStatus represents       loss if there is a switchover.
-type RFClientStatus string
-
-const (
-    RFClientStatus_noStatus RFClientStatus = "noStatus"
-
-    RFClientStatus_clientNotRedundant RFClientStatus = "clientNotRedundant"
-
-    RFClientStatus_clientRedundancyInProgress RFClientStatus = "clientRedundancyInProgress"
-
-    RFClientStatus_clientRedundant RFClientStatus = "clientRedundant"
 )
 
 // CISCORFMIB

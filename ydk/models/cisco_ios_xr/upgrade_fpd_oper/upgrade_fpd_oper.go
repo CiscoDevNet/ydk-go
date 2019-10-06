@@ -24,127 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-upgrade-fpd-oper:fpd", reflect.TypeOf(Fpd_{}))
 }
 
-// FpdSub represents Fpd sub
-type FpdSub string
-
-const (
-    // FPGA device
-    FpdSub_fpga1 FpdSub = "fpga1"
-
-    // ROMMON device
-    FpdSub_rommon FpdSub = "rommon"
-
-    // ROMMON device #A
-    FpdSub_rommona FpdSub = "rommona"
-
-    // Fabric loader
-    FpdSub_fabldr FpdSub = "fabldr"
-
-    // FPGA device #2
-    FpdSub_fpga2 FpdSub = "fpga2"
-
-    // FPGA device #3
-    FpdSub_fpga3 FpdSub = "fpga3"
-
-    // FPGA device #4
-    FpdSub_fpga4 FpdSub = "fpga4"
-
-    // FPGA device #5
-    FpdSub_fpga5 FpdSub = "fpga5"
-
-    // FPGA device #6
-    FpdSub_fpga6 FpdSub = "fpga6"
-
-    // FPGA device #7
-    FpdSub_fpga7 FpdSub = "fpga7"
-
-    // FPGA device #8
-    FpdSub_fpga8 FpdSub = "fpga8"
-
-    // FPGA device #9
-    FpdSub_fpga9 FpdSub = "fpga9"
-
-    // FPGA device #10
-    FpdSub_fpga10 FpdSub = "fpga10"
-
-    // FPGA device #11
-    FpdSub_fpga11 FpdSub = "fpga11"
-
-    // FPGA device #12
-    FpdSub_fpga12 FpdSub = "fpga12"
-
-    // FPGA device #13
-    FpdSub_fpga13 FpdSub = "fpga13"
-
-    // FPGA device #14
-    FpdSub_fpga14 FpdSub = "fpga14"
-
-    // CPLD device #1
-    FpdSub_cpld1 FpdSub = "cpld1"
-
-    // CPLD device #2
-    FpdSub_cpld2 FpdSub = "cpld2"
-
-    // CPLD device #3
-    FpdSub_cpld3 FpdSub = "cpld3"
-
-    // CPLD device #4
-    FpdSub_cpld4 FpdSub = "cpld4"
-
-    // CPLD device #5
-    FpdSub_cpld5 FpdSub = "cpld5"
-
-    // CPLD device #6
-    FpdSub_cpld6 FpdSub = "cpld6"
-
-    // Can bus controller
-    FpdSub_cbc FpdSub = "cbc"
-
-    // HSBI image
-    FpdSub_hsbi FpdSub = "hsbi"
-
-    // Fabric Tx POD
-    FpdSub_txpod FpdSub = "txpod"
-
-    // Fabric Rx POD
-    FpdSub_rxpod FpdSub = "rxpod"
-
-    // IBMC
-    FpdSub_ibmc FpdSub = "ibmc"
-
-    // FSBL
-    FpdSub_fsbl FpdSub = "fsbl"
-
-    // Linux firmware
-    FpdSub_lnx FpdSub = "lnx"
-
-    // FPGA device #15
-    FpdSub_fpga15 FpdSub = "fpga15"
-
-    // FPGA device #16
-    FpdSub_fpga16 FpdSub = "fpga16"
-
-    // FC FSBL
-    FpdSub_fc_fsbl FpdSub = "fc-fsbl"
-
-    // FC linux firmware
-    FpdSub_fc_lnx FpdSub = "fc-lnx"
-)
-
-// Fpd represents Fpd
-type Fpd string
-
-const (
-    // SPA class of fpd
-    Fpd_spa Fpd = "spa"
-
-    // Linecard class of fpd
-    Fpd_lc Fpd = "lc"
-
-    // SAM class of fpd
-    Fpd_sam Fpd = "sam"
-)
-
 // FpdSub1 represents FPD sub types
 type FpdSub1 string
 
@@ -252,6 +131,20 @@ const (
     FpdSub1_fc_lnx FpdSub1 = "fc-lnx"
 )
 
+// Fpd represents Fpd
+type Fpd string
+
+const (
+    // SPA class of fpd
+    Fpd_spa Fpd = "spa"
+
+    // Linecard class of fpd
+    Fpd_lc Fpd = "lc"
+
+    // SAM class of fpd
+    Fpd_sam Fpd = "sam"
+)
+
 // Fpd1 represents FPD types
 type Fpd1 string
 
@@ -264,6 +157,113 @@ const (
 
     // Service acceleration module
     Fpd1_sam Fpd1 = "sam"
+)
+
+// FpdSub represents Fpd sub
+type FpdSub string
+
+const (
+    // FPGA device
+    FpdSub_fpga1 FpdSub = "fpga1"
+
+    // ROMMON device
+    FpdSub_rommon FpdSub = "rommon"
+
+    // ROMMON device #A
+    FpdSub_rommona FpdSub = "rommona"
+
+    // Fabric loader
+    FpdSub_fabldr FpdSub = "fabldr"
+
+    // FPGA device #2
+    FpdSub_fpga2 FpdSub = "fpga2"
+
+    // FPGA device #3
+    FpdSub_fpga3 FpdSub = "fpga3"
+
+    // FPGA device #4
+    FpdSub_fpga4 FpdSub = "fpga4"
+
+    // FPGA device #5
+    FpdSub_fpga5 FpdSub = "fpga5"
+
+    // FPGA device #6
+    FpdSub_fpga6 FpdSub = "fpga6"
+
+    // FPGA device #7
+    FpdSub_fpga7 FpdSub = "fpga7"
+
+    // FPGA device #8
+    FpdSub_fpga8 FpdSub = "fpga8"
+
+    // FPGA device #9
+    FpdSub_fpga9 FpdSub = "fpga9"
+
+    // FPGA device #10
+    FpdSub_fpga10 FpdSub = "fpga10"
+
+    // FPGA device #11
+    FpdSub_fpga11 FpdSub = "fpga11"
+
+    // FPGA device #12
+    FpdSub_fpga12 FpdSub = "fpga12"
+
+    // FPGA device #13
+    FpdSub_fpga13 FpdSub = "fpga13"
+
+    // FPGA device #14
+    FpdSub_fpga14 FpdSub = "fpga14"
+
+    // CPLD device #1
+    FpdSub_cpld1 FpdSub = "cpld1"
+
+    // CPLD device #2
+    FpdSub_cpld2 FpdSub = "cpld2"
+
+    // CPLD device #3
+    FpdSub_cpld3 FpdSub = "cpld3"
+
+    // CPLD device #4
+    FpdSub_cpld4 FpdSub = "cpld4"
+
+    // CPLD device #5
+    FpdSub_cpld5 FpdSub = "cpld5"
+
+    // CPLD device #6
+    FpdSub_cpld6 FpdSub = "cpld6"
+
+    // Can bus controller
+    FpdSub_cbc FpdSub = "cbc"
+
+    // HSBI image
+    FpdSub_hsbi FpdSub = "hsbi"
+
+    // Fabric Tx POD
+    FpdSub_txpod FpdSub = "txpod"
+
+    // Fabric Rx POD
+    FpdSub_rxpod FpdSub = "rxpod"
+
+    // IBMC
+    FpdSub_ibmc FpdSub = "ibmc"
+
+    // FSBL
+    FpdSub_fsbl FpdSub = "fsbl"
+
+    // Linux firmware
+    FpdSub_lnx FpdSub = "lnx"
+
+    // FPGA device #15
+    FpdSub_fpga15 FpdSub = "fpga15"
+
+    // FPGA device #16
+    FpdSub_fpga16 FpdSub = "fpga16"
+
+    // FC FSBL
+    FpdSub_fc_fsbl FpdSub = "fc-fsbl"
+
+    // FC linux firmware
+    FpdSub_fc_lnx FpdSub = "fc-lnx"
 )
 
 // Fpd_
@@ -341,7 +341,7 @@ type Fpd__Nodes_Node struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // FPD information table.

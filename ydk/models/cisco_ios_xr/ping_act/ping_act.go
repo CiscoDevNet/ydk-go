@@ -121,8 +121,7 @@ type Ping_Input_Destination struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -214,8 +213,7 @@ type Ping_Input_Ipv4 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -299,8 +297,7 @@ type Ping_Input_Ipv6 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -445,8 +442,7 @@ type Ping_Output_PingResponse_Ipv4 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.
@@ -696,8 +692,7 @@ type Ping_Output_PingResponse_Ipv6 struct {
     // 0..3600. The default value is 10.
     Interval interface{}
 
-    // Pattern of payload data. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'.
+    // Pattern of payload data. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Pattern interface{}
 
     // Sweep is enabled. The type is bool.

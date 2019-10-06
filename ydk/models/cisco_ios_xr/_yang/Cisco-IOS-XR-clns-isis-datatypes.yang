@@ -67,14 +67,6 @@ module Cisco-IOS-XR-clns-isis-datatypes {
       "Isis ipv4 prefix length";
   }
 
-  typedef Isis-locator-name {
-    type xr:Cisco-ios-xr-string {
-      length "1..60";
-    }
-    description
-      "Isis locator name";
-  }
-
   typedef Isis-instance-name {
     type xr:Cisco-ios-xr-string {
       length "1..36";

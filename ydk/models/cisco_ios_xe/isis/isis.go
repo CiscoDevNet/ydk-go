@@ -12,6 +12,15 @@ func init() {
     ydk.YLogDebug(fmt.Sprintf("Registering top level entities for package isis"))
 }
 
+// AuthenticationLevelType
+type AuthenticationLevelType string
+
+const (
+    AuthenticationLevelType_level_1 AuthenticationLevelType = "level-1"
+
+    AuthenticationLevelType_level_2 AuthenticationLevelType = "level-2"
+)
+
 // IsisLevelType
 type IsisLevelType string
 
@@ -32,14 +41,5 @@ const (
     IsisRoutesLevelType_level_1_2 IsisRoutesLevelType = "level-1-2"
 
     IsisRoutesLevelType_level_2 IsisRoutesLevelType = "level-2"
-)
-
-// AuthenticationLevelType
-type AuthenticationLevelType string
-
-const (
-    AuthenticationLevelType_level_1 AuthenticationLevelType = "level-1"
-
-    AuthenticationLevelType_level_2 AuthenticationLevelType = "level-2"
 )
 

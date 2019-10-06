@@ -179,7 +179,7 @@ submodule Cisco-IOS-XR-ethernet-lldp-oper-sub1 {
       "LLDP Org Def TLV entry";
     list lldp-org-def-tlv-entry {
       description
-        "Next Org Def TLV entry in list";
+        "lldp org def tlv entry";
       leaf oui {
         type uint32;
         description
@@ -208,7 +208,7 @@ submodule Cisco-IOS-XR-ethernet-lldp-oper-sub1 {
       "LLDP Unknown TLV entry";
     list lldp-unknown-tlv-entry {
       description
-        "Next unknown TLV entry in list";
+        "lldp unknown tlv entry";
       leaf tlv-type {
         type uint8;
         description
@@ -310,7 +310,7 @@ submodule Cisco-IOS-XR-ethernet-lldp-oper-sub1 {
       "LLDP Address entry";
     list lldp-addr-entry {
       description
-        "Next address entry in list";
+        "lldp addr entry";
       container address {
         description
           "Network layer address";
@@ -399,7 +399,7 @@ submodule Cisco-IOS-XR-ethernet-lldp-oper-sub1 {
       "LLDP neighbor info";
     list lldp-neighbor {
       description
-        "Next neighbor in the list";
+        "lldp neighbor";
       container detail {
         description
           "Detailed neighbor info";

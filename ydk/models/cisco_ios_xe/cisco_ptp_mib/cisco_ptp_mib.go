@@ -447,6 +447,27 @@ const (
     ClockPortState_slave ClockPortState = "slave"
 )
 
+// ClockTimeSourceType represents the protocol.
+type ClockTimeSourceType string
+
+const (
+    ClockTimeSourceType_atomicClock ClockTimeSourceType = "atomicClock"
+
+    ClockTimeSourceType_gps ClockTimeSourceType = "gps"
+
+    ClockTimeSourceType_terrestrialRadio ClockTimeSourceType = "terrestrialRadio"
+
+    ClockTimeSourceType_ptp ClockTimeSourceType = "ptp"
+
+    ClockTimeSourceType_ntp ClockTimeSourceType = "ntp"
+
+    ClockTimeSourceType_handSet ClockTimeSourceType = "handSet"
+
+    ClockTimeSourceType_other ClockTimeSourceType = "other"
+
+    ClockTimeSourceType_internalOsillator ClockTimeSourceType = "internalOsillator"
+)
+
 // ClockProfileType represents a device.
 type ClockProfileType string
 
@@ -456,6 +477,39 @@ const (
     ClockProfileType_telecom ClockProfileType = "telecom"
 
     ClockProfileType_vendorspecific ClockProfileType = "vendorspecific"
+)
+
+// ClockRoleType represents                           another clock (master).
+type ClockRoleType string
+
+const (
+    ClockRoleType_master ClockRoleType = "master"
+
+    ClockRoleType_slave ClockRoleType = "slave"
+)
+
+// ClockType represents The clock types as defined in the MIB module description.
+type ClockType string
+
+const (
+    ClockType_ordinaryClock ClockType = "ordinaryClock"
+
+    ClockType_boundaryClock ClockType = "boundaryClock"
+
+    ClockType_transparentClock ClockType = "transparentClock"
+
+    ClockType_boundaryNode ClockType = "boundaryNode"
+)
+
+// ClockTxModeType represents multicast-mix. Using multicast-unicast communication channel
+type ClockTxModeType string
+
+const (
+    ClockTxModeType_unicast ClockTxModeType = "unicast"
+
+    ClockTxModeType_multicast ClockTxModeType = "multicast"
+
+    ClockTxModeType_multicastmix ClockTxModeType = "multicastmix"
 )
 
 // ClockQualityAccuracyType represents the protocol.
@@ -505,15 +559,6 @@ const (
     ClockQualityAccuracyType_reserved255 ClockQualityAccuracyType = "reserved255"
 )
 
-// ClockRoleType represents                           another clock (master).
-type ClockRoleType string
-
-const (
-    ClockRoleType_master ClockRoleType = "master"
-
-    ClockRoleType_slave ClockRoleType = "slave"
-)
-
 // ClockStateType represents                         frequency and phase.
 type ClockStateType string
 
@@ -527,51 +572,6 @@ const (
     ClockStateType_frequencyLocked ClockStateType = "frequencyLocked"
 
     ClockStateType_phaseAligned ClockStateType = "phaseAligned"
-)
-
-// ClockTimeSourceType represents the protocol.
-type ClockTimeSourceType string
-
-const (
-    ClockTimeSourceType_atomicClock ClockTimeSourceType = "atomicClock"
-
-    ClockTimeSourceType_gps ClockTimeSourceType = "gps"
-
-    ClockTimeSourceType_terrestrialRadio ClockTimeSourceType = "terrestrialRadio"
-
-    ClockTimeSourceType_ptp ClockTimeSourceType = "ptp"
-
-    ClockTimeSourceType_ntp ClockTimeSourceType = "ntp"
-
-    ClockTimeSourceType_handSet ClockTimeSourceType = "handSet"
-
-    ClockTimeSourceType_other ClockTimeSourceType = "other"
-
-    ClockTimeSourceType_internalOsillator ClockTimeSourceType = "internalOsillator"
-)
-
-// ClockTxModeType represents multicast-mix. Using multicast-unicast communication channel
-type ClockTxModeType string
-
-const (
-    ClockTxModeType_unicast ClockTxModeType = "unicast"
-
-    ClockTxModeType_multicast ClockTxModeType = "multicast"
-
-    ClockTxModeType_multicastmix ClockTxModeType = "multicastmix"
-)
-
-// ClockType represents The clock types as defined in the MIB module description.
-type ClockType string
-
-const (
-    ClockType_ordinaryClock ClockType = "ordinaryClock"
-
-    ClockType_boundaryClock ClockType = "boundaryClock"
-
-    ClockType_transparentClock ClockType = "transparentClock"
-
-    ClockType_boundaryNode ClockType = "boundaryNode"
 )
 
 // CISCOPTPMIB

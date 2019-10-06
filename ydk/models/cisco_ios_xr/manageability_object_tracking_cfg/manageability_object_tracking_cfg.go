@@ -231,7 +231,7 @@ type ObjectTrackings_ObjectTracking_Action_ActionErrDis_ActionErrDi struct {
     TrackStateType interface{}
 
     // This attribute is a key. Interface to be error-disabled. The type is string
-    // with pattern: b'[a-zA-Z0-9._/-]+'.
+    // with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 }
 
@@ -303,11 +303,11 @@ type ObjectTrackings_ObjectTracking_TypeBfdRtr_BfdRtr struct {
     DebounceCount interface{}
 
     // Interface to be used for BFD session. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'. This attribute is mandatory.
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
     InterfaceName interface{}
 
     // Destination IP Address to track via BFD. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // This attribute is mandatory.
     DestAddress interface{}
 }
@@ -342,7 +342,7 @@ type ObjectTrackings_ObjectTracking_TypeInterface struct {
     YFilter yfilter.YFilter
 
     // The name of the interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 }
 
@@ -763,11 +763,11 @@ type ObjectTrackings_ObjectTracking_TypeRoute_IpAddress struct {
     YPresence bool
 
     // IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Mask. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Mask interface{}
 }
 

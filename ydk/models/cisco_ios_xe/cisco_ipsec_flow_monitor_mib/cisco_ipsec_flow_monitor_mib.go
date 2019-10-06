@@ -74,22 +74,13 @@ func init() {
     ydk.RegisterEntity("CISCO-IPSEC-FLOW-MONITOR-MIB:CISCO-IPSEC-FLOW-MONITOR-MIB", reflect.TypeOf(CISCOIPSECFLOWMONITORMIB{}))
 }
 
-// IkePeerType represents  2. a host name.
-type IkePeerType string
+// TunnelStatus represents type cannot be used to create a Tunnel.
+type TunnelStatus string
 
 const (
-    IkePeerType_ipAddrPeer IkePeerType = "ipAddrPeer"
+    TunnelStatus_active TunnelStatus = "active"
 
-    IkePeerType_namePeer IkePeerType = "namePeer"
-)
-
-// IkeNegoMode represents The IPsec Phase-1 IKE negotiation mode.
-type IkeNegoMode string
-
-const (
-    IkeNegoMode_main IkeNegoMode = "main"
-
-    IkeNegoMode_aggressive IkeNegoMode = "aggressive"
+    TunnelStatus_destroy TunnelStatus = "destroy"
 )
 
 // IkeHashAlgo represents IKE negotiations.
@@ -118,17 +109,6 @@ const (
     IkeAuthMethod_revPublicKey IkeAuthMethod = "revPublicKey"
 )
 
-// DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
-type DiffHellmanGrp string
-
-const (
-    DiffHellmanGrp_none DiffHellmanGrp = "none"
-
-    DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
-
-    DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
-)
-
 // KeyType represents The type of key used by an IPsec Phase-2 Tunnel.
 type KeyType string
 
@@ -138,13 +118,22 @@ const (
     KeyType_manual KeyType = "manual"
 )
 
-// EncapMode represents Tunnel.
-type EncapMode string
+// TrapStatus represents The administrative status for sending a TRAP.
+type TrapStatus string
 
 const (
-    EncapMode_tunnel EncapMode = "tunnel"
+    TrapStatus_enabled TrapStatus = "enabled"
 
-    EncapMode_transport EncapMode = "transport"
+    TrapStatus_disabled TrapStatus = "disabled"
+)
+
+// CompAlgo represents security association of an IPsec Phase-2 Tunnel.
+type CompAlgo string
+
+const (
+    CompAlgo_none CompAlgo = "none"
+
+    CompAlgo_ldf CompAlgo = "ldf"
 )
 
 // EncryptAlgo represents The encryption algorithm used in negotiations.
@@ -158,6 +147,33 @@ const (
     EncryptAlgo_des3 EncryptAlgo = "des3"
 )
 
+// IkePeerType represents  2. a host name.
+type IkePeerType string
+
+const (
+    IkePeerType_ipAddrPeer IkePeerType = "ipAddrPeer"
+
+    IkePeerType_namePeer IkePeerType = "namePeer"
+)
+
+// IkeNegoMode represents The IPsec Phase-1 IKE negotiation mode.
+type IkeNegoMode string
+
+const (
+    IkeNegoMode_main IkeNegoMode = "main"
+
+    IkeNegoMode_aggressive IkeNegoMode = "aggressive"
+)
+
+// EncapMode represents Tunnel.
+type EncapMode string
+
+const (
+    EncapMode_tunnel EncapMode = "tunnel"
+
+    EncapMode_transport EncapMode = "transport"
+)
+
 // AuthAlgo represents security association of an IPsec Phase-2 Tunnel.
 type AuthAlgo string
 
@@ -167,15 +183,6 @@ const (
     AuthAlgo_hmacMd5 AuthAlgo = "hmacMd5"
 
     AuthAlgo_hmacSha AuthAlgo = "hmacSha"
-)
-
-// CompAlgo represents security association of an IPsec Phase-2 Tunnel.
-type CompAlgo string
-
-const (
-    CompAlgo_none CompAlgo = "none"
-
-    CompAlgo_ldf CompAlgo = "ldf"
 )
 
 // EndPtType represents The type of identity use to specify an IPsec End Point.
@@ -189,22 +196,15 @@ const (
     EndPtType_ipSubnet EndPtType = "ipSubnet"
 )
 
-// TunnelStatus represents type cannot be used to create a Tunnel.
-type TunnelStatus string
+// DiffHellmanGrp represents The Diffie Hellman Group used in negotiations.
+type DiffHellmanGrp string
 
 const (
-    TunnelStatus_active TunnelStatus = "active"
+    DiffHellmanGrp_none DiffHellmanGrp = "none"
 
-    TunnelStatus_destroy TunnelStatus = "destroy"
-)
+    DiffHellmanGrp_dhGroup1 DiffHellmanGrp = "dhGroup1"
 
-// TrapStatus represents The administrative status for sending a TRAP.
-type TrapStatus string
-
-const (
-    TrapStatus_enabled TrapStatus = "enabled"
-
-    TrapStatus_disabled TrapStatus = "disabled"
+    DiffHellmanGrp_dhGroup2 DiffHellmanGrp = "dhGroup2"
 )
 
 // CISCOIPSECFLOWMONITORMIB

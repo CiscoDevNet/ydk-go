@@ -1,6 +1,6 @@
-// This module contains IOS-XR group YANG data 
-// for flexible cli groups 
-//     
+// This module contains IOS-XR group YANG data
+// for flexible cli groups
+// 
 // Copyright (c) 2013-2016 by Cisco Systems, Inc.
 // All rights reserved.
 package group_cfg
@@ -92,8 +92,7 @@ type ApplyGroups struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // apply-group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // apply-group name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     ApplyGroup interface{}
 }
 

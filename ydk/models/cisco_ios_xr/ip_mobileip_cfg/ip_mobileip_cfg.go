@@ -24,15 +24,6 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip", reflect.TypeOf(MobileIp{}))
 }
 
-// GreKeyType represents Gre key type
-type GreKeyType string
-
-const (
-    // Symmetric GRE Key (same Uplink and Downlink
-    // key)
-    GreKeyType_symmetric GreKeyType = "symmetric"
-)
-
 // ServiceType represents Service type
 type ServiceType string
 
@@ -55,12 +46,21 @@ const (
     LmaService_service_mll LmaService = "service-mll"
 )
 
-// RedistType represents Redist type
-type RedistType string
+// EncapOpt represents Encap opt
+type EncapOpt string
 
 const (
-    // Redistribute HoA/HNP routes
-    RedistType_home_address RedistType = "home-address"
+    // GRE IPv4 tunnel encap
+    EncapOpt_greipv4 EncapOpt = "greipv4"
+
+    // GRE IPv6 tunnel encap
+    EncapOpt_greipv6 EncapOpt = "greipv6"
+
+    // mGRE IPv4 tunnel encap
+    EncapOpt_mgreipv4 EncapOpt = "mgreipv4"
+
+    // mGRE IPv6 tunnel encap
+    EncapOpt_mgreipv6 EncapOpt = "mgreipv6"
 )
 
 // RedistSubType represents Redist sub type
@@ -81,6 +81,23 @@ type LmaRole string
 const (
     // 3GMA mode
     LmaRole_Y_3gma LmaRole = "3gma"
+)
+
+// RedistType represents Redist type
+type RedistType string
+
+const (
+    // Redistribute HoA/HNP routes
+    RedistType_home_address RedistType = "home-address"
+)
+
+// GreKeyType represents Gre key type
+type GreKeyType string
+
+const (
+    // Symmetric GRE Key (same Uplink and Downlink
+    // key)
+    GreKeyType_symmetric GreKeyType = "symmetric"
 )
 
 // LmaRat represents Lma rat
@@ -122,23 +139,6 @@ const (
 
     // 3GPP2_UMB rat
     LmaRat_Y_3gpp2umb LmaRat = "3gpp2umb"
-)
-
-// EncapOpt represents Encap opt
-type EncapOpt string
-
-const (
-    // GRE IPv4 tunnel encap
-    EncapOpt_greipv4 EncapOpt = "greipv4"
-
-    // GRE IPv6 tunnel encap
-    EncapOpt_greipv6 EncapOpt = "greipv6"
-
-    // mGRE IPv4 tunnel encap
-    EncapOpt_mgreipv4 EncapOpt = "mgreipv4"
-
-    // mGRE IPv6 tunnel encap
-    EncapOpt_mgreipv6 EncapOpt = "mgreipv6"
 )
 
 // MobileIp
@@ -419,7 +419,7 @@ type MobileIp_Domains_Domain_AuthenticateOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
@@ -582,7 +582,7 @@ type MobileIp_Lmas_Lma struct {
     DefaultProfile interface{}
 
     // CN facing interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Mobile Map for this LMA. The type is string with length: 1..125.
@@ -872,7 +872,7 @@ type MobileIp_Lmas_Lma_Lmaipv6Addresses_Lmaipv6Address struct {
     YListKey string
 
     // This attribute is a key. LMA IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1102,7 +1102,7 @@ type MobileIp_Lmas_Lma_Lmaipv4Addresses_Lmaipv4Address struct {
     YListKey string
 
     // This attribute is a key. LMA IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 }
 
@@ -1293,15 +1293,15 @@ type MobileIp_Lmas_Lma_Mags_Mag struct {
     EncapOption interface{}
 
     // Configure IPv4 address for this MAG. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // Configure IPv6 address for this MAG. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 
     // static tunnel for this peer MAG. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Tunnel interface{}
 
     // Authentication option between PMIPV6 entities.
@@ -1345,7 +1345,7 @@ type MobileIp_Lmas_Lma_Mags_Mag_AuthenticateOption struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
@@ -1687,7 +1687,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_AuthenticateOption st
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // SPI in hex value. The type is string with pattern: b'[0-9a-fA-F]{1,8}'.
+    // SPI in hex value. The type is string with pattern: [0-9a-fA-F]{1,8}.
     Spi interface{}
 
     // ASCII string. The type is string with length: 1..125.
@@ -1799,11 +1799,11 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_Transports_Transport 
     VrfName interface{}
 
     // Configure IPv4 address for this LMA. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // Configure IPv6 address for this LMA. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6Address interface{}
 }
 
@@ -2008,7 +2008,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     YFilter yfilter.YFilter
 
     // Pool IPv4 start address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -2043,7 +2043,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
     YFilter yfilter.YFilter
 
     // Pool IPv6 start address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..62.
@@ -2148,7 +2148,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..64.
@@ -2223,7 +2223,7 @@ type MobileIp_Lmas_Lma_Services_Service_Customers_Customer_NetworkAttributes_Aut
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -2465,7 +2465,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv4Pool struc
     YFilter yfilter.YFilter
 
     // Pool IPv4 start address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.
@@ -2500,7 +2500,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNode_Ipv6Pool struc
     YFilter yfilter.YFilter
 
     // Pool IPv6 start address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..62.
@@ -2605,7 +2605,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv6Pools
 
     // This attribute is a key. Pool IPv6 start address. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv6 Pool Prefix value. The type is interface{} with range: 8..64.
@@ -2680,7 +2680,7 @@ type MobileIp_Lmas_Lma_Networks_Network_PoolAttributes_MobileNetwork_Mripv4Pools
 
     // This attribute is a key. Pool IPv4 start address. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     StartAddress interface{}
 
     // IPv4 Pool Prefix value. The type is interface{} with range: 8..30.

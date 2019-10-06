@@ -126,7 +126,7 @@ type Macsec_Secy_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. Interface Name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // MACsec Stats.

@@ -26,6 +26,57 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-installmgr-admin-oper:install", reflect.TypeOf(Install{}))
 }
 
+// InstmgrIssuAbortMethod represents Abort method
+type InstmgrIssuAbortMethod string
+
+const (
+    // Unknown abort method
+    InstmgrIssuAbortMethod_method_undefined InstmgrIssuAbortMethod = "method-undefined"
+
+    // No abort is required
+    InstmgrIssuAbortMethod_method_no_operation InstmgrIssuAbortMethod = "method-no-operation"
+
+    // Abort will reload standby nodes
+    InstmgrIssuAbortMethod_method_standby_reload InstmgrIssuAbortMethod = "method-standby-reload"
+
+    // Abort will reload the whole system
+    InstmgrIssuAbortMethod_method_system_reload InstmgrIssuAbortMethod = "method-system-reload"
+
+    // Abort will rollback
+    InstmgrIssuAbortMethod_method_rollback InstmgrIssuAbortMethod = "method-rollback"
+
+    // Abort is not possible
+    InstmgrIssuAbortMethod_method_not_possible InstmgrIssuAbortMethod = "method-not-possible"
+
+    // Abort is not possible by SDR user
+    InstmgrIssuAbortMethod_method_admin_only InstmgrIssuAbortMethod = "method-admin-only"
+)
+
+// InstmgrBagRequestTrigger represents The trigger type of an install request
+type InstmgrBagRequestTrigger string
+
+const (
+    // Request triggered by CLI
+    InstmgrBagRequestTrigger_cli InstmgrBagRequestTrigger = "cli"
+
+    // Request triggered by XML
+    InstmgrBagRequestTrigger_xr_xml InstmgrBagRequestTrigger = "xr-xml"
+)
+
+// InstmgrGroup represents Group type
+type InstmgrGroup string
+
+const (
+    // Undefined grouping
+    InstmgrGroup_inst_pkg_group_undefined InstmgrGroup = "inst-pkg-group-undefined"
+
+    // Packages are grouped
+    InstmgrGroup_inst_pkg_group_grouped InstmgrGroup = "inst-pkg-group-grouped"
+
+    // Packages are all individual
+    InstmgrGroup_inst_pkg_group_individual InstmgrGroup = "inst-pkg-group-individual"
+)
+
 // IsmCardTypeFamily represents Ism card type family
 type IsmCardTypeFamily string
 
@@ -73,105 +124,33 @@ const (
     IsmCardTypeFamily_spa IsmCardTypeFamily = "spa"
 )
 
-// InstmgrIsmFsmState represents Install manager FSM state
-type InstmgrIsmFsmState string
+// InstmgrBagUserMsgCategory represents Instmgr bag user msg category
+type InstmgrBagUserMsgCategory string
 
 const (
-    // No ISSU in progress
-    InstmgrIsmFsmState_idle InstmgrIsmFsmState = "idle"
+    // User error
+    InstmgrBagUserMsgCategory_user_error InstmgrBagUserMsgCategory = "user-error"
 
-    // LOAD init
-    InstmgrIsmFsmState_init_done InstmgrIsmFsmState = "init-done"
+    // Non-specific message
+    InstmgrBagUserMsgCategory_non_specific InstmgrBagUserMsgCategory = "non-specific"
 
-    // LOAD preparation
-    InstmgrIsmFsmState_load_shut InstmgrIsmFsmState = "load-shut"
+    // Warning message
+    InstmgrBagUserMsgCategory_warning InstmgrBagUserMsgCategory = "warning"
 
-    // LOAD wait
-    InstmgrIsmFsmState_load_wait InstmgrIsmFsmState = "load-wait"
+    // Information message
+    InstmgrBagUserMsgCategory_information InstmgrBagUserMsgCategory = "information"
 
-    // LOAD root SC FO
-    InstmgrIsmFsmState_load_stp_root_before InstmgrIsmFsmState = "load-stp-root-before"
+    // User prompt
+    InstmgrBagUserMsgCategory_user_prompt InstmgrBagUserMsgCategory = "user-prompt"
 
-    // LOAD standby ROOT SC Upgrade
-    InstmgrIsmFsmState_load_standby_root_sc_upgrade InstmgrIsmFsmState = "load-standby-root-sc-upgrade"
+    // Log message
+    InstmgrBagUserMsgCategory_log InstmgrBagUserMsgCategory = "log"
 
-    // LOAD standby management upgrade
-    InstmgrIsmFsmState_load_standby_management_upgrade InstmgrIsmFsmState = "load-standby-management-upgrade"
+    // System error
+    InstmgrBagUserMsgCategory_system_error InstmgrBagUserMsgCategory = "system-error"
 
-    // LOAD NDSC FO
-    InstmgrIsmFsmState_load_stp_root_after InstmgrIsmFsmState = "load-stp-root-after"
-
-    // LOAD fabric upgrade
-    InstmgrIsmFsmState_load_fabric_upgrade InstmgrIsmFsmState = "load-fabric-upgrade"
-
-    // LOAD ISSU ready
-    InstmgrIsmFsmState_load_management_issu_ready InstmgrIsmFsmState = "load-management-issu-ready"
-
-    // LOAD done
-    InstmgrIsmFsmState_load_done InstmgrIsmFsmState = "load-done"
-
-    // RUN preparation
-    InstmgrIsmFsmState_run_prep InstmgrIsmFsmState = "run-prep"
-
-    // RUN wait
-    InstmgrIsmFsmState_run_wait InstmgrIsmFsmState = "run-wait"
-
-    // RUN iMDR preparation
-    InstmgrIsmFsmState_runi_mdr_prep InstmgrIsmFsmState = "runi-mdr-prep"
-
-    // RUN iMDR start
-    InstmgrIsmFsmState_runi_mdr_start InstmgrIsmFsmState = "runi-mdr-start"
-
-    // RUN iMDR complete
-    InstmgrIsmFsmState_runi_mdr_complete InstmgrIsmFsmState = "runi-mdr-complete"
-
-    // RUN make standby ready
-    InstmgrIsmFsmState_run_make_standby_ready InstmgrIsmFsmState = "run-make-standby-ready"
-
-    // RUN root SC FO
-    InstmgrIsmFsmState_run_root_scfo InstmgrIsmFsmState = "run-root-scfo"
-
-    // RUN NDSC FO
-    InstmgrIsmFsmState_run_ndscfo InstmgrIsmFsmState = "run-ndscfo"
-
-    // RUN transient1
-    InstmgrIsmFsmState_run_transient1 InstmgrIsmFsmState = "run-transient1"
-
-    // RUN DSC FO
-    InstmgrIsmFsmState_run_dscfo InstmgrIsmFsmState = "run-dscfo"
-
-    // RUN FO compelte
-    InstmgrIsmFsmState_run_fo_complete InstmgrIsmFsmState = "run-fo-complete"
-
-    // Run STP Root Return
-    InstmgrIsmFsmState_run_stp_root_return InstmgrIsmFsmState = "run-stp-root-return"
-
-    // RUN iMDR continue
-    InstmgrIsmFsmState_runi_mdr_continue InstmgrIsmFsmState = "runi-mdr-continue"
-
-    // RUN I am ready after iMDR
-    InstmgrIsmFsmState_run_am_i_ready_afteri_mdr InstmgrIsmFsmState = "run-am-i-ready-afteri-mdr"
-
-    // RUN NSF ready
-    InstmgrIsmFsmState_run_nsf_ready InstmgrIsmFsmState = "run-nsf-ready"
-
-    // RUN iMDR begin
-    InstmgrIsmFsmState_run_nsf_begin InstmgrIsmFsmState = "run-nsf-begin"
-
-    // RUN iMDR done
-    InstmgrIsmFsmState_runi_mdr_done InstmgrIsmFsmState = "runi-mdr-done"
-
-    // RUN mgmt issu ready
-    InstmgrIsmFsmState_run_management_issu_ready InstmgrIsmFsmState = "run-management-issu-ready"
-
-    // RUN unshut
-    InstmgrIsmFsmState_run_un_shut InstmgrIsmFsmState = "run-un-shut"
-
-    // RUN done
-    InstmgrIsmFsmState_run_is_done InstmgrIsmFsmState = "run-is-done"
-
-    // Max ISSU state
-    InstmgrIsmFsmState_state_max InstmgrIsmFsmState = "state-max"
+    // User response
+    InstmgrBagUserMsgCategory_user_response InstmgrBagUserMsgCategory = "user-response"
 )
 
 // InstallmgrIsmNodeConforming represents ISSU manage node inventory type
@@ -192,6 +171,40 @@ const (
 
     // SPA Upgrade failed
     InstallmgrIsmNodeConforming_spa_upgrade_fail InstallmgrIsmNodeConforming = "spa-upgrade-fail"
+)
+
+// InstmgrInstallPhase represents Current operation phase
+type InstmgrInstallPhase string
+
+const (
+    // Unknown operational phase
+    InstmgrInstallPhase_inst_phase_unknown InstmgrInstallPhase = "inst-phase-unknown"
+
+    // Downloading
+    InstmgrInstallPhase_inst_phase_download InstmgrInstallPhase = "inst-phase-download"
+
+    // Performing software changes
+    InstmgrInstallPhase_inst_phase_sw_change InstmgrInstallPhase = "inst-phase-sw-change"
+
+    // Cleaning up after op
+    InstmgrInstallPhase_inst_phase_cleaning_up InstmgrInstallPhase = "inst-phase-cleaning-up"
+)
+
+// InstmgrIssuAbortImpact represents Abort impact
+type InstmgrIssuAbortImpact string
+
+const (
+    // Unknown abort impact
+    InstmgrIssuAbortImpact_undefined InstmgrIssuAbortImpact = "undefined"
+
+    // Abort is hitless
+    InstmgrIssuAbortImpact_hitless InstmgrIssuAbortImpact = "hitless"
+
+    // Abort will not affect traffic
+    InstmgrIssuAbortImpact_traffic_outage InstmgrIssuAbortImpact = "traffic-outage"
+
+    // Abort impact: n/a
+    InstmgrIssuAbortImpact_not_applicable InstmgrIssuAbortImpact = "not-applicable"
 )
 
 // InstmgrIsmNodeState represents ISSU manager node state
@@ -295,44 +308,21 @@ const (
     InstmgrIsmNodeState_max InstmgrIsmNodeState = "max"
 )
 
-// InstmgrPiCard represents PI card types
-type InstmgrPiCard string
+// InstmgrPkg represents Package type
+type InstmgrPkg string
 
 const (
-    // Card type RP
-    InstmgrPiCard_type_rp InstmgrPiCard = "type-rp"
+    // Undefined package
+    InstmgrPkg_inst_pkg_type_undefined InstmgrPkg = "inst-pkg-type-undefined"
 
-    // Card Type DRP
-    InstmgrPiCard_type_drp InstmgrPiCard = "type-drp"
+    // Root package
+    InstmgrPkg_inst_pkg_type_root InstmgrPkg = "inst-pkg-type-root"
 
-    // Card type  LC
-    InstmgrPiCard_type_lc InstmgrPiCard = "type-lc"
+    // Standard package
+    InstmgrPkg_inst_pkg_type_standard InstmgrPkg = "inst-pkg-type-standard"
 
-    // Card type SC
-    InstmgrPiCard_type_sc InstmgrPiCard = "type-sc"
-
-    // Card type SP
-    InstmgrPiCard_type_sp InstmgrPiCard = "type-sp"
-
-    // Card type other
-    InstmgrPiCard_type_other InstmgrPiCard = "type-other"
-)
-
-// InstmgrNodeRole represents Node role
-type InstmgrNodeRole string
-
-const (
-    // Redundency unknown
-    InstmgrNodeRole_redundency_unknown InstmgrNodeRole = "redundency-unknown"
-
-    // Redundency active
-    InstmgrNodeRole_redundency_active InstmgrNodeRole = "redundency-active"
-
-    // Redundency standby
-    InstmgrNodeRole_redundency_standby InstmgrNodeRole = "redundency-standby"
-
-    // Redundency unusable
-    InstmgrNodeRole_redundency_unusable InstmgrNodeRole = "redundency-unusable"
+    // Internal package
+    InstmgrPkg_inst_pkg_type_internal InstmgrPkg = "inst-pkg-type-internal"
 )
 
 // InstmgrCardState represents Instmgr card state
@@ -454,175 +444,21 @@ const (
     InstmgrCardState_instmgr_card_num_states InstmgrCardState = "instmgr-card-num-states"
 )
 
-// InstmgrGroup represents Group type
-type InstmgrGroup string
+// InstmgrNodeRole represents Node role
+type InstmgrNodeRole string
 
 const (
-    // Undefined grouping
-    InstmgrGroup_inst_pkg_group_undefined InstmgrGroup = "inst-pkg-group-undefined"
+    // Redundency unknown
+    InstmgrNodeRole_redundency_unknown InstmgrNodeRole = "redundency-unknown"
 
-    // Packages are grouped
-    InstmgrGroup_inst_pkg_group_grouped InstmgrGroup = "inst-pkg-group-grouped"
+    // Redundency active
+    InstmgrNodeRole_redundency_active InstmgrNodeRole = "redundency-active"
 
-    // Packages are all individual
-    InstmgrGroup_inst_pkg_group_individual InstmgrGroup = "inst-pkg-group-individual"
-)
+    // Redundency standby
+    InstmgrNodeRole_redundency_standby InstmgrNodeRole = "redundency-standby"
 
-// InstmgrPkg represents Package type
-type InstmgrPkg string
-
-const (
-    // Undefined package
-    InstmgrPkg_inst_pkg_type_undefined InstmgrPkg = "inst-pkg-type-undefined"
-
-    // Root package
-    InstmgrPkg_inst_pkg_type_root InstmgrPkg = "inst-pkg-type-root"
-
-    // Standard package
-    InstmgrPkg_inst_pkg_type_standard InstmgrPkg = "inst-pkg-type-standard"
-
-    // Internal package
-    InstmgrPkg_inst_pkg_type_internal InstmgrPkg = "inst-pkg-type-internal"
-)
-
-// InstmgrInstallPhase represents Current operation phase
-type InstmgrInstallPhase string
-
-const (
-    // Unknown operational phase
-    InstmgrInstallPhase_inst_phase_unknown InstmgrInstallPhase = "inst-phase-unknown"
-
-    // Downloading
-    InstmgrInstallPhase_inst_phase_download InstmgrInstallPhase = "inst-phase-download"
-
-    // Performing software changes
-    InstmgrInstallPhase_inst_phase_sw_change InstmgrInstallPhase = "inst-phase-sw-change"
-
-    // Cleaning up after op
-    InstmgrInstallPhase_inst_phase_cleaning_up InstmgrInstallPhase = "inst-phase-cleaning-up"
-)
-
-// InstmgrBagIiState represents The Incremental Install state of an install
-type InstmgrBagIiState string
-
-const (
-    // Node to be upraded
-    InstmgrBagIiState_idle InstmgrBagIiState = "idle"
-
-    // Node is being upraded
-    InstmgrBagIiState_in_progress InstmgrBagIiState = "in-progress"
-
-    // Node upgraded successfully
-    InstmgrBagIiState_completed InstmgrBagIiState = "completed"
-
-    // Node reverted to the old S/W
-    InstmgrBagIiState_aborted InstmgrBagIiState = "aborted"
-
-    // Node rebooted and held in MBI
-    InstmgrBagIiState_rebooted InstmgrBagIiState = "rebooted"
-)
-
-// InstmgrBagIiDirection represents The Incremental Install direction
-type InstmgrBagIiDirection string
-
-const (
-    // Not incremental install operation
-    InstmgrBagIiDirection_not_incremental InstmgrBagIiDirection = "not-incremental"
-
-    // Installing
-    InstmgrBagIiDirection_installing InstmgrBagIiDirection = "installing"
-
-    // Unwinding
-    InstmgrBagIiDirection_unwinding InstmgrBagIiDirection = "unwinding"
-)
-
-// InstmgrBagUserMsgCategory represents Instmgr bag user msg category
-type InstmgrBagUserMsgCategory string
-
-const (
-    // User error
-    InstmgrBagUserMsgCategory_user_error InstmgrBagUserMsgCategory = "user-error"
-
-    // Non-specific message
-    InstmgrBagUserMsgCategory_non_specific InstmgrBagUserMsgCategory = "non-specific"
-
-    // Warning message
-    InstmgrBagUserMsgCategory_warning InstmgrBagUserMsgCategory = "warning"
-
-    // Information message
-    InstmgrBagUserMsgCategory_information InstmgrBagUserMsgCategory = "information"
-
-    // User prompt
-    InstmgrBagUserMsgCategory_user_prompt InstmgrBagUserMsgCategory = "user-prompt"
-
-    // Log message
-    InstmgrBagUserMsgCategory_log InstmgrBagUserMsgCategory = "log"
-
-    // System error
-    InstmgrBagUserMsgCategory_system_error InstmgrBagUserMsgCategory = "system-error"
-
-    // User response
-    InstmgrBagUserMsgCategory_user_response InstmgrBagUserMsgCategory = "user-response"
-)
-
-// InstmgrIssuAbortImpact represents Abort impact
-type InstmgrIssuAbortImpact string
-
-const (
-    // Unknown abort impact
-    InstmgrIssuAbortImpact_undefined InstmgrIssuAbortImpact = "undefined"
-
-    // Abort is hitless
-    InstmgrIssuAbortImpact_hitless InstmgrIssuAbortImpact = "hitless"
-
-    // Abort will not affect traffic
-    InstmgrIssuAbortImpact_traffic_outage InstmgrIssuAbortImpact = "traffic-outage"
-
-    // Abort impact: n/a
-    InstmgrIssuAbortImpact_not_applicable InstmgrIssuAbortImpact = "not-applicable"
-)
-
-// InstmgrIssuAbortMethod represents Abort method
-type InstmgrIssuAbortMethod string
-
-const (
-    // Unknown abort method
-    InstmgrIssuAbortMethod_method_undefined InstmgrIssuAbortMethod = "method-undefined"
-
-    // No abort is required
-    InstmgrIssuAbortMethod_method_no_operation InstmgrIssuAbortMethod = "method-no-operation"
-
-    // Abort will reload standby nodes
-    InstmgrIssuAbortMethod_method_standby_reload InstmgrIssuAbortMethod = "method-standby-reload"
-
-    // Abort will reload the whole system
-    InstmgrIssuAbortMethod_method_system_reload InstmgrIssuAbortMethod = "method-system-reload"
-
-    // Abort will rollback
-    InstmgrIssuAbortMethod_method_rollback InstmgrIssuAbortMethod = "method-rollback"
-
-    // Abort is not possible
-    InstmgrIssuAbortMethod_method_not_possible InstmgrIssuAbortMethod = "method-not-possible"
-
-    // Abort is not possible by SDR user
-    InstmgrIssuAbortMethod_method_admin_only InstmgrIssuAbortMethod = "method-admin-only"
-)
-
-// InstmgrBagAbortState represents The abortable state of an install command
-type InstmgrBagAbortState string
-
-const (
-    // Operation can be aborted
-    InstmgrBagAbortState_abortable InstmgrBagAbortState = "abortable"
-
-    // Operation can no longer be aborted
-    InstmgrBagAbortState_no_longer_abortable InstmgrBagAbortState = "no-longer-abortable"
-
-    // Operation cannot be aborted
-    InstmgrBagAbortState_never_abortable InstmgrBagAbortState = "never-abortable"
-
-    // Operation has been aborted
-    InstmgrBagAbortState_already_aborted InstmgrBagAbortState = "already-aborted"
+    // Redundency unusable
+    InstmgrNodeRole_redundency_unusable InstmgrNodeRole = "redundency-unusable"
 )
 
 // InstmgrRequest represents Instmgr request
@@ -678,15 +514,162 @@ const (
     InstmgrRequest_extend InstmgrRequest = "extend"
 )
 
-// InstmgrBagRequestTrigger represents The trigger type of an install request
-type InstmgrBagRequestTrigger string
+// InstmgrIsmFsmState represents Install manager FSM state
+type InstmgrIsmFsmState string
 
 const (
-    // Request triggered by CLI
-    InstmgrBagRequestTrigger_cli InstmgrBagRequestTrigger = "cli"
+    // No ISSU in progress
+    InstmgrIsmFsmState_idle InstmgrIsmFsmState = "idle"
 
-    // Request triggered by XML
-    InstmgrBagRequestTrigger_xr_xml InstmgrBagRequestTrigger = "xr-xml"
+    // LOAD init
+    InstmgrIsmFsmState_init_done InstmgrIsmFsmState = "init-done"
+
+    // LOAD preparation
+    InstmgrIsmFsmState_load_shut InstmgrIsmFsmState = "load-shut"
+
+    // LOAD wait
+    InstmgrIsmFsmState_load_wait InstmgrIsmFsmState = "load-wait"
+
+    // LOAD root SC FO
+    InstmgrIsmFsmState_load_stp_root_before InstmgrIsmFsmState = "load-stp-root-before"
+
+    // LOAD standby ROOT SC Upgrade
+    InstmgrIsmFsmState_load_standby_root_sc_upgrade InstmgrIsmFsmState = "load-standby-root-sc-upgrade"
+
+    // LOAD standby management upgrade
+    InstmgrIsmFsmState_load_standby_management_upgrade InstmgrIsmFsmState = "load-standby-management-upgrade"
+
+    // LOAD NDSC FO
+    InstmgrIsmFsmState_load_stp_root_after InstmgrIsmFsmState = "load-stp-root-after"
+
+    // LOAD fabric upgrade
+    InstmgrIsmFsmState_load_fabric_upgrade InstmgrIsmFsmState = "load-fabric-upgrade"
+
+    // LOAD ISSU ready
+    InstmgrIsmFsmState_load_management_issu_ready InstmgrIsmFsmState = "load-management-issu-ready"
+
+    // LOAD done
+    InstmgrIsmFsmState_load_done InstmgrIsmFsmState = "load-done"
+
+    // RUN preparation
+    InstmgrIsmFsmState_run_prep InstmgrIsmFsmState = "run-prep"
+
+    // RUN wait
+    InstmgrIsmFsmState_run_wait InstmgrIsmFsmState = "run-wait"
+
+    // RUN iMDR preparation
+    InstmgrIsmFsmState_runi_mdr_prep InstmgrIsmFsmState = "runi-mdr-prep"
+
+    // RUN iMDR start
+    InstmgrIsmFsmState_runi_mdr_start InstmgrIsmFsmState = "runi-mdr-start"
+
+    // RUN iMDR complete
+    InstmgrIsmFsmState_runi_mdr_complete InstmgrIsmFsmState = "runi-mdr-complete"
+
+    // RUN make standby ready
+    InstmgrIsmFsmState_run_make_standby_ready InstmgrIsmFsmState = "run-make-standby-ready"
+
+    // RUN root SC FO
+    InstmgrIsmFsmState_run_root_scfo InstmgrIsmFsmState = "run-root-scfo"
+
+    // RUN NDSC FO
+    InstmgrIsmFsmState_run_ndscfo InstmgrIsmFsmState = "run-ndscfo"
+
+    // RUN transient1
+    InstmgrIsmFsmState_run_transient1 InstmgrIsmFsmState = "run-transient1"
+
+    // RUN DSC FO
+    InstmgrIsmFsmState_run_dscfo InstmgrIsmFsmState = "run-dscfo"
+
+    // RUN FO compelte
+    InstmgrIsmFsmState_run_fo_complete InstmgrIsmFsmState = "run-fo-complete"
+
+    // Run STP Root Return
+    InstmgrIsmFsmState_run_stp_root_return InstmgrIsmFsmState = "run-stp-root-return"
+
+    // RUN iMDR continue
+    InstmgrIsmFsmState_runi_mdr_continue InstmgrIsmFsmState = "runi-mdr-continue"
+
+    // RUN I am ready after iMDR
+    InstmgrIsmFsmState_run_am_i_ready_afteri_mdr InstmgrIsmFsmState = "run-am-i-ready-afteri-mdr"
+
+    // RUN NSF ready
+    InstmgrIsmFsmState_run_nsf_ready InstmgrIsmFsmState = "run-nsf-ready"
+
+    // RUN iMDR begin
+    InstmgrIsmFsmState_run_nsf_begin InstmgrIsmFsmState = "run-nsf-begin"
+
+    // RUN iMDR done
+    InstmgrIsmFsmState_runi_mdr_done InstmgrIsmFsmState = "runi-mdr-done"
+
+    // RUN mgmt issu ready
+    InstmgrIsmFsmState_run_management_issu_ready InstmgrIsmFsmState = "run-management-issu-ready"
+
+    // RUN unshut
+    InstmgrIsmFsmState_run_un_shut InstmgrIsmFsmState = "run-un-shut"
+
+    // RUN done
+    InstmgrIsmFsmState_run_is_done InstmgrIsmFsmState = "run-is-done"
+
+    // Max ISSU state
+    InstmgrIsmFsmState_state_max InstmgrIsmFsmState = "state-max"
+)
+
+// InstmgrBagIiDirection represents The Incremental Install direction
+type InstmgrBagIiDirection string
+
+const (
+    // Not incremental install operation
+    InstmgrBagIiDirection_not_incremental InstmgrBagIiDirection = "not-incremental"
+
+    // Installing
+    InstmgrBagIiDirection_installing InstmgrBagIiDirection = "installing"
+
+    // Unwinding
+    InstmgrBagIiDirection_unwinding InstmgrBagIiDirection = "unwinding"
+)
+
+// InstmgrPiCard represents PI card types
+type InstmgrPiCard string
+
+const (
+    // Card type RP
+    InstmgrPiCard_type_rp InstmgrPiCard = "type-rp"
+
+    // Card Type DRP
+    InstmgrPiCard_type_drp InstmgrPiCard = "type-drp"
+
+    // Card type  LC
+    InstmgrPiCard_type_lc InstmgrPiCard = "type-lc"
+
+    // Card type SC
+    InstmgrPiCard_type_sc InstmgrPiCard = "type-sc"
+
+    // Card type SP
+    InstmgrPiCard_type_sp InstmgrPiCard = "type-sp"
+
+    // Card type other
+    InstmgrPiCard_type_other InstmgrPiCard = "type-other"
+)
+
+// InstmgrBagIiState represents The Incremental Install state of an install
+type InstmgrBagIiState string
+
+const (
+    // Node to be upraded
+    InstmgrBagIiState_idle InstmgrBagIiState = "idle"
+
+    // Node is being upraded
+    InstmgrBagIiState_in_progress InstmgrBagIiState = "in-progress"
+
+    // Node upgraded successfully
+    InstmgrBagIiState_completed InstmgrBagIiState = "completed"
+
+    // Node reverted to the old S/W
+    InstmgrBagIiState_aborted InstmgrBagIiState = "aborted"
+
+    // Node rebooted and held in MBI
+    InstmgrBagIiState_rebooted InstmgrBagIiState = "rebooted"
 )
 
 // InstmgrBagLogEntryUserMsgCategory represents Category type
@@ -716,6 +699,23 @@ const (
 
     // User response
     InstmgrBagLogEntryUserMsgCategory_user_response InstmgrBagLogEntryUserMsgCategory = "user-response"
+)
+
+// InstmgrBagAbortState represents The abortable state of an install command
+type InstmgrBagAbortState string
+
+const (
+    // Operation can be aborted
+    InstmgrBagAbortState_abortable InstmgrBagAbortState = "abortable"
+
+    // Operation can no longer be aborted
+    InstmgrBagAbortState_no_longer_abortable InstmgrBagAbortState = "no-longer-abortable"
+
+    // Operation cannot be aborted
+    InstmgrBagAbortState_never_abortable InstmgrBagAbortState = "never-abortable"
+
+    // Operation has been aborted
+    InstmgrBagAbortState_already_aborted InstmgrBagAbortState = "already-aborted"
 )
 
 // Install
@@ -824,11 +824,11 @@ type Install_ConfigurationRegisters_ConfigurationRegister struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Configuration register value. The type is string with pattern:
-    // b'[0-9a-fA-F]{1,8}'. This attribute is mandatory.
+    // [0-9a-fA-F]{1,8}. This attribute is mandatory.
     ConfigRegister interface{}
 }
 
@@ -1108,7 +1108,7 @@ type Install_RequestStatuses_RequestStatus_IncrementalInstallInformation_Nodes s
     YListKey string
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // State. The type is InstmgrBagIiState.
@@ -1326,7 +1326,7 @@ type Install_BootVariables_BootVariable struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Boot variable value. The type is string. This attribute is mandatory.
@@ -1434,7 +1434,7 @@ type Install_Software_AliasDevices_AliasDevice struct {
     YListKey string
 
     // This attribute is a key. Device Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     DeviceName interface{}
 
     // alias information.
@@ -1573,7 +1573,7 @@ type Install_Software_PackageDevices_PackageDevice struct {
     YListKey string
 
     // This attribute is a key. Device Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     DeviceName interface{}
 
     // Package information for specific package.
@@ -1825,7 +1825,7 @@ type Install_Software_ComponentDevices_ComponentDevice struct {
     YListKey string
 
     // This attribute is a key. Device Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     DeviceName interface{}
 
     // Software package information.
@@ -2718,7 +2718,7 @@ type Install_SoftwareInventory_Committed_Summary_LocationLoadPath struct {
     SecureDomainRouterName interface{}
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Load path. The type is slice of
@@ -2950,7 +2950,7 @@ type Install_SoftwareInventory_Committed_Inventories_Inventory struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -3777,7 +3777,7 @@ type Install_SoftwareInventory_Inactive_Summary_LocationLoadPath struct {
     SecureDomainRouterName interface{}
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Load path. The type is slice of
@@ -4009,7 +4009,7 @@ type Install_SoftwareInventory_Inactive_Inventories_Inventory struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -4280,7 +4280,7 @@ type Install_SoftwareInventory_Requests_Requests_Request_Inventories_Inventory s
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -5107,7 +5107,7 @@ type Install_SoftwareInventory_Active_Summary_LocationLoadPath struct {
     SecureDomainRouterName interface{}
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Load path. The type is slice of
@@ -5339,7 +5339,7 @@ type Install_SoftwareInventory_Active_Inventories_Inventory struct {
     YListKey string
 
     // This attribute is a key. Node name. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Major data version number. The type is interface{} with range:
@@ -5585,11 +5585,11 @@ type Install_Issu_CardInventories_CardInventory_Summary struct {
     YListKey string
 
     // Node identifier. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // Partner Node IDs. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     PartnerNodeName interface{}
 
     // Node state. The type is InstmgrCardState.
@@ -5753,7 +5753,7 @@ type Install_Issu_Stage_NodeInProgress struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 
@@ -5784,7 +5784,7 @@ type Install_Issu_Stage_NodesInLoad struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 
@@ -5815,7 +5815,7 @@ type Install_Issu_Stage_NodesInRun struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 
@@ -5846,7 +5846,7 @@ type Install_Issu_Stage_NcNodes struct {
     YFilter yfilter.YFilter
 
     // node. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Node []interface{}
 }
 

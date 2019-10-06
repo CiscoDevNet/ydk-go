@@ -27,112 +27,33 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-infra-syslog-cfg:syslog", reflect.TypeOf(Syslog{}))
 }
 
-// LoggingTos represents Logging tos
-type LoggingTos string
+// LogSeverity represents Log severity
+type LogSeverity string
 
 const (
-    // Logging TOS type precedence
-    LoggingTos_precedence LoggingTos = "precedence"
+    // System is unusable                (severity=0)
+    LogSeverity_emergency LogSeverity = "emergency"
 
-    // Logging TOS type DSCP
-    LoggingTos_dscp LoggingTos = "dscp"
-)
+    // Immediate action needed           (severity=1)
+    LogSeverity_alert LogSeverity = "alert"
 
-// LoggingDscpValue represents Logging dscp value
-type LoggingDscpValue string
+    // Critical conditions               (severity=2)
+    LogSeverity_critical LogSeverity = "critical"
 
-const (
-    // Applicable to DSCP: bits 000000
-    LoggingDscpValue_default_ LoggingDscpValue = "default"
+    // Error conditions                  (severity=3)
+    LogSeverity_error_ LogSeverity = "error"
 
-    // Applicable to DSCP: bits 001010
-    LoggingDscpValue_af11 LoggingDscpValue = "af11"
+    // Warning conditions                (severity=4)
+    LogSeverity_warning LogSeverity = "warning"
 
-    // Applicable to DSCP: bits 001100
-    LoggingDscpValue_af12 LoggingDscpValue = "af12"
+    // Normal but significant conditions (severity=5)
+    LogSeverity_notice LogSeverity = "notice"
 
-    // Applicable to DSCP: bits 001110
-    LoggingDscpValue_af13 LoggingDscpValue = "af13"
+    // Informational messages            (severity=6)
+    LogSeverity_informational LogSeverity = "informational"
 
-    // Applicable to DSCP: bits 010010
-    LoggingDscpValue_af21 LoggingDscpValue = "af21"
-
-    // Applicable to DSCP: bits 010100
-    LoggingDscpValue_af22 LoggingDscpValue = "af22"
-
-    // Applicable to DSCP: bits 010110
-    LoggingDscpValue_af23 LoggingDscpValue = "af23"
-
-    // Applicable to DSCP: bits 011010
-    LoggingDscpValue_af31 LoggingDscpValue = "af31"
-
-    // Applicable to DSCP: bits 011100
-    LoggingDscpValue_af32 LoggingDscpValue = "af32"
-
-    // Applicable to DSCP: bits 011110
-    LoggingDscpValue_af33 LoggingDscpValue = "af33"
-
-    // Applicable to DSCP: bits 100010
-    LoggingDscpValue_af41 LoggingDscpValue = "af41"
-
-    // Applicable to DSCP: bits 100100
-    LoggingDscpValue_af42 LoggingDscpValue = "af42"
-
-    // Applicable to DSCP: bits 100110
-    LoggingDscpValue_af43 LoggingDscpValue = "af43"
-
-    // Applicable to DSCP: bits 101110
-    LoggingDscpValue_ef LoggingDscpValue = "ef"
-
-    // Applicable to DSCP: bits 001000
-    LoggingDscpValue_cs1 LoggingDscpValue = "cs1"
-
-    // Applicable to DSCP: bits 010000
-    LoggingDscpValue_cs2 LoggingDscpValue = "cs2"
-
-    // Applicable to DSCP: bits 011000
-    LoggingDscpValue_cs3 LoggingDscpValue = "cs3"
-
-    // Applicable to DSCP: bits 100000
-    LoggingDscpValue_cs4 LoggingDscpValue = "cs4"
-
-    // Applicable to DSCP: bits 101000
-    LoggingDscpValue_cs5 LoggingDscpValue = "cs5"
-
-    // Applicable to DSCP: bits 110000
-    LoggingDscpValue_cs6 LoggingDscpValue = "cs6"
-
-    // Applicable to DSCP: bits 111000
-    LoggingDscpValue_cs7 LoggingDscpValue = "cs7"
-)
-
-// LoggingPrecedenceValue represents Logging precedence value
-type LoggingPrecedenceValue string
-
-const (
-    // Applicable to precedence: value 0
-    LoggingPrecedenceValue_routine LoggingPrecedenceValue = "routine"
-
-    // Applicable to precedence: value 1
-    LoggingPrecedenceValue_priority LoggingPrecedenceValue = "priority"
-
-    // Applicable to precedence: value 2
-    LoggingPrecedenceValue_immediate LoggingPrecedenceValue = "immediate"
-
-    // Applicable to precedence: value 3
-    LoggingPrecedenceValue_flash LoggingPrecedenceValue = "flash"
-
-    // Applicable to precedence: value 4
-    LoggingPrecedenceValue_flash_override LoggingPrecedenceValue = "flash-override"
-
-    // Applicable to precedence: value 5
-    LoggingPrecedenceValue_critical LoggingPrecedenceValue = "critical"
-
-    // Applicable to precedence: value 6
-    LoggingPrecedenceValue_internet LoggingPrecedenceValue = "internet"
-
-    // Applicable to precedence: value 7
-    LoggingPrecedenceValue_network LoggingPrecedenceValue = "network"
+    // Debugging messages                (severity=7)
+    LogSeverity_debug LogSeverity = "debug"
 )
 
 // Facility represents Facility
@@ -218,12 +139,55 @@ const (
     Facility_sys14 Facility = "sys14"
 )
 
-// LoggingDscp represents Logging dscp
-type LoggingDscp string
+// LogCollectFrequency represents Log collect frequency
+type LogCollectFrequency string
 
 const (
+    // Collect log in files on a weekly basis
+    LogCollectFrequency_weekly LogCollectFrequency = "weekly"
+
+    // Collect log in files on a daily basis
+    LogCollectFrequency_daily LogCollectFrequency = "daily"
+)
+
+// LoggingPrecedenceValue represents Logging precedence value
+type LoggingPrecedenceValue string
+
+const (
+    // Applicable to precedence: value 0
+    LoggingPrecedenceValue_routine LoggingPrecedenceValue = "routine"
+
+    // Applicable to precedence: value 1
+    LoggingPrecedenceValue_priority LoggingPrecedenceValue = "priority"
+
+    // Applicable to precedence: value 2
+    LoggingPrecedenceValue_immediate LoggingPrecedenceValue = "immediate"
+
+    // Applicable to precedence: value 3
+    LoggingPrecedenceValue_flash LoggingPrecedenceValue = "flash"
+
+    // Applicable to precedence: value 4
+    LoggingPrecedenceValue_flash_override LoggingPrecedenceValue = "flash-override"
+
+    // Applicable to precedence: value 5
+    LoggingPrecedenceValue_critical LoggingPrecedenceValue = "critical"
+
+    // Applicable to precedence: value 6
+    LoggingPrecedenceValue_internet LoggingPrecedenceValue = "internet"
+
+    // Applicable to precedence: value 7
+    LoggingPrecedenceValue_network LoggingPrecedenceValue = "network"
+)
+
+// LoggingTos represents Logging tos
+type LoggingTos string
+
+const (
+    // Logging TOS type precedence
+    LoggingTos_precedence LoggingTos = "precedence"
+
     // Logging TOS type DSCP
-    LoggingDscp_dscp LoggingDscp = "dscp"
+    LoggingTos_dscp LoggingTos = "dscp"
 )
 
 // LoggingLevels represents Logging levels
@@ -266,15 +230,72 @@ const (
     LoggingPrecedence_precedence LoggingPrecedence = "precedence"
 )
 
-// TimeInfo represents Time info
-type TimeInfo string
+// LoggingDscpValue represents Logging dscp value
+type LoggingDscpValue string
 
 const (
-    // Exclude
-    TimeInfo_disable TimeInfo = "disable"
+    // Applicable to DSCP: bits 000000
+    LoggingDscpValue_default_ LoggingDscpValue = "default"
 
-    // Include
-    TimeInfo_enable TimeInfo = "enable"
+    // Applicable to DSCP: bits 001010
+    LoggingDscpValue_af11 LoggingDscpValue = "af11"
+
+    // Applicable to DSCP: bits 001100
+    LoggingDscpValue_af12 LoggingDscpValue = "af12"
+
+    // Applicable to DSCP: bits 001110
+    LoggingDscpValue_af13 LoggingDscpValue = "af13"
+
+    // Applicable to DSCP: bits 010010
+    LoggingDscpValue_af21 LoggingDscpValue = "af21"
+
+    // Applicable to DSCP: bits 010100
+    LoggingDscpValue_af22 LoggingDscpValue = "af22"
+
+    // Applicable to DSCP: bits 010110
+    LoggingDscpValue_af23 LoggingDscpValue = "af23"
+
+    // Applicable to DSCP: bits 011010
+    LoggingDscpValue_af31 LoggingDscpValue = "af31"
+
+    // Applicable to DSCP: bits 011100
+    LoggingDscpValue_af32 LoggingDscpValue = "af32"
+
+    // Applicable to DSCP: bits 011110
+    LoggingDscpValue_af33 LoggingDscpValue = "af33"
+
+    // Applicable to DSCP: bits 100010
+    LoggingDscpValue_af41 LoggingDscpValue = "af41"
+
+    // Applicable to DSCP: bits 100100
+    LoggingDscpValue_af42 LoggingDscpValue = "af42"
+
+    // Applicable to DSCP: bits 100110
+    LoggingDscpValue_af43 LoggingDscpValue = "af43"
+
+    // Applicable to DSCP: bits 101110
+    LoggingDscpValue_ef LoggingDscpValue = "ef"
+
+    // Applicable to DSCP: bits 001000
+    LoggingDscpValue_cs1 LoggingDscpValue = "cs1"
+
+    // Applicable to DSCP: bits 010000
+    LoggingDscpValue_cs2 LoggingDscpValue = "cs2"
+
+    // Applicable to DSCP: bits 011000
+    LoggingDscpValue_cs3 LoggingDscpValue = "cs3"
+
+    // Applicable to DSCP: bits 100000
+    LoggingDscpValue_cs4 LoggingDscpValue = "cs4"
+
+    // Applicable to DSCP: bits 101000
+    LoggingDscpValue_cs5 LoggingDscpValue = "cs5"
+
+    // Applicable to DSCP: bits 110000
+    LoggingDscpValue_cs6 LoggingDscpValue = "cs6"
+
+    // Applicable to DSCP: bits 111000
+    LoggingDscpValue_cs7 LoggingDscpValue = "cs7"
 )
 
 // LogMessageSeverity represents Log message severity
@@ -306,44 +327,23 @@ const (
     LogMessageSeverity_debug LogMessageSeverity = "debug"
 )
 
-// LogCollectFrequency represents Log collect frequency
-type LogCollectFrequency string
+// TimeInfo represents Time info
+type TimeInfo string
 
 const (
-    // Collect log in files on a weekly basis
-    LogCollectFrequency_weekly LogCollectFrequency = "weekly"
+    // Exclude
+    TimeInfo_disable TimeInfo = "disable"
 
-    // Collect log in files on a daily basis
-    LogCollectFrequency_daily LogCollectFrequency = "daily"
+    // Include
+    TimeInfo_enable TimeInfo = "enable"
 )
 
-// LogSeverity represents Log severity
-type LogSeverity string
+// LoggingDscp represents Logging dscp
+type LoggingDscp string
 
 const (
-    // System is unusable                (severity=0)
-    LogSeverity_emergency LogSeverity = "emergency"
-
-    // Immediate action needed           (severity=1)
-    LogSeverity_alert LogSeverity = "alert"
-
-    // Critical conditions               (severity=2)
-    LogSeverity_critical LogSeverity = "critical"
-
-    // Error conditions                  (severity=3)
-    LogSeverity_error_ LogSeverity = "error"
-
-    // Warning conditions                (severity=4)
-    LogSeverity_warning LogSeverity = "warning"
-
-    // Normal but significant conditions (severity=5)
-    LogSeverity_notice LogSeverity = "notice"
-
-    // Informational messages            (severity=6)
-    LogSeverity_informational LogSeverity = "informational"
-
-    // Debugging messages                (severity=7)
-    LogSeverity_debug LogSeverity = "debug"
+    // Logging TOS type DSCP
+    LoggingDscp_dscp LoggingDscp = "dscp"
 )
 
 // SyslogService
@@ -1082,7 +1082,7 @@ type Syslog_HostServer_Vrfs_Vrf struct {
     YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // List of the IPv6 logging host.
@@ -1161,7 +1161,7 @@ type Syslog_HostServer_Vrfs_Vrf_Ipv6s_Ipv6 struct {
 
     // This attribute is a key. IPv6 address of the logging host. The type is
     // string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Severity/Port for the logging host.
@@ -1517,7 +1517,7 @@ type Syslog_HostServer_Vrfs_Vrf_Ipv4s_Ipv4 struct {
 
     // This attribute is a key. IPv4 address of the logging host. The type is
     // string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Severity container of the logging host.
@@ -1779,7 +1779,7 @@ type Syslog_Files_File struct {
     YListKey string
 
     // This attribute is a key. Name of the file. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FileName interface{}
 
     // Specifications of the logging file destination.
@@ -2364,7 +2364,7 @@ type Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue stru
     YListKey string
 
     // This attribute is a key. Which Interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     SrcInterfaceNameValue interface{}
 
     // Configure source interface VRF.
@@ -2434,7 +2434,7 @@ type Syslog_SourceInterfaceTable_SourceInterfaceValues_SourceInterfaceValue_Sour
     YListKey string
 
     // This attribute is a key. Name of the VRF instance. The type is string with
-    // pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // pattern: [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 }
 
@@ -2560,7 +2560,7 @@ type Syslog_AlarmLogger_AlarmFilterStrings_AlarmFilterString struct {
     YListKey string
 
     // This attribute is a key. Filter String. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     FilterString interface{}
 }
 
@@ -3261,7 +3261,7 @@ type Syslog_Correlator_Rules_Rule_ApplyTo_Locations struct {
     YFilter yfilter.YFilter
 
     // One or more Locations. The type is slice of string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location []interface{}
 }
 
@@ -3430,7 +3430,7 @@ type Syslog_Correlator_Rules_Rule_AppliedTo_Locations_Location struct {
     YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 }
 
@@ -3737,7 +3737,7 @@ type Syslog_Correlator_RuleSets_RuleSet_AppliedTo_Locations_Location struct {
     YListKey string
 
     // This attribute is a key. Location. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Location interface{}
 }
 
@@ -3944,7 +3944,7 @@ type Syslog_Suppression_Rules_Rule_AppliedTo_Sources_Source struct {
     YListKey string
 
     // This attribute is a key. Source. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     Source interface{}
 }
 

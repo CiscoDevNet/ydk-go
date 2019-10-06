@@ -12,26 +12,6 @@ module tailf-common-monitoring {
     "This module defines common status objects for monitoring of
      Tail-f products.";
 
-  revision 2013-06-14 {
-    description
-      "Released as part of ConfD-4.3 and NCS-2.3.
-       
-       Added 'relay-slave' enum for HA mode.";
-  }
-  revision 2013-03-07 {
-    description
-      "Released as part of ConfD-4.2 and NCS-2.2.
-       
-       Added container 'loaded-data-models'.
-       
-       Added container 'rest' for status of the REST server.";
-  }
-  revision 2012-11-08 {
-    description
-      "Released as part of ConfD-4.1 and NCS-2.1.
-       
-       Fixed bug in 'when' expression in 'cluster-info' choice.";
-  }
   revision 2012-03-08 {
     description
       "Released as part of ConfD-3.9 and NCS-1.9.
@@ -59,108 +39,6 @@ module tailf-common-monitoring {
   typedef size-in-bytes {
     type uint64;
     units "bytes";
-  }
-
-  grouping callpoint-entry {
-    leaf id {
-      type string;
-      description
-        "Callpoint id";
-    }
-    uses registration-info;
-  }
-
-  grouping registration-info {
-
-    grouping daemon-info {
-      leaf id {
-        type uint32;
-        description
-          "The numerical id assigned to the application daemon
-           that has registered for a callpoint.";
-      }
-      leaf name {
-        type string;
-        description
-          "The name of the application daemon that has
-           registered for a callpoint.";
-      }
-      leaf error {
-        type enumeration {
-          enum "PENDING" {
-            description
-              "This value means that the application daemon has not
-               completed the registration (with confd_register_done()).";
-          }
-        }
-        description
-          "If this leaf exists, there is a problem
-           with the daemon registration.";
-      }
-    }
-    choice registration-type {
-      case daemon {
-        container daemon {
-          uses daemon-info;
-        }
-      }
-      case range {
-        leaf path {
-          type string;
-          description
-            "The path of the list that a range registration
-             pertains to.";
-        }
-        list range {
-          leaf lower {
-            type string;
-            description
-              "The space-separated set of keys that defines the lower
-               endpoint of the range for a non-default registration.";
-          }
-          leaf upper {
-            type string;
-            description
-              "The space-separated set of keys that defines the upper
-               endpoint of the range for a non-default registration.";
-          }
-          leaf default {
-            type empty;
-            description
-              "If this leaf exists, this is a default registration
-               - in this case 'lower' and 'upper' do not exist.";
-          }
-          container daemon {
-            uses daemon-info;
-          }
-        }
-      }
-      case file {
-        leaf file {
-          type string;
-          description
-            "The pathname of the shared object implementing the type
-             for a typepoint.";
-        }
-      }
-    }
-    leaf error {
-      type enumeration {
-        enum "NOT-REGISTERED" {
-          description
-            "This value means that there is no registration
-             for the callpoint.";
-        }
-        enum "UNKNOWN" {
-          description
-            "This value means that the callpoint does not exist,
-             but there is a registration for it.";
-        }
-      }
-      description
-        "If this leaf exists, there is a problem
-         with the callpoint registration.";
-    }
   }
 
   grouping common-monitoring-objects {
@@ -234,7 +112,6 @@ module tailf-common-monitoring {
           enum "none";
           enum "slave";
           enum "master";
-          enum "relay-slave";
         }
         description
           "The current HA mode of the node in the HA cluster.";
@@ -245,78 +122,26 @@ module tailf-common-monitoring {
         description
           "The node identifier of this node in the HA cluster.";
       }
-      leaf master-node-id {
-        when "../mode = 'slave' or ../mode = 'relay-slave'";
-        type string;
-        description
-          "The node identifier of this node's parent node.
-           This is the HA cluster's master node unless relay slaves
-           are used.";
-      }
-      leaf-list connected-slave {
-        when "../mode = 'master' or ../mode = 'relay-slave'";
-        type string;
-        description
-          "The node identifiers of the currently connected slaves.";
-      }
-      leaf-list pending-slave {
-        when "../mode = 'master' or ../mode = 'relay-slave'";
-        type string;
-        description
-          "The node identifiers of slaves with pending acknowledgement
-           of synchronous replication.";
-      }
-    }
-    container loaded-data-models {
-      list data-model {
-        key "name";
-        description
-          "This list contains all loaded YANG data modules.
-           
-           This list is a superset of the 'schema' list defined in
-           ietf-netconf-monitoring, which only lists modules exported
-           through NETCONF.";
-        leaf name {
-          type string;
-          description
-            "The YANG module name.";
-        }
-        leaf revision {
-          type string;
-          description
-            "The YANG module revision.";
-        }
-        leaf namespace {
-          type inet:uri;
-          description
-            "The YANG module namespace.";
-        }
-        leaf prefix {
-          type string;
-          description
-            "The prefix defined in the YANG module.";
-        }
-        choice exported {
-          leaf exported-to-all {
-            type empty;
+      choice cluster-info {
+        case slave-info {
+          when "../../mode = 'slave'";
+          leaf master-node-id {
+            type string;
             description
-              "This leaf is present if the module is exported to all
-               northbound interfaces.";
+              "The node identifier of the HA cluster's master node.";
           }
-          leaf-list exported-to {
-            type union {
-              type enumeration {
-                enum "netconf";
-                enum "cli";
-                enum "webui";
-                enum "rest";
-                enum "snmp";
-              }
-              type string;
-            }
+        }
+        case master-info {
+          when "../../mode = 'master'";
+          leaf-list connected-slave {
+            type string;
             description
-              "A list of the contexts (northbound interfaces) this module
-               is exported to.";
+              "The node identifiers of the currently connected slaves.";
+          }
+          leaf-list pending-slave {
+            type string;
+            description
+              "The node identifiers of slaves not yet connected.";
           }
         }
       }
@@ -368,19 +193,6 @@ module tailf-common-monitoring {
         }
       }
     }
-    container rest {
-      presence "Indicates that the REST server is running.";
-      container listen {
-        description
-          "The transport addresses the REST server is listening on.";
-        list tcp {
-          uses ip-port;
-        }
-        list ssl {
-          uses ip-port;
-        }
-      }
-    }
     container snmp {
       presence "Indicates that the SNMP agent is running.";
       container listen {
@@ -419,6 +231,108 @@ module tailf-common-monitoring {
     }
     container internal {
       container callpoints {
+
+        grouping daemon-info {
+          leaf id {
+            type uint32;
+            description
+              "The numerical id assigned to the application daemon
+               that has registered for a callpoint.";
+          }
+          leaf name {
+            type string;
+            description
+              "The name of the application daemon that has
+               registered for a callpoint.";
+          }
+          leaf error {
+            type enumeration {
+              enum "PENDING" {
+                description
+                  "This value means that the application daemon has not
+                   completed the registration (with confd_register_done()).";
+              }
+            }
+            description
+              "If this leaf exists, there is a problem
+               with the daemon registration.";
+          }
+        }
+
+        grouping registration-info {
+          choice registration-type {
+            case daemon {
+              container daemon {
+                uses daemon-info;
+              }
+            }
+            case range {
+              leaf path {
+                type string;
+                description
+                  "The path of the list that a range registration
+                   pertains to.";
+              }
+              list range {
+                leaf lower {
+                  type string;
+                  description
+                    "The space-separated set of keys that defines the lower
+                     endpoint of the range for a non-default registration.";
+                }
+                leaf upper {
+                  type string;
+                  description
+                    "The space-separated set of keys that defines the upper
+                     endpoint of the range for a non-default registration.";
+                }
+                leaf default {
+                  type empty;
+                  description
+                    "If this leaf exists, this is a default registration
+                     - in this case 'lower' and 'upper' do not exist.";
+                }
+                container daemon {
+                  uses daemon-info;
+                }
+              }
+            }
+            case file {
+              leaf file {
+                type string;
+                description
+                  "The pathname of the shared object implementing the type
+                   for a typepoint.";
+              }
+            }
+          }
+          leaf error {
+            type enumeration {
+              enum "NOT-REGISTERED" {
+                description
+                  "This value means that there is no registration
+                   for the callpoint.";
+              }
+              enum "UNKNOWN" {
+                description
+                  "This value means that the callpoint does not exist,
+                   but there is a registration for it.";
+              }
+            }
+            description
+              "If this leaf exists, there is a problem
+               with the callpoint registration.";
+          }
+        }
+
+        grouping callpoint-entry {
+          leaf id {
+            type string;
+            description
+              "Callpoint id";
+          }
+          uses registration-info;
+        }
         list callpoint {
           key "id";
           uses callpoint-entry;

@@ -120,7 +120,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup struct {
     YListKey string
 
     // This attribute is a key. BBA-Group name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     BbaGroup interface{}
 
     // PPPoE session completion timeout. The type is interface{} with range:
@@ -304,7 +304,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_Tag_ServiceNameConfigureds_ServiceNam
     YListKey string
 
     // This attribute is a key. Service name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 }
 
@@ -1469,7 +1469,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdSubstrings_RemoteId
     YListKey string
 
     // This attribute is a key. The string to be contained within the received
-    // Remote ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Remote ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1543,7 +1543,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_RemoteIdStrings_RemoteIdStr
     YListKey string
 
     // This attribute is a key. The string to exactly match the received Remote
-    // ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1617,7 +1617,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameStrings_ServiceN
     YListKey string
 
     // This attribute is a key. The string to exactly match the received Service
-    // Name. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1691,8 +1691,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdSubstrings_Circuit
     YListKey string
 
     // This attribute is a key. The string to be contained within the received
-    // Circuit ID. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Circuit ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1766,8 +1765,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_ServiceNameSubstrings_Servi
     YListKey string
 
     // This attribute is a key. The string to be contained within the received
-    // Service Name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // Service Name. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.
@@ -1841,7 +1839,7 @@ type PppoeCfg_PppoeBbaGroups_PppoeBbaGroup_PaDoDelay_CircuitIdStrings_CircuitIdS
     YListKey string
 
     // This attribute is a key. The string to exactly match the received Circuit
-    // ID. The type is string with pattern: b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // ID. The type is string with pattern: [\w\-\.:,_@#%$\+=\|;]+.
     Name interface{}
 
     // PADO delay (in milliseconds). The type is interface{} with range: 0..10000.

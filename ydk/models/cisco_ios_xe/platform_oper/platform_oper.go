@@ -19,6 +19,21 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XE-platform-oper:components", reflect.TypeOf(Components{}))
 }
 
+// PlatformPropValueType represents Property value type
+type PlatformPropValueType string
+
+const (
+    PlatformPropValueType_property_string PlatformPropValueType = "property-string"
+
+    PlatformPropValueType_property_boolean PlatformPropValueType = "property-boolean"
+
+    PlatformPropValueType_property_int64 PlatformPropValueType = "property-int64"
+
+    PlatformPropValueType_property_uint64 PlatformPropValueType = "property-uint64"
+
+    PlatformPropValueType_property_decimal64 PlatformPropValueType = "property-decimal64"
+)
+
 // PlatformCompType represents Component Type
 type PlatformCompType string
 
@@ -46,21 +61,6 @@ const (
     PlatformCompType_comp_optical_channel PlatformCompType = "comp-optical-channel"
 
     PlatformCompType_comp_container PlatformCompType = "comp-container"
-)
-
-// PlatformPropValueType represents Property value type
-type PlatformPropValueType string
-
-const (
-    PlatformPropValueType_property_string PlatformPropValueType = "property-string"
-
-    PlatformPropValueType_property_boolean PlatformPropValueType = "property-boolean"
-
-    PlatformPropValueType_property_int64 PlatformPropValueType = "property-int64"
-
-    PlatformPropValueType_property_uint64 PlatformPropValueType = "property-uint64"
-
-    PlatformPropValueType_property_decimal64 PlatformPropValueType = "property-decimal64"
 )
 
 // Components

@@ -56,18 +56,18 @@ const (
 )
 
 // NodeInventory
-// System Admin Manager Node Inventory. All accesses are 
+// System Admin Manager Node Inventory. All accesses are
 // read-only. CLI show command looks like show node-inventory
 // location <location>
 type NodeInventory struct {
     EntityData types.CommonEntityData
     YFilter yfilter.YFilter
 
-    // System Admin Manager Node Inventory. All accesses are  read-only. CLI show
+    // System Admin Manager Node Inventory. All accesses are read-only. CLI show
     // command looks like show node-inventory location <location>.
     Summary NodeInventory_Summary
 
-    // System Admin Manager Node Inventory. All accesses are  read-only. CLI show
+    // System Admin Manager Node Inventory. All accesses are read-only. CLI show
     // command looks like show node-inventory location <location>.
     Detail NodeInventory_Detail
 }
@@ -94,7 +94,7 @@ func (nodeInventory *NodeInventory) GetEntityData() *types.CommonEntityData {
 }
 
 // NodeInventory_Summary
-// System Admin Manager Node Inventory. All accesses are 
+// System Admin Manager Node Inventory. All accesses are
 // read-only. CLI show command looks like show node-inventory
 // location <location>
 type NodeInventory_Summary struct {
@@ -135,7 +135,7 @@ type NodeInventory_Summary_NodeLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     NodeLocation interface{}
 
     // The type is slice of NodeInventory_Summary_NodeLocations_Nodei.
@@ -174,16 +174,16 @@ type NodeInventory_Summary_NodeLocations_Nodei struct {
 
     // This attribute is a key. IP address of the node. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Node Type. The type is string.
     Type interface{}
 
     // Node MAC. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Card serial# the node belongs to. The type is string.
@@ -218,7 +218,7 @@ func (nodei *NodeInventory_Summary_NodeLocations_Nodei) GetEntityData() *types.C
 }
 
 // NodeInventory_Detail
-// System Admin Manager Node Inventory. All accesses are 
+// System Admin Manager Node Inventory. All accesses are
 // read-only. CLI show command looks like show node-inventory
 // location <location>
 type NodeInventory_Detail struct {
@@ -259,7 +259,7 @@ type NodeInventory_Detail_NodeLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     NodeLocation interface{}
 
     // The type is slice of NodeInventory_Detail_NodeLocations_Nodei.
@@ -298,16 +298,16 @@ type NodeInventory_Detail_NodeLocations_Nodei struct {
 
     // This attribute is a key. IP address of the node. The type is one of the
     // following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Node Type. The type is string.
     Type interface{}
 
     // Node MAC. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     MacAddress interface{}
 
     // Card serial# the node belongs to. The type is string.
@@ -354,7 +354,7 @@ func (nodei *NodeInventory_Detail_NodeLocations_Nodei) GetEntityData() *types.Co
 }
 
 // CardInventory
-// System Admin Manager Card Inventory. All accesses are 
+// System Admin Manager Card Inventory. All accesses are
 // read-only. CLI show command looks like show card-inventory
 // location <location>
 type CardInventory struct {
@@ -395,7 +395,7 @@ type CardInventory_CardLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     CardLocation interface{}
 
     // The type is slice of CardInventory_CardLocations_Cardi.
@@ -520,7 +520,7 @@ type RackInventory_RackLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     RackLocation interface{}
 
     // The type is slice of RackInventory_RackLocations_Racki.
@@ -629,7 +629,7 @@ type SystemServiceInventory_SsvcLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     SsvcLocation interface{}
 
     // The type is slice of SystemServiceInventory_SsvcLocations_Ssvci.
@@ -750,7 +750,7 @@ type RackServiceInventory_RsvcLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     RsvcLocation interface{}
 
     // The type is slice of RackServiceInventory_RsvcLocations_Rsvci.
@@ -871,7 +871,7 @@ type SdrInventory_SdrLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     SdrLocation interface{}
 
     // The type is slice of SdrInventory_SdrLocations_Sdri.
@@ -985,7 +985,7 @@ type LeaderStatistics_LdrLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     LdrLocation interface{}
 
     // Primary System Leader. The type is string.
@@ -1073,7 +1073,7 @@ type TopologyNeighbors_NbrLocations struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'((([bB][0-9])/(([a-zA-Z]){2}\\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?'.
+    // ((([bB][0-9])/(([a-zA-Z]){2}\d{1,2}))|(([fF][0-7])/(([a-zA-Z]){2}\d{1,2}))|((0?[0-9]|1[0-5])/((([a-zA-Z]){2,3})?\d{1,2})))(/[cC][pP][uU]0)?.
     NbrLocation interface{}
 
     // The type is slice of TopologyNeighbors_NbrLocations_Nbri.

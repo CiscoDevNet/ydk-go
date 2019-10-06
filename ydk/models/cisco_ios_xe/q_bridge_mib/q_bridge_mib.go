@@ -429,7 +429,7 @@ type QBRIDGEMIB_Dot1qTpFdbTable_Dot1qTpFdbEntry struct {
 
     // This attribute is a key. A unicast MAC address for which the device has
     // forwarding and/or filtering information. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Dot1qTpFdbAddress interface{}
 
     // Either the value '0', or the port number of the port on which a frame
@@ -561,7 +561,7 @@ type QBRIDGEMIB_Dot1qTpGroupTable_Dot1qTpGroupEntry struct {
 
     // This attribute is a key. The destination Group MAC address in a frame to
     // which this entry's filtering information applies. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Dot1qTpGroupAddress interface{}
 
     // The complete set of ports, in this VLAN, to which frames destined for this
@@ -889,7 +889,7 @@ type QBRIDGEMIB_Dot1qStaticUnicastTable_Dot1qStaticUnicastEntry struct {
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object must take the
     // value of a unicast address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Dot1qStaticUnicastAddress interface{}
 
     // This attribute is a key. Either the value '0' or the port number of the
@@ -1031,7 +1031,7 @@ type QBRIDGEMIB_Dot1qStaticMulticastTable_Dot1qStaticMulticastEntry struct {
     // This attribute is a key. The destination MAC address in a frame to which
     // this entry's filtering information applies.  This object must take the
     // value of a Multicast or Broadcast address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Dot1qStaticMulticastAddress interface{}
 
     // This attribute is a key. Either the value '0' or the port number of the

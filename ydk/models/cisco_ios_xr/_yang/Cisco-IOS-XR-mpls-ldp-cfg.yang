@@ -39,10 +39,6 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
      Copyright (c) 2013-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2018-06-15 {
-    description
-      "Allow min..max in range when min == max.";
-  }
   revision 2017-09-30 {
     description
       "Ensure propagation of MDA mandatory state to YANG model.";
@@ -534,9 +530,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                         "LSR ID of neighbor";
                     }
                     leaf label-space-id {
-                      type uint32 {
-                        range "0";
-                      }
+                      type uint32;
                       description
                         "Label space ID of neighbor";
                     }
@@ -571,9 +565,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                         "LSR ID of neighbor";
                     }
                     leaf label-space-id {
-                      type uint32 {
-                        range "0";
-                      }
+                      type uint32;
                       description
                         "Label space ID of neighbor";
                     }
@@ -783,27 +775,6 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                 }
               }
             }
-            container segment-routing-policies {
-              description
-                "Configuration related to SR policies";
-              list segment-routing-policy {
-                key "name";
-                description
-                  "Name based configuration related to a SR
-                   policy";
-                leaf targeted {
-                  type empty;
-                  description
-                    "Establish targeted session with given
-                     address";
-                }
-                leaf name {
-                  type xr:Cisco-ios-xr-string;
-                  description
-                    "SR Policy Name";
-                }
-              }
-            }
           }
           container redistribution-protocol {
             description
@@ -964,9 +935,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                   "LSR ID of neighbor";
               }
               leaf label-space-id {
-                type uint32 {
-                  range "0";
-                }
+                type uint32;
                 description
                   "Label space ID of neighbor";
               }
@@ -1284,9 +1253,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                     "LSR ID of neighbor";
                 }
                 leaf label-space-id {
-                  type uint32 {
-                    range "0";
-                  }
+                  type uint32;
                   description
                     "Label space ID of neighbor";
                 }
@@ -1379,9 +1346,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                         uses PEER-ACCEPT-POLICY-CONTENT;
                       }
                       leaf label-space-id {
-                        type uint32 {
-                          range "0";
-                        }
+                        type uint32;
                         description
                           "Label space ID of neighbor";
                       }
@@ -1437,9 +1402,7 @@ module Cisco-IOS-XR-mpls-ldp-cfg {
                         uses PEER-ADVERTISE-POLICY-CONTENT;
                       }
                       leaf label-space-id {
-                        type uint32 {
-                          range "0";
-                        }
+                        type uint32;
                         description
                           "Label space ID of neighbor";
                       }

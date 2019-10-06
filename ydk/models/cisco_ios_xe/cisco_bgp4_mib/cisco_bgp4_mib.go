@@ -495,7 +495,7 @@ type CISCOBGP4MIB_CbgpPeerCapsTable_CbgpPeerCapsEntry struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
     BgpPeerRemoteAddr interface{}
 
@@ -617,7 +617,7 @@ type CISCOBGP4MIB_CbgpPeerAddrFamilyTable_CbgpPeerAddrFamilyEntry struct {
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
     BgpPeerRemoteAddr interface{}
 
@@ -711,7 +711,7 @@ type CISCOBGP4MIB_CbgpPeerAddrFamilyPrefixTable_CbgpPeerAddrFamilyPrefixEntry st
     YListKey string
 
     // This attribute is a key. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     // Refers to bgp4_mib.BGP4MIB_BgpPeerTable_BgpPeerEntry_BgpPeerRemoteAddr
     BgpPeerRemoteAddr interface{}
 
@@ -880,7 +880,7 @@ type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
 
     // The BGP Identifier of this entry's BGP peer. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CbgpPeer2LocalIdentifier interface{}
 
     // The remote port for the TCP connection between the BGP peers.  Note that
@@ -896,7 +896,7 @@ type CISCOBGP4MIB_CbgpPeer2Table_CbgpPeer2Entry struct {
     // The BGP Identifier of this entry's BGP peer. This entry MUST be 0.0.0.0
     // unless the cbgpPeer2State is in the openconfirm or the established state.
     // The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     CbgpPeer2RemoteIdentifier interface{}
 
     // The number of BGP UPDATE messages received on this connection. The type is

@@ -24,74 +24,181 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-pfi-im-cmd-oper:interfaces", reflect.TypeOf(Interfaces{}))
 }
 
-// InterfaceTypeSet represents Interface type set
-type InterfaceTypeSet string
+// ImCmdIntfTypeEnum represents Im cmd intf type enum
+type ImCmdIntfTypeEnum string
 
 const (
-    // Restrict the output to hardware interfaces only
-    InterfaceTypeSet_hardware_interfaces InterfaceTypeSet = "hardware-interfaces"
+    // srp
+    ImCmdIntfTypeEnum_srp ImCmdIntfTypeEnum = "srp"
+
+    // tunnel
+    ImCmdIntfTypeEnum_tunnel ImCmdIntfTypeEnum = "tunnel"
+
+    // bundle
+    ImCmdIntfTypeEnum_bundle ImCmdIntfTypeEnum = "bundle"
+
+    // serial
+    ImCmdIntfTypeEnum_serial ImCmdIntfTypeEnum = "serial"
+
+    // sonet pos
+    ImCmdIntfTypeEnum_sonet_pos ImCmdIntfTypeEnum = "sonet-pos"
+
+    // tunnel gre
+    ImCmdIntfTypeEnum_tunnel_gre ImCmdIntfTypeEnum = "tunnel-gre"
+
+    // pseudowire head end
+    ImCmdIntfTypeEnum_pseudowire_head_end ImCmdIntfTypeEnum = "pseudowire-head-end"
+
+    // cem
+    ImCmdIntfTypeEnum_cem ImCmdIntfTypeEnum = "cem"
+
+    // gcc
+    ImCmdIntfTypeEnum_gcc ImCmdIntfTypeEnum = "gcc"
 )
 
-// ImStateEnum represents Im state enum
-type ImStateEnum string
+// VlanSwitchedMode represents VLAN-Switched mode
+type VlanSwitchedMode string
 
 const (
-    // im state not ready
-    ImStateEnum_im_state_not_ready ImStateEnum = "im-state-not-ready"
+    // Disabled
+    VlanSwitchedMode_none VlanSwitchedMode = "none"
 
-    // im state admin down
-    ImStateEnum_im_state_admin_down ImStateEnum = "im-state-admin-down"
+    // Trunk port
+    VlanSwitchedMode_trunk_port VlanSwitchedMode = "trunk-port"
 
-    // im state down
-    ImStateEnum_im_state_down ImStateEnum = "im-state-down"
+    // Access port
+    VlanSwitchedMode_access_port VlanSwitchedMode = "access-port"
+)
 
-    // im state up
-    ImStateEnum_im_state_up ImStateEnum = "im-state-up"
+// ImCmdStatsEnum represents List of different interface stats structures
+type ImCmdStatsEnum string
 
-    // im state shutdown
-    ImStateEnum_im_state_shutdown ImStateEnum = "im-state-shutdown"
+const (
+    // full
+    ImCmdStatsEnum_full ImCmdStatsEnum = "full"
 
-    // im state err disable
-    ImStateEnum_im_state_err_disable ImStateEnum = "im-state-err-disable"
+    // basic
+    ImCmdStatsEnum_basic ImCmdStatsEnum = "basic"
+)
 
-    // im state down immediate
-    ImStateEnum_im_state_down_immediate ImStateEnum = "im-state-down-immediate"
+// SrpMgmtFailureStateEt represents SRP failure state type
+type SrpMgmtFailureStateEt string
 
-    // im state down immediate admin
-    ImStateEnum_im_state_down_immediate_admin ImStateEnum = "im-state-down-immediate-admin"
+const (
+    // Idle
+    SrpMgmtFailureStateEt_idle_failure_state SrpMgmtFailureStateEt = "idle-failure-state"
 
-    // im state down graceful
-    ImStateEnum_im_state_down_graceful ImStateEnum = "im-state-down-graceful"
+    // Wait To Restore
+    SrpMgmtFailureStateEt_wait_to_restore_failure_state SrpMgmtFailureStateEt = "wait-to-restore-failure-state"
 
-    // im state begin shutdown
-    ImStateEnum_im_state_begin_shutdown ImStateEnum = "im-state-begin-shutdown"
+    // Manual Switch
+    SrpMgmtFailureStateEt_manual_switch_failure_state SrpMgmtFailureStateEt = "manual-switch-failure-state"
 
-    // im state end shutdown
-    ImStateEnum_im_state_end_shutdown ImStateEnum = "im-state-end-shutdown"
+    // Signal Degrade
+    SrpMgmtFailureStateEt_signal_degrade_failure_state SrpMgmtFailureStateEt = "signal-degrade-failure-state"
 
-    // im state begin error disable
-    ImStateEnum_im_state_begin_error_disable ImStateEnum = "im-state-begin-error-disable"
+    // Signal Fail
+    SrpMgmtFailureStateEt_signal_fail_failure_state SrpMgmtFailureStateEt = "signal-fail-failure-state"
 
-    // im state end error disable
-    ImStateEnum_im_state_end_error_disable ImStateEnum = "im-state-end-error-disable"
+    // Forced Switch
+    SrpMgmtFailureStateEt_forced_switch_failure_state SrpMgmtFailureStateEt = "forced-switch-failure-state"
 
-    // im state begin down graceful
-    ImStateEnum_im_state_begin_down_graceful ImStateEnum = "im-state-begin-down-graceful"
+    // Shutdown
+    SrpMgmtFailureStateEt_shutdown_failure_state SrpMgmtFailureStateEt = "shutdown-failure-state"
 
-    // im state reset
-    ImStateEnum_im_state_reset ImStateEnum = "im-state-reset"
+    // Invalid
+    SrpMgmtFailureStateEt_invalid_failure_state SrpMgmtFailureStateEt = "invalid-failure-state"
 
-    // im state operational
-    ImStateEnum_im_state_operational ImStateEnum = "im-state-operational"
+    // Unknown
+    SrpMgmtFailureStateEt_unknown_failure_state SrpMgmtFailureStateEt = "unknown-failure-state"
+)
 
-    // im state not operational
-    ImStateEnum_im_state_not_operational ImStateEnum = "im-state-not-operational"
+// GccDerState represents Gcc der state
+type GccDerState string
 
-    // im state unknown
-    ImStateEnum_im_state_unknown ImStateEnum = "im-state-unknown"
+const (
+    // In Service
+    GccDerState_in_service GccDerState = "in-service"
 
-    // im state last
-    ImStateEnum_im_state_last ImStateEnum = "im-state-last"
+    // Out Of Service
+    GccDerState_out_of_service GccDerState = "out-of-service"
+
+    // Maintenance
+    GccDerState_maintenance GccDerState = "maintenance"
+
+    // Automatic In Service
+    GccDerState_ais GccDerState = "ais"
+)
+
+// EfpTagEtype represents Tag ethertype
+type EfpTagEtype string
+
+const (
+    // Untagged
+    EfpTagEtype_untagged EfpTagEtype = "untagged"
+
+    // Dot1Q
+    EfpTagEtype_dot1q EfpTagEtype = "dot1q"
+
+    // Dot1ad
+    EfpTagEtype_dot1ad EfpTagEtype = "dot1ad"
+)
+
+// TunnelGreMode represents Tunnel gre mode
+type TunnelGreMode string
+
+const (
+    // Tunnel GRE mode is Unknown
+    TunnelGreMode_unknown TunnelGreMode = "unknown"
+
+    // Tunnel GRE Mode is IPv4
+    TunnelGreMode_gr_eo_ipv4 TunnelGreMode = "gr-eo-ipv4"
+
+    // Tunnel GRE Mode is IPv6
+    TunnelGreMode_gr_eo_ipv6 TunnelGreMode = "gr-eo-ipv6"
+
+    // Tunnel MGRE Mode is IPv4
+    TunnelGreMode_mgr_eo_ipv4 TunnelGreMode = "mgr-eo-ipv4"
+
+    // Tunnel MGRE Mode is IPv6
+    TunnelGreMode_mgr_eo_ipv6 TunnelGreMode = "mgr-eo-ipv6"
+
+    // Tunnel Mode is IPv4
+    TunnelGreMode_ipv4 TunnelGreMode = "ipv4"
+
+    // Tunnel Mode is IPv6
+    TunnelGreMode_ipv6 TunnelGreMode = "ipv6"
+)
+
+// GccSecState represents Gcc sec state
+type GccSecState string
+
+const (
+    // Normal
+    GccSecState_normal GccSecState = "normal"
+
+    // Maintenance
+    GccSecState_maintenance GccSecState = "maintenance"
+
+    // Automatic In Service
+    GccSecState_ais GccSecState = "ais"
+)
+
+// SrpMgmtIpsWrapState represents SRP IPS side wrap state
+type SrpMgmtIpsWrapState string
+
+const (
+    // Idle
+    SrpMgmtIpsWrapState_idle_wrap_state SrpMgmtIpsWrapState = "idle-wrap-state"
+
+    // Wrapped
+    SrpMgmtIpsWrapState_wrapped_state SrpMgmtIpsWrapState = "wrapped-state"
+
+    // Locked out
+    SrpMgmtIpsWrapState_locked_out_wrap_state SrpMgmtIpsWrapState = "locked-out-wrap-state"
+
+    // UNKNOWN
+    SrpMgmtIpsWrapState_unknown_wrap_state SrpMgmtIpsWrapState = "unknown-wrap-state"
 )
 
 // StatsCounter represents Stats counter
@@ -156,6 +263,248 @@ const (
     StatsCounter_stats_counter_comp_flow StatsCounter = "stats-counter-comp-flow"
 )
 
+// SonetApsEt represents APS states
+type SonetApsEt string
+
+const (
+    // APS not configured on port
+    SonetApsEt_not_configured SonetApsEt = "not-configured"
+
+    // Working port is up 
+    SonetApsEt_working_active SonetApsEt = "working-active"
+
+    // Protect port is up  
+    SonetApsEt_protect_active SonetApsEt = "protect-active"
+
+    // Working port is down 
+    SonetApsEt_working_inactive SonetApsEt = "working-inactive"
+
+    // Protect port is down  
+    SonetApsEt_protect_inactive SonetApsEt = "protect-inactive"
+)
+
+// ImAttrDuplex represents Im attr duplex
+type ImAttrDuplex string
+
+const (
+    // im attr duplex unknown
+    ImAttrDuplex_im_attr_duplex_unknown ImAttrDuplex = "im-attr-duplex-unknown"
+
+    // im attr duplex half
+    ImAttrDuplex_im_attr_duplex_half ImAttrDuplex = "im-attr-duplex-half"
+
+    // im attr duplex full
+    ImAttrDuplex_im_attr_duplex_full ImAttrDuplex = "im-attr-duplex-full"
+)
+
+// SrpMgmtIpsPathInd represents SRP IPS path indication
+type SrpMgmtIpsPathInd string
+
+const (
+    // SHORT
+    SrpMgmtIpsPathInd_short_path SrpMgmtIpsPathInd = "short-path"
+
+    // LONG
+    SrpMgmtIpsPathInd_long_path SrpMgmtIpsPathInd = "long-path"
+
+    // UNKNOWN
+    SrpMgmtIpsPathInd_unknown_path SrpMgmtIpsPathInd = "unknown-path"
+)
+
+// PppFsmState represents Ppp fsm state
+type PppFsmState string
+
+const (
+    // Connection Idle
+    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
+
+    // This layer required, but lower layer down
+    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
+
+    // Lower layer up, but this layer not required
+    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
+
+    // Listening for a Config Request
+    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
+
+    // Shutting down due to local change
+    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
+
+    // Shutting down due to peer's actions
+    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
+
+    // Config Request Sent
+    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
+
+    // Config Ack Received
+    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
+
+    // Config Ack Sent
+    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
+
+    // Connection Open
+    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
+)
+
+// EfpTagPriority represents Priority
+type EfpTagPriority string
+
+const (
+    // Priority 0
+    EfpTagPriority_priority0 EfpTagPriority = "priority0"
+
+    // Priority 1
+    EfpTagPriority_priority1 EfpTagPriority = "priority1"
+
+    // Priority 2
+    EfpTagPriority_priority2 EfpTagPriority = "priority2"
+
+    // Priority 3
+    EfpTagPriority_priority3 EfpTagPriority = "priority3"
+
+    // Priority 4
+    EfpTagPriority_priority4 EfpTagPriority = "priority4"
+
+    // Priority 5
+    EfpTagPriority_priority5 EfpTagPriority = "priority5"
+
+    // Priority 6
+    EfpTagPriority_priority6 EfpTagPriority = "priority6"
+
+    // Priority 7
+    EfpTagPriority_priority7 EfpTagPriority = "priority7"
+
+    // Any priority
+    EfpTagPriority_priority_any EfpTagPriority = "priority-any"
+)
+
+// ImCmdLoopbackEnum represents Im cmd loopback enum
+type ImCmdLoopbackEnum string
+
+const (
+    // no loopback
+    ImCmdLoopbackEnum_no_loopback ImCmdLoopbackEnum = "no-loopback"
+
+    // internal loopback
+    ImCmdLoopbackEnum_internal_loopback ImCmdLoopbackEnum = "internal-loopback"
+
+    // external loopback
+    ImCmdLoopbackEnum_external_loopback ImCmdLoopbackEnum = "external-loopback"
+
+    // line loopback
+    ImCmdLoopbackEnum_line_loopback ImCmdLoopbackEnum = "line-loopback"
+)
+
+// ImCmdFrTypeEnum represents Im cmd fr type enum
+type ImCmdFrTypeEnum string
+
+const (
+    // frame relay cisco
+    ImCmdFrTypeEnum_frame_relay_cisco ImCmdFrTypeEnum = "frame-relay-cisco"
+
+    // frame relay ietf
+    ImCmdFrTypeEnum_frame_relay_ietf ImCmdFrTypeEnum = "frame-relay-ietf"
+)
+
+// ImCmdLmiTypeEnum represents Im cmd lmi type enum
+type ImCmdLmiTypeEnum string
+
+const (
+    // lmi type auto
+    ImCmdLmiTypeEnum_lmi_type_auto ImCmdLmiTypeEnum = "lmi-type-auto"
+
+    // lmi type ansi
+    ImCmdLmiTypeEnum_lmi_type_ansi ImCmdLmiTypeEnum = "lmi-type-ansi"
+
+    // lmi type ccitt
+    ImCmdLmiTypeEnum_lmi_type_ccitt ImCmdLmiTypeEnum = "lmi-type-ccitt"
+
+    // lmi type cisco
+    ImCmdLmiTypeEnum_lmi_type_cisco ImCmdLmiTypeEnum = "lmi-type-cisco"
+)
+
+// SrpMgmtSrrFailure represents SRP SRR failure type
+type SrpMgmtSrrFailure string
+
+const (
+    // Idle
+    SrpMgmtSrrFailure_idle_srr_failure SrpMgmtSrrFailure = "idle-srr-failure"
+
+    // Wait To Restore
+    SrpMgmtSrrFailure_wait_to_restore_srr_failure SrpMgmtSrrFailure = "wait-to-restore-srr-failure"
+
+    // Signal Fail
+    SrpMgmtSrrFailure_signal_fail_srr_failure SrpMgmtSrrFailure = "signal-fail-srr-failure"
+
+    // Forced Switch
+    SrpMgmtSrrFailure_forced_switch_srr_failure SrpMgmtSrrFailure = "forced-switch-srr-failure"
+
+    // UNKNOWN
+    SrpMgmtSrrFailure_unknown_srr_failure SrpMgmtSrrFailure = "unknown-srr-failure"
+)
+
+// ImStateEnum represents Im state enum
+type ImStateEnum string
+
+const (
+    // im state not ready
+    ImStateEnum_im_state_not_ready ImStateEnum = "im-state-not-ready"
+
+    // im state admin down
+    ImStateEnum_im_state_admin_down ImStateEnum = "im-state-admin-down"
+
+    // im state down
+    ImStateEnum_im_state_down ImStateEnum = "im-state-down"
+
+    // im state up
+    ImStateEnum_im_state_up ImStateEnum = "im-state-up"
+
+    // im state shutdown
+    ImStateEnum_im_state_shutdown ImStateEnum = "im-state-shutdown"
+
+    // im state err disable
+    ImStateEnum_im_state_err_disable ImStateEnum = "im-state-err-disable"
+
+    // im state down immediate
+    ImStateEnum_im_state_down_immediate ImStateEnum = "im-state-down-immediate"
+
+    // im state down immediate admin
+    ImStateEnum_im_state_down_immediate_admin ImStateEnum = "im-state-down-immediate-admin"
+
+    // im state down graceful
+    ImStateEnum_im_state_down_graceful ImStateEnum = "im-state-down-graceful"
+
+    // im state begin shutdown
+    ImStateEnum_im_state_begin_shutdown ImStateEnum = "im-state-begin-shutdown"
+
+    // im state end shutdown
+    ImStateEnum_im_state_end_shutdown ImStateEnum = "im-state-end-shutdown"
+
+    // im state begin error disable
+    ImStateEnum_im_state_begin_error_disable ImStateEnum = "im-state-begin-error-disable"
+
+    // im state end error disable
+    ImStateEnum_im_state_end_error_disable ImStateEnum = "im-state-end-error-disable"
+
+    // im state begin down graceful
+    ImStateEnum_im_state_begin_down_graceful ImStateEnum = "im-state-begin-down-graceful"
+
+    // im state reset
+    ImStateEnum_im_state_reset ImStateEnum = "im-state-reset"
+
+    // im state operational
+    ImStateEnum_im_state_operational ImStateEnum = "im-state-operational"
+
+    // im state not operational
+    ImStateEnum_im_state_not_operational ImStateEnum = "im-state-not-operational"
+
+    // im state unknown
+    ImStateEnum_im_state_unknown ImStateEnum = "im-state-unknown"
+
+    // im state last
+    ImStateEnum_im_state_last ImStateEnum = "im-state-last"
+)
+
 // StatsTypeContents represents Stats type contents
 type StatsTypeContents string
 
@@ -165,6 +514,23 @@ const (
 
     // stats type variable
     StatsTypeContents_stats_type_variable StatsTypeContents = "stats-type-variable"
+)
+
+// ImAttrFlowControl represents Im attr flow control
+type ImAttrFlowControl string
+
+const (
+    // im attr flow control off
+    ImAttrFlowControl_im_attr_flow_control_off ImAttrFlowControl = "im-attr-flow-control-off"
+
+    // im attr flow control on
+    ImAttrFlowControl_im_attr_flow_control_on ImAttrFlowControl = "im-attr-flow-control-on"
+
+    // im attr flow control not sup
+    ImAttrFlowControl_im_attr_flow_control_not_sup ImAttrFlowControl = "im-attr-flow-control-not-sup"
+
+    // im attr flow control priority
+    ImAttrFlowControl_im_attr_flow_control_priority ImAttrFlowControl = "im-attr-flow-control-priority"
 )
 
 // StatsId represents Stats id
@@ -193,113 +559,6 @@ const (
     StatsId_stats_id_type_max StatsId = "stats-id-type-max"
 )
 
-// ImCmdStatsEnum represents List of different interface stats structures
-type ImCmdStatsEnum string
-
-const (
-    // full
-    ImCmdStatsEnum_full ImCmdStatsEnum = "full"
-
-    // basic
-    ImCmdStatsEnum_basic ImCmdStatsEnum = "basic"
-)
-
-// GccSecState represents Gcc sec state
-type GccSecState string
-
-const (
-    // Normal
-    GccSecState_normal GccSecState = "normal"
-
-    // Maintenance
-    GccSecState_maintenance GccSecState = "maintenance"
-
-    // Automatic In Service
-    GccSecState_ais GccSecState = "ais"
-)
-
-// GccDerState represents Gcc der state
-type GccDerState string
-
-const (
-    // In Service
-    GccDerState_in_service GccDerState = "in-service"
-
-    // Out Of Service
-    GccDerState_out_of_service GccDerState = "out-of-service"
-
-    // Maintenance
-    GccDerState_maintenance GccDerState = "maintenance"
-
-    // Automatic In Service
-    GccDerState_ais GccDerState = "ais"
-)
-
-// TunnelKeyState represents Tunnel key state
-type TunnelKeyState string
-
-const (
-    // Tunnel GRE Key is not present
-    TunnelKeyState_absent TunnelKeyState = "absent"
-
-    // Tunnel GRE Key is present
-    TunnelKeyState_present TunnelKeyState = "present"
-)
-
-// TunnelKaDfState represents Tunnel ka df state
-type TunnelKaDfState string
-
-const (
-    // Tunnel GRE KA State is Disabled
-    TunnelKaDfState_disable TunnelKaDfState = "disable"
-
-    // Tunnel GRE KA State is Enabled
-    TunnelKaDfState_enable TunnelKaDfState = "enable"
-)
-
-// TunlIpModeDir represents Tunl ip mode dir
-type TunlIpModeDir string
-
-const (
-    // tunl ip mode dir none
-    TunlIpModeDir_tunl_ip_mode_dir_none TunlIpModeDir = "tunl-ip-mode-dir-none"
-
-    // tunl ip mode dir decap
-    TunlIpModeDir_tunl_ip_mode_dir_decap TunlIpModeDir = "tunl-ip-mode-dir-decap"
-
-    // tunl ip mode dir encap
-    TunlIpModeDir_tunl_ip_mode_dir_encap TunlIpModeDir = "tunl-ip-mode-dir-encap"
-
-    // tunl ip mode dir max
-    TunlIpModeDir_tunl_ip_mode_dir_max TunlIpModeDir = "tunl-ip-mode-dir-max"
-)
-
-// TunnelGreMode represents Tunnel gre mode
-type TunnelGreMode string
-
-const (
-    // Tunnel GRE mode is Unknown
-    TunnelGreMode_unknown TunnelGreMode = "unknown"
-
-    // Tunnel GRE Mode is IPv4
-    TunnelGreMode_gr_eo_ipv4 TunnelGreMode = "gr-eo-ipv4"
-
-    // Tunnel GRE Mode is IPv6
-    TunnelGreMode_gr_eo_ipv6 TunnelGreMode = "gr-eo-ipv6"
-
-    // Tunnel MGRE Mode is IPv4
-    TunnelGreMode_mgr_eo_ipv4 TunnelGreMode = "mgr-eo-ipv4"
-
-    // Tunnel MGRE Mode is IPv6
-    TunnelGreMode_mgr_eo_ipv6 TunnelGreMode = "mgr-eo-ipv6"
-
-    // Tunnel Mode is IPv4
-    TunnelGreMode_ipv4 TunnelGreMode = "ipv4"
-
-    // Tunnel Mode is IPv6
-    TunnelGreMode_ipv6 TunnelGreMode = "ipv6"
-)
-
 // TunlPfiAfId represents Tunl pfi af id
 type TunlPfiAfId string
 
@@ -314,24 +573,15 @@ const (
     TunlPfiAfId_tunl_pfi_af_id_ipv6 TunlPfiAfId = "tunl-pfi-af-id-ipv6"
 )
 
-// SonetApsEt represents APS states
-type SonetApsEt string
+// TunnelKaDfState represents Tunnel ka df state
+type TunnelKaDfState string
 
 const (
-    // APS not configured on port
-    SonetApsEt_not_configured SonetApsEt = "not-configured"
+    // Tunnel GRE KA State is Disabled
+    TunnelKaDfState_disable TunnelKaDfState = "disable"
 
-    // Working port is up 
-    SonetApsEt_working_active SonetApsEt = "working-active"
-
-    // Protect port is up  
-    SonetApsEt_protect_active SonetApsEt = "protect-active"
-
-    // Working port is down 
-    SonetApsEt_working_inactive SonetApsEt = "working-inactive"
-
-    // Protect port is down  
-    SonetApsEt_protect_inactive SonetApsEt = "protect-inactive"
+    // Tunnel GRE KA State is Enabled
+    TunnelKaDfState_enable TunnelKaDfState = "enable"
 )
 
 // BmdMemberTypeEnum represents Bmd member type enum
@@ -349,126 +599,15 @@ const (
     BmdMemberTypeEnum_bmd_mbr_unknown BmdMemberTypeEnum = "bmd-mbr-unknown"
 )
 
-// BmMuxreason represents Bm muxreason
-type BmMuxreason string
+// TunnelKeyState represents Tunnel key state
+type TunnelKeyState string
 
 const (
-    // Selection logic has not yet been run for the
-    // bundle this link is a member of
-    BmMuxreason_bm_mux_reason_no_reason BmMuxreason = "bm-mux-reason-no-reason"
+    // Tunnel GRE Key is not present
+    TunnelKeyState_absent TunnelKeyState = "absent"
 
-    // Link is down
-    BmMuxreason_bm_mux_reason_link_down BmMuxreason = "bm-mux-reason-link-down"
-
-    // Link is being removed from the bundle
-    BmMuxreason_bm_mux_reason_link_deleted BmMuxreason = "bm-mux-reason-link-deleted"
-
-    // Link has wrong duplexity
-    BmMuxreason_bm_mux_reason_duplex BmMuxreason = "bm-mux-reason-duplex"
-
-    // Link has wrong bandwidth
-    BmMuxreason_bm_mux_reason_bandwidth BmMuxreason = "bm-mux-reason-bandwidth"
-
-    // Link is a loopback interface
-    BmMuxreason_bm_mux_reason_loop_back BmMuxreason = "bm-mux-reason-loop-back"
-
-    // Link has wrong activity type
-    BmMuxreason_bm_mux_reason_activity_type BmMuxreason = "bm-mux-reason-activity-type"
-
-    // Link's bundle already has maximum number of
-    // members allowed
-    BmMuxreason_bm_mux_reason_link_limit BmMuxreason = "bm-mux-reason-link-limit"
-
-    // Link is attached to a shared medium
-    BmMuxreason_bm_mux_reason_shared BmMuxreason = "bm-mux-reason-shared"
-
-    // Link has wrong LAG ID
-    BmMuxreason_bm_mux_reason_lagid BmMuxreason = "bm-mux-reason-lagid"
-
-    // Link's bundle does not exist
-    BmMuxreason_bm_mux_reason_no_bundle BmMuxreason = "bm-mux-reason-no-bundle"
-
-    // Link's bundle has no primary link
-    BmMuxreason_bm_mux_reason_no_primary BmMuxreason = "bm-mux-reason-no-primary"
-
-    // Link's bundle is shut down
-    BmMuxreason_bm_mux_reason_bundle_down BmMuxreason = "bm-mux-reason-bundle-down"
-
-    // Link is marked individual by partner
-    BmMuxreason_bm_mux_reason_individual BmMuxreason = "bm-mux-reason-individual"
-
-    // Link is Defaulted, suggesting it is not
-    // receiving LACPDUs from the peer
-    BmMuxreason_bm_mux_reason_defaulted BmMuxreason = "bm-mux-reason-defaulted"
-
-    // Link is in InSync state
-    BmMuxreason_bm_mux_reason_in_sync BmMuxreason = "bm-mux-reason-in-sync"
-
-    // Link is in Collecting state
-    BmMuxreason_bm_mux_reason_collecting BmMuxreason = "bm-mux-reason-collecting"
-
-    // Link exceeds maximum active limit
-    BmMuxreason_bm_mux_reason_active_link_limit BmMuxreason = "bm-mux-reason-active-link-limit"
-
-    // Link is in Distributing state
-    BmMuxreason_bm_mux_reason_distributing BmMuxreason = "bm-mux-reason-distributing"
-
-    // Enumeration maximum value
-    BmMuxreason_bm_mux_reason_count BmMuxreason = "bm-mux-reason-count"
-)
-
-// BmdMemberState represents Bmd member state
-type BmdMemberState string
-
-const (
-    // Member is configured
-    BmdMemberState_bmd_mbr_state_configured BmdMemberState = "bmd-mbr-state-configured"
-
-    // Member is standby
-    BmdMemberState_bmd_mbr_state_standby BmdMemberState = "bmd-mbr-state-standby"
-
-    // Member is hot standby
-    BmdMemberState_bmd_mbr_state_hot_standby BmdMemberState = "bmd-mbr-state-hot-standby"
-
-    // Member is negotiating
-    BmdMemberState_bmd_mbr_state_negotiating BmdMemberState = "bmd-mbr-state-negotiating"
-
-    // Member has a BFD session running
-    BmdMemberState_bmd_mbr_state_bfd_running BmdMemberState = "bmd-mbr-state-bfd-running"
-
-    // Member is active
-    BmdMemberState_bmd_mbr_state_active BmdMemberState = "bmd-mbr-state-active"
-)
-
-// BmSeverity represents Severity of the member state reason
-type BmSeverity string
-
-const (
-    // OK
-    BmSeverity_ok BmSeverity = "ok"
-
-    // Information
-    BmSeverity_information BmSeverity = "information"
-
-    // Misconfiguration
-    BmSeverity_misconfiguration BmSeverity = "misconfiguration"
-
-    // Warning
-    BmSeverity_warning BmSeverity = "warning"
-
-    // Error
-    BmSeverity_error_ BmSeverity = "error"
-)
-
-// BmStateReasonTarget represents Scope of the state reason
-type BmStateReasonTarget string
-
-const (
-    // Member applicable reason
-    BmStateReasonTarget_member_reason BmStateReasonTarget = "member-reason"
-
-    // Bundle applicable reason
-    BmStateReasonTarget_bundle_reason BmStateReasonTarget = "bundle-reason"
+    // Tunnel GRE Key is present
+    TunnelKeyState_present TunnelKeyState = "present"
 )
 
 // BmMbrStateReason represents Bm mbr state reason
@@ -731,119 +870,54 @@ const (
     // Client has configured the bundle state Down
     BmMbrStateReason_bm_mbr_state_reason_client_bundle_ctrl BmMbrStateReason = "bm-mbr-state-reason-client-bundle-ctrl"
 
-    // Link is in standby due to bundle out of service
-    // state
-    BmMbrStateReason_bm_mbr_state_reason_lacp_oos BmMbrStateReason = "bm-mbr-state-reason-lacp-oos"
-
-    // Link is error-disabled due to bundle out of
-    // service state
-    BmMbrStateReason_bm_mbr_state_reason_errdis_bundle_oos BmMbrStateReason = "bm-mbr-state-reason-errdis-bundle-oos"
-
     // Enumeration maximum value
     BmMbrStateReason_bm_mbr_state_reason_count BmMbrStateReason = "bm-mbr-state-reason-count"
 )
 
-// BmMuxstate represents Bm muxstate
-type BmMuxstate string
+// BmSeverity represents Severity of the member state reason
+type BmSeverity string
 
 const (
-    // Port is not attached to a bundle
-    BmMuxstate_detached BmMuxstate = "detached"
+    // OK
+    BmSeverity_ok BmSeverity = "ok"
 
-    // Port has chosen bundle and is waiting to join
-    BmMuxstate_waiting BmMuxstate = "waiting"
+    // Information
+    BmSeverity_information BmSeverity = "information"
 
-    // Port is attached to the bundle but not active
-    BmMuxstate_attached BmMuxstate = "attached"
+    // Misconfiguration
+    BmSeverity_misconfiguration BmSeverity = "misconfiguration"
 
-    // Port is ready to receive data
-    BmMuxstate_collecting BmMuxstate = "collecting"
+    // Warning
+    BmSeverity_warning BmSeverity = "warning"
 
-    // Port is distributing data
-    BmMuxstate_distributing BmMuxstate = "distributing"
-
-    // Port is active and can send and receive data
-    BmMuxstate_collecting_distributing BmMuxstate = "collecting-distributing"
+    // Error
+    BmSeverity_error_ BmSeverity = "error"
 )
 
-// SrpMgmtSrrFailure represents SRP SRR failure type
-type SrpMgmtSrrFailure string
+// SrpMgmtIpsReq represents SRP IPS request type
+type SrpMgmtIpsReq string
 
 const (
     // Idle
-    SrpMgmtSrrFailure_idle_srr_failure SrpMgmtSrrFailure = "idle-srr-failure"
+    SrpMgmtIpsReq_idle_ips_request SrpMgmtIpsReq = "idle-ips-request"
 
     // Wait To Restore
-    SrpMgmtSrrFailure_wait_to_restore_srr_failure SrpMgmtSrrFailure = "wait-to-restore-srr-failure"
-
-    // Signal Fail
-    SrpMgmtSrrFailure_signal_fail_srr_failure SrpMgmtSrrFailure = "signal-fail-srr-failure"
-
-    // Forced Switch
-    SrpMgmtSrrFailure_forced_switch_srr_failure SrpMgmtSrrFailure = "forced-switch-srr-failure"
-
-    // UNKNOWN
-    SrpMgmtSrrFailure_unknown_srr_failure SrpMgmtSrrFailure = "unknown-srr-failure"
-)
-
-// SrpMgmtSrrNodeState represents SRP SRR node state
-type SrpMgmtSrrNodeState string
-
-const (
-    // Idle
-    SrpMgmtSrrNodeState_idle_srr_state SrpMgmtSrrNodeState = "idle-srr-state"
-
-    // Discovery
-    SrpMgmtSrrNodeState_discovery_srr_state SrpMgmtSrrNodeState = "discovery-srr-state"
-
-    // UNKNOWN
-    SrpMgmtSrrNodeState_unknown_srr_state SrpMgmtSrrNodeState = "unknown-srr-state"
-)
-
-// SrpMgmtIpsPathInd represents SRP IPS path indication
-type SrpMgmtIpsPathInd string
-
-const (
-    // SHORT
-    SrpMgmtIpsPathInd_short_path SrpMgmtIpsPathInd = "short-path"
-
-    // LONG
-    SrpMgmtIpsPathInd_long_path SrpMgmtIpsPathInd = "long-path"
-
-    // UNKNOWN
-    SrpMgmtIpsPathInd_unknown_path SrpMgmtIpsPathInd = "unknown-path"
-)
-
-// SrpMgmtFailureStateEt represents SRP failure state type
-type SrpMgmtFailureStateEt string
-
-const (
-    // Idle
-    SrpMgmtFailureStateEt_idle_failure_state SrpMgmtFailureStateEt = "idle-failure-state"
-
-    // Wait To Restore
-    SrpMgmtFailureStateEt_wait_to_restore_failure_state SrpMgmtFailureStateEt = "wait-to-restore-failure-state"
+    SrpMgmtIpsReq_wait_to_restore_ips_request SrpMgmtIpsReq = "wait-to-restore-ips-request"
 
     // Manual Switch
-    SrpMgmtFailureStateEt_manual_switch_failure_state SrpMgmtFailureStateEt = "manual-switch-failure-state"
+    SrpMgmtIpsReq_manual_switch_ips_request SrpMgmtIpsReq = "manual-switch-ips-request"
 
     // Signal Degrade
-    SrpMgmtFailureStateEt_signal_degrade_failure_state SrpMgmtFailureStateEt = "signal-degrade-failure-state"
+    SrpMgmtIpsReq_signal_degrade_ips_request SrpMgmtIpsReq = "signal-degrade-ips-request"
 
     // Signal Fail
-    SrpMgmtFailureStateEt_signal_fail_failure_state SrpMgmtFailureStateEt = "signal-fail-failure-state"
+    SrpMgmtIpsReq_signal_fail_ips_request SrpMgmtIpsReq = "signal-fail-ips-request"
 
     // Forced Switch
-    SrpMgmtFailureStateEt_forced_switch_failure_state SrpMgmtFailureStateEt = "forced-switch-failure-state"
+    SrpMgmtIpsReq_forced_switch_ips_request SrpMgmtIpsReq = "forced-switch-ips-request"
 
-    // Shutdown
-    SrpMgmtFailureStateEt_shutdown_failure_state SrpMgmtFailureStateEt = "shutdown-failure-state"
-
-    // Invalid
-    SrpMgmtFailureStateEt_invalid_failure_state SrpMgmtFailureStateEt = "invalid-failure-state"
-
-    // Unknown
-    SrpMgmtFailureStateEt_unknown_failure_state SrpMgmtFailureStateEt = "unknown-failure-state"
+    // UNKNOWN
+    SrpMgmtIpsReq_unknown_ips_request SrpMgmtIpsReq = "unknown-ips-request"
 )
 
 // SrpMgmtFailureEt represents SRP failure type
@@ -875,79 +949,84 @@ const (
     SrpMgmtFailureEt_unknown_failure SrpMgmtFailureEt = "unknown-failure"
 )
 
-// SrpMgmtIpsReq represents SRP IPS request type
-type SrpMgmtIpsReq string
+// ImAttrTransportMode represents Im attr transport mode
+type ImAttrTransportMode string
 
 const (
-    // Idle
-    SrpMgmtIpsReq_idle_ips_request SrpMgmtIpsReq = "idle-ips-request"
+    // im attr transport mode unknown
+    ImAttrTransportMode_im_attr_transport_mode_unknown ImAttrTransportMode = "im-attr-transport-mode-unknown"
 
-    // Wait To Restore
-    SrpMgmtIpsReq_wait_to_restore_ips_request SrpMgmtIpsReq = "wait-to-restore-ips-request"
+    // im attr transport mode lan
+    ImAttrTransportMode_im_attr_transport_mode_lan ImAttrTransportMode = "im-attr-transport-mode-lan"
 
-    // Manual Switch
-    SrpMgmtIpsReq_manual_switch_ips_request SrpMgmtIpsReq = "manual-switch-ips-request"
+    // im attr transport mode wan
+    ImAttrTransportMode_im_attr_transport_mode_wan ImAttrTransportMode = "im-attr-transport-mode-wan"
 
-    // Signal Degrade
-    SrpMgmtIpsReq_signal_degrade_ips_request SrpMgmtIpsReq = "signal-degrade-ips-request"
+    // im attr transport mode otn bt opu1e
+    ImAttrTransportMode_im_attr_transport_mode_otn_bt_opu1e ImAttrTransportMode = "im-attr-transport-mode-otn-bt-opu1e"
 
-    // Signal Fail
-    SrpMgmtIpsReq_signal_fail_ips_request SrpMgmtIpsReq = "signal-fail-ips-request"
+    // im attr transport mode otn bt opu2e
+    ImAttrTransportMode_im_attr_transport_mode_otn_bt_opu2e ImAttrTransportMode = "im-attr-transport-mode-otn-bt-opu2e"
 
-    // Forced Switch
-    SrpMgmtIpsReq_forced_switch_ips_request SrpMgmtIpsReq = "forced-switch-ips-request"
+    // im attr transport mode otn opu3
+    ImAttrTransportMode_im_attr_transport_mode_otn_opu3 ImAttrTransportMode = "im-attr-transport-mode-otn-opu3"
 
-    // UNKNOWN
-    SrpMgmtIpsReq_unknown_ips_request SrpMgmtIpsReq = "unknown-ips-request"
+    // im attr transport mode otn opu4
+    ImAttrTransportMode_im_attr_transport_mode_otn_opu4 ImAttrTransportMode = "im-attr-transport-mode-otn-opu4"
 )
 
-// SrpMgmtIpsWrapState represents SRP IPS side wrap state
-type SrpMgmtIpsWrapState string
+// TunlIpModeDir represents Tunl ip mode dir
+type TunlIpModeDir string
 
 const (
-    // Idle
-    SrpMgmtIpsWrapState_idle_wrap_state SrpMgmtIpsWrapState = "idle-wrap-state"
+    // tunl ip mode dir none
+    TunlIpModeDir_tunl_ip_mode_dir_none TunlIpModeDir = "tunl-ip-mode-dir-none"
 
-    // Wrapped
-    SrpMgmtIpsWrapState_wrapped_state SrpMgmtIpsWrapState = "wrapped-state"
+    // tunl ip mode dir decap
+    TunlIpModeDir_tunl_ip_mode_dir_decap TunlIpModeDir = "tunl-ip-mode-dir-decap"
 
-    // Locked out
-    SrpMgmtIpsWrapState_locked_out_wrap_state SrpMgmtIpsWrapState = "locked-out-wrap-state"
+    // tunl ip mode dir encap
+    TunlIpModeDir_tunl_ip_mode_dir_encap TunlIpModeDir = "tunl-ip-mode-dir-encap"
 
-    // UNKNOWN
-    SrpMgmtIpsWrapState_unknown_wrap_state SrpMgmtIpsWrapState = "unknown-wrap-state"
+    // tunl ip mode dir max
+    TunlIpModeDir_tunl_ip_mode_dir_max TunlIpModeDir = "tunl-ip-mode-dir-max"
 )
 
-// ImCmdIntfTypeEnum represents Im cmd intf type enum
-type ImCmdIntfTypeEnum string
+// ImCmdEncapsEnum represents Im cmd encaps enum
+type ImCmdEncapsEnum string
 
 const (
-    // srp
-    ImCmdIntfTypeEnum_srp ImCmdIntfTypeEnum = "srp"
+    // frame relay
+    ImCmdEncapsEnum_frame_relay ImCmdEncapsEnum = "frame-relay"
 
-    // tunnel
-    ImCmdIntfTypeEnum_tunnel ImCmdIntfTypeEnum = "tunnel"
+    // vlan
+    ImCmdEncapsEnum_vlan ImCmdEncapsEnum = "vlan"
 
-    // bundle
-    ImCmdIntfTypeEnum_bundle ImCmdIntfTypeEnum = "bundle"
+    // ppp
+    ImCmdEncapsEnum_ppp ImCmdEncapsEnum = "ppp"
+)
 
-    // serial
-    ImCmdIntfTypeEnum_serial ImCmdIntfTypeEnum = "serial"
+// BmMuxstate represents Bm muxstate
+type BmMuxstate string
 
-    // sonet pos
-    ImCmdIntfTypeEnum_sonet_pos ImCmdIntfTypeEnum = "sonet-pos"
+const (
+    // Port is not attached to a bundle
+    BmMuxstate_detached BmMuxstate = "detached"
 
-    // tunnel gre
-    ImCmdIntfTypeEnum_tunnel_gre ImCmdIntfTypeEnum = "tunnel-gre"
+    // Port has chosen bundle and is waiting to join
+    BmMuxstate_waiting BmMuxstate = "waiting"
 
-    // pseudowire head end
-    ImCmdIntfTypeEnum_pseudowire_head_end ImCmdIntfTypeEnum = "pseudowire-head-end"
+    // Port is attached to the bundle but not active
+    BmMuxstate_attached BmMuxstate = "attached"
 
-    // cem
-    ImCmdIntfTypeEnum_cem ImCmdIntfTypeEnum = "cem"
+    // Port is ready to receive data
+    BmMuxstate_collecting BmMuxstate = "collecting"
 
-    // gcc
-    ImCmdIntfTypeEnum_gcc ImCmdIntfTypeEnum = "gcc"
+    // Port is distributing data
+    BmMuxstate_distributing BmMuxstate = "distributing"
+
+    // Port is active and can send and receive data
+    BmMuxstate_collecting_distributing BmMuxstate = "collecting-distributing"
 )
 
 // NcpIdent represents Ncp ident
@@ -973,113 +1052,106 @@ const (
     NcpIdent_osicp NcpIdent = "osicp"
 )
 
-// PppFsmState represents Ppp fsm state
-type PppFsmState string
+// BmdMemberState represents Bmd member state
+type BmdMemberState string
 
 const (
-    // Connection Idle
-    PppFsmState_ppp_fsm_state_initial_0 PppFsmState = "ppp-fsm-state-initial-0"
+    // Member is configured
+    BmdMemberState_bmd_mbr_state_configured BmdMemberState = "bmd-mbr-state-configured"
 
-    // This layer required, but lower layer down
-    PppFsmState_ppp_fsm_state_starting_1 PppFsmState = "ppp-fsm-state-starting-1"
+    // Member is standby
+    BmdMemberState_bmd_mbr_state_standby BmdMemberState = "bmd-mbr-state-standby"
 
-    // Lower layer up, but this layer not required
-    PppFsmState_ppp_fsm_state_closed_2 PppFsmState = "ppp-fsm-state-closed-2"
+    // Member is hot standby
+    BmdMemberState_bmd_mbr_state_hot_standby BmdMemberState = "bmd-mbr-state-hot-standby"
 
-    // Listening for a Config Request
-    PppFsmState_ppp_fsm_state_stopped_3 PppFsmState = "ppp-fsm-state-stopped-3"
+    // Member is negotiating
+    BmdMemberState_bmd_mbr_state_negotiating BmdMemberState = "bmd-mbr-state-negotiating"
 
-    // Shutting down due to local change
-    PppFsmState_ppp_fsm_state_closing_4 PppFsmState = "ppp-fsm-state-closing-4"
+    // Member has a BFD session running
+    BmdMemberState_bmd_mbr_state_bfd_running BmdMemberState = "bmd-mbr-state-bfd-running"
 
-    // Shutting down due to peer's actions
-    PppFsmState_ppp_fsm_state_stopping_5 PppFsmState = "ppp-fsm-state-stopping-5"
-
-    // Config Request Sent
-    PppFsmState_ppp_fsm_state_req_sent_6 PppFsmState = "ppp-fsm-state-req-sent-6"
-
-    // Config Ack Received
-    PppFsmState_ppp_fsm_state_ack_rcvd_7 PppFsmState = "ppp-fsm-state-ack-rcvd-7"
-
-    // Config Ack Sent
-    PppFsmState_ppp_fsm_state_ack_sent_8 PppFsmState = "ppp-fsm-state-ack-sent-8"
-
-    // Connection Open
-    PppFsmState_ppp_fsm_state_opened_9 PppFsmState = "ppp-fsm-state-opened-9"
+    // Member is active
+    BmdMemberState_bmd_mbr_state_active BmdMemberState = "bmd-mbr-state-active"
 )
 
-// VlanSwitchedMode represents VLAN-Switched mode
-type VlanSwitchedMode string
+// BmMuxreason represents Bm muxreason
+type BmMuxreason string
 
 const (
-    // Disabled
-    VlanSwitchedMode_none VlanSwitchedMode = "none"
+    // Selection logic has not yet been run for the
+    // bundle this link is a member of
+    BmMuxreason_bm_mux_reason_no_reason BmMuxreason = "bm-mux-reason-no-reason"
 
-    // Trunk port
-    VlanSwitchedMode_trunk_port VlanSwitchedMode = "trunk-port"
+    // Link is down
+    BmMuxreason_bm_mux_reason_link_down BmMuxreason = "bm-mux-reason-link-down"
 
-    // Access port
-    VlanSwitchedMode_access_port VlanSwitchedMode = "access-port"
+    // Link is being removed from the bundle
+    BmMuxreason_bm_mux_reason_link_deleted BmMuxreason = "bm-mux-reason-link-deleted"
+
+    // Link has wrong duplexity
+    BmMuxreason_bm_mux_reason_duplex BmMuxreason = "bm-mux-reason-duplex"
+
+    // Link has wrong bandwidth
+    BmMuxreason_bm_mux_reason_bandwidth BmMuxreason = "bm-mux-reason-bandwidth"
+
+    // Link is a loopback interface
+    BmMuxreason_bm_mux_reason_loop_back BmMuxreason = "bm-mux-reason-loop-back"
+
+    // Link has wrong activity type
+    BmMuxreason_bm_mux_reason_activity_type BmMuxreason = "bm-mux-reason-activity-type"
+
+    // Link's bundle already has maximum number of
+    // members allowed
+    BmMuxreason_bm_mux_reason_link_limit BmMuxreason = "bm-mux-reason-link-limit"
+
+    // Link is attached to a shared medium
+    BmMuxreason_bm_mux_reason_shared BmMuxreason = "bm-mux-reason-shared"
+
+    // Link has wrong LAG ID
+    BmMuxreason_bm_mux_reason_lagid BmMuxreason = "bm-mux-reason-lagid"
+
+    // Link's bundle does not exist
+    BmMuxreason_bm_mux_reason_no_bundle BmMuxreason = "bm-mux-reason-no-bundle"
+
+    // Link's bundle has no primary link
+    BmMuxreason_bm_mux_reason_no_primary BmMuxreason = "bm-mux-reason-no-primary"
+
+    // Link's bundle is shut down
+    BmMuxreason_bm_mux_reason_bundle_down BmMuxreason = "bm-mux-reason-bundle-down"
+
+    // Link is marked individual by partner
+    BmMuxreason_bm_mux_reason_individual BmMuxreason = "bm-mux-reason-individual"
+
+    // Link is Defaulted, suggesting it is not
+    // receiving LACPDUs from the peer
+    BmMuxreason_bm_mux_reason_defaulted BmMuxreason = "bm-mux-reason-defaulted"
+
+    // Link is in InSync state
+    BmMuxreason_bm_mux_reason_in_sync BmMuxreason = "bm-mux-reason-in-sync"
+
+    // Link is in Collecting state
+    BmMuxreason_bm_mux_reason_collecting BmMuxreason = "bm-mux-reason-collecting"
+
+    // Link exceeds maximum active limit
+    BmMuxreason_bm_mux_reason_active_link_limit BmMuxreason = "bm-mux-reason-active-link-limit"
+
+    // Link is in Distributing state
+    BmMuxreason_bm_mux_reason_distributing BmMuxreason = "bm-mux-reason-distributing"
+
+    // Enumeration maximum value
+    BmMuxreason_bm_mux_reason_count BmMuxreason = "bm-mux-reason-count"
 )
 
-// EfpPayloadEtype represents Payload ethertype match
-type EfpPayloadEtype string
+// ImAttrLink represents Im attr link
+type ImAttrLink string
 
 const (
-    // Any
-    EfpPayloadEtype_payload_ethertype_any EfpPayloadEtype = "payload-ethertype-any"
+    // im attr link type auto
+    ImAttrLink_im_attr_link_type_auto ImAttrLink = "im-attr-link-type-auto"
 
-    // IP
-    EfpPayloadEtype_payload_ethertype_ip EfpPayloadEtype = "payload-ethertype-ip"
-
-    // PPPoE
-    EfpPayloadEtype_payload_ethertype_pppoe EfpPayloadEtype = "payload-ethertype-pppoe"
-)
-
-// EfpTagPriority represents Priority
-type EfpTagPriority string
-
-const (
-    // Priority 0
-    EfpTagPriority_priority0 EfpTagPriority = "priority0"
-
-    // Priority 1
-    EfpTagPriority_priority1 EfpTagPriority = "priority1"
-
-    // Priority 2
-    EfpTagPriority_priority2 EfpTagPriority = "priority2"
-
-    // Priority 3
-    EfpTagPriority_priority3 EfpTagPriority = "priority3"
-
-    // Priority 4
-    EfpTagPriority_priority4 EfpTagPriority = "priority4"
-
-    // Priority 5
-    EfpTagPriority_priority5 EfpTagPriority = "priority5"
-
-    // Priority 6
-    EfpTagPriority_priority6 EfpTagPriority = "priority6"
-
-    // Priority 7
-    EfpTagPriority_priority7 EfpTagPriority = "priority7"
-
-    // Any priority
-    EfpTagPriority_priority_any EfpTagPriority = "priority-any"
-)
-
-// EfpTagEtype represents Tag ethertype
-type EfpTagEtype string
-
-const (
-    // Untagged
-    EfpTagEtype_untagged EfpTagEtype = "untagged"
-
-    // Dot1Q
-    EfpTagEtype_dot1q EfpTagEtype = "dot1q"
-
-    // Dot1ad
-    EfpTagEtype_dot1ad EfpTagEtype = "dot1ad"
+    // im attr link type force
+    ImAttrLink_im_attr_link_type_force ImAttrLink = "im-attr-link-type-force"
 )
 
 // VlanEncaps represents VLAN encapsulation
@@ -1117,117 +1189,37 @@ const (
     VlanEncaps_dot1ad_any VlanEncaps = "dot1ad-any"
 )
 
-// ImCmdLmiTypeEnum represents Im cmd lmi type enum
-type ImCmdLmiTypeEnum string
+// EfpPayloadEtype represents Payload ethertype match
+type EfpPayloadEtype string
 
 const (
-    // lmi type auto
-    ImCmdLmiTypeEnum_lmi_type_auto ImCmdLmiTypeEnum = "lmi-type-auto"
+    // Any
+    EfpPayloadEtype_payload_ethertype_any EfpPayloadEtype = "payload-ethertype-any"
 
-    // lmi type ansi
-    ImCmdLmiTypeEnum_lmi_type_ansi ImCmdLmiTypeEnum = "lmi-type-ansi"
+    // IP
+    EfpPayloadEtype_payload_ethertype_ip EfpPayloadEtype = "payload-ethertype-ip"
 
-    // lmi type ccitt
-    ImCmdLmiTypeEnum_lmi_type_ccitt ImCmdLmiTypeEnum = "lmi-type-ccitt"
-
-    // lmi type cisco
-    ImCmdLmiTypeEnum_lmi_type_cisco ImCmdLmiTypeEnum = "lmi-type-cisco"
+    // PPPoE
+    EfpPayloadEtype_payload_ethertype_pppoe EfpPayloadEtype = "payload-ethertype-pppoe"
 )
 
-// ImCmdFrTypeEnum represents Im cmd fr type enum
-type ImCmdFrTypeEnum string
+// InterfaceTypeSet represents Interface type set
+type InterfaceTypeSet string
 
 const (
-    // frame relay cisco
-    ImCmdFrTypeEnum_frame_relay_cisco ImCmdFrTypeEnum = "frame-relay-cisco"
-
-    // frame relay ietf
-    ImCmdFrTypeEnum_frame_relay_ietf ImCmdFrTypeEnum = "frame-relay-ietf"
+    // Restrict the output to hardware interfaces only
+    InterfaceTypeSet_hardware_interfaces InterfaceTypeSet = "hardware-interfaces"
 )
 
-// ImCmdEncapsEnum represents Im cmd encaps enum
-type ImCmdEncapsEnum string
+// BmStateReasonTarget represents Scope of the state reason
+type BmStateReasonTarget string
 
 const (
-    // frame relay
-    ImCmdEncapsEnum_frame_relay ImCmdEncapsEnum = "frame-relay"
+    // Member applicable reason
+    BmStateReasonTarget_member_reason BmStateReasonTarget = "member-reason"
 
-    // vlan
-    ImCmdEncapsEnum_vlan ImCmdEncapsEnum = "vlan"
-
-    // ppp
-    ImCmdEncapsEnum_ppp ImCmdEncapsEnum = "ppp"
-)
-
-// ImAttrTransportMode represents Im attr transport mode
-type ImAttrTransportMode string
-
-const (
-    // im attr transport mode unknown
-    ImAttrTransportMode_im_attr_transport_mode_unknown ImAttrTransportMode = "im-attr-transport-mode-unknown"
-
-    // im attr transport mode lan
-    ImAttrTransportMode_im_attr_transport_mode_lan ImAttrTransportMode = "im-attr-transport-mode-lan"
-
-    // im attr transport mode wan
-    ImAttrTransportMode_im_attr_transport_mode_wan ImAttrTransportMode = "im-attr-transport-mode-wan"
-
-    // im attr transport mode otn bt opu1e
-    ImAttrTransportMode_im_attr_transport_mode_otn_bt_opu1e ImAttrTransportMode = "im-attr-transport-mode-otn-bt-opu1e"
-
-    // im attr transport mode otn bt opu2e
-    ImAttrTransportMode_im_attr_transport_mode_otn_bt_opu2e ImAttrTransportMode = "im-attr-transport-mode-otn-bt-opu2e"
-
-    // im attr transport mode otn opu3
-    ImAttrTransportMode_im_attr_transport_mode_otn_opu3 ImAttrTransportMode = "im-attr-transport-mode-otn-opu3"
-
-    // im attr transport mode otn opu4
-    ImAttrTransportMode_im_attr_transport_mode_otn_opu4 ImAttrTransportMode = "im-attr-transport-mode-otn-opu4"
-)
-
-// ImCmdLoopbackEnum represents Im cmd loopback enum
-type ImCmdLoopbackEnum string
-
-const (
-    // no loopback
-    ImCmdLoopbackEnum_no_loopback ImCmdLoopbackEnum = "no-loopback"
-
-    // internal loopback
-    ImCmdLoopbackEnum_internal_loopback ImCmdLoopbackEnum = "internal-loopback"
-
-    // external loopback
-    ImCmdLoopbackEnum_external_loopback ImCmdLoopbackEnum = "external-loopback"
-
-    // line loopback
-    ImCmdLoopbackEnum_line_loopback ImCmdLoopbackEnum = "line-loopback"
-)
-
-// ImAttrFlowControl represents Im attr flow control
-type ImAttrFlowControl string
-
-const (
-    // im attr flow control off
-    ImAttrFlowControl_im_attr_flow_control_off ImAttrFlowControl = "im-attr-flow-control-off"
-
-    // im attr flow control on
-    ImAttrFlowControl_im_attr_flow_control_on ImAttrFlowControl = "im-attr-flow-control-on"
-
-    // im attr flow control not sup
-    ImAttrFlowControl_im_attr_flow_control_not_sup ImAttrFlowControl = "im-attr-flow-control-not-sup"
-
-    // im attr flow control priority
-    ImAttrFlowControl_im_attr_flow_control_priority ImAttrFlowControl = "im-attr-flow-control-priority"
-)
-
-// ImAttrLink represents Im attr link
-type ImAttrLink string
-
-const (
-    // im attr link type auto
-    ImAttrLink_im_attr_link_type_auto ImAttrLink = "im-attr-link-type-auto"
-
-    // im attr link type force
-    ImAttrLink_im_attr_link_type_force ImAttrLink = "im-attr-link-type-force"
+    // Bundle applicable reason
+    BmStateReasonTarget_bundle_reason BmStateReasonTarget = "bundle-reason"
 )
 
 // ImAttrMedia represents Im attr media
@@ -2383,31 +2375,22 @@ const (
     // im attr media 100gbase sr bd
     ImAttrMedia_im_attr_media_100gbase_sr_bd ImAttrMedia = "im-attr-media-100gbase-sr-bd"
 
-    // im attr media 1000base 2bx d
-    ImAttrMedia_im_attr_media_1000base_2bx_d ImAttrMedia = "im-attr-media-1000base-2bx-d"
-
-    // im attr media 1000base 2bx d i
-    ImAttrMedia_im_attr_media_1000base_2bx_d_i ImAttrMedia = "im-attr-media-1000base-2bx-d-i"
-
-    // im attr media 1000base 2bx u
-    ImAttrMedia_im_attr_media_1000base_2bx_u ImAttrMedia = "im-attr-media-1000base-2bx-u"
-
-    // im attr media 1000base 2bx u i
-    ImAttrMedia_im_attr_media_1000base_2bx_u_i ImAttrMedia = "im-attr-media-1000base-2bx-u-i"
+    // im attr media 100gbase fr
+    ImAttrMedia_im_attr_media_100gbase_fr ImAttrMedia = "im-attr-media-100gbase-fr"
 )
 
-// ImAttrDuplex represents Im attr duplex
-type ImAttrDuplex string
+// SrpMgmtSrrNodeState represents SRP SRR node state
+type SrpMgmtSrrNodeState string
 
 const (
-    // im attr duplex unknown
-    ImAttrDuplex_im_attr_duplex_unknown ImAttrDuplex = "im-attr-duplex-unknown"
+    // Idle
+    SrpMgmtSrrNodeState_idle_srr_state SrpMgmtSrrNodeState = "idle-srr-state"
 
-    // im attr duplex half
-    ImAttrDuplex_im_attr_duplex_half ImAttrDuplex = "im-attr-duplex-half"
+    // Discovery
+    SrpMgmtSrrNodeState_discovery_srr_state SrpMgmtSrrNodeState = "discovery-srr-state"
 
-    // im attr duplex full
-    ImAttrDuplex_im_attr_duplex_full ImAttrDuplex = "im-attr-duplex-full"
+    // UNKNOWN
+    SrpMgmtSrrNodeState_unknown_srr_state SrpMgmtSrrNodeState = "unknown-srr-state"
 )
 
 // Interfaces
@@ -2504,7 +2487,7 @@ type Interfaces_InterfaceXr_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // Interface name. The type is string.
@@ -2587,7 +2570,7 @@ type Interfaces_InterfaceXr_Interface struct {
     // Loopback detected by layer 2. The type is bool.
     IsL2Looped interface{}
 
-    // Parent interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterfaceName interface{}
 
     // Interface loopback configuration. The type is ImCmdLoopbackEnum.
@@ -2781,7 +2764,7 @@ type Interfaces_InterfaceXr_Interface_MacAddress struct {
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -2812,7 +2795,7 @@ type Interfaces_InterfaceXr_Interface_BurnedInAddress struct {
     YFilter yfilter.YFilter
 
     // MAC Address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -2918,7 +2901,7 @@ type Interfaces_InterfaceXr_Interface_IpInformation struct {
     YFilter yfilter.YFilter
 
     // Interface IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Interface subnet mask length. The type is interface{} with range:
@@ -3239,11 +3222,11 @@ type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_
     IsNativePreserving interface{}
 
     // The source MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacMatch interface{}
 
     // The destination MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DestinationMacMatch interface{}
 
     // VLAN tags for locally-sourced traffic.
@@ -3577,11 +3560,11 @@ type Interfaces_InterfaceXr_Interface_EncapsulationInformation_Dot1qInformation_
     IsNativePreserving interface{}
 
     // The source MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     SourceMacMatch interface{}
 
     // The destination MAC address to match on ingress. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     DestinationMacMatch interface{}
 
     // VLAN tags for locally-sourced traffic.
@@ -4590,7 +4573,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_SrpInformation_Sr
     MacAddress interface{}
 
     // IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4Address interface{}
 
     // Wrap state. The type is interface{} with range: -2147483648..2147483647.
@@ -5258,11 +5241,11 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_TunnelInformation
     SourceName interface{}
 
     // Tunnel source IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SourceIpv4Address interface{}
 
     // Tunnel destination IP address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     DestinationIpv4Address interface{}
 
     // Tunnel protocol/transport. The type is string.
@@ -5342,8 +5325,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
     YFilter yfilter.YFilter
     YListKey string
 
-    // Member's interface name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // Member's interface name. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
     // The priority of this member. The type is interface{} with range: 0..65535.
@@ -5373,10 +5355,6 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
 
     // Member's (short form) name. The type is string.
     MemberName interface{}
-
-    // Error from final replication attempt. The type is interface{} with range:
-    // 0..4294967295.
-    ReplicationError interface{}
 
     // Counters data about member link.
     Counters Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation_Member_Counters
@@ -5418,7 +5396,6 @@ func (member *Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleIn
     member.EntityData.Leafs.Append("lacp-enabled", types.YLeaf{"LacpEnabled", member.LacpEnabled})
     member.EntityData.Leafs.Append("member-type", types.YLeaf{"MemberType", member.MemberType})
     member.EntityData.Leafs.Append("member-name", types.YLeaf{"MemberName", member.MemberName})
-    member.EntityData.Leafs.Append("replication-error", types.YLeaf{"ReplicationError", member.ReplicationError})
 
     member.EntityData.YListKeys = []string {}
 
@@ -5510,7 +5487,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
     YFilter yfilter.YFilter
 
     // Member's interface handle. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // System priority of actor system. The type is interface{} with range:
@@ -5518,7 +5495,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
     ActorSystemPriority interface{}
 
     // MAC Address of the actor system. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     ActorSystemMacAddress interface{}
 
     // Operational key for this port. The type is interface{} with range:
@@ -5530,7 +5507,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
     PartnerSystemPriority interface{}
 
     // MAC Address used to identify the partner system. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     PartnerSystemMacAddress interface{}
 
     // Operational key for partner port. The type is interface{} with range:
@@ -5694,7 +5671,7 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_BundleInformation
     YFilter yfilter.YFilter
 
     // MAC address. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Address interface{}
 }
 
@@ -5875,11 +5852,11 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_TunnelGreInformat
     Afi interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -5915,11 +5892,11 @@ type Interfaces_InterfaceXr_Interface_InterfaceTypeInformation_TunnelGreInformat
     Afi interface{}
 
     // IPv4 address type. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Ipv4 interface{}
 
     // IPv6 address type. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     Ipv6 interface{}
 }
 
@@ -6543,11 +6520,11 @@ type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_StatsId struct {
     // Unused. The type is interface{} with range: 0..4294967295.
     Unused interface{}
 
-    // Interface Handle. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface Handle. The type is string with pattern: [a-zA-Z0-9._/-]+.
     InterfaceHandle interface{}
 
     // Node ID. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeId interface{}
 
     // Feature ID. The type is interface{} with range: 0..4294967295.
@@ -6595,8 +6572,7 @@ type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_BlockArray struct {
     // count. The type is interface{} with range: 0..4294967295.
     Count interface{}
 
-    // data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // data. The type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Data interface{}
 }
 
@@ -6629,8 +6605,7 @@ type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_ElementArray struct 
     YFilter yfilter.YFilter
     YListKey string
 
-    // key. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // key. The type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Key interface{}
 
     // block array. The type is slice of
@@ -6676,8 +6651,7 @@ type Interfaces_InterfaceXr_Interface_L2InterfaceStatistics_ElementArray_BlockAr
     // count. The type is interface{} with range: 0..4294967295.
     Count interface{}
 
-    // data. The type is string with pattern:
-    // b'([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?'.
+    // data. The type is string with pattern: ([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?.
     Data interface{}
 }
 
@@ -6748,7 +6722,7 @@ type Interfaces_NodeTypeSets_NodeTypeSet struct {
     YListKey string
 
     // The location to filter on. The type is string with pattern:
-    // b'([a-zA-Z0-9_]*\\d+/){1,2}([a-zA-Z0-9_]*\\d+)'.
+    // ([a-zA-Z0-9_]*\d+/){1,2}([a-zA-Z0-9_]*\d+).
     NodeName interface{}
 
     // The interface type to filter on. The type is InterfaceTypeSet.
@@ -6991,13 +6965,13 @@ type Interfaces_InterfaceBriefs_InterfaceBrief struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
-    // Parent Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Parent Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     ParentInterface interface{}
 
     // Interface type. The type is string.
@@ -7282,10 +7256,10 @@ type Interfaces_Interfaces_Interface struct {
     YListKey string
 
     // This attribute is a key. The name of the interface. The type is string with
-    // pattern: b'[a-zA-Z0-9._/-]+'.
+    // pattern: [a-zA-Z0-9._/-]+.
     InterfaceName interface{}
 
-    // Interface. The type is string with pattern: b'[a-zA-Z0-9._/-]+'.
+    // Interface. The type is string with pattern: [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Operational state with no translation of error disable or shutdown. The

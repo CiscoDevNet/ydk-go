@@ -24,18 +24,67 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-controller-optics-oper:optics-oper", reflect.TypeOf(OpticsOper{}))
 }
 
-// OpticsAinsStateEt represents Optics ains state et
-type OpticsAinsStateEt string
+// OpticsAmplifierGainRange represents Optics amplifier gain range
+type OpticsAmplifierGainRange string
 
 const (
-    // None
-    OpticsAinsStateEt_none OpticsAinsStateEt = "none"
+    // Invalid
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_invalid OpticsAmplifierGainRange = "optics-amplifier-gain-range-invalid"
 
-    // Running
-    OpticsAinsStateEt_active_running OpticsAinsStateEt = "active-running"
+    // Normal
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_normal OpticsAmplifierGainRange = "optics-amplifier-gain-range-normal"
 
-    // Pending
-    OpticsAinsStateEt_active_pending OpticsAinsStateEt = "active-pending"
+    // Extended
+    OpticsAmplifierGainRange_optics_amplifier_gain_range_ext_end_ed OpticsAmplifierGainRange = "optics-amplifier-gain-range-ext-end-ed"
+)
+
+// OpticsModulation represents Optics modulation
+type OpticsModulation string
+
+const (
+    // BPSK
+    OpticsModulation_mod_bpsk OpticsModulation = "mod-bpsk"
+
+    // QPSK
+    OpticsModulation_mod_qpsk OpticsModulation = "mod-qpsk"
+
+    // 8QAM
+    OpticsModulation_mod_8qam OpticsModulation = "mod-8qam"
+
+    // 16QAM
+    OpticsModulation_mod_16qam OpticsModulation = "mod-16qam"
+
+    // 32QAM
+    OpticsModulation_mod_32qam OpticsModulation = "mod-32qam"
+
+    // 64QAM
+    OpticsModulation_mod_64qam OpticsModulation = "mod-64qam"
+
+    // BPSK QPSK
+    OpticsModulation_mod_bpsk_qpsk OpticsModulation = "mod-bpsk-qpsk"
+
+    // QPSK 8QAM
+    OpticsModulation_mod_qpsk_8qam OpticsModulation = "mod-qpsk-8qam"
+
+    // 8QAM 16QAM
+    OpticsModulation_mod_8qam_16qam OpticsModulation = "mod-8qam-16qam"
+
+    // 16QAM 32QAM
+    OpticsModulation_mode_16qam_32qam OpticsModulation = "mode-16qam-32qam"
+
+    // 32QAM 64QAM
+    OpticsModulation_mod_32qam_64qam OpticsModulation = "mod-32qam-64qam"
+)
+
+// OpticsAmplifierControlMode represents Optics amplifier control mode
+type OpticsAmplifierControlMode string
+
+const (
+    // Automatic
+    OpticsAmplifierControlMode_automatic OpticsAmplifierControlMode = "automatic"
+
+    // Manual
+    OpticsAmplifierControlMode_manual OpticsAmplifierControlMode = "manual"
 )
 
 // EthernetPmd represents Ethernet Pmd Type
@@ -129,15 +178,6 @@ const (
     // 100GBASE PL
     EthernetPmd_optics_eth_100gbase_pl EthernetPmd = "optics-eth-100gbase-pl"
 
-    // 400GBASE FR4
-    EthernetPmd_optics_eth_400gbase_fr4 EthernetPmd = "optics-eth-400gbase-fr4"
-
-    // 400GBASE DR4
-    EthernetPmd_optics_eth_400gbase_dr4 EthernetPmd = "optics-eth-400gbase-dr4"
-
-    // 400GBASE CR8
-    EthernetPmd_optics_eth_400gbase_cr8 EthernetPmd = "optics-eth-400gbase-cr8"
-
     // 100GBASE SRBD
     EthernetPmd_optics_eth_100gbase_srbd EthernetPmd = "optics-eth-100gbase-srbd"
 
@@ -145,44 +185,38 @@ const (
     EthernetPmd_optics_eth_undefined EthernetPmd = "optics-eth-undefined"
 )
 
-// SonetApplicationCode represents Sonet application code
-type SonetApplicationCode string
+// OpticsWaveBand represents Optics wave band
+type OpticsWaveBand string
 
 const (
-    // Not Set
-    SonetApplicationCode_optics_sonet_not_set SonetApplicationCode = "optics-sonet-not-set"
+    // C BAND
+    OpticsWaveBand_c_band OpticsWaveBand = "c-band"
 
-    // VSR2000 3R2
-    SonetApplicationCode_optics_vsr2000_3r2 SonetApplicationCode = "optics-vsr2000-3r2"
+    // L BAND
+    OpticsWaveBand_l_band OpticsWaveBand = "l-band"
 
-    // VSR2000 3R3
-    SonetApplicationCode_optics_vsr2000_3r3 SonetApplicationCode = "optics-vsr2000-3r3"
+    // C ODD
+    OpticsWaveBand_c_band_odd OpticsWaveBand = "c-band-odd"
 
-    // VSR2000 3R5
-    SonetApplicationCode_optics_vsr2000_3r5 SonetApplicationCode = "optics-vsr2000-3r5"
+    // C EVEN
+    OpticsWaveBand_c_band_even OpticsWaveBand = "c-band-even"
 
-    // Undefined
-    SonetApplicationCode_optics_sonet_undefined SonetApplicationCode = "optics-sonet-undefined"
+    // Invalid
+    OpticsWaveBand_invalid_band OpticsWaveBand = "invalid-band"
 )
 
-// OtnApplicationCode represents Otn application code
-type OtnApplicationCode string
+// OpticsAinsStateEt represents Optics ains state et
+type OpticsAinsStateEt string
 
 const (
-    // Not Set
-    OtnApplicationCode_optics_not_set OtnApplicationCode = "optics-not-set"
+    // None
+    OpticsAinsStateEt_none OpticsAinsStateEt = "none"
 
-    // P1L1 2D1
-    OtnApplicationCode_optics_p1l1_2d1 OtnApplicationCode = "optics-p1l1-2d1"
+    // Running
+    OpticsAinsStateEt_active_running OpticsAinsStateEt = "active-running"
 
-    // P1S1 2D2
-    OtnApplicationCode_optics_p1s1_2d2 OtnApplicationCode = "optics-p1s1-2d2"
-
-    // P1L1 2D2
-    OtnApplicationCode_optics_p1l1_2d2 OtnApplicationCode = "optics-p1l1-2d2"
-
-    // Undefined
-    OtnApplicationCode_optics_undefined OtnApplicationCode = "optics-undefined"
+    // Pending
+    OpticsAinsStateEt_active_pending OpticsAinsStateEt = "active-pending"
 )
 
 // FiberConnector represents Fiber connector
@@ -205,6 +239,99 @@ const (
     FiberConnector_optics_undefined_connect_or FiberConnector = "optics-undefined-connect-or"
 )
 
+// OpticsFormFactor represents Optics form factor
+type OpticsFormFactor string
+
+const (
+    // Not set
+    OpticsFormFactor_not_set OpticsFormFactor = "not-set"
+
+    // Invalid
+    OpticsFormFactor_invalid OpticsFormFactor = "invalid"
+
+    // CPAK
+    OpticsFormFactor_cpak OpticsFormFactor = "cpak"
+
+    // CXP
+    OpticsFormFactor_cxp OpticsFormFactor = "cxp"
+
+    // SFP+
+    OpticsFormFactor_sfp_plus OpticsFormFactor = "sfp-plus"
+
+    // QSFP
+    OpticsFormFactor_qsfp OpticsFormFactor = "qsfp"
+
+    // QSFP+
+    OpticsFormFactor_qsfp_plus OpticsFormFactor = "qsfp-plus"
+
+    // QSFP28
+    OpticsFormFactor_qsfp28 OpticsFormFactor = "qsfp28"
+
+    // SFP
+    OpticsFormFactor_sfp OpticsFormFactor = "sfp"
+
+    // CFP
+    OpticsFormFactor_cfp OpticsFormFactor = "cfp"
+
+    // CFP2
+    OpticsFormFactor_cfp2 OpticsFormFactor = "cfp2"
+
+    // CFP2 ACO
+    OpticsFormFactor_cfp2_aco OpticsFormFactor = "cfp2-aco"
+
+    // CFP2 DCO
+    OpticsFormFactor_cfp2_dco OpticsFormFactor = "cfp2-dco"
+
+    // CFP4
+    OpticsFormFactor_cfp4 OpticsFormFactor = "cfp4"
+
+    // XFP
+    OpticsFormFactor_xfp OpticsFormFactor = "xfp"
+
+    // X2
+    OpticsFormFactor_x2 OpticsFormFactor = "x2"
+
+    // Non pluggable
+    OpticsFormFactor_non_pluggable OpticsFormFactor = "non-pluggable"
+
+    // Other
+    OpticsFormFactor_other OpticsFormFactor = "other"
+)
+
+// SonetApplicationCode represents Sonet application code
+type SonetApplicationCode string
+
+const (
+    // Not Set
+    SonetApplicationCode_optics_sonet_not_set SonetApplicationCode = "optics-sonet-not-set"
+
+    // VSR2000 3R2
+    SonetApplicationCode_optics_vsr2000_3r2 SonetApplicationCode = "optics-vsr2000-3r2"
+
+    // VSR2000 3R3
+    SonetApplicationCode_optics_vsr2000_3r3 SonetApplicationCode = "optics-vsr2000-3r3"
+
+    // VSR2000 3R5
+    SonetApplicationCode_optics_vsr2000_3r5 SonetApplicationCode = "optics-vsr2000-3r5"
+
+    // Undefined
+    SonetApplicationCode_optics_sonet_undefined SonetApplicationCode = "optics-sonet-undefined"
+)
+
+// OpticsControllerState represents Optics controller state
+type OpticsControllerState string
+
+const (
+    // Up
+    OpticsControllerState_optics_state_up OpticsControllerState = "optics-state-up"
+
+    // Down
+    OpticsControllerState_optics_state_down OpticsControllerState = "optics-state-down"
+
+    // Administratively Down
+    OpticsControllerState_optics_state_admin_down OpticsControllerState = "optics-state-admin-down"
+)
+
 // OpticsAmplifierSafetyControlMode represents Optics amplifier safety control mode
 type OpticsAmplifierSafetyControlMode string
 
@@ -219,63 +346,24 @@ const (
     OpticsAmplifierSafetyControlMode_optics_amplifier_safety_mode_disabled OpticsAmplifierSafetyControlMode = "optics-amplifier-safety-mode-disabled"
 )
 
-// OpticsAmplifierGainRange represents Optics amplifier gain range
-type OpticsAmplifierGainRange string
+// OpticsLaserState represents Optics laser state
+type OpticsLaserState string
 
 const (
-    // Invalid
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_invalid OpticsAmplifierGainRange = "optics-amplifier-gain-range-invalid"
+    // On
+    OpticsLaserState_on OpticsLaserState = "on"
 
-    // Normal
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_normal OpticsAmplifierGainRange = "optics-amplifier-gain-range-normal"
+    // Off
+    OpticsLaserState_off OpticsLaserState = "off"
 
-    // Extended
-    OpticsAmplifierGainRange_optics_amplifier_gain_range_ext_end_ed OpticsAmplifierGainRange = "optics-amplifier-gain-range-ext-end-ed"
-)
+    // Unknown
+    OpticsLaserState_unknown OpticsLaserState = "unknown"
 
-// OpticsAmplifierControlMode represents Optics amplifier control mode
-type OpticsAmplifierControlMode string
+    // Apr
+    OpticsLaserState_apr OpticsLaserState = "apr"
 
-const (
-    // Automatic
-    OpticsAmplifierControlMode_automatic OpticsAmplifierControlMode = "automatic"
-
-    // Manual
-    OpticsAmplifierControlMode_manual OpticsAmplifierControlMode = "manual"
-)
-
-// OpticsPortStatus represents Optics port status
-type OpticsPortStatus string
-
-const (
-    // Active
-    OpticsPortStatus_active OpticsPortStatus = "active"
-
-    // Standby
-    OpticsPortStatus_standby OpticsPortStatus = "standby"
-)
-
-// OpticsPort represents Optics port
-type OpticsPort string
-
-const (
-    // Com
-    OpticsPort_com OpticsPort = "com"
-
-    // Line
-    OpticsPort_line OpticsPort = "line"
-
-    // Osc
-    OpticsPort_osc OpticsPort = "osc"
-
-    // Com Check
-    OpticsPort_com_check OpticsPort = "com-check"
-
-    // Working
-    OpticsPort_work OpticsPort = "work"
-
-    // Protected
-    OpticsPort_prot OpticsPort = "prot"
+    // N/A
+    OpticsLaserState_na OpticsLaserState = "na"
 )
 
 // OpticsFec represents Optics fec
@@ -305,6 +393,17 @@ const (
 
     // FEC CL91
     OpticsFec_fec_cl91 OpticsFec = "fec-cl91"
+)
+
+// OpticsPortStatus represents Optics port status
+type OpticsPortStatus string
+
+const (
+    // Active
+    OpticsPortStatus_active OpticsPortStatus = "active"
+
+    // Standby
+    OpticsPortStatus_standby OpticsPortStatus = "standby"
 )
 
 // OpticsPhy represents Optics phy type
@@ -512,102 +611,65 @@ const (
     // OneGig CSFP optics
     OpticsPhy_one_gig_csfp OpticsPhy = "one-gig-csfp"
 
-    // 400G FR4
-    OpticsPhy_four_hundred_gig_fr4_four_lanes OpticsPhy = "four-hundred-gig-fr4-four-lanes"
-
-    // 400G DR4
-    OpticsPhy_four_hundred_gig_dr4_four_lanes OpticsPhy = "four-hundred-gig-dr4-four-lanes"
-
-    // 4x100G FR breakout
-    OpticsPhy_four_x_hundred_gig_fr_four_lanes OpticsPhy = "four-x-hundred-gig-fr-four-lanes"
-
-    // 400G AOC
-    OpticsPhy_four_hundred_gig_aoc_four_lanes OpticsPhy = "four-hundred-gig-aoc-four-lanes"
-
-    // 400G Copper cable
-    OpticsPhy_four_hundred_gig_cu_four_lanes OpticsPhy = "four-hundred-gig-cu-four-lanes"
-
-    // 8x50G Copper breakout
-    OpticsPhy_eight_x_fifty_gig_cu_four_lanes OpticsPhy = "eight-x-fifty-gig-cu-four-lanes"
-
     // Short reach Bi-Directional
     OpticsPhy_short_reach_bd OpticsPhy = "short-reach-bd"
+
+    // Far reach duplex SMF
+    OpticsPhy_far_reach OpticsPhy = "far-reach"
 )
 
-// OpticsFormFactor represents Optics form factor
-type OpticsFormFactor string
+// OpticsTas represents Optics tas
+type OpticsTas string
 
 const (
-    // Not set
-    OpticsFormFactor_not_set OpticsFormFactor = "not-set"
+    // Out Of Service
+    OpticsTas_tas_ui_oos OpticsTas = "tas-ui-oos"
 
-    // Invalid
-    OpticsFormFactor_invalid OpticsFormFactor = "invalid"
+    // Maintenance
+    OpticsTas_tas_ui_main OpticsTas = "tas-ui-main"
 
-    // CPAK
-    OpticsFormFactor_cpak OpticsFormFactor = "cpak"
+    // In Service
+    OpticsTas_tas_ui_is OpticsTas = "tas-ui-is"
 
-    // CXP
-    OpticsFormFactor_cxp OpticsFormFactor = "cxp"
-
-    // SFP+
-    OpticsFormFactor_sfp_plus OpticsFormFactor = "sfp-plus"
-
-    // QSFP
-    OpticsFormFactor_qsfp OpticsFormFactor = "qsfp"
-
-    // QSFP+
-    OpticsFormFactor_qsfp_plus OpticsFormFactor = "qsfp-plus"
-
-    // QSFP28
-    OpticsFormFactor_qsfp28 OpticsFormFactor = "qsfp28"
-
-    // SFP
-    OpticsFormFactor_sfp OpticsFormFactor = "sfp"
-
-    // CFP
-    OpticsFormFactor_cfp OpticsFormFactor = "cfp"
-
-    // CFP2
-    OpticsFormFactor_cfp2 OpticsFormFactor = "cfp2"
-
-    // CFP2 ACO
-    OpticsFormFactor_cfp2_aco OpticsFormFactor = "cfp2-aco"
-
-    // CFP2 DCO
-    OpticsFormFactor_cfp2_dco OpticsFormFactor = "cfp2-dco"
-
-    // CFP4
-    OpticsFormFactor_cfp4 OpticsFormFactor = "cfp4"
-
-    // XFP
-    OpticsFormFactor_xfp OpticsFormFactor = "xfp"
-
-    // X2
-    OpticsFormFactor_x2 OpticsFormFactor = "x2"
-
-    // QSFP DD
-    OpticsFormFactor_qsfpdd OpticsFormFactor = "qsfpdd"
-
-    // Non pluggable
-    OpticsFormFactor_non_pluggable OpticsFormFactor = "non-pluggable"
-
-    // Other
-    OpticsFormFactor_other OpticsFormFactor = "other"
+    // Automatic In Service
+    OpticsTas_tas_ui_ains OpticsTas = "tas-ui-ains"
 )
 
-// OpticsControllerState represents Optics controller state
-type OpticsControllerState string
+// Optics represents Optics
+type Optics string
 
 const (
-    // Up
-    OpticsControllerState_optics_state_up OpticsControllerState = "optics-state-up"
+    // Unknow Optics Type
+    Optics_optics_unknown Optics = "optics-unknown"
 
-    // Down
-    OpticsControllerState_optics_state_down OpticsControllerState = "optics-state-down"
+    // Grey Optics
+    Optics_optics_grey Optics = "optics-grey"
 
-    // Administratively Down
-    OpticsControllerState_optics_state_admin_down OpticsControllerState = "optics-state-admin-down"
+    // DWDM Optics
+    Optics_optics_dwdm Optics = "optics-dwdm"
+
+    // CWDM Optics
+    Optics_optics_cwdm Optics = "optics-cwdm"
+)
+
+// OtnApplicationCode represents Otn application code
+type OtnApplicationCode string
+
+const (
+    // Not Set
+    OtnApplicationCode_optics_not_set OtnApplicationCode = "optics-not-set"
+
+    // P1L1 2D1
+    OtnApplicationCode_optics_p1l1_2d1 OtnApplicationCode = "optics-p1l1-2d1"
+
+    // P1S1 2D2
+    OtnApplicationCode_optics_p1s1_2d2 OtnApplicationCode = "optics-p1s1-2d2"
+
+    // P1L1 2D2
+    OtnApplicationCode_optics_p1l1_2d2 OtnApplicationCode = "optics-p1l1-2d2"
+
+    // Undefined
+    OtnApplicationCode_optics_undefined OtnApplicationCode = "optics-undefined"
 )
 
 // OpticsLedState represents Optics led state
@@ -636,119 +698,27 @@ const (
     OpticsLedState_red_flashing OpticsLedState = "red-flashing"
 )
 
-// OpticsModulation represents Optics modulation
-type OpticsModulation string
+// OpticsPort represents Optics port
+type OpticsPort string
 
 const (
-    // NONE
-    OpticsModulation_mod_none OpticsModulation = "mod-none"
+    // Com
+    OpticsPort_com OpticsPort = "com"
 
-    // BPSK
-    OpticsModulation_mod_bpsk OpticsModulation = "mod-bpsk"
+    // Line
+    OpticsPort_line OpticsPort = "line"
 
-    // QPSK
-    OpticsModulation_mod_qpsk OpticsModulation = "mod-qpsk"
+    // Osc
+    OpticsPort_osc OpticsPort = "osc"
 
-    // 8QAM
-    OpticsModulation_mod_8qam OpticsModulation = "mod-8qam"
+    // Com Check
+    OpticsPort_com_check OpticsPort = "com-check"
 
-    // 16QAM
-    OpticsModulation_mod_16qam OpticsModulation = "mod-16qam"
+    // Working
+    OpticsPort_work OpticsPort = "work"
 
-    // 32QAM
-    OpticsModulation_mod_32qam OpticsModulation = "mod-32qam"
-
-    // 64QAM
-    OpticsModulation_mod_64qam OpticsModulation = "mod-64qam"
-
-    // BPSK QPSK
-    OpticsModulation_mod_bpsk_qpsk OpticsModulation = "mod-bpsk-qpsk"
-
-    // QPSK 8QAM
-    OpticsModulation_mod_qpsk_8qam OpticsModulation = "mod-qpsk-8qam"
-
-    // 8QAM 16QAM
-    OpticsModulation_mod_8qam_16qam OpticsModulation = "mod-8qam-16qam"
-
-    // 16QAM 32QAM
-    OpticsModulation_mode_16qam_32qam OpticsModulation = "mode-16qam-32qam"
-
-    // 32QAM 64QAM
-    OpticsModulation_mod_32qam_64qam OpticsModulation = "mod-32qam-64qam"
-)
-
-// OpticsLaserState represents Optics laser state
-type OpticsLaserState string
-
-const (
-    // On
-    OpticsLaserState_on OpticsLaserState = "on"
-
-    // Off
-    OpticsLaserState_off OpticsLaserState = "off"
-
-    // Unknown
-    OpticsLaserState_unknown OpticsLaserState = "unknown"
-
-    // Apr
-    OpticsLaserState_apr OpticsLaserState = "apr"
-
-    // N/A
-    OpticsLaserState_na OpticsLaserState = "na"
-)
-
-// Optics represents Optics
-type Optics string
-
-const (
-    // Unknow Optics Type
-    Optics_optics_unknown Optics = "optics-unknown"
-
-    // Grey Optics
-    Optics_optics_grey Optics = "optics-grey"
-
-    // DWDM Optics
-    Optics_optics_dwdm Optics = "optics-dwdm"
-
-    // CWDM Optics
-    Optics_optics_cwdm Optics = "optics-cwdm"
-)
-
-// OpticsTas represents Optics tas
-type OpticsTas string
-
-const (
-    // Out Of Service
-    OpticsTas_tas_ui_oos OpticsTas = "tas-ui-oos"
-
-    // Maintenance
-    OpticsTas_tas_ui_main OpticsTas = "tas-ui-main"
-
-    // In Service
-    OpticsTas_tas_ui_is OpticsTas = "tas-ui-is"
-
-    // Automatic In Service
-    OpticsTas_tas_ui_ains OpticsTas = "tas-ui-ains"
-)
-
-// OpticsWaveBand represents Optics wave band
-type OpticsWaveBand string
-
-const (
-    // C BAND
-    OpticsWaveBand_c_band OpticsWaveBand = "c-band"
-
-    // L BAND
-    OpticsWaveBand_l_band OpticsWaveBand = "l-band"
-
-    // C ODD
-    OpticsWaveBand_c_band_odd OpticsWaveBand = "c-band-odd"
-
-    // C EVEN
-    OpticsWaveBand_c_band_even OpticsWaveBand = "c-band-even"
-
-    // Invalid
-    OpticsWaveBand_invalid_band OpticsWaveBand = "invalid-band"
+    // Protected
+    OpticsPort_prot OpticsPort = "prot"
 )
 
 // OpticsOper
@@ -823,7 +793,7 @@ type OpticsOper_OpticsPorts_OpticsPort struct {
     YListKey string
 
     // This attribute is a key. Port name. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Name interface{}
 
     // Optics operational data.
@@ -1452,10 +1422,6 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
     // rx config val. The type is bool.
     RxConfigVal interface{}
 
-    // rx thr fail low delta val. The type is interface{} with range:
-    // -2147483648..2147483647.
-    RxThrFailLowDeltaVal interface{}
-
     // safety control mode config val. The type is
     // OpticsAmplifierSafetyControlMode.
     SafetyControlModeConfigVal interface{}
@@ -1558,14 +1524,6 @@ type OpticsOper_OpticsPorts_OpticsPort_OpticsInfo struct {
 
     // Bits per Symbol. The type is string.
     BitsPerSymbol interface{}
-
-    // Rx Low threshold delta value in units of 0.1dB. The type is interface{}
-    // with range: -2147483648..2147483647.
-    RxLowThresholdDelta interface{}
-
-    // elapse time to trigger psm revert in units of seconds. The type is
-    // interface{} with range: 0..4294967295. Units are second.
-    WaitToRestore interface{}
 
     // Network SRLG information.
     NetworkSrlgInfo OpticsOper_OpticsPorts_OpticsPort_OpticsInfo_NetworkSrlgInfo
@@ -1693,7 +1651,6 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.Leafs.Append("osri-config-val", types.YLeaf{"OsriConfigVal", opticsInfo.OsriConfigVal})
     opticsInfo.EntityData.Leafs.Append("tx-config-val", types.YLeaf{"TxConfigVal", opticsInfo.TxConfigVal})
     opticsInfo.EntityData.Leafs.Append("rx-config-val", types.YLeaf{"RxConfigVal", opticsInfo.RxConfigVal})
-    opticsInfo.EntityData.Leafs.Append("rx-thr-fail-low-delta-val", types.YLeaf{"RxThrFailLowDeltaVal", opticsInfo.RxThrFailLowDeltaVal})
     opticsInfo.EntityData.Leafs.Append("safety-control-mode-config-val", types.YLeaf{"SafetyControlModeConfigVal", opticsInfo.SafetyControlModeConfigVal})
     opticsInfo.EntityData.Leafs.Append("total-rx-power", types.YLeaf{"TotalRxPower", opticsInfo.TotalRxPower})
     opticsInfo.EntityData.Leafs.Append("total-tx-power", types.YLeaf{"TotalTxPower", opticsInfo.TotalTxPower})
@@ -1723,8 +1680,6 @@ func (opticsInfo *OpticsOper_OpticsPorts_OpticsPort_OpticsInfo) GetEntityData() 
     opticsInfo.EntityData.Leafs.Append("tx-span-loss", types.YLeaf{"TxSpanLoss", opticsInfo.TxSpanLoss})
     opticsInfo.EntityData.Leafs.Append("baud-rate", types.YLeaf{"BaudRate", opticsInfo.BaudRate})
     opticsInfo.EntityData.Leafs.Append("bits-per-symbol", types.YLeaf{"BitsPerSymbol", opticsInfo.BitsPerSymbol})
-    opticsInfo.EntityData.Leafs.Append("rx-low-threshold-delta", types.YLeaf{"RxLowThresholdDelta", opticsInfo.RxLowThresholdDelta})
-    opticsInfo.EntityData.Leafs.Append("wait-to-restore", types.YLeaf{"WaitToRestore", opticsInfo.WaitToRestore})
 
     opticsInfo.EntityData.YListKeys = []string {}
 

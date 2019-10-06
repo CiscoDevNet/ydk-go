@@ -283,7 +283,7 @@ type CISCOETHERCFMMIB_CEtherCfmEventTable_CEtherCfmEventEntry struct {
     CEtherCfmEventLclMepid interface{}
 
     // The MAC address of the device reporting the event. The type is string with
-    // pattern: b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // pattern: [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CEtherCfmEventLclMacAddress interface{}
 
     // The number of local MEPs affected by the event. The type is interface{}
@@ -300,7 +300,7 @@ type CISCOETHERCFMMIB_CEtherCfmEventTable_CEtherCfmEventEntry struct {
 
     // The MAC address of the remote maintenance point for which the event entry
     // is being logged. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     CEtherCfmEventRmtMacAddress interface{}
 
     // The operational state of the port on which the  remote MEP is configured.

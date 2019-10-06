@@ -20,18 +20,18 @@ func init() {
     ydk.RegisterEntity("SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB", reflect.TypeOf(SNMPFRAMEWORKMIB{}))
 }
 
-type SnmpAuthProtocols struct {
-}
-
-func (id SnmpAuthProtocols) String() string {
-	return "SNMP-FRAMEWORK-MIB:snmpAuthProtocols"
-}
-
 type SnmpPrivProtocols struct {
 }
 
 func (id SnmpPrivProtocols) String() string {
 	return "SNMP-FRAMEWORK-MIB:snmpPrivProtocols"
+}
+
+type SnmpAuthProtocols struct {
+}
+
+func (id SnmpAuthProtocols) String() string {
+	return "SNMP-FRAMEWORK-MIB:snmpAuthProtocols"
 }
 
 // SnmpSecurityLevel represents authNoPriv is less than authPriv.

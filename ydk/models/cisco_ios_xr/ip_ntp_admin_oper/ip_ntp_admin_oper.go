@@ -418,7 +418,7 @@ type Ntp_Racks_Rack_Slots_Slot_Instances_Instance_Status struct {
     SysStratum interface{}
 
     // Reference clock ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     SysRefId interface{}
 
     // Root delay. The type is string.
@@ -768,7 +768,7 @@ type Ntp_Racks_Rack_Slots_Slot_Instances_Instance_Associations_PeerSummaryInfo_P
     Address interface{}
 
     // Peer reference ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceId interface{}
 
     // Host poll. The type is interface{} with range: 0..255.
@@ -991,7 +991,7 @@ type Ntp_Racks_Rack_Slots_Slot_Instances_Instance_AssociationsDetail_PeerDetailI
     Address interface{}
 
     // Peer reference ID. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     ReferenceId interface{}
 
     // Host poll. The type is interface{} with range: 0..255.

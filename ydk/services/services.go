@@ -19,8 +19,8 @@
 package services
 
 // #cgo CXXFLAGS: -g -std=c++11
-// #cgo darwin LDFLAGS: -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lpython -lc++
-// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -lpython2.7 -ldl
+// #cgo darwin LDFLAGS: -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lc++
+// #cgo linux LDFLAGS:  -fprofile-arcs -ftest-coverage --coverage -lydk -lxml2 -lxslt -lpcre -lssh -lssh_threads -lcurl -lstdc++ -ldl
 // #include <ydk/ydk.h>
 // #include <stdlib.h>
 import "C"
@@ -35,6 +35,7 @@ import (
 	"github.com/CiscoDevNet/ydk-go/ydk/path"
 	"github.com/CiscoDevNet/ydk-go/ydk/types"
 	"github.com/CiscoDevNet/ydk-go/ydk/types/datastore"
+	"github.com/CiscoDevNet/ydk-go/ydk/types/yfilter"
 	encodingFmt "github.com/CiscoDevNet/ydk-go/ydk/types/encoding_format"
 )
 
@@ -357,9 +358,12 @@ func (ns *NetconfService) GetConfig(
 
 	// filter
 	data["filter"] = filter
+	types.SetNontopEntityFilter(filter, yfilter.Read)
 
 	readDataNode := path.ExecuteRPC(
 		provider, "ietf-netconf:get-config", data, false)
+
+	types.SetNontopEntityFilter(filter, yfilter.NotSet)
 	return path.ReadDatanode(filter, readDataNode)
 }
 
@@ -370,8 +374,11 @@ func (ns *NetconfService) Get(
 
 	data := map[string]interface{} {}
 	data["filter"] = filter
+	types.SetNontopEntityFilter(filter, yfilter.Read)
 
 	readDataNode := path.ExecuteRPC(provider, "ietf-netconf:get", data, false)
+
+	types.SetNontopEntityFilter(filter, yfilter.NotSet)
 	return path.ReadDatanode(filter, readDataNode)
 }
 

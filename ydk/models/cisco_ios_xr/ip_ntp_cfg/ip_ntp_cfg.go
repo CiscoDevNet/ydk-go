@@ -28,15 +28,15 @@ func init() {
     ydk.RegisterEntity("Cisco-IOS-XR-ip-ntp-cfg:ntp", reflect.TypeOf(Ntp{}))
 }
 
-// Ntpdscp represents Ntpdscp
-type Ntpdscp string
+// NtpAccessAf represents Ntp access af
+type NtpAccessAf string
 
 const (
-    // Precedence Value
-    Ntpdscp_ntp_precedence Ntpdscp = "ntp-precedence"
+    // IPv4
+    NtpAccessAf_ipv4 NtpAccessAf = "ipv4"
 
-    // DSCP Value
-    Ntpdscp_ntpdscp Ntpdscp = "ntpdscp"
+    // IPv6
+    NtpAccessAf_ipv6 NtpAccessAf = "ipv6"
 )
 
 // NtpPeer represents Ntp peer
@@ -50,15 +50,15 @@ const (
     NtpPeer_server NtpPeer = "server"
 )
 
-// NtpAccessAf represents Ntp access af
-type NtpAccessAf string
+// Ntpdscp represents Ntpdscp
+type Ntpdscp string
 
 const (
-    // IPv4
-    NtpAccessAf_ipv4 NtpAccessAf = "ipv4"
+    // Precedence Value
+    Ntpdscp_ntp_precedence Ntpdscp = "ntp-precedence"
 
-    // IPv6
-    NtpAccessAf_ipv6 NtpAccessAf = "ipv6"
+    // DSCP Value
+    Ntpdscp_ntpdscp Ntpdscp = "ntpdscp"
 )
 
 // NtpAccess represents Ntp access
@@ -303,7 +303,7 @@ type Ntp_PeerVrfs_PeerVrf struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Configures IPv4 NTP Peers or Servers.
@@ -378,7 +378,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4 struct {
 
     // This attribute is a key. IPv4 Address of a peer. The type is string with
     // pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     AddressIpv4 interface{}
 
     // Configure an IPv4 NTP server or peer. The type is slice of
@@ -436,7 +436,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv4s_PeerIpv4_PeerTypeIpv4 struct {
     PreferredPeer interface{}
 
     // Source interface of this peer. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Use burst mode. The type is interface{}.
@@ -517,7 +517,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6 struct {
 
     // This attribute is a key. Address of a peer. The type is string with
     // pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AddressIpv6 interface{}
 
     // Configure a NTP server or peer. The type is slice of
@@ -575,7 +575,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6_PeerTypeIpv6 struct {
     PreferredPeer interface{}
 
     // Source interface of this peer. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     SourceInterface interface{}
 
     // Use burst mode. The type is interface{}.
@@ -585,7 +585,7 @@ type Ntp_PeerVrfs_PeerVrf_PeerIpv6s_PeerIpv6_PeerTypeIpv6 struct {
     Iburst interface{}
 
     // IPv6 address. The type is string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     AddressIpv6 interface{}
 }
 
@@ -626,7 +626,7 @@ type Ntp_DscpIpv4 struct {
     YFilter yfilter.YFilter
     YPresence bool
 
-    // NTPPRECEDENCE (0) to specify Precedence value  NTPDSCP (1) to specify DSCP
+    // NTPPRECEDENCE (0) to specify Precedence value NTPDSCP (1) to specify DSCP
     // value. The type is Ntpdscp. This attribute is mandatory.
     Mode interface{}
 
@@ -737,11 +737,11 @@ type Ntp_Sources_Source struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Source Interface for NTP. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'. This attribute is mandatory.
+    // [a-zA-Z0-9._/-]+. This attribute is mandatory.
     SourceInterface interface{}
 }
 
@@ -1082,7 +1082,7 @@ type Ntp_InterfaceTables_InterfaceTable struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Name of the interface. The type is slice of
@@ -1122,7 +1122,7 @@ type Ntp_InterfaceTables_InterfaceTable_Interface struct {
     YListKey string
 
     // This attribute is a key. interface. The type is string with pattern:
-    // b'[a-zA-Z0-9._/-]+'.
+    // [a-zA-Z0-9._/-]+.
     Interface interface{}
 
     // Disable NTP. The type is interface{}.
@@ -1235,9 +1235,9 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastCl
 
     // This attribute is a key. IP address of a multicast group. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 }
 
@@ -1304,9 +1304,9 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceMulticast_MulticastSe
 
     // This attribute is a key. IP address of a multicast group. The type is one
     // of the following types: string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?',
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?,
     // or string with pattern:
-    // b'((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\\p{N}\\p{L}]+)?'.
+    // ((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(%[\p{N}\p{L}]+)?.
     IpAddress interface{}
 
     // Authentication key. The type is interface{} with range: 1..65535.
@@ -1418,11 +1418,11 @@ type Ntp_InterfaceTables_InterfaceTable_Interface_InterfaceBroadcast_BroadcastSe
     YListKey string
 
     // This attribute is a key. Broadcast Type. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     BroadcastType interface{}
 
     // Destination broadcast IPv4 address. The type is string with pattern:
-    // b'(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\\p{N}\\p{L}]+)?'.
+    // (([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(%[\p{N}\p{L}]+)?.
     Address interface{}
 
     // Authentication key. The type is interface{} with range: 1..65535.
@@ -1497,7 +1497,7 @@ type Ntp_AccessGroupTables_AccessGroupTable struct {
     YListKey string
 
     // This attribute is a key. VRF name. The type is string with pattern:
-    // b'[\\w\\-\\.:,_@#%$\\+=\\|;]+'.
+    // [\w\-\.:,_@#%$\+=\|;]+.
     VrfName interface{}
 
     // Configure NTP access address family. The type is slice of

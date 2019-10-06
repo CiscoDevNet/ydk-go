@@ -1009,7 +1009,7 @@ type MPLSVPNMIB_MplsVpnVrfRouteTable_MplsVpnVrfRouteEntry struct {
     // which is a syntactically valid object identif-ier, and any implementation
     // conforming to ASN.1 and the Basic Encoding Rules must be able to generate
     // and recognize this value. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     MplsVpnVrfRouteInfo interface{}
 
     // The Autonomous System Number of the Next Hop. The semantics of this object

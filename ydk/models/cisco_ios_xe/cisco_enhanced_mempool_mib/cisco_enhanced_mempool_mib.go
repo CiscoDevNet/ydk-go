@@ -213,7 +213,7 @@ type CISCOENHANCEDMEMPOOLMIB_CempMemPoolTable_CempMemPoolEntry struct {
     // pool.  If no platform specific memory hardware type identifier exists for
     // this physical entity, or the value is unknown by this agent, then the value
     // { 0 0 } is returned. The type is string with pattern:
-    // b'(([0-1](\\.[1-3]?[0-9]))|(2\\.(0|([1-9]\\d*))))(\\.(0|([1-9]\\d*)))*'.
+    // (([0-1](\.[1-3]?[0-9]))|(2\.(0|([1-9]\d*))))(\.(0|([1-9]\d*)))*.
     CempMemPoolPlatformMemory interface{}
 
     // Indicates whether or not this memory pool has an alternate pool configured.

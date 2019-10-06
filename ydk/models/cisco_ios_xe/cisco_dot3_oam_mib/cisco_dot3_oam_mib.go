@@ -483,7 +483,7 @@ type CISCODOT3OAMMIB_Cdot3OamPeerTable_Cdot3OamPeerEntry struct {
 
     // The MAC address of the peer OAM entity.  The MAC address is derived from
     // the most recently received OAMPDU. The type is string with pattern:
-    // b'[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}'.
+    // [0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}.
     Cdot3OamPeerMacAddress interface{}
 
     // The OUI of the OAM peer as reflected in the latest Information OAMPDU
