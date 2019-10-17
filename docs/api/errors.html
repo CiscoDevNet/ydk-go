@@ -1,0 +1,543 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Errors &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="YDK API" href="ydk_api.html"/>
+        <link rel="next" title="YDK Path API" href="path/_path_api.html"/>
+        <link rel="prev" title="YDK Types" href="types/ydk_types.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ydk_api.html">YDK API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="services.html">Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="providers.html">Service Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types/_types_api.html">Types</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="path/_path_api.html">YDK Path API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="ydk_api.html">YDK API</a> &raquo;</li>
+      
+    <li>Errors</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="package-ydk/errors">
+<span id="errors"></span><span id="ydk-errors"></span><h1>Errors<a class="headerlink" href="#package-ydk/errors" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>import <span class="s2">&quot;github.com/CiscoDevNet/ydk-go/ydk/errors&quot;</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="Y_ERROR_TYPE">
+<code class="descname">Y_ERROR_TYPE</code><a class="headerlink" href="#Y_ERROR_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents YDK Go error types with underlying type <code class="docutils literal"><span class="pre">int</span></code></p>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/State">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">State</code><a class="headerlink" href="#ydk/errors/State" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="Private">
+<code class="descname">Private</code><a class="headerlink" href="#Private" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type is <code class="docutils literal"><span class="pre">interface{}</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/CState">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">CState</code><a class="headerlink" href="#ydk/errors/CState" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Private</code></dt>
+<dd><p>Type is <code class="docutils literal"><span class="pre">interface{}</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="errors-cerror"></span><dl class="object">
+<dt>
+<code class="descname">CError</code></dt>
+<dd><p>CError is an interface type that represents a basic error in Go.</p>
+<dl class="function">
+<dt id="Error">
+<code class="descname">Error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Error" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YError</code><a class="headerlink" href="#ydk/errors/YError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="Msg">
+<code class="descname">Msg</code><a class="headerlink" href="#Msg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YClientError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YClientError</code><a class="headerlink" href="#ydk/errors/YClientError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YClientError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YServiceProviderError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YServiceProviderError</code><a class="headerlink" href="#ydk/errors/YServiceProviderError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YServiceProviderError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YServiceError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YServiceError</code><a class="headerlink" href="#ydk/errors/YServiceError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YServiceError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YIllegalStateError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YIllegalStateError</code><a class="headerlink" href="#ydk/errors/YIllegalStateError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YIllegalStateError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YInvalidArgumentError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YInvalidArgumentError</code><a class="headerlink" href="#ydk/errors/YInvalidArgumentError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YInvalidArgumentError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YOperationNotSupportedError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YOperationNotSupportedError</code><a class="headerlink" href="#ydk/errors/YOperationNotSupportedError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YOperationNotSupportedError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YModelError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YModelError</code><a class="headerlink" href="#ydk/errors/YModelError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YModelError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YCoreError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YCoreError</code><a class="headerlink" href="#ydk/errors/YCoreError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YCoreError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/errors/YCodecError">
+<em class="property">struct </em><code class="descclassname">ydk/errors/</code><code class="descname">YCodecError</code><a class="headerlink" href="#ydk/errors/YCodecError" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt>
+<code class="descname">Msg</code></dt>
+<dd><p>Represents the error message. Type is <code class="docutils literal"><span class="pre">string</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *YCodecError) Error()</code></dt>
+<dd><p>Satisfies the error interface</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Msg of given YError</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="path/_path_api.html" class="btn btn-neutral float-right" title="YDK Path API" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="types/ydk_types.html" class="btn btn-neutral" title="YDK Types" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2016 Cisco Systems. All rights reserved.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

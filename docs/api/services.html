@@ -1,0 +1,977 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Services &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="YDK API" href="ydk_api.html"/>
+        <link rel="next" title="Service Providers" href="providers.html"/>
+        <link rel="prev" title="YDK API" href="ydk_api.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ydk_api.html">YDK API</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Services</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crud">CRUD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codec">Codec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#executor">Executor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#netconf">Netconf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gnmi">gNMI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="providers.html">Service Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types/_types_api.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="path/_path_api.html">YDK Path API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="ydk_api.html">YDK API</a> &raquo;</li>
+      
+    <li>Services</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="package-ydk/services">
+<span id="services"></span><h1><a class="toc-backref" href="#id1">Services</a><a class="headerlink" href="#package-ydk/services" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>import <span class="s2">&quot;github.com/CiscoDevNet/ydk-go/ydk/services&quot;</span>
+</pre></div>
+</div>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#package-ydk/services" id="id1">Services</a><ul>
+<li><a class="reference internal" href="#crud" id="id2">CRUD</a></li>
+<li><a class="reference internal" href="#codec" id="id3">Codec</a></li>
+<li><a class="reference internal" href="#executor" id="id4">Executor</a></li>
+<li><a class="reference internal" href="#netconf" id="id5">Netconf</a></li>
+<li><a class="reference internal" href="#gnmi" id="id6">gNMI</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="crud">
+<h2><a class="toc-backref" href="#id2">CRUD</a><a class="headerlink" href="#crud" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/services/CrudService">
+<em class="property">struct </em><code class="descclassname">ydk/services/</code><code class="descname">CrudService</code><a class="headerlink" href="#ydk/services/CrudService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supports CRUD operations on entities.</p>
+<dl class="function">
+<dt>
+<code class="descname">(c *CrudService) Create(provider ServiceProvider, entity Entity)</code></dt>
+<dd><p>Create the configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-service-provider"><span class="std std-ref">ServiceProvider</span></a></li>
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(c *CrudService) Update(provider ServiceProvider, entity Entity)</code></dt>
+<dd><p>Update the configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-service-provider"><span class="std std-ref">ServiceProvider</span></a></li>
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(c *CrudService) Delete(provider ServiceProvider, entity Entity)</code></dt>
+<dd><p>Delete the configuration</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-service-provider"><span class="std std-ref">ServiceProvider</span></a></li>
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(c *CrudService) Read(provider ServiceProvider, filter Entity)</code></dt>
+<dd><p>Read the configuration and state data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-service-provider"><span class="std std-ref">ServiceProvider</span></a></li>
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the entity or entity collection as identified by the <cite>filter</cite>. If empty collection is specified in <cite>filter</cite>, the data returned is an <cite>EntityCollection</cite> containing entire device running configuration and state</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(c *CrudService) ReadConfig(provider ServiceProvider, filter Entity)</code></dt>
+<dd><p>Read only configuration data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-service-provider"><span class="std std-ref">ServiceProvider</span></a></li>
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the entity or entity collection as identified by the <cite>filter</cite>. If empty collection is specified in <cite>filter</cite>, the data returned is an <cite>EntityCollection</cite> containing entire device running configuration</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Note:</th><td class="field-body"><p class="first">When entire device configuration is requested (filter is an empty entity collection), the resulting data will include only those entities that were imported to the application. If an entity was not included, an error message is developed and logged (the logger must be enabled); example:</p>
+<p class="last"><cite>[ydk] [error] [Go] Entity &#8216;ietf-netconf-acm:nacm&#8217; is not registered. Please import corresponding package to your application.</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="codec">
+<h2><a class="toc-backref" href="#id3">Codec</a><a class="headerlink" href="#codec" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/services/CodecService">
+<em class="property">struct </em><code class="descclassname">ydk/services/</code><code class="descname">CodecService</code><a class="headerlink" href="#ydk/services/CodecService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Supports encoding and decoding Go model API objects of type <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a></p>
+<dl class="function">
+<dt>
+<code class="descname">(c *CodecService) Encode(provider CodecServiceProvider, entity Entity)</code></dt>
+<dd><p>Encode converts entity object to XML/JSON payload</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/CodecServiceProvider" title="ydk/providers/CodecServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">CodecServiceProvider</span></code></a></li>
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">encoded payload; only one entity from entity collection can be encoded to JSON payload</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">A Go <code class="docutils literal"><span class="pre">string</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(c *CodecService) Decode(provider CodecServiceProvider, payload string)</code></dt>
+<dd><p>Decode converts XML/JSON object to entity object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance <a class="reference internal" href="providers.html#ydk/providers/CodecServiceProvider" title="ydk/providers/CodecServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">CodecServiceProvider</span></code></a></li>
+<li><strong>payload</strong> &#8211; A Go <code class="docutils literal"><span class="pre">string</span></code> representing an encoded payload to decode</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the decoded entity object; if XML payload represents multiple entities, the method returns entity collection</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="executor">
+<h2><a class="toc-backref" href="#id4">Executor</a><a class="headerlink" href="#executor" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/services/ExecutorService">
+<em class="property">struct </em><code class="descclassname">ydk/services/</code><code class="descname">ExecutorService</code><a class="headerlink" href="#ydk/services/ExecutorService" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Provides the functionality to execute RPCs</div></blockquote>
+<dl class="function">
+<dt>
+<code class="descname">(es *ExecutorService) ExecuteRpc (provider ServiceProvider, rpcEntity, topEntity Entity)</code></dt>
+<dd><p>Create the entity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-service-provider"><span class="std std-ref">ServiceProvider</span></a></li>
+<li><strong>rpcEntity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> representing an RPC entity</li>
+<li><strong>topEntity</strong> &#8211; Provide an instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> only when expecting data to be returned</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Any data the resulting from the operation when provided topEntity parameter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <code class="docutils literal"><span class="pre">nil</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Possible Errors:
+* a server side error
+* there isn&#8217;t enough information in the entity to prepare the message (eg. missing keys)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="netconf">
+<h2><a class="toc-backref" href="#id5">Netconf</a><a class="headerlink" href="#netconf" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/services/NetconfService">
+<em class="property">struct </em><code class="descclassname">ydk/services/</code><code class="descname">NetconfService</code><a class="headerlink" href="#ydk/services/NetconfService" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Implements the NETCONF Protocol Operations: <a class="reference external" href="https://tools.ietf.org/html/rfc6241">https://tools.ietf.org/html/rfc6241</a>.</div></blockquote>
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) CancelCommit(provider ServiceProvider, persistID int)</code></dt>
+<dd><p>Cancels an ongoing confirmed commit. If the persistID &lt; 1, the operation <strong>MUST</strong> be issued on the same session that issued the confirmed commit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>persistID</strong> &#8211; An <code class="docutils literal"><span class="pre">int</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) CloseSession(provider ServiceProvider)</code></dt>
+<dd><p>Request graceful termination of a NETCONF session</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">bool</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) Commit(</code></dt>
+<dt>
+<code class="descname">provider ServiceProvider, confirmed bool, confirmTimeOut, persist, persistID int)</code></dt>
+<dd><p>Instructs the device to implement the configuration data contained in the candidate configuration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>confirmed</strong> &#8211; A <code class="docutils literal"><span class="pre">bool</span></code> that signals a confirmed commit operation</li>
+<li><strong>comfirmTimeOut</strong> &#8211; An <code class="docutils literal"><span class="pre">int</span></code> representing the timeout interval for a confirmed commit</li>
+<li><strong>persist</strong> &#8211; An <code class="docutils literal"><span class="pre">int</span></code> that makes the confirmed commit persistent</li>
+<li><strong>persistID</strong> &#8211; An <code class="docutils literal"><span class="pre">int</span></code> that is given in order to commit a persistent confirmed commit</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) CopyConfig(</code></dt>
+<dt>
+<code class="descname">provider ServiceProvider, target, sourceDS DataStore, sourceEntity Entity, url string)</code></dt>
+<dd><p>Create or replace an entire configuration DataStore with the contents of another complete configuration DataStore. If the target DataStore exists, it is overwritten. Otherwise, a new one is created, if allowed.
+sourceEntity should be nil OR sourceDS should be nil, but not neither or both. The <cite>url</cite> is ignored unless target/sourceDS is set to Url.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>target</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration being used as the destination</li>
+<li><strong>sourceDS</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration being used as the source</li>
+<li><strong>sourceEntity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a> representing the configuration being used as the source</li>
+<li><strong>url</strong> &#8211; A <code class="docutils literal"><span class="pre">string</span></code> representing the configuration url</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) DeleteConfig(provider ServiceProvider, target DataStore, url string)</code></dt>
+<dd><p>Delete a configuration DataStore. The RUNNING configuration DataStore cannot be deleted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>target</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration being used as the destination</li>
+<li><strong>url</strong> &#8211; A <code class="docutils literal"><span class="pre">string</span></code> representing the configuration url</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) DiscardChanges(provider ServiceProvider)</code></dt>
+<dd><p>Used to revert the candidate configuration to the current running configuration.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">bool</span></code></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) EditConfig(</code></dt>
+<dt>
+<code class="descname">provider ServiceProvider, target DataStore, config Entity, defaultOper, testOp, errorOp string)</code></dt>
+<dd><p>Loads all or part of a specified configuration to the specified target configuration datastore. Allows the new configuration to be expressed using a local file, a remote file, or inline. If the target configuration datastore does not exist, it will be created.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>target</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration being used as the destination</li>
+<li><strong>config</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a> that is a hierarchy configuration of data as defined by one of the device’s data models</li>
+<li><strong>defaultOper</strong> &#8211; A <code class="docutils literal"><span class="pre">string</span></code> that changes the default from <code class="docutils literal"><span class="pre">merge</span></code> to either <code class="docutils literal"><span class="pre">merge</span></code>, <code class="docutils literal"><span class="pre">replace</span></code>, or <code class="docutils literal"><span class="pre">none</span></code></li>
+<li><strong>testOp</strong> &#8211; A <code class="docutils literal"><span class="pre">string</span></code> that can be set to <code class="docutils literal"><span class="pre">test-then-set</span></code>, <code class="docutils literal"><span class="pre">set</span></code>, or <code class="docutils literal"><span class="pre">test-only</span></code> if the device advertises the :validate:1.1 capability</li>
+<li><strong>errOp</strong> &#8211; A <code class="docutils literal"><span class="pre">string</span></code> that can be set to <code class="docutils literal"><span class="pre">stop-on-error</span></code>, <code class="docutils literal"><span class="pre">continue-on-error</span></code>, or <code class="docutils literal"><span class="pre">rollback-on-error</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) GetConfig(provider ServiceProvider, source DataStore, filter Entity)</code></dt>
+<dd><p>Retrieve all or part of a specified configuration datastore</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>source</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration being used as the source</li>
+<li><strong>filter</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> which specifies the portion of the system configuration and state data to retrieve</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The requested data as defined by filter. If empty collection is specified in <cite>filter</cite>, the data returned is an <cite>EntityCollection</cite> containing entire device running configuration</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) Get(provider ServiceProvider, filter Entity)</code></dt>
+<dd><p>Retrieve running configuration and device state information.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>filter</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a> which specifies the portion of the system configuration and state data to retrieve</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The requested data as defined by filter. If empty collection is specified in <cite>filter</cite>, the data returned is an <cite>EntityCollection</cite> containing entire device running configuration and state</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Note:</th><td class="field-body"><p class="first">When entire device configuration is requested (filter is an empty entity collection), the resulting data will include only those entities that were imported to the application. If an entity was not included, an error message is developed and logged (the logger must be enabled); example:</p>
+<p class="last"><cite>[ydk] [error] [Go] Entity &#8216;ietf-netconf-acm:nacm&#8217; is not registered. Please import corresponding package to your application.</cite></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) KillSession(provider ServiceProvider, sessionID int)</code></dt>
+<dd><p>Force the termination of a NETCONF session.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>sessionID</strong> &#8211; An <code class="docutils literal"><span class="pre">int</span></code> that is the session identifier of the NETCONF session to be terminated</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) Lock(provider ServiceProvider, target DataStore)</code></dt>
+<dd><p>Allows the client to lock the entire configuration datastore system of a device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>target</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration to lock</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) Unlock(provider ServiceProvider, target DataStore)</code></dt>
+<dd><p>Used to release a configuration lock, previously obtained with the LOCK operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>target</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration to unlock</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(ns *NetconfService) Validate(</code></dt>
+<dt>
+<code class="descname">provider ServiceProvider, sourceDS DataStore, sourceEntity Entity, url string)</code></dt>
+<dd><p>Validates the contents of the specified configuration. sourceEntity should be nil OR sourceDS should be nil, but not neither or both. url is ignored unless target/sourceDS is set to Url.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/NetconfServiceProvider" title="ydk/providers/NetconfServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">NetconfServiceProvider</span></code></a></li>
+<li><strong>sourceEntity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a> representing the configuration being used as the source</li>
+<li><strong>sourceDS</strong> &#8211; An instance of <a class="reference internal" href="types/base_constants/datastore.html#datastore-ydk"><span class="std std-ref">DataStore</span></a> representing the configuration being used as the source</li>
+<li><strong>url</strong> &#8211; A <code class="docutils literal"><span class="pre">string</span></code> representing the configuration url</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="gnmi">
+<h2><a class="toc-backref" href="#id6">gNMI</a><a class="headerlink" href="#gnmi" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/services/GnmiService">
+<em class="property">struct </em><code class="descclassname">ydk/services/</code><code class="descname">GnmiService</code><a class="headerlink" href="#ydk/services/GnmiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implements the gNMI Protocol Operations</p>
+<dl class="function">
+<dt>
+<code class="descname">(gs *GnmiService) Set(provider *providers.GnmiServiceProvider, entity types.Entity) bool</code></dt>
+<dd></dd></dl>
+
+<p>Perform <strong>set</strong> operation using SetRequest gRPC</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/GnmiServiceProvider" title="ydk/providers/GnmiServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">GnmiServiceProvider</span></code></a>.</li>
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a> that is a hierarchy configuration of data as defined by one of the device’s data models.
+Each instance should have settting of <a class="reference internal" href="types/base_constants/yfilters.html#y-filter"><span class="std std-ref">YFilter</span></a>, which defines set operation.
+Expected filter values: <strong>yfilter.Replace</strong>, <strong>yfilter.Update</strong>, or <strong>yfilter.Delete</strong>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">true</span></code> if the operation was successful, <code class="docutils literal"><span class="pre">false</span></code> - otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">bool</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt>
+<code class="descname">(gs *GnmiService) Get(provider *providers.GnmiServiceProvider, filter types.Entity, operation string) types.Entity</code></dt>
+<dd></dd></dl>
+
+<p>Perform <strong>get</strong> operation using GetRequest gRPC</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/GnmiServiceProvider" title="ydk/providers/GnmiServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">GnmiServiceProvider</span></code></a>.</li>
+<li><strong>filter</strong> &#8211; An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a> that is a hierarchy configuration of data as defined by one of the device’s data models.</li>
+<li><strong>operation</strong> &#8211; <code class="docutils literal"><span class="pre">string</span></code>, which represents operation type; expected values: <code class="docutils literal"><span class="pre">CONFIG</span></code>, <code class="docutils literal"><span class="pre">STATE</span></code>, <code class="docutils literal"><span class="pre">OPERATIONAL</span></code>, and <code class="docutils literal"><span class="pre">ALL</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An instance of <a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a> or <a class="reference internal" href="types/ydk_types.html#entity-collection"><span class="std std-ref">EntityCollection</span></a> according to the <strong>filter</strong> type, which represent gRPC message GetResponse.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt>
+<code class="descname">(gs *GnmiService) Capabilities(provider *providers.GnmiServiceProvider) string</code></dt>
+<dd></dd></dl>
+
+<p>Sends to the gNMI server the GetCapabilities request message</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/GnmiServiceProvider" title="ydk/providers/GnmiServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">GnmiServiceProvider</span></code></a>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">JSON encoded <code class="docutils literal"><span class="pre">string</span></code>, which contains gNMI server capabilities</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt>
+<code class="descname">(gs *GnmiService) Subscribe(provider *providers.GnmiServiceProvider, subscriptionList []GnmiSubscription, qos uint32, mode string, encode string)</code></dt>
+<dd></dd></dl>
+
+<p>Executed <strong>subscribe</strong> operation on the gNMI server</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>provider</strong> &#8211; An instance of <a class="reference internal" href="providers.html#ydk/providers/GnmiServiceProvider" title="ydk/providers/GnmiServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">GnmiServiceProvider</span></code></a>.</li>
+<li><strong>subscriptionList</strong> &#8211; Go slice of <a class="reference internal" href="#ydk/services/GnmiSubscription" title="ydk/services/GnmiSubscription"><code class="xref go go-struct docutils literal"><span class="pre">GnmiSubscription</span></code></a> instances</li>
+<li><strong>qos</strong> &#8211; <code class="docutils literal"><span class="pre">int</span></code> QOS indicating the packet marking.</li>
+<li><strong>mode</strong> &#8211; Subscription mode: one of <code class="docutils literal"><span class="pre">STREAM</span></code>, <code class="docutils literal"><span class="pre">ONCE</span></code> or <code class="docutils literal"><span class="pre">POLL</span></code>.</li>
+<li><strong>encode</strong> &#8211; <code class="docutils literal"><span class="pre">string</span></code>, which represents how the subscription data should be encoded: one of <code class="docutils literal"><span class="pre">JSON</span></code>, <code class="docutils literal"><span class="pre">BYTES</span></code>, <code class="docutils literal"><span class="pre">PROTO</span></code>, <code class="docutils literal"><span class="pre">ASCII</span></code>, or <code class="docutils literal"><span class="pre">JSON_IETF</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">None</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><a class="reference internal" href="errors.html#ydk/errors/YError" title="ydk/errors/YError"><code class="xref go go-struct docutils literal"><span class="pre">YError</span></code></a>, if error has occurred</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/services/GnmiSubscription">
+<em class="property">struct </em><code class="descclassname">ydk/services/</code><code class="descname">GnmiSubscription</code><a class="headerlink" href="#ydk/services/GnmiSubscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instance of this structure defines subscription for a single entity. Members of the structure are:</p>
+<ul class="simple">
+<li>Entity: (<a class="reference internal" href="types/ydk_types.html#types-entity"><span class="std std-ref">Entity</span></a>) Instance of the subscription entity. This parameter must be set by the user.</li>
+<li>SubscriptionMode: (<code class="docutils literal"><span class="pre">string</span></code>) Expected one of the following string values: <code class="docutils literal"><span class="pre">TARGET_DEFINED</span></code>, <code class="docutils literal"><span class="pre">ON_CHANGE</span></code>, or <code class="docutils literal"><span class="pre">SAMPLE</span></code>; default value is <code class="docutils literal"><span class="pre">ON_CHANGE</span></code>.</li>
+<li>SampleInterval: (<code class="docutils literal"><span class="pre">uint64</span></code>) Time interval in nanoseconds between samples in <code class="docutils literal"><span class="pre">STREAM</span></code> mode; default value is 60000000000 (1 minute).</li>
+<li>SuppressRedundant: (<code class="docutils literal"><span class="pre">bool</span></code>) Indicates whether values that not changed should be sent in a <code class="docutils literal"><span class="pre">STREAM</span></code> subscription; default value is <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>HeartbeatInterval: (<code class="docutils literal"><span class="pre">uint64</span></code>) Specifies the maximum allowable silent period in nanoseconds when <strong>suppress_redundant</strong> is True. If not specified, the <strong>heartbeat_interval</strong> is set to 360000000000 (10 minutes) or <strong>sample_interval</strong> whatever is bigger.</li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="providers.html" class="btn btn-neutral float-right" title="Service Providers" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ydk_api.html" class="btn btn-neutral" title="YDK API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2016 Cisco Systems. All rights reserved.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

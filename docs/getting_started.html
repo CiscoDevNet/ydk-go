@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="index.html"/>
+        <link rel="next" title="Developer Guide" href="developer_guide.html"/>
+        <link rel="prev" title="About YDK" href="about_ydk.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about_ydk.html">About YDK</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac">Mac</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#libssh-installation">Libssh Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gnmi-requirements">gNMI Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-protobuf">Install protobuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-grpc">Install gRPC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instal-ydk-gnmi-library">Instal YDK gNMI library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centos">CentOS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#macos">MacOS</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#set-runtime-environment">Set runtime environment</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-install-ydk-go">How to install YDK-Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-and-support">Documentation and Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-notes">Release Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_guide.html">API Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Getting Started</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<h1><a class="toc-backref" href="#id1">Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#getting-started" id="id1">Getting Started</a><ul>
+<li><a class="reference internal" href="#overview" id="id2">Overview</a></li>
+<li><a class="reference internal" href="#docker" id="id3">Docker</a></li>
+<li><a class="reference internal" href="#system-requirements" id="id4">System Requirements</a><ul>
+<li><a class="reference internal" href="#linux" id="id5">Linux</a></li>
+<li><a class="reference internal" href="#mac" id="id6">Mac</a></li>
+<li><a class="reference internal" href="#libssh-installation" id="id7">Libssh Installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gnmi-requirements" id="id8">gNMI Requirements</a><ul>
+<li><a class="reference internal" href="#install-protobuf" id="id9">Install protobuf</a></li>
+<li><a class="reference internal" href="#install-grpc" id="id10">Install gRPC</a></li>
+<li><a class="reference internal" href="#instal-ydk-gnmi-library" id="id11">Instal YDK gNMI library</a><ul>
+<li><a class="reference internal" href="#ubuntu" id="id12">Ubuntu</a></li>
+<li><a class="reference internal" href="#centos" id="id13">CentOS</a></li>
+<li><a class="reference internal" href="#macos" id="id14">MacOS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#set-runtime-environment" id="id15">Set runtime environment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-install-ydk-go" id="id16">How to install YDK-Go</a></li>
+<li><a class="reference internal" href="#documentation-and-support" id="id17">Documentation and Support</a></li>
+<li><a class="reference internal" href="#release-notes" id="id18">Release Notes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="overview">
+<h2><a class="toc-backref" href="#id2">Overview</a><a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The YANG Development Kit (YDK) is a Software Development Kit that provides API&#8217;s that are modeled in YANG. The main goal of YDK is to reduce the learning curve of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles that are based on YANG models.</p>
+</div>
+<div class="section" id="docker">
+<h2><a class="toc-backref" href="#id3">Docker</a><a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="https://docs.docker.com/engine/reference/run/">docker image</a> is automatically built with the latest ydk-go installed. This be used to run ydk-go without installing anything natively on your machine.</p>
+<p>To use the docker image, <a class="reference external" href="https://docs.docker.com/install/">install docker</a> on your system and run the below command. See the <a class="reference external" href="https://docs.docker.com/engine/reference/run/">docker documentation</a> for more details:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="n">ydkdev</span><span class="o">/</span><span class="n">ydk</span><span class="o">-</span><span class="n">go</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="system-requirements">
+<h2><a class="toc-backref" href="#id4">System Requirements</a><a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="linux">
+<h3><a class="toc-backref" href="#id5">Linux</a><a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p><strong>Ubuntu (Debian-based)</strong></p>
+<p>The following packages must be present in your system before installing YDK-Go:</p>
+<p>Install Third-party software dependencies:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gdebi</span><span class="o">-</span><span class="n">core</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">dev</span> <span class="n">libtool</span><span class="o">-</span><span class="nb">bin</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libcurl4</span><span class="o">-</span><span class="n">openssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">libpcre3</span><span class="o">-</span><span class="n">dev</span> <span class="n">libssh</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxml2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxslt1</span><span class="o">-</span><span class="n">dev</span> <span class="n">cmake</span>
+</pre></div>
+</div>
+<p>For Xenial (Ubuntu 16.04.4):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span>  <span class="c1"># Upgrade compiler to gcc 5.*</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gcc</span><span class="o">-</span><span class="mi">5</span> <span class="n">g</span><span class="o">++-</span><span class="mi">5</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">gcc</span><span class="o">-</span><span class="mi">5</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cc</span>
+<span class="n">sudo</span> <span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">g</span><span class="o">++-</span><span class="mi">5</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">c</span><span class="o">++</span>
+
+  <span class="c1"># Install YDK core library</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">xenial</span><span class="o">/</span><span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p>For Bionic (Ubuntu 18.04.1):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span>  <span class="c1"># Install YDK core library</span>
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">bionic</span><span class="o">/</span><span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p><strong>Centos (Fedora-based)</strong></p>
+<p>The following packages must be present in your system before installing YDK-Go:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">libxml2</span><span class="o">-</span><span class="n">devel</span> <span class="n">libxslt</span><span class="o">-</span><span class="n">devel</span> <span class="n">libssh</span><span class="o">-</span><span class="n">devel</span> <span class="n">libtool</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">pcre</span><span class="o">-</span><span class="n">devel</span> <span class="n">cmake</span>
+
+  <span class="c1"># Upgrade compiler to gcc 5.*</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">centos</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">scl</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">yum</span> <span class="n">install</span> <span class="n">devtoolset</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="n">gcc</span><span class="o">*</span> <span class="o">-</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rh</span><span class="o">/</span><span class="n">devtoolset</span><span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">gcc</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">cc</span>
+<span class="n">ln</span> <span class="o">-</span><span class="n">sf</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">rh</span><span class="o">/</span><span class="n">devtoolset</span><span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">g</span><span class="o">++</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">c</span><span class="o">++</span>
+
+  <span class="c1"># Install YDK core library</span>
+<span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">rpm</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">libydk</span><span class="o">-</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">-</span><span class="mf">1.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+</pre></div>
+</div>
+<p><strong>Golang</strong></p>
+<p>The YDK requires Go version 1.9 or higher. If this is not the case, follow these installation steps:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>sudo wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz <span class="p">&amp;</span>&gt; /dev/null
+sudo tar -zxf  go1.9.2.linux-amd64.tar.gz -C /usr/local/
+<span class="nb">export</span> <span class="nv">GOROOT</span><span class="o">=</span><span class="s2">&quot;/usr/local/go&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$GOROOT</span>/bin:<span class="nv">$PATH</span>
+</pre></div>
+</div>
+<p>For security reasons starting from Go version 1.10 only a limited set of flags is allowed in the CGO code, notably -D, -I, and -l.
+Current ydk-go code includes few additional CGO LDFLAGS flags in order to allow coverage testing; they are:
+&#8220;-fprofile-arcs -ftest-coverage &#8211;coverage&#8221;. In order to allow these additional flags to be used, it is necessary
+to set environment variable CGO_LDFLAGS_ALLOW before running ydk-go based application:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CGO_LDFLAGS_ALLOW</span><span class="o">=</span><span class="s2">&quot;-fprofile-arcs|-ftest-coverage|--coverage&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mac">
+<h3><a class="toc-backref" href="#id6">Mac</a><a class="headerlink" href="#mac" title="Permalink to this headline">¶</a></h3>
+<p>It is recommended to install <a class="reference external" href="http://brew.sh">homebrew</a> and Xcode command line tools on your system before installing YDK-Go:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+brew install pkg-config libssh libxml2 xml2 curl pcre cmake
+xcode-select --install
+
+<span class="c1"># Install YDK core library</span>
+curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.4/libydk-0.8.4-Darwin.pkg
+sudo installer -pkg libydk-0.8.4-Darwin.pkg -target /
+</pre></div>
+</div>
+<p>The YDK requires Go version 1.9 or higher. If this is not the case, follow these installation steps:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span>
+<span class="nb">export</span> <span class="nv">GOROOT_BOOTSTRAP</span><span class="o">=</span><span class="nv">$GOROOT</span>
+gvm install go1.9.2
+</pre></div>
+</div>
+</div>
+<div class="section" id="libssh-installation">
+<h3><a class="toc-backref" href="#id7">Libssh Installation</a><a class="headerlink" href="#libssh-installation" title="Permalink to this headline">¶</a></h3>
+<p>The libssh-0.8.0 <a class="reference external" href="http://api.libssh.org/master/libssh_tutor_threads.html">does not support</a> separate threading library,
+which is required for YDK. If after installation of libssh package the <cite>libssh_threads.a</cite> is missing, please downgrade the installation to libssh-0.7.6,
+or upgrade to libssh-0.8.1 or higher.</p>
+</div>
+</div>
+<div class="section" id="gnmi-requirements">
+<h2><a class="toc-backref" href="#id8">gNMI Requirements</a><a class="headerlink" href="#gnmi-requirements" title="Permalink to this headline">¶</a></h2>
+<p>In order to have YDK support for gNMI protocol, which is optional, the following third party software must be installed prior to gNMI YDK component installation.</p>
+<div class="section" id="install-protobuf">
+<h3><a class="toc-backref" href="#id9">Install protobuf</a><a class="headerlink" href="#install-protobuf" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>wget https://github.com/google/protobuf/releases/download/v3.5.0/protobuf-cpp-3.5.0.zip
+unzip protobuf-cpp-3.5.0.zip
+<span class="nb">cd</span> protobuf-3.5.0
+./configure
+make
+sudo make install
+sudo ldconfig
+<span class="nb">cd</span> -
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-grpc">
+<h3><a class="toc-backref" href="#id10">Install gRPC</a><a class="headerlink" href="#install-grpc" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>git clone -b v1.9.1 https://github.com/grpc/grpc
+<span class="nb">cd</span> grpc
+git submodule update --init
+sudo ldconfig
+make
+sudo make install
+<span class="nb">cd</span> -
+</pre></div>
+</div>
+</div>
+<div class="section" id="instal-ydk-gnmi-library">
+<h3><a class="toc-backref" href="#id11">Instal YDK gNMI library</a><a class="headerlink" href="#instal-ydk-gnmi-library" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ubuntu">
+<h4><a class="toc-backref" href="#id12">Ubuntu</a><a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h4>
+<p>For Xenial (Ubuntu 16.04.4):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">xenial</span><span class="o">/</span><span class="n">libydk_gnmi</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk_gnmi</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+<p>For Bionic (Ubuntu 18.04.1):</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">devhub</span><span class="o">.</span><span class="n">cisco</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">artifactory</span><span class="o">/</span><span class="n">debian</span><span class="o">-</span><span class="n">ydk</span><span class="o">/</span><span class="mf">0.8</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">bionic</span><span class="o">/</span><span class="n">libydk_gnmi</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">libydk_gnmi</span><span class="o">-</span><span class="mf">0.4</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mf">4.</span><span class="n">amd64</span><span class="o">.</span><span class="n">deb</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="centos">
+<h4><a class="toc-backref" href="#id13">CentOS</a><a class="headerlink" href="#centos" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.8.4/libydk_gnmi-0.4.0-4.x86_64.rpm
+</pre></div>
+</div>
+</div>
+<div class="section" id="macos">
+<h4><a class="toc-backref" href="#id14">MacOS</a><a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.4/libydk_gnmi-0.4.0-4.Darwin.pkg
+sudo installer -pkg libydk_gnmi-0.4.0-4.Darwin.pkg -target /
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="set-runtime-environment">
+<h3><a class="toc-backref" href="#id15">Set runtime environment</a><a class="headerlink" href="#set-runtime-environment" title="Permalink to this headline">¶</a></h3>
+<p>The YDK based application runtime environment must include setting of <strong>LD_LIBRARY_PATH</strong> variable:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span><span class="nv">PROTO</span><span class="o">=</span><span class="s2">&quot;/Your-Protobuf-and-Grpc-installation-directory&quot;</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$PROTO</span>/grpc/libs/opt:<span class="nv">$PROTO</span>/protobuf-3.5.0/src/.libs:/usr/local/lib64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-install-ydk-go">
+<span id="howto-install"></span><h2><a class="toc-backref" href="#id16">How to install YDK-Go</a><a class="headerlink" href="#how-to-install-ydk-go" title="Permalink to this headline">¶</a></h2>
+<p>You can install YDK-Go on macOS or Linux.  It is not currently supported on Windows.</p>
+<p>To check out the version of ydk-gen used to generate this ydk-go, use the below commands:</p>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>git clone repo-url
+git checkout commit-id
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation-and-support">
+<h2><a class="toc-backref" href="#id17">Documentation and Support</a><a class="headerlink" href="#documentation-and-support" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Read the <a class="reference external" href="http://ydk.cisco.com/go/docs">API documentation</a> for details on how to use the API and specific models</li>
+<li>Samples can be found under the <a class="reference external" href="https://github.com/CiscoDevNet/ydk-go/tree/master/samples">samples directory</a></li>
+<li>Additional samples can be found in the <a class="reference external" href="https://github.com/CiscoDevNet/ydk-go-samples">YDK-Go samples repository</a> (coming soon)</li>
+<li>Join the <a class="reference external" href="https://communities.cisco.com/community/developer/ydk">YDK community</a> to connect with other users and with the makers of YDK</li>
+<li>Additional YDK information can be found at <a class="reference external" href="http://ydk.io">ydk.io</a></li>
+</ul>
+</div>
+<div class="section" id="release-notes">
+<h2><a class="toc-backref" href="#id18">Release Notes</a><a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h2>
+<p>The current YDK release version is 0.8.4. YDK-Go is licensed under the Apache 2.0 License.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="developer_guide.html" class="btn btn-neutral float-right" title="Developer Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="about_ydk.html" class="btn btn-neutral" title="About YDK" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2016 Cisco Systems. All rights reserved.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

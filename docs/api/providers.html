@@ -1,0 +1,712 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Service Providers &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="YDK API" href="ydk_api.html"/>
+        <link rel="next" title="Types" href="types/_types_api.html"/>
+        <link rel="prev" title="Services" href="services.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ydk_api.html">YDK API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="services.html">Services</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Service Providers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#open-daylight">Open Daylight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#netconf">Netconf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#restconf">Restconf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gnmi">gNMI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codec">Codec</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="types/_types_api.html">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="path/_path_api.html">YDK Path API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="ydk_api.html">YDK API</a> &raquo;</li>
+      
+    <li>Service Providers</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="package-ydk/providers">
+<span id="service-providers"></span><span id="ydk-providers"></span><h1><a class="toc-backref" href="#id1">Service Providers</a><a class="headerlink" href="#package-ydk/providers" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>import <span class="s2">&quot;github.com/CiscoDevNet/ydk-go/ydk/providers&quot;</span>
+</pre></div>
+</div>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#package-ydk/providers" id="id1">Service Providers</a><ul>
+<li><a class="reference internal" href="#open-daylight" id="id2">Open Daylight</a></li>
+<li><a class="reference internal" href="#netconf" id="id3">Netconf</a></li>
+<li><a class="reference internal" href="#restconf" id="id4">Restconf</a></li>
+<li><a class="reference internal" href="#gnmi" id="id5">gNMI</a></li>
+<li><a class="reference internal" href="#codec" id="id6">Codec</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="open-daylight">
+<h2><a class="toc-backref" href="#id2">Open Daylight</a><a class="headerlink" href="#open-daylight" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/providers/OpendaylightServiceProvider">
+<em class="property">struct </em><code class="descclassname">ydk/providers/</code><code class="descname">OpendaylightServiceProvider</code><a class="headerlink" href="#ydk/providers/OpendaylightServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>OpenDaylightServiceProvider is a service provider to be used to communicate with an OpenDaylight instance: <a class="reference external" href="https://www.opendaylight.org">https://www.opendaylight.org</a></p>
+<dl class="attribute">
+<dt id="Path">
+<code class="descname">Path</code><a class="headerlink" href="#Path" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the path</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Address">
+<code class="descname">Address</code><a class="headerlink" href="#Address" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the IP address of the device supporting a open daylight interface</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Username">
+<code class="descname">Username</code><a class="headerlink" href="#Username" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the username to log in to the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Password">
+<code class="descname">Password</code><a class="headerlink" href="#Password" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the password to log in to the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Port">
+<code class="descname">Port</code><a class="headerlink" href="#Port" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <code class="docutils literal"><span class="pre">int</span></code> that represents the device port used to access the open daylight interface.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *OpenDaylightServiceProvider) Connect()</code></dt>
+<dd><p>Connect to OpenDaylightServiceProvider using Path/Address/Username/Password/Port</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *OpenDaylightServiceProvider) GetNodeIDs()</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">OpenDaylightServiceProvider Node IDs</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">[]string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *OpenDaylightServiceProvider) GetNodeProvider(nodeID string)</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Node provider by ID</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types/ydk_types.html#types-service-provider"><span class="std std-ref">ServiceProvider</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *OpenDaylightServiceProvider) Disconnect()</code></dt>
+<dd><p>Disconnect from OpenDaylightServiceProvider</p>
+</dd></dl>
+
+</div>
+<div class="section" id="netconf">
+<h2><a class="toc-backref" href="#id3">Netconf</a><a class="headerlink" href="#netconf" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/providers/NetconfServiceProvider">
+<em class="property">struct </em><code class="descclassname">ydk/providers/</code><code class="descname">NetconfServiceProvider</code><a class="headerlink" href="#ydk/providers/NetconfServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>NetconfServiceProvider Implementation of ServiceProvider for the NETCONF protocol: <a class="reference external" href="https://tools.ietf.org/html/rfc6241">https://tools.ietf.org/html/rfc6241</a></p>
+<dl class="attribute">
+<dt id="Repo">
+<code class="descname">Repo</code><a class="headerlink" href="#Repo" title="Permalink to this definition">¶</a></dt>
+<dd><p>An instance of <a class="reference internal" href="types/ydk_types.html#ydk/types/Repository" title="ydk/types/Repository"><code class="xref go go-struct docutils literal"><span class="pre">Repository</span></code></a> This attribute represents the repository of YANG models.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Address</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the IP address of the device supporting a netconf interface</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Username</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the username to log in to the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Password</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the password to log in to the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Port</code></dt>
+<dd><p>An <code class="docutils literal"><span class="pre">int</span></code> that represents the device port used to access the netconf interface.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *NetconfServiceProvider) Connect()</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Connects to Netconf Server using Repo/Address/Username/Password/Port.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *NetconfServiceProvider) Disconnect()</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Disconnects from Netconf Server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *NetconfServiceProvider) GetState() *errors.State</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Returns error state for the NetconfServiceProvider.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *NetconfServiceProvider) ExecuteRpc(oper string, ent Entity, options map[string]string) DataNode</code></dt>
+<dd><p>Implementation of ServiceProvider interface, which is designed specifically for CRUD operations.
+Sends RPC to Netconf server and gets response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>oper</strong> &#8211; Go <code class="docutils literal"><span class="pre">string</span></code> containing requested operation; one of values <code class="docutils literal"><span class="pre">create</span></code>, <code class="docutils literal"><span class="pre">read</span></code>, <code class="docutils literal"><span class="pre">update</span></code>, <code class="docutils literal"><span class="pre">delete</span></code>.</li>
+<li><strong>ent</strong> &#8211; YDK Entity (single entity) or EntityCollection (multiple entities) representing data model.</li>
+<li><strong>options</strong> &#8211; Go <code class="docutils literal"><span class="pre">map[string]string</span></code> to hold options for operations.
+Currently is used only for <strong>read</strong> operation: key - <code class="docutils literal"><span class="pre">mode</span></code>, values - <code class="docutils literal"><span class="pre">config</span></code>, <code class="docutils literal"><span class="pre">state</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">YDK data node, containing requested data (gnmi-get RPC) or <code class="docutils literal"><span class="pre">nil</span></code>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">DataNode</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *NetconfServiceProvider) GetCapabilities()</code></dt>
+<dd><p>Gets the capabilities supported by NetconfServiceProvider</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The list of capabilities.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">[]string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="restconf">
+<h2><a class="toc-backref" href="#id4">Restconf</a><a class="headerlink" href="#restconf" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/providers/RestconfServiceProvider">
+<em class="property">struct </em><code class="descclassname">ydk/providers/</code><code class="descname">RestconfServiceProvider</code><a class="headerlink" href="#ydk/providers/RestconfServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>RestconfServiceProvider Implementation of ServiceProvider for the RESTCONF protocol: <a class="reference external" href="https://tools.ietf.org/html/draft-ietf-netconf-restconf-18">https://tools.ietf.org/html/draft-ietf-netconf-restconf-18</a></p>
+<dl class="attribute">
+<dt>
+<code class="descname">Path</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the path</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Address</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the IP address of the device supporting a restconf interface</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Username</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the username to log in to the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Password</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the password to log in to the device</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Port</code></dt>
+<dd><p>An <code class="docutils literal"><span class="pre">int</span></code> that represents the device port used to access the restconfs interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Encoding">
+<code class="descname">Encoding</code><a class="headerlink" href="#Encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>An instance of <a class="reference internal" href="types/base_constants/encoding_format.html#encoding-format-ydk"><span class="std std-ref">Encoding Format</span></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="StateURLRoot">
+<code class="descname">StateURLRoot</code><a class="headerlink" href="#StateURLRoot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code>. This attribute provides backwards compatibility with older drafts of restconf RFC, this can be &#8220;/operational&#8221; or &#8220;/data&#8221;</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ConfigURLRoot">
+<code class="descname">ConfigURLRoot</code><a class="headerlink" href="#ConfigURLRoot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code>. This attribute provides backwards compatibility with older drafts of restconf RFC, this can be &#8220;/config&#8221; or &#8220;/data&#8221; (which is the default)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *RestconfServiceProvider) Connect()</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Connects to Restconf Server using Path/Address/Username/Password/Port.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *RestconfServiceProvider) Disconnect</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Disconnects from Restconf Server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *RestconfServiceProvider) GetState() *errors.State</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Returns error state for the RestconfServiceProvider.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *RestconfServiceProvider) ExecuteRpc(oper string, ent Entity, options map[string]string) DataNode</code></dt>
+<dd><p>Implementation of ServiceProvider interface, which is designed specifically for CRUD operations.
+Sends RPC to Restconf server and gets response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>oper</strong> &#8211; Go <code class="docutils literal"><span class="pre">string</span></code> containing requested operation; one of values <code class="docutils literal"><span class="pre">create</span></code>, <code class="docutils literal"><span class="pre">read</span></code>, <code class="docutils literal"><span class="pre">update</span></code>, <code class="docutils literal"><span class="pre">delete</span></code>.</li>
+<li><strong>ent</strong> &#8211; YDK Entity (single entity) or EntityCollection (multiple entities) representing data model.</li>
+<li><strong>options</strong> &#8211; Go <code class="docutils literal"><span class="pre">map[string]string</span></code> to hold options for operations.
+Currently is used only for <strong>read</strong> operation: key - <code class="docutils literal"><span class="pre">mode</span></code>, values - <code class="docutils literal"><span class="pre">config</span></code>, <code class="docutils literal"><span class="pre">state</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">YDK data node, containing requested data (gnmi-get RPC) or <code class="docutils literal"><span class="pre">nil</span></code>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">DataNode</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="gnmi">
+<h2><a class="toc-backref" href="#id5">gNMI</a><a class="headerlink" href="#gnmi" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/providers/GnmiServiceProvider">
+<em class="property">struct </em><code class="descclassname">ydk/providers/</code><code class="descname">GnmiServiceProvider</code><a class="headerlink" href="#ydk/providers/GnmiServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of ServiceProvider for the gNMI protocol.</p>
+<dl class="attribute">
+<dt>
+<code class="descname">Repo</code></dt>
+<dd><p>An instance of <a class="reference internal" href="types/ydk_types.html#ydk/types/Repository" title="ydk/types/Repository"><code class="xref go go-struct docutils literal"><span class="pre">Repository</span></code></a> This attribute represents the repository of YANG models.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Address</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the IP address of the device supporting a netconf interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Username</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the username to log in to the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Password</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents the password to log in to the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Port</code></dt>
+<dd><p>An <code class="docutils literal"><span class="pre">int</span></code> that represents the device port used to access the gRPC interface.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ServerCert">
+<code class="descname">ServerCert</code><a class="headerlink" href="#ServerCert" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents full path to a file containing gNMI server certificate of authorization (public key).
+If not specified the service provider creates non-secure connection to the gNMI server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="PrivateKey">
+<code class="descname">PrivateKey</code><a class="headerlink" href="#PrivateKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> that represents full path to a file containing private key of YDK application host.
+If not specified and <strong>ServerCert</strong> attribute is defined (secure connection) the gRPC protocol uses its own private key.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *GnmiServiceProvider) GetPrivate() interface{}</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Returns private interface value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *GnmiServiceProvider) Connect()</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Connects to gNMI server using Repo/Address/Username/Password/Port.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *GnmiServiceProvider) Disconnect()</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Disconnects from gNMI server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *GnmiServiceProvider) GetState() *errors.State</code></dt>
+<dd><p>Implementation of ServiceProvider interface. Returns error state for the GnmiServiceProvider.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *GnmiServiceProvider) ExecuteRpc(oper string, ent Entity, options map[string]string) DataNode</code></dt>
+<dd><p>Implementation of ServiceProvider interface, which is designed specifically for CRUD operations.
+Sends RPC to gNMI server and gets response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>oper</strong> &#8211; Go <code class="docutils literal"><span class="pre">string</span></code> containing requested operation; one of values <code class="docutils literal"><span class="pre">create</span></code>, <code class="docutils literal"><span class="pre">read</span></code>, <code class="docutils literal"><span class="pre">update</span></code>, <code class="docutils literal"><span class="pre">delete</span></code>.</li>
+<li><strong>ent</strong> &#8211; YDK Entity (single entity) or EntityCollection (multiple entities) representing data model.</li>
+<li><strong>options</strong> &#8211; Go <code class="docutils literal"><span class="pre">map[string]string</span></code> to hold options for operations.
+Currently is used only for <strong>read</strong> operation: key - <code class="docutils literal"><span class="pre">mode</span></code>, values - <code class="docutils literal"><span class="pre">CONFIG</span></code>, <code class="docutils literal"><span class="pre">STATE</span></code>, <code class="docutils literal"><span class="pre">OPEARATIONAL</span></code>, or <code class="docutils literal"><span class="pre">ALL</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">YDK data node, containing requested data (gnmi-get RPC) or <code class="docutils literal"><span class="pre">nil</span></code>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">DataNode</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">(provider *GnmiServiceProvider) GetSession() *path.GnmiSession</code></dt>
+<dd><p>Gets pointer to GnmiSession structure</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Pointer to GnmiSession structure.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">*path.GnmiSession</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="codec">
+<h2><a class="toc-backref" href="#id6">Codec</a><a class="headerlink" href="#codec" title="Permalink to this headline">¶</a></h2>
+<dl class="struct">
+<dt id="ydk/providers/CodecServiceProvider">
+<em class="property">struct </em><code class="descclassname">ydk/providers/</code><code class="descname">CodecServiceProvider</code><a class="headerlink" href="#ydk/providers/CodecServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>CodecServiceProvider Encode and decode to XML/JSON format</p>
+<dl class="attribute">
+<dt>
+<code class="descname">Repo</code></dt>
+<dd><p>An instance of <a class="reference internal" href="types/ydk_types.html#ydk/types/Repository" title="ydk/types/Repository"><code class="xref go go-struct docutils literal"><span class="pre">Repository</span></code></a> This attribute represents the repository of YANG models.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Encoding</code></dt>
+<dd><p>An instance of <a class="reference internal" href="types/base_constants/encoding_format.html#encoding-format-ydk"><span class="std std-ref">Encoding Format</span></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="RootSchemaTable">
+<code class="descname">RootSchemaTable</code><a class="headerlink" href="#RootSchemaTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>An instance of <code class="docutils literal"><span class="pre">map[string]RootSchemaNode</span></code> (see docs for <a class="reference internal" href="types/ydk_types.html#ydk/types/RootSchemaNode" title="ydk/types/RootSchemaNode"><code class="xref go go-struct docutils literal"><span class="pre">RootSchemaNode</span></code></a>)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(provider *CodecServiceProvider) Initialize()</code></dt>
+<dd><p>Initialize the CodecServiceProvider</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(provider *CodecServiceProvider) GetEncoding()</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">the encoding format for CodecServiceProvider</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types/base_constants/encoding_format.html#encoding-format-ydk"><span class="std std-ref">Encoding Format</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(provider *CodecServiceProvider) GetRootSchemaNode(entity types.Entity)</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">root schema node for entity</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="types/ydk_types.html#ydk/types/RootSchemaNode" title="ydk/types/RootSchemaNode"><code class="xref go go-struct docutils literal"><span class="pre">RootSchemaNode</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="types/_types_api.html" class="btn btn-neutral float-right" title="Types" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="services.html" class="btn btn-neutral" title="Services" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2016 Cisco Systems. All rights reserved.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

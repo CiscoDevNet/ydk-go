@@ -1,0 +1,1220 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>YDK Types &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../../index.html"/>
+        <link rel="up" title="Types" href="_types_api.html"/>
+        <link rel="next" title="Errors" href="../errors.html"/>
+        <link rel="prev" title="YTypes" href="base_constants/ytype.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_guide.html">Developer Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../api_guide.html">API Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../ydk_api.html">YDK API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../services.html">Services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../providers.html">Service Providers</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="_types_api.html">Types</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="base_constants/datastore.html">DataStore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="base_constants/encoding_format.html">Encoding Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="base_constants/protocol.html">Protocol</a></li>
+<li class="toctree-l4"><a class="reference internal" href="base_constants/yfilters.html">YDK Filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="base_constants/ytype.html">YTypes</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">YDK Types</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../errors.html">Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../path/_path_api.html">YDK Path API</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../api_guide.html">API Guide</a> &raquo;</li>
+      
+          <li><a href="../ydk_api.html">YDK API</a> &raquo;</li>
+      
+          <li><a href="_types_api.html">Types</a> &raquo;</li>
+      
+    <li>YDK Types</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="package-ydk/types">
+<span id="ydk-types"></span><span id="types-ydk"></span><h1>YDK Types<a class="headerlink" href="#package-ydk/types" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-sh"><div class="highlight"><pre><span></span>import <span class="s2">&quot;github.com/CiscoDevNet/ydk-go/ydk/types&quot;</span>
+</pre></div>
+</div>
+<dl class="struct">
+<dt id="ydk/types/DataNode">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">DataNode</code><a class="headerlink" href="#ydk/types/DataNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/RootSchemaNode">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">RootSchemaNode</code><a class="headerlink" href="#ydk/types/RootSchemaNode" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/Session">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">Session</code><a class="headerlink" href="#ydk/types/Session" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/Rpc">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">Rpc</code><a class="headerlink" href="#ydk/types/Rpc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="Input">
+<code class="descname">Input</code><a class="headerlink" href="#Input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type is <code class="docutils literal"><span class="pre">DataNode</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/Repository">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">Repository</code><a class="headerlink" href="#ydk/types/Repository" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="types-service-provider"></span><dl class="object">
+<dt>
+<code class="descname">ServiceProvider</code></dt>
+<dd><p>ServiceProvider is an interface type defined for supported <a class="reference internal" href="../providers.html#ydk-providers"><span class="std std-ref">Service Providers</span></a>.</p>
+<dl class="function">
+<dt id="GetPrivate">
+<code class="descname">GetPrivate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GetPrivate" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">interface{}</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Connect">
+<code class="descname">Connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Connect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="Disconnect">
+<code class="descname">Disconnect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Disconnect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="GetState">
+<code class="descname">GetState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GetState" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../errors.html#ydk/errors/State" title="ydk/errors/State"><code class="xref go go-struct docutils literal"><span class="pre">*State</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetType() string</code></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">ExecuteRpc(string, Entity, map[string]string) DataNode</code></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/CServiceProvider">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">CServiceProvider</code><a class="headerlink" href="#ydk/types/CServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/COpenDaylightServiceProvider">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">COpenDaylightServiceProvider</code><a class="headerlink" href="#ydk/types/COpenDaylightServiceProvider" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="object">
+<dt>
+<code class="descname">CodecServiceProvider</code></dt>
+<dd><p>CodecServiceProvider is an interface type for <a class="reference internal" href="../providers.html#ydk/providers/CodecServiceProvider" title="ydk/providers/CodecServiceProvider"><code class="xref go go-struct docutils literal"><span class="pre">CodecServiceProvider</span></code></a></p>
+<dl class="function">
+<dt id="Initialize">
+<code class="descname">Initialize</code><span class="sig-paren">(</span><em>Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#Initialize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="GetEncoding">
+<code class="descname">GetEncoding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GetEncoding" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="base_constants/encoding_format.html#encoding-format-ydk"><span class="std std-ref">Encoding Format</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="GetRootSchemaNode">
+<code class="descname">GetRootSchemaNode</code><span class="sig-paren">(</span><em>Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#GetRootSchemaNode" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#ydk/types/RootSchemaNode" title="ydk/types/RootSchemaNode"><code class="xref go go-struct docutils literal"><span class="pre">RootSchemaNode</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetState</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../errors.html#ydk/errors/State" title="ydk/errors/State"><code class="xref go go-struct docutils literal"><span class="pre">*State</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="yang-types">
+<h2>YANG Types<a class="headerlink" href="#yang-types" title="Permalink to this headline">¶</a></h2>
+<p>The Types package provides built-in types specified in
+<a class="reference external" href="https://tools.ietf.org/html/rfc6020">YANG RFC 6020</a> and types used in YDK Go APIs.</p>
+<p>These are how YANG types are represented in Go.</p>
+<span class="target" id="type-bits"></span><dl class="attribute">
+<dt id="Bits">
+<code class="descname">Bits</code><a class="headerlink" href="#Bits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a YANG built-in bits type with base type of <code class="docutils literal"><span class="pre">map[string]bool</span></code>.</p>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/Decimal64">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">Decimal64</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#ydk/types/Decimal64" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a YANG built-in decimal64 type.</p>
+<dl class="attribute">
+<dt id="Value">
+<code class="descname">Value</code><a class="headerlink" href="#Value" title="Permalink to this definition">¶</a></dt>
+<dd><p>A string representation for decimal value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/Empty">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">Empty</code><a class="headerlink" href="#ydk/types/Empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a YANG built-in empty type.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(e *Empty) String()</code></dt>
+<dd><p>Returns the string representation of empty type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>e</strong> &#8211; <a class="reference internal" href="#ydk/types/Empty" title="ydk/types/Empty"><code class="xref go go-struct docutils literal"><span class="pre">Empty</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The string representation of the given type</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">A Go <code class="docutils literal"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/EnumYLeaf">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">EnumYLeaf</code><a class="headerlink" href="#ydk/types/EnumYLeaf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents variable data</p>
+<dl class="attribute">
+<dt id="value">
+<code class="descname">value</code><a class="headerlink" href="#value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the variable</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="name">
+<code class="descname">name</code><a class="headerlink" href="#name" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the variable</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/Enum">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">Enum</code><a class="headerlink" href="#ydk/types/Enum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a YANG built-in enum type, a base type for all YDK enums.</p>
+<dl class="attribute">
+<dt id="EnumYLeaf">
+<code class="descname">EnumYLeaf</code><a class="headerlink" href="#EnumYLeaf" title="Permalink to this definition">¶</a></dt>
+<dd><p>(<a class="reference internal" href="#ydk/types/EnumYLeaf" title="ydk/types/EnumYLeaf"><code class="xref go go-struct docutils literal"><span class="pre">EnumYLeaf</span></code></a>) A struct representation for enum value</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/LeafData">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">LeafData</code><a class="headerlink" href="#ydk/types/LeafData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the data contained in a YANG leaf</p>
+<dl class="attribute">
+<dt>
+<code class="descname">Value</code></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> representing the data of the leaf</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Filter">
+<code class="descname">Filter</code><a class="headerlink" href="#Filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optional attribute which can be set to perform various filtering (<a class="reference internal" href="base_constants/yfilters.html#y-filter"><span class="std std-ref">YFilter</span></a>)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="IsSet">
+<code class="descname">IsSet</code><a class="headerlink" href="#IsSet" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal"><span class="pre">bool</span></code> representing whether the filter is set or not</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/NameLeafData">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">NameLeafData</code><a class="headerlink" href="#ydk/types/NameLeafData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a YANG leaf to which a name and data can be assigned</p>
+<dl class="attribute">
+<dt id="Name">
+<code class="descname">Name</code><a class="headerlink" href="#Name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Go <code class="docutils literal"><span class="pre">string</span></code> representing the name of the leaf</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Data">
+<code class="descname">Data</code><a class="headerlink" href="#Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#ydk/types/LeafData" title="ydk/types/LeafData"><code class="xref go go-struct docutils literal"><span class="pre">LeafData</span></code></a> represents the data contained in the leaf</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NameLeafDataList">
+<code class="descname">NameLeafDataList</code><a class="headerlink" href="#NameLeafDataList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A slice ([] <a class="reference internal" href="#ydk/types/NameLeafData" title="ydk/types/NameLeafData"><code class="xref go go-struct docutils literal"><span class="pre">NameLeafData</span></code></a>) that represents a YANG leaf-list</p>
+<dl class="function">
+<dt>
+<code class="descname">(p NameLeafDataList) Len()</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The length of a given leaf-list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">int</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(p NameLeafDataList) Swap(i, j int)</code></dt>
+<dd><p>Swaps the <a class="reference internal" href="#ydk/types/NameLeafData" title="ydk/types/NameLeafData"><code class="xref go go-struct docutils literal"><span class="pre">NameLeafData</span></code></a> at indices i and j</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">(p NameLeafDataList) Less(i, j int)</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">If the name of the <a class="reference internal" href="#ydk/types/NameLeafData" title="ydk/types/NameLeafData"><code class="xref go go-struct docutils literal"><span class="pre">NameLeafData</span></code></a> at index i is less than the one at index j</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="docutils literal"><span class="pre">bool</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="List">
+<code class="descname">List</code><a class="headerlink" href="#List" title="Permalink to this definition">¶</a></dt>
+<dd><p>In YDK YANG list is represented by Go slice of references to a structure, which implements interface <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a>.</p>
+<p>Example:</p>
+<p>If Go structure <cite>YangList</cite> implements interface <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a>, meaning implements <cite>func (e *YangList) GetEntityData() *CommonEntityData {}</cite>, then the list of entities should be implemented as <cite>[]*YangList</cite>. according to the YANG model the list may have one or more keys, which uniquely identify list element, or may have no keys. The slices can be created and list elements can be accessed using standard Go functions and methods. The YDK provides package <cite>ylist</cite> containing functions, which allow user access list elements by key or keys.</p>
+<dl class="function">
+<dt id="Get">
+<code class="descname">Get</code><span class="sig-paren">(</span><em>slice interface{}</em>, <em>keys ... interface{}) (int</em>, <em>Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#Get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list element (entity) by key or keys, if list element has more than one key</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>slice</strong> &#8211; Slice variable, which is defined in the list holding entity</li>
+<li><strong>keys</strong> &#8211; Comma separated list of key values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Tuple of found element index and the element itself, which has matching key(s) value(s). If element is not found - (-1, nil).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Tuple( <cite>int</cite>, <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">Keys(slice interface{}) []interface{} Entity</code></dt>
+<dd><p>Get keys for all list elements</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slice</strong> &#8211; Slice variable, which is defined in the list holding entity</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Values of all keys, that have matching elements in the list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Go <code class="docutils literal"><span class="pre">[]interface{}</span></code>; if list has more than one key, the set of keys for one element is returned as <code class="docutils literal"><span class="pre">[]interface{}</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/EntityPath">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">EntityPath</code><a class="headerlink" href="#ydk/types/EntityPath" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="ValuePaths">
+<code class="descname">ValuePaths</code><a class="headerlink" href="#ValuePaths" title="Permalink to this definition">¶</a></dt>
+<dd><p>A slice ([] <a class="reference internal" href="#ydk/types/NameLeafData" title="ydk/types/NameLeafData"><code class="xref go go-struct docutils literal"><span class="pre">NameLeafData</span></code></a>) representing a list of YANG leafs</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/YChild">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">YChild</code><a class="headerlink" href="#ydk/types/YChild" title="Permalink to this definition">¶</a></dt>
+<dd><p>YChild encapsulates the GoName of an entity as well as the entity itself</p>
+<dl class="attribute">
+<dt id="GoName">
+<code class="descname">GoName</code><a class="headerlink" href="#GoName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">string</span></code> representing the GoName of an entity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Value</code></dt>
+<dd><p>The <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> itself</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/YLeaf">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">YLeaf</code><a class="headerlink" href="#ydk/types/YLeaf" title="Permalink to this definition">¶</a></dt>
+<dd><p>YLeaf encapsulates the GoName of a leaf as well as the leaf itself</p>
+<dl class="attribute">
+<dt>
+<code class="descname">GoName</code></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">string</span></code> representing the GoName of an entity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt>
+<code class="descname">Value</code></dt>
+<dd><p>The leaf (type <code class="docutils literal"><span class="pre">interface{}</span></code>) itself</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="ydk/types/CommonEntityData">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">CommonEntityData</code><a class="headerlink" href="#ydk/types/CommonEntityData" title="Permalink to this definition">¶</a></dt>
+<dd><p>CommonEntityData encapsulate common data within an <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></p>
+<dl class="attribute">
+<dt id="YangName">
+<code class="descname">YangName</code><a class="headerlink" href="#YangName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">string</span></code> representing Yang name of the entity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="BundleName">
+<code class="descname">BundleName</code><a class="headerlink" href="#BundleName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">string</span></code> representing the bundle name of the entity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ParentYangName">
+<code class="descname">ParentYangName</code><a class="headerlink" href="#ParentYangName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">string</span></code> representing the parent Yang name of the entity</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Children">
+<code class="descname">Children</code><a class="headerlink" href="#Children" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">map</span></code> of <code class="docutils literal"><span class="pre">string</span></code> representing Yang name to <a class="reference internal" href="#ydk/types/YChild" title="ydk/types/YChild"><code class="xref go go-struct docutils literal"><span class="pre">YChild</span></code></a>, representing the children</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Leafs">
+<code class="descname">Leafs</code><a class="headerlink" href="#Leafs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">map</span></code> of <code class="docutils literal"><span class="pre">string</span></code> representing Yang name to <a class="reference internal" href="#ydk/types/YLeaf" title="ydk/types/YLeaf"><code class="xref go go-struct docutils literal"><span class="pre">YLeaf</span></code></a>, representing the leafs</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="SegmentPath">
+<code class="descname">SegmentPath</code><a class="headerlink" href="#SegmentPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">string</span></code> representing the segment path</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="CapabilitiesTable">
+<code class="descname">CapabilitiesTable</code><a class="headerlink" href="#CapabilitiesTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">map[string]string</span></code> representing the capabilities table</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="NamespaceTable">
+<code class="descname">NamespaceTable</code><a class="headerlink" href="#NamespaceTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">map[string]string</span></code> representing the namespace table</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="BundleYangModelsLocation">
+<code class="descname">BundleYangModelsLocation</code><a class="headerlink" href="#BundleYangModelsLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>A <code class="docutils literal"><span class="pre">string</span></code> representing the models path</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Parent">
+<code class="descname">Parent</code><a class="headerlink" href="#Parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> representing the parent</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="types-entity"></span><dl class="object">
+<dt>
+<code class="descname">Entity</code></dt>
+<dd><p>An interface type that represents a basic container in YANG</p>
+<dl class="function">
+<dt>
+<code class="descname">GetEntityData() *CommonEntityData</code></dt>
+<dd><p>The <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> interface function</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a pointer to <a class="reference internal" href="#ydk/types/CommonEntityData" title="ydk/types/CommonEntityData"><code class="xref go go-struct docutils literal"><span class="pre">CommonEntityData</span></code></a> representing entity data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetSegmentPath(entity Entity) string</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The entity&#8217;s segment path value</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetAbsolutePath(entity Entity) string</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The entity&#8217;s absolute path value</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt><strong>Note:</strong> The parent-child relations must be set before calling this function.</dt>
+<dd>As an advice the <cite>SetAllParents</cite> on the top level entity must be called to set the references.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetParent(entity Entity) Entity</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a>, which represents given entity&#8217;s parent; if parent entity is not set, returns <code class="docutils literal"><span class="pre">nil</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="SetParent">
+<code class="descname">SetParent</code><span class="sig-paren">(</span><em>entity</em>, <em>parent Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#SetParent" title="Permalink to this definition">¶</a></dt>
+<dd><p>SetParent sets the given <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> parent field to the given parent <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="SetAllParents">
+<code class="descname">SetAllParents</code><span class="sig-paren">(</span><em>entity Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#SetAllParents" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function sets Parent field in all children recursively starting from the given <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">HasDataOrFilter(entity Entity) bool</code></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A Go boolean representing whether the <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> or any of its children have their data/filter set</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="GetEntityPath">
+<code class="descname">GetEntityPath</code><span class="sig-paren">(</span><em>entity Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#GetEntityPath" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="#ydk/types/EntityPath" title="ydk/types/EntityPath"><code class="xref go go-struct docutils literal"><span class="pre">EntityPath</span></code></a> for the given entity</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetChildByName(entity Entity, childYangName string, segmentPath string) Entity</code></dt>
+<dd><p>Finds entity&#8217;s child entity by name and segment path</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></li>
+<li><strong>childYangName</strong> &#8211; The <cite>YangName</cite> of the child entity</li>
+<li><strong>segmentPath</strong> &#8211; The <cite>SegmentPath</cite> value of the child entity</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> described by the given <cite>childYangName</cite> and <cite>segmentPath</cite> or <code class="docutils literal"><span class="pre">nil</span></code> if there is no match</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="SetValue">
+<code class="descname">SetValue</code><span class="sig-paren">(</span><em>entity Entity</em>, <em>valuePath string</em>, <em>value interface{}</em><span class="sig-paren">)</span><a class="headerlink" href="#SetValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets leaf value</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></li>
+<li><strong>valuePath</strong> &#8211; The <a class="reference internal" href="#ydk/types/YLeaf" title="ydk/types/YLeaf"><code class="xref go go-struct docutils literal"><span class="pre">YLeaf</span></code></a> <cite>name</cite> value</li>
+<li><strong>value</strong> &#8211; Instance of value interface</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">IsPresenceContainer(entity Entity) bool</code></dt>
+<dd><p>returns if the given <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> is a presence container</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A Go boolean representing whether the <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> is a presence container or not</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetPresenceFlag(entity Entity) bool</code></dt>
+<dd><p>returns whether the presence flag of the given <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A Go boolean representing whether the <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> is the presence flag has been set or not</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="SetPresenceFlag">
+<code class="descname">SetPresenceFlag</code><span class="sig-paren">(</span><em>entity Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#SetPresenceFlag" title="Permalink to this definition">¶</a></dt>
+<dd><p>sets the presence flag of the given <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> if it is a presence container</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">EntityToString(entity Entity) string</code></dt>
+<dd><p>Utility function to get string representation of the entity.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Go <code class="docutils literal"><span class="pre">string</span></code> in format: &#8220;Type: <cite>entity-instance-type</cite>, Path: <cite>entity-segment-path</cite>&#8221;.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">EntityToDict(entity Entity) map[string]string</code></dt>
+<dd><p>Utility function to get dictionary of all leaves and presence containers recursively in this entity and its children.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <cite>map[string]string</cite>, where key represents leaf absolute path and value represents string value of the leaf;
+In case of presence container the key represents the container absolute path and value is empty string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="string-pair"></span><dl class="struct">
+<dt id="ydk/types/StringPair">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">StringPair</code><a class="headerlink" href="#ydk/types/StringPair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type <cite>StringPair</cite> defines a pair of string values. Both members of the structure are of <code class="docutils literal"><span class="pre">string</span></code> type:</p>
+<dl class="attribute">
+<dt id="Left">
+<code class="descname">Left</code><a class="headerlink" href="#Left" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="Right">
+<code class="descname">Right</code><a class="headerlink" href="#Right" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">EntityDiff(entity1, entity2 Entity) map[string]StringPair</code></dt>
+<dd><p>Utility function to compare two entities of the same underlying type.
+Compared are presence containers and all leaves recursively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; An instance of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A <cite>map[string]StringPair</cite>, map of differences between two entities, where key represents leaf or presence
+container absolute path and value <a class="reference internal" href="#string-pair"><span class="std std-ref">StringPair</span></a> represents difference in string values of the leaves.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="entity-collection"></span><dl class="struct">
+<dt id="ydk/types/EntityCollection">
+<em class="property">struct </em><code class="descclassname">ydk/types/</code><code class="descname">EntityCollection</code><a class="headerlink" href="#ydk/types/EntityCollection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type <cite>EntityCollection</cite> along with its methods implements ordered map collection of entities. The string value of
+entity <cite>SegmentPath</cite> serves as a map key for the entity. Ordered means, the collection retains order of entities,
+in which they were added to collection.</p>
+<p>The <cite>EntityCollection</cite> type has two aliases - <cite>Config</cite> and <cite>Filter</cite>.</p>
+<dl class="function">
+<dt>
+<code class="descname">GetEntityData() *CommonEntityData</code></dt>
+<dd><p>Implements <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> interface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a reference to <a class="reference internal" href="#ydk/types/CommonEntityData" title="ydk/types/CommonEntityData"><code class="xref go go-struct docutils literal"><span class="pre">CommonEntityData</span></code></a> representing data for the first entity in the collection; <code class="docutils literal"><span class="pre">nil</span></code> - if collection is empty</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Add">
+<code class="descname">Add</code><span class="sig-paren">(</span><em>entities ... Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#Add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>. Adds new elements into collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entities</strong> &#8211; Non-empty list of comma separated instances of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Append">
+<code class="descname">Append</code><span class="sig-paren">(</span><em>entities []Entity</em><span class="sig-paren">)</span><a class="headerlink" href="#Append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>. Adds new elements into <cite>EntityCollection</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entities</strong> &#8211; Non-empty slicen of &#8216;Entity&#8217; type instances.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">Len() int</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Number of elements in the collection.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">Get(key string) Entity</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>. Gets collection elements by key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; Go <code class="docutils literal"><span class="pre">string</span></code>, which represents <cite>SegmentPath</cite> of an entity.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instance of Entity if matching key is present in collection, <code class="docutils literal"><span class="pre">nil</span></code> - otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">GetItem(item int) Entity</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>. Gets collection elements by item/order number.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> &#8211; Sequential number of an entity in the collection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instance of <cite>Entity</cite>, which stands in the ordered map by the number <cite>item</cite>; <code class="docutils literal"><span class="pre">nil</span></code> - <cite>item</cite> value is not in the range of collection size.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">HasKey(key string) bool</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>. Checks if the collection contains an entity with given key value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; Go <code class="docutils literal"><span class="pre">string</span></code>, which represents <cite>SegmentPath</cite> of an entity.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Go <code class="docutils literal"><span class="pre">bool</span></code>: <code class="docutils literal"><span class="pre">true</span></code> - if collection contains corresponding entity; <code class="docutils literal"><span class="pre">false</span></code> - otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">Pop(key string) Entity</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>. Removes entity from collection. When element is removed from inside of the collection, all the following elements are shifted, meaning their indexes changed by -1. This way the order of elements is retained.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> &#8211; Go <code class="docutils literal"><span class="pre">string</span></code>, which represents <cite>SegmentPath</cite> of an entity.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instance of <cite>Entity</cite>, if corresponding <cite>key</cite> is found in the collection; <code class="docutils literal"><span class="pre">nil</span></code> - otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Clear">
+<code class="descname">Clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>. Removes all elements from collection.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">Keys() []string</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Slice of <code class="docutils literal"><span class="pre">string</span></code> representing array of all the keys in the collection.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">Entities() []Entity</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Slice/array of all the <cite>Entity</cite> instances in the collection.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">String() string</code></dt>
+<dd><p>Method of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Go <code class="docutils literal"><span class="pre">string</span></code>, which represents entity collection.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">NewEntityCollection(entities ... Entity) EntityCollection</code></dt>
+<dd><p>Function creates new <cite>EntityCollection</cite> instance and populates it with supplied entities.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entities</strong> &#8211; list of comma separated instances of <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a>, including empty list.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Instance of <cite>EntityCollection</cite>, which includes specified in the parameters entities. If no entities is listed as parameters, the function returns empty collection.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">NewConfig(entities ... Entity) Config</code></dt>
+<dd><p>Function creates new <cite>Config</cite> instance similar to function <cite>NewEntityCollection</cite>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">NewFilter(entities ... Entity) Filter</code></dt>
+<dd><p>Function creates new <cite>Filter</cite> instance similar to function <cite>NewEntityCollection</cite>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">EntityToCollection (entity Entity) *EntityCollection</code></dt>
+<dd><p>Function converts or casts <a class="reference internal" href="#types-entity"><span class="std std-ref">Entity</span></a> to <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; Instance of type <cite>Entity</cite> or <cite>EntityCollection</cite>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Pointer to instance of <cite>EntityCollection</cite>. If parameter is instance of <cite>EntityCollection</cite> the function returns the same. If <cite>entity</cite> is instance of <cite>Entity</cite>, the function creates new entity collection, which includes <cite>entity</cite> as its element.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">IsEntityCollection (entity Entity) bool</code></dt>
+<dd><p>Function checks type of <cite>entity</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>entity</strong> &#8211; Instance of type <cite>Entity</cite> or <cite>EntityCollection</cite>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Go <code class="docutils literal"><span class="pre">bool</span></code>: <code class="docutils literal"><span class="pre">true</span></code> - if <cite>entity</cite> is instance of <a class="reference internal" href="#entity-collection"><span class="std std-ref">EntityCollection</span></a>; <code class="docutils literal"><span class="pre">false</span></code> - otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../errors.html" class="btn btn-neutral float-right" title="Errors" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="base_constants/ytype.html" class="btn btn-neutral" title="YTypes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2016 Cisco Systems. All rights reserved.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

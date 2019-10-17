@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What are presence types? &mdash; YANG Development Kit 0.8.4 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/icon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/width.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="YANG Development Kit 0.8.4 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Guide" href="../developer_guide.html"/>
+        <link rel="next" title="What are deviations?" href="deviation.html"/>
+        <link rel="prev" title="How do I execute RPCs?" href="executor_guide.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> YANG Development Kit
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about_ydk.html">About YDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../developer_guide.html">Developer Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crud_guide.html">How do I create, update, read and delete?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codec_guide.html">How do I work with instances of YANG data?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="executor_guide.html">How do I execute RPCs?</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">What are presence types?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deviation.html">What are deviations?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="path_api.html">How do I use the Path API?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opendaylight.html">How do I use OpenDaylight with YDK?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backward_compatibility.html">Backward compatibility notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_guide.html">API Guide</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">YANG Development Kit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../developer_guide.html">Developer Guide</a> &raquo;</li>
+      
+    <li>What are presence types?</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-are-presence-types">
+<span id="presence-type"></span><h1>What are presence types?<a class="headerlink" href="#what-are-presence-types" title="Permalink to this headline">¶</a></h1>
+<p>According to <a class="reference external" href="https://tools.ietf.org/html/rfc6020#section-7.5.1">RFC 6020</a>, YANG supports two styles of containers. One is for organizing hierarchy. Another type (called &#8216;presence container&#8217;) is for representing configuration data. For instance the existence of presence container <cite>ssh</cite> indicates the capability to log in to the device using SSH. Let us consider a presence node <cite>prefix-list-entries</cite> in <a class="reference external" href="https://github.com/YangModels/yang/blob/master/vendor/cisco/xr/621/Cisco-IOS-XR-ipv4-acl-cfg.yang#L105">Cisco-IOS-XR-ipv4-acl-cfg.yang</a>. This node is generated as a <a class="reference external" href="https://github.com/CiscoDevNet/ydk-go/blob/master/ydk/models/cisco_ios_xr/ipv4_acl_cfg/ipv4_acl_cfg.go#L901">YDK struct</a> shown below:</p>
+<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1">// Ipv4AclAndPrefixList_Prefixes_Prefix</span>
+<span class="c1">// Name of a prefix list</span>
+<span class="n">type</span> <span class="n">Ipv4AclAndPrefixList_Prefixes_Prefix</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">EntityData</span> <span class="n">types</span><span class="p">.</span><span class="n">CommonEntityData</span>
+    <span class="n">YFilter</span> <span class="n">yfilter</span><span class="p">.</span><span class="n">YFilter</span>
+
+    <span class="c1">// This attribute is a key. Prefix list name - max 32 characters. The type is</span>
+    <span class="c1">// string.</span>
+    <span class="n">PrefixListName</span> <span class="n">interface</span><span class="p">{}</span>
+
+    <span class="c1">// Sequence of entries forming a prefix list.</span>
+    <span class="n">PrefixListEntries</span> <span class="n">Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries</span>
+<span class="p">}</span>
+
+<span class="c1">// Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries</span>
+<span class="c1">// Sequence of entries forming a prefix list</span>
+<span class="c1">// This type is a presence type.</span>
+<span class="n">type</span> <span class="n">Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">EntityData</span> <span class="n">types</span><span class="p">.</span><span class="n">CommonEntityData</span>
+    <span class="n">YFilter</span> <span class="n">yfilter</span><span class="p">.</span><span class="n">YFilter</span>
+    <span class="n">YPresence</span> <span class="kt">bool</span>
+
+    <span class="c1">// A prefix list entry; either a description (remark) or a prefix to match</span>
+    <span class="c1">// against. The type is slice of</span>
+    <span class="c1">// Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry.</span>
+    <span class="n">PrefixListEntry</span> <span class="p">[]</span><span class="n">Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries_PrefixListEntry</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>Since the existence of container <cite>prefix-list-entries</cite> itself represents configuration data, YDK does not instantiate an instance of <code class="xref go go-struct docutils literal"><span class="pre">Ipv4AclAndPrefixList_Prefixes_Prefix_PrefixListEntries</span></code> with the YPresence attribute. The user needs manually instantiate and assign this object as follows:</p>
+<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nl">pref</span> <span class="p">:</span><span class="o">=</span> <span class="n">Ipv4AclAndPrefixList_Prefixes_Prefix</span><span class="p">{}</span>
+<span class="n">pref</span><span class="p">.</span><span class="n">PrefixListEntries</span><span class="p">.</span><span class="n">YPresence</span> <span class="o">=</span> <span class="nb">true</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deviation.html" class="btn btn-neutral float-right" title="What are deviations?" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="executor_guide.html" class="btn btn-neutral" title="How do I execute RPCs?" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Copyright 2016 Cisco Systems. All rights reserved.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  false
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
