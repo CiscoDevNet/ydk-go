@@ -4,6 +4,8 @@
 
 ![ydk-logo-128](https://cloud.githubusercontent.com/assets/16885441/24175899/2010f51e-0e56-11e7-8fb7-30a9f70fbb86.png)
 
+## This project has been archived and the repository will no longer be updated.
+
 # YANG Development Kit (Go)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
